@@ -1,0 +1,11 @@
+# Empty nested repository (not publishable as a normal folder)
+MiTAC-VMX/
+
+# Oversized firmware artifacts (>100MB) blocked by GitHub
+image_update/base/S40.19.2.7020.0.1.2.20251113-user-5651N7020004-FlashImage_2SD.zip
+image_update/base/S40.19.2.7020.0.1.2.20251113-user-5651N7020004-FlashImage_2SD/oem.img
+image_update/base/S40.19.2.7020.0.1.2.20251113-user-5651N7020004-FlashImage_2SD/system.img
+image_update/base/S40.19.2.7020.0.1.2.20251113-user-5651N7020004-FlashImage_2SD/vendor.img
+image_update/file_move2SD/mini_map_NA_9903.zip
+image_update/region/RGIMG_R00_5651N7020098_VisionMax_PreciseMRM_Prod_IMG.zip
+image_update/region/RGIMG_R00_5651N7020098_VisionMax_PreciseMRM_Prod_IMG/oem.img

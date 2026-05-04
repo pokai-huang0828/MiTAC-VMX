@@ -1,0 +1,190 @@
+C:\Users\pokai.huang\AppData\Local\Programs\Python\Python312\Lib\site-packages\notebooklm\_notebooks.py:356: UnknownTypeWarning: Unknown source type code 18. Consider updating notebooklm-py to the latest version.
+  kind=source.kind,
+{
+  "id": "a3aad3ec-ecf3-4468-a0d9-13a6a18359c7",
+  "title": "\u795e\u9054VMX",
+  "created_at": "2026-04-24T12:10:07",
+  "is_owner": true,
+  "sources": [
+    {
+      "type": "media",
+      "title": "4-23 VMX internal training-1.m4a",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4-23 VMX internal training-2.m4a",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4/22 Azuga AI weekly meeting.m4a",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4/22 Field-side requirements sync-up meeting - 1.mp4",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4/22 Field-side requirements sync-up meeting - 2.mp4",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4/22 Field-side requirements sync-up meeting - 3.mp4",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "4/23 AI weekly meeting.m4a",
+      "url": null
+    },
+    {
+      "type": "csv",
+      "title": "AI Work Tasks - Knney view - AI \u5de5\u4f5c\u8a08\u756b.csv",
+      "url": null
+    },
+    {
+      "type": "unknown",
+      "title": "AI \u7121\u6cd5\u5b8c\u6210\u65b0\u4eba\u8a08\u756b",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "Brian coffee chat.m4a",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "Brian coffee chat.m4a",
+      "url": null
+    },
+    {
+      "type": "unknown",
+      "title": "Field-side Requirements Sync-up Meeting Report",
+      "url": null
+    },
+    {
+      "type": "pdf",
+      "title": "K245c test result.pdf",
+      "url": null
+    },
+    {
+      "type": "pdf",
+      "title": "MiAI Function Introduction (Service APP 1.4.41.13).pdf",
+      "url": null
+    },
+    {
+      "type": "pdf",
+      "title": "MiAI Function Test Manual (Service APP 1.4.41.13).pdf",
+      "url": null
+    },
+    {
+      "type": "pdf",
+      "title": "MioEYE_K_Series_Datasheet_20210716.pdf",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "Mori coffee chat.m4a",
+      "url": null
+    },
+    {
+      "type": "unknown",
+      "title": "PM \u5be6\u6230\u653b\u9632\u7b56\u7565\uff1a\u5ba2\u6236\u6703\u8b70",
+      "url": null
+    },
+    {
+      "type": "web_page",
+      "title": "ReDoc documentation",
+      "url": "https://bms-vmx-staging.redoc.ly/"
+    },
+    {
+      "type": "pdf",
+      "title": "The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
+      "url": null
+    },
+    {
+      "type": "pasted_text",
+      "title": "UI \u624b\u518a\u6703\u8b70\u8a18\u9304",
+      "url": null
+    },
+    {
+      "type": "csv",
+      "title": "VMX Features Requirement Tracking Table - Kenny View - Request Management Tracker.csv",
+      "url": null
+    },
+    {
+      "type": "csv",
+      "title": "VMX opened (MiTAC R&D) 2026-04-15T09_16_13+0800.csv",
+      "url": null
+    },
+    {
+      "type": "web_page",
+      "title": "Video Telematics Solution | Products | MiTAC",
+      "url": "https://www.mitacmdt.com/en/products/video-telematics/vt-solution/"
+    },
+    {
+      "type": "web_page",
+      "title": "VisionMax",
+      "url": "https://visionmax.redocly.app/"
+    },
+    {
+      "type": "google_docs",
+      "title": "VisionMax \u5e73\u53f0\u7522\u54c1\u5e38\u898b\u554f\u984c ",
+      "url": null
+    },
+    {
+      "type": "pdf",
+      "title": "VisionMax_\u67b6\u69cb\u53ca\u6574\u5408\u65b9\u5f0f_260123.pdf",
+      "url": null
+    },
+    {
+      "type": "markdown",
+      "title": "Weekly meeting - Auga \u8207 Bridgeron \u7cfb\u7d71\u6574\u5408\u8207 AI \u5075\u6e2c\u512a\u5316\u6703\u8b70",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "Weekly meeting - Auga \u8207 Bridgeron \u7cfb\u7d71\u6574\u5408\u8207 AI \u5075\u6e2c\u512a\u5316\u6703\u8b70",
+      "url": null
+    },
+    {
+      "type": "markdown",
+      "title": "Weekly report",
+      "url": null
+    },
+    {
+      "type": "unknown",
+      "title": "\u65b0\u4eba PM \u5be6\u6230\u7834\u5c40\u6307\u5357",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "\u65e5\u5149\u8def101\u865f 2.m4a",
+      "url": null
+    },
+    {
+      "type": "media",
+      "title": "\u65e5\u5149\u8def101\u865f.m4a",
+      "url": null
+    },
+    {
+      "type": "markdown",
+      "title": "\u795e\u9054\u6578\u4f4d\u8eca\u968a\u7ba1\u7406\u89e3\u6c7a\u65b9\u6848\u6307\u5357",
+      "url": null
+    },
+    {
+      "type": "markdown",
+      "title": "\u8077\u6daf\u6230\u7565\u5206\u6790\uff1a\u795e\u9054 PM \u8f49\u8077\u8207 Google \u6b63\u8077\u76ee\u6a19",
+      "url": null
+    },
+    {
+      "type": "markdown",
+      "title": "\u8eca\u806f\u7db2\u96f2\u7aef\u67b6\u69cb\uff1a\u5730\u5716\u66f4\u65b0\u8207\u4e8b\u4ef6\u50b3\u8f38\u5168\u89e3\u6790",
+      "url": null
+    }
+  ]
+}

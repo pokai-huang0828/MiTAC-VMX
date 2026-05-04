@@ -1,0 +1,47 @@
+Notebook: 神達VMX
+ID: a3aad3ec-ecf3-4468-a0d9-13a6a18359c7
+Created: 2026-04-24 12:10
+Access: Owner
+
+Sources (36):
+  1.  [media]  4-23 VMX internal training-1.m4a
+  2.  [media]  4-23 VMX internal training-2.m4a
+  3.  [media]  4/22 Azuga AI weekly meeting.m4a
+  4.  [media]  4/22 Field-side requirements sync-up meeting - 1.mp4
+  5.  [media]  4/22 Field-side requirements sync-up meeting - 2.mp4
+  6.  [media]  4/22 Field-side requirements sync-up meeting - 3.mp4
+  7.  [media]  4/23 AI weekly meeting.m4a
+  8.  [csv]  AI Work Tasks - Knney view - AI 工作計畫.csv
+  9.  [unknown]  AI 無法完成新人計畫
+  10.  [media]  Brian coffee chat.m4a
+  11.  [media]  Brian coffee chat.m4a
+  12.  [unknown]  Field-side Requirements Sync-up Meeting Report
+  13.  [pdf]  K245c test result.pdf
+  14.  [pdf]  MiAI Function Introduction (Service APP 1.4.41.13).pdf
+  15.  [pdf]  MiAI Function Test Manual (Service APP 1.4.41.13).pdf
+  16.  [pdf]  MioEYE_K_Series_Datasheet_20210716.pdf
+  17.  [media]  Mori coffee chat.m4a
+  18.  [unknown]  PM 實戰攻防策略：客戶會議
+  19.  [web_page]  ReDoc documentation
+     https://bms-vmx-staging.redoc.ly/
+  20.  [pdf]  The-Complete-Guide-to-Building-Skill-for-Claude.pdf
+  21.  [pasted_text]  UI 手冊會議記錄
+  22.  [csv]  VMX Features Requirement Tracking Table - Kenny View - Request 
+Management Tracker.csv
+  23.  [csv]  VMX opened (MiTAC R&D) 2026-04-15T09_16_13+0800.csv
+  24.  [web_page]  Video Telematics Solution | Products | MiTAC
+     https://www.mitacmdt.com/en/products/video-telematics/vt-solution/
+  25.  [web_page]  VisionMax
+     https://visionmax.redocly.app/
+  26.  [google_docs]  VisionMax 平台產品常見問題 
+  27.  [pdf]  VisionMax_架構及整合方式_260123.pdf
+  28.  [markdown]  Weekly meeting - Auga 與 Bridgeron 系統整合與 AI 
+偵測優化會議
+  29.  [media]  Weekly meeting - Auga 與 Bridgeron 系統整合與 AI 偵測優化會議
+  30.  [markdown]  Weekly report
+  31.  [unknown]  新人 PM 實戰破局指南
+  32.  [media]  日光路101號 2.m4a
+  33.  [media]  日光路101號.m4a
+  34.  [markdown]  神達數位車隊管理解決方案指南
+  35.  [markdown]  職涯戰略分析：神達 PM 轉職與 Google 正職目標
+  36.  [markdown]  車聯網雲端架構：地圖更新與事件傳輸全解析
