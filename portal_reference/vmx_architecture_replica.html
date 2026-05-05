@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionMax — Architecture &amp; Integration</title>
+
+  <!-- Fontshare: Cabinet Grotesk + Satoshi -->
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,600,700,800&f[]=satoshi@400,500,700,900&display=swap">
+
+  <style>
+    
+/* === VIEWPORT FITTING (mandatory) === */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+  width: 100vw; height: 100vh; height: 100dvh;
+  overflow: hidden; scroll-snap-align: start;
+  display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; max-height: 100%; overflow: hidden;
+  padding: var(--slide-padding);
+}
+:root {
+  --title-size: clamp(1.5rem, 5vw, 4rem);
+  --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+  --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+  --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+  --small-size: clamp(0.65rem, 1vw, 0.875rem);
+  --slide-padding: clamp(1rem, 4vw, 4rem);
+  --content-gap: clamp(0.5rem, 2vw, 2rem);
+  --element-gap: clamp(0.25rem, 1vw, 1rem);
+}
+img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; }
+@media (max-height: 700px) {
+  :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+          --title-size: clamp(1.25rem, 4.5vw, 2.5rem); --h2-size: clamp(1rem, 3vw, 1.75rem); }
+}
+@media (max-height: 600px) {
+  :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+          --title-size: clamp(1.1rem, 4vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+  .nav-dots, .keyboard-hint, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+  :root { --slide-padding: clamp(0.4rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 1.5rem);
+          --h2-size: clamp(0.9rem, 2.5vw, 1.25rem); --body-size: clamp(0.65rem, 1vw, 0.85rem); }
+}
+@media (max-width: 600px) {
+  :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+  html { scroll-behavior: auto; }
+}
+
+    
+/* === MITAC THEME === */
+:root {
+  --navy:        #003B71;
+  --navy-dark:   #002247;
+  --navy-light:  #005CA8;
+  --red:         #E30613;
+  --gold:        #C9A961;
+  --orange:      #F08300;
+  --text:        #1B2541;
+  --text-light:  #5A6779;
+  --bg:          #FFFFFF;
+  --bg-soft:     #F4F6FA;
+  --bg-stripe:   #EAEDF2;
+  --font-display: "Cabinet Grotesk", "Boska", system-ui, sans-serif;
+  --font-body:    "Satoshi", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+}
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === BASE SLIDE === */
+.slide {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* === COVER + SECTION DIVIDER (full navy) === */
+.slide.cover, .slide.section-divider, .slide.end-slide {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
+  color: #fff;
+}
+
+/* Decorative right-side stripes (cover/divider/end) */
+.slide.cover::before, .slide.section-divider::before, .slide.end-slide::before {
+  content: "";
+  position: absolute; top: 0; right: 0; height: 100%;
+  width: clamp(80px, 15%, 200px);
+  background:
+    linear-gradient(to right,
+      rgba(0,92,168,0.55) 0%, rgba(0,92,168,0.55) 35%,
+      var(--red) 35%, var(--red) 50%,
+      rgba(0,0,0,0) 50%, rgba(0,0,0,0) 60%,
+      var(--orange) 60%, var(--orange) 67%,
+      rgba(0,0,0,0) 67%);
+  pointer-events: none;
+}
+
+/* === COVER SLIDE === */
+.slide.cover .slide-content {
+  padding: clamp(2rem, 6vw, 5rem);
+  justify-content: center;
+}
+.slide.cover .eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--small-size);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: clamp(1.5rem, 5vh, 4rem);
+}
+.slide.cover .cover-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.slide.cover .cover-rule {
+  height: 4px;
+  width: clamp(60px, 8vw, 120px);
+  background: var(--red);
+  margin: clamp(1rem, 2.5vh, 2rem) 0;
+}
+.slide.cover .cover-subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.92);
+}
+.slide.cover .cover-tag {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--body-size);
+  color: rgba(255,255,255,0.65);
+  margin-top: clamp(1rem, 3vh, 2rem);
+  max-width: 50ch;
+}
+.slide.cover .copyright,
+.slide.cover .mitac-logo,
+.slide.section-divider .copyright,
+.slide.end-slide .copyright,
+.slide.end-slide .mitac-logo {
+  position: absolute;
+  font-size: var(--small-size);
+  color: rgba(255,255,255,0.6);
+  z-index: 2;
+}
+.slide.cover .copyright,
+.slide.section-divider .copyright,
+.slide.end-slide .copyright {
+  bottom: clamp(0.75rem, 2vh, 1.5rem);
+  left: clamp(1rem, 4vw, 4rem);
+}
+.slide.cover .mitac-logo,
+.slide.end-slide .mitac-logo {
+  bottom: clamp(0.75rem, 2vh, 1.5rem);
+  right: clamp(2.5rem, 8vw, 5rem);
+  text-align: right;
+  color: rgba(255,255,255,0.85);
+}
+.mitac-logo .brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  letter-spacing: -0.01em;
+}
+.mitac-logo .tag {
+  font-size: clamp(0.55rem, 0.7vw, 0.7rem);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+}
+
+/* === SECTION DIVIDER === */
+.slide.section-divider .slide-content { justify-content: center; padding-left: clamp(2rem, 6vw, 5rem); }
+.slide.section-divider .part-tag {
+  font-family: var(--font-body);
+  font-size: var(--small-size);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
+}
+.slide.section-divider .section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: clamp(1rem, 2.5vh, 2rem);
+}
+.slide.section-divider .rule {
+  height: 4px; width: clamp(80px, 10vw, 160px);
+  background: var(--red);
+  margin-top: clamp(1rem, 2vh, 1.5rem);
+}
+.slide.section-divider .section-desc {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-style: italic;
+  max-width: 60ch;
+  margin-top: clamp(1rem, 3vh, 2rem);
+  color: rgba(255,255,255,0.85);
+}
+
+/* === INNER SLIDE (white body + navy title bar) === */
+.slide.inner .title-bar {
+  background: var(--navy);
+  color: #fff;
+  padding: clamp(0.85rem, 2.5vh, 1.5rem) clamp(1rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.slide.inner .title-bar .title-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.85rem);
+  letter-spacing: -0.005em;
+}
+.slide.inner .title-bar .breadcrumb {
+  font-size: var(--small-size);
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex; align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+.slide.inner .body {
+  flex: 1; overflow: hidden;
+  padding: clamp(1rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem);
+  display: flex; flex-direction: column;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+.slide.inner .footer {
+  background: var(--bg-soft);
+  padding: clamp(0.4rem, 1vh, 0.75rem) clamp(1rem, 4vw, 4rem);
+  font-size: var(--small-size);
+  color: var(--text-light);
+  display: flex; justify-content: space-between;
+  border-top: 1px solid var(--bg-stripe);
+  flex-shrink: 0;
+}
+
+/* === COMMON COMPONENTS === */
+.callout {
+  background: var(--bg-soft);
+  border-left: 4px solid var(--navy);
+  padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: 4px;
+  font-size: var(--body-size);
+}
+.callout.red { border-left-color: var(--red); }
+.callout.orange { border-left-color: var(--orange); }
+.callout.gold { border-left-color: var(--gold); }
+.bullet-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: clamp(0.5rem, 1vh, 0.85rem);
+}
+.bullet-list li {
+  position: relative;
+  padding-left: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-size: var(--body-size);
+}
+.bullet-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 0.55em;
+  width: clamp(0.5rem, 0.7vw, 0.65rem); height: clamp(0.5rem, 0.7vw, 0.65rem);
+  border-radius: 50%;
+  background: var(--orange);
+}
+.bullet-list li.navy::before { background: var(--navy); }
+.bullet-list li.red::before { background: var(--red); }
+.bullet-list li.gold::before { background: var(--gold); }
+
+.placeholder-box {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--bg-soft) 0px, var(--bg-soft) 12px,
+      var(--bg-stripe) 12px, var(--bg-stripe) 24px);
+  border: 2px dashed var(--navy-light);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: var(--body-size);
+  font-style: italic;
+  text-align: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  min-height: 40vh;
+}
+.placeholder-box::before {
+  content: "▢";
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--navy-light);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  flex: 1;
+  align-content: start;
+}
+.fleet-card {
+  background: var(--bg-soft);
+  border: 2px solid var(--navy-light);
+  border-radius: 8px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  min-height: clamp(80px, 18vh, 150px);
+}
+.master-block {
+  background: var(--red);
+  color: #fff;
+  border-radius: 8px;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  text-align: center;
+  display: inline-block;
+}
+.fleet-block {
+  background: var(--navy-light);
+  color: #fff;
+  border-radius: 8px;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  text-align: center;
+  display: inline-block;
+}
+.role-card {
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  background: rgba(227,6,19,0.04);
+  font-size: var(--body-size);
+  color: var(--text);
+}
+.role-card.fleet { border-color: var(--orange); background: rgba(240,131,0,0.06); }
+.role-card .role-label { font-weight: 700; color: var(--red); margin-bottom: 0.25rem; }
+.role-card.fleet .role-label { color: var(--orange); }
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  flex: 1;
+  align-items: center;
+}
+
+/* Architecture diagram blocks */
+.diagram-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1.25rem);
+  flex: 1;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.diagram-flow .node {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 10px;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(0.75rem, 1.5vw, 1rem);
+  text-align: center;
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  display: flex; flex-direction: column;
+  gap: 0.5rem;
+  align-items: center; justify-content: center;
+  min-height: clamp(120px, 22vh, 200px);
+}
+.diagram-flow .node small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--small-size);
+  opacity: 0.85;
+  font-style: italic;
+}
+.diagram-flow .node.gold { background: var(--gold); }
+.diagram-flow .node.orange { background: var(--orange); }
+.diagram-flow .node.light { background: var(--navy-light); }
+.diagram-flow .arrow {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--orange);
+  text-align: center;
+  position: relative;
+}
+.diagram-flow .arrow::before {
+  content: "→";
+  font-weight: 700;
+}
+.diagram-flow .arrow .label {
+  position: absolute;
+  top: -1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--small-size);
+  color: var(--text-light);
+  font-style: italic;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+/* Pricing table */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex: 1;
+  align-items: stretch;
+}
+.pricing-card {
+  background: var(--bg-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--bg-stripe);
+}
+.pricing-card .header {
+  padding: clamp(0.75rem, 2vh, 1.25rem);
+  text-align: center;
+  color: #fff;
+}
+.pricing-card .header .name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  letter-spacing: 0.05em;
+}
+.pricing-card .header .tier {
+  font-size: var(--small-size);
+  font-style: italic;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+.pricing-card.standard .header { background: var(--navy); }
+.pricing-card.advanced .header { background: var(--gold); }
+.pricing-card.pro .header { background: var(--red); }
+
+.pricing-card .features {
+  padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  font-size: var(--body-size);
+  flex: 1;
+  display: flex; flex-direction: column;
+  gap: clamp(0.35rem, 0.8vh, 0.6rem);
+}
+.pricing-card .features .feat {
+  display: flex; gap: 0.5rem;
+}
+.pricing-card .features .feat::before {
+  content: "✓";
+  color: currentColor;
+  opacity: 0.7;
+  font-weight: 700;
+}
+.pricing-card.standard .features .feat::before { color: var(--navy); }
+.pricing-card.advanced .features .feat::before { color: var(--gold); }
+.pricing-card.pro .features .feat::before { color: var(--red); }
+
+.pricing-card .price-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: rgba(0,0,0,0.04);
+  text-align: center;
+  font-family: var(--font-display);
+}
+.pricing-card .price-row .cell {
+  padding: clamp(0.75rem, 1.5vh, 1.25rem) 0.5rem;
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+.pricing-card .price-row .cell:last-child { border-right: none; }
+.pricing-card .price-row .price {
+  display: block;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.pricing-card.standard .price { color: var(--navy); }
+.pricing-card.advanced .price { color: var(--gold); }
+.pricing-card.pro .price { color: var(--red); }
+.pricing-card .price-row .cam {
+  font-size: var(--small-size);
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Tiers comparison table */
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-size);
+  flex: 1;
+}
+.tier-table th, .tier-table td {
+  padding: clamp(0.4rem, 0.9vh, 0.65rem) clamp(0.5rem, 1vw, 0.85rem);
+  text-align: center;
+}
+.tier-table th { color: #fff; font-family: var(--font-display); }
+.tier-table th.feature-col { background: var(--navy-dark); text-align: left; }
+.tier-table th.starter { background: var(--navy); }
+.tier-table th.tier-pro { background: var(--navy-light); }
+.tier-table th.business { background: var(--gold); }
+.tier-table th.enterprise { background: var(--red); }
+.tier-table th .label { font-weight: 800; font-size: clamp(0.95rem, 1.6vw, 1.2rem); letter-spacing: 0.05em; }
+.tier-table th .range { font-family: var(--font-body); font-size: var(--small-size); font-weight: 500; opacity: 0.92; }
+.tier-table td.feature-name { text-align: left; font-weight: 600; color: var(--text); }
+.tier-table tr:nth-child(even) { background: var(--bg-soft); }
+.tier-table .check {
+  font-weight: 800;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+}
+.tier-table .check.s { color: var(--navy); }
+.tier-table .check.p { color: var(--navy-light); }
+.tier-table .check.b { color: var(--gold); }
+.tier-table .check.e { color: var(--red); }
+
+/* Module map */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  flex: 1;
+  align-content: center;
+}
+.module-tile {
+  background: var(--bg-soft);
+  border-top: 4px solid var(--orange);
+  border-radius: 6px;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(0.5rem, 1vw, 0.75rem);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--navy);
+  min-height: clamp(60px, 12vh, 100px);
+  display: flex; align-items: center; justify-content: center;
+}
+.module-tile:nth-child(3n+2) { border-top-color: var(--red); }
+.module-tile:nth-child(3n+3) { border-top-color: var(--navy-light); }
+.module-tile:nth-child(4n+4) { border-top-color: var(--gold); }
+
+/* === ANIMATIONS === */
+/* Reveals always end at full opacity, even if observer never fires.
+   Using `animation` with `both` fill mode guarantees the final state. */
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  animation: revealIn 0.7s cubic-bezier(0.16,1,0.3,1) both;
+}
+.reveal:nth-child(1) { animation-delay: 0.05s; }
+.reveal:nth-child(2) { animation-delay: 0.15s; }
+.reveal:nth-child(3) { animation-delay: 0.25s; }
+.reveal:nth-child(4) { animation-delay: 0.35s; }
+.reveal:nth-child(5) { animation-delay: 0.45s; }
+.reveal:nth-child(6) { animation-delay: 0.55s; }
+
+/* === NAV CHROME === */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--orange);
+  width: 0%;
+  z-index: 1000;
+  transition: width 0.2s linear;
+}
+.nav-dots {
+  position: fixed; right: clamp(0.75rem, 1.5vw, 1.25rem);
+  top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column;
+  gap: clamp(0.4rem, 0.7vw, 0.55rem);
+  z-index: 100;
+}
+.nav-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(0,0,0,0.18);
+  border: none; padding: 0; cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.nav-dot.active { background: var(--red); transform: scale(1.5); }
+.slide.cover ~ * .nav-dot,
+body:has(.slide.visible.cover) .nav-dot,
+body:has(.slide.visible.section-divider) .nav-dot,
+body:has(.slide.visible.end-slide) .nav-dot { background: rgba(255,255,255,0.3); }
+body:has(.slide.visible.cover) .nav-dot.active,
+body:has(.slide.visible.section-divider) .nav-dot.active,
+body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
+
+.keyboard-hint {
+  position: fixed; bottom: clamp(0.5rem, 1.5vh, 1rem);
+  left: 50%; transform: translateX(-50%);
+  font-size: var(--small-size);
+  color: var(--text-light);
+  background: rgba(255,255,255,0.85);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--bg-stripe);
+  z-index: 100;
+  font-family: var(--font-body);
+}
+
+/* End slide */
+.slide.end-slide .end-content { text-align: left; padding-left: clamp(2rem, 6vw, 5rem); }
+.slide.end-slide .end-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.slide.end-slide .end-tag {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: rgba(255,255,255,0.7);
+  margin-top: clamp(0.5rem, 2vh, 1.5rem);
+}
+
+  </style>
+</head>
+<body>
+  <div class="progress-bar"></div>
+  <nav class="nav-dots" aria-label="Slide navigation"></nav>
+  <div class="keyboard-hint">↑ ↓ ← → · Space · Click dots</div>
+
+  
+<section class="slide cover">
+  <div class="slide-content">
+    <div class="eyebrow reveal">VT TEAM TRAINING · INTERNAL</div>
+    <h1 class="cover-title reveal">VisionMax</h1>
+    <div class="cover-rule reveal"></div>
+    <div class="cover-subtitle reveal">Architecture &amp; Integration</div>
+    <p class="cover-tag reveal">A walk-through of the Master &amp; Fleet portal hierarchy, the end-to-end system architecture, two integration paths, and the subscription plan structure.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp. All Rights Reserved.</div>
+  <div class="mitac-logo">
+    <div class="brand">MiTAC</div>
+    <div class="tag">DIGITAL TECHNOLOGY CORP.</div>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Outline</div>
+    <div class="breadcrumb">AGENDA<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+
+    <ul class="bullet-list reveal" style="font-size: clamp(1rem, 1.8vw, 1.4rem);">
+      <li class="navy"><strong>Master &amp; Fleet Architecture</strong> — How the two-tier portal hierarchy works</li>
+      <li class="orange"><strong>Master Function Introduction</strong> — Dealer-side portal capabilities</li>
+      <li class="red"><strong>Fleet Function Introduction</strong> — Fleet-manager-side portal capabilities</li>
+      <li class="gold"><strong>VisionMax System Architecture</strong> — End-to-end data flow from device to cloud to UI</li>
+      <li class="navy"><strong>Integration Method</strong> — Two paths: Server-to-Server &amp; VisionMax Elastic</li>
+      <li class="orange"><strong>Subscription Plans</strong> — Per-device tiers and base service plans</li>
+    </ul>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>2 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 1</div>
+    <h2 class="section-title reveal">Master &amp; Fleet<br>Architecture</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Two distinct portals — one for dealers selling fleet management services, one for fleet managers operating the fleet.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Architecture (1/3)</div>
+    <div class="breadcrumb">PART 1 · OVERVIEW<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Two distinct portal types serve two distinct audiences. The Master portal is owned by the dealer; the Fleet portal is owned by the fleet manager who runs daily operations.</div>
+    <div class="card-grid reveal" style="margin-top: 1rem;">
+      <div class="fleet-card">Fleet A</div>
+      <div class="fleet-card">Fleet B</div>
+      <div class="fleet-card">Fleet C</div>
+      <div class="fleet-card">Fleet D</div>
+      <div class="fleet-card">Fleet E</div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>4 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Architecture (2/3)</div>
+    <div class="breadcrumb">PART 1 · MASTER<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout red reveal">The <strong>Master</strong> tier is the dealer's portal — used to sell fleet management services and assign CDRs to each fleet.</div>
+    <div class="two-col reveal" style="margin-top: 1rem;">
+      <div class="role-card">
+        <div class="role-label">MASTER role</div>
+        <ul style="margin: 0; padding-left: 1.2rem; line-height: 1.6;">
+          <li>Belongs to the dealer</li>
+          <li>Sells fleet management services</li>
+          <li>Assigns CDRs to each fleet</li>
+        </ul>
+      </div>
+      <div style="text-align: center;"><span class="master-block">MASTER (Dealer)</span></div>
+    </div>
+    <div class="card-grid reveal" style="margin-top: 1rem;">
+      <div class="fleet-card">Fleet A</div>
+      <div class="fleet-card">Fleet B</div>
+      <div class="fleet-card">Fleet C</div>
+      <div class="fleet-card">Fleet D</div>
+      <div class="fleet-card">Fleet E</div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>5 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Architecture (3/3)</div>
+    <div class="breadcrumb">PART 1 · FLEET<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout orange reveal">The <strong>Fleet</strong> tier belongs to the fleet manager — responsible for managing the task status of each driver in the fleet.</div>
+    <div class="two-col reveal" style="margin-top: 1rem;">
+      <div class="role-card fleet">
+        <div class="role-label">FLEET role</div>
+        <ul style="margin: 0; padding-left: 1.2rem; line-height: 1.6;">
+          <li>Belongs to the fleet manager</li>
+          <li>Manages every driver's daily task status</li>
+          <li>Reviews trips, events, and safety reports</li>
+        </ul>
+      </div>
+      <div style="text-align: center;"><span class="fleet-block">FLEET (Manager)</span></div>
+    </div>
+    <div class="card-grid reveal" style="margin-top: 1rem;">
+      <div class="fleet-card">Fleet A</div>
+      <div class="fleet-card">Fleet B</div>
+      <div class="fleet-card">Fleet C</div>
+      <div class="fleet-card">Fleet D</div>
+      <div class="fleet-card">Fleet E</div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>6 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 2</div>
+    <h2 class="section-title reveal">Master Function<br>Introduction</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Inside the Master portal: the dealer's view of CDR allocation, plan distribution, and fleet creation.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Master — Dashboard (1/2)</div>
+    <div class="breadcrumb">PART 2 · DASHBOARD<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The Master dashboard surfaces CDR assignment status, activation rates, and the proportion of CDRs and Plan Types across every fleet under the dealer.</div><ul class="bullet-list reveal"><li class="orange">Real-time CDR allocation across fleets</li><li class="orange">Active vs. inactive CDR balance</li><li class="orange">Plan Type distribution (Standard / Advanced / Pro)</li><li class="orange">Per-fleet CDR quantity comparison</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>8 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Master — Dashboard (2/2)</div>
+    <div class="breadcrumb">PART 2 · DASHBOARD<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Dashboard widgets continued — drill-down panels and cross-fleet comparisons.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>9 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Master — Management (1/2)</div>
+    <div class="breadcrumb">PART 2 · MANAGEMENT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Management is where the dealer creates and maintains fleets, and assigns CDRs to specific fleets.</div><ul class="bullet-list reveal"><li class="orange">Create / edit / disable fleets</li><li class="orange">Assign CDRs to a target fleet</li><li class="orange">Move CDRs between fleets</li><li class="orange">Audit assignment history</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>10 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Master — Management (2/2)</div>
+    <div class="breadcrumb">PART 2 · MANAGEMENT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Bulk-assignment flow and detail forms used by the dealer's operations team.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>11 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 3</div>
+    <h2 class="section-title reveal">Fleet Function<br>Introduction</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Inside the Fleet portal: the day-to-day modules a fleet manager works in.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Module Map</div>
+    <div class="breadcrumb">PART 3 · OVERVIEW<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout orange reveal">Twelve interlocking modules cover the complete fleet-management lifecycle, from live monitoring to post-event coaching.</div><div class="module-grid reveal"><div class="module-tile">Trips</div><div class="module-tile">Dashboard</div><div class="module-tile">Playback</div><div class="module-tile">Coaching</div><div class="module-tile">Live View</div><div class="module-tile">File Retrieval</div><div class="module-tile">Event</div><div class="module-tile">Configuration</div><div class="module-tile">Safety</div><div class="module-tile">Geo Fence</div><div class="module-tile">Health</div><div class="module-tile">Safety Report</div></div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>13 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Dashboard (1/2)</div>
+    <div class="breadcrumb">PART 3 · DASHBOARD<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The Fleet dashboard gives administrators today's vehicle operating status and the driver-behavior events that need their attention right now.</div><ul class="bullet-list reveal"><li class="orange">Active vehicles and idle vehicles at a glance</li><li class="orange">Trips in progress · trips finished today</li><li class="orange">Highlighted events demanding follow-up</li><li class="orange">Driver scoring snapshot</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>14 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Dashboard (2/2)</div>
+    <div class="breadcrumb">PART 3 · DASHBOARD<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Continuation of the Fleet dashboard — peripheral panels and quick filters.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>15 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Live View (1/2)</div>
+    <div class="breadcrumb">PART 3 · LIVE VIEW<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Live View lets the administrator stream the road-facing or cabin-facing camera of any active vehicle in real time.</div><ul class="bullet-list reveal"><li class="orange">Stream from any device currently on a trip</li><li class="orange">Switch between road-facing and cabin-facing camera</li><li class="orange">On-demand access for emergencies and audits</li><li class="orange">Latency-optimized via WebSocket</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>16 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Live View (2/2)</div>
+    <div class="breadcrumb">PART 3 · LIVE VIEW<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Live View detail page — multi-camera and remote-call workflows.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>17 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips (1/2)</div>
+    <div class="breadcrumb">PART 3 · TRIPS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Trips lets the administrator browse every driver's trip status — trips in progress and trips already finished.</div><ul class="bullet-list reveal"><li class="orange">Filter by driver / vehicle / date range</li><li class="orange">Live trips highlighted for at-a-glance scanning</li><li class="orange">One-click into any trip's detail page</li><li class="orange">Export the trip list for reporting</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>18 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips (2/2)</div>
+    <div class="breadcrumb">PART 3 · TRIPS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Trip list filters, sort options and bulk export.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>19 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail (1/3)</div>
+    <div class="breadcrumb">PART 3 · TRIP DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Selecting a finished trip reveals the trip's full record — start/end, distance, driver and the events that occurred along the route.</div><ul class="bullet-list reveal"><li class="orange">Trip route on map</li><li class="orange">Start / end timestamps + duration + mileage</li><li class="orange">Driver identity (or 'Not Recognized')</li><li class="orange">Quick links to related events and video</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>20 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail (2/3)</div>
+    <div class="breadcrumb">PART 3 · TRIP DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Trip Detail provides the trajectory plus a chronological timeline of every event that fired during the trip.</div><ul class="bullet-list reveal"><li class="orange">GPS track with color-coded segments</li><li class="orange">Event timeline (DMS / ADAS / G-Sensor / Speed Sign)</li><li class="orange">Power Outage and system events surfaced</li><li class="orange">Click-through into individual event details</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>21 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail (3/3)</div>
+    <div class="breadcrumb">PART 3 · TRIP DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Auxiliary trip-detail panels — speed/acceleration charts and per-segment analysis.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>22 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail · Playback (1/2)</div>
+    <div class="breadcrumb">PART 3 · PLAYBACK<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Video Playback replays the recorded video footage for the entire trip, scrubbable and synchronized with map and event markers.</div><ul class="bullet-list reveal"><li class="orange">Replay either camera (front / cabin)</li><li class="orange">Scrub timeline synced with map and events</li><li class="orange">Jump to any event in one click</li><li class="orange">Variable-speed playback</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>23 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail · Playback (2/2)</div>
+    <div class="breadcrumb">PART 3 · PLAYBACK<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Playback detail — multi-camera split view and overlaid telemetry.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>24 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail · File Retrieval (1/2)</div>
+    <div class="breadcrumb">PART 3 · FILE RETRIEVAL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">File Retrieval lets the administrator remotely clip a video segment from the device and back it up to the cloud for permanent storage.</div><ul class="bullet-list reveal"><li class="orange">Specify exact start / end times</li><li class="orange">Trigger device-side clipping over LTE</li><li class="orange">Cloud-stored copy survives SD-card recycling</li><li class="orange">Download as MP4 for evidence handling</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>25 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Trips · Detail · File Retrieval (2/2)</div>
+    <div class="breadcrumb">PART 3 · FILE RETRIEVAL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Job-status tracker for clip-retrieval requests.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>26 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Event (1/2)</div>
+    <div class="breadcrumb">PART 3 · EVENTS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The Events board lets the administrator review every recorded event across the entire fleet, grouped by event type or driver.</div><ul class="bullet-list reveal"><li class="orange">Group by event type (DMS / ADAS / Sensor / Speed)</li><li class="orange">Filter by date / driver / vehicle / severity</li><li class="orange">Tile-style cards with thumbnail preview</li><li class="orange">Bookmark or discard events in bulk</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>27 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Event (2/2)</div>
+    <div class="breadcrumb">PART 3 · EVENTS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Events board filters, sort and bulk actions.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>28 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Event · Detail (1/3)</div>
+    <div class="breadcrumb">PART 3 · EVENT DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Clicking an event opens its detail page — every artifact captured at the moment of the trigger.</div><ul class="bullet-list reveal"><li class="orange">Event metadata (type / severity / time / driver)</li><li class="orange">Linked trip and surrounding events</li><li class="orange">Comments thread for follow-up notes</li><li class="orange">One-click coaching tag</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>29 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Event · Detail (2/3)</div>
+    <div class="breadcrumb">PART 3 · EVENT DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Event detail also exposes the dual-camera video, sensor traces, and exact GPS coordinates of the event.</div><ul class="bullet-list reveal"><li class="orange">Dual-camera (road + cabin) synchronized playback</li><li class="orange">Speed and acceleration charts (G-Sensor)</li><li class="orange">Lat/Long, heading and altitude at trigger time</li><li class="orange">Mini-map with event pin</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>30 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Event · Detail (3/3)</div>
+    <div class="breadcrumb">PART 3 · EVENT DETAIL<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Auxiliary event-detail panels — annotation tools and download options.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>31 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Safety Report (1/3)</div>
+    <div class="breadcrumb">PART 3 · SAFETY REPORT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The Safety Report aggregates fleet-wide event counts and turns driving behavior into a single comparable score.</div><ul class="bullet-list reveal"><li class="orange">Period-over-period event-rate trends</li><li class="orange">Driver safety scores (rank-ordered)</li><li class="orange">Severity distribution (Minor / Major / Critical)</li><li class="orange">Exportable for review meetings</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>32 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Safety Report (2/3)</div>
+    <div class="breadcrumb">PART 3 · SAFETY REPORT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Per-driver report card with event breakdown by category.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>33 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Safety · Safety Report (3/3)</div>
+    <div class="breadcrumb">PART 3 · SAFETY REPORT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Vehicle-level report card and fleet aggregate views.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>34 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Device (1/4)</div>
+    <div class="breadcrumb">PART 3 · DEVICES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The Device list exposes the full inventory of every CDR in the fleet — location, plan, health, software, storage and more.</div><ul class="bullet-list reveal"><li class="orange">Asset ID · Serial · Model · Plan Type</li><li class="orange">Online / Offline status with last-seen timestamp</li><li class="orange">App version (front-end + AI engine)</li><li class="orange">ADAS AI Health · DMS AI Health flags</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>35 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Device (2/4)</div>
+    <div class="breadcrumb">PART 3 · DEVICES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Filters and bulk actions on the Device list.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>36 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Device · Detail (3/4)</div>
+    <div class="breadcrumb">PART 3 · DEVICES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Device Detail page — every attribute and live capability for a single CDR.</div><ul class="bullet-list reveal"><li class="orange">Bind a vehicle profile (VIN / Type)</li><li class="orange">Live View · Online Call · Parking Photo shortcuts</li><li class="orange">Storage status + estimated SD-card lifespan</li><li class="orange">OTA history and pending updates</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>37 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Device · Health (4/4)</div>
+    <div class="breadcrumb">PART 3 · DEVICES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Device Health panel — surfaces all five issue categories tracked by the system.</div><ul class="bullet-list reveal"><li class="orange">Location Function Issue</li><li class="orange">Sensor Events Detection Issue</li><li class="orange">Camera Issue</li><li class="orange">MiAI Issue · Footage Storage Issue</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>38 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Geofences (1/2)</div>
+    <div class="breadcrumb">PART 3 · GEOFENCES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Geofences let the administrator draw virtual boundaries and check whether drivers entered or exited specific areas as expected.</div><ul class="bullet-list reveal"><li class="orange">Draw polygon or radius zones on the map</li><li class="orange">Trigger on entry / exit / dwell-time exceeded</li><li class="orange">Schedule active hours per zone</li><li class="orange">Tie violations into Safety Reports</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>39 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Management · Geofences (2/2)</div>
+    <div class="breadcrumb">PART 3 · GEOFENCES<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Geofence list and per-zone configuration.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>40 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Configuration (1/2)</div>
+    <div class="breadcrumb">PART 3 · CONFIGURATION<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Configuration lets the administrator tune CDR settings per vehicle type — volume, voice language, recording format, event-recording windows and more.</div><ul class="bullet-list reveal"><li class="orange">Volume · Speed unit (KPH / MPH) · Parking Photo</li><li class="orange">Sensor Event thresholds (Harsh Braking / Cornering / Impact)</li><li class="orange">AI Event Detection thresholds (ADAS · DMS)</li><li class="orange">Road safety + Safety Score weighting</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>41 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Fleet — Configuration (2/2)</div>
+    <div class="breadcrumb">PART 3 · CONFIGURATION<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Configuration editor and per-vehicle-type defaults.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>42 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 4</div>
+    <h2 class="section-title reveal">VisionMax<br>System Architecture</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">How the device, cloud, and portal UIs connect — the underlying data flow.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">VisionMax System Architecture</div>
+    <div class="breadcrumb">PART 4 · DATA FLOW<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">End-to-end flow: every CDR streams data via WebSocket / HTTPS / MQTT to the VisionMax Server (AWS S3 backed), and the VisionMax Web UI reads it back through the API.</div>
+    <div class="diagram-flow reveal" style="margin-top: 1rem;">
+      <div class="node">
+        CDR
+        <small>Device + Camera + GPS + G-Sensor + AI</small>
+      </div>
+      <div class="arrow"><span class="label">WebSocket · HTTPS · MQTT</span></div>
+      <div class="node gold">
+        VisionMax Server
+        <small>AWS S3 bucket · Cloud Storage</small>
+      </div>
+      <div class="arrow"><span class="label">API</span></div>
+      <div class="node light">
+        VisionMax Web UI
+        <small>Master + Fleet portals</small>
+      </div>
+    </div>
+    <div class="callout orange reveal" style="margin-top: 1rem;">
+      <strong>VisionAgent</strong> connects to the device locally via Hotspot / BLE for installation and on-site diagnostics.
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>44 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Device Architecture</div>
+    <div class="breadcrumb">PART 4 · DEVICE<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Inside the device: a BSP system runs four cooperating apps via the MiTAC System API.</div>
+    <div class="card-grid reveal" style="margin-top: 1rem;">
+      <div class="fleet-card" style="border-color: var(--navy); background: var(--navy); color: #fff;">MiTAC<br>Camera App</div>
+      <div class="fleet-card" style="border-color: var(--red); background: var(--red); color: #fff;">MiTAC<br>AI App<br><small style="font-weight: 400; font-size: 0.7em;">DMS · ADAS</small></div>
+      <div class="fleet-card" style="border-color: var(--gold); background: var(--gold); color: #fff;">MiDM</div>
+      <div class="fleet-card" style="border-color: var(--orange); background: var(--orange); color: #fff;">Install /<br>OTA App</div>
+    </div>
+    <div class="callout orange reveal" style="margin-top: 1rem;">
+      Underlying layer: <strong>BSP System</strong> · <strong>MiTAC System API</strong> · sensors (Camera · G-Sensor · GPS · Watchdog · Settings · REC). Cloud companions: <strong>MiDM Cloud</strong> + <strong>VisionMax Cloud</strong>.
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>45 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 5</div>
+    <h2 class="section-title reveal">Integration<br>Method</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Two officially supported paths for customers: Server-to-Server (API) or VisionMax Elastic.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Server to Server (API Integration)</div>
+    <div class="breadcrumb">PART 5 · PATH 1<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout red reveal">Path 1 — MiTAC supplies the API documentation and hosts the storage. The customer builds its own API server and the entire web UI on top.</div><ul class="bullet-list reveal"><li class="red">MiTAC provides the Server API integration documentation</li><li class="red">Storage is hosted at MiTAC (AWS S3)</li><li class="red">Customer implements its own API server and all expected web UI</li></ul>
+    <div class="diagram-flow reveal" style="grid-template-columns: 1fr auto 1fr; margin-top: 1rem;">
+      <div class="node">VisionMax Server<br><small>AWS S3 · Hosted at MiTAC</small></div>
+      <div class="arrow"><span class="label">API</span></div>
+      <div class="node light">Customer API Server<br><small>+ Customer Web UI · Built &amp; hosted by customer</small></div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>47 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">VisionMax Elastic (1/4)</div>
+    <div class="breadcrumb">PART 5 · PATH 2<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout orange reveal">Path 2 — Storage hosted at the customer, MiTAC provides ready-made Master Portal and Elastic Portal modules so the customer's front-end work is dramatically smaller.</div><ul class="bullet-list reveal"><li class="orange">MiTAC provides the Server API integration documentation</li><li class="orange">Storage is hosted at the customer</li><li class="orange">MiTAC provides the Master Portal</li><li class="orange">MiTAC provides the Elastic Portal (Device Info · Configuration · Health Report · Live View)</li><li class="orange">Customer implements its own API server and any UI outside the Master / Elastic portals</li></ul>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>48 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">VisionMax Elastic (2/4)</div>
+    <div class="breadcrumb">PART 5 · PATH 2<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Architecture diagram of the Elastic deployment — customer-side storage with MiTAC-supplied portal modules.</div><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>49 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">VisionMax Elastic (3/4)</div>
+    <div class="breadcrumb">PART 5 · PATH 2<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">The four pre-built Elastic Portal modules: Device Info · Health Report · Live View · Configurations.</div><ul class="bullet-list reveal"><li class="orange">Device Info — at-a-glance device inventory</li><li class="orange">Health Report — per-device + per-fleet health rollup</li><li class="orange">Live View — real-time camera streaming</li><li class="orange">Configurations — per-vehicle-type tuning</li></ul><div class="placeholder-box reveal">UI screenshot — refer to live portal or source PDF for the corresponding screen</div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>50 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">VisionMax Elastic (4/4)</div>
+    <div class="breadcrumb">PART 5 · PATH 2<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Pros &amp; cons of the VisionMax Elastic path — when does it fit, and what does the customer give up?</div>
+    <div class="two-col reveal" style="margin-top: 1rem;">
+      <div class="callout" style="border-left-color: var(--orange);">
+        <strong style="color: var(--orange);">ADVANTAGES</strong>
+        <ul style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6;">
+          <li>Reduces development time — roughly 2 to 3 months for quick integration and faster time-to-market.</li>
+          <li>Data storage stays managed and kept by the customer.</li>
+        </ul>
+      </div>
+      <div class="callout" style="border-left-color: var(--red);">
+        <strong style="color: var(--red);">DISADVANTAGES</strong>
+        <ul style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6;">
+          <li>The Elastic Portal cannot be flexibly customized — only logo, domain, and background color are changeable.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>51 / 55</span>
+  </div>
+</section>
+
+<section class="slide section-divider">
+  <div class="slide-content">
+    <div class="part-tag reveal">PART 6</div>
+    <h2 class="section-title reveal">Subscription<br>Plans</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Per-device tiers for the AI capability you enable, plus a base service plan that scales with fleet size.</p>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Subscription Plans (For TSP)</div>
+    <div class="breadcrumb">PART 6 · PER-DEVICE<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Three per-device tiers: Standard (G-Sensor only) → Advanced (+ ADAS) → Pro (+ DMS). Pricing is USD per device per month, by camera count.</div>
+    <div style="text-align: center; margin: 0.5rem 0; font-style: italic; color: var(--text-light); font-size: var(--small-size);" class="reveal">
+      Per-device, per-month · SLA: 24 months · Setup Fee US $3,200
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card standard">
+        <div class="header"><div class="name">STANDARD</div><div class="tier">Entry</div></div>
+        <div class="features">
+          <div class="feat">Sensor Event Detection</div>
+          <div class="feat">VMX VT Cloud</div>
+          <div class="feat">GPS + Video</div>
+        </div>
+        <div class="price-row">
+          <div class="cell"><span class="price">$5</span><span class="cam">1–3 cam</span></div>
+          <div class="cell"><span class="price">$7</span><span class="cam">4–7 cam</span></div>
+        </div>
+      </div>
+      <div class="pricing-card advanced">
+        <div class="header"><div class="name">ADVANCED</div><div class="tier">Mid</div></div>
+        <div class="features">
+          <div class="feat">Sensor Event Detection</div>
+          <div class="feat">ADAS Event Detection</div>
+          <div class="feat">VMX VT Cloud</div>
+          <div class="feat">GPS + Video</div>
+        </div>
+        <div class="price-row">
+          <div class="cell"><span class="price">$7</span><span class="cam">1–3 cam</span></div>
+          <div class="cell"><span class="price">$9</span><span class="cam">4–7 cam</span></div>
+        </div>
+      </div>
+      <div class="pricing-card pro">
+        <div class="header"><div class="name">PRO</div><div class="tier">Top</div></div>
+        <div class="features">
+          <div class="feat">Sensor Event Detection</div>
+          <div class="feat">DMS Event Detection</div>
+          <div class="feat">ADAS Event Detection</div>
+          <div class="feat">VMX VT Cloud</div>
+          <div class="feat">GPS + Video</div>
+        </div>
+        <div class="price-row">
+          <div class="cell"><span class="price">$9</span><span class="cam">1–3 cam</span></div>
+          <div class="cell"><span class="price">$11</span><span class="cam">4–7 cam</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>53 / 55</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">Subscribe Base &amp; Cloud Service</div>
+    <div class="breadcrumb">PART 6 · BASE TIERS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+  </header>
+  <div class="body">
+<div class="callout  reveal">Four base tiers scale with device count and unlock progressive features — White Label, Customer Domain, Webhook/API, Custom API, Custom App, and Standalone.</div>
+    <table class="tier-table reveal">
+      <thead>
+        <tr>
+          <th class="feature-col">Feature</th>
+          <th class="starter"><div class="label">STARTER</div><div class="range">1 – 10K devices</div></th>
+          <th class="tier-pro"><div class="label">PRO</div><div class="range">10 – 30K devices</div></th>
+          <th class="business"><div class="label">BUSINESS</div><div class="range">30 – 50K devices</div></th>
+          <th class="enterprise"><div class="label">ENTERPRISE</div><div class="range">&gt; 50K devices</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="feature-name">File Retention</td><td>90 days</td><td>180 days</td><td>365 days</td><td>Unlimited</td></tr>
+        <tr><td class="feature-name">White Label</td><td><span class="check s">✓</span></td><td><span class="check p">✓</span></td><td><span class="check b">✓</span></td><td><span class="check e">✓</span></td></tr>
+        <tr><td class="feature-name">Customer Domain</td><td></td><td><span class="check p">✓</span></td><td><span class="check b">✓</span></td><td><span class="check e">✓</span></td></tr>
+        <tr><td class="feature-name">Webhook &amp; API Key</td><td></td><td></td><td><span class="check b">✓</span></td><td><span class="check e">✓</span></td></tr>
+        <tr><td class="feature-name">Custom API</td><td></td><td></td><td></td><td><span class="check e">✓</span></td></tr>
+        <tr><td class="feature-name">Custom App</td><td></td><td></td><td></td><td><span class="check e">✓</span></td></tr>
+        <tr><td class="feature-name">Standalone</td><td></td><td></td><td></td><td><span class="check e">✓</span></td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span>54 / 55</span>
+  </div>
+</section>
+
+<section class="slide end-slide">
+  <div class="slide-content end-content">
+    <div class="part-tag reveal" style="color: var(--orange);">FIN</div>
+    <div class="end-text reveal">END.</div>
+    <div class="end-tag reveal">Questions, requests, or onboarding requests — reach out to the VT Team.</div>
+  </div>
+  <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
+  <div class="mitac-logo">
+    <div class="brand">MiTAC</div>
+    <div class="tag">DIGITAL TECHNOLOGY CORP.</div>
+  </div>
+</section>
+
+
+  <script>
+    
+class SlidePresentation {
+  constructor() {
+    this.slides = Array.from(document.querySelectorAll('.slide'));
+    this.currentIdx = 0;
+    // Make first slide immediately visible so animations don't get stuck before observer fires
+    if (this.slides.length > 0) this.slides[0].classList.add('visible');
+    this.setupIntersectionObserver();
+    this.setupKeyboardNav();
+    this.setupTouchNav();
+    this.setupProgressBar();
+    this.setupNavDots();
+  }
+  setupIntersectionObserver() {
+    // Used only to track which slide is currently in view (for nav dots / progress bar)
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          const i = this.slides.indexOf(e.target);
+          if (i >= 0) {
+            this.currentIdx = i;
+            this.updateProgressBar();
+            this.updateNavDots();
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+    this.slides.forEach(s => obs.observe(s));
+  }
+  goTo(i) {
+    if (i < 0 || i >= this.slides.length) return;
+    this.slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  setupKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)) {
+        e.preventDefault(); this.goTo(this.currentIdx + 1);
+      } else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key)) {
+        e.preventDefault(); this.goTo(this.currentIdx - 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault(); this.goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); this.goTo(this.slides.length - 1);
+      }
+    });
+  }
+  setupTouchNav() {
+    let startY = 0;
+    document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const dy = startY - e.changedTouches[0].clientY;
+      if (Math.abs(dy) > 50) this.goTo(this.currentIdx + (dy > 0 ? 1 : -1));
+    }, { passive: true });
+  }
+  setupProgressBar() {
+    this.progressBar = document.querySelector('.progress-bar');
+    this.updateProgressBar();
+  }
+  updateProgressBar() {
+    if (!this.progressBar) return;
+    const pct = (this.currentIdx / Math.max(1, this.slides.length - 1)) * 100;
+    this.progressBar.style.width = pct + '%';
+  }
+  setupNavDots() {
+    const container = document.querySelector('.nav-dots');
+    if (!container) return;
+    container.innerHTML = '';
+    this.navDotsEls = this.slides.map((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'nav-dot' + (i === 0 ? ' active' : '');
+      b.setAttribute('aria-label', `Go to slide ${i+1}`);
+      b.addEventListener('click', () => this.goTo(i));
+      container.appendChild(b);
+      return b;
+    });
+  }
+  updateNavDots() {
+    if (!this.navDotsEls) return;
+    this.navDotsEls.forEach((d, i) => d.classList.toggle('active', i === this.currentIdx));
+  }
+}
+new SlidePresentation();
+
+  </script>
+</body>
+</html>
