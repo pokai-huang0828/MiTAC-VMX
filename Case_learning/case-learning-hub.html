@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiTAC Case Learning Hub</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --primary-light: #2563a8;
+    --accent: #e67e22;
+    --accent-light: #f39c12;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --border: #dde3ec;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --success: #16a34a;
+    --warning: #ca8a04;
+    --danger: #dc2626;
+    --tag-blue: #dbeafe;
+    --tag-blue-text: #1e40af;
+    --tag-orange: #ffedd5;
+    --tag-orange-text: #9a3412;
+    --tag-green: #dcfce7;
+    --tag-green-text: #166534;
+    --tag-red: #fee2e2;
+    --tag-red-text: #991b1b;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 6px 24px rgba(0,0,0,0.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .topnav-brand { display: flex; align-items: center; gap: 12px; }
+  .topnav-logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); display: flex; align-items: center;
+    justify-content: center; font-weight: 800; font-size: 16px;
+  }
+  .topnav-title { font-size: 17px; font-weight: 700; letter-spacing: 0.3px; }
+  .topnav-meta { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .topnav-tabs { display: flex; gap: 4px; }
+  .tab-btn {
+    padding: 8px 20px; border-radius: 8px; border: none; cursor: pointer;
+    font-size: 14px; font-weight: 600; transition: all .2s;
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
+  }
+  .tab-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  .tab-btn.active { background: var(--accent); color: #fff; }
+
+  /* ── LAYOUT ── */
+  .layout { display: flex; flex: 1; }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 260px; flex-shrink: 0; background: var(--primary);
+    padding: 24px 0; position: sticky; top: 60px;
+    height: calc(100vh - 60px); overflow-y: auto;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .sidebar-section { padding: 0 16px 8px; }
+  .sidebar-label {
+    font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.35);
+    letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px;
+    padding: 0 8px;
+  }
+  .sidebar-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 8px; cursor: pointer;
+    color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500;
+    transition: all .2s; text-decoration: none;
+  }
+  .sidebar-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .sidebar-item.active { background: rgba(230,126,34,0.2); color: var(--accent-light); font-weight: 600; }
+  .sidebar-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+  .sidebar-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 12px 16px; }
+
+  /* ── MAIN ── */
+  .main { flex: 1; padding: 32px; overflow-y: auto; max-width: 1100px; }
+
+  /* ── SECTION PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO CARD ── */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 16px; padding: 36px 40px; color: #fff; margin-bottom: 28px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; right: -40px; top: -40px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero::after {
+    content: ''; position: absolute; right: 40px; bottom: -60px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-tag {
+    display: inline-block; background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+  .hero-sub { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 600px; }
+  .hero-meta { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-val { font-size: 20px; font-weight: 800; }
+  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.55); }
+
+  /* ── CARDS GRID ── */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .metric-card {
+    background: var(--card); border-radius: 12px; padding: 20px;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .metric-card-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .metric-card-val { font-size: 24px; font-weight: 800; color: var(--primary); }
+  .metric-card-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .metric-card.green .metric-card-val { color: var(--success); }
+  .metric-card.orange .metric-card-val { color: var(--accent); }
+  .metric-card.red .metric-card-val { color: var(--danger); }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 16px; font-weight: 700; color: var(--primary);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 2px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── CONTENT CARD ── */
+  .card {
+    background: var(--card); border-radius: 14px; padding: 24px;
+    border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 20px;
+  }
+  .card-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 16px; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 20px; }
+  .tl-dot {
+    position: absolute; left: -24px; top: 3px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--primary-light); border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  .tl-dot.done { background: var(--success); box-shadow: 0 0 0 2px var(--success); }
+  .tl-dot.warn { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  .tl-dot.issue { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
+  .tl-phase {
+    font-size: 11px; font-weight: 700; color: var(--primary-light);
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
+  }
+  .tl-date { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+  .tl-content { font-size: 13.5px; line-height: 1.6; color: var(--text); }
+  .tl-content ul { padding-left: 18px; margin-top: 6px; }
+  .tl-content ul li { margin-bottom: 3px; }
+  .tl-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px; margin-left: 8px;
+  }
+  .tl-tag.issue { background: var(--tag-red); color: var(--tag-red-text); }
+  .tl-tag.done { background: var(--tag-green); color: var(--tag-green-text); }
+  .tl-tag.action { background: var(--tag-orange); color: var(--tag-orange-text); }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .data-table th {
+    background: var(--bg); color: var(--primary); font-weight: 700;
+    text-align: left; padding: 10px 14px; font-size: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #f8fafc; }
+
+  /* ── TAG CHIPS ── */
+  .chip {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px; margin: 2px;
+  }
+  .chip.blue { background: var(--tag-blue); color: var(--tag-blue-text); }
+  .chip.orange { background: var(--tag-orange); color: var(--tag-orange-text); }
+  .chip.green { background: var(--tag-green); color: var(--tag-green-text); }
+  .chip.red { background: var(--tag-red); color: var(--tag-red-text); }
+
+  /* ── ACTION ITEMS ── */
+  .action-list { list-style: none; }
+  .action-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px;
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list .owner {
+    flex-shrink: 0; background: var(--primary); color: #fff;
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    margin-top: 2px;
+  }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    border-left: 4px solid var(--accent); background: #fff8f0;
+    border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 14px;
+  }
+  .insight-title { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .insight p { font-size: 13.5px; line-height: 1.65; color: var(--text); }
+  .insight.blue { border-color: var(--primary-light); background: #eff6ff; }
+  .insight.blue .insight-title { color: var(--primary-light); }
+  .insight.green { border-color: var(--success); background: #f0fdf4; }
+  .insight.green .insight-title { color: var(--success); }
+  .insight.red { border-color: var(--danger); background: #fef2f2; }
+  .insight.red .insight-title { color: var(--danger); }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .compare-table th { padding: 10px 16px; text-align: left; font-size: 12px; font-weight: 700; }
+  .compare-table th:first-child { background: var(--bg); color: var(--text-muted); }
+  .compare-table th.biz { background: #dbeafe; color: #1e40af; }
+  .compare-table th.prod { background: #dcfce7; color: #166534; }
+  .compare-table td { padding: 10px 16px; border-top: 1px solid var(--border); vertical-align: top; }
+  .compare-table td:first-child { font-weight: 600; color: var(--text-muted); background: #fafafa; }
+  .compare-table td.biz { color: #1e3a8a; }
+  .compare-table td.prod { color: #14532d; }
+
+  /* ── PM FRAMEWORK ── */
+  .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .framework-card {
+    border-radius: 10px; padding: 16px; border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .framework-card-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .framework-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+  .framework-card.short { border-top: 3px solid var(--accent); }
+  .framework-card.mid { border-top: 3px solid var(--primary-light); }
+  .framework-card.long { border-top: 3px solid var(--success); }
+  .framework-card.short .framework-card-title { color: var(--accent); }
+  .framework-card.mid .framework-card-title { color: var(--primary-light); }
+  .framework-card.long .framework-card-title { color: var(--success); }
+
+  /* ── COMMIT TABLE ── */
+  .commit-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .commit-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; }
+  .commit-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .commit-table tr:last-child td { border-bottom: none; }
+  .commit-table td:first-child { font-weight: 600; color: var(--text-muted); }
+  .commit-table .level-low { color: var(--success); font-weight: 700; }
+  .commit-table .level-mid { color: var(--warning); font-weight: 700; }
+  .commit-table .level-high { color: var(--danger); font-weight: 700; }
+
+  /* ── LINKS ── */
+  a { color: var(--primary-light); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .framework-grid { grid-template-columns: 1fr; }
+    .topnav { padding: 0 16px; }
+    .main { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-brand">
+    <div class="topnav-logo">M</div>
+    <div>
+      <div class="topnav-title">MiTAC Case Learning Hub</div>
+      <div class="topnav-meta">2026/04 – 2026/05 · VisionMax 專案事件記錄</div>
+    </div>
+  </div>
+  <div class="topnav-tabs">
+    <button class="tab-btn active" onclick="switchCase('ps')">Platform Science</button>
+    <button class="tab-btn" onclick="switchCase('cs')">CONNECTSOURCE</button>
+    <button class="tab-btn" onclick="switchCase('pm')">PM 策略洞察</button>
+  </div>
+</nav>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar-ps">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Platform Science</div>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero')"><span class="sidebar-icon">🏢</span>專案總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people')"><span class="sidebar-icon">👥</span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline')"><span class="sidebar-icon">📅</span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech')"><span class="sidebar-icon">🔧</span>技術資訊</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions')"><span class="sidebar-icon">✅</span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks')"><span class="sidebar-icon">⚠️</span>商機與風險</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis')"><span class="sidebar-icon">🧠</span>PM 分析</a>
+  </div>
+</aside>
+
+<aside class="sidebar" id="sidebar-cs" style="display:none">
+  <div class="sidebar-section">
+    <div class="sidebar-label">CONNECTSOURCE</div>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero')"><span class="sidebar-icon">🌏</span>事件總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people')"><span class="sidebar-icon">👥</span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers')"><span class="sidebar-icon">💰</span>商業規模</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline')"><span class="sidebar-icon">📅</span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict')"><span class="sidebar-icon">⚡</span>衝突分析</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions')"><span class="sidebar-icon">✅</span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm')"><span class="sidebar-icon">🧠</span>PM 建議</a>
+  </div>
+</aside>
+
+<aside class="sidebar" id="sidebar-pm" style="display:none">
+  <div class="sidebar-section">
+    <div class="sidebar-label">PM 策略</div>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero')"><span class="sidebar-icon">📚</span>跨案例洞察</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit')"><span class="sidebar-icon">🎯</span>承諾層次框架</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client')"><span class="sidebar-icon">💬</span>技術型客戶溝通</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal')"><span class="sidebar-icon">🔄</span>內部溝通斷層</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles')"><span class="sidebar-icon">💡</span>核心原則</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ════ PAGE: PLATFORM SCIENCE ════ -->
+<div class="page active" id="page-ps">
+
+  <div id="ps-hero">
+    <div class="hero">
+      <div class="hero-tag">Case 01 · 對外整合</div>
+      <h1>Platform Science × MiTAC VisionMax</h1>
+      <p class="hero-sub">美國車隊軟體商 Platform Science 評估 MiTAC VisionMax SDK 與 CDR 攝影機整合，目標建立 cloud-to-cloud 平台夥伴關係。</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><div class="hero-stat-val">1 月</div><div class="hero-stat-label">接洽至採購意向</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">2 台</div><div class="hero-stat-label">測試裝置已加入</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">6 個</div><div class="hero-stat-label">推進階段</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">🔴 卡關</div><div class="hero-stat-label">K265 image 問題</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEOPLE -->
+  <div id="ps-people">
+    <div class="section-title">主要關係人</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="card">
+        <div class="card-title">🏢 Platform Science（客戶端）</div>
+        <table class="data-table">
+          <thead><tr><th>姓名</th><th>角色</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Vinicius Francisquinho</strong></td><td>Engineering Director, Video Safety<br><small>今年初新任，主要技術決策者</small></td></tr>
+            <tr><td>Vikram Jayaraman</td><td>前期聯絡窗口</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">🏭 MiTAC（供應端）</div>
+        <table class="data-table">
+          <thead><tr><th>姓名</th><th>角色</th></tr></thead>
+          <tbody>
+            <tr><td>Stark Yang（楊永吉）</td><td>Director, Video Telematics</td></tr>
+            <tr><td>Brian Chienlee（李健）</td><td>VisionMax 解決方案負責人</td></tr>
+            <tr><td>Conant Ho（何肇峯）</td><td>技術 PM，主要對外窗口</td></tr>
+            <tr><td>Righter Song（宋祐全）</td><td>RD Engineer，韌體操作</td></tr>
+            <tr><td>Paul SP Lee（李世博）</td><td>PS Account Sales</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="ps-timeline">
+    <div class="section-title">事件時間軸</div>
+    <div class="card">
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-phase">Phase 1</div>
+          <div class="tl-date">4/16 – 4/17</div>
+          <div class="tl-content">
+            <strong>初次需求接洽</strong><br>
+            Stark 將 Brian 加入串列，請 Vikram 分享 Platform Science 的 camera project plan。<br>
+            Vikram 表達對 K265 進行 additional validation，並提出需求：
+            <ul>
+              <li>multi-channel 支援</li>
+              <li>CAN decoding</li>
+              <li>non-China manufacturing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-phase">Phase 2</div>
+          <div class="tl-date">4/20 – 4/21</div>
+          <div class="tl-content">
+            <strong>VisionMax 帳號與設備建立</strong> <span class="tl-tag done">完成</span><br>
+            Brian 為 Vinicius 建立 Production 帳號，提供 API KEY、Portal 連結、API 文件。<br>
+            Righter 提供 device update 文件附件。
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-phase">Phase 3</div>
+          <div class="tl-date">4/21 – 4/22</div>
+          <div class="tl-content">
+            <strong>排定首次正式會議</strong> <span class="tl-tag done">完成</span><br>
+            Vinicius 主動提案、自我介紹為新任 Engineering Director。<br>
+            Conant 安排，確認 <strong>4/29</strong> 召開 Kickoff 會議。
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot issue"></div>
+          <div class="tl-phase">Phase 4</div>
+          <div class="tl-date">4/28</div>
+          <div class="tl-content">
+            <strong>Inventory 加入問題</strong> <span class="tl-tag issue">卡關</span><br>
+            Vinicius 回報 K265 無法加入 VisionMax portal，提供 IMEI/SN 後，Righter 當日處理完成。<br>
+            <ul>
+              <li>K265: IMEI 353995720096134 / SN L1225380005</li>
+              <li>K245: IMEI 357216578001266 / SN F4723090088</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-phase">Phase 5</div>
+          <div class="tl-date">4/29</div>
+          <div class="tl-content">
+            <strong>Kickoff 會議召開</strong> <span class="tl-tag done">完成</span><br>
+            會後 Vinicius 提出行動清單：SDK 文件、簡報、設備報價、下單流程。<br>
+            Conant 提供 CDR roadmap 與 SDK 連結。<br>
+            Vinicius 詢問 K265 / K245 / K246 Orion 是否共用同一 SDK。
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot issue"></div>
+          <div class="tl-phase">Phase 6</div>
+          <div class="tl-date">5/3 – 5/4（最新）</div>
+          <div class="tl-content">
+            <strong>週末密集測試回報</strong> <span class="tl-tag issue">K265 仍卡關</span> <span class="tl-tag action">報價催促</span><br>
+            Conant 確認 SDK 通用於所有 CDR 機型，model-specific 差異文件中已標注。<br>
+            <strong>K245：成功</strong> — 已完成 OEM image 修改、替換錄影 app、資料傳輸至自有 server。<br>
+            <strong>K265：失敗</strong> — portal 仍無法運作，推測 image 有誤。<br>
+            初期整合優先走 <strong>cloud-to-cloud</strong> 路線，並<strong>再次催促報價</strong>。
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH INFO -->
+  <div id="ps-tech">
+    <div class="section-title">技術資訊速查</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="card">
+        <div class="card-title">📱 MiTAC CDR 產品線</div>
+        <table class="data-table">
+          <thead><tr><th>型號</th><th>代號</th><th>狀態</th></tr></thead>
+          <tbody>
+            <tr><td>K220</td><td>Sprint</td><td><span class="chip blue">可用</span></td></tr>
+            <tr><td>K245 / K245c</td><td>Gemini SE</td><td><span class="chip green">測試成功</span></td></tr>
+            <tr><td>K246</td><td>Orion</td><td><span class="chip orange">詢問中</span></td></tr>
+            <tr><td>K265</td><td>EVO</td><td><span class="chip red">Image 卡關</span></td></tr>
+            <tr><td>K425</td><td>Lightmetrics→MiTAC</td><td><span class="chip orange">2026 Q1 測試中</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">🔗 服務連結</div>
+        <table class="data-table">
+          <tbody>
+            <tr><td><strong>Master Portal</strong></td><td><a href="https://portal.visionmaxfleet.com/" target="_blank">portal.visionmaxfleet.com</a></td></tr>
+            <tr><td><strong>Fleet Portal</strong></td><td><a href="https://www.visionmaxfleet.com/" target="_blank">visionmaxfleet.com</a></td></tr>
+            <tr><td><strong>API Docs</strong></td><td><a href="https://visionmax.redocly.app/" target="_blank">visionmax.redocly.app</a></td></tr>
+            <tr><td><strong>SDK</strong></td><td><a href="https://drive.google.com/file/d/121XoPoTtx7R1QBXxzkdoysKMzMm1auN5/view?usp=sharing" target="_blank">Google Drive 連結</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div id="ps-actions">
+    <div class="section-title">待辦事項</div>
+    <div class="card">
+      <ul class="action-list">
+        <li>
+          <span class="owner">Righter</span>
+          <span>為 <strong>K265</strong> 提供 image 修正流程（對齊先前提供 K245 的版本）—— Vinicius 判斷 K265 image 有誤，導致無法在 portal 運作。<span class="chip red" style="margin-left:6px">急迫</span></span>
+        </li>
+        <li>
+          <span class="owner">Conant/Sales</span>
+          <span>提供 Vinicius 要求的 <strong>設備報價</strong> 與 <strong>下單流程</strong>（Vinicius 已二次催促：4/29 與 5/4）<span class="chip red" style="margin-left:6px">急迫</span></span>
+        </li>
+        <li>
+          <span class="owner">Brian/RD</span>
+          <span>2026 Q1 K425 image 完成後，主動通知 Platform Science 更新。</span>
+        </li>
+        <li>
+          <span class="owner">待釐清</span>
+          <span>確認 Vinicius 最終商業模式：純 cloud-to-cloud API 整合 vs. OEM image 客製化。</span>
+        </li>
+        <li>
+          <span class="owner">待釐清</span>
+          <span>K246 Orion 是否列入採購清單。</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RISKS -->
+  <div id="ps-risks">
+    <div class="section-title">商機與風險</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="card">
+        <div class="card-title" style="color:var(--success)">✅ 機會點</div>
+        <ul style="font-size:13.5px;line-height:1.8;padding-left:18px;color:var(--text);">
+          <li>SDK 評價正面：「comprehensive」「worked nicely」</li>
+          <li>K245 OEM image 修改完成，代表整合能力強</li>
+          <li>1 個月內完成接洽→測試→採購意向，動能快速</li>
+          <li>test truck 安裝計畫，具備擴大採購潛力</li>
+          <li>cloud-to-cloud 路線暗示長期平台夥伴關係</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--danger)">⚠️ 風險點</div>
+        <ul style="font-size:13.5px;line-height:1.8;padding-left:18px;color:var(--text);">
+          <li>K265 image/portal 問題重複出現，恐影響客戶信任</li>
+          <li>報價持續未回，可能導致決策停擺</li>
+          <li>non-China manufacturing 要求是潛在否決條件</li>
+          <li>cloud-to-cloud vs OEM 雙路線並行，整合範圍不確定</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PM ANALYSIS -->
+  <div id="ps-analysis">
+    <div class="section-title">PM 分析：客戶動機解讀</div>
+    <div class="card">
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>表面需求</th><th>背後真正在意的事</th></tr></thead>
+        <tbody>
+          <tr><td>需要 SDK 文件</td><td>在內部評估 MiTAC 是否值得深度投入</td></tr>
+          <tr><td>詢問報價</td><td>想確認 MiTAC 有意願正式做生意，不只是做 POC</td></tr>
+          <tr><td>K265 portal 問題</td><td>在測試 MiTAC 的技術支援反應速度</td></tr>
+          <tr><td>提到 cloud-to-cloud</td><td>希望與 MiTAC 是平台對平台的夥伴關係，而非純硬體採購</td></tr>
+        </tbody>
+      </table>
+      <div class="insight blue">
+        <div class="insight-title">Vinicius 的行為特徵</div>
+        <p>技術型決策者，週末自己動手測試 SDK——他同時是評估者也是執行者。兩度催促報價說明他內部已有採購壓力，主動性高。用「初期實作」描述 cloud-to-cloud，暗示後續還有更深合作規劃。</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-ps -->
+
+
+<!-- ════ PAGE: CONNECTSOURCE ════ -->
+<div class="page" id="page-cs">
+
+  <div id="cs-hero">
+    <div class="hero" style="background:linear-gradient(135deg,#92400e 0%,#c2410c 100%);">
+      <div class="hero-tag">Case 02 · 內部協作</div>
+      <h1>CONNECTSOURCE × Passenger Blurring</h1>
+      <p class="hero-sub">澳洲 MiTAC 經銷商（CONNECTSOURCE）為馬來西亞車隊業者提出乘客模糊化 AI 功能需求，引發內部對路線圖透明度與成本歸屬的討論。</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><div class="hero-stat-val">1,165</div><div class="hero-stat-label">台裝置</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">$216K</div><div class="hero-stat-label">潛在收益（USD）</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">$700</div><div class="hero-stat-label">AWS 成本/月</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">Q2 2026</div><div class="hero-stat-label">目標上線</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEOPLE -->
+  <div id="cs-people">
+    <div class="section-title">主要關係人</div>
+    <div class="card">
+      <table class="data-table">
+        <thead><tr><th>姓名</th><th>角色</th><th>立場</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Wendy</strong></td><td>澳洲 CONNECTSOURCE 業務窗口（MiTAC 經銷商端）</td><td><span class="chip blue">業務端</span></td></tr>
+          <tr><td><strong>Brian Chienlee（李健）</strong></td><td>VisionMax 解決方案負責人（MiTAC 產品端）</td><td><span class="chip green">產品端</span></td></tr>
+          <tr><td><strong>Cary Lo</strong></td><td>MiTAC 內部財務/商務分析</td><td><span class="chip orange">商務端</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NUMBERS -->
+  <div id="cs-numbers">
+    <div class="section-title">商業規模</div>
+    <div class="cards-grid">
+      <div class="metric-card"><div class="metric-card-label">硬體裝置</div><div class="metric-card-val">1,165</div><div class="metric-card-sub">台（馬來西亞車隊）</div></div>
+      <div class="metric-card"><div class="metric-card-label">預估連線數</div><div class="metric-card-val">1,000</div><div class="metric-card-sub">個連線</div></div>
+      <div class="metric-card"><div class="metric-card-label">合約期限</div><div class="metric-card-val">36</div><div class="metric-card-sub">個月</div></div>
+      <div class="metric-card green"><div class="metric-card-label">潛在收益</div><div class="metric-card-val">$216K</div><div class="metric-card-sub">USD（~$6/月/連線）</div></div>
+      <div class="metric-card red"><div class="metric-card-label">AWS 成本/月</div><div class="metric-card-val">$700</div><div class="metric-card-sub">Passenger Blurring 額外費用</div></div>
+      <div class="metric-card green"><div class="metric-card-label">淨收益估算</div><div class="metric-card-val">$190K</div><div class="metric-card-sub">36 個月合計（扣 AWS）</div></div>
+    </div>
+    <div class="insight green" style="margin-bottom:20px;">
+      <div class="insight-title">財務可行性</div>
+      <p>財務上具備可行性，前提是 $6/月/連線的定價模型已涵蓋 AWS 成本分攤（$700/月 ÷ 1,000 連線 = $0.7/月/連線）。</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="cs-timeline">
+    <div class="section-title">事件時間軸</div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-phase">早期</div>
+          <div class="tl-date">2026/04 初</div>
+          <div class="tl-content">
+            <strong>需求提出</strong><br>
+            Wendy 向 Brian 提出馬來西亞客戶的 Passenger Blurring 需求，說明隱私法規與工會背景、合約規模（1,165 台、1,000 連線、36 個月）。
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot warn"></div>
+          <div class="tl-phase">財務評估</div>
+          <div class="tl-date">2026/04/24</div>
+          <div class="tl-content">
+            <strong>成本與功能可行性討論</strong> <span class="tl-tag action">內部討論</span><br>
+            <strong>Cary Lo</strong> 提問：1,165 台 HW 月收益約 $1,165 USD；AWS 成本 $700/月 是否已計入定價？規模是否符合功能適用條件？<br>
+            <strong>Brian</strong> 回覆：確認 AWS 成本 $700/月；此功能原為 BMS 客戶開發，整合至 CONNECTSOURCE 需額外工作；目標 <strong>Q2 2026（七月）</strong>。
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot issue"></div>
+          <div class="tl-phase">衝突浮現</div>
+          <div class="tl-date">2026/05/04</div>
+          <div class="tl-content">
+            <strong>路線圖透明度衝突</strong> <span class="tl-tag issue">內部衝突</span><br>
+            <strong>Wendy</strong> 表達不滿：長期無路線圖同步會議、業務端無法對客戶承諾。<br>
+            <strong>Brian</strong> 回覆：分享 AI Feature Roadmap 簡報與需求追蹤 Sheets，確認七月為目標。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFLICT -->
+  <div id="cs-conflict">
+    <div class="section-title">衝突核心分析</div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">業務端 vs 產品端的期望落差</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>面向</th>
+            <th class="biz">Wendy（業務端）的期望</th>
+            <th class="prod">Brian（產品端）的現實</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>功能時程</td><td class="biz">盡快上線，可對客戶承諾</td><td class="prod">需額外開發，Q2 2026 / 七月</td></tr>
+          <tr><td>功能範圍</td><td class="biz">CONNECTSOURCE 可直接使用</td><td class="prod">需針對 CONNECTSOURCE 重新整合</td></tr>
+          <tr><td>資訊頻率</td><td class="biz">定期路線圖同步</td><td class="prod">被動回應，無主動推播機制</td></tr>
+          <tr><td>承諾精度</td><td class="biz">具體可執行的日期</td><td class="prod">「Q2 / 七月」（粗粒度）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight red">
+      <div class="insight-title">根本問題 1：資訊不對稱</div>
+      <p>業務端不知道路線圖，只能被動等待。Wendy 的情緒反應背後是系統性的溝通斷裂，不是個人關係問題。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-title">根本問題 2：功能原型 ≠ 可交付功能</div>
+      <p>Passenger Blurring 對 BMS 可用，但對 CONNECTSOURCE 需要重新整合。這個差異沒有在早期被清楚傳達，導致業務端誤判功能就緒程度。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-title">根本問題 3：承諾時程粒度不足</div>
+      <p>「Q2 2026 / 七月」對業務端太粗，更有效的說法：「六月確認可行性、七月開始整合測試、Q3 正式上線」。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-title">根本問題 4：成本歸屬未釐清</div>
+      <p>$700/月 AWS 成本是否計入 $6/月/連線的定價？若未涵蓋，CONNECTSOURCE 報價結構需重新評估。</p>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div id="cs-actions">
+    <div class="section-title">待辦事項</div>
+    <div class="card">
+      <ul class="action-list">
+        <li>
+          <span class="owner">Brian</span>
+          <span>提供 Passenger Blurring 的具體里程碑節點（不只說「七月」），讓業務端可以管理客戶預期。</span>
+        </li>
+        <li>
+          <span class="owner">Brian</span>
+          <span>確認 $6/月/連線的定價模型是否已包含 $700/月 AWS 成本分攤。</span>
+        </li>
+        <li>
+          <span class="owner">Brian</span>
+          <span>建立定期 roadmap sync 機制（建議每季一次），確保澳洲業務端有常態資訊流。</span>
+        </li>
+        <li>
+          <span class="owner">Wendy</span>
+          <span>向馬來西亞客戶溝通：Q2 2026 / 七月為目標，待 Brian 提供更細里程碑後再確認。</span>
+        </li>
+        <li>
+          <span class="owner">Cary Lo</span>
+          <span>確認 1,165 台裝置是否符合 Passenger Blurring 功能最小部署規模條件。</span>
+        </li>
+        <li>
+          <span class="owner">Cary Lo</span>
+          <span>釐清 AWS 成本分攤是否已反映在 CONNECTSOURCE 現行定價結構中。</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PM RECS -->
+  <div id="cs-pm">
+    <div class="section-title">PM 建議</div>
+    <div class="framework-grid">
+      <div class="framework-card short">
+        <div class="framework-card-title">⚡ 短期（立即可做）</div>
+        <p>Brian 在下次回信中把「七月」轉化為可驗證的里程碑：<br><br>
+        「預計六月底確認整合方案可行性，七月啟動開發，Q3 結束前提供 CONNECTSOURCE 測試版本。任何變動我會提前通知。」<br><br>
+        關鍵在「任何變動我會提前通知」——這才是 Wendy 真正需要的承諾。</p>
+      </div>
+      <div class="framework-card mid">
+        <div class="framework-card-title">📅 中期（流程改善）</div>
+        <p>建立 <strong>VisionMax Roadmap Sync</strong> 定期會議（每季一次），澳洲、台灣業務端與產品端共同參與，輸出一頁簡報說明：<br>
+        • 已上線功能<br>
+        • 進行中的功能（含預計里程碑）<br>
+        • 規劃中但未承諾的功能</p>
+      </div>
+      <div class="framework-card long">
+        <div class="framework-card-title">🏗️ 長期（定價結構）</div>
+        <p>若 Passenger Blurring 成為標準功能，需在 CONNECTSOURCE 的定價模型中明確將 AWS 成本納入，避免每次都需要個案討論。</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-cs -->
+
+
+<!-- ════ PAGE: PM INSIGHTS ════ -->
+<div class="page" id="page-pm">
+
+  <div id="pm-hero">
+    <div class="hero" style="background:linear-gradient(135deg,#1e3a5f 0%,#374151 100%);">
+      <div class="hero-tag">PM 策略洞察</div>
+      <h1>跨案例 PM 策略總結</h1>
+      <p class="hero-sub">從 Platform Science 與 CONNECTSOURCE 兩個事件中，提煉出 R&D PM 在對外客戶溝通與內部協作中的核心策略原則。</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><div class="hero-stat-val">2</div><div class="hero-stat-label">真實案例</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">4</div><div class="hero-stat-label">核心洞察</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">1</div><div class="hero-stat-label">PM 框架</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMIT FRAMEWORK -->
+  <div id="pm-commit">
+    <div class="section-title">承諾層次框架</div>
+    <div class="card">
+      <div class="insight blue" style="margin-bottom:16px;">
+        <div class="insight-title">核心命題</div>
+        <p>研發 PM 不是在承諾「結果」，而是在承諾「透明度」。你沒辦法保證功能七月上線，但你可以保證：七月到的時候，客戶不會是第一個知道「做不到」的人。</p>
+      </div>
+      <table class="commit-table">
+        <thead>
+          <tr><th>承諾類型</th><th>說法範例</th><th>風險程度</th><th>適用情境</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>功能上線日期</td>
+            <td>「七月上線」</td>
+            <td class="level-high">高風險</td>
+            <td>研發確定性極高時才用</td>
+          </tr>
+          <tr>
+            <td>里程碑節點</td>
+            <td>「六月底給你 MVP 評估結果」</td>
+            <td class="level-mid">中風險</td>
+            <td>階段性評估或測試版</td>
+          </tr>
+          <tr>
+            <td>評估時程</td>
+            <td>「兩週內告訴你這功能能不能做」</td>
+            <td class="level-low">低風險</td>
+            <td>需求確認初期</td>
+          </tr>
+          <tr>
+            <td>資訊更新頻率</td>
+            <td>「每月底給你一次進度更新」</td>
+            <td class="level-low">極低風險</td>
+            <td>任何時期都可承諾</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;padding:14px;background:#f8fafc;border-radius:8px;font-size:13px;color:var(--text-muted);">
+        💡 客戶失去信任，往往不是因為「日期延了」，而是因為「延了才通知」。同樣是「延了兩個月」——事先預警的版本建立信任，事後才說的版本摧毀信任。
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH CLIENT -->
+  <div id="pm-tech-client">
+    <div class="section-title">技術型客戶溝通策略（源自 Vinicius 案例）</div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--danger);margin-bottom:10px;">❌ 不有效的做法</div>
+          <ul style="font-size:13px;line-height:1.8;padding-left:18px;color:var(--text-muted);">
+            <li>強調功能有多強大</li>
+            <li>只說商業故事</li>
+            <li>等客戶問了才回應</li>
+            <li>技術問題模糊帶過</li>
+            <li>讓報價「等一下」</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--success);margin-bottom:10px;">✅ 有效的做法</div>
+          <ul style="font-size:13px;line-height:1.8;padding-left:18px;color:var(--text-muted);">
+            <li>提供精準的技術文件</li>
+            <li>清楚說明功能限制</li>
+            <li>跟上客戶的測試節奏</li>
+            <li>主動定義「下一步行動 + Owner + 時限」</li>
+            <li>報價作為信任指標，早給</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight blue" style="margin-top:16px;">
+        <div class="insight-title">關鍵洞察</div>
+        <p>Vinicius 這類技術型決策者，每次互動都在測試 MiTAC 的反應速度與專業度。K265 portal 問題對他來說不只是 bug，是在評估「這個合作夥伴值不值得依賴」。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNAL COMMS -->
+  <div id="pm-internal">
+    <div class="section-title">內部溝通斷層（源自 Wendy 案例）</div>
+    <div class="card">
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>業務端的感受</th><th>真正的根因</th><th>PM 的解法</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>「不知道功能什麼時候出」</td>
+            <td>產品端沒有主動輸出路線圖資訊</td>
+            <td>建立定期 roadmap sync（每季）</td>
+          </tr>
+          <tr>
+            <td>「不知道能不能對客戶承諾」</td>
+            <td>承諾層次太粗，沒有里程碑</td>
+            <td>提供「確認日期」而非「上線日期」</td>
+          </tr>
+          <tr>
+            <td>「功能說好有，但用不了」</td>
+            <td>原型 ≠ 可交付功能，差異未傳達</td>
+            <td>早期清楚說明功能就緒條件</td>
+          </tr>
+          <tr>
+            <td>「感覺被蒙在鼓裡」</td>
+            <td>無常態資訊流，只有被動回應</td>
+            <td>主動推播，即使沒有進展也要說</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="insight">
+        <div class="insight-title">核心洞察</div>
+        <p>業務端的不滿通常是資訊不對稱造成的，不是情緒問題。PM 有責任主動輸出資訊，即使功能沒有進展，也要讓業務端知道「我們知道這件事，這是目前狀態」。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div id="pm-principles">
+    <div class="section-title">核心 PM 原則</div>
+    <div class="card">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
+          <div style="font-size:24px;flex-shrink:0;">🔍</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">讀懂需求背後的動機</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">Wendy 說的是「功能什麼時候出」，但她真正在意的是「我在客戶面前的可信度」。Vinicius 說的是「需要 SDK 文件」，但他真正在測試的是「MiTAC 值不值得深度合作」。回應那個動機，而不只是回應表面的問題。</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
+          <div style="font-size:24px;flex-shrink:0;">🔄</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">你的工作是「讓事情不卡住」</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">K265 白名單問題沒有 owner、Passenger Blurring 可行性評估沒有明確結論、路線圖會議沒有人去約——這些空白地帶都是 PM 應該主動介入的地方。</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
+          <div style="font-size:24px;flex-shrink:0;">💬</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">PM 是「商業翻譯」</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">把技術成本轉換成業務語言，把業務機會轉換成產品優先順序的依據。$700/月的 AWS 成本對工程師是基礎設施，對業務是定價變數，對 PM 是需要被翻譯清楚的橋樑。</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
+          <div style="font-size:24px;flex-shrink:0;">📅</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">每次互動要有明確的 Next Step</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">每次與客戶或業務端的互動結束後，要有 Next Step + Owner + Timeline。不能讓對話停在「我們再看看」或「到時候再說」。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-pm -->
+
+</main>
+</div><!-- /layout -->
+
+<script>
+  function switchCase(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('sidebar-' + id).style.display = 'block';
+    event.target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    event.preventDefault();
+  }
+</script>
+
+</body>
+</html>
