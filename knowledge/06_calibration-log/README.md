@@ -7,6 +7,8 @@
 - **[critical-facts-log.md](critical-facts-log.md)** — 已校正的關鍵事實(機種 / FCW 語音 / ADAS 範圍等)
 - **[sheet-jira-mismatches.md](sheet-jira-mismatches.md)** — Sheet vs Jira 雙向同步缺口紀錄
 - **[roadmap-vs-internal.md](roadmap-vs-internal.md)** — 對外 Roadmap vs 內部現實 不一致紀錄
+- **[vmx-7404-tracking.md](vmx-7404-tracking.md)** — VMX-7404 ADAS Failure 追蹤(評估期主案)
+- **[ai-team-sheet-snapshot-2026-05-05.md](ai-team-sheet-snapshot-2026-05-05.md)** — AI Team 15 件 active tasks 快照
 
 ## 為什麼要記校正歷史
 
