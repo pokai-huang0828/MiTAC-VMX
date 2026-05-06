@@ -1,0 +1,53 @@
+# 內部溝通斷層
+
+> 源自 Wendy 案 + 2026-05-06 Sheet/Jira 同步缺口發現
+
+## 業務端不滿的根因表
+
+| 業務感受 | 根因 | PM 解法 |
+|---------|------|---------|
+| 「不知道功能什麼時候出」 | 產品端沒主動輸出 roadmap | 建立定期 roadmap sync(每季) |
+| 「不知道能否承諾」 | 承諾層次太粗,沒里程碑 | 提供「確認日期」而非「上線日期」 |
+| 「功能說好有,但用不了」 | 原型 ≠ 可交付,差異未傳達 | 早期清楚說就緒條件 |
+| 「感覺被蒙在鼓裡」 | 無常態資訊流,只有被動回應 | 主動推播,**沒進展也要說** |
+
+## 核心洞察
+
+**業務端的不滿通常是資訊不對稱,不是情緒問題**。
+
+PM 有責任主動輸出資訊,即使功能沒進展,也要讓業務端知道「我們知道、目前狀態是 X」。
+
+## Sheet ↔ Jira 雙向同步缺口(2026-05-06 發現)
+
+PM 角色升級成「Sheet/Jira sync owner」,要處理兩個方向的落差:
+
+### 方向 1:Sheet 落後 Jira(Jira 已關 Sheet 沒改)
+- 例:VMX-6754 / 7029 / 7161 / 7162 — 5/6 Q2 Review 前
+- 業務端看 Sheet 以為「拖了 7 個月」,實際 RD 已交付
+
+### 方向 2:Sheet 領先 Jira(口頭說完成,Jira 沒 close)
+- 例:VMX-7082 / 7233 / 6782 — 5/6 Q2 Review 後新生成
+- 「我做完了」≠ Jira ticket transition
+
+## PM 介入動作
+
+每兩週做一次 Sheet × Jira sweep:
+1. 撈 Sheet 顯示 In Process 的 ticket
+2. 比對 Jira 真實狀態
+3. 兩個方向 mismatch 都私訊 owner 確認
+4. 同步後在 Sheet 加 sweep 紀錄
+
+→ 這就是評估期 PM 真實的「沒人扛 = 我來扛」入口。
+
+## 對應到 VMX 內部具體案件
+
+| 案件 | 業務端感受 | PM 解法 |
+|------|----------|---------|
+| #11 OTA 17 個月 Brian 自己提 | 看似 stale | **不是內部問題,Akamai 設定錯,Brian 自己不在意** |
+| Yawning(對外 Roadmap 已有 vs 內部測試中) | 客戶以為已 ship | 對外口徑統一改「Roadmap planned」 |
+| Smoking(KB 沒寫 / Sheet 隱藏 / Roadmap 列) | 業務不確定能否賣 | 找 Jimmy 確認真實狀態,給 sales 一致口徑 |
+| #154 Server AI label 沒 pick | API 沒釋出 | PM 來扛 merge label sweep |
+
+## ⚠️ Wendy 待補
+
+Wendy 是 Hub 第三 tab 提到的內部業務端 stakeholder。身份 / 部門 / 跟進案件不明 — **找 Brian 確認後補進 stakeholders.md**。
