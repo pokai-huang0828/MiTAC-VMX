@@ -15,7 +15,6 @@
 | AI 工作計畫 Sheet | 同上 (gid=339075798) | AI team 內部追蹤 |
 | Jira | https://jira.navman.co.nz/jira/ | RD ticket 事實狀態 |
 | MiAI Roadmap (對外) | `../MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管版 |
-| NotebookLM 同步 | `../神達VMX/sources/` 36 個逐字稿 | 會議錄音 / 訓練 |
 | Case_learning Hub | `../Case_learning/case-learning-hub.html` | 客戶案 + PM 框架 |
 | Portal HTML Briefings | `../portal_reference/*.html` | 客戶簡報用 |
 
@@ -81,7 +80,7 @@
 3. **客戶案 update** → 進 `../Case_learning/`
 4. **Sheet / Jira 變動** → 截圖驗證 visible rows,不信 CSV export
 
-⚠️ **這個資料夾是 source of truth 的整理層,不是原始資料層**。原始資料在 `../神達VMX/`(NotebookLM)、`../meetings/`、`../portal_reference/`、`../Case_learning/`。
+⚠️ **這個資料夾是 source of truth 的整理層,不是原始資料層**。原始資料在 `../meetings/`、`../portal_reference/`、`../Case_learning/`,以及 NotebookLM 線上(notebook id `a3aad3ec-ecf3-4468-a0d9-13a6a18359c7`)。
 
 ---
 

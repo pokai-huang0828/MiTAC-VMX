@@ -27,7 +27,6 @@
 | [`portal_reference/`](portal_reference/) | Brian portal task 主交付 | HTML 客戶簡報 25 張 + PDF 複刻 55 張 |
 | [`Case_learning/`](Case_learning/) | 客戶案件追蹤 | Connect Source / Platform Science / case hub |
 | [`meetings/`](meetings/) | 會議筆記 | Video Safety / Q2 Review |
-| `神達VMX/` | NotebookLM 同步資料 | 36 sources / notes / metadata |
 | [`VMX_images/`](VMX_images/) | Portal 截圖 | Fleet 16 張 + Master 8 張 |
 | `EVO_image_update/` | 韌體更新流程文件 | `.gitignore` 排除 binary,只留 process.md |
 | [`docs/`](docs/) | Repo-level meta 文件 | git history 清理評估等 |
@@ -75,7 +74,6 @@
 
 ### NotebookLM
 - 入口:`https://notebooklm.google.com/notebook/a3aad3ec-ecf3-4468-a0d9-13a6a18359c7`
-- 同步資料夾:`神達VMX/`
 
 ### Portal
 - Master:`portal.visionmaxfleet.com`(經銷商視角)

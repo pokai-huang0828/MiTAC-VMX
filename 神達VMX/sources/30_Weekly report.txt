@@ -1,4 +1,0 @@
-Source: 881c3da5-a1d4-4af7-95e6-c444b584a36a
-Title: Weekly report
-Type: 📝 Markdown
-Created: 2026-04-13 10:02
