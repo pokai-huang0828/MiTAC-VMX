@@ -141,17 +141,89 @@ VM Knowledge Base
 - 因此 threshold 不同
 - ⚠️ 具體數字 KB 沒給,還是要問 Mori / Jimmy
 
-## 待擴充 knowledge 文件
+## Deep Read 進度(2026-05-06)
 
-| 優先級 | KB 文章 | 該擴進 knowledge 的哪 |
-|-------|---------|---------------------|
-| P0 | What ADAS and DMS features do you support | 加 `01_product-knowledge/sales-faq.md`(新檔) |
-| P0 | How mature is your AI model | 同上 |
-| P0 | How long are videos and data stored | 同上 |
-| P0 | Can thresholds and alerts be customized | 同上 |
-| P0 | Are AI models processed locally or in the cloud | 同上 |
-| P1 | Master Portal 8 篇 | `03_systems-architecture/master-portal-operations.md`(新檔) |
-| P1 | Driver Identification K245/K245C/K265/K220 | 補進 `01_product-knowledge/machines-spec.md` |
-| P1 | Behaviour of Privacy Mode | 補進 `01_product-knowledge/voice-alerts.md` |
-| P2 | API Reference | `01_product-knowledge/api-reference.md`(新檔) |
-| P2 | VisionAgent 3 篇 | `01_product-knowledge/visionagent-app.md`(新檔) |
+### ✅ Deep read 完成 18 篇
+**General > FAQ(8 篇)**:
+- ✅ What ADAS and DMS features do you support → `sales-faq.md`
+- ✅ How mature is your AI model → `sales-faq.md`(Local 75-80% / Cloud 90-95%)
+- ✅ How long are videos and data stored → `sales-faq.md`(180 days)
+- ✅ How often do you update your AI model → `sales-faq.md`(Dataset monthly / Models quarterly)
+- ✅ Are AI models processed locally or in the cloud → `sales-faq.md`(hybrid)
+- ✅ Can thresholds and alerts be customized → `sales-faq.md`(NOT open)
+- ✅ Can we white label the platform → `sales-faq.md`(✅ logo + domain)
+- ✅ What's the difference between Device Portal and Fleet Portal → `sales-faq.md`
+
+**General > FAQ 補(4 篇)**:
+- ✅ VisionMax Driver Scorecard → `safety-score.md`
+- ✅ VisionMax Diagnostics Information → `diagnostics.md`
+- ✅ Parking Mode Behavior → 待整合
+- ✅ How long does the camera stay on → 校正(3 分鐘 suspend window)
+
+**General > Getting Started(3 篇)**:
+- ✅ What is the resolution, FPS, Bitrate → `machines-spec.md`(全 10 fps / 4 video types)
+- ✅ Why are thresholds different for Passenger / Medium / Heavy → `vehicle-classification.md`
+- ✅ What in-cabin alerts are available → `voice-alerts.md`(完整 11 類)
+
+**General > API(2 篇)**:
+- ✅ API Reference(只是 link 到 web API doc)
+- ✅ Is the portal cloud hosted (AWS, Azure, etc.) → AWS confirmed
+
+**Master Portal(2 篇)**:
+- ✅ What can I do in Master portal → `sales-faq.md` Master Portal section
+- ✅ How do I update SW for all devices at one time → batch OTA SOP
+
+**Fleet Portal(2 篇)**:
+- ✅ How are passenger / medium / heavy defined → `vehicle-classification.md`
+- ✅ Behaviour of Privacy Mode → `voice-alerts.md` Privacy Mode
+
+**Using camera(2 篇)**:
+- ✅ Manual Event Button Behaviors → `voice-alerts.md` 完整 8 種行為
+- ✅ Driver Identification Setup K245/K245C/K265/K220 → `machines-spec.md` RFID/QR mapping
+
+**VisionAgent(1 篇)**:
+- ✅ Can I use a smartphone via WiFi or BT → `visionagent-app.md`
+
+**General > Getting Started(1 篇)**:
+- ✅ What Are the Trigger Conditions for Each Traffic Sign → 部分(全文長,只摘 Speed Limit)
+
+### ✅ Deep read 第三批新增 8+ 篇
+
+**Fleet Portal**:
+- ✅ How to change the sensitivity of ADAS and DMS → 對應 sensitivity dial,Configurations → AI Event Detection → vehicle class → Low/Med/High
+- ✅ How to retrieve a video file → SOP:Trip → Trip List → Retrieve Video → Playback SD Card
+
+**Using camera**:
+- ✅ SD Card Overwriting Mechanism → `storage-mechanism.md`
+- ✅ Internal Flash Overwrite Mechanism → `storage-mechanism.md`
+- ✅ How to reset device → `troubleshooting.md`(Reset button paper clip / K245/K145c/K245c 在 tamper cover 後)
+- ✅ LED Behaviors → `machines-spec.md` 加機種 LED 差異(K220/K245 1 個 / K265 2 個)
+
+**Master Portal**:
+- ✅ How to Add New Account → `customer-onboarding.md`
+- ✅ How do I add a new device → `customer-onboarding.md`
+- ✅ VisionMax Update History → 目前是空(沒當期 update)
+
+**VisionAgent**:
+- ✅ How to Check Camera Install Position → `customer-onboarding.md`(Outward 50:50 / Inward driver location)
+- ✅ How do I set APN → `customer-onboarding.md` APN SOP
+
+**Installation / Troubleshooting**:
+- ✅ VisionMax Quick start Guide → `customer-onboarding.md`
+- ✅ What if camera not turning on → `troubleshooting.md` Q1
+- ⏳ How to export system logs from K220(沒讀)
+- ⏳ What is Installation procedure(沒讀)
+
+**General > FAQ**:
+- ✅ SD CARD Recording time(主要 link 到 Jotform calculator)
+- ⏳ I'm not receiving password reset(沒讀)
+
+**Deep Read 進度**:**~25 / 60+ 篇**(~40% coverage)
+
+### ⏳ 仍未 read(P2-P3,實際要用時再讀)
+- General > FAQ 剩 3 篇
+- Fleet Portal 剩 ~9 篇(geofences / video metadata / codec / 等技術細節)
+- Using camera 剩 ~8 篇(care for camera / NFC formats / precautions / 等)
+- Master Portal 剩 ~3 篇(language / change to normal car / Portal Usage Guides)
+- Getting Started 剩 5 篇(software update time / NFC compat / video storage / 等)
+- API Reference(只是 link)/ Installation procedure

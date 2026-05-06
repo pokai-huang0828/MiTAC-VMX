@@ -1,59 +1,143 @@
-# VMX In-Cabin Voice Alerts
+# VMX In-Cabin Voice Alerts(完整 KB 抓)
 
-來源:KB 第 7 篇「In-cabin alerts」+ Coffee chat 整理
+> 來源:KB「What in-cabin alerts are available?」(2026-05-06 deep read)
+> 預設語言 English (US),portal 可改
 
-## 重要 Voice Alerts(必背)
+## 1. Device Startup and Status
 
-| 語音 | 含義 | 對應事件 |
-|------|------|---------|
-| **"Keep distance"** | FCW(前車距離過近)| ADAS 主要 alert |
-| **"Can't detect the road level, ADAS off"** | ADAS 計算中斷 | **VMX-7404 黃金線索**,30 km/h × 3min 沒滿足 |
-| **"Can't find a face, DMS off"** | DMS 自動停用 | DMS 失效訊號 |
-| **"Emergency Recording"** | 紅色按鍵 manual event | KB 內 "Manual Event Recording" vs "Emergency Recording" 不一致 ⚠️ |
-| **"Private Mode On / Off"** | 紅色按鍵切換 | 具體按法 KB 沒寫清楚 ⚠️ |
+| 事件 | 語音 |
+|------|------|
+| Device powers on | **Device Ready** |
+| Driver ID card 成功讀取 | Success |
+| Driver 需要 tap ID | Please tap your ID card |
+| ID card 讀取失敗 | Failed to read the ID Card |
+| Camera calibration 完成 | Calibration Completed |
+| OTA 完成 | Auto update complete |
 
-## ⚠️ 已校正(別再答錯)
+## 2. SD Card
 
-| 我之前答錯 | 正確答案 |
-|-----------|---------|
-| FCW = "Frontal Collision Warning" | **"Keep distance"** |
+| 事件 | 語音 |
+|------|------|
+| 沒 SD card | No SD Card |
+| SD card 滿 | SD Card Full |
+| 格式化中 | SD Card Formatting, please wait |
+| 格式化完成 | Format completed |
+| 讀寫 / 格式化錯誤 | SD Card Error |
 
-## 待釐清(Coffee Chat)
+## 3. System Reconfiguration
 
-- ⚠️ **Manual Event Button vs Panic Button 衝突**(2026-05-06 KB deep read 發現):
-  - KB「Manual Event Button Behaviors」講接電話 / Manual event / Server callback / 格 SD
-  - KB「Behaviour of Privacy Mode」講 **Panic Button hold > 2s** 進 / 退 Privacy Mode
-  - **可能是兩個不同 button**,或同一個 button 不同 hold 時間
-  - **必問 Mori**:紅色按鍵 = Manual Event 還是 Panic?各機種幾個 button?
-- KB 「Manual Event Recording」vs 「Emergency Recording」哪個是真的
-- 紅色按鍵語音各機種不一致(問 Mori 哪幾台)
+| 事件 | 語音 |
+|------|------|
+| SD 掛 / 卸 / 第三鏡頭裝卸 | Setting up device, please wait |
+| Remote / manual setting 套用 | Setting up device, please wait |
 
-## Privacy Mode 切換(KB 已 deep read)
+## 4. Wi-Fi Hotspot
 
-來源:https://service.visionmaxfleet.com/portal/en/kb/articles/visionma
+| 事件 | 語音 |
+|------|------|
+| Hotspot 開 | Hotspot ON |
+| Hotspot 關 | Hotspot OFF |
 
-- **進入**:Press and hold Panic Button > 2 秒
-- **進入後行為**:
-  - 停止上傳 health / GPS / photo / video
-  - AI + sensor event detection 暫停
-  - SD 錄影暫停
-  - Manual Event Button 按下時 camera **仍會錄**(不受 Privacy 影響)
-- **退出**:Panic Button hold > 2 秒
-- **Restart 後維持 Privacy Mode**(不會自動退出)
+## 5. Driving Behaviour Events(G-Sensor)
 
-## Manual Event Button 完整行為(KB 已 deep read)
+| 事件 | 語音 |
+|------|------|
+| Harsh acceleration | Harsh Acceleration Detected |
+| Harsh braking | Harsh Braking Detected |
+| Harsh cornering | Harsh Cornering Detected |
+| Impact (driving) | Impact Detected |
+| Impact (parked) | Impact Detected |
+| Manual emergency recording | **Emergency Recording** |
+| Long-time driving | **Time for a break** ⭐ memory 沒這條 |
 
-來源:https://service.visionmaxfleet.com/portal/en/kb/articles/emergency-button-behaviors
+## 6. ADAS Events
 
-| ACC | 場景 | 動作 | 行為 | 語音 |
-|-----|------|------|------|------|
-| ON | 來電 | 短按 | 接電話 | — |
-| ON | 來電 | hold > 2s | 拒接 | — |
-| ON | 無來電 | 短按 | Manual event recording | "Manual Event Recording" |
-| ON | 無來電 | hold 2-6s | Call out to server | — |
-| ON | 無來電 | long press +3s | Back to base call | — |
-| OFF | Clean install | 短按 / hold > 1s | 開機 | "Device Ready" |
-| OFF | ACC mode | 短按 | Manual event recording | "Manual Event Recording" |
-| OFF | — | hold 10-30s | 格式化 SD card | "SD Card formatting, please wait" |
+| 事件 | 語音 |
+|------|------|
+| FCW(Frontal Collision Warning) | **Keep distance** |
+| LDW(Lane Departure Warning) | Lane departure |
+| Stop and Go | Traffic has moved, please proceed |
+| Tailgating | Tailgating |
+| Collision risk | Collision risk detected |
+| ADAS enabled | ADAS on |
+| ADAS disabled (no road level) | **Can't detect the road level, ADAS off** ⭐ VMX-7404 黃金線索 |
 
-⚠️ Private mode 中,「接電話 + Manual event」不執行(其他仍可)
+## 7. DMS Events
+
+| 事件 | 語音 |
+|------|------|
+| Yawning | Yawning detected, stay alert |
+| Nodding off | Nodding off detected, stay alert |
+| Eyes closed | **Sleepy detected, stay alert** ⭐(三個 Fatigue 子事件全有獨立語音)|
+| Distraction | Distraction detected, keep eyes on road |
+| Cell phone usage | Cell phone usage |
+| Unfastened seatbelt | **Danger! Fasten your seat belt** |
+| In-cabin camera obstructed | **Alert! Inward camera is blocked, please remove the obstacle** ⭐ 對應 Quantatec / VMX-7427 |
+| DMS enabled | DMS on |
+| DMS disabled (no face) | Can't find a face, DMS off |
+
+## 8. Traffic Sign and Signal Events
+
+| 事件 | 語音 |
+|------|------|
+| Stop sign detected | Stop sign detected |
+| Stop sign violation (rolling stop) | Stop sign ahead, slow down your speed |
+| Red light violation | Red Light Violation |
+| Speed camera ahead | Safety camera ahead |
+| Average speed camera (Autodoria) | Average speed camera ahead |
+| Speed camera violation | Speed Camera Violation |
+| Rolling stop | Rolling Stop |
+| Railway crossing ahead | Railway crossing ahead |
+| Railroad crossing violation | Railroad Crossing Violation |
+| School zone ahead | School zone ahead |
+| School zone speed violation | School Zone Speed Violation |
+| Wrong-way driving | Turn around safely, you are going in the wrong direction |
+
+## 9. Speed Limit Reminders
+
+格式:**"Speed limit [value]"** — 例:Speed limit 30 / 40 / ... / 110
+
+| 事件 | 語音 |
+|------|------|
+| 超過 cruise speed | Lower your speed |
+| Speed limit 提醒 | Speed limit --- |
+
+## 10. Geofencing
+
+| 事件 | 語音 |
+|------|------|
+| 進入 geofence | Enter Geofence |
+| 離開 geofence | Leave Geofence |
+
+## 11. System and Privacy
+
+| 事件 | 語音 |
+|------|------|
+| Device call-out | Calling |
+| **Private mode enabled (panic button)** | **Private Mode On** |
+| **Private mode disabled (panic button)** | **Private Mode Off** |
+| Camera error auto-recovery | Camera Rebooting, Please Wait |
+| Camera errors 無法 fix | (待抓全文) |
+
+## ⚠️ 重要校正 / 區分
+
+### Manual Event Recording vs Emergency Recording
+- **Manual Event Recording**:短按按鈕(無來電時)= 錄一個 manual event
+- **Emergency Recording**:**Manual emergency recording triggered**(更緊急情境的 G-Sensor 觸發)
+- **不是同一個!** memory 之前以為是同一個是錯的
+
+### Privacy Mode = Panic Button
+- KB 在這份明確寫「Private mode enabled (panic button)」
+- 跟 Privacy Mode 文章 + Manual Event Button 文章對應
+- ⚠️ **可能 Manual Event Button 跟 Panic Button 是同一個按鈕的不同 hold pattern**(短按 = Manual / hold > 2s = Panic / hold 10-30s = format SD)
+- 還是要 Coffee Chat 跟 Mori 釐清
+
+### Reset Button ≠ Manual Event Button(KB 確認)
+- **Manual Event Button = Red Indicator Light**(K220/K245/K265)— **可徒手按**
+- **Reset Button = paper clip 戳**(K245/K145c/K245c 在 tamper proof cover 後)
+- → 是兩個不同的 button
+
+### VMX-7404 ADAS Failure 黃金線索
+語音 `"Can't detect the road level, ADAS off"`
+- 觸發條件:速度 < 30 km/h 持續 / 車速反覆掉到 30 以下 / ADAS 計算中斷
+- 市區通勤經典情境
