@@ -4,3 +4,6 @@ EVO_image_update/*
 
 # Keep update process documentation
 !EVO_image_update/EVO image update process.md
+
+# Local Claude worktrees
+.claude/worktrees/
