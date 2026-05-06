@@ -84,7 +84,7 @@
 
 ## .gitignore 規則
 
-`image_update/*` 與 `EVO_image_update/*` 排除(韌體大檔不入 repo),保留 `EVO_image_update/EVO image update process.md`(流程文件)。`.claude/worktrees/` 排除本機暫存。
+所有 dotfiles / dotfolders(`.claude/`、`.vscode/` 等個人 IDE / 工具設定)整體排除,只保留 `.gitignore` 本身。`image_update/*` 與 `EVO_image_update/*` 排除(韌體大檔不入 repo),保留 `EVO_image_update/EVO image update process.md`(流程文件)。
 
 > Repo 體積偏大(`.git` 140 MB / 工作樹 31 MB),原因與處理方式見 [docs/git-history-cleanup-assessment.md](docs/git-history-cleanup-assessment.md)。
 

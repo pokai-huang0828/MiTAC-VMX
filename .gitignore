@@ -1,9 +1,11 @@
+# Ignore all dotfiles and dotfolders (personal IDE / tool / OS configs)
+.*
+# Keep .gitignore itself tracked
+!.gitignore
+
 # Local firmware/update artifacts
 image_update/*
 EVO_image_update/*
 
 # Keep update process documentation
 !EVO_image_update/EVO image update process.md
-
-# Local Claude worktrees
-.claude/worktrees/
