@@ -24,6 +24,25 @@ Kenny 自己的測試機:**K245**(L3024290010)
 ⭐ **第一個 KB 確認的機種 mapping**(2026-05-06):K220 只支援 QR Code(沒 RFID)/ K145(c) 連 QR 都不行(需 i25)。
 KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/driver-identification-setup-and-usage-for-models-k245-k245c-k265-and-k220
 
+## LED Behaviors(KB 確認的機種差異)
+
+| 機種 | LED 數量 | 差異 |
+|------|---------|------|
+| **K220 / K245** | 1 個(紅) | Manual Event Button 紅燈;沒 SD 每 15 秒閃 |
+| **K265** | **2 個** | 紅(Manual Event Button)+ **橘左**(沒網路常亮)+ **藍/綠右** |
+| **K145c / K245c** | (KB 待補,沒抓全) | (待 deep read) |
+
+KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/led-behaviors
+
+## Reset Button(KB 確認的機種差異)
+
+| 機種 | Reset Button 位置 |
+|------|-----------------|
+| **K245 / K145c / K245c** | **在 tamper proof cover 後**(要先拆) |
+| **K220 / K265** | (KB 沒明說,可能是露出的) |
+
+→ Reset = paper clip 戳。對應 troubleshooting Q10。
+
 ## 從 MiAI Roadmap 對應的 Chip 候選
 
 | Tier | Year | Chip | TOPs |
