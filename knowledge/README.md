@@ -4,6 +4,10 @@
 > 整理日期:2026-05-06
 > 最新狀態同步:2026-05-06 Q2 Review 會議後
 
+🌐 **[在瀏覽器開啟 Knowledge Hub →](index.html)**(離線可用,7 個分類 tab + 搜尋)
+
+更新內容後重新產生:`python3 knowledge/_build_index.py`
+
 ---
 
 ## 🔗 上游資料源
