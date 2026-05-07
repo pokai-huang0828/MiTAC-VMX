@@ -24,15 +24,21 @@
 - 事件越多分數越低
 - 只看 **最近 5,000 km** 的事件(滾動視窗)
 
-## 公式(KB 揭露)
+## 公式(KB 揭露,2026-05-07 補完整)
 
 ```
-Safety Score = (1 - (∑ Trip score) / 5000) × 100
+Safety Score = (1 − (∑ Trip score) / 5000) × 100
 
-Trip score = TRUNCATE((Event Score × 70 ...))
+Trip score    = TRUNCATE((Event Score × 70 / 100) + (Overspeed Score × 30 / 100), 2)
+Event Score   = Event Score × Weight
+Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
 ```
 
-⚠️ 完整公式被 KB 文章截斷,需要回去抓更多。
+**重點**:
+- Event 與 Overspeed 是 70 / 30 加權
+- Event Score 還會再乘上 per-event-type weighting(各事件可調)
+- Overspeed 用「**超速距離 / 行程距離**」百分比,不是次數
+- 整體分數是 **5,000 km 滾動視窗** 累積 trip score 的反向(扣越多分越低)
 
 ## 對 PM 議題的對應
 

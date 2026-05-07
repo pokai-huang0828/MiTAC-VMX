@@ -49,13 +49,13 @@
 | 會議揭露 | 提早 feasibility(or 早於 Roadmap)|
 | **對客戶口徑** | ✅ 「2027 Roadmap 規劃」 |
 
-### Burning ADAS / Burning DMS
+### Burning ADAS / Burning DMS → 實為 Blurring function(2026-05-07 校正)
 | 角度 | 內容 |
 |------|------|
-| Roadmap Slide 2 | 列在 ADAS / DMS 事件 |
+| Roadmap Slide 2 | 寫成 Burning ADAS / Burning DMS(typo) |
 | KB | 沒寫 |
-| 真實意義 | ⚠️ 未知(鏡頭過曝?burn-in?typo?) |
-| **對客戶口徑** | ⚠️ 不講,**先問 Jimmy 釐清** |
+| 真實意義 | ✅ **Blurring function** — 影像 / 隱私模糊化 |
+| **對客戶口徑** | 「對應 server-side 影像模糊化(隱私 / 合規場景)」|
 
 ### Server AI Stages 進度
 | 階段 | Roadmap | 內部進度(2026-05-06) | 對客戶口徑 |

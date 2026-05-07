@@ -18,15 +18,15 @@
 ### Roadmap 列但 KB 沒寫(對客戶要小心)
 | 功能 | Roadmap Tier | 狀態 |
 |------|--------------|------|
-| PCWS | Basic(2025) | ⚠️ 待確認 KB |
-| Rolling Stop Sign | Basic | ⚠️ 待確認 |
+| FCWS | Basic(2025) | ✅ 已 ship(2026-05-07 校正,memory 之前寫 PCWS 是錯的) |
+| Rolling Stop Sign | Basic | ✅ 已 ship(2026-05-07 校正) |
 | Blind Spot Monitoring (Side Camera) | Basic | 對應 S_F_R Single SKU 進行中 |
 | Speeding Sign | Advanced(2027) | ⚠️ Roadmap planned |
 | BCWS (Rear Camera) | Advanced | ⚠️ Roadmap planned |
 | Rash Driving | Premium(2027) | ⚠️ Roadmap planned |
 | Traffic Light | Premium | ⚠️ Roadmap planned |
 | ANPR (License Plate Recognition) | Premium | ⚠️ Roadmap planned |
-| Burning ADAS | (出現在 Roadmap Slide 2) | ⚠️ **意思不明,必問 Jimmy** |
+| Blurring function (ADAS) | (Roadmap Slide 2 寫 Burning ADAS,實為 Blurring)  | 對應 server-side 影像模糊化(2026-05-07 校正) |
 
 ## DMS 事件(cabin-facing camera)
 
@@ -48,7 +48,7 @@
 | **Obstructed Camera** | Basic | (對應 Quantatec 案 VMX-6983 / VMX-7427) |
 | Eating | Advanced(2027) | HAWK-562 已開 ticket(Jimmy)— **比 Roadmap 提早動工** |
 | Drinking | Advanced | (同上) |
-| Burning DMS | (出現在 Roadmap Slide 2) | ⚠️ **意思不明,必問 Jimmy** |
+| Blurring function (DMS) | (Roadmap Slide 2 寫 Burning DMS,實為 Blurring) | 對應 cabin 影像模糊化(2026-05-07 校正) |
 | VLM-based Behavior Understanding | Premium(2027) | sheet 標 2026 Q3 — 內部比 Roadmap 提早 |
 
 ## G-Sensor 事件(共 6 種,Roadmap 列)
@@ -95,7 +95,7 @@
 ## AI Inference Pipeline(任何 AI 客訴用此框架定位)
 
 ```
-1. Capture(感測)         鏡頭 + IMU + GPS,15-30 fps
+1. Capture(感測)         鏡頭 + IMU + GPS,**對外 only 10 fps**(機體可達 15-30,因運算資源限制)
 2. Preprocess(預處理)    resize / normalize / ROI 切割
 3. Detection(偵測「是什麼」)  bounding box + confidence
 4. Classification(分類「在做什麼」)  ⭐ 誤判主戰場

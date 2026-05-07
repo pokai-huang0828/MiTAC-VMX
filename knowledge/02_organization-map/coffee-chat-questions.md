@@ -24,7 +24,7 @@
 ### 機種對應
 - [ ] **K145c / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip**
 - [ ] Kenny 自己的 K245 屬 Entry / Basic / Advanced 哪個 tier
-- [ ] 各機種 frame rate(15 / 30 fps?)
+- ✅ 各機種 frame rate — 機體可達 15-30 fps,**對外 only 10 fps**(2026-05-07 已釐清,運算資源限制)
 
 ### G-Sensor
 - [ ] **Harsh Acceleration / Rollover G 值門檻**(只 lock 4 種,缺這 2)
@@ -41,7 +41,7 @@
 - [ ] **Smoking 真實狀態**:KB 沒寫 / Sheet 隱藏 / Roadmap 列 / 4 ticket open — production 到底有沒有?
 - [ ] **Yawning 內部測試效果指標**(2026-05-06 會議揭露效果不如預期)
 - [ ] VMX-7324 客訴 Smoking 怎麼解
-- [ ] **「Burning ADAS / Burning DMS」是什麼意思**(鏡頭過曝?burn-in?typo?)
+- ✅ **「Burning ADAS / Burning DMS」是什麼意思** — 是 typo,實為 **Blurring function**(2026-05-07 已釐清)
 
 ### 技術深度
 - [ ] 各 event 真實 Confidence threshold(memory 是估計值)

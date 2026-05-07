@@ -1,6 +1,8 @@
 # K-series 機種規格
 
 > ⚠️ K-series ↔ Chip ↔ Tier 的具體 mapping **memory 還沒齊** — 必問 Mori。
+>
+> 📄 **客戶介紹會議的完整機種規格紀錄** → [Google Doc](https://docs.google.com/document/d/1QJj6EOnZz4HFV-wG_SAlFywEw0M01FMjriRc8hwSH7M/edit?tab=t.opseshkr4x94)
 
 ## 機種列表(校正過)
 
@@ -9,6 +11,37 @@
 ⚠️ **沒有 K165**(之前 Claude 答錯過)
 
 Kenny 自己的測試機:**K245**(L3024290010)
+
+## Connected Dash Camera Lineup 2025(對客戶介紹用)
+
+| 規格 | Sprint (K220) | Gemini SE (K245c) | EVO (K265) |
+|------|---------------|-------------------|------------|
+| 適用車型 | LCV | Medium Truck | Heavy Truck |
+| Platform | Qualcomm SDM450 | Qualcomm SDM450 | Qualcomm QCS610 |
+| RAM / Flash | 2GB / 16GB | 2GB / 16GB | 3GB / 32GB |
+| OS | Android 10 | Android 9 | Android 10 / Linux |
+| Video Channels | 最多 3(+Video Hub 可達 6) | 最多 3(+Video Hub 可達 6) | 最多 7 |
+| Storage | 1× SD(最高 1TB) | 1× SD(最高 1TB) | 2× SD(最高 2TB,1TB×2) |
+| WiFi / BT | 11ac 2.4/5GHz、BLE 4.2 | 11ac 2.4/5GHz、BLE 4.2 | 11ac 2.4/5GHz、BLE 5.0 |
+| NFC | – | 支援 | 支援 |
+| OBD / CAN | OBD Cable、MiTAC SmartGO、IOSix | 同左 | 同左 |
+| Certification | CE/FCC/IC/RCM/PTCRB;AT&T、T-Mobile | CE/FCC/IC/RCM/PTCRB;AT&T、Verizon、T-Mobile、Telstra | CE/FCC/IC/RCM/PTCRB;AT&T、Verizon、T-Mobile |
+
+→ 來源:客戶介紹會議簡報(Google Doc 同上)。
+
+## CDR(Connected Dash Recorder) Roadmap
+
+| 區隔 | 機種 | 平台 | 主要規格 |
+|------|------|------|---------|
+| Heavy Truck (up to 7CH) | **EVO (K265, K165)** | QCS610 | 最高 3 TOPS AI、最多 5 路擴充 (1×USB + 4×TVI)、LTE Cat4、WiFi 11ac、BLE 5.0、GPS/QZSS/GLONASS/Galileo、NFC、雙 SD 槽(各 512GB) |
+| Heavy Truck | EVO 5G RedCap | QCS610 | 5G NR SA、NA/EU/GL SKU、5G 223 / 123 Mbps、LTE 195 / 105 Mbps |
+| Medium Truck (up to 3CH) | **Gemini SE (K245c, K145c)** | SDM450 | 1× USB 擴充、LTE Cat6、WiFi 11ac、BLE 4.2、NFC |
+| Medium Truck | Orion – K246 series | QCM6125 | 接班 K245c、4K、強化安全、分級 AI |
+| Van / Light Truck (up to 3CH) | **Sprint (K220)** | SDM450 | 1× USB 擴充、LTE Cat6、WiFi 11ac、BLE 4.2、NFC |
+
+⚠️ **K165 出現在 Roadmap** 但前面我們校正說「沒有 K165」 — 看來 Roadmap 把 EVO family 含 K165 一起算,但客戶實機目前是 K265。要跟 Mori 確認 K165 是否有實機 ship,還是純 Roadmap planning。
+
+⚠️ **Orion / K246 系列** 是接班 K245c 的下一代(4K + 分級 AI),memory 沒提過 — 新加進來。
 
 ## 待補對應(問 Mori)
 
@@ -81,7 +114,7 @@ KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/what-is-the-r
 
 1. K145c / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip
 2. K245(Kenny 自己的)屬 Entry / Basic / Advanced 哪個 tier
-3. 各機種 frame rate(15 / 30 fps?)
+3. ~~各機種 frame rate~~ ✅ 已釐清:機體可達 15-30 fps,**對外 only 10 fps**(運算資源限制,2026-05-07)
 4. 紅色按鍵各機種語音不一致 — 是哪幾台?
 5. Private Mode 切換按法(KB 沒寫清楚)
 6. **Harsh Acceleration / Rollover G 值門檻**(只 lock 4 種,缺這 2 種)
