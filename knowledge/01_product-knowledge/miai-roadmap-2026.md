@@ -41,10 +41,13 @@ PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TO
 | 主題 | Roadmap(對外) | Sheet(內部) | 對客戶口徑 |
 |------|---------------|-------------|----------|
 | VLM | 2H'2027 | 2026 Q3 | **講 2027** |
-| Eating & Drinking | 1H'2027 | HAWK-562 已動 | 講 2027 |
-| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 | **改:Roadmap planned, 內部測試中** |
-| Smoking | Basic 2025 已 ship | KB 沒寫 / Sheet 隱藏 / 4 ticket open | **改:Roadmap planned, 內部開發中** |
+| Eating & Drinking | 1H'2027 | HAWK-562 / 🚨 **5/7 揭露 BMS 客訴 17x 量級(ID 6652),6/15 前 7000+ Edge case 一次性重訓**(Jimmy + Vincent)| 對外維持 2027,**對 BMS 講 6/15 內部緊急重訓** |
+| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / **5/7 加灰階模型,考慮改辨識整張臉 / UI toggle = VMX-7432(Lucy)** | **改:Roadmap planned, 內部測試中** |
+| Smoking | Basic 2025 已 ship | **KB 標 (in development)** / Sheet 隱藏 / 4 ticket open | **改:Roadmap planned, KB 列開發中** |
 | MMF | (列在 overview) | 還沒上線 | **不對客戶承諾** |
+| Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **Device-side YOLO Lane Detection 改善 5/7 Pending 暫緩**(資源緊繃,新 ticket 編號待釐清)| 「Server-side 已部屬,device 端持續改善」 |
+| Speed Sign | Advanced 2027 | KB 標 in development / **5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓**(Jay)| 對外保持 2027 Roadmap |
+| Lens Cover(BMS / Azuga 雙軌)| Basic | **5/7 規格分歧**:Azuga = 解除車速;BMS = 車速 > 0(司機休息隱私)/ Jieli 6/2 前緊急雙軌實作 | 對 Azuga 講標準版,對 BMS 講「車速 > 0」 |
 
 ## Data Auto-Optimization Pipeline(月節奏)
 

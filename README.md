@@ -2,7 +2,7 @@
 
 > Kenny Huang(黃柏凱)在 MiTAC VMX 評估期(2026-04 起)的工作目錄。
 > 收容:portal 知識資產、客戶案件追蹤、會議紀錄、NotebookLM 同步、簡報模板、PM 教材。
-> 最後更新:2026-05-06
+> 最後更新:2026-05-07
 
 ---
 
@@ -55,7 +55,9 @@
 |------|-----|
 | VMX-7404 ADAS Failure 追蹤 | [knowledge/06_calibration-log/vmx-7404-tracking.md](knowledge/06_calibration-log/vmx-7404-tracking.md) |
 | Coffee chat 待問清單(Brian / Mori / Jimmy / Spencer / Lucy / Tony) | [knowledge/02_organization-map/coffee-chat-questions.md](knowledge/02_organization-map/coffee-chat-questions.md) |
-| AI Team 15 件 active tasks(2026-05-05 截圖) | [knowledge/06_calibration-log/ai-team-sheet-snapshot-2026-05-05.md](knowledge/06_calibration-log/ai-team-sheet-snapshot-2026-05-05.md) |
+| AI Team 16 件逐行 5/7 狀態 + Brian 1on1 talking points | [knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md](knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md) |
+| AI 工作計畫 × Jira filter 36457 對齊 + 10 票 comment 深掘 | [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) |
+| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/2026-05-07_AI-Weekly_meeting-record.md](meetings/2026-05-07_AI-Weekly_meeting-record.md) |
 | 已校正的 VMX 事實(別再答錯) | [knowledge/06_calibration-log/critical-facts-log.md](knowledge/06_calibration-log/critical-facts-log.md) |
 
 ---

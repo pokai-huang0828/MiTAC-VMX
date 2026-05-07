@@ -39,12 +39,31 @@
 | 197 | VMX-7147(第二個 link)| Camera recording no longer exists | 移除 VMX-7147,只留 VMX-7224 |
 | 209 | VMX-7407(重複)| UVC RAW frame error handling | 應為 **VMX-7088 Viewer only** |
 
+### 2026-05-07 AI 工作計畫 tab 深掘(讀 10 張票 comments)
+
+**只看 Jira status 欄會誤判**。深讀 comment 後新增 7 種 mismatch 模式,推翻一些表面判斷。
+
+| 模式 | 案例 | 教訓 |
+|------|------|------|
+| 1. 接力新單後沒 hide 舊 row | HAWK-331 → HAWK-527 | sheet link 加括號標新單,但 row status 沒同步 |
+| 2. 議題 ≠ ticket | HAWK-578 + SQS retention follow-up | sheet 在追議題級工作,Jira 票只是事件單據 |
+| 3. Resolved 後又出新問題,加 Fix Version 不 reopen | HAWK-527 加 20260602 | Jira RESOLVED 反而誤導,sheet active 是對的 |
+| 4. 修完等 release,Jira transition 沒走 | HAWK-573 | sheet 寫「Awaiting Release」是正確訊號 |
+| 5. Sheet update 寫錯 row | (誤判) | HAWK-577/578 對應實際正確,我曾誤判 |
+| 6. Comment 留「已完成」但 transition 沒走 | VMX-6722 / VMX-7101 | jimmy 寫 deploy prod 但沒按 Open→Resolved button |
+| 7. 單一 ticket 對應多 sheet rows,scope mismatch | VMX-7309 ↔ Sheet #3 Yawning + #4 Eyes | VMX-7309 只是 Eye threshold API,沒 Yawning 內容 |
+
+**重要校正**:Brian 5/6 自評「label 漏 pick」narrative 不準確 — VMX-6722 本身有 label `vmx_2026Q2`,真實 process gap 是 **transition discipline**(RD 寫完 comment 沒按 button)。
+
 ## 規律 / 啟示
 
 1. **Resolved → 沒人回頭關** 是常態。Sheet 上看到 In Process 不一定真的 active
 2. **「我做完了」≠ Jira closed**。產品端認為交付給客戶測試 = sheet 動;但 Jira ticket 要等 QA / verification 才 close
 3. **Sheet link 寫錯**多發生在新增 row 時複製貼上沒改 link
 4. **Sheet 隱藏 row** 跟 mismatch 不同 — hidden = 不在使用,mismatch = 還在用但狀態不對齊
+5. **🆕 Sheet active 不一定錯**:Jira RESOLVED 可能誤導,要看 comment 才知道有沒有第二輪 fix 或議題級 follow-up
+6. **🆕 議題 vs ticket 心智模型**:sheet row = 議題;Jira ticket = 事件單據。一議題可能 N 張票或 0 張票
+7. **🆕 Transition discipline gap > Label discipline gap**:RD 不按 button 比沒下 label 更常見
 
 ## 防呆建議(對 Brian / Sheet owner)
 
@@ -52,3 +71,5 @@
 - 新增 row 時驗證 link
 - Resolved 後在 sheet 加 verification 階段(client testing / staging / production)
 - Sheet 加「Last verified」欄
+- **🆕 不要光看 Jira status 推 sheet 改動,要進去看 comment 跟 linked issues 再決定**
+- **🆕 對 Brian 提改善:從「transition 紀律」切入,不是「label 紀律」**

@@ -41,6 +41,7 @@
 
 | 主題 | 真實狀態 | 對客戶口徑 |
 |------|---------|-----------|
-| Smoking | KB 沒寫 / Sheet 隱藏 / Roadmap 列 Basic / 4 個 Jira open | ⚠️ Roadmap planned, 內部開發中,**不能保證上線時間** |
-| Yawning | KB 沒寫 / Sheet 顯示但 still in dev / **2026-05-06 會議:還沒給客戶,效果不如預期** | ⚠️ Roadmap planned, 內部測試中 |
+| Smoking | **KB 標 (in development)**(memory 之前說「KB 沒寫」是錯的)/ Sheet 隱藏 / Roadmap 列 Basic / 4 個 Jira open | ⚠️ 「KB 列開發中」可講有官方依據,**不能保證上線時間** |
+| Yawning | KB 沒寫 / Sheet #3 顯示但 still in dev / 2026-05-06 會議:效果不如預期 / **5/7 AI weekly:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉** / Yawning UI toggle 對應 **VMX-7432**(Lucy 5/6 開) | ⚠️ Roadmap planned, 內部測試中 |
+| Eating/Drinking | Roadmap Advanced 2027 / HAWK-562 已開 / **5/7:BMS 客訴量是過去 17 倍(ID 6652),6/15 前 7000+ 案例緊急重訓** | ⚠️ 對外維持 2027 Roadmap,內部 6/15 重訓 |
 | MMF | KB 沒寫 / Roadmap 列 / 沒上線 | ⚠️ 不對客戶承諾 |

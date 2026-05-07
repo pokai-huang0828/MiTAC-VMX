@@ -44,9 +44,11 @@ PM 角色升級成「Sheet/Jira sync owner」,要處理兩個方向的落差:
 | 案件 | 業務端感受 | PM 解法 |
 |------|----------|---------|
 | #11 OTA 17 個月 Brian 自己提 | 看似 stale | **不是內部問題,Akamai 設定錯,Brian 自己不在意** |
-| Yawning(對外 Roadmap 已有 vs 內部測試中) | 客戶以為已 ship | 對外口徑統一改「Roadmap planned」 |
-| Smoking(KB 沒寫 / Sheet 隱藏 / Roadmap 列) | 業務不確定能否賣 | 找 Jimmy 確認真實狀態,給 sales 一致口徑 |
-| #154 Server AI label 沒 pick | API 沒釋出 | PM 來扛 merge label sweep |
+| Yawning(對外 Roadmap 已有 vs 內部測試中) | 客戶以為已 ship | 對外口徑統一改「Roadmap planned」/ **5/7 補:UI toggle 對應 VMX-7432(Lucy)** |
+| Smoking(KB 標 in development / Sheet 隱藏 / Roadmap 列) | 業務不確定能否賣 | 給 sales 統一口徑「KB 列開發中」(KB 有官方依據)|
+| #154 Server AI(VMX-6722)| API 沒釋出 | **5/7 校正:不是 label 漏 pick,是 transition discipline gap** — RD 寫 deploy comment 但沒按 Open→Resolved button。對 Brian 提改善從「transition 紀律」切入 |
+| **Lens Cover 雙軌維護(5/7)**| 客戶規格分歧 | 對 Azuga 講「標準版解除車速」,對 BMS 講「車速 > 0」 — 別混 |
+| **Eating 17x 客訴 ID 6652(5/7)**| BMS 客訴爆炸 | 對外 Roadmap 維持 2027,對 BMS 講 6/15 緊急重訓進度 |
 
 ## ⚠️ Wendy 待補
 

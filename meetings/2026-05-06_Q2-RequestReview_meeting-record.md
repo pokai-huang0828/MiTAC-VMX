@@ -541,3 +541,20 @@
 ### 待更新(會後)
 - [ ] `project_vmx.md`:加入「Brian 的 BMS/VMX 同步戰略」目標
 - [ ] `reference_kenny_pm_frameworks.md`:加上「Sunset Plan + Beta 模式」具體案例(舊 Playback 案)
+
+---
+
+## 🔄 後續校正(2026-05-07 補)
+
+本紀錄保留 5/6 當下會議字面內容(包含 Brian 自評的「label 漏 pick」narrative)。但 2026-05-07 讀 VMX-6722 comments + sub-tasks 後發現:
+
+- **VMX-6722 本身有 label `vmx_2026Q2`** + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW
+- **真實 process gap 不是 label 漏 pick,是 transition discipline** — RD 寫 comment 但沒按 Open→Resolved button
+
+對 Brian 提 process improvement 應從「transition 紀律」切入,不是「label 紀律」。詳見 [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](../knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) H 段 + [meetings/2026-05-07_AI-Weekly_meeting-record.md](2026-05-07_AI-Weekly_meeting-record.md)。
+
+5/7 AI Weekly 同時揭露:
+- **LDWS 完整真相**:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 決議 Pending 暫緩(資源緊繃)
+- **Yawning UI toggle 真實對應 ticket = VMX-7432**(Lucy 5/6 開的單),不是 VMX-7309
+- **Lens Cover 雙軌維護**:Azuga 標準版 = 解除車速 / BMS 版 = 車速 > 0
+- **Eating/Drinking 客訴 17 倍量級危機**(客訴 ID 6652),6/15 前 7000+ Edge case 緊急重訓

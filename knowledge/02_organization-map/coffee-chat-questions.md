@@ -17,7 +17,9 @@
 - [ ] PDF 補強 Wiki ticket 推不推
 - [ ] MMF 是已 ship 還是 roadmap planned
 - [ ] Jira dashboard 4 個 filter 的 JQL
-- [ ] **Q2 merge label sweep PM 來扛**(對應 #154 process gap)
+- [ ] **#154 真實 process gap = transition discipline,不是 label**(5/7 校正:VMX-6722 本身有 label `vmx_2026Q2`,jimmy 留 deploy comment 但沒按 transition button)— PM 提改善從「transition 紀律」切入
+- [ ] **5/7 揭露 LDWS device-side YOLO Pending 暫緩** — 新 ticket 編號?何時重啟?
+- [ ] **5/7 Lens Cover 雙軌維護 RD 成本評估** — Azuga 標準版 vs BMS「車速 > 0」長期維護成本
 
 ## ☕ Mori(硬體)
 
@@ -38,18 +40,18 @@
 ## ☕ Jimmy(AI Inference)
 
 ### 對外 vs 內部不一致
-- [ ] **Smoking 真實狀態**:KB 沒寫 / Sheet 隱藏 / Roadmap 列 / 4 ticket open — production 到底有沒有?
-- [ ] **Yawning 內部測試效果指標**(2026-05-06 會議揭露效果不如預期)
+- ✅ **Smoking 真實狀態**:KB 標 (in development) / Sheet 隱藏 / Roadmap 列 / 4 ticket open — 對外可講「KB 列開發中」(2026-05-06 校正)
+- ✅ **Yawning 內部測試效果指標**(5/6 揭露效果不如預期 / 5/7 補:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉)
 - [ ] VMX-7324 客訴 Smoking 怎麼解
-- ✅ **「Burning ADAS / Burning DMS」是什麼意思** — 是 typo,實為 **Blurring function**(2026-05-07 已釐清)
+- ✅ **「Burning ADAS / Burning DMS」是什麼意思** — typo,實為 **Blurring function**(2026-05-07 已釐清)
 
 ### 技術深度
 - [ ] 各 event 真實 Confidence threshold(memory 是估計值)
 - [ ] Sensitivity dial Low / Med / High 真實 debounce / cooldown
-- [ ] Yawning validation 卡點
-- [ ] **Eating / Drinking** Roadmap 標 2027,HAWK-562 已開,實際進度?
-- [ ] Server-side AI 進度(Stage 2/3 何時上)
-- [ ] **Face Not Found Issue**(VMX-7404 同根因?)
+- [ ] Yawning 灰階模型訓練結果 / 「辨識整張臉」server 端切換時程
+- [ ] **Eating / Drinking 6/15 重訓進度**(7000+ Edge case,客訴 ID 6652 17 倍量級)— Vincent 加入後 Jimmy 角色變化
+- [ ] Server-side AI 進度(Server-side LDWS Q1 deploy / Device-side YOLO 5/7 Pending)
+- [ ] **Face Not Found Issue**(VMX-7404 同根因?)5/7 揭露要導入 Head 邏輯
 
 ### 甜頭(送 Jimmy)
 - [ ] VMX-7404 ADAS Failure evidence 提交(8/10 設備 / Trip 7028714 vs 7079470)

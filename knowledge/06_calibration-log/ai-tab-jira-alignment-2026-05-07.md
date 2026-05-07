@@ -4,12 +4,14 @@
 > 來源:Sheet AI 工作計畫 tab(16 visible rows)× Jira Filter 36457 "VMX opened"(257 件) + JQL 補抓 21 件 AI 相關 VMX open 票
 > 工具:Chrome MCP 直連 Jira List View + Sheet 截圖驗證
 
-## TL;DR — 4 個重大發現
+## TL;DR
 
-1. 🚨 **Row 9 #7 Blurring Footage 三票全已關**(HAWK-331/VMX-6391/HAWK-527 全 CLOSED/RESOLVED),sheet 還掛 P1 Improving Process Speed → **應從 visible row 移除**
-2. 🚨 **Row 53 #50 VisionMax PROD not blurring 兩票全已關**(HAWK-517 CLOSED 02/06、HAWK-578 RESOLVED 05/04)— sheet 為什麼新增這列待釐清
-3. 🚨 **VMX-6722 Sheet 寫 Feasibility,Jira 還 NEW** — 跟 5/6 Brian 自評「label 漏 pick」直接呼應,本身沒進 In Progress
-4. ⚠️ **5/6 Q2 review 後新開 4 張票 Sheet 全部沒收錄**:VMX-7432(Yawning UI toggle)/ VMX-7431(LED sign)/ VMX-7430(exit ramp)/ HAWK-582 已收
+**深讀 10 張票 comments 後的真實結論在 H 段**(Comment 深掘後校正)。本文件結構:A/B = reference data(sheet × Jira status 對照表)、D = sheet 沒列的 active AI 票、H = 真實判斷。中間 C/E 段是原始表面分析,已被 H 段推翻,留作 calibration history。
+
+**3 個關鍵 takeaway**(看 H 段):
+1. Sheet active 不一定錯 — Jira RESOLVED 可能誤導(HAWK-527 加 VisionMax_20260602 第二輪 fix 證明)
+2. VMX-6722 不是 label gap,是 transition discipline gap(jimmy 寫 deploy prod 沒按 button)
+3. VMX-7309 sheet #3 Yawning + #4 Eyes 共用對應錯位 — 7309 只是 Eye threshold,Yawning 真實對應 VMX-7432
 
 ## A. AI 工作計畫 5/7 visible rows(16 行,vs 5/5 多 1 行)
 
@@ -54,36 +56,14 @@
 | HAWK-501 | ADAS Self-calibration wrong height | eric.h | **NEW** | - | (label AI) |
 | HAWK-331 | Blurring (face/background/license plate) | Luís Miguel Couto | **CLOSED** | 05/Feb/26 | VisionMax_20260203 |
 
-## C. Mismatch 三方向
+## C. Mismatch 三方向(原始表面分析,看 H 段才是真相)
 
-### C1. 🚨 Sheet 還掛 active,Jira 已關(P0 - 應從 visible row 移除)
+> ⚠️ **此段保留作 calibration history**。光看 Jira status mismatch 推「sheet 該 hide」的判斷被 H 段推翻 — 真實要進票看 comment。
 
-| Sheet Row | # | Task | 已關 ticket | 結論 |
-|-----------|---|------|-----------|------|
-| **9** | **7** | **Blurring Footage** | HAWK-331 CLOSED(2/5)/ VMX-6391 RESOLVED(12/10)/ HAWK-527 RESOLVED(4/1) | **3 票全關 → row 應 hide 或標 Done** |
-| **53** | **50** | **VisionMax PROD not blurring** | HAWK-517 CLOSED(2/6)/ HAWK-578 RESOLVED(5/4) | **2 票全關 → 為何新增?待釐清 Adonis** |
-
-### C2. ⚠️ Sheet 領先 Jira(口頭完成 / Jira 沒 close)
-
-| Sheet | Jira | Sheet 5/7 update | Jira 狀態 | 動作 |
-|-------|------|-----------------|----------|------|
-| #48 Request event blurry | HAWK-573 | "Completed Awaiting Release" | NEW(Fix VisionMax_20260602) | 等 release 才 transition,正常 |
-| #49 Blurring on-demand | HAWK-577 | "已於 v1.1.28 部屬至 Webfleet 正式環境" | OPEN(updated 5/7) | 私訊 chiehli.wang transition Jira |
-
-### C3. ⚠️ Sheet 寫 Feasibility / Improving,Jira 還 NEW
-
-| Sheet | Jira | Sheet Status | Jira Status | 解讀 |
-|-------|------|--------------|-------------|------|
-| #8 LDWS Server AI | VMX-6722 | Feasibility | NEW | **跟 5/6 Brian「label 漏 pick」案直接呼應 — Q1 已 merge 但 Jira 還 NEW** |
-| #8 LDWS | VMX-7101 | Feasibility | NEW(Updated 3/24,8 週沒動) | 真的 stale |
-| #7 Blurring Footage | (3 票皆關) | P1 Improving | RESOLVED/CLOSED | Sheet status 完全沒對齊 |
-
-### C4. ⚠️ Sheet Jira 對應錯誤
-
-| 觀察 | 細節 |
-|------|------|
-| **VMX-7309 是 Eyes 不是 Yawning** | Jira 標題:"Provide the configuration of the EyeStableRate threshold" — sheet #3 Yawning + #4 Eyes 都掛同一票,Yawning 應該另有對應(會議錄音提 HAWK-332)|
-| HAWK-527 5/6 已 RESOLVED | sheet #7 還列在 Jira link 但備註寫「(HAWK-527)」加括號 — 已標但 row 整體狀態未改 |
+C1 原寫的「Row 9 #7 / Row 53 #50 應從 visible row 移除」→ **錯誤**,看 H1/H2。
+C2 HAWK-573 等 release / HAWK-577 對應正確 → **看 H 段確認**。
+C3 VMX-6722「label 漏 pick」narrative → **錯**,看 H 段(transition discipline)。
+C4 VMX-7309 對應錯位 → **正確**,看 H 段確認。
 
 ## D. Sheet 沒列但 Jira 有 active AI 票(JQL: project=VMX AND status≠Done AND summary AI 關鍵字)
 
@@ -121,25 +101,14 @@
 | VMX-6382 | Allow AI detection parameters configurable | vincent.ho | NEW | 7/18/25 |
 | VMX-5915 | TT AU Speed cam Stop signs at traffic lights | eric.h | NEW | 5/4 |
 
-## E. Action Items(優先序)
+## E. Action Items(已被 H + 5/7 AI weekly 取代)
 
-### 🔥 24 小時內(P0)
-- [ ] **Row 9 #7 Blurring Footage** 跟 Vincent 確認:3 票全關後這列要 hide 還是改 #50 那個 PROD bug
-- [ ] **Row 53 #50** 跟 Adonis 確認:HAWK-517/578 全關了為什麼還新加這列?是「PROD 又出新 bug 但還沒開 ticket」?
-- [ ] **VMX-6722 ↔ Sheet #8 LDWS Feasibility** 跟 jimmy.jy.huang DM:Q1 已 merge,Jira 為什麼還 NEW?直接命中 Brian 5/6 講的 label 紀律 gap
-- [ ] **Yawning 對應修正**:#3 Yawning 改對應 HAWK-332,VMX-7309 留給 #4 Eyes(會議錄音提的)
+> ⚠️ 原 E 段 P0 三項判斷錯誤(看 H 段)。**Action items 看 [`ai-team-row-by-row-status-2026-05-07.md`](ai-team-row-by-row-status-2026-05-07.md) Brian 1on1 talking points + [`../../meetings/2026-05-07_AI-Weekly_meeting-record.md`](../../meetings/2026-05-07_AI-Weekly_meeting-record.md) Action Items**。
 
-### 📅 本週內(P1)
-- [ ] **VMX-7432 Yawning UI toggle 加進 sheet**(Lucy 5/6 開的票,目前 Lucy 的工作 sheet 完全沒記)
-- [ ] **VMX-7430/7431 Speed sign 兩件 woody.lee** 加進 sheet(或確認該歸到「歐盟認證 image」/Speed sign 大主題)
-- [ ] HAWK-577 Blurring on-demand 私訊 chiehli.wang transition Jira(sheet 寫已部屬 v1.1.28)
-- [ ] VMX-7194 Vehicle rollover detection 加進 sheet(5/6 已 In Process,sheet 沒列)
-- [ ] VMX-7324 Improve smoking event accuracy(Elvis 開的)— 歸 Smoking 大主題
-
-### 🎯 本月內(P2)— Sheet 結構性修正
-- [ ] **Sheet 結構問題:同一張 ticket 對應兩個 task row**(VMX-7309 = Yawning + Eyes 都掛)— 跟 Brian 提
-- [ ] **Smoking 主題大缺口**:Roadmap 列 Basic tier,Jira 有 VMX-7324 OPEN / VMX-6380 NEW,但 sheet 全部 hide
-- [ ] **18 件 AI 老票 stale 清查**:跟 Brian 確認 vmx_2026Q1 label 的票哪些還在做,哪些可以 close
+仍有效的:
+- VMX-7432 / 7430 / 7431(5/6 新開)+ VMX-7194 Rollover + VMX-7324 Smoking — sheet 沒收 — 跟 Brian 提加進 sheet
+- VMX-7309 對應錯位 Sheet #3 Yawning + #4 Eyes 共用 → Yawning 真實對應 VMX-7432
+- 18 件 AI 老票 stale 清查(D 段列表)
 
 ## F. Sheet status 欄(E 欄 Priority/Status)— 觀察
 
@@ -167,3 +136,50 @@ AND (summary ~ "AI" OR summary ~ "detection" OR summary ~ "model"
 ORDER BY updated DESC
 ```
 → 21 件,可定期跑這個 query 比對 sheet。
+
+---
+
+## H. Comment 深掘後校正(2026-05-07 補)
+
+只看 Jira status 欄會誤判。10 張票各自進去讀 comment + linked issues + resolution 後的真實 closure 故事:
+
+### Tier A 5 張(Sheet active 但 Jira 已關)
+
+| 票 | 真實 closure 故事 | Sheet 為何還在? |
+|---|------|-----|
+| **HAWK-331** | 2/5 spencer.su 關掉,留「另開單追 follow-up」 | Luís 2/11 直接接力新單 **HAWK-527**;sheet 上 link 已加括號標 (HAWK-527),但 row status 沒同步改 |
+| **VMX-6391** | 12/10/25 由 **righter.song**(MIC)關掉 — 不是原 assignee josh(已 Inactive 離職);最後一則 comment 是 10/13/25 | VMX-6391 是「VMX 端 Blurring 初版開發」歷史單,sheet 沿用 link 是「歷史共識」不是 active |
+| **HAWK-527** | eric.h 4/1 關掉(VisionMax_20260331 ship)。但 4/22 客戶 Susana V18 測試又找新問題,vincent.ho 5/6 加 **VisionMax_20260602** 第二輪 fix | **sheet active 是對的** — Jira RESOLVED 反而誤導,實際 6/2 還有第二輪 |
+| **HAWK-517** | 純 ops incident — STAGING 上 ECS scaling 導致 service down,chiehli.wang 2/6 手動 restart 解決 | 演化成 HAWK-578 + 自我健康檢查機制(sheet #50) |
+| **HAWK-578** | chiehli.wang 5/4 同天修 PROD 並部屬「自我健康檢查 + ECS 自動恢復」機制 | sheet 真正在追的是 follow-up 3 件:SQS retention 4→14 天(5/6 ping spencer.su)/ 客戶手動補 4/21–5/4 漏掉的 blurring / PROD 穩定觀察 |
+
+### Tier B 2 張(Sheet 領先 Jira)
+
+| 票 | 真實狀態 | Sheet vs Jira |
+|---|------|-----|
+| **HAWK-573** | chiehli.wang 4/30 留:CDN cache 為根因,each rerun 產生 unique URL,**will ship in next release**。已有 2 commits + git branch | Sheet 寫「Completed Awaiting Release」**正確**,Jira NEW 是 transition 沒走的 process gap |
+| **HAWK-577** | Type 是 **New Feature**(不是 Bug),NO Fix Version。chiehli.wang 5/4 留新 API 行為設計(`pending_resources` field 等),「to be included in next release」 | Sheet 5/7 寫「測試中,預計下週 MR 於 6/2 release」與 Jira 一致(我前面誤判 sheet 寫錯欄,**實際對應正確**) |
+
+### Tier C+D 3 張(label gap / 對應錯位)
+
+| 票 | 真實狀態 | 校正點 |
+|---|------|-----|
+| **VMX-6722** | sub-tasks 全 CLOSED/RESOLVED + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ Brian 5/6 講 Q1 已 merge,**parent ticket 仍 NEW** | **不是 label 漏 pick(label `vmx_2026Q2` 有設)**,是 **transition 動作沒走** — jimmy 寫 comment 但沒按 Open→Resolved button |
+| **VMX-7101** | 跟 6722 sibling,只有 1 則 comment(3/24 chiehli),之後沒人動。可能跟 6722 一起 ship 但同樣 transition 沒走 | 跟 VMX-6722 同 process gap |
+| **VMX-7309** | scope 只是「EyeStableRate threshold API」(eyeOpenRatioCheckThreshold,fatigue eye 用)。Parent 是 HAWK-551(Bridgestone 客戶)。CDR 端 4/22 已實作完,等 server 端 joe.lien 串接,5/26 CameraAPP_202605 release | **🚨 Sheet #3 Yawning + #4 Eyes 共用 VMX-7309 是錯對應**:VMX-7309 完全沒有 Yawning 內容。Yawning UI toggle 是 5/6 新開的 VMX-7432(Lucy assignee),不是 VMX-7309 |
+
+### 「為什麼 sheet 還掛 active」7 種模式(從 10 張票歸納)
+
+1. **接力新單後沒 hide 舊 row**(HAWK-331 → HAWK-527)
+2. **議題 ≠ ticket**(HAWK-578 後續 SQS / 手動補,sheet 在追議題級工作)
+3. **Resolved 後又出新問題,加新 Fix Version 但不 reopen**(HAWK-527 加 20260602)
+4. **修完等 release,Jira transition 沒走**(HAWK-573)
+5. **Sheet update 寫錯 row**(原誤判;HAWK-577 / HAWK-578 實際對應正確,我看錯)
+6. **Comment 留「已完成」但 transition 沒走**(VMX-6722 / VMX-7101)
+7. **Sheet 用單一 ticket 兜起來涵蓋多個議題,但 ticket scope 比 sheet 列的小很多**(VMX-7309 ↔ Sheet #3+#4)
+
+### 對 Brian 5/6 講「label 漏 pick」narrative 的修正
+
+Brian 自評「label 沒設好 / 我 filter 漏 pick」— 但 VMX-6722 **本身有 label `vmx_2026Q2`**。真實 process gap 是 **RD 寫 comment 後不按 transition button**,不是 label 紀律。
+
+→ 跟 Brian 提改善要從「**transition discipline**」切入,不是「label 紀律」。
