@@ -551,7 +551,7 @@
 - **VMX-6722 本身有 label `vmx_2026Q2`** + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW
 - **真實 process gap 不是 label 漏 pick,是 transition discipline** — RD 寫 comment 但沒按 Open→Resolved button
 
-對 Brian 提 process improvement 應從「transition 紀律」切入,不是「label 紀律」。詳見 [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](../knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) H 段 + [meetings/2026-05-07_AI-Weekly_meeting-record.md](2026-05-07_AI-Weekly_meeting-record.md)。
+對 Brian 提 process improvement 應從「transition 紀律」切入,不是「label 紀律」。詳見 [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](../knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) H 段 + [meetings/2026-05-07_ai-weekly_meeting-record.md](2026-05-07_ai-weekly_meeting-record.md)。
 
 5/7 AI Weekly 同時揭露:
 - **LDWS 完整真相**:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 決議 Pending 暫緩(資源緊繃)

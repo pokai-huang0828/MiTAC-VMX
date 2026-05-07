@@ -103,7 +103,7 @@ C4 VMX-7309 對應錯位 → **正確**,看 H 段確認。
 
 ## E. Action Items(已被 H + 5/7 AI weekly 取代)
 
-> ⚠️ 原 E 段 P0 三項判斷錯誤(看 H 段)。**Action items 看 [`ai-team-row-by-row-status-2026-05-07.md`](ai-team-row-by-row-status-2026-05-07.md) Brian 1on1 talking points + [`../../meetings/2026-05-07_AI-Weekly_meeting-record.md`](../../meetings/2026-05-07_AI-Weekly_meeting-record.md) Action Items**。
+> ⚠️ 原 E 段 P0 三項判斷錯誤(看 H 段)。**Action items 看 [`ai-team-row-by-row-status-2026-05-07.md`](ai-team-row-by-row-status-2026-05-07.md) Brian 1on1 talking points + [`../../meetings/2026-05-07_ai-weekly_meeting-record.md`](../../meetings/2026-05-07_ai-weekly_meeting-record.md) Action Items**。
 
 仍有效的:
 - VMX-7432 / 7430 / 7431(5/6 新開)+ VMX-7194 Rollover + VMX-7324 Smoking — sheet 沒收 — 跟 Brian 提加進 sheet

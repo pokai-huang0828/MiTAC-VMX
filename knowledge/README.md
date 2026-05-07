@@ -20,7 +20,7 @@
 | AI 工作計畫 Sheet | 同上 (gid=339075798) | AI team 內部追蹤 |
 | Jira | https://jira.navman.co.nz/jira/ | RD ticket 事實狀態 |
 | MiAI Roadmap (對外) | `../MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管版 |
-| Case_learning Hub | `../websiteview/case-hub.html` | 客戶案 + PM 框架 |
+| case-learning Hub | `../websiteview/case-hub.html` | 客戶案 + PM 框架 |
 | Portal HTML Briefings | `../portal_reference/*.html` | 客戶簡報用 |
 
 ---
@@ -82,10 +82,10 @@
 
 1. **新事實 / 校正** → 寫進 [06_calibration-log/](06_calibration-log/),不要直接改舊文件
 2. **新會議洞察** → 寫進 `../meetings/YYYY-MM-DD_*` + 把戰略議題抽出到 04 / 06
-3. **客戶案 update** → 進 `../Case_learning/`
+3. **客戶案 update** → 進 `../case-learning/`
 4. **Sheet / Jira 變動** → 截圖驗證 visible rows,不信 CSV export
 
-⚠️ **這個資料夾是 source of truth 的整理層,不是原始資料層**。原始資料在 `../meetings/`、`../portal_reference/`、`../Case_learning/`,以及 NotebookLM 線上(notebook id `a3aad3ec-ecf3-4468-a0d9-13a6a18359c7`)。
+⚠️ **這個資料夾是 source of truth 的整理層,不是原始資料層**。原始資料在 `../meetings/`、`../portal_reference/`、`../case-learning/`,以及 NotebookLM 線上(notebook id `a3aad3ec-ecf3-4468-a0d9-13a6a18359c7`)。
 
 ---
 

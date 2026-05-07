@@ -25,7 +25,7 @@
 |------|------|-----|
 | **[`knowledge/`](knowledge/README.md)** ⭐ | 結構化知識庫(source of truth) | 6 大 folder:Product / Org / Systems / PM Frameworks / Workflows / Calibration |
 | [`portal_reference/`](portal_reference/) | Brian portal task 主交付 | HTML 客戶簡報 25 張 + PDF 複刻 55 張 |
-| [`Case_learning/`](Case_learning/) | 客戶案件追蹤 | Connect Source / Platform Science / case hub |
+| [`case-learning/`](case-learning/) | 客戶案件追蹤 | Connect Source / Platform Science / case hub |
 | [`meetings/`](meetings/) | 會議筆記 | Video Safety / Q2 Review |
 | [`VMX_images/`](VMX_images/) | Portal 截圖 | Fleet 16 張 + Master 8 張 |
 | `EVO_image_update/` | 韌體更新流程文件 | `.gitignore` 排除 binary,只留 process.md |
@@ -57,7 +57,7 @@
 | Coffee chat 待問清單(Brian / Mori / Jimmy / Spencer / Lucy / Tony) | [knowledge/02_organization-map/coffee-chat-questions.md](knowledge/02_organization-map/coffee-chat-questions.md) |
 | AI Team 16 件逐行 5/7 狀態 + Brian 1on1 talking points | [knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md](knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md) |
 | AI 工作計畫 × Jira filter 36457 對齊 + 10 票 comment 深掘 | [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) |
-| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/2026-05-07_AI-Weekly_meeting-record.md](meetings/2026-05-07_AI-Weekly_meeting-record.md) |
+| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/2026-05-07_ai-weekly_meeting-record.md](meetings/2026-05-07_ai-weekly_meeting-record.md) |
 | 已校正的 VMX 事實(別再答錯) | [knowledge/06_calibration-log/critical-facts-log.md](knowledge/06_calibration-log/critical-facts-log.md) |
 
 ---

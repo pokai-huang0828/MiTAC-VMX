@@ -91,7 +91,7 @@ Cheers, Cary
 ## D. 動作清單
 
 ### 立即（24h 內）
-- [x] 完成本 calibration log + 更新 Case_learning 主檔
+- [x] 完成本 calibration log + 更新 case-learning 主檔
 - [ ] 給 Brian 內部 DM 三點摘要（**等使用者明示後才發** — auto-mode 不主動發訊息）
 
 ### 本週
@@ -109,6 +109,6 @@ Cheers, Cary
 ## E. 跨檔案連結
 
 - 完整分析：`~/.claude/plans/https-outlook-cloud-microsoft-mail-categ-glimmering-sky.md`
-- 案件主檔（已更新時間軸 + Action Items）：`Case_learning/CONNECTSOURCE-PASSENGER-BLURRING.md`
+- 案件主檔（已更新時間軸 + Action Items）：`case-learning/connectsource-passenger-blurring.md`
 - Jira 對齊佐證：`knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md`
 - API 文件（v2026-Q1）：https://visionmax.redocly.app/

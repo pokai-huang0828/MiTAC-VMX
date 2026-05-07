@@ -30,7 +30,7 @@
 | **Mainfreight** | Web Platform 測試 | (待補) | 測試中 |
 | **BMS** | API + 客製 | (待補) | 雙版本同步戰略對象 / 200Hz / Smoking config / VMX-6920 |
 | **Platform Science (Vinicius)** | 評估中 | Vinicius / John Smith Jr / Peter | US,K265 portal 問題 / SDK 文件需求 |
-| **CONNECTSOURCE** | 評估中 | (詳 Case_learning) | Passenger blurring 需求 |
+| **CONNECTSOURCE** | 評估中 | (詳 case-learning) | Passenger blurring 需求 |
 | **Quantatec** | 客製 | (待補) | Camera obstruction 系列(VMX-6983 / 7427) |
 | **HDFE** | (待補) | (S 那邊) | 2026-05-06 抱怨 Q1 Events Page UI 變動 |
 | **LB Technology** | (待補) | (待補) | Plow PTO / Posted Speed Alert |

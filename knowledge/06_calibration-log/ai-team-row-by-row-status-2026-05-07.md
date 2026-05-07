@@ -135,7 +135,7 @@
 
 ## ⚠️ NotebookLM 5/7 AI Weekly 揭露的 sheet 漏記訊號(2026-05-07 補)
 
-詳見 [2026-05-07_AI-Weekly_meeting-record.md](../../meetings/2026-05-07_AI-Weekly_meeting-record.md)。會議揭露 sheet 嚴重 understatement / 漏寫的點:
+詳見 [2026-05-07_ai-weekly_meeting-record.md](../../meetings/2026-05-07_ai-weekly_meeting-record.md)。會議揭露 sheet 嚴重 understatement / 漏寫的點:
 
 | Sheet row | sheet 5/7 寫的 | 會議揭露 | 嚴重度 |
 |-----------|---|---|---|
