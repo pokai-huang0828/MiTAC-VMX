@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VMX Portal · 客戶簡介手冊</title>
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,600,700,800&f[]=satoshi@400,500,700,900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="css/shared.css">
   <style>
     
 /* === VIEWPORT FITTING (mandatory) === */
@@ -48,30 +44,11 @@ html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
 }
 
-/* === MITAC THEME === */
-:root {
-  --navy:        #003B71;
-  --navy-dark:   #002247;
-  --navy-light:  #005CA8;
-  --red:         #E30613;
-  --gold:        #C9A961;
-  --orange:      #F08300;
-  --text:        #1B2541;
-  --text-light:  #5A6779;
-  --bg:          #FFFFFF;
-  --bg-soft:     #F4F6FA;
-  --bg-stripe:   #EAEDF2;
-  --font-display: "Cabinet Grotesk", "Boska", system-ui, sans-serif;
-  --font-body:    "Satoshi", "Noto Sans TC", system-ui, sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* === MDT 2026 THEME — colors / fonts come from shared.css === */
+/* (legacy --navy/--orange/--font-display etc. all aliased in shared.css) */
 body {
-  font-family: var(--font-body);
-  color: var(--text);
-  background: var(--bg);
+  background: var(--mdt-card);  /* slides on white */
   line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
 }
 .slide { background: var(--bg); color: var(--text); }
 

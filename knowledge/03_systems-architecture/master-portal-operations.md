@@ -28,9 +28,9 @@
 | How to Change Devices Settings to a Normal Car | (跨多頁,可能在 Inventory 內) | 待擴 |
 | Portal Usage Guides | (overview 文件) | 待擴 |
 
-## ⚠️ KB 跟 portal_reference 差異
+## ⚠️ KB 跟 portal-briefing 差異
 
-`portal_reference/vmx_portal_client_briefing.html` 是 Kenny 整理的 25 張投影片版,**比 KB 詳細**(因為 PDF + 實際盤點)。
+`../../websiteview/portal-briefing.html` 是 Kenny 整理的 25 張投影片版,**比 KB 詳細**(因為 PDF + 實際盤點)。
 
 但 KB **更新比較快**(VisionMax Update History & Release Notes 是 KB 上專門 Master Portal 文件)。
 

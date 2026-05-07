@@ -4,9 +4,10 @@
 > 整理日期:2026-05-06
 > 最新狀態同步:2026-05-06 Q2 Review 會議後
 
-🌐 **[在瀏覽器開啟 Knowledge Hub →](index.html)**(離線可用,7 個分類 tab + 搜尋)
+🌐 **[在瀏覽器開啟 Knowledge Hub →](../websiteview/knowledge.html)**(離線可用,7 個分類 tab + 待釐清頁 + 搜尋)
+🏠 [Website View landing](../websiteview/index.html) — 4 個 HTML 集中入口
 
-更新內容後重新產生:`python3 knowledge/_build_index.py`
+更新內容後重新產生:`python3 knowledge/_build_index.py`(輸出到 `websiteview/knowledge.html`)
 
 ---
 
@@ -19,7 +20,7 @@
 | AI 工作計畫 Sheet | 同上 (gid=339075798) | AI team 內部追蹤 |
 | Jira | https://jira.navman.co.nz/jira/ | RD ticket 事實狀態 |
 | MiAI Roadmap (對外) | `../MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管版 |
-| Case_learning Hub | `../Case_learning/case-learning-hub.html` | 客戶案 + PM 框架 |
+| Case_learning Hub | `../websiteview/case-hub.html` | 客戶案 + PM 框架 |
 | Portal HTML Briefings | `../portal_reference/*.html` | 客戶簡報用 |
 
 ---

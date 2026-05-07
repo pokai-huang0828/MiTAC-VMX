@@ -1,0 +1,136 @@
+/* ================================================================
+ * MDT 2026 Shared Design Tokens
+ * ----------------------------------------------------------------
+ * 唯一色票來源 — 改這裡,4 個 HTML 同步生效。
+ * 所有 page 的 :root 都應只定義 size / spacing / page-specific 變數,
+ * 顏色 / 字型 / 共通基底都在這裡。
+ * ================================================================ */
+
+:root {
+  /* ── Primary blue family (MDT 2026 main) ── */
+  --mdt-blue:        #4472C4;     /* primary */
+  --mdt-blue-dark:   #2E4F8C;
+  --mdt-blue-light:  #5B9BD5;     /* secondary blue */
+  --mdt-blue-soft:   rgba(91,155,213,0.12);
+
+  /* ── Accent orange ── */
+  --mdt-orange:      #ED7D31;     /* accent */
+  --mdt-orange-dark: #C9622E;
+  --mdt-orange-soft: rgba(237,125,49,0.12);
+
+  /* ── Semantic ── */
+  --mdt-pending:     #DC2626;     /* red — 待釐清 / risk / danger */
+  --mdt-success:     #16A34A;
+  --mdt-warning:     #CA8A04;
+  --mdt-star:        #F59E0B;
+  --mdt-gold:        #D9A82D;
+
+  /* ── Neutrals ── */
+  --mdt-text:        #1E293B;
+  --mdt-text-muted:  #64748B;
+  --mdt-text-light:  #94A3B8;
+  --mdt-bg:          #F4F6FA;
+  --mdt-bg-stripe:   #EAEDF2;
+  --mdt-card:        #FFFFFF;
+  --mdt-border:      #DDE3EC;
+  --mdt-code-bg:     #F1F5F9;
+
+  /* ── Shadow ── */
+  --mdt-shadow:      0 2px 12px rgba(68,114,196,0.10);
+  --mdt-shadow-lg:   0 4px 20px rgba(68,114,196,0.18);
+
+  /* ── Easing ── */
+  --mdt-ease:        cubic-bezier(.25,.8,.3,1);
+
+  /* ── Font ── */
+  --mdt-font:        Calibri, "Segoe UI", -apple-system, BlinkMacSystemFont,
+                     "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --mdt-font-mono:   'SF Mono', Consolas, 'Liberation Mono', monospace;
+
+  /* ── Legacy aliases — let舊 HTML 不改變數名也能切到 MDT 2026 ── */
+  --primary:         var(--mdt-blue);
+  --primary-light:   var(--mdt-blue-light);
+  --primary-dark:    var(--mdt-blue-dark);
+  --accent:          var(--mdt-orange);
+  --accent-light:    var(--mdt-orange);
+  --navy:            var(--mdt-blue);
+  --navy-dark:       var(--mdt-blue-dark);
+  --navy-light:      var(--mdt-blue-light);
+  --orange:          var(--mdt-orange);
+  --gold:            var(--mdt-gold);
+  --red:             var(--mdt-pending);
+  --text:            var(--mdt-text);
+  --text-muted:      var(--mdt-text-muted);
+  --text-light:      var(--mdt-text-muted);
+  --bg:              var(--mdt-bg);
+  --bg-soft:         var(--mdt-bg);
+  --bg-stripe:       var(--mdt-bg-stripe);
+  --card:            var(--mdt-card);
+  --border:          var(--mdt-border);
+  --code-bg:         var(--mdt-code-bg);
+  --success:         var(--mdt-success);
+  --warning:         var(--mdt-warning);
+  --danger:          var(--mdt-pending);
+  --pending:         var(--mdt-pending);
+  --star:            var(--mdt-star);
+  --shadow:          var(--mdt-shadow);
+  --shadow-hover:    var(--mdt-shadow-lg);
+  --tab-active-bg:   var(--mdt-card);
+  --tab-inactive:    #E8EEF7;
+
+  /* Legacy font aliases */
+  --font-display:    var(--mdt-font);
+  --font-body:       var(--mdt-font);
+}
+
+/* ── Base reset ── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--mdt-font);
+  color: var(--mdt-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #c5cfe1; border-radius: 4px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--mdt-blue-light); }
+
+/* ── Common utility classes ── */
+.mdt-card {
+  background: var(--mdt-card);
+  border-radius: 8px;
+  box-shadow: var(--mdt-shadow);
+  padding: 18px 22px;
+}
+.mdt-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.mdt-pill.blue   { background: var(--mdt-blue-soft);   color: var(--mdt-blue); }
+.mdt-pill.orange { background: var(--mdt-orange-soft); color: var(--mdt-orange-dark); }
+.mdt-pill.red    { background: rgba(220,38,38,0.10);   color: var(--mdt-pending); }
+.mdt-pill.green  { background: rgba(22,163,74,0.10);   color: var(--mdt-success); }
+
+.mdt-btn {
+  background: var(--mdt-card);
+  border: 1px solid var(--mdt-border);
+  color: var(--mdt-blue);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 500 13px var(--mdt-font);
+  transition: all 0.15s var(--mdt-ease);
+}
+.mdt-btn:hover { background: var(--mdt-blue); color: #fff; border-color: var(--mdt-blue); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+  html { scroll-behavior: auto; }
+}

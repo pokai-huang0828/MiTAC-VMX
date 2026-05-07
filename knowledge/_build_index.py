@@ -21,8 +21,9 @@ from pathlib import Path
 import markdown
 from bs4 import BeautifulSoup
 
-HERE = Path(__file__).parent
-OUT = HERE / "index.html"
+HERE = Path(__file__).parent  # knowledge/
+REPO_ROOT = HERE.parent
+OUT = REPO_ROOT / "websiteview" / "knowledge.html"
 
 # Category metadata: folder prefix → (display name, icon)
 CATEGORIES = {
@@ -335,38 +336,17 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kenny VMX Knowledge Hub</title>
+<link rel="stylesheet" href="css/shared.css">
 <style>
-  /* MDT 2026 palette */
+  /* Page-specific tokens (colors / fonts come from shared.css) */
   :root {
-    --primary:        #4472C4;
-    --primary-light:  #5B9BD5;
-    --accent:         #ED7D31;
-    --bg:             #F4F6FA;
-    --card:           #FFFFFF;
-    --border:         #DDE3EC;
-    --text:           #1E293B;
-    --text-muted:     #64748B;
-    --code-bg:        #F1F5F9;
-    --tab-active-bg:  #FFFFFF;
-    --tab-inactive:   #E8EEF7;
-    --pending:        #DC2626;
-    --star:           #F59E0B;
-    --shadow:         0 2px 12px rgba(68,114,196,0.10);
-    --shadow-hover:   0 4px 20px rgba(68,114,196,0.18);
     --sidebar-w:      300px;
-
-    --ease:           cubic-bezier(.25,.8,.3,1);
+    --ease:           var(--mdt-ease);
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  *::-webkit-scrollbar { width: 8px; height: 8px; }
-  *::-webkit-scrollbar-thumb { background: #c5cfe1; border-radius: 4px; }
-  *::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
 
   html, body { height: 100%; overflow: hidden; }
 
   body {
-    font-family: Calibri, "Segoe UI", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;

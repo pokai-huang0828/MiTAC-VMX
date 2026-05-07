@@ -4,36 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiTAC Case Learning Hub</title>
+<link rel="stylesheet" href="css/shared.css">
 <style>
+  /* Page-specific tag tokens (colors / fonts come from shared.css) */
   :root {
-    --primary: #1a3a5c;
-    --primary-light: #2563a8;
-    --accent: #e67e22;
-    --accent-light: #f39c12;
-    --bg: #f4f6f9;
-    --card: #ffffff;
-    --border: #dde3ec;
-    --text: #1e293b;
-    --text-muted: #64748b;
-    --success: #16a34a;
-    --warning: #ca8a04;
-    --danger: #dc2626;
-    --tag-blue: #dbeafe;
-    --tag-blue-text: #1e40af;
-    --tag-orange: #ffedd5;
-    --tag-orange-text: #9a3412;
-    --tag-green: #dcfce7;
-    --tag-green-text: #166534;
-    --tag-red: #fee2e2;
-    --tag-red-text: #991b1b;
-    --shadow: 0 2px 12px rgba(0,0,0,0.08);
-    --shadow-hover: 0 6px 24px rgba(0,0,0,0.13);
+    --tag-blue:        var(--mdt-blue-soft);
+    --tag-blue-text:   var(--mdt-blue);
+    --tag-orange:      var(--mdt-orange-soft);
+    --tag-orange-text: var(--mdt-orange-dark);
+    --tag-green:       rgba(22,163,74,0.10);
+    --tag-green-text:  var(--mdt-success);
+    --tag-red:         rgba(220,38,38,0.10);
+    --tag-red-text:    var(--mdt-pending);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;

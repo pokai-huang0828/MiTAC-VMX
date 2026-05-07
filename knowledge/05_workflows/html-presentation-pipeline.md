@@ -76,10 +76,14 @@ p.save('output.pptx')
 6. 要 PDF / PNG → 用 frontend-slides skill 的 `scripts/export-pdf.sh`(在 `~/.claude/skills/frontend-slides/scripts/`)
 7. 要部署到雲端 → `scripts/deploy.sh`(Vercel)
 
-## 既有 HTML 簡報(navy 舊版)
+## 既有 HTML 簡報(已統一到 MDT 2026)
 
-- `../../portal_reference/vmx_portal_client_briefing.html`(中文 25 張)
-- `../../portal_reference/vmx_architecture_replica.html`(英文 55 張)
-- `../../Case_learning/case-learning-hub.html`(navy `#1a3a5c`)
+集中於 [`../../websiteview/`](../../websiteview/),共用 `css/shared.css`:
 
-→ 不主動重做,等 Kenny 要新版才換 MDT 2026 配色。
+- `../../websiteview/portal-briefing.html`(中文 25 張)
+- `../../websiteview/portal-architecture.html`(英文 55 張)
+- `../../websiteview/case-hub.html`(3-tab dashboard)
+- `../../websiteview/knowledge.html`(由 `knowledge/_build_index.py` 產生)
+- `../../websiteview/index.html` landing 頁
+
+→ 改配色 / 字型只動 `websiteview/css/shared.css`,4 個 HTML 同步生效。

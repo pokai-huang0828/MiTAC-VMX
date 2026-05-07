@@ -19,5 +19,5 @@ Kenny 自萃取的 PM 方法論(從 Hub 第三 tab + 5/6 會議洞察整合)。
 
 ## 主要原始來源
 
-- `../../Case_learning/case-learning-hub.html` Tab 3
+- `../../websiteview/case-hub.html` Tab 3
 - `../../meetings/2026-05-06_Q2-RequestReview_meeting-record.md`

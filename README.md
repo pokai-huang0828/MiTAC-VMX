@@ -66,7 +66,7 @@
 - **PPT 路線**:拷貝 `MDT_2026_powerpoint_template.pptx`,從 6 個 layout 插入 slide
 - **HTML 路線**:`#5B9BD5` / `#4472C4` / `#ED7D31` + Calibri,SOP 見 [knowledge/05_workflows/html-presentation-pipeline.md](knowledge/05_workflows/html-presentation-pipeline.md)
 
-⚠️ `portal_reference/*.html` 與 `Case_learning/case-learning-hub.html` 仍是舊 navy 配色,下次重做時換成 MDT 2026 模板色票。
+所有 4 個 HTML 已集中到 [`websiteview/`](websiteview/),共用 `websiteview/css/shared.css`(MDT 2026 配色 + Calibri)。打開 [`websiteview/index.html`](websiteview/index.html) 是 landing page。
 
 ### Jira(MiTAC R&D)
 - 入口:`https://jira.navman.co.nz/jira/`
@@ -93,7 +93,7 @@
 ## 接手指南(若你是接手 Kenny 的人)
 
 1. 先讀本檔(README.md)+ [knowledge/README.md](knowledge/README.md)
-2. 讀 `portal_reference/vmx_portal_client_briefing.html` 了解 portal 全貌
-3. 開 `Case_learning/case-learning-hub.html`(3 tab),先看「PM 策略洞察」tab 拿框架,再看兩個客戶案
+2. 讀 [`websiteview/portal-briefing.html`](websiteview/portal-briefing.html) 了解 portal 全貌
+3. 開 [`websiteview/case-hub.html`](websiteview/case-hub.html)(3 tab),先看「PM 策略洞察」tab 拿框架,再看兩個客戶案
 4. 找 Brian 對齊主管期待
 5. 評估期可見度從 [VMX-7404 ADAS Failure](knowledge/06_calibration-log/vmx-7404-tracking.md) 入手最快

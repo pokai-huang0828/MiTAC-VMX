@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenny VMX — Website View</title>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+  body {
+    background: linear-gradient(135deg, #F4F6FA 0%, #EAF1FB 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    background: linear-gradient(135deg, var(--mdt-blue) 0%, var(--mdt-blue-light) 100%);
+    color: #fff;
+    padding: 18px 32px;
+    box-shadow: var(--mdt-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .topbar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .topbar h1 .accent { color: #FFD9A8; }
+  .topbar .meta { font-size: 13px; color: rgba(255,255,255,0.85); }
+
+  .hero {
+    text-align: center;
+    padding: 56px 32px 32px;
+  }
+  .hero h2 {
+    color: var(--mdt-blue-dark);
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    color: var(--mdt-text-muted);
+    font-size: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .grid {
+    max-width: 1100px;
+    margin: 32px auto 64px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--mdt-card);
+    border-radius: 12px;
+    box-shadow: var(--mdt-shadow);
+    padding: 24px;
+    text-decoration: none;
+    color: var(--mdt-text);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s var(--mdt-ease), box-shadow 0.18s var(--mdt-ease);
+    border-top: 4px solid var(--mdt-blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--mdt-shadow-lg);
+  }
+  .card.accent { border-top-color: var(--mdt-orange); }
+  .card.dark   { border-top-color: var(--mdt-blue-dark); }
+
+  .card-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    color: var(--mdt-blue);
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .card.accent h3 { color: var(--mdt-orange-dark); }
+  .card p {
+    font-size: 14px;
+    color: var(--mdt-text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .card-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+  .card-arrow {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    color: var(--mdt-text-light);
+    font-size: 18px;
+    transition: transform 0.18s var(--mdt-ease), color 0.18s;
+  }
+  .card:hover .card-arrow {
+    transform: translateX(4px);
+    color: var(--mdt-orange);
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--mdt-text-muted);
+    font-size: 12px;
+    padding: 24px;
+    border-top: 1px solid var(--mdt-border);
+  }
+  .footer a { color: var(--mdt-blue); text-decoration: none; }
+  .footer a:hover { color: var(--mdt-orange); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 36px 16px 16px; }
+    .hero h2 { font-size: 24px; }
+    .grid { padding: 0 12px; gap: 14px; margin-bottom: 36px; }
+    .card { padding: 18px; }
+    .topbar { padding: 14px 18px; }
+    .topbar h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <h1>📚 Kenny VMX <span class="accent">Website View</span></h1>
+  <div class="meta">MDT 2026 · v1.0</div>
+</header>
+
+<section class="hero">
+  <h2>VMX PM 工作目錄 · Web Hub</h2>
+  <p>4 個 self-contained HTML 集中於此資料夾。配色與字型統一自 <code>css/shared.css</code> 一處控管,改一次全套同步。</p>
+</section>
+
+<main class="grid">
+
+  <a class="card" href="knowledge.html">
+    <span class="card-arrow">→</span>
+    <div class="card-icon">📚</div>
+    <h3>Knowledge Hub</h3>
+    <p>結構化知識庫 — 6 大分類 / 41 份文件,自動掃描待釐清項目,重要性 ★ 排序。每天打開的工作頁。</p>
+    <div class="card-meta">
+      <span class="mdt-pill blue">7 + 1 tabs</span>
+      <span class="mdt-pill orange">★ 評級</span>
+      <span class="mdt-pill red">📌 待釐清</span>
+    </div>
+  </a>
+
+  <a class="card accent" href="case-hub.html">
+    <span class="card-arrow">→</span>
+    <div class="card-icon">📋</div>
+    <h3>Case Learning Hub</h3>
+    <p>客戶案件 dashboard — Platform Science / CONNECTSOURCE 兩案總覽 + PM 策略洞察萃取。</p>
+    <div class="card-meta">
+      <span class="mdt-pill blue">3 tabs</span>
+      <span class="mdt-pill orange">PM 框架</span>
+    </div>
+  </a>
+
+  <a class="card" href="portal-briefing.html">
+    <span class="card-arrow">→</span>
+    <div class="card-icon">🎯</div>
+    <h3>Portal Client Briefing</h3>
+    <p>客戶端用 25 張中文簡報 — Brian Portal Task 主交付。鍵盤上下鍵切 slide,可現場 demo。</p>
+    <div class="card-meta">
+      <span class="mdt-pill blue">25 slides</span>
+      <span class="mdt-pill orange">中文 / 客戶用</span>
+    </div>
+  </a>
+
+  <a class="card dark" href="portal-architecture.html">
+    <span class="card-arrow">→</span>
+    <div class="card-icon">🏛</div>
+    <h3>Architecture &amp; Integration</h3>
+    <p>VisionMax 架構文件英文版 55 張(原始 PDF 複刻)— 海外客戶 / 技術方對接用。</p>
+    <div class="card-meta">
+      <span class="mdt-pill blue">55 slides</span>
+      <span class="mdt-pill orange">English</span>
+    </div>
+  </a>
+
+</main>
+
+<footer class="footer">
+  色票 / 字型 / 共通樣式集中於 <a href="css/shared.css">css/shared.css</a>。
+  Knowledge Hub 由 <code>knowledge/_build_index.py</code> 自動產生。
+</footer>
+
+</body>
+</html>

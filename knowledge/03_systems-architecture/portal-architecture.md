@@ -1,6 +1,6 @@
 # Portal 雙層架構
 
-> 完整客戶簡報:`../../portal_reference/vmx_portal_client_briefing.html`
+> 完整客戶簡報:`../../websiteview/portal-briefing.html`
 
 ## 雙層架構
 
