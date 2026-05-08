@@ -391,6 +391,8 @@
 </head>
 <body>
 
+<a href="../websiteview/index.html" title="返回 Web Hub" style="position:fixed;top:14px;left:18px;z-index:1000;color:rgba(255,255,255,0.9);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;background:rgba(0,0,0,0.28);backdrop-filter:blur(4px);">← Web Hub</a>
+
 <div class="header">
   <div class="header-tag">PM Meeting Record</div>
   <h1>Q2 Request Management Review</h1>
@@ -444,6 +446,7 @@
       <li><a href="#part-c">Part C 會後 Action Items</a></li>
       <li><a href="#part-d">Part D 待 Coffee Chat 釐清</a></li>
       <li><a href="#part-e">Part E Memory 更新</a></li>
+      <li><a href="#part-f" style="color:var(--accent2);">🔄 Part F 後續校正(2026-05-07 補)</a></li>
     </ul>
   </div>
 
@@ -843,24 +846,31 @@
     </div>
   </div>
 
-</div>
+  <div class="section" id="part-f" style="margin-top:32px;">
+    <div class="section-title">
+      <h2>🔄 後續校正(2026-05-07 補)</h2>
+    </div>
+    <div class="card strategic">
+      <div class="card-header"><div class="card-title">VMX-6722「label 漏 pick」narrative 校正</div></div>
+      <p>本紀錄保留 5/6 當下會議字面內容(包含 Brian 自評「label 漏 pick」)。<strong>2026-05-07 讀 VMX-6722 comments + sub-tasks 後發現</strong>:</p>
+      <ul>
+        <li>VMX-6722 <strong>本身有 label <code>vmx_2026Q2</code></strong> + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW</li>
+        <li><strong>真實 process gap 不是 label 漏 pick,是 transition discipline</strong> — RD 寫 comment 但沒按 Open→Resolved button</li>
+      </ul>
+      <p>對 Brian 提 process improvement 應從「<strong>transition 紀律</strong>」切入,不是「label 紀律」。詳見 <code>knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md</code> H 段 + <code>meetings/2026-05-07_ai-weekly_meeting-record.md</code>。</p>
+    </div>
+    <div class="card critical">
+      <div class="card-header"><div class="card-title">5/7 AI Weekly 同時揭露</div></div>
+      <ul>
+        <li><strong>LDWS 完整真相</strong>:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善 5/7 決議 Pending 暫緩(資源緊繃)</li>
+        <li><strong>Yawning UI toggle 真實對應 ticket = VMX-7432</strong>(Lucy 5/6 開的單),不是 VMX-7309</li>
+        <li><strong>Lens Cover 雙軌維護</strong>:Azuga 標準版 = 解除車速 / BMS 版 = 車速 &gt; 0(司機休息隱私)</li>
+        <li><strong>Eating/Drinking 客訴 17 倍量級危機</strong>(客訴 ID 6652),6/15 前 7000+ Edge case 緊急重訓(Vincent + Jimmy)</li>
+        <li><strong>Spencer = Cloud / API team lead</strong>(校正:不是 Adonis)— 扛睜眼率 API 全鏈路驗證 6/2</li>
+      </ul>
+    </div>
+  </div>
 
-<div class="card" style="margin-top:24px;border-left:4px solid #ED7D31;">
-  <div class="card-header"><div class="card-title">🔄 後續校正(2026-05-07 補)</div></div>
-  <p>本紀錄保留 5/6 當下會議字面內容(包含 Brian 自評「label 漏 pick」)。<strong>2026-05-07 讀 VMX-6722 comments + sub-tasks 後發現</strong>:</p>
-  <ul>
-    <li>VMX-6722 <strong>本身有 label <code>vmx_2026Q2</code></strong> + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW</li>
-    <li><strong>真實 process gap 不是 label 漏 pick,是 transition discipline</strong> — RD 寫 comment 但沒按 Open→Resolved button</li>
-  </ul>
-  <p>對 Brian 提 process improvement 應從「<strong>transition 紀律</strong>」切入,不是「label 紀律」。詳見 <code>knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md</code> H 段 + <code>meetings/2026-05-07_ai-weekly_meeting-record.md</code>。</p>
-  <p><strong>5/7 AI Weekly 同時揭露</strong>:</p>
-  <ul>
-    <li><strong>LDWS 完整真相</strong>:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善 5/7 決議 Pending 暫緩(資源緊繃)</li>
-    <li><strong>Yawning UI toggle 真實對應 ticket = VMX-7432</strong>(Lucy 5/6 開的單),不是 VMX-7309</li>
-    <li><strong>Lens Cover 雙軌維護</strong>:Azuga 標準版 = 解除車速 / BMS 版 = 車速 &gt; 0(司機休息隱私)</li>
-    <li><strong>Eating/Drinking 客訴 17 倍量級危機</strong>(客訴 ID 6652),6/15 前 7000+ Edge case 緊急重訓(Vincent + Jimmy)</li>
-    <li><strong>Spencer = Cloud / API team lead</strong>(校正:不是 Adonis)— 扛睜眼率 API 全鏈路驗證 6/2</li>
-  </ul>
 </div>
 
 <div class="footer">

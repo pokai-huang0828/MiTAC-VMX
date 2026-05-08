@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-05-07 AI Weekly Meeting</title>
+<style>
+  :root {
+    --mdt-blue: #5B9BD5;
+    --mdt-blue-dark: #2E5C8A;
+    --mdt-orange: #ED7D31;
+    --mdt-orange-dark: #C25E1B;
+    --mdt-text: #2c3e50;
+    --mdt-text-muted: #5a6c7d;
+    --mdt-text-light: #95a5a6;
+    --mdt-border: #e1e8ed;
+    --mdt-card: #fff;
+    --mdt-bg: #F4F6FA;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    background: var(--mdt-bg);
+    color: var(--mdt-text);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .topbar {
+    background: linear-gradient(135deg, var(--mdt-blue) 0%, var(--mdt-blue-dark) 100%);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .topbar .back {
+    color: rgba(255,255,255,0.9); text-decoration: none; font-size: 13px;
+    padding: 5px 10px; border-radius: 6px; background: rgba(255,255,255,0.15);
+  }
+  .topbar .back:hover { background: rgba(255,255,255,0.28); }
+  .topbar .source-path {
+    margin-left: auto; font-size: 12px; opacity: 0.75; font-family: ui-monospace, monospace;
+  }
+  main {
+    max-width: 920px; margin: 0 auto; padding: 32px 28px 80px;
+  }
+  main h1 { color: var(--mdt-blue-dark); border-bottom: 3px solid var(--mdt-orange); padding-bottom: 8px; margin-top: 0; }
+  main h2 { color: var(--mdt-blue-dark); border-left: 4px solid var(--mdt-orange); padding-left: 12px; margin-top: 32px; }
+  main h3 { color: var(--mdt-blue); margin-top: 24px; }
+  main blockquote {
+    border-left: 4px solid var(--mdt-orange); background: #FFF7EE;
+    margin: 16px 0; padding: 10px 16px; border-radius: 0 6px 6px 0;
+  }
+  main code {
+    background: #eef2f7; padding: 2px 6px; border-radius: 4px;
+    font-family: ui-monospace, "Cascadia Code", monospace; font-size: 0.92em;
+  }
+  main pre {
+    background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px;
+    overflow-x: auto; line-height: 1.5;
+  }
+  main pre code { background: transparent; color: inherit; padding: 0; }
+  main table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  main th, main td {
+    border: 1px solid var(--mdt-border); padding: 8px 12px; text-align: left;
+    font-size: 14px; vertical-align: top;
+  }
+  main th { background: var(--mdt-blue); color: #fff; font-weight: 600; }
+  main tr:nth-child(even) td { background: #f8fafc; }
+  main a { color: var(--mdt-blue); text-decoration: none; border-bottom: 1px dotted var(--mdt-blue); }
+  main a:hover { color: var(--mdt-orange); border-bottom-color: var(--mdt-orange); }
+  main ul, main ol { padding-left: 1.6em; }
+  main li { margin: 4px 0; }
+  main hr { border: none; border-top: 1px solid var(--mdt-border); margin: 28px 0; }
+  .footer {
+    text-align: center; padding: 20px; font-size: 12px;
+    color: var(--mdt-text-light); border-top: 1px solid var(--mdt-border);
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../websiteview/knowledge.html" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <strong>📄 2026-05-07 AI Weekly Meeting</strong>
+  <span class="source-path">meetings/2026-05-07_ai-weekly_meeting-record.md</span>
+</header>
+<main>
+<h1 id="2026-05-07-ai-weekly-meeting">2026-05-07 AI Weekly Meeting</h1>
+<blockquote>
+<p><strong>來源</strong>:NotebookLM <code>5-7 ai weekly.m4a</code> source(38 sources 全庫查詢結果)
+<strong>整理視角</strong>:Kenny PM 角度,逐 PIC + action item + 跟 5/6 Azuga AI weekly 落差
+<strong>目的</strong>:跟 sheet AI 工作計畫 row-by-row 5/7 snapshot 對齊,找出 sheet 沒寫到 / 寫得不準的訊號</p>
+</blockquote>
+<hr>
+<h2 id="1-pic-57">1. 各 PIC 工作進度報告(5/7 會議揭露版)</h2>
+<table>
+<thead>
+<tr>
+<th>PIC</th>
+<th>5/7 會議報告內容</th>
+<th>Sheet 對應 row</th>
+<th>Sheet 寫的 vs 會議揭露</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vincent</strong></td>
+<td>將 7000 多筆吃東西、喝水、手持物品的誤判照片(Edge cases)加入負向資料庫,集中資源於 6/15 前完成模型 Retrain。同時協助評估將「Head 邏輯」導入原有 Face 演算法</td>
+<td>#45 Pedestrian / #7 Blurring / #43 Camera height</td>
+<td>🚨 Sheet 沒這條,飲食重訓不在他名下 row(#46 Eating Jimmy 才有)— Vincent 角色擴大</td>
+</tr>
+<tr>
+<td><strong>Jieli (竭力)</strong></td>
+<td>處理 BMS 專案 Lens Cover 獨立邏輯(車速 &gt; 0 才啟動),必須趕上 6/2 交付</td>
+<td>#28 鏡頭遮蔽(VMX-6983 + HAWK-582)</td>
+<td>✓ 對齊。Sheet 5/7 「BMS 正在確認規格」跟會議「車速 &gt; 0」一致</td>
+</tr>
+<tr>
+<td><strong>Jimmy (居明)</strong></td>
+<td>收集與統整客訴的誤判資料,目前手上已收集 307 張邊緣情境照片,持續擴充 Data pool</td>
+<td>#32 Face Not Found / #46 Eating</td>
+<td>部分對齊。#32 sheet 寫 13975 張未 review,跟會議 307 張對不上(可能不同資料集)</td>
+</tr>
+<tr>
+<td><strong>Jay (傑)</strong></td>
+<td>處理 Speed Sign 模型辨識混淆問題,已將訓練參數中「Flip(翻轉)」關閉並重新訓練</td>
+<td>sheet 沒對應 row!</td>
+<td>🚨 <strong>Speed Sign 不在 AI 工作計畫 visible rows</strong>。可能是新增工作或被 hide。會議講「立即執行」</td>
+</tr>
+<tr>
+<td><strong>Eric</strong></td>
+<td>已完成 ECS 伺服器實例的 Health Checking 機制,解決模型突然消失導致服務掛點問題,已部署生產環境</td>
+<td>#50 VisionMax PROD not blurring(HAWK-578)</td>
+<td>✓ 對齊。Sheet 5/7 寫的「自我健康檢查機制」就是這個</td>
+</tr>
+<tr>
+<td><strong>Spencer</strong></td>
+<td>負責睜眼率 (Eye opening rate) API 開發,須從 Camera App 到 Server 端完成全鏈路驗證,趕上 6/2 時程</td>
+<td>#4 Eyes Detection(VMX-7309)</td>
+<td>🚨 <strong>Sheet 寫 done done 太樂觀</strong>。會議揭露 Server 端串接還沒完成,要趕 6/2</td>
+</tr>
+<tr>
+<td><strong>Jonathan</strong></td>
+<td>5/7 會議未具體提及進度</td>
+<td>#47 Rastrac False Speed</td>
+<td>Sheet 自己進度推進(Train 99%/Test 98%/100%),但會議沒列為討論點</td>
+</tr>
+<tr>
+<td><strong>Adonis</strong></td>
+<td>5/7 會議未具體提及進度</td>
+<td>#41 / #48 / #49 / #50</td>
+<td>Sheet 5/7 有 update,但會議沒提</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-action-items4-high-priority">2. 會議決定的 Action Items(4 件 High Priority)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Action</th>
+<th>Owner</th>
+<th>Deadline</th>
+<th>對應 Sheet row</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>飲食與手持物品誤判大重訓(7000+ 筆 Edge case 重訓)</td>
+<td>AI 團隊(<strong>Vincent + Jimmy</strong>)</td>
+<td><strong>6/15</strong></td>
+<td>#46 Eating &amp; Drinking(HAWK-562, Jimmy)+ Vincent 加入</td>
+</tr>
+<tr>
+<td>2</td>
+<td>實作 BMS 專屬 Lens Cover 邏輯拆分(車速 &gt; 0)</td>
+<td>Camera App + Jieli</td>
+<td><strong>6/2</strong></td>
+<td>#28 鏡頭遮蔽(VMX-6983 + HAWK-582)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>睜眼率 (Eye opening rate) API 全鏈路驗證</td>
+<td>Cloud / <strong>Spencer</strong></td>
+<td><strong>6/2</strong></td>
+<td>#4 Eyes Detection(VMX-7309)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Speed Sign 模型修正與重訓(關閉 Flip 參數)</td>
+<td>AI 團隊 (Jay)</td>
+<td><strong>立即</strong></td>
+<td>🚨 <strong>無對應 sheet row</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-57-vs-56-azuga-ai-weekly">3. 5/7 vs 5/6 Azuga AI Weekly 重大新訊號(落差與警訊)</h2>
+<h3 id="a-17">🚨 訊號 A:誤判規模與急迫性暴增 17 倍</h3>
+<ul>
+<li><strong>5/6</strong>:Azuga 會議僅提到少數抽菸/飲食的誤判</li>
+<li><strong>5/7</strong>:BMS 等客戶端回報的飲食誤判案件量<strong>高達先前的 17 倍</strong>。團隊被迫將原先分批訓練的計畫,改為在 6/15 前「一次性」將萬筆資料集中重訓</li>
+<li><strong>影響</strong>:#46 Eating &amp; Drinking 從 sheet「預計 6/10 Feasibility results」升級為 6/15 前緊急重訓。Vincent 加入扛</li>
+<li><strong>客訴 ID</strong>:6652(過去也曾被指為精準度較低的特定帳號 ID)</li>
+</ul>
+<h3 id="blens-cover">🚨 訊號 B:Lens Cover 規格出現嚴重分歧 → 雙軌維護</h3>
+<ul>
+<li><strong>5/6</strong>:剛與 Azuga 敲定「標準版 Lens Cover」要「解除車速限制」並獨立於 DMS 校正之外</li>
+<li><strong>5/7</strong>:BMS 卻基於司機休息隱私,強烈要求 Lens Cover 必須「車速 &gt; 0」才能啟動</li>
+<li><strong>影響</strong>:RD 必須<strong>緊急將標準版與 BMS 版的邏輯拆分雙軌維護</strong></li>
+<li><strong>對 PM 啟示</strong>:多客戶 customization 衝突,跨客戶協調成本暴增</li>
+</ul>
+<h3 id="c">🚨 訊號 C:夜間與死角防禦機制升級</h3>
+<ul>
+<li><strong>5/7 深入探討 5/6 未觸及的底層優化</strong>:</li>
+<li><strong>Yawning 夜間打哈欠</strong>:導入「灰階(Grayscale)模型」,並考慮 Server 端從「辨識嘴巴」改為「辨識整張臉」</li>
+<li><strong>Face Not Found 死角</strong>:當夜晚或角度偏斜找不到臉(Face)時,將導入「Head 邏輯(找頭)」作為輔助判定</li>
+<li><strong>對應 sheet</strong>:#3 Yawning(Jieli)目前 sheet 5/7 空白,但會議揭露其實有「灰階模型重新訓練」這條進度 — sheet 沒寫</li>
+</ul>
+<h3 id="dldws-pending-ticket">🚨 訊號 D:LDWS Pending 暫緩 + 開新 ticket</h3>
+<ul>
+<li><strong>5/7 揭露</strong>:「關於 YOLO Lane Detection 導入,因團隊目前資源緊繃,<strong>決議先 Pending 暫緩,並開立新 Ticket 追蹤</strong>」</li>
+<li><strong>對 5/6 Brian「Q1 已 merge」narrative 的修正</strong>:</li>
+<li>VMX-6722 Server-side LDWS 確實 Q1 已 deploy(jimmy 3/11 留言確認)</li>
+<li>但 5/7 講的是 <strong>device 端 YOLO Lane Detection 的進階改善</strong>,這條是<strong>新工作 + 暫緩</strong>,不是 6722</li>
+<li><strong>對應 sheet</strong> row 10 #8 LDWS:5/7 寫「pending」<strong>是真實狀態</strong>,但要追的是「新 ticket 在哪 / 何時開」</li>
+</ul>
+<h3 id="ecamera-height-pm">訊號 E:Camera Height 期望值管理(PM 介入點)</h3>
+<ul>
+<li>5/7 揭露:「PM 將提供 20% 的誤差範圍數值以進行期望值管理」</li>
+<li>對應 #43 Camera height(HAWK-501, Jay+Vincent)</li>
+<li><strong>Kenny 的 PM 角色任務</strong>:準備 20% 誤差數值給 BMS</li>
+</ul>
+<hr>
+<h2 id="4-jira-ticket-fix-version">4. 會議提及的 Jira Ticket / 模型版本號 / Fix Version</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>詳情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fix Version 1.18</strong></td>
+<td>ECS 實例異常的修復機制,5/4 已部署生產環境</td>
+</tr>
+<tr>
+<td><strong>Fix Version 1.1.28</strong></td>
+<td>同上 — 自我健康檢查機制</td>
+</tr>
+<tr>
+<td><strong>客訴 6652</strong></td>
+<td>飲食誤判量是過去 17 倍的特定帳號;在先前對話中 6652 也曾被指為精準度較低的特定帳號 ID</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ 會議沒明確提到 VMX-XXX 票號 — Jira ticket 對應靠 sheet/comment 推</p>
+<hr>
+<h2 id="5-57-sheet">5. 5/7 各功能盤點(會議揭露版,跟 sheet 對齊)</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>5/7 會議講的</th>
+<th>sheet row 對齊度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yawning 打哈欠</td>
+<td>夜間嘴部辨識效果不佳,加入灰階模型重新訓練,考慮改為辨識整張臉</td>
+<td>🚨 sheet #3 5/7 空白 — 漏寫</td>
+</tr>
+<tr>
+<td>Eating/Drinking</td>
+<td>客訴重災區,正將水杯/吃東西等加入負向資料庫,6/15 前重訓</td>
+<td>🚨 sheet #46 5/7 寫「處理 face not found 尚未評估」— 嚴重 understatement</td>
+</tr>
+<tr>
+<td>Lens Cover</td>
+<td>BMS 提車輛靜止隱私需求,實作「車速 &gt; 0 才啟用」BMS 獨立邏輯</td>
+<td>✓ 對齊 #28</td>
+</tr>
+<tr>
+<td>LDWS 車道偏移</td>
+<td>YOLO Lane Detection 導入因資源緊繃決議 Pending,開新 ticket</td>
+<td>✓ 對齊 #8(但要追新 ticket 編號)</td>
+</tr>
+<tr>
+<td>Blurring 影片模糊化</td>
+<td>連續追蹤補充機制解決車牌閃爍;非同步處理,部分檔案上傳即可啟動</td>
+<td>✓ 對齊 #7 / #48 / #49</td>
+</tr>
+<tr>
+<td>Speed Sign 速限標誌</td>
+<td>18/25/40 等數字易混淆,根因是 Flip 參數開啟,要求關閉 + 擴增降至 10 倍重訓</td>
+<td>🚨 <strong>sheet 沒對應 row</strong></td>
+</tr>
+<tr>
+<td>Face Not Found</td>
+<td>將導入 Head 邏輯,當臉部遺失以頭部框線輔助判定,Log 印出信心度</td>
+<td>部分對齊 #32(但 5/7 sheet 沒寫 Head 邏輯導入)</td>
+</tr>
+<tr>
+<td>Camera Height</td>
+<td>依賴長期統計與天際線對齊推算高度。PM 提供 20% 誤差範圍給 BMS</td>
+<td>✓ 對齊 #43</td>
+</tr>
+<tr>
+<td>Pedestrian</td>
+<td><strong>5/7 會議未提及</strong>(5/6 報告中列為下半年 Roadmap)</td>
+<td>sheet #45 5/7 寫「整理回覆資訊」— 對應 5/6 工作,5/7 已不是焦點</td>
+</tr>
+<tr>
+<td>Rastrac / VLM</td>
+<td><strong>5/7 會議錄音皆未提及</strong></td>
+<td>sheet #47 Rastrac 自己有重大進度(Train 99%/Test 98%/100%),但會議沒拿出來分享</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-action-itemskenny-pm">6. Action Items(Kenny PM 角度)</h2>
+<h3 id="24h-p0">🔥 24h 內(P0)</h3>
+<ul>
+<li>[ ] <strong>Speed Sign 模型修正</strong>沒對應 sheet row — 跟 Brian 確認要不要新增 row 追蹤</li>
+<li>[ ] <strong>Eating/Drinking 17x 量級的客訴危機</strong> — sheet #46 5/7 update 嚴重 understatement,PM 私訊 Jimmy 確認真實緊急度 + 把 Vincent 加進 PIC</li>
+<li>[ ] <strong>Camera Height 20% 誤差範圍數值準備</strong> — 我自己要做的 PM 任務,要找 Jay/Vincent 拿真實數據</li>
+</ul>
+<h3 id="p1">📅 本週內(P1)</h3>
+<ul>
+<li>[ ] <strong>LDWS device 端 YOLO Lane Detection 新 ticket 編號追蹤</strong> — 私訊 jimmy.jy.huang 或 Brian</li>
+<li>[ ] <strong>Lens Cover 雙軌維護</strong>對 RD 成本影響評估 — 跟 Brian 提多客戶 customization 衝突的長期問題</li>
+<li>[ ] <strong>Spencer 睜眼率 API 6/2 進度</strong> — sheet #4 Eyes 寫 done done 但會議講還沒完成,要校正</li>
+</ul>
+<h3 id="p2">🎯 本月內(P2)</h3>
+<ul>
+<li>[ ] <strong>Yawning 灰階模型 + 整張臉辨識</strong>新方向加進 sheet #3</li>
+<li>[ ] <strong>Face Not Found 引入 Head 邏輯</strong> sheet #32 寫上去</li>
+<li>[ ] <strong>VLM / Rastrac 沒在會議討論</strong>問 Brian 是不是被 deprioritize / 換 owner</li>
+</ul>
+<hr>
+<h2 id="7-sheet-ai">7. 對 sheet AI 工作計畫的修正建議</h2>
+<table>
+<thead>
+<tr>
+<th>Sheet row</th>
+<th>5/7 sheet 寫的</th>
+<th>5/7 會議揭露</th>
+<th>該怎麼校正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#3 Yawning</td>
+<td>空白</td>
+<td>灰階模型重訓 + 考慮辨識整張臉</td>
+<td>補上「灰階模型訓練中,考慮辨識整張臉」</td>
+</tr>
+<tr>
+<td>#4 Eyes</td>
+<td>done</td>
+<td>Spencer 睜眼率 API 還在做,趕 6/2</td>
+<td>改成「CDR 端 done / Server 端進行中,6/2 交付」</td>
+</tr>
+<tr>
+<td>#46 Eating</td>
+<td>處理 face not found 尚未評估</td>
+<td>客訴重災區 17 倍量,6/15 前緊急重訓</td>
+<td>大改:加入 Vincent + 註明 6/15 deadline + 17 倍量級</td>
+</tr>
+<tr>
+<td>#43 Camera height</td>
+<td>拿到小 Brian 影片待測 + 80% CI 調整</td>
+<td>同上 + PM 提供 20% 誤差範圍給 BMS</td>
+<td>加上 PM 任務</td>
+</tr>
+<tr>
+<td>#45 Pedestrian</td>
+<td>整理回覆資訊</td>
+<td>5/7 未提,5/6 列下半年 Roadmap</td>
+<td>確認是否該移到「下半年 Roadmap」標</td>
+</tr>
+<tr>
+<td>(新)Speed Sign</td>
+<td>(無)</td>
+<td>Jay 立即關閉 Flip 重訓</td>
+<td>需新增 row</td>
+</tr>
+<tr>
+<td>(新)LDWS YOLO Lane Detection</td>
+<td>包在 #8</td>
+<td>5/7 Pending 暫緩,新 ticket</td>
+<td>釐清新 ticket 編號</td>
+</tr>
+</tbody>
+</table>
+</main>
+<footer class="footer">由 <code>knowledge/_build_index.py</code> 從 <code>meetings/2026-05-07_ai-weekly_meeting-record.md</code> 自動產生 · MDT 2026 Theme</footer>
+</body>
+</html>

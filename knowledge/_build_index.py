@@ -157,10 +157,20 @@ def collect_doc_registry() -> dict:
     return registry
 
 
+# Track external .md files referenced by hub (resolved to absolute paths)
+# so we can generate companion preview HTML for them. Populated by post_process_html.
+EXTERNAL_MD_REFS: set[Path] = set()
+
+
 def post_process_html(rendered: str, registry: dict) -> str:
-    """Apply two transforms with a single BS4 parse:
+    """Apply transforms with a single BS4 parse:
     1. Internal .md links → in-app hash routes (so click shows preview, not raw md).
     2. Bare VMX-/HAWK-/BMS- ticket text → Jira links.
+    3. Rewrite ../../ paths → ../ (source markdown lives 2 levels deep at
+       knowledge/<cat>/X.md, but output html lives 1 level deep at
+       websiteview/knowledge.html, so ../../ would escape repo root).
+    4. External .md links (outside knowledge/) → companion .html preview
+       (Kenny rule: md must always render as preview, never raw text).
     """
     soup = BeautifulSoup(rendered, "html.parser")
 
@@ -180,6 +190,60 @@ def post_process_html(rendered: str, registry: dict) -> str:
                 classes.append("internal-doc-link")
             a["class"] = classes
             a["data-cat"] = cat_id
+            a["data-doc"] = doc_id
+
+    # 3. Rewrite ../../ → ../ for href and src (depth correction)
+    for tag in soup.find_all(["a", "img", "script", "link"]):
+        for attr in ("href", "src"):
+            v = tag.get(attr)
+            if not v:
+                continue
+            if v.startswith("../../"):
+                tag[attr] = "../" + v[len("../../"):]
+
+    # 4. External .md links → companion .html preview
+    # After step 1+3, internal .md were converted to hash routes; remaining .md
+    # links are external (meetings/, case-learning/ etc). Rewrite to .html and
+    # track for preview generation.
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith(("http://", "https://", "#", "mailto:", "javascript:")):
+            continue
+        m = re.match(r"^([^?#]+\.md)((?:[?#]).*)?$", href, flags=re.IGNORECASE)
+        if not m:
+            continue
+        md_path = m.group(1)
+        suffix = m.group(2) or ""
+        # Resolve from output location (websiteview/) to absolute path
+        abs_md = (REPO_ROOT / "websiteview" / md_path).resolve()
+        if not abs_md.exists():
+            continue
+        try:
+            abs_md.relative_to(REPO_ROOT)
+        except ValueError:
+            continue
+        EXTERNAL_MD_REFS.add(abs_md)
+        # Rewrite href: foo.md → foo.md.html
+        a["href"] = md_path + ".html" + suffix
+
+    # 5. Folder-only links (e.g., "01_product-knowledge/") → hash routes
+    # In source markdown, knowledge/README.md links to sibling category folders;
+    # in rendered hub these should jump to the category's first doc.
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith(("http://", "https://", "#", "mailto:", "javascript:")):
+            continue
+        # Normalize: strip leading ./ and trailing /
+        normalized = href.lstrip("./").rstrip("/")
+        if normalized in CATEGORIES:
+            a["href"] = f"#{normalized}"
+            classes = a.get("class", [])
+            if "internal-doc-link" not in classes:
+                classes.append("internal-doc-link")
+            a["class"] = classes
+            a["data-cat"] = normalized
+            # Set data-doc to first doc id (README) so click handler works
+            doc_id = slugify(f"{normalized}--README")
             a["data-doc"] = doc_id
 
     # 2. Auto-link Jira tickets in plain text (skip text already inside <a>/<code>)
@@ -318,6 +382,146 @@ def build():
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"  {len(categories)} categories, {total_docs} docs")
     print(f"  pending items: {payload['pending_total']}")
+
+    # Generate companion .html preview for external .md files referenced from hub
+    # (Kenny rule: md must always render as preview, not raw text)
+    n_previews = generate_external_md_previews()
+    print(f"  external .md previews: {n_previews}")
+
+
+EXTERNAL_PREVIEW_TEMPLATE = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<style>
+  :root {{
+    --mdt-blue: #5B9BD5;
+    --mdt-blue-dark: #2E5C8A;
+    --mdt-orange: #ED7D31;
+    --mdt-orange-dark: #C25E1B;
+    --mdt-text: #2c3e50;
+    --mdt-text-muted: #5a6c7d;
+    --mdt-text-light: #95a5a6;
+    --mdt-border: #e1e8ed;
+    --mdt-card: #fff;
+    --mdt-bg: #F4F6FA;
+  }}
+  * {{ box-sizing: border-box; }}
+  body {{
+    font-family: "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    background: var(--mdt-bg);
+    color: var(--mdt-text);
+    margin: 0;
+    line-height: 1.7;
+  }}
+  .topbar {{
+    background: linear-gradient(135deg, var(--mdt-blue) 0%, var(--mdt-blue-dark) 100%);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }}
+  .topbar .back {{
+    color: rgba(255,255,255,0.9); text-decoration: none; font-size: 13px;
+    padding: 5px 10px; border-radius: 6px; background: rgba(255,255,255,0.15);
+  }}
+  .topbar .back:hover {{ background: rgba(255,255,255,0.28); }}
+  .topbar .source-path {{
+    margin-left: auto; font-size: 12px; opacity: 0.75; font-family: ui-monospace, monospace;
+  }}
+  main {{
+    max-width: 920px; margin: 0 auto; padding: 32px 28px 80px;
+  }}
+  main h1 {{ color: var(--mdt-blue-dark); border-bottom: 3px solid var(--mdt-orange); padding-bottom: 8px; margin-top: 0; }}
+  main h2 {{ color: var(--mdt-blue-dark); border-left: 4px solid var(--mdt-orange); padding-left: 12px; margin-top: 32px; }}
+  main h3 {{ color: var(--mdt-blue); margin-top: 24px; }}
+  main blockquote {{
+    border-left: 4px solid var(--mdt-orange); background: #FFF7EE;
+    margin: 16px 0; padding: 10px 16px; border-radius: 0 6px 6px 0;
+  }}
+  main code {{
+    background: #eef2f7; padding: 2px 6px; border-radius: 4px;
+    font-family: ui-monospace, "Cascadia Code", monospace; font-size: 0.92em;
+  }}
+  main pre {{
+    background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px;
+    overflow-x: auto; line-height: 1.5;
+  }}
+  main pre code {{ background: transparent; color: inherit; padding: 0; }}
+  main table {{
+    border-collapse: collapse; width: 100%; margin: 14px 0; background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }}
+  main th, main td {{
+    border: 1px solid var(--mdt-border); padding: 8px 12px; text-align: left;
+    font-size: 14px; vertical-align: top;
+  }}
+  main th {{ background: var(--mdt-blue); color: #fff; font-weight: 600; }}
+  main tr:nth-child(even) td {{ background: #f8fafc; }}
+  main a {{ color: var(--mdt-blue); text-decoration: none; border-bottom: 1px dotted var(--mdt-blue); }}
+  main a:hover {{ color: var(--mdt-orange); border-bottom-color: var(--mdt-orange); }}
+  main ul, main ol {{ padding-left: 1.6em; }}
+  main li {{ margin: 4px 0; }}
+  main hr {{ border: none; border-top: 1px solid var(--mdt-border); margin: 28px 0; }}
+  .footer {{
+    text-align: center; padding: 20px; font-size: 12px;
+    color: var(--mdt-text-light); border-top: 1px solid var(--mdt-border);
+  }}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="{back_url}" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <strong>📄 {title}</strong>
+  <span class="source-path">{source_path}</span>
+</header>
+<main>
+{body_html}
+</main>
+<footer class="footer">由 <code>knowledge/_build_index.py</code> 從 <code>{source_path}</code> 自動產生 · MDT 2026 Theme</footer>
+</body>
+</html>
+"""
+
+
+def generate_external_md_previews() -> int:
+    """For each external .md referenced from hub, generate companion .html preview."""
+    count = 0
+    for md_path in sorted(EXTERNAL_MD_REFS):
+        out_path = md_path.with_name(md_path.name + ".html")
+        try:
+            md_text = md_path.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        # Title from first H1, fallback to stem
+        m = re.search(r"^# (.+)$", md_text, flags=re.MULTILINE)
+        title = m.group(1).strip() if m else md_path.stem
+        body_html = md_to_html(md_text)
+        # Compute back URL: from out_path back to websiteview/knowledge.html
+        try:
+            rel = Path("..") / OUT.relative_to(REPO_ROOT)
+            # We want path from out_path's parent to OUT
+            import os
+            back_url = os.path.relpath(OUT, start=out_path.parent).replace("\\", "/")
+        except Exception:
+            back_url = "../websiteview/knowledge.html"
+        try:
+            source_rel = md_path.relative_to(REPO_ROOT).as_posix()
+        except ValueError:
+            source_rel = md_path.name
+        page = EXTERNAL_PREVIEW_TEMPLATE.format(
+            title=html.escape(title),
+            back_url=html.escape(back_url),
+            source_path=html.escape(source_rel),
+            body_html=body_html,
+        )
+        out_path.write_text(page, encoding="utf-8")
+        count += 1
+    return count
 
 
 def render_template(payload: dict) -> str:
@@ -851,6 +1055,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <header class="topbar">
   <div style="display:flex;align-items:center;gap:10px;">
     <button class="sidebar-toggle" id="sidebarToggle" title="收合 / 展開 sidebar (Ctrl+B)">☰</button>
+    <a href="index.html" title="返回 Web Hub" style="color:inherit;text-decoration:none;font-size:14px;opacity:0.85;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.12);">← Web Hub</a>
     <h1>📚 Kenny VMX <span class="accent">Knowledge Hub</span></h1>
   </div>
   <div class="meta">

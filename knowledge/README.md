@@ -1,8 +1,8 @@
 # Knowledge Base — Kenny Huang VMX PM
 
 > Kenny 的 PM 評估期知識庫,結構化來自:KB / Sheet / Jira / 會議錄音 / Coffee chat / Hub 第三 tab 自萃取框架。
-> 整理日期:2026-05-06
-> 最新狀態同步:2026-05-06 Q2 Review 會議後
+> 整理日期:2026-05-06(初版)
+> 最新狀態同步:2026-05-07 AI Weekly 後(含 Yawning 灰階模型 / VMX-7432 對應 / Eating 17x 客訴 / LDWS YOLO Pending / Lens Cover 雙軌 / Spencer Cloud lead 校正)
 
 🌐 **[在瀏覽器開啟 Knowledge Hub →](../websiteview/knowledge.html)**(離線可用,7 個分類 tab + 待釐清頁 + 搜尋)
 🏠 [Website View landing](../websiteview/index.html) — 4 個 HTML 集中入口
@@ -94,3 +94,4 @@
 | 日期 | 變動 |
 |------|------|
 | 2026-05-06 | 初版建立,整合 13 條 Claude memory + Hub 第三 tab + 5/6 Q2 Review 會議洞察 |
+| 2026-05-07 | 5/7 AI Weekly 大量校正:Yawning 灰階模型 + VMX-7432 對應 / Eating 17x 客訴(ID 6652)/ LDWS YOLO device-side Pending / Lens Cover 雙軌(Azuga vs BMS)/ Speed Sign Flip 重訓 / Spencer = Cloud lead(原 Adonis 誤認) |
