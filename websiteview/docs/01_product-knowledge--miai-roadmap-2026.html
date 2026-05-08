@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiAI Roadmap 2026-04-24 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#01_product-knowledge/01_product-knowledge--miai-roadmap-2026" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🔧 產品知識 · MiAI Roadmap 2026-04-24</span>
+  <span class="filename">miai-roadmap-2026.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-07</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="miai-roadmap-2026-04-24">MiAI Roadmap 2026-04-24</h1>
+<blockquote>
+<p>來源:<code>../../MiAI Roadmap Introduce 2026024.pptx</code>(7 張)
+⚠️ 這是<strong>對外版本</strong>(三層真相中的「對外故事」層)</p>
+</blockquote>
+<h2 id="tier-year-chip-tops-timeline">Tier × Year × Chip × TOPs ⭐(關鍵 timeline)</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Year</th>
+<th>Theme</th>
+<th>Chip</th>
+<th>AI Compute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entry</strong></td>
+<td>2023</td>
+<td>Foundation</td>
+<td>Snapdragon 450</td>
+<td>&lt; 1 TOPs</td>
+</tr>
+<tr>
+<td><strong>Basic</strong></td>
+<td>2025</td>
+<td>Expansion</td>
+<td>QCS 6125 / QCS 610</td>
+<td>1 TOPs</td>
+</tr>
+<tr>
+<td><strong>Advanced</strong></td>
+<td>1H‘2027</td>
+<td>Advanced</td>
+<td>QCS 5430</td>
+<td>6 TOPs</td>
+</tr>
+<tr>
+<td><strong>Premium</strong></td>
+<td>2H‘2027</td>
+<td>Intelligence</td>
+<td>QCS 6490</td>
+<td>12 TOPs</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ <strong>2026 是過渡期</strong> — Advanced / Premium 都是 2027 計畫,目前 production 是 Basic tier。Sales 講 6 TOPs / 12 TOPs 功能要小心。</p>
+<h2 id="ai-model">AI Model 細節</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Detector</th>
+<th>Classifier</th>
+<th>Pose Est.</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entry</td>
+<td>YOLOv5n (~1.9M)</td>
+<td>CustomCNNv1 (~1M)</td>
+<td>PFLDNet (~2-3M)</td>
+<td>~5M</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>YOLOv8s (~11M)</td>
+<td>CustomCNNv2 (~2M)</td>
+<td>WHENetPose (~8M)</td>
+<td>~21M</td>
+</tr>
+<tr>
+<td>Advanced</td>
+<td>YOLOv11m (~20M)</td>
+<td>CustomCNNv3 (~10M)</td>
+<td>HRNetPose (~35M)</td>
+<td>~65M</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>YOLOv26l (~50M)</td>
+<td>Transformer (~25M)</td>
+<td>+ Lightweight VLM (~125M)</td>
+<td>~200M</td>
+</tr>
+</tbody>
+</table>
+<p>PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TOPs 解釋。</p>
+<h2 id="ai-architecture-evolutionserver-ai">AI Architecture Evolution(Server AI 階段)</h2>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>架構</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Edge AI</strong>(目前主流)</td>
+<td>Real-time / Low latency / Offline / Privacy</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Edge AI + Server AI</strong></td>
+<td>二次驗證,降 FP / 借 server 算力</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Edge AI + Server VLM</strong></td>
+<td>全影片語意理解 / 處理複雜混合行為</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Edge VLM</strong>(終局)</td>
+<td>Real-time semantic on-device / 不依賴網路</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>Expected Overall Accuracy Improvement: 20% ~ 40%</strong>(視場景)</p>
+<h2 id="roadmap-vs-sheet-vs">⚠️ Roadmap vs Sheet 衝突(對外 vs 內部)</h2>
+<table>
+<thead>
+<tr>
+<th>主題</th>
+<th>Roadmap(對外)</th>
+<th>Sheet(內部)</th>
+<th>對客戶口徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VLM</td>
+<td>2H‘2027</td>
+<td>2026 Q3</td>
+<td><strong>講 2027</strong></td>
+</tr>
+<tr>
+<td>Eating &amp; Drinking</td>
+<td>1H‘2027</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> / 🚨 <strong>5/7 揭露 BMS 客訴 17x 量級(ID 6652),6/15 前 7000+ Edge case 一次性重訓</strong>(Jimmy + Vincent)</td>
+<td>對外維持 2027,<strong>對 BMS 講 6/15 內部緊急重訓</strong></td>
+</tr>
+<tr>
+<td>Yawning</td>
+<td>Basic 2025 已 ship</td>
+<td>還沒給客戶 / 測試中 / <strong>5/7 加灰階模型,考慮改辨識整張臉 / UI toggle = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a>(Lucy)</strong></td>
+<td><strong>改:Roadmap planned, 內部測試中</strong></td>
+</tr>
+<tr>
+<td>Smoking</td>
+<td>Basic 2025 已 ship</td>
+<td><strong>KB 標 (in development)</strong> / Sheet 隱藏 / 4 ticket open</td>
+<td><strong>改:Roadmap planned, KB 列開發中</strong></td>
+</tr>
+<tr>
+<td>MMF</td>
+<td>(列在 overview)</td>
+<td>還沒上線</td>
+<td><strong>不對客戶承諾</strong></td>
+</tr>
+<tr>
+<td>Server-side LDWS(Stage 2)</td>
+<td>已上</td>
+<td>✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ <strong>Device-side YOLO Lane Detection 改善 5/7 Pending 暫緩</strong>(資源緊繃,新 ticket 編號待釐清)</td>
+<td>「Server-side 已部屬,device 端持續改善」</td>
+</tr>
+<tr>
+<td>Speed Sign</td>
+<td>Advanced 2027</td>
+<td>KB 標 in development / <strong>5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓</strong>(Jay)</td>
+<td>對外保持 2027 Roadmap</td>
+</tr>
+<tr>
+<td>Lens Cover(BMS / Azuga 雙軌)</td>
+<td>Basic</td>
+<td><strong>5/7 規格分歧</strong>:Azuga = 解除車速;BMS = 車速 &gt; 0(司機休息隱私)/ Jieli 6/2 前緊急雙軌實作</td>
+<td>對 Azuga 講標準版,對 BMS 講「車速 &gt; 0」</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-auto-optimization-pipeline">Data Auto-Optimization Pipeline(月節奏)</h2>
+<div class="highlight"><pre><span></span><code>Collect → Filter → Label → Train → Validate → Deploy → ...
+</code></pre></div>
+<p>每月一輪。PM lens:跟客戶講「持續優化」有具體 cadence 可提。</p>
+<p>⚠️ AI Sheet 上 row 41「Monthly Model Optimization &amp; Release Workflow」<strong>已隱藏 = 不在使用</strong>(2026-05-05 確認)。Roadmap 講有,實際內部沒人扛這個 process — <strong>PM 可推進的真空白地帶之一</strong>。</p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="01_product-knowledge--diagnostics.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VisionMax Diagnostics</span></a>
+  <a class="next" href="01_product-knowledge--voice-alerts.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">VMX In-Cabin Voice Alerts(完整 KB 抓)</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

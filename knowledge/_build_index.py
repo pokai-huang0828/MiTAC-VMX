@@ -305,10 +305,151 @@ def post_process_html(rendered: str, registry: dict) -> str:
     return str(soup)
 
 
+DOC_FILE_TEMPLATE = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body {{ background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }}
+  .doc-standalone-topbar {{
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }}
+  .doc-standalone-topbar a.back {{
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }}
+  .doc-standalone-topbar a.back:hover {{ background: rgba(255,255,255,0.28); }}
+  .doc-standalone-topbar .heading {{
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }}
+  .doc-standalone-topbar .filename {{
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }}
+  .doc-standalone-meta {{
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }}
+  main.doc-standalone {{
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }}
+  .doc-prevnext {{
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }}
+  .doc-prevnext a {{
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }}
+  .doc-prevnext a:hover {{
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }}
+  .doc-prevnext a.next {{ text-align: right; margin-left: auto; }}
+  .doc-prevnext .label {{
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }}
+  .doc-prevnext .doc-name {{
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }}
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#{cat_id}/{doc_id}" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">{cat_icon} {cat_name} · {title}</span>
+  <span class="filename">{filename}</span>
+</header>
+<div class="doc-standalone-meta">最後更新:{last_updated}</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+{rendered_html}
+  </div>
+</main>
+<nav class="doc-prevnext">
+{prevnext_html}
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>
+"""
+
+
+def _prevnext_block(prev_doc: dict | None, next_doc: dict | None) -> str:
+    parts = []
+    if prev_doc:
+        parts.append(
+            f'  <a class="prev" href="{prev_doc["id"]}.html" rel="prev">'
+            f'<span class="label">← 上一篇</span>'
+            f'<span class="doc-name">{html.escape(prev_doc["title"])}</span></a>'
+        )
+    else:
+        parts.append('  <span></span>')
+    if next_doc:
+        parts.append(
+            f'  <a class="next" href="{next_doc["id"]}.html" rel="next">'
+            f'<span class="label">下一篇 →</span>'
+            f'<span class="doc-name">{html.escape(next_doc["title"])}</span></a>'
+        )
+    else:
+        parts.append('  <span></span>')
+    return "\n".join(parts)
+
+
+def write_doc_file(docs_dir: Path, doc_id: str, title: str, cat_id: str,
+                    cat_name: str, cat_icon: str, filename: str,
+                    rendered_html: str, last_updated: str,
+                    prev_doc: dict | None = None,
+                    next_doc: dict | None = None) -> None:
+    """Each knowledge doc → its own websiteview/docs/<doc_id>.html with
+    last-updated stamp + prev/next nav baked in."""
+    page = DOC_FILE_TEMPLATE.format(
+        title=html.escape(title),
+        cat_id=cat_id,
+        doc_id=doc_id,
+        cat_name=html.escape(cat_name),
+        cat_icon=cat_icon,
+        filename=html.escape(filename),
+        last_updated=html.escape(last_updated),
+        rendered_html=rendered_html,
+        prevnext_html=_prevnext_block(prev_doc, next_doc),
+    )
+    (docs_dir / f"{doc_id}.html").write_text(page, encoding="utf-8")
+
+
+def _plain_text(rendered_html: str) -> str:
+    """Strip HTML tags → plain text for search index."""
+    return BeautifulSoup(rendered_html, "html.parser").get_text(" ", strip=True)
+
+
 def build():
     registry = collect_doc_registry()
     categories: list[dict] = []
     pending_groups: list[dict] = []
+
+    docs_dir = REPO_ROOT / "websiteview" / "docs"
+    docs_dir.mkdir(parents=True, exist_ok=True)
+    n_doc_files = 0
 
     for folder in sorted(HERE.iterdir()):
         if not folder.is_dir() or folder.name not in CATEGORIES:
@@ -322,6 +463,9 @@ def build():
             -get_priority(p.name),
             p.name,
         ))
+        # First pass: collect doc metadata + rendered html in memory so we can
+        # compute prev/next links (each doc needs to know its neighbours).
+        rendered_docs: list[dict] = []
         for md_file in md_files:
             text = md_file.read_text(encoding="utf-8")
             doc_id = slugify(f"{folder.name}--{md_file.stem}")
@@ -331,20 +475,52 @@ def build():
             pending = extract_pending(text)
             rendered = md_to_html(text)
             rendered = post_process_html(rendered, registry)
-            docs.append({
-                "id": doc_id,
-                "filename": md_file.name,
+            mtime = datetime.fromtimestamp(md_file.stat().st_mtime)
+            rendered_docs.append({
+                "doc_id": doc_id,
                 "title": title,
+                "filename": md_file.name,
                 "priority": priority,
-                "pending_count": len(pending),
-                "html": rendered,
+                "pending": pending,
+                "rendered": rendered,
+                "last_updated": mtime.strftime("%Y-%m-%d"),
+                "search_text": _plain_text(rendered)[:8000],  # cap to avoid bloat
             })
-            if pending:
+
+        # Second pass: write doc files with prev/next links + accumulate JSON
+        for i, rd in enumerate(rendered_docs):
+            prev_doc = (
+                {"id": rendered_docs[i - 1]["doc_id"], "title": rendered_docs[i - 1]["title"]}
+                if i > 0 else None
+            )
+            next_doc = (
+                {"id": rendered_docs[i + 1]["doc_id"], "title": rendered_docs[i + 1]["title"]}
+                if i < len(rendered_docs) - 1 else None
+            )
+            write_doc_file(
+                docs_dir, rd["doc_id"], rd["title"],
+                cat_id=folder.name, cat_name=display, cat_icon=icon,
+                filename=rd["filename"], rendered_html=rd["rendered"],
+                last_updated=rd["last_updated"],
+                prev_doc=prev_doc, next_doc=next_doc,
+            )
+            n_doc_files += 1
+            docs.append({
+                "id": rd["doc_id"],
+                "filename": rd["filename"],
+                "title": rd["title"],
+                "priority": rd["priority"],
+                "pending_count": len(rd["pending"]),
+                "last_updated": rd["last_updated"],
+                "text": rd["search_text"],  # for full-text search filter
+                # rendered html lives in docs/<doc_id>.html — fetched on click
+            })
+            if rd["pending"]:
                 cat_pending.append({
-                    "doc_id": doc_id,
-                    "filename": md_file.name,
-                    "title": title,
-                    "items": pending,
+                    "doc_id": rd["doc_id"],
+                    "filename": rd["filename"],
+                    "title": rd["title"],
+                    "items": rd["pending"],
                 })
         categories.append({
             "id": folder.name,
@@ -361,16 +537,24 @@ def build():
             })
 
     overview_md = HERE / "README.md"
-    overview_html = ""
     if overview_md.exists():
         overview_html = post_process_html(
             md_to_html(overview_md.read_text(encoding="utf-8")), registry
         )
+        overview_mtime = datetime.fromtimestamp(overview_md.stat().st_mtime)
+        write_doc_file(
+            docs_dir, "overview-readme",
+            title="Knowledge Base 總覽",
+            cat_id="overview", cat_name="總覽", cat_icon="🏠",
+            filename="knowledge/README.md",
+            rendered_html=overview_html,
+            last_updated=overview_mtime.strftime("%Y-%m-%d"),
+        )
+        n_doc_files += 1
 
     payload = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "categories": categories,
-        "overview_html": overview_html,
         "pending_groups": pending_groups,
         "pending_total": sum(
             sum(len(f["items"]) for f in g["files"]) for g in pending_groups
@@ -382,6 +566,7 @@ def build():
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"  {len(categories)} categories, {total_docs} docs")
     print(f"  pending items: {payload['pending_total']}")
+    print(f"  per-doc files in websiteview/docs/: {n_doc_files}")
 
     # Generate companion .html preview for external .md files referenced from hub
     # (Kenny rule: md must always render as preview, not raw text)
@@ -525,7 +710,10 @@ def generate_external_md_previews() -> int:
 
 
 def render_template(payload: dict) -> str:
-    data_json = json.dumps(payload, ensure_ascii=False)
+    # Pretty-print JSON so the source HTML is readable (was a single mega-line).
+    # `</` is escaped to `<\/` so a stray closing tag inside any string field
+    # cannot terminate the surrounding <script> block prematurely.
+    data_json = json.dumps(payload, ensure_ascii=False, indent=2)
     data_json = data_json.replace("</", "<\\/")
     return TEMPLATE.replace("__DATA_JSON__", data_json).replace(
         "__GENERATED_AT__", html.escape(payload["generated_at"])
@@ -542,521 +730,15 @@ TEMPLATE = r"""<!DOCTYPE html>
 <title>Kenny VMX Knowledge Hub</title>
 <link rel="stylesheet" href="css/shared.css">
 <link rel="stylesheet" href="css/components.css">
-<style>
-  /* Page-specific tokens (colors / fonts come from shared.css) */
-  :root {
-    --sidebar-w:      300px;
-    --ease:           var(--mdt-ease);
-  }
+<link rel="stylesheet" href="css/knowledge.css">
 
-  html, body { height: 100%; overflow: hidden; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ─── Topbar ─── */
-  .topbar {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: #fff;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: var(--shadow);
-    z-index: 50;
-    flex-shrink: 0;
-    gap: 12px;
-  }
-  .topbar h1 { font-size: 19px; font-weight: 600; letter-spacing: 0.3px; white-space: nowrap; }
-  .topbar h1 .accent { color: #FFD9A8; }
-  .topbar .meta { font-size: 13px; color: rgba(255,255,255,0.85); display: flex; gap: 14px; align-items: center; }
-  .topbar input[type="search"] {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    width: 220px;
-    font-family: inherit;
-    transition: width 0.2s var(--ease), background 0.2s;
-  }
-  .topbar input[type="search"]::placeholder { color: rgba(255,255,255,0.7); }
-  .topbar input[type="search"]:focus { outline: 2px solid var(--accent); width: 280px; background: rgba(255,255,255,0.22); }
-
-  /* ─── Tabs ─── */
-  .tabs {
-    display: flex;
-    background: var(--tab-inactive);
-    border-bottom: 2px solid var(--primary);
-    padding: 0 16px;
-    overflow-x: auto;
-    flex-shrink: 0;
-    z-index: 40;
-  }
-  .tab {
-    padding: 11px 18px;
-    cursor: pointer;
-    font-weight: 500;
-    color: var(--text-muted);
-    border-bottom: 3px solid transparent;
-    transition: color 0.18s, background 0.18s, border-color 0.25s var(--ease);
-    white-space: nowrap;
-    user-select: none;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .tab:hover { color: var(--primary); background: rgba(91,155,213,0.08); }
-  .tab.active {
-    background: var(--tab-active-bg);
-    color: var(--primary);
-    border-bottom-color: var(--accent);
-    font-weight: 600;
-  }
-  .tab .count {
-    font-size: 11px;
-    background: rgba(68,114,196,0.15);
-    color: var(--primary);
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: 500;
-    transition: background 0.18s, color 0.18s;
-  }
-  .tab.active .count { background: var(--accent); color: #fff; }
-  .tab.pending-tab.active { border-bottom-color: var(--pending); color: var(--pending); }
-  .tab.pending-tab .count { background: rgba(220,38,38,0.12); color: var(--pending); }
-  .tab.pending-tab.active .count { background: var(--pending); color: #fff; }
-
-  /* ─── Layout ─── */
-  .layout {
-    display: grid;
-    grid-template-columns: var(--sidebar-w) 1fr;
-    flex: 1;
-    min-height: 0;
-    transition: grid-template-columns 0.25s var(--ease);
-  }
-  .layout.sidebar-collapsed { grid-template-columns: 0 1fr; }
-
-  /* ─── Sidebar ─── */
-  .sidebar {
-    background: var(--card);
-    border-right: 1px solid var(--border);
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
-    transition: transform 0.25s var(--ease);
-    min-width: 0;
-  }
-  .layout.sidebar-collapsed .sidebar { transform: translateX(-100%); pointer-events: none; }
-
-  .sidebar-header {
-    padding: 14px 18px 8px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-  }
-  .sidebar ul { list-style: none; padding: 4px 0; }
-  .sidebar li a {
-    display: block;
-    padding: 9px 18px 9px 14px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 13.5px;
-    border-left: 3px solid transparent;
-    transition: background 0.12s, border-color 0.12s, color 0.12s;
-    position: relative;
-  }
-  .sidebar li a:hover {
-    background: rgba(91,155,213,0.1);
-    border-left-color: var(--primary-light);
-  }
-  .sidebar li a.active {
-    background: rgba(237,125,49,0.08);
-    border-left-color: var(--accent);
-    color: var(--primary);
-    font-weight: 600;
-  }
-  .sidebar li a .row-title { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; min-width: 0; }
-  .sidebar li a .row-title-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    flex: 1;
-    min-width: 0;
-  }
-  .sidebar li a .stars { color: var(--star); font-size: 11px; letter-spacing: -1px; flex-shrink: 0; }
-  .sidebar li a .pending-badge {
-    background: var(--pending);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-  .sidebar li a .filename {
-    display: block;
-    font-size: 11px;
-    color: var(--text-muted);
-    font-family: 'SF Mono', Consolas, monospace;
-    margin-top: 2px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  /* Sidebar drag handle */
-  .resize-handle {
-    position: absolute;
-    top: 0; right: -3px;
-    width: 6px;
-    height: 100%;
-    cursor: col-resize;
-    z-index: 5;
-    transition: background 0.15s;
-  }
-  .resize-handle:hover, .resize-handle.dragging { background: rgba(91,155,213,0.35); }
-  body.resizing { cursor: col-resize !important; user-select: none; }
-  body.resizing .layout { transition: none; }
-
-  /* ─── Toggle button ─── */
-  .sidebar-toggle {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #fff;
-    width: 32px; height: 32px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s, transform 0.2s var(--ease);
-  }
-  .sidebar-toggle:hover { background: rgba(255,255,255,0.28); }
-  .layout.sidebar-collapsed ~ * .sidebar-toggle { transform: rotate(180deg); }
-
-  /* ─── Content ─── */
-  .content {
-    background: var(--bg);
-    padding: 24px 32px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    min-width: 0;
-  }
-  .doc-wrapper {
-    background: var(--card);
-    padding: 28px 36px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    max-width: 980px;
-    margin: 0 auto;
-    animation: fadeUp 0.25s var(--ease);
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .doc-meta {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .doc-meta .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .doc-meta .stars { color: var(--star); font-size: 14px; letter-spacing: 1px; }
-  .doc-meta .filename {
-    font-family: 'SF Mono', Consolas, monospace;
-    background: var(--code-bg);
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-  .doc-meta .pending-pill {
-    background: var(--pending);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 9px;
-    border-radius: 10px;
-  }
-  .doc-meta .back-btn {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    color: var(--primary);
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-family: inherit;
-    transition: all 0.15s;
-  }
-  .doc-meta .back-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-  .doc-meta .back-btn:disabled { opacity: 0.4; cursor: not-allowed; background: var(--code-bg); color: var(--text-muted); }
-
-  /* ─── Markdown content ─── */
-  .doc-content {
-    word-wrap: break-word;
-    overflow-wrap: anywhere;
-  }
-  .doc-content h1 {
-    color: var(--primary);
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 3px solid var(--accent);
-  }
-  .doc-content h2 {
-    color: var(--primary);
-    font-size: 20px;
-    margin: 28px 0 12px;
-    padding-left: 12px;
-    border-left: 4px solid var(--accent);
-  }
-  .doc-content h3 { color: var(--primary-light); font-size: 16px; margin: 20px 0 10px; }
-  .doc-content h4 { color: var(--text); font-size: 15px; margin: 16px 0 8px; }
-  .doc-content p { margin: 10px 0; }
-  .doc-content ul, .doc-content ol { margin: 10px 0 10px 24px; }
-  .doc-content li { margin: 4px 0; }
-  .doc-content code {
-    background: var(--code-bg);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'SF Mono', Consolas, monospace;
-    font-size: 13px;
-    color: var(--accent);
-    word-break: break-word;
-  }
-  .doc-content pre {
-    background: #1E293B;
-    color: #E8EEF7;
-    padding: 14px 18px;
-    border-radius: 6px;
-    overflow-x: auto;
-    margin: 12px 0;
-    font-size: 13px;
-  }
-  .doc-content pre code { background: transparent; color: inherit; padding: 0; font-size: inherit; word-break: normal; }
-  .doc-content blockquote {
-    border-left: 4px solid var(--primary-light);
-    background: rgba(91,155,213,0.08);
-    padding: 10px 16px;
-    margin: 12px 0;
-    color: var(--text);
-  }
-  /* Wrap tables in scroll container */
-  .doc-content table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 14px 0;
-    font-size: 14px;
-    display: block;
-    overflow-x: auto;
-    max-width: 100%;
-  }
-  .doc-content th, .doc-content td {
-    border: 1px solid var(--border);
-    padding: 8px 12px;
-    text-align: left;
-    word-break: break-word;
-  }
-  .doc-content th { background: var(--primary); color: #fff; font-weight: 600; }
-  .doc-content tr:nth-child(even) td { background: rgba(91,155,213,0.04); }
-  .doc-content a { color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary-light); transition: color 0.12s, border-color 0.12s; }
-  .doc-content a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .doc-content a.ext-link::after {
-    content: " ↗";
-    font-size: 0.85em;
-    color: var(--text-muted);
-  }
-  .doc-content a.jira-link {
-    background: rgba(91,155,213,0.12);
-    padding: 0 5px;
-    border-radius: 3px;
-    border-bottom: 0;
-    font-family: 'SF Mono', Consolas, monospace;
-    font-size: 0.95em;
-  }
-  .doc-content a.jira-link:hover { background: rgba(237,125,49,0.18); color: var(--accent); }
-  .doc-content a.internal-doc-link {
-    color: var(--primary);
-    border-bottom: 1px solid var(--primary-light);
-  }
-  .doc-content a.internal-doc-link::before {
-    content: "📄 ";
-    margin-right: 1px;
-  }
-  .doc-content a.internal-doc-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .doc-content hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
-  .doc-content strong { color: var(--primary); }
-
-  /* ─── Pending tab ─── */
-  .pending-page { max-width: 980px; margin: 0 auto; animation: fadeUp 0.25s var(--ease); }
-  .pending-page .pending-summary {
-    background: linear-gradient(135deg, rgba(220,38,38,0.06), rgba(237,125,49,0.06));
-    border: 1px solid rgba(220,38,38,0.18);
-    color: var(--text);
-    padding: 14px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .pending-page .pending-summary strong { color: var(--pending); font-size: 18px; }
-  .pending-group {
-    background: var(--card);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    padding: 16px 22px;
-    margin-bottom: 16px;
-  }
-  .pending-group h3 {
-    color: var(--primary);
-    font-size: 17px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .pending-group h3 .group-count {
-    margin-left: auto;
-    font-size: 12px;
-    background: rgba(220,38,38,0.12);
-    color: var(--pending);
-    padding: 2px 9px;
-    border-radius: 10px;
-  }
-  .pending-file { margin: 10px 0 16px; padding-left: 4px; }
-  .pending-file h4 {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .pending-file h4 a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px dashed var(--primary-light);
-    transition: color 0.12s;
-  }
-  .pending-file h4 a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .pending-file h4 .count {
-    background: rgba(220,38,38,0.10);
-    color: var(--pending);
-    padding: 1px 7px;
-    border-radius: 8px;
-    font-size: 11px;
-  }
-  .pending-file ul { list-style: none; margin: 0; }
-  .pending-file li {
-    background: var(--code-bg);
-    border-left: 3px solid var(--pending);
-    padding: 8px 12px;
-    margin: 6px 0;
-    font-size: 13.5px;
-    border-radius: 0 4px 4px 0;
-    line-height: 1.5;
-    word-break: break-word;
-    transition: transform 0.12s var(--ease), box-shadow 0.12s;
-  }
-  .pending-file li:hover {
-    transform: translateX(2px);
-    box-shadow: 0 1px 4px rgba(220,38,38,0.15);
-  }
-  .pending-file li .ln {
-    color: var(--text-muted);
-    font-family: 'SF Mono', Consolas, monospace;
-    font-size: 11px;
-    margin-right: 8px;
-  }
-  .pending-file li mark {
-    background: rgba(220,38,38,0.18);
-    color: var(--pending);
-    font-weight: 600;
-    padding: 0 3px;
-    border-radius: 2px;
-  }
-
-  .empty { text-align: center; color: var(--text-muted); padding: 80px 20px; }
-  li.hidden { display: none; }
-
-  /* ─── Responsive ─── */
-  @media (max-width: 1100px) {
-    :root { --sidebar-w: 260px; }
-    .doc-wrapper { padding: 22px 26px; }
-    .content { padding: 18px 22px; }
-  }
-  @media (max-width: 820px) {
-    :root { --sidebar-w: 220px; }
-    .topbar h1 { font-size: 16px; }
-    .topbar input[type="search"] { width: 130px; }
-    .topbar input[type="search"]:focus { width: 180px; }
-    .tab { padding: 9px 12px; font-size: 13px; }
-  }
-  @media (max-width: 640px) {
-    .layout {
-      grid-template-columns: 1fr;
-    }
-    .sidebar {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      width: 280px;
-      height: calc(100vh - 100px);
-      z-index: 30;
-      transform: translateX(-100%);
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-    }
-    .layout.sidebar-open .sidebar { transform: translateX(0); }
-    .layout.sidebar-collapsed .sidebar { transform: translateX(-100%); }
-    .resize-handle { display: none; }
-    .doc-wrapper { padding: 18px; }
-    .content { padding: 12px; }
-    .topbar { padding: 10px 12px; }
-    .topbar h1 { font-size: 15px; }
-    .topbar .meta { gap: 6px; }
-    .doc-meta { font-size: 11px; }
-  }
-
-  @media print {
-    .topbar, .tabs, .sidebar, .resize-handle { display: none; }
-    .layout { display: block; }
-    .content { overflow: visible; max-height: none; padding: 0; }
-    .doc-wrapper { box-shadow: none; padding: 0; max-width: none; animation: none; }
-  }
-</style>
 </head>
 <body>
 
 <header class="topbar">
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div class="topbar-brand-flex">
     <button class="sidebar-toggle" id="sidebarToggle" title="收合 / 展開 sidebar (Ctrl+B)">☰</button>
-    <a href="index.html" title="返回 Web Hub" style="color:inherit;text-decoration:none;font-size:14px;opacity:0.85;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.12);">← Web Hub</a>
+    <a class="topbar-back-link" href="index.html" title="返回 Web Hub">← Web Hub</a>
     <h1>📚 Kenny VMX <span class="accent">Knowledge Hub</span></h1>
   </div>
   <div class="meta">
@@ -1074,7 +756,9 @@ TEMPLATE = r"""<!DOCTYPE html>
   <main class="content" id="content"></main>
 </div>
 
-<script id="hub-data" type="application/json">__DATA_JSON__</script>
+<script id="hub-data" type="application/json">
+__DATA_JSON__
+</script>
 
 <script>
 (function () {
@@ -1098,11 +782,32 @@ TEMPLATE = r"""<!DOCTYPE html>
       title: "Knowledge Base 總覽",
       priority: 0,
       pending_count: 0,
-      html: data.overview_html,
     }],
   };
   const pendingCat = { id: "pending", name: "待釐清", icon: "📌", docs: [], isPending: true };
   const allCats = [overviewCat, ...data.categories, pendingCat];
+
+  // ─── Per-doc HTML loader (each doc lives in docs/<id>.html) ───
+  const docHtmlCache = Object.create(null);
+  let loadToken = 0;
+
+  async function loadDocHtml(docId) {
+    if (docHtmlCache[docId] != null) return docHtmlCache[docId];
+    try {
+      const res = await fetch(`docs/${docId}.html`);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const text = await res.text();
+      const dom = new DOMParser().parseFromString(text, "text/html");
+      const node = dom.querySelector(".doc-content");
+      const html = node
+        ? node.innerHTML
+        : `<div class="empty">⚠️ docs/${docId}.html 缺少 .doc-content 節點</div>`;
+      docHtmlCache[docId] = html;
+      return html;
+    } catch (e) {
+      return `<div class="empty">⚠️ 無法載入 <code>docs/${docId}.html</code>(${e.message})。<br>若以 <code>file://</code> 開啟,fetch 會被瀏覽器擋。請改用本機伺服器:<br><code>python -m http.server</code> 或 VS Code Live Server。</div>`;
+    }
+  }
 
   let activeCatId = allCats[0].id;
   let activeDocId = allCats[0].docs[0] ? allCats[0].docs[0].id : null;
@@ -1184,7 +889,7 @@ TEMPLATE = r"""<!DOCTYPE html>
   }
 
   // ─── Content ───
-  function buildContent() {
+  async function buildContent() {
     const cat = allCats.find((c) => c.id === activeCatId);
     if (!cat) { contentEl.innerHTML = `<div class="empty">未選擇分類</div>`; return; }
 
@@ -1193,11 +898,22 @@ TEMPLATE = r"""<!DOCTYPE html>
     const doc = cat.docs.find((d) => d.id === activeDocId);
     if (!doc) { contentEl.innerHTML = `<div class="empty">未選擇文件</div>`; return; }
 
+    // Stale-fetch guard: each call gets a token; later clicks invalidate earlier loads.
+    const myToken = ++loadToken;
+    contentEl.innerHTML = `<div class="empty">載入 ${escapeHtml(doc.title)}…</div>`;
+
+    const docHtml = await loadDocHtml(doc.id);
+    if (myToken !== loadToken) return; // user already moved on
+
     const stars = doc.priority > 0
       ? `<span class="stars" title="重要性 ${doc.priority}/5">${renderStars(doc.priority)}</span>`
       : "";
     const pendingPill = doc.pending_count > 0 ? `<span class="pending-pill">${doc.pending_count} 待釐清</span>` : "";
     const canBack = navHistory.length > 1;
+
+    const lastUpdated = doc.last_updated
+      ? `<span class="last-updated" title="檔案最後修改日期">📅 ${escapeHtml(doc.last_updated)}</span>`
+      : "";
 
     contentEl.innerHTML = `
       <article class="doc-wrapper">
@@ -1206,9 +922,9 @@ TEMPLATE = r"""<!DOCTYPE html>
             <button class="back-btn" id="backBtn" ${canBack ? "" : "disabled"} title="回到上一頁 (Alt+←)">← 上一頁</button>
             ${cat.icon} ${escapeHtml(cat.name)} ${stars} ${pendingPill}
           </span>
-          <span class="filename">${escapeHtml(doc.filename)}</span>
+          <span class="meta-right">${lastUpdated} <span class="filename">${escapeHtml(doc.filename)}</span></span>
         </div>
-        <div class="doc-content">${doc.html}</div>
+        <div class="doc-content">${docHtml}</div>
       </article>
     `;
     contentEl.scrollTop = 0;
@@ -1220,7 +936,7 @@ TEMPLATE = r"""<!DOCTYPE html>
     const canBack = navHistory.length > 1;
     let html = `<div class="pending-page">`;
     html += `
-      <div style="margin-bottom:12px"><button class="back-btn" id="backBtn" ${canBack ? "" : "disabled"} title="回到上一頁 (Alt+←)">← 上一頁</button></div>
+      <div class="back-btn-row"><button class="back-btn" id="backBtn" ${canBack ? "" : "disabled"} title="回到上一頁 (Alt+←)">← 上一頁</button></div>
       <div class="pending-summary">
         共 <strong>${pendingCount()}</strong> 條待釐清項目,
         分布於 ${data.pending_groups.length} 個分類、${data.pending_groups.reduce((s,g)=>s+g.files.length,0)} 個文件中。
@@ -1315,12 +1031,29 @@ TEMPLATE = r"""<!DOCTYPE html>
     buildTabs(); buildSidebar(); buildContent();
   }
 
+  // Build a doc-id → search-text lookup once, so input filter is fast.
+  const docTextById = (() => {
+    const map = Object.create(null);
+    allCats.forEach((cat) => {
+      (cat.docs || []).forEach((d) => {
+        if (d.text) map[d.id] = d.text.toLowerCase();
+      });
+    });
+    return map;
+  })();
+
   function applySearchFilter() {
     const q = (searchEl.value || "").trim().toLowerCase();
     sidebarEl.querySelectorAll("li").forEach((li) => {
       const a = li.querySelector("a");
       if (!a) return;
-      const haystack = ((a.dataset.title || "") + " " + (a.dataset.filename || "") + " " + a.textContent).toLowerCase();
+      const docId = a.dataset.id || "";
+      const haystack = (
+        (a.dataset.title || "") + " " +
+        (a.dataset.filename || "") + " " +
+        a.textContent + " " +
+        (docTextById[docId] || "")
+      ).toLowerCase();
       li.classList.toggle("hidden", !!q && haystack.indexOf(q) === -1);
     });
   }
@@ -1408,6 +1141,13 @@ TEMPLATE = r"""<!DOCTYPE html>
   });
 })();
 </script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="js/lightbox.js" defer></script>
 
 </body>
 </html>

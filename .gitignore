@@ -9,3 +9,7 @@ EVO_image_update/*
 
 # Keep update process documentation
 !EVO_image_update/EVO image update process.md
+
+# Python bytecode (build script side-effect)
+__pycache__/
+*.pyc

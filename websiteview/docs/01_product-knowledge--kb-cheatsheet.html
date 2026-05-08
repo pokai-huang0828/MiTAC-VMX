@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VMX KB Cheatsheet · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#01_product-knowledge/01_product-knowledge--kb-cheatsheet" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🔧 產品知識 · VMX KB Cheatsheet</span>
+  <span class="filename">kb-cheatsheet.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-08</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="vmx-kb-cheatsheet">VMX KB Cheatsheet</h1>
+<blockquote>
+<p><strong>官方 KB</strong>:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/vm" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/vm</a>
+⚠️ KB 實際 <strong>60+ 篇</strong>(完整 catalog 見 <a class="internal-doc-link" data-cat="01_product-knowledge" data-doc="01_product-knowledge--kb-full-catalog" href="#01_product-knowledge/01_product-knowledge--kb-full-catalog">kb-full-catalog.md</a>),這頁只摘核心 9 篇。
+其他重要 KB 內容:<a class="internal-doc-link" data-cat="01_product-knowledge" data-doc="01_product-knowledge--sales-faq" href="#01_product-knowledge/01_product-knowledge--sales-faq">sales-faq.md</a>(對客戶 RFP)/ <a class="internal-doc-link" data-cat="03_systems-architecture" data-doc="03_systems-architecture--master-portal-operations" href="#03_systems-architecture/03_systems-architecture--master-portal-operations">../03_systems-architecture/master-portal-operations.md</a>(Master Portal 8 篇)</p>
+</blockquote>
+<h2 id="9">已讀核心 9 篇</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>主題</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Manual Event Button Behaviors</td>
+<td>紅色按鍵:接電話 / Manual event / Server callback / 格化 SD(<strong>沒 panic event</strong>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LED Behaviors(分機種)</td>
+<td>LED 號燈分機種,要查 KB 文章對應</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Parking Mode Behavior</td>
+<td>停車模式行為定義</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Camera stay-on after ignition off</td>
+<td><strong>3 分鐘 suspend 窗口</strong>(熄火後續傳 + 等 ACC 重啟)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Supported ADAS events</td>
+<td><strong>FCW / LDW / Stop and Go / Tailgating</strong>(只這 4 個)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Supported DMS events</td>
+<td>Distraction / Fatigue / Lens Cover / Phone / Seatbelt(<strong>KB 沒列 Smoking</strong>)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>In-cabin alerts</td>
+<td>完整語音指令地圖,見 <a class="internal-doc-link" data-cat="01_product-knowledge" data-doc="01_product-knowledge--voice-alerts" href="#01_product-knowledge/01_product-knowledge--voice-alerts">voice-alerts.md</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sensor events</td>
+<td>G-Sensor 4 種 + 數值 threshold,見 <a class="internal-doc-link" data-cat="01_product-knowledge" data-doc="01_product-knowledge--adas-dms-events" href="#01_product-knowledge/01_product-knowledge--adas-dms-events">adas-dms-events.md</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Traffic Sign features</td>
+<td><strong>TW 客戶只能承諾 Speed Limit</strong>;Stop / School / Railway 沒支援</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kb-mori-jimmy">KB 待補的區塊(問 Mori / Jimmy)</h2>
+<ul>
+<li>各 KB 文章內「圖片表格」具體數字(FCW TTC / Tailgating distance / Stop and Go configured distance)</li>
+<li>「Why are thresholds different for Passenger / Medium Vehicle / Heavy Duty?」(車種差異)</li>
+<li>機種 spec 對照表(K145c / <strong>K165</strong> / K220 / K245 / K245c / K265 各自鏡頭 / 算力 / SD 容量)— K165 5/8 確認(Vinicius 5/7 testing plan,EVO single lens)</li>
+<li>Master Portal / Fleet Portal / VisionAgent 三大類 KB 文章</li>
+</ul>
+<h2 id="_1">結構性事實(對所有客戶適用)</h2>
+<ul>
+<li><strong>20 km/h 是 DMS 全域門檻</strong> — 速度沒到 DMS 不會觸發</li>
+<li><strong>30 km/h × 3 分鐘 + 平坦少彎</strong> = ADAS 基礎計算 / calibration 條件 ⚠️ <strong>2026-05-05 校正過,不是 60 km/h</strong></li>
+<li><strong>DMS calibration</strong>:20 km/h × 15 秒,只要司機臉穩定即可</li>
+<li><strong>Lens Cover exponential backoff</strong>:觸發間隔 2→4→8→16 分鐘</li>
+<li><strong>熄火後 3 分鐘窗口</strong>:設備不立即關機,先續傳 + 等 ACC 重啟</li>
+<li><strong>Traffic Sign 分區域支援</strong>:<strong>TW 客戶只能承諾 Speed Limit</strong></li>
+<li><strong>MMF (Mobility Map Function)</strong>:<strong>還沒上線、測試中</strong>,不要對任何客戶承諾</li>
+<li><strong>DMS IR 補光</strong>:夜間反而比白天好(但深色隔熱紙會擋 IR)</li>
+<li><strong>ADAS 沒 IR</strong>:夜間 recall 必然較差 — 結構性事實</li>
+</ul>
+<h2 id="kb">不在 KB 但常被問</h2>
+<table>
+<thead>
+<tr>
+<th>主題</th>
+<th>真實狀態</th>
+<th>對客戶口徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smoking</td>
+<td><strong>KB 標 (in development)</strong>(memory 之前說「KB 沒寫」是錯的)/ Sheet 隱藏 / Roadmap 列 Basic / 4 個 Jira open</td>
+<td>⚠️ 「KB 列開發中」可講有官方依據,<strong>不能保證上線時間</strong></td>
+</tr>
+<tr>
+<td>Yawning</td>
+<td>KB 沒寫 / Sheet #3 顯示但 still in dev / 2026-05-06 會議:效果不如預期 / <strong>5/7 AI weekly:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉</strong> / Yawning UI toggle 對應 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開)</td>
+<td>⚠️ Roadmap planned, 內部測試中</td>
+</tr>
+<tr>
+<td>Eating/Drinking</td>
+<td>Roadmap Advanced 2027 / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> 已開 / <strong>5/7:BMS 客訴量是過去 17 倍(ID 6652),6/15 前 7000+ 案例緊急重訓</strong></td>
+<td>⚠️ 對外維持 2027 Roadmap,內部 6/15 重訓</td>
+</tr>
+<tr>
+<td>MMF</td>
+<td>KB 沒寫 / Roadmap 列 / 沒上線</td>
+<td>⚠️ 不對客戶承諾</td>
+</tr>
+</tbody>
+</table>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="01_product-knowledge--adas-dms-events.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">ADAS / DMS / G-Sensor / Map / OBD-II 完整事件</span></a>
+  <a class="next" href="01_product-knowledge--machines-spec.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">K-series 機種規格</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

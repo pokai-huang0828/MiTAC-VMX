@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>內部利害關係人地圖 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#02_organization-map/02_organization-map--stakeholders" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">👥 組織與利害關係人 · 內部利害關係人地圖</span>
+  <span class="filename">stakeholders.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-08</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="_1">內部利害關係人地圖</h1>
+<h2 id="mitac">MiTAC 端</h2>
+<table>
+<thead>
+<tr>
+<th>領域</th>
+<th>人</th>
+<th>職責 / 關鍵議題</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Software Head</strong></td>
+<td><strong>Brian</strong></td>
+<td>VisionMax / Cloud / Camera App / AI 整體;團隊 ~20 人;Jira dashboard 主導者</td>
+</tr>
+<tr>
+<td>Camera App</td>
+<td>Hsinyi, Jack, Leo</td>
+<td>設備端錄影 / UI / 紅色按鍵</td>
+</tr>
+<tr>
+<td>AI Inference</td>
+<td><strong>Jimmy</strong>, Vincent, Eric</td>
+<td>ADAS / DMS 模型、訓練、validation。<strong>5/7:Vincent 角色擴大,加入飲食誤判 7000+ Edge case 重訓主導</strong></td>
+</tr>
+<tr>
+<td>AI Inference 補</td>
+<td>Jieli, Andy, <strong>Jay</strong></td>
+<td>Yawning / Quantatec / Lens Cover / DMS Golden Case / Speed Sign 重訓(Jay 5/7)</td>
+</tr>
+<tr>
+<td><strong>Cloud / API team lead</strong></td>
+<td><strong>Spencer</strong></td>
+<td><strong>校正(5/7):Spencer 是 Cloud / API team lead,扛睜眼率 API 全鏈路驗證 6/2</strong>(原 memory 誤把 Adonis 當 Cloud lead)</td>
+</tr>
+<tr>
+<td>Cloud Backend 一般</td>
+<td>Neil</td>
+<td>Event API / DB / portal serving</td>
+</tr>
+<tr>
+<td>MiDM / OTA</td>
+<td>RD 主管</td>
+<td>韌體推送 / config(<strong>最高風險區</strong>:Custom ID 派錯設備變磚)</td>
+</tr>
+<tr>
+<td>硬體規格</td>
+<td><strong>Mori</strong></td>
+<td>K-series / G-Sensor / 200Hz / 紅色按鍵 / Rollover detection(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7194" rel="noopener" target="_blank">VMX-7194</a>)</td>
+</tr>
+<tr>
+<td>測試車隊</td>
+<td><strong>Elvis</strong></td>
+<td>NAVMAN-AU,新功能驗證 / 開 Smoking accuracy 單(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7324" rel="noopener" target="_blank">VMX-7324</a>)</td>
+</tr>
+<tr>
+<td><strong>Server AI 應用層</strong></td>
+<td><strong>Adonis</strong></td>
+<td>Server AI confidence threshold / blurring on-demand / pre_event_message / Add box around event(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5909" rel="noopener" target="_blank">VMX-5909</a>)— <strong>不是 Cloud lead</strong></td>
+</tr>
+<tr>
+<td><strong>Webservice / Blurring API</strong></td>
+<td><strong>chiehli.wang(王傑立)</strong></td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-573" rel="noopener" target="_blank">HAWK-573</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-577" rel="noopener" target="_blank">HAWK-577</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-578" rel="noopener" target="_blank">HAWK-578</a> / SQS retention 改 14 天(5/6 ping spencer.su)/ Health check 機制</td>
+</tr>
+<tr>
+<td>Front-end</td>
+<td><strong>Lucy</strong></td>
+<td>UI 設計 / 軌跡顏色 / Severity 等級 / <strong>Yawning UI toggle = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a>(5/6 開)</strong> / Rollover UI</td>
+</tr>
+<tr>
+<td>Speed Sign 模型</td>
+<td><strong>woody.lee</strong></td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7430" rel="noopener" target="_blank">VMX-7430</a>(exit ramp)/ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7431" rel="noopener" target="_blank">VMX-7431</a>(LED sign)5/6 新開</td>
+</tr>
+<tr>
+<td>MiTAC AU 業務端</td>
+<td><strong>Wendy Hammond</strong></td>
+<td><a href="mailto:wendy.hammond@mitac.com.au">wendy.hammond@mitac.com.au</a> · MiTAC AU(澳洲)· 跟 Cary 同部門 · 4/30 起信推 HQ「BMS feature 應跨 reseller reusable」· 5/5 訴求「conception stage 早期介入」· thread = “RE: VMX Roadmap Update and Explanation \&lt;PASSENGER BLURRING&gt;“</td>
+</tr>
+<tr>
+<td>GA 分析</td>
+<td>Luke / Sacer</td>
+<td>5/6 起 Lucy 用同一 GA 帳號</td>
+</tr>
+<tr>
+<td>韌體 / Akamai 中介</td>
+<td>Tony</td>
+<td>OTA #11 真因 — 跟 Akamai 之間轉述</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">海外客戶</h2>
+<table>
+<thead>
+<tr>
+<th>客戶</th>
+<th>整合方式</th>
+<th>對接人</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azuga</strong></td>
+<td>Custom SDK</td>
+<td>(待補)</td>
+<td>21 個新 API 排隊 / SmartLink 系列 ticket</td>
+</tr>
+<tr>
+<td><strong>Bridgeron</strong></td>
+<td>API integration</td>
+<td>(待補)</td>
+<td>整合會議每週</td>
+</tr>
+<tr>
+<td><strong>Mainfreight</strong></td>
+<td>Web Platform 測試</td>
+<td>(待補)</td>
+<td>測試中</td>
+</tr>
+<tr>
+<td><strong>BMS</strong></td>
+<td>API + 客製</td>
+<td>(待補)</td>
+<td>雙版本同步戰略對象 / 200Hz / Smoking config / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6920" rel="noopener" target="_blank">VMX-6920</a></td>
+</tr>
+<tr>
+<td><strong>Platform Science (Vinicius)</strong></td>
+<td>評估中</td>
+<td>Vinicius (Engineering Director) · <a href="mailto:vinicius.francisquinho@platformscience.com">vinicius.francisquinho@platformscience.com</a> · cc 內部 paul.sp.lee / conant.ho / righter.song / stark.yang / brian.chienlee</td>
+<td>US · 5/7 已成功 connect VisionMax(原以為 cable 問題,實為 APN)· <strong>5/7 testing plan</strong>:Evo K265 + 2 side cam + 1 rear cam + InCab Display,後續測 <strong>K165 single lens</strong> + K245 Video Hub(K246 Orion future)· 在等 cable 資訊訂購 sample equipment</td>
+</tr>
+<tr>
+<td><strong>CONNECTSOURCE</strong></td>
+<td>評估中</td>
+<td>Cary Lo (MiTAC AU) + Wendy Hammond (MiTAC AU 業務端)</td>
+<td>Passenger blurring 需求 · 起源 = Wendy 4/30 信推 BMS feature reusable / Brian 5/4 承諾 Q2 2026 update,7月給 CONNECTSOURCE / 5/7 Cary 跟進</td>
+</tr>
+<tr>
+<td><strong>Quantatec</strong></td>
+<td>客製</td>
+<td>(待補)</td>
+<td>Camera obstruction 系列(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a> / 7427)</td>
+</tr>
+<tr>
+<td><strong>HDFE</strong></td>
+<td>(待補)</td>
+<td>(S 那邊)</td>
+<td>2026-05-06 抱怨 Q1 Events Page UI 變動</td>
+</tr>
+<tr>
+<td><strong>LB Technology</strong></td>
+<td>(待補)</td>
+<td>(待補)</td>
+<td>Plow PTO / Posted Speed Alert</td>
+</tr>
+<tr>
+<td><strong>Rastrac</strong></td>
+<td>(待補)</td>
+<td>(待補)</td>
+<td>False Speed Event(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7317" rel="noopener" target="_blank">VMX-7317</a>)</td>
+</tr>
+<tr>
+<td><strong>Seeing Machines</strong></td>
+<td>(待補)</td>
+<td>(待補)</td>
+<td>Rollover detection 需求(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7194" rel="noopener" target="_blank">VMX-7194</a>)</td>
+</tr>
+<tr>
+<td><strong>Suvio</strong></td>
+<td>評估中</td>
+<td>(待補)</td>
+<td>影像 + 客製語音</td>
+</tr>
+<tr>
+<td><strong>DSNY</strong></td>
+<td>(待補)</td>
+<td>(待補)</td>
+<td>Camera Pilot Project / RTR+Camera</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">每週固定會議</h2>
+<ul>
+<li>Azuga AI weekly(5/6 — 5/6 Lens Cover 標準版規格 / 飲食誤判少數提及)</li>
+<li><strong>內部 AI weekly(每週三 / 5/7 最近一場揭露 4 條 action items + Lens Cover 雙軌 / 飲食 17x 客訴 / Yawning 灰階 / LDWS YOLO Pending)</strong></li>
+<li>Field-side requirements sync</li>
+<li>Bridgeron 整合</li>
+<li>Q2 Tracker review(Brian 主持,5/6)</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="02_organization-map--coffee-chat-questions.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Coffee Chat 待問清單</span></a>
+  <span></span>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

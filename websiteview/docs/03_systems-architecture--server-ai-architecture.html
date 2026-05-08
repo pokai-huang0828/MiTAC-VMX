@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server AI 架構演進 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#03_systems-architecture/03_systems-architecture--server-ai-architecture" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🏛 系統架構 · Server AI 架構演進</span>
+  <span class="filename">server-ai-architecture.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="server-ai">Server AI 架構演進</h1>
+<blockquote>
+<p>來源:MiAI Roadmap 2026-04-24 Slide 5</p>
+</blockquote>
+<h2 id="4">4 階段架構演進</h2>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>架構</th>
+<th>Strengths</th>
+<th>預期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Edge AI</strong>(目前)</td>
+<td>Real-time / Low latency / Offline / Privacy</td>
+<td>受限於設備算力</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Edge AI + Server AI</strong></td>
+<td>二次驗證,降 FP / 借 server 算力</td>
+<td>提升精度</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Edge AI + Server VLM</strong></td>
+<td>全影片語意理解 / 處理複雜混合行為</td>
+<td>大幅降 FP/FN</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Edge VLM</strong>(終局)</td>
+<td>Real-time semantic on-device / 不依賴網路</td>
+<td>終極形態</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expected Overall Accuracy Improvement: 20% ~ 40%</strong>(視場景)</p>
+<h2 id="server-ai-jira-tickets-stage-23">已開的 Server AI Jira tickets(對應 Stage 2/3)</h2>
+<table>
+<thead>
+<tr>
+<th>Jira</th>
+<th>主題</th>
+<th>PIC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a></td>
+<td>Server-side LDWS model(防 FP)</td>
+<td>Eric / Spencer</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6703" rel="noopener" target="_blank">VMX-6703</a></td>
+<td>Configurable Server AI Response Time</td>
+<td>(待補)</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7346" rel="noopener" target="_blank">VMX-7346</a></td>
+<td>ServerAI pre_event_message 加 cdr 版號</td>
+<td>Adonis</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7099" rel="noopener" target="_blank">VMX-7099</a></td>
+<td>Migrate IOSix service to AZUGA server</td>
+<td>(待補)</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6453" rel="noopener" target="_blank">VMX-6453</a></td>
+<td>Server Model Research - Phone Usage</td>
+<td>(待補)</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-397" rel="noopener" target="_blank">HAWK-397</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6724" rel="noopener" target="_blank">VMX-6724</a></td>
+<td>Server AI phone texting</td>
+<td>Jieli</td>
+</tr>
+<tr>
+<td>RFQ0749-689</td>
+<td>Backend 動態覆寫 confidence threshold</td>
+<td>Adonis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q2-q3-pm">影片三版本架構(Q2-Q3 PM 級議題)</h2>
+<p>未來同一影片可能同時存在三版本:
+1. <strong>原始 video</strong>
+2. <strong>模糊版本</strong>(Server AI 後製,demand request 模式)
+3. <strong>Debug view</strong>(AI 視角)</p>
+<p>對 PM:
+- 模糊在 Master/MAU 加 API 開關(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7088" rel="noopener" target="_blank">VMX-7088</a> / 文件需 Lucy 配合 UI 設計)
+- 模糊不在 fleet portal 上顯示(維持 API 操作)
+- <strong>缺一個「任務完成主動通知」UI 機制</strong>(目前缺,未來補)</p>
+<h2 id="brian-vmxbms-2026-05-06">⚠️ Brian 戰略翻案 — VMX/BMS 同步(2026-05-06 揭露)</h2>
+<p>過去:VisionMax 不給 fleet 改 AI 參數 / BMS 給改 → 兩套 codebase</p>
+<p>未來:<strong>兩邊同步實作</strong>,VMX 也開放給 fleet 改;API 加保護避免亂改參數</p>
+<p>時程:6 個月內會發生的架構決策</p>
+<p>PM 跟進:API 文件對齊 / Fleet portal UI 加開關 / 客戶溝通(從「不能改」變「能改」要小心訊息)</p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="03_systems-architecture--portal-architecture.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Portal 雙層架構</span></a>
+  <a class="next" href="03_systems-architecture--master-portal-operations.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Master Portal 操作層(memory 之前 0/8 沒覆蓋)</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

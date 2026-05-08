@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Type 商業模型 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#03_systems-architecture/03_systems-architecture--plan-types" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🏛 系統架構 · Plan Type 商業模型</span>
+  <span class="filename">plan-types.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="plan-type">Plan Type 商業模型</h1>
+<blockquote>
+<p>來源:PDF Subscription Plans for TSP</p>
+</blockquote>
+<h2 id="4-plan">4 種 Plan</h2>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>功能</th>
+<th>定價(per device/month)</th>
+<th>Edge 行為</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standard</strong></td>
+<td>Sensor Event + VMX VT Cloud + GPS+Video</td>
+<td>$5(13 cams) / $7(47 cams)</td>
+<td>強制關閉 MiAI</td>
+</tr>
+<tr>
+<td><strong>Advanced</strong></td>
+<td>+ ADAS Event Detection</td>
+<td>$7(13 cams) / $9(47 cams)</td>
+<td>釋放前向 AI,禁 DMS</td>
+</tr>
+<tr>
+<td><strong>Pro</strong></td>
+<td>+ DMS Event Detection(全 AI)</td>
+<td>(待補)</td>
+<td>全 AI</td>
+</tr>
+<tr>
+<td><strong>Suspend</strong></td>
+<td>(PDF 未列)</td>
+<td>—</td>
+<td>帳號暫停</td>
+</tr>
+</tbody>
+</table>
+<h2 id="coffee-chat-brian">待 Coffee Chat 釐清(Brian)</h2>
+<ul>
+<li>⚠️ Pro 完整定價</li>
+<li>⚠️ Suspend 細節</li>
+<li>⚠️ <strong>「13 cams / 47 cams」含義</strong>(攝影機數?分群?)</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="03_systems-architecture--readme.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">03 Systems Architecture</span></a>
+  <a class="next" href="03_systems-architecture--portal-architecture.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Portal 雙層架構</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

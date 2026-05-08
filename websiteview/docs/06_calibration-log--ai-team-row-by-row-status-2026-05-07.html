@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工作計畫 16 行 5/7 逐行狀態 snapshot · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#06_calibration-log/06_calibration-log--ai-team-row-by-row-status-2026-05-07" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🎯 校正紀錄 · AI 工作計畫 16 行 5/7 逐行狀態 snapshot</span>
+  <span class="filename">ai-team-row-by-row-status-2026-05-07.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-07</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="ai-16-57-snapshot">AI 工作計畫 16 行 5/7 逐行狀態 snapshot</h1>
+<blockquote>
+<p>日期:2026-05-07
+來源:Sheet AI 工作計畫 tab BR(4/30)/ BS(5/4)/ BT(5/7)三欄截圖實況
+用途:Brian 1on1 / Coffee chat 前 quick reference</p>
+</blockquote>
+<h2 id="_1">群組速覽</h2>
+<table>
+<thead>
+<tr>
+<th>群組</th>
+<th>行數</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 推進中(動能清楚)</td>
+<td>5(#47/#32/#28/#43/#41)</td>
+<td>都有 5/7 進度</td>
+</tr>
+<tr>
+<td>🟡 等 release</td>
+<td>3(#48/#49/#50)</td>
+<td>6/2 那波會出去</td>
+</tr>
+<tr>
+<td>🟠 慢但活著</td>
+<td>5(#7/#4 Eyes/#3 Yawning/#45/#46)</td>
+<td>動能不夠,需 PM 推</td>
+</tr>
+<tr>
+<td>🔴 沒動 / stale</td>
+<td>3(#8 LDWS/#27 VLM/#42 Server AI 統計)</td>
+<td>真 stale 或計畫性 pending</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_2">🟢 進度推進中</h2>
+<h3 id="row-50-47-rastrac-false-speedvmx-7317-jonathan">Row 50 / #47 Rastrac False Speed(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7317" rel="noopener" target="_blank">VMX-7317</a> / Jonathan)— <strong>本週最強進度</strong></h3>
+<ul>
+<li>4/30:loop sign 抓 296 張 + 類似 sign 436 張</li>
+<li>5/4:訓練 device 分類器 + detection model</li>
+<li><strong>5/7:236 張 augmentation→4720,分類器 Train 99% / Test 98% / False Speed Event 100% (2/2)。預計轉 onnx→tflite/dlc</strong></li>
+<li><strong>狀態:模型訓練完成,等轉 device 端格式即可上線</strong></li>
+</ul>
+<h3 id="row-35-32-face-not-foundno-jira-jimmy">Row 35 / #32 Face Not Found(no Jira / Jimmy)</h3>
+<ul>
+<li>4/30 → 5/4:停在 24699 張待 review(2 週沒動)</li>
+<li><strong>5/7:13975 張(已處理 ~10700 張,40%+ 進度)+ 加入 head 標籤</strong></li>
+<li><strong>狀態:本週剛 unstuck,預計 5/13 完成</strong></li>
+</ul>
+<h3 id="row-31-28-quantatec-bmsvmx-6983-hawk-582-jieli">Row 31 / #28 鏡頭遮擋 Quantatec &amp; BMS(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> / Jieli)</h3>
+<ul>
+<li>4/30:MiAI SDK 功能完成,交給 Leo 整合</li>
+<li>5/4:BMS 也需要,當天提供規格確認,預計 6 月上</li>
+<li><strong>5/7:BMS 正在確認規格(車輛先移動,之後忽略車速,運作 lens cover)</strong></li>
+<li><strong>狀態:VMX 端完成 → 擴散到 BMS,規格收斂中</strong></li>
+<li>註:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 是 5/6 新增 ticket(eric.h assignee)</li>
+</ul>
+<h3 id="row-46-43-camera-height-hawk-501-jayvincent">Row 46 / #43 Camera height 不穩定(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> / Jay+Vincent)</h3>
+<ul>
+<li>4/30:新方法 95% CI 範圍 + 每筆重算</li>
+<li>5/4:還需更多人拿影片測試</li>
+<li><strong>5/7:拿到小 Brian 影片待測。改用 80% CI + 比對 TROI 天際線位置減少誤差</strong></li>
+<li><strong>狀態:演算法調整中,還在驗證階段</strong></li>
+</ul>
+<h3 id="row-44-41-add-box-around-eventvmx-5909-jayadonis">Row 44 / #41 Add box around event(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5909" rel="noopener" target="_blank">VMX-5909</a> / Jay+Adonis)</h3>
+<ul>
+<li>4/30:Debug view 位置誤差最多到 999 毫秒(video 沒毫秒資訊)</li>
+<li>5/4:要產影片給 Adonis 做邏輯</li>
+<li><strong>5/7:已提供可產生 Debug View 資訊的 Python 代碼給 Adonis</strong></li>
+<li><strong>狀態:Jay 端產出 → Adonis 接手實作中</strong></li>
+</ul>
+<hr/>
+<h2 id="release-62">🟡 等 release(都是 6/2 那波)</h2>
+<h3 id="row-51-48-request-event-blurryhawk-573-adonis">Row 51 / #48 Request event blurry(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-573" rel="noopener" target="_blank">HAWK-573</a> / Adonis)</h3>
+<ul>
+<li>4/30:CDN cache 根因,backend 加 timestamp 解決</li>
+<li>5/4:MR to dev,下次 release (6/2) 解決</li>
+<li><strong>5/7:Completed (Awaiting Release)</strong></li>
+<li>狀態:✅ 修完等 6/2 release。Jira <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-573" rel="noopener" target="_blank">HAWK-573</a> NEW(transition 沒走),已有 2 commits</li>
+</ul>
+<h3 id="row-52-49-blurring-on-demand-failshawk-577-adonis">Row 52 / #49 Blurring on-demand fails(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-577" rel="noopener" target="_blank">HAWK-577</a> / Adonis)</h3>
+<ul>
+<li>5/4 ≈ 5/7:允許 partial 處理 / 影片就緒自動補送 blur task / 測試中,預計下週 MR 於 6/2 release</li>
+<li>狀態:📅 設計收斂,本週要送 MR</li>
+<li>註:Jira <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-577" rel="noopener" target="_blank">HAWK-577</a> 是 New Feature 不是 Bug</li>
+</ul>
+<h3 id="row-53-50-visionmax-prod-not-blurringhawk-517578-adonis">Row 53 / #50 VisionMax PROD not blurring(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-517" rel="noopener" target="_blank">HAWK-517</a>+578 / Adonis)</h3>
+<ul>
+<li><strong>5/7:已於 v1.1.28 部屬至 Webfleet PROD。引入自我健康檢查機制,Model Volume 異常自動重啟 ECS,SQS 保留機制確保任務不漏</strong></li>
+<li>狀態:✅ 已修 + 加保險絲</li>
+<li>⚠️ Sheet 沒記的 follow-up:<strong>SQS retention 從 4 天改 14 天</strong>(chiehli.wang 5/6 已 ping spencer.su,還沒 confirm)+ 客戶手動補 4/21–5/4 漏掉的 blurring</li>
+</ul>
+<hr/>
+<h2 id="_3">🟠 慢但活著</h2>
+<h3 id="row-9-7-blurring-footagehawk-3316391527-vincent">Row 9 / #7 Blurring Footage(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a>/6391/527 / Vincent)</h3>
+<ul>
+<li>4/30:時序補碼減少模糊閃爍,測試中</li>
+<li>5/4:回客戶說小臉部 case AI 無法 cover,要靠人工</li>
+<li><strong>5/7:補碼+模糊保留方式效果不錯。License Plate 改 yolo26l 效果好。但 DMS 窗外的車牌沒碼到,再看怎麼處理</strong></li>
+<li><strong>狀態:模型一直在演進(yolo26l 是新版),但客戶持續找新 edge case → 6/2 release <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> second wave</strong></li>
+</ul>
+<h3 id="row-6-4-eyes-detectionvmx-7309-jieli">Row 6 / #4 Eyes Detection(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> / Jieli)</h3>
+<ul>
+<li>5/4 / 5/7 都是 <strong>done</strong></li>
+<li>狀態:✅ Eyes 真的完成</li>
+<li>註:Jira <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> 還 OPEN 是 transition 沒走(joe.lien 在串 server 端)</li>
+</ul>
+<h3 id="row-4-3-yawning-detectionvmx-7309-jieli">Row 4 / #3 Yawning Detection(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> / Jieli)</h3>
+<ul>
+<li>4/30:更新驗證方式</li>
+<li><strong>5/4:目前優先處理 Lens Cover 的任務,等該任務完成後回來處理 Yawning 的後續驗證與測試</strong></li>
+<li><strong>5/7:空白</strong></li>
+<li><strong>狀態:🚨 Jieli 暫停 Yawning,先做 Lens Cover(Row 31 #28)。對外 Roadmap 還掛 Basic tier,5/6 會議揭露的「不如預期」+ 現在被 Lens Cover 壓後</strong></li>
+<li>⚠️ Yawning UI toggle 真實對應 ticket 是 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開的單),不是 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a></li>
+</ul>
+<h3 id="row-48-45-pedestrian-detecthawk-570-vincent">Row 48 / #45 Pedestrian Detect(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-570" rel="noopener" target="_blank">HAWK-570</a> / Vincent)</h3>
+<ul>
+<li>5/4:討論 Jakob 問題,回覆評估結果</li>
+<li><strong>5/7:正在整理各個問題的回覆資訊</strong></li>
+<li><strong>狀態:還在「整理問題」階段,沒實際進到改 model</strong></li>
+</ul>
+<h3 id="row-49-46-eating-drinkinghawk-562-jimmy">Row 49 / #46 Eating &amp; Drinking(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> / Jimmy)</h3>
+<ul>
+<li>4/30 → 5/4:都寫「預計 6/10 Feasibility results」</li>
+<li><strong>5/7:目前處理 face not found,尚未評估</strong></li>
+<li><strong>狀態:🚨 Jimmy 同時扛兩件,Eating &amp; Drinking 被 Face Not Found 排擠。6/10 Feasibility 可能延期</strong></li>
+</ul>
+<hr/>
+<h2 id="_4">🔴 沒動 / 沒人扛</h2>
+<h3 id="row-10-8-ldws-server-aivmx-67227101-eric">Row 10 / #8 LDWS Server AI(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a>/7101 / Eric)</h3>
+<ul>
+<li>4/30:評估 device 端模型改善 (Yolo lane detect 方法)</li>
+<li>5/4:讓 Jonathan 試</li>
+<li><strong>5/7:pending</strong></li>
+<li><strong>狀態:🚨 Brian 5/6 會議講「Q1 已 merge」對應到 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a>,但 sheet 5/7 寫 pending — 兩條訊息打架</strong></li>
+<li>真實:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a> sub-tasks 全 closed/resolved + jimmy 3/11 留 deploy prod。Sheet 5/7 寫 pending 可能在追的是 device 端的「進一步」改善,不是 server-side ship</li>
+</ul>
+<h3 id="row-30-27-vlmno-pic-2026-q3">Row 30 / #27 VLM(no PIC, 2026 Q3)</h3>
+<ul>
+<li>4/30 / 5/4 / 5/7:<strong>pending / pending / pending</strong></li>
+<li>狀態:🟡 計劃 2026 Q3,目前不動正常</li>
+<li>⚠️ 對外 Roadmap 寫 2H‘2027 — sheet 內部跟對外差 1 年,Brian 5/5 已裁示「對客戶講 2027」</li>
+</ul>
+<h3 id="row-45-42-server-ai-no-jira-vincentjimmy">Row 45 / #42 Server AI 統計資料釐清(no Jira / Vincent+Jimmy)</h3>
+<ul>
+<li>4/30:本週重新訓練 server 模型,目的解決 phone 誤報</li>
+<li>5/4:討論決定持續優化方向</li>
+<li><strong>5/7:空白</strong></li>
+<li><strong>狀態:🚨 沒 Jira ticket + 5/7 沒人寫 + 「持續優化方向」這種模糊話 = 變相 stale。Jimmy 又同時扛 #32 Face Not Found 跟 #46 Eating,#42 排第幾?</strong></li>
+</ul>
+<hr/>
+<h2 id="brian-1on1-talking-points-kenny">Brian 1on1 talking points(只給 Kenny 看)</h2>
+<ol>
+<li><strong>#3 Yawning 被 #28 Lens Cover 排擠</strong> — Jieli 一個人扛兩件,要不要排序?</li>
+<li><strong>#46 Eating &amp; Drinking 被 #32 Face Not Found 排擠</strong> — Jimmy 同樣狀況</li>
+<li><strong>#42 Server AI 統計資料釐清</strong> — 沒 Jira、5/7 沒寫、Vincent+Jimmy 都掛名 — 這列是不是該歸 Done 或 hide?</li>
+<li><strong>#8 LDWS 5/7 pending vs Brian 5/6 講 Q1 已 merge</strong> — 真實狀況到底哪個?</li>
+<li><strong>#50 PROD blurring follow-up SQS retention 14 天</strong>(chiehli.wang ping spencer.su)— sheet 沒寫,要不要追進度?</li>
+</ol>
+<hr/>
+<h2 id="notebooklm-57-ai-weekly-sheet-2026-05-07">⚠️ NotebookLM 5/7 AI Weekly 揭露的 sheet 漏記訊號(2026-05-07 補)</h2>
+<p>詳見 <a href="../meetings/2026-05-07_ai-weekly_meeting-record.md.html">2026-05-07_ai-weekly_meeting-record.md</a>。會議揭露 sheet 嚴重 understatement / 漏寫的點:</p>
+<table>
+<thead>
+<tr>
+<th>Sheet row</th>
+<th>sheet 5/7 寫的</th>
+<th>會議揭露</th>
+<th>嚴重度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#46 Eating</td>
+<td>「處理 face not found 尚未評估」</td>
+<td><strong>客訴 17 倍量級重災區,6/15 前一次性緊急重訓,Vincent 加入</strong></td>
+<td>🚨🚨🚨</td>
+</tr>
+<tr>
+<td>#4 Eyes</td>
+<td>done done</td>
+<td>Spencer 睜眼率 API 還在做,趕 6/2 全鏈路驗證</td>
+<td>🚨</td>
+</tr>
+<tr>
+<td>#3 Yawning</td>
+<td>空白</td>
+<td>灰階模型重訓 + 考慮 Server 端從嘴巴改辨識整張臉</td>
+<td>🚨</td>
+</tr>
+<tr>
+<td>(無 row)Speed Sign</td>
+<td>—</td>
+<td>Jay 立即關閉 Flip 重訓,擴增降至 10 倍</td>
+<td>🚨 sheet 沒這條</td>
+</tr>
+<tr>
+<td>#8 LDWS</td>
+<td>pending</td>
+<td>YOLO Lane Detection 因資源緊繃決議 Pending,<strong>開新 ticket</strong></td>
+<td>sheet 寫對但要追新 ticket</td>
+</tr>
+<tr>
+<td>#43 Camera Height</td>
+<td>80% CI 調整</td>
+<td>+ <strong>PM 提供 20% 誤差範圍給 BMS</strong>(Kenny 的 PM 任務)</td>
+<td>中,我自己要做</td>
+</tr>
+<tr>
+<td>#32 Face Not Found</td>
+<td>13975 張 review</td>
+<td>+ <strong>導入 Head 邏輯</strong>,當臉部遺失以頭部框線輔助判定</td>
+<td>中</td>
+</tr>
+<tr>
+<td>#28 Lens Cover</td>
+<td>BMS 確認規格</td>
+<td><strong>標準版 / BMS 版邏輯雙軌維護</strong>(Azuga 標準版要解除車速,BMS 要 &gt; 0)</td>
+<td>中,長期成本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="id-6652">客訴 ID 6652</h3>
+<ul>
+<li>飲食誤判 17 倍量級主要來自此特定帳號</li>
+<li>在先前對話也曾被指為精準度較低的特定帳號 ID</li>
+</ul>
+<h3 id="57-sheet-rows">5/7 會議沒提到的 sheet rows</h3>
+<ul>
+<li>
+<h1 id="47-rastrac-false-speedjonathan-sheet-update-train-99test-98false-speed-100">47 Rastrac False Speed(Jonathan)— sheet 自己 update Train 99%/Test 98%/False Speed 100%,會議沒分享</h1>
+</li>
+<li>
+<h1 id="27-vlm-pending-pending-pending">27 VLM — pending pending pending</h1>
+</li>
+<li>
+<h1 id="41-add-box-around-eventjayadonis">41 Add box around event(Jay/Adonis)</h1>
+</li>
+<li>
+<h1 id="48-request-event-blurry-49-blurring-on-demand-50-prod-blurringadonis-adonis">48 Request event blurry / #49 Blurring on-demand / #50 PROD blurring(Adonis)— 會議沒提 Adonis 進度</h1>
+</li>
+</ul>
+<h3 id="owner">Owner 認知更新</h3>
+<ul>
+<li><strong>Spencer 是 Cloud / API team owner</strong>(不是 Adonis)— 會議揭露 Spencer 扛睜眼率 API 全鏈路驗證</li>
+<li><strong>Vincent 角色擴大</strong> — 不只 #45 Pedestrian + #43 Camera height,還加入飲食誤判重訓主導</li>
+<li><strong>Jonathan / Adonis 5/7 會議都沒被點名</strong> — 不確定是否在會中</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="06_calibration-log--ai-tab-jira-alignment-2026-05-07.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">AI 工作計畫 Tab × Jira Filter 36457 對齊分析</span></a>
+  <a class="next" href="06_calibration-log--cary-passenger-blurring-2026-05-07.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Calibration Log — Cary 5/7 Passenger Blurring Update</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

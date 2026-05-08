@@ -6,96 +6,14 @@
 <title>MiTAC Case Learning Hub</title>
 <link rel="stylesheet" href="css/shared.css">
 <link rel="stylesheet" href="css/components.css">
-<style>
-  /* Page-specific layout(只放 case-hub 專用 — topnav / sidebar / main / page hierarchy)*/
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── TOP NAV(case-hub 專用)── */
-  .topnav {
-    background: var(--primary);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 32px;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-  .topnav-brand { display: flex; align-items: center; gap: 12px; }
-  .topnav-logo {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: var(--accent); display: flex; align-items: center;
-    justify-content: center; font-weight: 800; font-size: 16px;
-  }
-  .topnav-title { font-size: 17px; font-weight: 700; letter-spacing: 0.3px; }
-  .topnav-meta { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
-  .topnav-tabs { display: flex; gap: 4px; }
-  .tab-btn {
-    padding: 8px 20px; border-radius: 8px; border: none; cursor: pointer;
-    font-size: 14px; font-weight: 600; transition: all .2s;
-    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
-  }
-  .tab-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
-  .tab-btn.active { background: var(--accent); color: #fff; }
-
-  /* ── LAYOUT(case-hub 專用)── */
-  .layout { display: flex; flex: 1; }
-
-  /* ── SIDEBAR(case-hub 專用)── */
-  .sidebar {
-    width: 260px; flex-shrink: 0; background: var(--primary);
-    padding: 24px 0; position: sticky; top: 60px;
-    height: calc(100vh - 60px); overflow-y: auto;
-    border-right: 1px solid rgba(255,255,255,0.06);
-  }
-  .sidebar-section { padding: 0 16px 8px; }
-  .sidebar-label {
-    font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.35);
-    letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px;
-    padding: 0 8px;
-  }
-  .sidebar-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 9px 12px; border-radius: 8px; cursor: pointer;
-    color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500;
-    transition: all .2s; text-decoration: none;
-  }
-  .sidebar-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
-  .sidebar-item.active { background: rgba(230,126,34,0.2); color: var(--accent-light); font-weight: 600; }
-  .sidebar-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
-  .sidebar-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 12px 16px; }
-
-  /* ── MAIN(case-hub 專用)── */
-  .main { flex: 1; padding: 32px; overflow-y: auto; max-width: 1100px; }
-
-  /* ── SECTION PAGES(case-hub 專用 tab switching)── */
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* ── RESPONSIVE override ── */
-  @media (max-width: 900px) {
-    .sidebar { display: none; }
-    .topnav { padding: 0 16px; }
-    .main { padding: 20px 16px; }
-  }
-</style>
+<link rel="stylesheet" href="css/case-hub.css">
 </head>
 <body>
 
 <!-- TOP NAV -->
 <nav class="topnav">
   <div class="topnav-brand">
-    <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;" title="返回 Web Hub">
+    <a href="index.html" class="brand-link" title="返回 Web Hub">
       <div class="topnav-logo">M</div>
       <div>
         <div class="topnav-title">MiTAC Case Learning Hub</div>
@@ -126,7 +44,7 @@
   </div>
 </aside>
 
-<aside class="sidebar" id="sidebar-cs" style="display:none">
+<aside class="sidebar hidden" id="sidebar-cs">
   <div class="sidebar-section">
     <div class="sidebar-label">CONNECTSOURCE</div>
     <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero')"><span class="sidebar-icon">🌏</span>事件總覽</a>
@@ -140,7 +58,7 @@
   </div>
 </aside>
 
-<aside class="sidebar" id="sidebar-pm" style="display:none">
+<aside class="sidebar hidden" id="sidebar-pm">
   <div class="sidebar-section">
     <div class="sidebar-label">PM 策略</div>
     <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero')"><span class="sidebar-icon">📚</span>跨案例洞察</a>
@@ -174,7 +92,7 @@
   <!-- PEOPLE -->
   <div id="ps-people">
     <div class="section-title">主要關係人</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+    <div class="col-2-grid">
       <div class="card">
         <div class="card-title">🏢 Platform Science（客戶端）</div>
         <table class="data-table">
@@ -291,7 +209,7 @@
   <!-- TECH INFO -->
   <div id="ps-tech">
     <div class="section-title">技術資訊速查</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+    <div class="col-2-grid">
       <div class="card">
         <div class="card-title">📱 MiTAC CDR 產品線</div>
         <table class="data-table">
@@ -321,7 +239,7 @@
     <!-- K265 Portal 視覺(Vinicius 卡關 reference)-->
     <div class="card">
       <div class="card-title">🖥️ K265 Portal 卡關 reference(Inventory + Diagnostics)</div>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">
+      <p class="note-muted">
         Vinicius 5/7 confirmed K265 image LM 版本不能透過 SD update 升到 VisionMax(Righter 解釋)— 設備 F4723090033 已加進 inventory(Master Portal),後續從 Diagnostics 監控狀態。
       </p>
       <div class="portal-img-grid">
@@ -348,11 +266,11 @@
       <ul class="action-list">
         <li>
           <span class="owner">Righter</span>
-          <span>為 <strong>K265</strong> 提供 image 修正流程（對齊先前提供 K245 的版本）—— Vinicius 判斷 K265 image 有誤，導致無法在 portal 運作。<span class="chip red" style="margin-left:6px">急迫</span></span>
+          <span>為 <strong>K265</strong> 提供 image 修正流程（對齊先前提供 K245 的版本）—— Vinicius 判斷 K265 image 有誤，導致無法在 portal 運作。<span class="chip red spaced-left">急迫</span></span>
         </li>
         <li>
           <span class="owner">Conant/Sales</span>
-          <span>提供 Vinicius 要求的 <strong>設備報價</strong> 與 <strong>下單流程</strong>（Vinicius 已二次催促：4/29 與 5/4）<span class="chip red" style="margin-left:6px">急迫</span></span>
+          <span>提供 Vinicius 要求的 <strong>設備報價</strong> 與 <strong>下單流程</strong>（Vinicius 已二次催促：4/29 與 5/4）<span class="chip red spaced-left">急迫</span></span>
         </li>
         <li>
           <span class="owner">Brian/RD</span>
@@ -373,10 +291,10 @@
   <!-- RISKS -->
   <div id="ps-risks">
     <div class="section-title">商機與風險</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+    <div class="col-2-grid">
       <div class="card">
-        <div class="card-title" style="color:var(--success)">✅ 機會點</div>
-        <ul style="font-size:13.5px;line-height:1.8;padding-left:18px;color:var(--text);">
+        <div class="card-title success">✅ 機會點</div>
+        <ul class="bullet-tight">
           <li>SDK 評價正面：「comprehensive」「worked nicely」</li>
           <li>K245 OEM image 修改完成，代表整合能力強</li>
           <li>1 個月內完成接洽→測試→採購意向，動能快速</li>
@@ -385,8 +303,8 @@
         </ul>
       </div>
       <div class="card">
-        <div class="card-title" style="color:var(--danger)">⚠️ 風險點</div>
-        <ul style="font-size:13.5px;line-height:1.8;padding-left:18px;color:var(--text);">
+        <div class="card-title danger">⚠️ 風險點</div>
+        <ul class="bullet-tight">
           <li>K265 image/portal 問題重複出現，恐影響客戶信任</li>
           <li>報價持續未回，可能導致決策停擺</li>
           <li>non-China manufacturing 要求是潛在否決條件</li>
@@ -400,7 +318,7 @@
   <div id="ps-analysis">
     <div class="section-title">PM 分析：客戶動機解讀</div>
     <div class="card">
-      <table class="data-table" style="margin-bottom:16px;">
+      <table class="data-table spaced-bot-md">
         <thead><tr><th>表面需求</th><th>背後真正在意的事</th></tr></thead>
         <tbody>
           <tr><td>需要 SDK 文件</td><td>在內部評估 MiTAC 是否值得深度投入</td></tr>
@@ -423,7 +341,7 @@
 <div class="page" id="page-cs">
 
   <div id="cs-hero">
-    <div class="hero" style="background:linear-gradient(135deg,#92400e 0%,#c2410c 100%);">
+    <div class="hero amber">
       <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-08</div>
       <h1>CONNECTSOURCE × Passenger Blurring</h1>
       <p class="hero-sub">澳洲 MiTAC AU(Wendy + Cary + Elvis)代 reseller 客戶提出乘客模糊化 AI 功能需求,引發內部對路線圖透明度、成本歸屬,及 portal 配置粒度的討論。Kenny 5/7 接手對外,5/8 開 sync-up 升格主對接 PM。</p>
@@ -434,9 +352,9 @@
         <div class="hero-stat"><div class="hero-stat-val">Q2 2026</div><div class="hero-stat-label">目標上線(7月)</div></div>
       </div>
     </div>
-    <div class="card" style="border-left:4px solid #ED7D31;margin-top:16px;">
+    <div class="card bordered-orange spaced-top-md">
       <div class="card-title">⚡ 5/8 sync-up 後最新狀態</div>
-      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.7;">
+      <ul class="bullet-loose">
         <li><strong>Kenny 升格主對接 PM</strong> — Cary「we will be stalking you」,從現在開始直接 ping Kenny,跳過 Brian/Spencer</li>
         <li><strong>🚨 Q2 portal path 5/7 對外承諾要校正</strong> — Master Portal 路徑只到 main fleet 級,需改成 per-contract-fleet(雙路徑 A/B 待 Brian/Spencer 拍)</li>
         <li><strong>Q1 客戶用 API 直接整合就好</strong> — Kenny 要問 Spencer 能否 share 內部 API doc</li>
@@ -474,7 +392,7 @@
       <div class="metric-card red"><div class="metric-card-label">AWS 成本/月</div><div class="metric-card-val">$700</div><div class="metric-card-sub">Passenger Blurring 額外費用</div></div>
       <div class="metric-card green"><div class="metric-card-label">淨收益估算</div><div class="metric-card-val">$190K</div><div class="metric-card-sub">36 個月合計（扣 AWS）</div></div>
     </div>
-    <div class="insight green" style="margin-bottom:20px;">
+    <div class="insight green spaced-bot-lg">
       <div class="insight-title">財務可行性</div>
       <p>財務上具備可行性，前提是 $6/月/連線的定價模型已涵蓋 AWS 成本分攤（$700/月 ÷ 1,000 連線 = $0.7/月/連線）。</p>
     </div>
@@ -557,7 +475,7 @@
     <div class="section-title">Q2 portal path 視覺對照(5/7 信 vs 5/8 sync 修正)</div>
     <div class="card">
       <div class="card-title">🔍 Kenny 5/7 對外信寫的路徑(實際在 Master Portal 看到的)</div>
-      <p style="font-size:13.5px;line-height:1.7;margin-bottom:14px;">
+      <p class="lead-text">
         <code>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</code>
       </p>
       <div class="portal-img-grid">
@@ -570,11 +488,11 @@
           <figcaption>Master Portal — Active in Fleet 視圖(per-fleet 細項從這進)</figcaption>
         </figure>
       </div>
-      <div class="insight red" style="margin-top:14px;">
+      <div class="insight red spaced-top">
         <div class="insight-title">🚨 Elvis 5/8 現場糾正</div>
         <p>這條路徑只能控制 <strong>main fleet 級</strong>,動一個 = main fleet + 所有 contract fleets 一起套用,<strong>沒 per-contract-fleet 粒度</strong>。客戶結構(Australia 1 fleet + 多 reseller contract fleets)必須 pinpoint 特定 contract fleet。</p>
       </div>
-      <div class="insight blue" style="margin-top:8px;">
+      <div class="insight blue spaced-top-sm">
         <div class="insight-title">✅ 修正後雙路徑(等 Brian / Spencer 拍)</div>
         <p>
           <strong>(A)</strong> Master Portal 補 contract fleet 視圖 — ⚠️ 隱私問題(contract fleet 不見得想讓上層 dealer 看到)<br>
@@ -587,7 +505,7 @@
   <!-- CONFLICT -->
   <div id="cs-conflict">
     <div class="section-title">衝突核心分析</div>
-    <div class="card" style="margin-bottom:16px;">
+    <div class="card spaced-bot-md">
       <div class="card-title">業務端 vs 產品端的期望落差</div>
       <table class="compare-table">
         <thead>
@@ -626,7 +544,7 @@
   <!-- ACTIONS -->
   <div id="cs-actions">
     <div class="section-title">待辦事項</div>
-    <div class="card" style="border-left:4px solid #ED7D31;margin-bottom:16px;">
+    <div class="card bordered-orange spaced-bot-md">
       <div class="card-title">🔥 Kenny 主動接 P0(2026-05-08 sync 後)</div>
       <ul class="action-list">
         <li>
@@ -705,7 +623,7 @@
 <div class="page" id="page-pm">
 
   <div id="pm-hero">
-    <div class="hero" style="background:linear-gradient(135deg,#1e3a5f 0%,#374151 100%);">
+    <div class="hero slate">
       <div class="hero-tag">PM 策略洞察</div>
       <h1>跨案例 PM 策略總結</h1>
       <p class="hero-sub">從 Platform Science 與 CONNECTSOURCE 兩個事件中，提煉出 R&D PM 在對外客戶溝通與內部協作中的核心策略原則。</p>
@@ -721,7 +639,7 @@
   <div id="pm-commit">
     <div class="section-title">承諾層次框架</div>
     <div class="card">
-      <div class="insight blue" style="margin-bottom:16px;">
+      <div class="insight blue spaced-bot-md">
         <div class="insight-title">核心命題</div>
         <p>研發 PM 不是在承諾「結果」，而是在承諾「透明度」。你沒辦法保證功能七月上線，但你可以保證：七月到的時候，客戶不會是第一個知道「做不到」的人。</p>
       </div>
@@ -756,7 +674,7 @@
           </tr>
         </tbody>
       </table>
-      <div style="margin-top:16px;padding:14px;background:#f8fafc;border-radius:8px;font-size:13px;color:var(--text-muted);">
+      <div class="note-panel">
         💡 客戶失去信任，往往不是因為「日期延了」，而是因為「延了才通知」。同樣是「延了兩個月」——事先預警的版本建立信任，事後才說的版本摧毀信任。
       </div>
     </div>
@@ -766,10 +684,10 @@
   <div id="pm-tech-client">
     <div class="section-title">技術型客戶溝通策略（源自 Vinicius 案例）</div>
     <div class="card">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="col-2-grid flush">
         <div>
-          <div style="font-size:13px;font-weight:700;color:var(--danger);margin-bottom:10px;">❌ 不有效的做法</div>
-          <ul style="font-size:13px;line-height:1.8;padding-left:18px;color:var(--text-muted);">
+          <div class="col-heading danger">❌ 不有效的做法</div>
+          <ul class="bullet-compact">
             <li>強調功能有多強大</li>
             <li>只說商業故事</li>
             <li>等客戶問了才回應</li>
@@ -778,8 +696,8 @@
           </ul>
         </div>
         <div>
-          <div style="font-size:13px;font-weight:700;color:var(--success);margin-bottom:10px;">✅ 有效的做法</div>
-          <ul style="font-size:13px;line-height:1.8;padding-left:18px;color:var(--text-muted);">
+          <div class="col-heading success">✅ 有效的做法</div>
+          <ul class="bullet-compact">
             <li>提供精準的技術文件</li>
             <li>清楚說明功能限制</li>
             <li>跟上客戶的測試節奏</li>
@@ -788,7 +706,7 @@
           </ul>
         </div>
       </div>
-      <div class="insight blue" style="margin-top:16px;">
+      <div class="insight blue spaced-top-md">
         <div class="insight-title">關鍵洞察</div>
         <p>Vinicius 這類技術型決策者，每次互動都在測試 MiTAC 的反應速度與專業度。K265 portal 問題對他來說不只是 bug，是在評估「這個合作夥伴值不值得依賴」。</p>
       </div>
@@ -799,7 +717,7 @@
   <div id="pm-internal">
     <div class="section-title">內部溝通斷層（源自 Wendy 案例）</div>
     <div class="card">
-      <table class="data-table" style="margin-bottom:16px;">
+      <table class="data-table spaced-bot-md">
         <thead><tr><th>業務端的感受</th><th>真正的根因</th><th>PM 的解法</th></tr></thead>
         <tbody>
           <tr>
@@ -835,33 +753,33 @@
   <div id="pm-principles">
     <div class="section-title">核心 PM 原則</div>
     <div class="card">
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
-          <div style="font-size:24px;flex-shrink:0;">🔍</div>
+      <div class="icon-row-list">
+        <div class="icon-row">
+          <div class="icon">🔍</div>
           <div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">讀懂需求背後的動機</div>
-            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">Wendy 說的是「功能什麼時候出」，但她真正在意的是「我在客戶面前的可信度」。Vinicius 說的是「需要 SDK 文件」，但他真正在測試的是「MiTAC 值不值得深度合作」。回應那個動機，而不只是回應表面的問題。</div>
+            <div class="heading">讀懂需求背後的動機</div>
+            <div class="desc">Wendy 說的是「功能什麼時候出」，但她真正在意的是「我在客戶面前的可信度」。Vinicius 說的是「需要 SDK 文件」，但他真正在測試的是「MiTAC 值不值得深度合作」。回應那個動機，而不只是回應表面的問題。</div>
           </div>
         </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
-          <div style="font-size:24px;flex-shrink:0;">🔄</div>
+        <div class="icon-row">
+          <div class="icon">🔄</div>
           <div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">你的工作是「讓事情不卡住」</div>
-            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">K265 白名單問題沒有 owner、Passenger Blurring 可行性評估沒有明確結論、路線圖會議沒有人去約——這些空白地帶都是 PM 應該主動介入的地方。</div>
+            <div class="heading">你的工作是「讓事情不卡住」</div>
+            <div class="desc">K265 白名單問題沒有 owner、Passenger Blurring 可行性評估沒有明確結論、路線圖會議沒有人去約——這些空白地帶都是 PM 應該主動介入的地方。</div>
           </div>
         </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
-          <div style="font-size:24px;flex-shrink:0;">💬</div>
+        <div class="icon-row">
+          <div class="icon">💬</div>
           <div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">PM 是「商業翻譯」</div>
-            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">把技術成本轉換成業務語言，把業務機會轉換成產品優先順序的依據。$700/月的 AWS 成本對工程師是基礎設施，對業務是定價變數，對 PM 是需要被翻譯清楚的橋樑。</div>
+            <div class="heading">PM 是「商業翻譯」</div>
+            <div class="desc">把技術成本轉換成業務語言，把業務機會轉換成產品優先順序的依據。$700/月的 AWS 成本對工程師是基礎設施，對業務是定價變數，對 PM 是需要被翻譯清楚的橋樑。</div>
           </div>
         </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:#f8fafc;border-radius:10px;">
-          <div style="font-size:24px;flex-shrink:0;">📅</div>
+        <div class="icon-row">
+          <div class="icon">📅</div>
           <div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">每次互動要有明確的 Next Step</div>
-            <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">每次與客戶或業務端的互動結束後，要有 Next Step + Owner + Timeline。不能讓對話停在「我們再看看」或「到時候再說」。</div>
+            <div class="heading">每次互動要有明確的 Next Step</div>
+            <div class="desc">每次與客戶或業務端的互動結束後，要有 Next Step + Owner + Timeline。不能讓對話停在「我們再看看」或「到時候再說」。</div>
           </div>
         </div>
       </div>
@@ -889,7 +807,15 @@
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     event.preventDefault();
   }
+
 </script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="js/lightbox.js" defer></script>
 
 </body>
 </html>

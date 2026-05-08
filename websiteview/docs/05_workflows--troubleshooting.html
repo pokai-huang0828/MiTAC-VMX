@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troubleshooting Checklist(對 fleet manager / 技術人員) · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#05_workflows/05_workflows--troubleshooting" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">⚙️ 工作流 SOP · Troubleshooting Checklist(對 fleet manager / 技術人員)</span>
+  <span class="filename">troubleshooting.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="troubleshooting-checklist-fleet-manager">Troubleshooting Checklist(對 fleet manager / 技術人員)</h1>
+<blockquote>
+<p>來源:KB Troubleshooting + Diagnostics + 各機種 LED Behaviors(2026-05-06 deep read)</p>
+</blockquote>
+<h2 id="checklist">客戶報修第一層 checklist</h2>
+<h3 id="q1">Q1. 設備沒開機</h3>
+<p><strong>KB 線索</strong>:
+- LED 紅燈 60 秒以上閃 = camera 沒在錄 / 即將關機
+- 數分鐘內會 shut down</p>
+<p><strong>檢查</strong>:
+- 電源連接 / ignition line(loose contact)
+- 保險絲(power line)
+- Manual ignition switch(部分版本有,要 ON)</p>
+<h3 id="q2-gps-function-adas-dms">Q2. GPS Function 失效(導致 ADAS / DMS 都不偵測)</h3>
+<p><strong>KB Diagnostic Q1</strong>:Location Function — GPS 10 分鐘沒訊號
+<strong>影響</strong>:不能建 trip / 不能偵測 ADAS / DMS / 不能記錄 video 位置
+<strong>Solution</strong>:確保車輛在 open area,GPS 收得到</p>
+<h3 id="q3-adas">Q3. ADAS 觸發失敗(常見!)</h3>
+<p><strong>症狀</strong>:<code>"Can't detect the road level, ADAS off"</code> 語音
+<strong>真因 1</strong>:速度沒滿足 <strong>30 km/h × 3 分鐘 + 平坦少彎</strong>
+<strong>真因 2</strong>:Camera height 設錯(車種不對應)
+<strong>真因 3</strong>:GPS 失效(連帶)
+<strong>Solution</strong>:
+- 開出市區到高速公路維持速度
+- Master Portal Diagnostics 看 ADAS AI Health
+- 確認 Vehicle Class 設對(passenger/medium/heavy)</p>
+<h3 id="q4-sensor-events">Q4. Sensor Events 不觸發</h3>
+<p><strong>KB Diagnostic Q2</strong>:Sensor Events Detection 失敗
+<strong>Solution</strong>:檢查 device 安裝是否正確</p>
+<h3 id="q5-sd-card">Q5. SD card 找不到 / 錯誤</h3>
+<p><strong>KB</strong>:
+- 「No SD Card」語音 — 沒插
+- 「SD Card Error」語音 — 讀寫錯誤
+- 紅燈每 15 秒閃一次(K220/K245/K265)
+<strong>Solution</strong>:
+- 插 SD card / 換 SD card
+- KB「SD Card Overwriting Mechanism」 — 看是否容量問題
+- 紅色按鍵 hold 10-30s 重格式化(<code>"SD Card formatting, please wait"</code>)</p>
+<h3 id="q6-network-apn">Q6. Network / APN 不通</h3>
+<p><strong>KB</strong>:K265 orange LED 常亮 = 沒網路
+<strong>Solution</strong>:VisionAgent app → 設 APN(海外 SIM 常見)</p>
+<h3 id="q7-driver">Q7. Driver 卡讀不到</h3>
+<p><strong>KB</strong>:「Failed to read the ID Card」語音
+<strong>Solution</strong>:
+- 對齊 NFC symbol
+- 換 supported NFC 格式
+- K220:確認用 QR Code(K220 不支援 RFID)
+- K145(c):需 i25 才能 QR</p>
+<h3 id="q8-privacy-mode">Q8. Privacy Mode 卡住(設備不錄)</h3>
+<p><strong>症狀</strong>:<code>"Private Mode On"</code> 進去後沒再退
+<strong>KB</strong>:Privacy Mode 不會自動退,<strong>Restart 後仍維持</strong>
+<strong>Solution</strong>:Panic Button hold &gt; 2s(KB)→ <code>"Private Mode Off"</code></p>
+<h3 id="q9-calibration">Q9. Calibration 一直不完成</h3>
+<p><strong>KB</strong>:
+- ADAS:60 km/h × 3 min(KB 寫 — 注意這是 <em>初次 calibration</em> 條件,跟持續門檻 30 不同)
+- DMS:20 km/h × 15 秒,臉穩定即可
+- 完成語音「Calibration Completed」
+<strong>Solution</strong>:開高速直線路段</p>
+<h3 id="q10-camera">Q10. Camera 重置(最後手段)</h3>
+<p><strong>KB:How to reset device</strong>:
+- 用 paper clip 戳 reset button
+- ⚠️ K245 / K145c / K245c:reset button 在 <strong>tamper proof cover</strong> 後面,要先拆</p>
+<h2 id="escalation">對技術人員 escalation</h2>
+<ul>
+<li>VisionAgent → Diagnostic Scan → 看 health report</li>
+<li>如果還不行 → Master Portal 看 Diagnostics 頁</li>
+<li>還不行 → KB「How to export the system logs from K220」(K220 special)→ Submit Ticket</li>
+</ul>
+<h2 id="pm-ticket">對應 PM ticket</h2>
+<ul>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> ADAS Failure → Q3 多重原因</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7194" rel="noopener" target="_blank">VMX-7194</a> Rollover → Q4 sensor 系列</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7427" rel="noopener" target="_blank">VMX-7427</a> Quantatec obstruction → 屬 Q9 範疇(camera 看不到驅動者)</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7407" rel="noopener" target="_blank">VMX-7407</a> UVC RAW frame error → 屬 Q2 範疇(sensor 不識別)</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="05_workflows--sheet-jira-sync-sweeper.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Sheet × Jira Sync Sweeper SOP</span></a>
+  <a class="next" href="05_workflows--memory-system.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Claude Memory 系統使用</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

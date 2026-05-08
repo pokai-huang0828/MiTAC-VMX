@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calibration Log — Cary 5/7 Passenger Blurring Update · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#06_calibration-log/06_calibration-log--cary-passenger-blurring-2026-05-07" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">🎯 校正紀錄 · Calibration Log — Cary 5/7 Passenger Blurring Update</span>
+  <span class="filename">cary-passenger-blurring-2026-05-07.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-08</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="calibration-log-cary-57-passenger-blurring-update">Calibration Log — Cary 5/7 Passenger Blurring Update</h1>
+<blockquote>
+<p>日期：2026-05-07
+來源：Outlook → Important!!! category → cary.lo-mitac 5/7 11:22
+主旨：RE: VMX Roadmap Update and Explanation <passenger blurring="">
+性質：Cary（MiTAC AU 商務）代客戶向 Brian 提兩個技術可行性問題 + 一個 Teams session 請求</passenger></p>
+</blockquote>
+<hr/>
+<h2 id="tldr">TL;DR — 三個發現</h2>
+<ol>
+<li>🚨 <strong>Cary 兩個問題對照內部資料都不能無腦 yes</strong>：redocly v2026-Q1 沒 blurring API 公開；Jira <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a>/527/578 系列都是「all-face blur」、無駕乘區分；fleet-level 開關現行也不存在</li>
+<li>🚨 <strong>Cary 信件 quick reply 給三個 yes 選項</strong>（”Yes, that is correct.”/”Yes, it can.”/”Yes.”）— 客戶在現場、希望快回，<strong>這就是 Brian 5/4 警告的「BMS 為原型 + 需 modifications」雷區</strong></li>
+<li>⚠️ <strong>CONNECTSOURCE 案 4/24 起立的 5 件 P1 todo 5/7 一件都沒結</strong> — 老問題未解又疊新規格</li>
+</ol>
+<hr/>
+<h2 id="a-cary-57">A. Cary 5/7 提問原文</h2>
+<div class="highlight"><pre><span></span><code>HI Brian
+Can I confirm that the below is achievable, given BMS implementation.
+- Blurring to be applied to passengers only with the driver's face as is.
+- Blurring to be applied to a certain Fleet or Contract Fleet?
+Is it possible to have a customer session on teams on this topic?
+Many thanks.
+Cheers, Cary
+</code></pre></div>
+<p>收件人：Brian、Wendy、Pokai
+副本：Elvis Tran (MiTAC AU PM)、Spencer Su</p>
+<hr/>
+<h2 id="b">B. 三個對照來源</h2>
+<h3 id="b1-visionmaxredoclyappv2026-q1-api-doc">B1. visionmax.redocly.app（v2026-Q1 公開 API doc）</h3>
+<table>
+<thead>
+<tr>
+<th>查詢</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blurring endpoint</td>
+<td><strong>沒有任何公開 endpoint</strong></td>
+</tr>
+<tr>
+<td><code>videoClip</code> / <code>GetVideoDetail</code> 是否有 blur 參數</td>
+<td>沒有</td>
+</tr>
+<tr>
+<td>Fleet config 區是否有 blurring 開關</td>
+<td>沒有</td>
+</tr>
+</tbody>
+</table>
+<p>→ 公開 API 看不到 blurring 任何控制能力。</p>
+<h3 id="b2-jira-filter-36457-ai-tab-57">B2. Jira Filter 36457 + AI tab 對齊（5/7 校正日誌）</h3>
+<p>從 <code>06_calibration-log/ai-tab-jira-alignment-2026-05-07.md</code>：</p>
+<table>
+<thead>
+<tr>
+<th>Jira</th>
+<th>Summary</th>
+<th>Status</th>
+<th>範圍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a></td>
+<td>Blurring (face / <strong>background</strong> / <strong>license plate</strong>)</td>
+<td>CLOSED 2/5</td>
+<td>all-face,沒駕乘區分</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a></td>
+<td>Blurring not reliable</td>
+<td>RESOLVED 4/1</td>
+<td>all-face</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-578" rel="noopener" target="_blank">HAWK-578</a></td>
+<td>VisionMax PROD not blurring</td>
+<td>RESOLVED 5/4</td>
+<td>all-face</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-577" rel="noopener" target="_blank">HAWK-577</a></td>
+<td>Blurring on-demand fails</td>
+<td>OPEN</td>
+<td>確認是 on-demand API call 模式</td>
+</tr>
+<tr>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6391" rel="noopener" target="_blank">VMX-6391</a></td>
+<td>AI New Feature: Blurring</td>
+<td>RESOLVED 12/10/25</td>
+<td>原始實作</td>
+</tr>
+</tbody>
+</table>
+<p>→ Blurring 在內部存在，但全部都是 all-face、on-demand call 模式。<strong>沒有 driver/passenger 區分，沒有 fleet-level gating。</strong></p>
+<h3 id="b3-brian-429-411-pm">B3. Brian 4/29 4:11 PM 信中親口確認</h3>
+<blockquote>
+<p>“<strong>This is not included in the features that have already been developed.</strong>
+This API does not require any special permissions and it is the same as all other APIs.
+If the customer has this requirement, <strong>it will need to be implemented separately</strong>.”</p>
+</blockquote>
+<p>→ Brian 自己已說過「不在現有功能裡」、「需另外開發」、「API 沒特殊權限」。Cary 5/7 兩問其實是把同樣問題用更具體的規格再問一次。</p>
+<hr/>
+<h2 id="c">C. 結論（內部用，不對外）</h2>
+<h3 id="q1-passenger-only-blurring">Q1 passenger-only blurring（駕駛保留）</h3>
+<ul>
+<li>現行：<strong>不支援</strong></li>
+<li>技術可行性：<strong>可行</strong>（BMS 有 DMS 知道駕駛座位置 → 可推駕駛臉 → blur 模組排除駕駛區）</li>
+<li>實作成本：<strong>新 spike ticket + RD scope</strong> → 排入 Q2 2026 update / 7 月最早</li>
+</ul>
+<h3 id="q2-fleet-contract-fleet">Q2 fleet / contract-fleet 層級套用</h3>
+<ul>
+<li>現行：<strong>沒有 server-side gating</strong>，blurring 是 caller-responsibility on-demand call</li>
+<li>兩條路：</li>
+<li><strong>(A)客戶端自控</strong>：CONNECTSOURCE 在自己 dispatch logic 只對特定 fleet 觸發 blur API → 馬上可做</li>
+<li><strong>(B)VMX server-side flag</strong>：需 RD 排程，跟 Q1 一起綁 Q2 2026 update</li>
+<li>推薦：先 (A) 救急、(B) 排正式路線圖</li>
+</ul>
+<h3 id="q3-teams-customer-session">Q3 Teams customer session</h3>
+<ul>
+<li>應開，<strong>但禁止裸接</strong> — Brian dev scope 沒拍前不訂時間</li>
+<li>進會議前要：(1) Q1/Q2 內部 scope 對齊；(2) 對外故事一致；(3) Brian 在場主答</li>
+</ul>
+<hr/>
+<h2 id="d">D. 動作清單</h2>
+<h3 id="24h">立即（24h 內）</h3>
+<ul>
+<li>[x] 完成本 calibration log + 更新 case-learning 主檔</li>
+<li>[ ] 給 Brian 內部 DM 三點摘要（<strong>等使用者明示後才發</strong> — auto-mode 不主動發訊息）</li>
+</ul>
+<h3 id="_1">本週</h3>
+<ul>
+<li>[ ] Brian 拍 Q1/Q2 dev scope（PM 端追蹤）</li>
+<li>[ ] 若 Brian 同意，幫忙開兩張 spike ticket（<strong>不抓 Eric/Vincent/Jimmy 名字</strong> — 等 Brian 指派）</li>
+<li>[ ] CONNECTSOURCE 4/24 起 5 件 P1 todo 全沒結（<strong>老問題</strong>），下一輪同步要拉出來逼進度</li>
+</ul>
+<h3 id="_2">紅線提醒</h3>
+<ul>
+<li>❌ 不在 thread 裡搶在 Brian 前回 Q1/Q2</li>
+<li>❌ 不在 dev scope 沒拍前訂 Teams session 時間</li>
+<li>❌ 對 Cary 講「現有沒能力」這種內部判讀（那是 Brian 該講的對外故事）</li>
+</ul>
+<hr/>
+<h2 id="e">E. 跨檔案連結</h2>
+<ul>
+<li>完整分析：<code>~/.claude/plans/https-outlook-cloud-microsoft-mail-categ-glimmering-sky.md</code></li>
+<li>案件主檔（已更新時間軸 + Action Items）：<code>case-learning/connectsource-passenger-blurring.md</code></li>
+<li>Jira 對齊佐證：<code>knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md</code></li>
+<li>API 文件（v2026-Q1）：<a class="ext-link" href="https://visionmax.redocly.app/" rel="noopener" target="_blank">https://visionmax.redocly.app/</a></li>
+</ul>
+<hr/>
+<h2 id="f-kenny-57-1441-commitment">F. Kenny 5/7 14:41 已發回信(對外 commitment 紀錄)</h2>
+<blockquote>
+<p>⚠️ <strong>這是已發出的對外承諾,將來會被檢驗</strong>。後續 RD 任何修改若跟這封信內容不一致,Kenny 必須主動補正 thread。</p>
+</blockquote>
+<h3 id="_3">收件結構</h3>
+<ul>
+<li>收件:cary.lo-mitac, brian.chienlee, <strong>wendy.hammond</strong></li>
+<li>副本:elvis.tran-mitac, spencer.su</li>
+</ul>
+<h3 id="kenny">Kenny 的具體承諾(逐條對照前段「結論」內部判讀)</h3>
+<table>
+<thead>
+<tr>
+<th>議題</th>
+<th>內部結論(C 段)</th>
+<th>對外回信(F 段已發)</th>
+<th>落差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自我介紹</td>
+<td>—</td>
+<td>「Pokai (Kenny) Huang, <strong>Technical Support</strong>, Brian’s team at MDT, based in Taipei. Brian has looped me in」</td>
+<td>對外 title 用 Technical Support(對齊 user_kenny memory)</td>
+</tr>
+<tr>
+<td><strong>Q1 Passenger-only blurring</strong></td>
+<td>現行不支援,技術可行,排 Q2 2026 update / 7 月</td>
+<td><strong>「Yes feasible. Our current API for the European deployment already supports independent blurring control for driver and passenger faces.」</strong></td>
+<td>🚨 <strong>對外升級成「現有 API 已支援」</strong>(原內部判讀「現行不支援」)— 比 C 段樂觀。<strong>待確認:European deployment API 真的有 driver/passenger 獨立 control?</strong></td>
+</tr>
+<tr>
+<td>Q1 給客戶兩個釐清</td>
+<td>—</td>
+<td>(1) Camera scope — DMS only? (2) Trigger model — automatic vs on-demand?</td>
+<td>✓ 把球丟回客戶端對齊需求</td>
+</tr>
+<tr>
+<td><strong>Q2 Fleet 層級</strong></td>
+<td>兩條路:(A) 客戶端自控 / (B) Server-side flag</td>
+<td><strong>「Path: Master Portal &gt; Management &gt; Fleets &gt; (select) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring」</strong>, per-Fleet 粒度,dealer 中央管控</td>
+<td>🚨 <strong>對外給了具體 portal path + (new) Blurring config UI 位置</strong>。<strong>待確認:這條路徑誰拍?Brian 過目了嗎?Lucy 確認 UI 可行嗎?</strong></td>
+</tr>
+<tr>
+<td>Q3 Teams session</td>
+<td>不裸接,等 Brian dev scope 拍</td>
+<td>「Fully supportive. Internal sync to align Q1/Q2 first.」</td>
+<td>✓ 沒承諾時間,符合 C 段紅線</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kenny_1">🚨 立即要補的內部對齊(Kenny 對自己)</h3>
+<ol>
+<li>
+<p><strong>Q1「European deployment API 已支援 driver/passenger 獨立 blurring」依據?</strong>
+   - 找出對應 API 文件 / Jira ticket back up
+   - 若沒明確證據:跟內部 Jira(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a>/527/578 都是 all-face)有落差
+   - 風險:Cary / Wendy 會用這句對外 commit,若不支援會被打臉</p>
+</li>
+<li>
+<p><strong>Q2 portal path「Master Portal &gt; … &gt; (new) Blurring」誰拍?</strong>
+   - 若 Kenny 自己推的 → 對外講 = 對外承諾此 UI 路徑
+   - 待 Brian / Spencer 確認可實作 + Lucy 確認 UI 可行
+   - 若 Brian 之後改位置,要主動補正 thread</p>
+</li>
+<li>
+<p><strong>「Brian has looped me in for this thread going forward」= 對外承諾持續對接</strong>
+   - Kenny 已自定位為 Cary / Wendy 的對接 PM
+   - 後續 thread 每次動,24h 內要回</p>
+</li>
+</ol>
+<h3 id="d_1">D 段紅線校正</h3>
+<p>D 段原紅線「不在 thread 裡搶在 Brian 前回 Q1/Q2」— <strong>5/7 14:41 已回</strong>,Brian 在副本(不是收件)。</p>
+<ul>
+<li>✓ Brian 在 cc,有問題會糾正</li>
+<li>✓ 自介「Brian has looped me in」表授權</li>
+<li>⚠️ 但 Q1「European API 已支援」若 Brian 沒事先看過,後續打臉責任在 Kenny</li>
+</ul>
+<h3 id="kenny-brian">Kenny 對 Brian 補對齊話術</h3>
+<blockquote>
+<p>「Brian,5/7 14:41 我回了 Cary thread。Q1 我寫『European deployment API 已支援 driver/passenger 獨立 blurring』,Q2 我寫 Master Portal 加 (new) Blurring config 在 Fleet Detail 下。<strong>請確認這兩個答覆 OK?</strong>有需要修正我立刻補正 thread。」</p>
+</blockquote>
+<hr/>
+<h2 id="g-back-up-2026-05-08-kenny">G. Back-up 依據補充(2026-05-08 Kenny 確認)</h2>
+<blockquote>
+<p>上一段 F 標的兩個 🚨 風險,Kenny 5/8 確認後<strong>全部解除</strong>。</p>
+</blockquote>
+<h3 id="q1european-deployment-api-driverpassenger-blurring">Q1「European deployment API 已支援 driver/passenger 獨立 blurring」依據</h3>
+<ul>
+<li><strong>真實依據:BMS 客戶端用的內部 API 已有此能力,只是沒對外公開</strong></li>
+<li>因此 redocly v2026-Q1 公開文件搜不到 blurring endpoint(對外沒露出)</li>
+<li>但 BMS 客戶實際使用時的 API 確實支援 driver/passenger 獨立 blur</li>
+<li>對 Cary / Wendy 講「現有 API 已支援」是有依據的(內部 BMS API)</li>
+<li>⚠️ <strong>對外口徑邊界</strong>:能說「能力存在」,但不能說「公開可用」— 因為要做 modifications 才能給 CONNECTSOURCE,對應 Brian 5/4 給 Wendy 的「Q2 2026 update / 7 月最早」commitment</li>
+</ul>
+<h3 id="q2master-portal-fleets-fleet-detail-configurations-new-blurring">Q2「Master Portal &gt; Fleets &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring」路徑依據</h3>
+<ul>
+<li><strong>真實依據:Brian / Spencer 已內部確認此路徑可實作</strong></li>
+<li>不是 Kenny 自己看 portal 結構推的</li>
+<li>對外承諾此 UI 路徑有 RD 端 backing</li>
+<li>後續 Lucy UI 設計、實際 Q2 2026 update 排程,follow Brian / Spencer 拍板</li>
+</ul>
+<h3 id="cary-wendy">🟢 風險解除後的對 Cary / Wendy 後續處理</h3>
+<p>兩個答覆都有依據,不需要主動補正 thread。<strong>等客戶回覆 Q1 釐清(Camera scope + Trigger model)後,把球轉給 Brian / Spencer 排 dev scope</strong>。</p>
+<h3 id="kenny-reminder">對 Kenny 自己的 reminder</h3>
+<p>下次寫對外信前,<strong>對任何「現有已支援」這種 commitment</strong>,自己先記:
+- 依據在哪裡(內部 API / Jira ticket / Brian 跟我講過)
+- 對外講 vs 對內現實差幾步(本次:BMS 已有,對外要 7 月才 ship 給 CONNECTSOURCE)
+- 風險邊界(本次:能說「能力存在」,不能說「公開可用」)</p>
+<p>寫到 calibration log 留 trace,<strong>避免下次自己也忘記為什麼這樣回</strong>。</p>
+<hr/>
+<h2 id="h-2026-05-08-syncup-meeting-q2-portal-path">H. 2026-05-08 Syncup Meeting 校正(Q2 portal path 修正)</h2>
+<h3 id="_4">會議基本</h3>
+<ul>
+<li>5/8 02:21 UTC(台北 10:21)21 分鐘 Teams call</li>
+<li>Kenny 主動 reach out / Cary + Elvis 加入</li>
+<li>完整紀錄:<a href="../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md.html"><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
+</ul>
+<h3 id="kenny-57-1441-q2-portal-path">🚨 Kenny 5/7 14:41 對外承諾的 Q2 portal path 被現場糾正</h3>
+<p>Kenny 5/7 信寫:</p>
+<blockquote>
+<p>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</p>
+</blockquote>
+<p><strong>Elvis 現場用 Master Portal 螢幕分享揭露</strong>:
+- 那條路徑只能在 <strong>main fleet 級</strong>操作
+- 動一個 = main fleet + 所有 contract fleets 一起套用
+- <strong>沒有 per-contract-fleet 粒度</strong>
+- 客戶實況(Cary 解釋):Australia 1 main fleet,所有 reseller 客戶都是 contract fleets,必須 pinpoint 特定 contract fleet 套設定
+- Elvis 用 Live User 為例:<strong>Fleet Portal 已有 per-contract-fleet config 的能力</strong>,Blurring 應沿用</p>
+<p>→ <strong>5/7 信對外的 portal path 描述對 main fleet OK,對 contract fleet 不行</strong>。要校正。</p>
+<h3 id="brian-spencer">修正後的兩條實作路徑(待 Brian / Spencer 拍)</h3>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>說明</th>
+<th>顧慮</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(A)</strong> Master Portal 補 contract fleet 視圖 + 加 Blurring config</td>
+<td>dealer/MAU 中央控制所有 contract fleet</td>
+<td>⚠️ <strong>隱私問題</strong> — Cary 警告 contract fleet 不見得想讓上層 dealer 看到</td>
+</tr>
+<tr>
+<td><strong>(B)</strong> Fleet Portal 加 per-contract-fleet Blurring config UI</td>
+<td>沿用 Live User pattern,維持 contract fleet boundary</td>
+<td>沒明顯顧慮</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q1-api-documentation-cary">Q1 API documentation 議題(會中 Cary 尖銳追問)</h3>
+<blockquote>
+<p>Cary: 「Has the blurring notes been added on to the API documentation? Then what can I share with my customer please?」</p>
+</blockquote>
+<p>Kenny 答:目前對外文件沒寫(只 BMS 用),要問 Spencer 能否 share 內部版。Cary 妥協:CONNECTSOURCE 是 integrated customer 願意用 API 直接整合 -&gt; doc 暫用版本即可。</p>
+<h3 id="57-1441">對 5/7 14:41 信的 Δ(整理)</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>5/7 信寫的</th>
+<th>5/8 sync 揭露</th>
+<th>是否要修正 thread</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1 driver/passenger 獨立 blur 已支援</td>
+<td>✓</td>
+<td>對(BMS 內部 API)</td>
+<td>不用</td>
+</tr>
+<tr>
+<td>Q1 API doc</td>
+<td>(沒明寫)</td>
+<td>對外目前無 doc,要問 Spencer 能否 share</td>
+<td><strong>回信中提:會找 Spencer</strong></td>
+</tr>
+<tr>
+<td>Q2 portal path</td>
+<td>Master Portal config</td>
+<td><strong>只到 main fleet 級,沒粒度</strong></td>
+<td><strong>要回信校正成 (A)/(B) 兩條路</strong></td>
+</tr>
+<tr>
+<td>Q3 Teams session</td>
+<td>Fully supportive</td>
+<td>✓ 5/8 已開,客戶滿意</td>
+<td>不用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">對外回信狀態</h3>
+<p>草稿已擬好(兩個 Q + 兩條路徑 + Spencer/Brian 確認 next steps)。<strong>Kenny 5/8 決定先寫進 case-learning + meetings + memory,回信暫緩</strong>。</p>
+<p><em>Last updated: 2026-05-08 — 加 H 段 5/8 sync 校正紀錄。回信草稿等 Kenny 確認後寄出。</em></p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="06_calibration-log--ai-team-row-by-row-status-2026-05-07.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">AI 工作計畫 16 行 5/7 逐行狀態 snapshot</span></a>
+  <span></span>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>

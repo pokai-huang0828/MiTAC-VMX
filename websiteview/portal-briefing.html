@@ -5,514 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VMX Portal · 客戶簡介手冊</title>
   <link rel="stylesheet" href="css/shared.css">
-  <style>
-    
-/* === VIEWPORT FITTING (mandatory) === */
-html, body { height: 100%; overflow-x: hidden; }
-html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-.slide {
-  width: 100vw; height: 100vh; height: 100dvh;
-  overflow: hidden; scroll-snap-align: start;
-  display: flex; flex-direction: column; position: relative;
-}
-.slide-content {
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: center; max-height: 100%; overflow: hidden;
-  padding: var(--slide-padding);
-}
-:root {
-  --title-size: clamp(1.5rem, 5vw, 4rem);
-  --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
-  --h3-size: clamp(1rem, 2.5vw, 1.75rem);
-  --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
-  --small-size: clamp(0.65rem, 1vw, 0.875rem);
-  --slide-padding: clamp(1rem, 4vw, 4rem);
-  --content-gap: clamp(0.5rem, 2vw, 2rem);
-  --element-gap: clamp(0.25rem, 1vw, 1rem);
-}
-@media (max-height: 700px) {
-  :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem);
-          --title-size: clamp(1.25rem, 4.5vw, 2.5rem); --h2-size: clamp(1rem, 3vw, 1.75rem); }
-}
-@media (max-height: 600px) {
-  :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem);
-          --title-size: clamp(1.1rem, 4vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
-  .nav-dots, .keyboard-hint, .decorative { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
-  html { scroll-behavior: auto; }
-}
-
-/* === MDT 2026 THEME — colors / fonts come from shared.css === */
-/* (legacy --navy/--orange/--font-display etc. all aliased in shared.css) */
-body {
-  background: var(--mdt-card);  /* slides on white */
-  line-height: 1.55;
-}
-.slide { background: var(--bg); color: var(--text); }
-
-/* === COVER + DIVIDER + END === */
-.slide.cover, .slide.section-divider, .slide.end-slide {
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
-  color: #fff;
-}
-.slide.cover::before, .slide.section-divider::before, .slide.end-slide::before {
-  content: ""; position: absolute; top: 0; right: 0; height: 100%;
-  width: clamp(80px, 15%, 200px);
-  background:
-    linear-gradient(to right,
-      rgba(0,92,168,0.55) 0%, rgba(0,92,168,0.55) 35%,
-      var(--red) 35%, var(--red) 50%,
-      rgba(0,0,0,0) 50%, rgba(0,0,0,0) 60%,
-      var(--orange) 60%, var(--orange) 67%,
-      rgba(0,0,0,0) 67%);
-  pointer-events: none;
-}
-
-.slide.cover .slide-content { padding: clamp(2rem, 6vw, 5rem); justify-content: center; }
-.slide.cover .eyebrow {
-  font-size: var(--small-size); font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: clamp(1.5rem, 5vh, 4rem);
-}
-.slide.cover .cover-title {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(3rem, 9vw, 7rem); line-height: 0.95; letter-spacing: -0.025em;
-  color: #fff;
-}
-.slide.cover .cover-rule {
-  height: 4px; width: clamp(60px, 8vw, 120px);
-  background: var(--red);
-  margin: clamp(1rem, 2.5vh, 2rem) 0;
-}
-.slide.cover .cover-subtitle {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
-  letter-spacing: -0.01em; color: rgba(255,255,255,0.92);
-}
-.slide.cover .cover-tag {
-  font-style: italic; font-size: var(--body-size);
-  color: rgba(255,255,255,0.7);
-  margin-top: clamp(1rem, 3vh, 2rem); max-width: 60ch;
-}
-
-.slide.cover .copyright, .slide.section-divider .copyright, .slide.end-slide .copyright,
-.slide.cover .mitac-logo, .slide.end-slide .mitac-logo {
-  position: absolute; font-size: var(--small-size); color: rgba(255,255,255,0.6);
-}
-.slide.cover .copyright, .slide.section-divider .copyright, .slide.end-slide .copyright {
-  bottom: clamp(0.75rem, 2vh, 1.5rem); left: clamp(1rem, 4vw, 4rem);
-}
-.slide.cover .mitac-logo, .slide.end-slide .mitac-logo {
-  bottom: clamp(0.75rem, 2vh, 1.5rem); right: clamp(2.5rem, 8vw, 5rem);
-  text-align: right; color: rgba(255,255,255,0.85);
-}
-.mitac-logo .brand { font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.1rem, 1.6vw, 1.5rem); letter-spacing: -0.01em; }
-.mitac-logo .tag { font-size: clamp(0.55rem, 0.7vw, 0.7rem);
-  letter-spacing: 0.15em; font-weight: 700; color: rgba(255,255,255,0.6); }
-
-/* === SECTION DIVIDER === */
-.slide.section-divider .slide-content { justify-content: center; padding-left: clamp(2rem, 6vw, 5rem); }
-.slide.section-divider .part-tag {
-  font-size: var(--small-size); letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--orange); font-weight: 700;
-  margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
-}
-.slide.section-divider .section-title {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1; letter-spacing: -0.02em;
-  color: #fff; margin-bottom: clamp(1rem, 2.5vh, 2rem);
-}
-.slide.section-divider .rule { height: 4px; width: clamp(80px, 10vw, 160px);
-  background: var(--red); margin-top: clamp(1rem, 2vh, 1.5rem); }
-.slide.section-divider .section-desc {
-  font-size: var(--body-size); font-style: italic; max-width: 60ch;
-  margin-top: clamp(1rem, 3vh, 2rem); color: rgba(255,255,255,0.85);
-}
-
-/* === INNER SLIDE === */
-.slide.inner .title-bar {
-  background: var(--navy); color: #fff;
-  padding: clamp(0.85rem, 2.5vh, 1.5rem) clamp(1rem, 4vw, 4rem);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-shrink: 0;
-}
-.slide.inner .title-bar .title-text {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.15rem, 2.4vw, 1.85rem); letter-spacing: -0.005em;
-}
-.slide.inner .title-bar .breadcrumb {
-  font-size: var(--small-size); color: rgba(255,255,255,0.6);
-  letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
-  display: flex; align-items: center; gap: clamp(0.5rem, 1vw, 1rem);
-}
-.slide.inner .body {
-  flex: 1; overflow: hidden;
-  padding: clamp(1rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem);
-  display: flex; flex-direction: column; gap: clamp(0.75rem, 1.5vw, 1.5rem);
-}
-.slide.inner .footer {
-  background: var(--bg-soft);
-  padding: clamp(0.4rem, 1vh, 0.75rem) clamp(1rem, 4vw, 4rem);
-  font-size: var(--small-size); color: var(--text-light);
-  display: flex; justify-content: space-between;
-  border-top: 1px solid var(--bg-stripe); flex-shrink: 0;
-}
-
-/* === COMPONENTS === */
-.callout {
-  background: var(--bg-soft); border-left: 4px solid var(--navy);
-  padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 2.5vw, 1.5rem);
-  border-radius: 4px; font-size: var(--body-size);
-}
-.callout.red { border-left-color: var(--red); }
-.callout.orange { border-left-color: var(--orange); }
-.callout.gold { border-left-color: var(--gold); }
-.callout strong { color: var(--navy); }
-
-/* Two-column comparison */
-.compare-2 {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2.5vw, 2rem); flex: 1;
-}
-.compare-card {
-  background: var(--bg-soft);
-  border-radius: 12px; padding: clamp(1.25rem, 2.5vw, 2rem);
-  display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.85rem);
-  border-top: 6px solid var(--navy);
-}
-.compare-card.fleet { border-top-color: var(--orange); }
-.compare-card .role-name {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--navy);
-  letter-spacing: -0.01em;
-}
-.compare-card.fleet .role-name { color: var(--orange); }
-.compare-card .url {
-  font-family: ui-monospace, monospace; font-size: var(--small-size);
-  color: var(--text-light); font-style: italic; margin-bottom: 0.5rem;
-}
-.compare-card .label {
-  font-size: var(--small-size); font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text-light); margin-top: 0.5rem;
-}
-.compare-card .info {
-  font-size: var(--body-size); color: var(--text); line-height: 1.5;
-}
-
-/* Question grid */
-.q-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: clamp(0.75rem, 1.5vw, 1.25rem); flex: 1; align-content: center;
-}
-.q-card {
-  background: var(--bg-soft); border-radius: 12px;
-  padding: clamp(1rem, 2vw, 1.5rem);
-  display: flex; flex-direction: column; gap: 0.4rem;
-  border-left: 5px solid var(--navy);
-}
-.q-card.red { border-left-color: var(--red); }
-.q-card.orange { border-left-color: var(--orange); }
-.q-card.gold { border-left-color: var(--gold); }
-.q-card .q-num {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-  color: var(--navy); letter-spacing: -0.01em;
-}
-.q-card.red .q-num { color: var(--red); }
-.q-card.orange .q-num { color: var(--orange); }
-.q-card.gold .q-num { color: var(--gold); }
-.q-card .q-text {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  color: var(--text);
-}
-.q-card .q-ans {
-  font-size: var(--body-size); color: var(--text-light);
-  font-style: italic;
-}
-
-/* Page-summary card (for portal pages) */
-.pages-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: clamp(0.75rem, 1.5vw, 1.25rem); flex: 1; align-content: start;
-}
-.page-card {
-  background: var(--bg-soft); border-radius: 10px;
-  padding: clamp(0.85rem, 1.5vw, 1.15rem) clamp(1rem, 1.8vw, 1.35rem);
-  display: flex; flex-direction: column; gap: 0.45rem;
-  border-top: 4px solid var(--orange);
-}
-.page-card:nth-child(3n+1) { border-top-color: var(--navy); }
-.page-card:nth-child(3n+2) { border-top-color: var(--orange); }
-.page-card:nth-child(3n+3) { border-top-color: var(--gold); }
-.page-card .page-name {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: var(--navy); letter-spacing: -0.005em;
-}
-.page-card .meta-row {
-  display: grid; grid-template-columns: auto 1fr;
-  gap: 0.4rem 0.65rem;
-  font-size: clamp(0.7rem, 1.05vw, 0.85rem);
-  line-height: 1.4;
-}
-.page-card .label {
-  font-weight: 700; color: var(--text-light);
-  text-transform: uppercase; letter-spacing: 0.05em;
-  font-size: 0.85em;
-}
-.page-card .val { color: var(--text); }
-
-/* Group cards (Fleet 19 by use case) */
-.group-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.75rem, 1.5vw, 1.25rem); flex: 1; align-content: center;
-}
-.group-card {
-  background: var(--bg-soft); border-radius: 12px; overflow: hidden;
-  display: flex; flex-direction: column;
-}
-.group-card .head {
-  background: var(--navy); color: #fff;
-  padding: clamp(0.85rem, 1.5vh, 1.15rem) clamp(1rem, 1.8vw, 1.4rem);
-  display: flex; align-items: baseline; gap: 0.75rem;
-}
-.group-card.orange .head { background: var(--orange); }
-.group-card.red .head { background: var(--red); }
-.group-card.gold .head { background: var(--gold); }
-.group-card.light .head { background: var(--navy-light); }
-.group-card.gray .head { background: var(--text-light); }
-.group-card .count {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.6rem, 2.6vw, 2rem); line-height: 1;
-}
-.group-card .name {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  letter-spacing: 0.02em;
-}
-.group-card .pages-list {
-  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 1.8vw, 1.4rem);
-  font-size: clamp(0.75rem, 1.05vw, 0.9rem);
-  color: var(--text); line-height: 1.5;
-}
-
-/* Demo Flow */
-.demo-hook {
-  background: var(--bg-soft); border-left: 5px solid var(--red);
-  padding: clamp(1rem, 2vw, 1.4rem) clamp(1.25rem, 2.5vw, 1.75rem);
-  border-radius: 4px;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-  font-style: italic; color: var(--text);
-}
-.demo-hook .hook-label {
-  display: block; font-style: normal;
-  font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
-  font-size: var(--small-size); color: var(--red);
-  margin-bottom: 0.4rem;
-}
-.demo-hook.gold { border-left-color: var(--gold); }
-.demo-hook.gold .hook-label { color: var(--gold); }
-.demo-hook.orange { border-left-color: var(--orange); }
-.demo-hook.orange .hook-label { color: var(--orange); }
-
-.demo-steps {
-  display: flex; flex-direction: column;
-  gap: clamp(0.45rem, 1vh, 0.7rem);
-  flex: 1; align-content: center;
-}
-.demo-step {
-  display: grid; grid-template-columns: auto 1fr auto;
-  gap: clamp(0.5rem, 1.2vw, 1rem);
-  align-items: center;
-  background: var(--bg-soft); border-radius: 8px;
-  padding: clamp(0.55rem, 1vh, 0.85rem) clamp(0.85rem, 1.5vw, 1.15rem);
-  font-size: clamp(0.85rem, 1.25vw, 1rem);
-}
-.demo-step .num {
-  width: clamp(28px, 3vw, 36px); height: clamp(28px, 3vw, 36px);
-  border-radius: 50%; background: var(--navy); color: #fff;
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.demo-flow.it .demo-step .num { background: var(--gold); }
-.demo-flow.driver .demo-step .num { background: var(--red); }
-.demo-step .step-name {
-  font-family: var(--font-display); font-weight: 700;
-  color: var(--navy);
-}
-.demo-step .step-desc {
-  color: var(--text-light); font-style: italic;
-  font-size: 0.92em;
-}
-.demo-step .step-time {
-  color: var(--orange); font-weight: 700; font-size: 0.85em;
-  white-space: nowrap;
-}
-.demo-flow.it .demo-step .step-time { color: var(--gold); }
-.demo-flow.driver .demo-step .step-time { color: var(--red); }
-
-.demo-close {
-  background: var(--orange); color: #fff;
-  padding: clamp(0.75rem, 1.8vh, 1.1rem) clamp(1.25rem, 2.5vw, 1.75rem);
-  border-radius: 8px;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-  font-style: italic; font-weight: 600;
-}
-.demo-close .close-label {
-  display: block; font-style: normal; font-weight: 800;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  font-size: var(--small-size); color: rgba(255,255,255,0.85);
-  margin-bottom: 0.3rem;
-}
-
-/* Quick Reference Table */
-.qref {
-  width: 100%; border-collapse: collapse; flex: 1;
-  font-size: clamp(0.8rem, 1.15vw, 0.95rem);
-}
-.qref thead th {
-  background: var(--navy-dark); color: #fff;
-  padding: clamp(0.5rem, 1vh, 0.75rem) clamp(0.75rem, 1.2vw, 1rem);
-  text-align: left;
-  font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.25vw, 1rem);
-  letter-spacing: 0.02em;
-}
-.qref tbody td {
-  padding: clamp(0.4rem, 0.85vh, 0.6rem) clamp(0.75rem, 1.2vw, 1rem);
-  border-bottom: 1px solid var(--bg-stripe);
-}
-.qref tbody tr:nth-child(even) { background: var(--bg-soft); }
-.qref .portal-tag {
-  display: inline-block; font-size: 0.85em; font-weight: 700;
-  padding: 0.15em 0.6em; border-radius: 999px;
-}
-.qref .portal-tag.fleet { background: rgba(0,92,168,0.12); color: var(--navy-light); }
-.qref .portal-tag.master { background: rgba(227,6,19,0.1); color: var(--red); }
-
-/* Plan Tier Card (subscription Q4) */
-.plan-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.5rem, 1vw, 0.85rem); flex: 1; align-content: center;
-}
-.plan-card {
-  background: var(--bg-soft); border-radius: 10px; overflow: hidden;
-  display: flex; flex-direction: column;
-}
-.plan-card .head {
-  padding: clamp(0.75rem, 1.5vh, 1rem); text-align: center; color: #fff;
-}
-.plan-card .head .name {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1rem, 1.7vw, 1.3rem); letter-spacing: 0.05em;
-}
-.plan-card.standard .head { background: var(--navy); }
-.plan-card.advanced .head { background: var(--gold); }
-.plan-card.pro .head { background: var(--red); }
-.plan-card.suspend .head { background: var(--text-light); }
-.plan-card .what {
-  padding: clamp(0.65rem, 1.2vw, 0.95rem);
-  font-size: clamp(0.7rem, 1vw, 0.85rem);
-  color: var(--text); line-height: 1.45;
-  flex: 1;
-}
-.plan-card .who {
-  background: rgba(0,0,0,0.04);
-  padding: clamp(0.55rem, 1vh, 0.8rem) clamp(0.65rem, 1.2vw, 0.95rem);
-  font-size: clamp(0.65rem, 0.95vw, 0.8rem);
-  font-style: italic; color: var(--text-light);
-}
-
-/* Closing slide */
-.slide.end-slide .end-content { padding-left: clamp(2rem, 6vw, 5rem); }
-.slide.end-slide .end-text {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(3.5rem, 10vw, 8rem); letter-spacing: -0.03em; color: #fff;
-}
-.slide.end-slide .end-rule {
-  height: 4px; width: clamp(80px, 10vw, 160px);
-  background: var(--red); margin: clamp(1rem, 2vh, 1.5rem) 0;
-}
-.slide.end-slide .end-tag {
-  font-style: italic; font-size: clamp(1rem, 1.6vw, 1.4rem);
-  color: rgba(255,255,255,0.8); max-width: 60ch;
-}
-
-/* === ANIMATIONS === */
-@keyframes revealIn {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  animation: revealIn 0.7s cubic-bezier(0.16,1,0.3,1) both;
-}
-.reveal:nth-child(1) { animation-delay: 0.05s; }
-.reveal:nth-child(2) { animation-delay: 0.15s; }
-.reveal:nth-child(3) { animation-delay: 0.25s; }
-.reveal:nth-child(4) { animation-delay: 0.35s; }
-.reveal:nth-child(5) { animation-delay: 0.45s; }
-.reveal:nth-child(6) { animation-delay: 0.55s; }
-.reveal:nth-child(7) { animation-delay: 0.65s; }
-
-/* === NAV CHROME === */
-.progress-bar {
-  position: fixed; top: 0; left: 0; height: 3px;
-  background: var(--orange); width: 0%;
-  z-index: 1000; transition: width 0.2s linear;
-}
-.nav-dots {
-  position: fixed; right: clamp(0.75rem, 1.5vw, 1.25rem);
-  top: 50%; transform: translateY(-50%);
-  display: flex; flex-direction: column;
-  gap: clamp(0.4rem, 0.7vw, 0.55rem); z-index: 100;
-}
-.nav-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(0,0,0,0.18);
-  border: none; padding: 0; cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-}
-.nav-dot.active { background: var(--red); transform: scale(1.5); }
-body:has(.slide.visible.cover) .nav-dot,
-body:has(.slide.visible.section-divider) .nav-dot,
-body:has(.slide.visible.end-slide) .nav-dot { background: rgba(255,255,255,0.3); }
-body:has(.slide.visible.cover) .nav-dot.active,
-body:has(.slide.visible.section-divider) .nav-dot.active,
-body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
-.keyboard-hint {
-  position: fixed; bottom: clamp(0.5rem, 1.5vh, 1rem);
-  left: 50%; transform: translateX(-50%);
-  font-size: var(--small-size); color: var(--text-light);
-  background: rgba(255,255,255,0.85);
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px; border: 1px solid var(--bg-stripe);
-  z-index: 100;
-}
-
-  </style>
+  <link rel="stylesheet" href="css/portal-briefing.css">
 </head>
 <body>
   <div class="progress-bar"></div>
   <nav class="nav-dots" aria-label="Slide navigation"></nav>
   <div class="keyboard-hint">↑ ↓ ← → · Space · Click dots</div>
-  <a href="index.html" title="返回 Web Hub" style="position:fixed;top:18px;left:22px;z-index:1000;color:rgba(255,255,255,0.85);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);">← Web Hub</a>
+  <a class="web-hub-link" href="index.html" title="Back to Web Hub">← Web Hub</a>
 
-  
 <section class="slide cover">
   <div class="slide-content">
     <div class="eyebrow reveal">客戶簡介手冊 · CLIENT BRIEFING</div>
     <h1 class="cover-title reveal">VMX Portal</h1>
     <div class="cover-rule reveal"></div>
-    <div class="cover-subtitle reveal">Master vs Fleet · 一次看懂</div>
-    <p class="cover-tag reveal">給三類客戶看 — 車隊老闆 / IT 經理 / 司機主管。Presentation 中讓客戶 5 分鐘內理解、對自己需求做決定。</p>
+    <div class="cover-subtitle reveal">Master vs Fleet · 一頁一頁看懂</div>
+    <p class="cover-tag reveal">給三類客戶看 — 車隊老闆 / IT 經理 / 司機主管。每個 portal 頁面獨立 1 張 slide,看到畫面 + 知道做什麼。</p>
   </div>
   <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
   <div class="mitac-logo">
@@ -524,23 +31,21 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">簡介手冊 · 大綱</div>
-    <div class="breadcrumb">OUTLINE<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">OUTLINE<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<ul class="reveal" style="list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.5vh, 1rem); font-size: clamp(1rem, 1.6vw, 1.3rem); padding: 0;">
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--navy);"><strong style="color: var(--navy);">Part 1 · 一張圖看懂兩個 Portal</strong> — 15 秒對焦差異</li>
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--orange);"><strong style="color: var(--orange);">Part 2 · 客戶最常問的 5 個決策</strong> — 開場必答 5 題</li>
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--red);"><strong style="color: var(--red);">Part 3 · Master Portal 7 頁速覽</strong> — 經銷商 / IT 用</li>
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--gold);"><strong style="color: var(--gold);">Part 4 · Fleet Portal 19 頁速覽</strong> — 車隊運營者用</li>
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--navy-light);"><strong style="color: var(--navy-light);">Part 5 · 三大 Demo 流程</strong> — 各 5 分鐘 · 給三類客戶</li>
-  <li style="padding-left: 1.5rem; border-left: 4px solid var(--orange);"><strong style="color: var(--orange);">速查表</strong> — 客戶想做某事 → 看哪頁</li>
-</ul>
-
+    <ul class="outline-list reveal">
+      <li class="navy"><strong>Part 1 · 一張圖看懂兩個 Portal</strong> — 15 秒對焦差異</li>
+      <li class="orange"><strong>Part 2 · 客戶最常問的 5 個決策</strong> — 開場必答 5 題</li>
+      <li class="red"><strong>Part 3 · Master Portal 7 頁逐頁</strong> — 每頁 1 張 slide</li>
+      <li class="gold"><strong>Part 4 · Fleet Portal 19 頁逐頁</strong> — 每頁 1 張 slide</li>
+      <li class="light"><strong>Part 5 · 三大 Demo 流程</strong> — 各 5 分鐘 · 給三類客戶</li>
+      <li class="orange"><strong>速查表</strong> — 客戶想做某事 → 看哪頁</li>
+    </ul>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">2 / 25</span>
+    <span class="page-num">2 / 43</span>
   </div>
 </section>
 
@@ -557,40 +62,38 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Master vs Fleet</div>
-    <div class="breadcrumb">PART 1 · 對照<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 1 · 對照<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="compare-2 reveal">
-  <div class="compare-card">
-    <div class="role-name">Master Portal</div>
-    <div class="url">portal.visionmaxfleet.com</div>
-    <div class="label">給誰用</div>
-    <div class="info">經銷商 / 神達內部 / 跨車隊 IT</div>
-    <div class="label">管的範圍</div>
-    <div class="info">跨多個車隊 · 整個設備池(待分配 + 已分配)</div>
-    <div class="label">主要動作</div>
-    <div class="info">把新設備派給客戶 · 跨車隊看設備健康 · 調整客戶帳號權限 · 跨車隊用戶活動稽核</div>
-  </div>
-  <div class="compare-card fleet">
-    <div class="role-name">Fleet Portal</div>
-    <div class="url">www.visionmaxfleet.com</div>
-    <div class="label">給誰用</div>
-    <div class="info">車隊管理者 / 主管 / 司機調度</div>
-    <div class="label">管的範圍</div>
-    <div class="info">單一車隊內 · 你的車、駕駛、行程、事件</div>
-    <div class="label">主要動作</div>
-    <div class="info">看每天行程 · 查交通違規 / 駕駛行為事件 · 調閱事故影片 · 修改車型 / 觸發門檻參數</div>
-  </div>
-</div>
-<div class="callout red reveal" style="margin-top: clamp(0.5rem, 1.5vh, 1rem);">
-  <strong>Master 是「向上派發」的後台</strong>;<strong>Fleet 是「向下運營」的後台</strong>。Master 把設備分配下去,Fleet 把設備跑出來的數據撈起來看。
-</div>
-
+    <div class="compare-2 reveal">
+      <div class="compare-card">
+        <div class="role-name">Master Portal</div>
+        <div class="url">portal.visionmaxfleet.com</div>
+        <div class="label">給誰用</div>
+        <div class="info">經銷商 / 神達內部 / 跨車隊 IT</div>
+        <div class="label">管的範圍</div>
+        <div class="info">跨多個車隊 · 整個設備池(待分配 + 已分配)</div>
+        <div class="label">主要動作</div>
+        <div class="info">把新設備派給客戶 · 跨車隊看設備健康 · 調整客戶帳號權限 · 跨車隊用戶活動稽核</div>
+      </div>
+      <div class="compare-card fleet">
+        <div class="role-name">Fleet Portal</div>
+        <div class="url">www.visionmaxfleet.com</div>
+        <div class="label">給誰用</div>
+        <div class="info">車隊管理者 / 主管 / 司機調度</div>
+        <div class="label">管的範圍</div>
+        <div class="info">單一車隊內 · 你的車、駕駛、行程、事件</div>
+        <div class="label">主要動作</div>
+        <div class="info">看每天行程 · 查交通違規 / 駕駛行為事件 · 調閱事故影片 · 修改車型 / 觸發門檻參數</div>
+      </div>
+    </div>
+    <div class="callout red spaced reveal">
+      <strong>Master 是「向上派發」的後台</strong>;<strong>Fleet 是「向下運營」的後台</strong>。Master 把設備分配下去,Fleet 把設備跑出來的數據撈起來看。
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">4 / 25</span>
+    <span class="page-num">4 / 43</span>
   </div>
 </section>
 
@@ -607,226 +110,361 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Q1 · Q2 — 哪個 portal,看到什麼</div>
-    <div class="breadcrumb">PART 2 · FAQ<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 2 · FAQ<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="callout reveal">
-  <strong>Q1 · 我用哪個 portal?</strong>(依角色)
-  <table style="width:100%; margin-top: 0.5rem; border-collapse: collapse; font-size: var(--body-size);">
-    <tr style="border-bottom: 1px solid var(--bg-stripe);"><td style="padding: 0.4rem 0; width: 35%;"><strong>經銷商 / 神達內部</strong></td><td style="color: var(--navy);">Master Portal — 看到所有客戶的設備池</td></tr>
-    <tr style="border-bottom: 1px solid var(--bg-stripe);"><td style="padding: 0.4rem 0;"><strong>車隊老闆 / 司機主管</strong></td><td style="color: var(--orange);">Fleet Portal — 只看到自己車隊</td></tr>
-    <tr><td style="padding: 0.4rem 0;"><strong>同時管多個車隊的 IT</strong></td><td style="color: var(--text);">兩個都要 — Master 派發、Fleet 運營</td></tr>
-  </table>
-</div>
-<div class="callout orange reveal">
-  <strong>Q2 · 我能看到什麼?</strong>
-  <ul style="margin: 0.5rem 0 0 1.2rem; line-height: 1.65;">
-    <li><strong>行程(Trip)</strong>:每台車每天的開車紀錄(時間、里程、軌跡、駕駛是誰)</li>
-    <li><strong>事件(Event)</strong>:5 種類型 — 急煞、跟車過近、超速、ADAS 校正、DMS 校正</li>
-    <li><strong>影片</strong>:事件當下前向 + 駕駛艙雙鏡頭片段</li>
-    <li><strong>報表</strong>:駕駛安全評分、車隊每日活動量、設備健康度</li>
-  </ul>
-</div>
-
+    <div class="callout reveal">
+      <strong>Q1 · 我用哪個 portal?</strong>(依角色)
+      <table class="callout-table">
+        <tr><td class="col-mid"><strong>經銷商 / 神達內部</strong></td><td class="cell-navy">Master Portal — 看到所有客戶的設備池</td></tr>
+        <tr><td><strong>車隊老闆 / 司機主管</strong></td><td class="cell-orange">Fleet Portal — 只看到自己車隊</td></tr>
+        <tr><td><strong>同時管多個車隊的 IT</strong></td><td class="cell-text">兩個都要 — Master 派發、Fleet 運營</td></tr>
+      </table>
+    </div>
+    <div class="callout orange reveal">
+      <strong>Q2 · 我能看到什麼?</strong>
+      <ul class="callout-bullets">
+        <li><strong>行程(Trip)</strong>:每台車每天的開車紀錄(時間、里程、軌跡、駕駛是誰)</li>
+        <li><strong>事件(Event)</strong>:5 種類型 — 急煞、跟車過近、超速、ADAS 校正、DMS 校正</li>
+        <li><strong>影片</strong>:事件當下前向 + 駕駛艙雙鏡頭片段</li>
+        <li><strong>報表</strong>:駕駛安全評分、車隊每日活動量、設備健康度</li>
+      </ul>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">6 / 25</span>
+    <span class="page-num">6 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Q3 · Q5 — 匯出保留 / 設備問題</div>
-    <div class="breadcrumb">PART 2 · FAQ<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 2 · FAQ<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="callout gold reveal">
-  <strong>Q3 · 資料能匯出嗎?保留多久?</strong>
-  <ul style="margin: 0.5rem 0 0 1.2rem; line-height: 1.65;">
-    <li><strong>Trip / Event 清單</strong>:可匯出 CSV,日期範圍可選</li>
-    <li><strong>影片</strong>:保留 <strong style="color: var(--red);">180 天</strong>,過期自動刪(每筆事件頁顯示倒數)</li>
-    <li>想延長保留期 → 找你的服務窗口談</li>
-  </ul>
-</div>
-<div class="callout red reveal">
-  <strong>Q5 · 設備出問題我從哪裡看?</strong>
-  <table style="width:100%; margin-top: 0.5rem; border-collapse: collapse; font-size: var(--body-size);">
-    <tr style="border-bottom: 1px solid var(--bg-stripe);"><td style="padding: 0.4rem 0; width: 25%;"><strong>經銷商</strong></td><td><strong style="color: var(--navy);">Master Portal → Diagnostics</strong> — 看跨車隊哪幾台有問題</td></tr>
-    <tr><td style="padding: 0.4rem 0;"><strong>車隊客戶</strong></td><td><strong style="color: var(--orange);">Fleet Portal → Devices</strong> — 看自己車隊各台 ADAS / DMS 健康</td></tr>
-  </table>
-</div>
-
+    <div class="callout gold reveal">
+      <strong>Q3 · 資料能匯出嗎?保留多久?</strong>
+      <ul class="callout-bullets">
+        <li><strong>Trip / Event 清單</strong>:可匯出 CSV,日期範圍可選</li>
+        <li><strong>影片</strong>:保留 <strong class="red">180 天</strong>,過期自動刪(每筆事件頁顯示倒數)</li>
+        <li>想延長保留期 → 找你的服務窗口談</li>
+      </ul>
+    </div>
+    <div class="callout red reveal">
+      <strong>Q5 · 設備出問題我從哪裡看?</strong>
+      <table class="callout-table">
+        <tr><td class="col-narrow"><strong>經銷商</strong></td><td><strong class="cell-navy">Master Portal → Diagnostics</strong> — 看跨車隊哪幾台有問題</td></tr>
+        <tr><td><strong>車隊客戶</strong></td><td><strong class="cell-orange">Fleet Portal → Devices</strong> — 看自己車隊各台 ADAS / DMS 健康</td></tr>
+      </table>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">7 / 25</span>
+    <span class="page-num">7 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Q4 · 訂閱方案我該選哪個?</div>
-    <div class="breadcrumb">PART 2 · FAQ · 4 PLANS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 2 · FAQ · 4 PLANS<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="callout reveal" style="margin-bottom: clamp(0.4rem, 1vh, 0.6rem);">
-  4 種方案逐層解鎖 AI 能力。<strong>越上層的方案,設備能偵測的事件越多</strong>。
-</div>
-<div class="plan-grid reveal">
-  <div class="plan-card standard">
-    <div class="head"><div class="name">STANDARD</div></div>
-    <div class="what">急煞 / 急轉 / 撞擊偵測<br>+ GPS<br>+ 行車影片</div>
-    <div class="who">只要基本行為紀錄 + 事故佐證</div>
-  </div>
-  <div class="plan-card advanced">
-    <div class="head"><div class="name">ADVANCED</div></div>
-    <div class="what">Standard +<br><strong>車外輔助</strong>:前車碰撞 FCW、車道偏離 LDW、跟車過近</div>
-    <div class="who">想做駕駛訓練 + 防車外事故</div>
-  </div>
-  <div class="plan-card pro">
-    <div class="head"><div class="name">PRO</div></div>
-    <div class="what">Advanced +<br><strong>駕駛艙監控</strong>:分心、打電話、滑手機、疲勞、安全帶</div>
-    <div class="who">要全方位駕駛行為管理</div>
-  </div>
-  <div class="plan-card suspend">
-    <div class="head"><div class="name">SUSPEND</div></div>
-    <div class="what">暫停服務<br>不收費<br>設備保留</div>
-    <div class="who">季節性不開的車輛 / 暫停車輛</div>
-  </div>
-</div>
-<div style="text-align: center; font-size: var(--small-size); color: var(--text-light); font-style: italic; margin-top: clamp(0.4rem, 1vh, 0.7rem);" class="reveal">
-  詳細定價請洽你的業務窗口
-</div>
-
+    <div class="callout spaced-bot reveal">
+      4 種方案逐層解鎖 AI 能力。<strong>越上層的方案,設備能偵測的事件越多</strong>。
+    </div>
+    <div class="plan-grid reveal">
+      <div class="plan-card standard">
+        <div class="head"><div class="name">STANDARD</div></div>
+        <div class="what">急煞 / 急轉 / 撞擊偵測<br>+ GPS<br>+ 行車影片</div>
+        <div class="who">只要基本行為紀錄 + 事故佐證</div>
+      </div>
+      <div class="plan-card advanced">
+        <div class="head"><div class="name">ADVANCED</div></div>
+        <div class="what">Standard +<br><strong>車外輔助</strong>:前車碰撞 FCW、車道偏離 LDW、跟車過近</div>
+        <div class="who">想做駕駛訓練 + 防車外事故</div>
+      </div>
+      <div class="plan-card pro">
+        <div class="head"><div class="name">PRO</div></div>
+        <div class="what">Advanced +<br><strong>駕駛艙監控</strong>:分心、打電話、滑手機、疲勞、安全帶</div>
+        <div class="who">要全方位駕駛行為管理</div>
+      </div>
+      <div class="plan-card suspend">
+        <div class="head"><div class="name">SUSPEND</div></div>
+        <div class="what">暫停服務<br>不收費<br>設備保留</div>
+        <div class="who">季節性不開的車輛 / 暫停車輛</div>
+      </div>
+    </div>
+    <div class="pricing-footnote reveal">詳細定價請洽你的業務窗口</div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">8 / 25</span>
+    <span class="page-num">8 / 43</span>
   </div>
 </section>
 
 <section class="slide section-divider">
   <div class="slide-content">
     <div class="part-tag reveal">PART 3</div>
-    <h2 class="section-title reveal">Master Portal<br>7 頁速覽</h2>
+    <h2 class="section-title reveal">Master Portal<br>7 頁逐頁</h2>
     <div class="rule reveal"></div>
-    <p class="section-desc reveal">經銷商 / 神達內部用 — 從設備派發到跨車隊稽核,你會用到的 7 個畫面。</p>
+    <p class="section-desc reveal">經銷商 / 神達內部用 — 每頁 1 張 slide,看到畫面 + 知道做什麼。</p>
   </div>
   <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Master Portal · 1–4</div>
-    <div class="breadcrumb">PART 3 · 經銷商 / IT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">MASTER Portal · Dashboard</div>
+    <div class="breadcrumb">PART 3 · 1/7 MASTER<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">1. Dashboard</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">你管轄所有設備的即時總覽</span>
-    <span class="label">能決定</span><span class="val">看到哪幾類問題在發生 → 分派人去處理</span>
-    <span class="label">看到</span><span class="val">設備總數、已派發 vs 未派發比例、健康 vs 異常、5 種異常分類</span>
-  </div>
-</div>
-
-<div class="page-card">
-  <div class="page-name">2. Analysis</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">期間設備分配 + 訂閱方案演變圖</span>
-    <span class="label">能決定</span><span class="val">看哪些方案賣得好 / 哪些車隊在升降級</span>
-    <span class="label">看到</span><span class="val">過去一週(可調)的方案數量折線圖</span>
-  </div>
-</div>
-
-<div class="page-card">
-  <div class="page-name">3. Inventory</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">設備池(待分配 vs 已分配)</span>
-    <span class="label">能決定</span><span class="val">把新進貨設備派給客戶,或把退回設備重派</span>
-    <span class="label">看到</span><span class="val">設備清單 + IMEI / 機型 / 召回紀錄 / 連線時間</span>
-  </div>
-</div>
-
-<div class="page-card">
-  <div class="page-name">4. Diagnostics</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">跨車隊設備健康檢查</span>
-    <span class="label">能決定</span><span class="val">鎖定異常設備,通知對應客戶或派 FAE</span>
-    <span class="label">看到</span><span class="val">✓ 沒問題 / ⚠ 有問題 兩個數字 + 異常設備清單</span>
-  </div>
-</div>
-
-</div>
-
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-Dashboard.png" alt="MASTER Portal — Dashboard">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 01 / 07</div>
+        <h2 class="page-title">Dashboard</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">你管轄所有設備的即時總覽</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看到哪幾類問題在發生 → 分派人去處理</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">設備總數 / 已派發 vs 未派發比例 / 健康 vs 異常 / 5 種異常分類</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">10 / 25</span>
+    <span class="page-num">10 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Master Portal · 5–7</div>
-    <div class="breadcrumb">PART 3 · 經銷商 / IT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">MASTER Portal · Analysis</div>
+    <div class="breadcrumb">PART 3 · 2/7 MASTER<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">5. Fleets</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">你管轄的所有車隊清單</span>
-    <span class="label">能決定</span><span class="val">新建車隊 / 加帳號 / 調整車隊資訊</span>
-    <span class="label">看到</span><span class="val">車隊名 / 帳號數 / 設備數 / 創建日期</span>
-  </div>
-</div>
-
-<div class="page-card">
-  <div class="page-name">6. User Account</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">管理可登入 Master Portal 的人(經銷商員工)</span>
-    <span class="label">能決定</span><span class="val">加新員工 / 停用離職員工 / 調權限(Admin / Viewer)</span>
-    <span class="label">看到</span><span class="val">用戶名 / Email / 角色 / 啟用狀態</span>
-  </div>
-</div>
-
-<div class="page-card">
-  <div class="page-name">7. User Activity Logs</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">Master 層級登入登出稽核</span>
-    <span class="label">能決定</span><span class="val">查可疑登入 / 跨組織存取</span>
-    <span class="label">看到</span><span class="val">時間 / 用戶 / Email / 動作 / IP</span>
-  </div>
-</div>
-
-</div>
-<div class="callout reveal" style="margin-top: clamp(0.4rem, 1vh, 0.7rem);">
-  <strong>Master Portal 的價值</strong>:你不用一個個進客戶 fleet 看 — 在這裡一眼看到「我管的所有設備」健康度、分配狀況、誰在用。
-</div>
-
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-Analysis.png" alt="MASTER Portal — Analysis">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 02 / 07</div>
+        <h2 class="page-title">Analysis</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">期間設備分配 + 訂閱方案演變圖</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看哪些方案賣得好 / 哪些車隊在升降級</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">過去一週(可調)的方案數量折線圖</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">11 / 25</span>
+    <span class="page-num">11 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">MASTER Portal · Inventory</div>
+    <div class="breadcrumb">PART 3 · 3/7 MASTER<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-Inventory.png" alt="MASTER Portal — Inventory">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 03 / 07</div>
+        <h2 class="page-title">Inventory</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">設備池(待分配 vs 已分配)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">把新進貨設備派給客戶,或把退回設備重派</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">設備清單 + IMEI / 機型 / 召回紀錄 / 連線時間</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">12 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">MASTER Portal · Diagnostics</div>
+    <div class="breadcrumb">PART 3 · 4/7 MASTER<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-Diagnostics.png" alt="MASTER Portal — Diagnostics">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 04 / 07</div>
+        <h2 class="page-title">Diagnostics</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">跨車隊設備健康檢查</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">鎖定異常設備,通知對應客戶或派 FAE</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">✓ 沒問題 / ⚠ 有問題 兩個數字 + 異常設備清單</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">13 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">MASTER Portal · Fleets</div>
+    <div class="breadcrumb">PART 3 · 5/7 MASTER<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-Fleets.png" alt="MASTER Portal — Fleets">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 05 / 07</div>
+        <h2 class="page-title">Fleets</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">你管轄的所有車隊清單</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">新建車隊 / 加帳號 / 調整車隊資訊</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">車隊名 / 帳號數 / 設備數 / 創建日期</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">14 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">MASTER Portal · User Account</div>
+    <div class="breadcrumb">PART 3 · 6/7 MASTER<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-UserAccount.png" alt="MASTER Portal — User Account">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 06 / 07</div>
+        <h2 class="page-title">User Account</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">管理可登入 Master Portal 的人(經銷商員工)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">加新員工 / 停用離職員工 / 調權限(Admin / Viewer)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">用戶名 / Email / 角色 / 啟用狀態</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">15 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">MASTER Portal · User Activity Logs</div>
+    <div class="breadcrumb">PART 3 · 7/7 MASTER<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail master reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Master/Master-UserActivityLogs.png" alt="MASTER Portal — User Activity Logs">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">MASTER · 07 / 07</div>
+        <h2 class="page-title">User Activity Logs</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">Master 層級登入登出稽核</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">查可疑登入 / 跨組織存取</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">時間 / 用戶 / Email / 動作 / IP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">16 / 43</span>
   </div>
 </section>
 
 <section class="slide section-divider">
   <div class="slide-content">
     <div class="part-tag reveal">PART 4</div>
-    <h2 class="section-title reveal">Fleet Portal<br>19 頁速覽</h2>
+    <h2 class="section-title reveal">Fleet Portal<br>19 頁逐頁</h2>
     <div class="rule reveal"></div>
-    <p class="section-desc reveal">車隊運營者用 — 按客戶日常使用情境分成 6 大組,每組是一個工作流。</p>
+    <p class="section-desc reveal">車隊運營者用 — 每頁 1 張 slide,加上開頭一張 6 大功能群組地圖。</p>
   </div>
   <div class="copyright">Copyright © MiTAC Digital Technology Corp.</div>
 </section>
@@ -834,342 +472,704 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Fleet Portal — 6 大功能群組</div>
-    <div class="breadcrumb">PART 4 · 概覽<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 4 · 概覽<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="group-grid reveal">
-  <div class="group-card orange">
-    <div class="head"><div class="count">2</div><div class="name">每天看</div></div>
-    <div class="pages-list">Map Overview · Dashboard</div>
-  </div>
-  <div class="group-card light">
-    <div class="head"><div class="count">3</div><div class="name">Trip 管理</div></div>
-    <div class="pages-list">Trip List · Trip Detail · Trip Report</div>
-  </div>
-  <div class="group-card red">
-    <div class="head"><div class="count">5</div><div class="name">事件 / 客訴</div></div>
-    <div class="pages-list">Events · Event Detail · File Retrieval · Safety Reports · Coaching</div>
-  </div>
-  <div class="group-card gold">
-    <div class="head"><div class="count">4</div><div class="name">設備 / 駕駛</div></div>
-    <div class="pages-list">Devices · Drivers · Vehicles · Geofences</div>
-  </div>
-  <div class="group-card">
-    <div class="head"><div class="count">1</div><div class="name">設定</div></div>
-    <div class="pages-list">Configurations(5 設定 tab)</div>
-  </div>
-  <div class="group-card gray">
-    <div class="head"><div class="count">4</div><div class="name">行政</div></div>
-    <div class="pages-list">A&amp;P · Fleets · Device Usage · User Activity Logs</div>
-  </div>
-</div>
-
+    <div class="group-grid reveal">
+      <div class="group-card orange">
+        <div class="head"><div class="count">2</div><div class="name">每天看</div></div>
+        <div class="pages-list">Map Overview · Dashboard</div>
+      </div>
+      <div class="group-card light">
+        <div class="head"><div class="count">3</div><div class="name">Trip 管理</div></div>
+        <div class="pages-list">Trip List · Trip Detail · Trip Report</div>
+      </div>
+      <div class="group-card red">
+        <div class="head"><div class="count">5</div><div class="name">事件 / 客訴</div></div>
+        <div class="pages-list">Events · Event Detail · File Retrieval · Safety Reports · Coaching</div>
+      </div>
+      <div class="group-card gold">
+        <div class="head"><div class="count">4</div><div class="name">設備 / 駕駛</div></div>
+        <div class="pages-list">Devices · Drivers · Vehicles · Geofences</div>
+      </div>
+      <div class="group-card">
+        <div class="head"><div class="count">1</div><div class="name">設定</div></div>
+        <div class="pages-list">Configurations(5 設定 tab)</div>
+      </div>
+      <div class="group-card gray">
+        <div class="head"><div class="count">4</div><div class="name">行政</div></div>
+        <div class="pages-list">A&amp;P · Fleets · Device Usage · User Activity Logs</div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">13 / 25</span>
+    <span class="page-num">18 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · 每天看(2 頁)</div>
-    <div class="breadcrumb">PART 4 · 每天看<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Map Overview</div>
+    <div class="breadcrumb">PART 4 · 1/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">Map Overview</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">即時車隊位置地圖</span>
-    <span class="label">能決定</span><span class="val">看哪些車正在路上 / 偏離預定路線</span>
-    <span class="label">看到</span><span class="val">世界地圖 + 設備 pin + 左側設備清單(可搜尋)</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Dashboard</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊一日總覽</span>
-    <span class="label">能決定</span><span class="val">當日事件多不多?有沒有要立刻關注的駕駛?</span>
-    <span class="label">看到</span><span class="val">Live Trips / Finished Trips / Unknown Drivers + 事件趨勢 + 駕駛安全評分排名</span>
-  </div>
-</div>
-
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-MapOverview.png" alt="FLEET Portal — Map Overview">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 01 / 19</div>
+        <h2 class="page-title">Map Overview</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">即時車隊位置地圖</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看哪些車正在路上 / 偏離預定路線</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">世界地圖 + 設備 pin + 左側設備清單(可搜尋)</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">14 / 25</span>
+    <span class="page-num">19 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · Trip 管理(3 頁)</div>
-    <div class="breadcrumb">PART 4 · TRIP<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Dashboard</div>
+    <div class="breadcrumb">PART 4 · 2/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">Trip List</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">所有行程清單(預設過去 30 天)</span>
-    <span class="label">能決定</span><span class="val">篩出特定車或駕駛的行程查證</span>
-    <span class="label">看到</span><span class="val">每筆 trip 的時間 / 里程 / 駕駛 / 設備</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Trip Detail</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">單筆行程的完整 timeline</span>
-    <span class="label">能決定</span><span class="val">查這趟有沒有違規 / 異常事件</span>
-    <span class="label">看到</span><span class="val">GPS 軌跡地圖 + 事件時間軸 + 調閱影片按鈕</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Trip Report</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">期間行程量化報表</span>
-    <span class="label">能決定</span><span class="val">衡量車隊整體活動量是否正常</span>
-    <span class="label">看到</span><span class="val">Trip 數 / 總里程 / 總時長 + 趨勢圖 + 駕駛排名</span>
-  </div>
-</div>
-
-</div>
-<div class="callout orange reveal" style="margin-top: clamp(0.4rem, 1vh, 0.7rem);">
-  <strong>典型工作流:</strong>客戶開 Trip List → 點某筆 Trip 進 Detail → 月底用 Trip Report 給主管看。
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Dashboard-I.png" alt="FLEET Portal — Dashboard">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 02 / 19</div>
+        <h2 class="page-title">Dashboard</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊一日總覽</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">當日事件多不多?有沒有要立刻關注的駕駛?</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">Live Trips / Finished Trips / Unknown Drivers + 事件趨勢 + 駕駛安全評分排名</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">15 / 25</span>
+    <span class="page-num">20 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · 事件 / 客訴(5 頁 / 1)</div>
-    <div class="breadcrumb">PART 4 · EVENTS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Trip List</div>
+    <div class="breadcrumb">PART 4 · 3/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">Events 卡片牆</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">當日所有事件卡片牆</span>
-    <span class="label">能決定</span><span class="val">快速掃過今天有什麼狀況</span>
-    <span class="label">看到</span><span class="val">事件按類型分組(急煞 / 超速 / 跟車過近 等)+ 影片縮圖 + 影片保留剩餘天數</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Event Detail</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">單一事件深入分析</span>
-    <span class="label">能決定</span><span class="val">這事件要不要記過?要不要做駕駛訓練?要不要丟棄?</span>
-    <span class="label">看到</span><span class="val">雙鏡頭影片 + 事件位置地圖 + 速度時間圖 + 加速度時間圖</span>
-  </div>
-</div>
-
-</div>
-<div class="callout red reveal" style="margin-top: clamp(0.4rem, 1vh, 0.7rem);">
-  <strong>客戶最高頻動作就在這兩頁。</strong>客訴調查、保險佐證、司機溝通都從這開始。
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-TripList.png" alt="FLEET Portal — Trip List">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 03 / 19</div>
+        <h2 class="page-title">Trip List</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">所有行程清單(預設過去 30 天)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">篩出特定車或駕駛的行程查證</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">每筆 trip 的時間 / 里程 / 駕駛 / 設備</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">16 / 25</span>
+    <span class="page-num">21 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · 事件 / 客訴(5 頁 / 2)</div>
-    <div class="breadcrumb">PART 4 · EVENTS<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Trip Detail</div>
+    <div class="breadcrumb">PART 4 · 4/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">File Retrieval</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">管理已調閱的影片檔案</span>
-    <span class="label">能決定</span><span class="val">下載 / 整理事故證據</span>
-    <span class="label">看到</span><span class="val">已調閱影片清單</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Safety Reports</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊安全月報 / 期間報表</span>
-    <span class="label">能決定</span><span class="val">看趨勢有沒有改善,跟主管 / 保險彙報</span>
-    <span class="label">看到</span><span class="val">駕駛 / 車輛 / 事件分類 排名與趨勢</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Coaching</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">駕駛訓練教材庫</span>
-    <span class="label">能決定</span><span class="val">挑選有教育意義的事件,跟司機坐下來檢討</span>
-    <span class="label">看到</span><span class="val">被標記為「教材」的事件清單(從 Event Detail 標記過來)</span>
-  </div>
-</div>
-
-</div>
-<div class="callout gold reveal" style="margin-top: clamp(0.4rem, 1vh, 0.7rem);">
-  <strong>Coaching 的小技巧</strong>:在 Event Detail 頁開「Add to coaching material」toggle,事件就會自動歸進這頁。司機培訓不用再翻檔。
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image no-shot">
+        此頁尚未截圖<br>請參考 live portal
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 04 / 19</div>
+        <h2 class="page-title">Trip Detail</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">單筆行程的完整 timeline</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">查這趟有沒有違規 / 異常事件</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">GPS 軌跡地圖 + 事件時間軸 + 調閱影片按鈕</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">17 / 25</span>
+    <span class="page-num">22 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · 設備 / 駕駛 / 車輛(4 頁)</div>
-    <div class="breadcrumb">PART 4 · MANAGEMENT<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Trip Report</div>
+    <div class="breadcrumb">PART 4 · 5/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal">
-  
-<div class="page-card">
-  <div class="page-name">Devices</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊內所有 K-series 設備清單</span>
-    <span class="label">能決定</span><span class="val">看哪台設備需要 FAE 介入(ADAS / DMS Health)</span>
-    <span class="label">看到</span><span class="val">設備 ID / 機型 / 上線狀態 / 韌體版本 / AI 健康度</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Drivers</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊駕駛員清單(綁 RFID 卡)</span>
-    <span class="label">能決定</span><span class="val">加新司機 / 停用離職司機 / 看哪位司機開哪些車</span>
-    <span class="label">看到</span><span class="val">司機名 / 員工編號 / IC 卡序號 / Email</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Vehicles</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車輛資料(綁設備)</span>
-    <span class="label">能決定</span><span class="val">確認車牌 / 車型 / 設備配對</span>
-    <span class="label">看到</span><span class="val">VIN / 車型 / 對應的設備 ID</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Geofences</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">地理圍欄設定</span>
-    <span class="label">能決定</span><span class="val">設定哪些區域進入 / 離開要警示</span>
-    <span class="label">看到</span><span class="val">已建圍欄清單 + 地圖</span>
-  </div>
-</div>
-
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-TripReport.png" alt="FLEET Portal — Trip Report">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 05 / 19</div>
+        <h2 class="page-title">Trip Report</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">期間行程量化報表</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">衡量車隊整體活動量是否正常</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">Trip 數 / 總里程 / 總時長 + 趨勢圖 + 駕駛排名</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">18 / 25</span>
+    <span class="page-num">23 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
-    <div class="title-text">Fleet · 設定 + 行政(5 頁)</div>
-    <div class="breadcrumb">PART 4 · CONFIG / ADMIN<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="title-text">FLEET Portal · Events 卡片牆</div>
+    <div class="breadcrumb">PART 4 · 6/19 FLEET<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="pages-grid reveal" style="grid-template-columns: 1fr 1fr;">
-  
-<div class="page-card">
-  <div class="page-name">Configurations</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊全域設備行為調整</span>
-    <span class="label">能決定</span><span class="val">依車型(轎車 / 中型 / 重型)調觸發門檻、音量、語音、超速安全分數</span>
-    <span class="label">看到</span><span class="val">5 個 tab — Device Settings / Sensor Event / AI Event / Road Safety / Safety Score</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Accounts &amp; Permissions</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">Fleet Portal 帳號管理</span>
-    <span class="label">能決定</span><span class="val">加管理員 / 設角色權限</span>
-    <span class="label">看到</span><span class="val">帳號清單 + 角色 + 啟用狀態</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Fleets</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">車隊本身的資料(logo / 時區 / 地址 / 電話)+ Contract Fleets</span>
-    <span class="label">能決定</span><span class="val">更改車隊基本資料</span>
-    <span class="label">看到</span><span class="val">Fleet 資訊表單</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">Device Usage</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">設備使用率</span>
-    <span class="label">能決定</span><span class="val">看哪些設備閒置該回收 / 重派</span>
-    <span class="label">看到</span><span class="val">每台設備使用紀錄</span>
-  </div>
-</div>
-
-  
-<div class="page-card">
-  <div class="page-name">User Activity Logs</div>
-  <div class="meta-row">
-    <span class="label">用途</span><span class="val">Fleet 內帳號操作稽核</span>
-    <span class="label">能決定</span><span class="val">查可疑操作 / 違規授權</span>
-    <span class="label">看到</span><span class="val">操作時間 / 用戶 / 動作</span>
-  </div>
-</div>
-
-</div>
-
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Safety-Events.png" alt="FLEET Portal — Events 卡片牆">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 06 / 19</div>
+        <h2 class="page-title">Events 卡片牆</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">當日所有事件卡片牆</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">快速掃過今天有什麼狀況</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">事件按類型分組(急煞 / 超速 / 跟車過近 等)+ 影片縮圖 + 影片保留剩餘天數</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">19 / 25</span>
+    <span class="page-num">24 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Event Detail</div>
+    <div class="breadcrumb">PART 4 · 7/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image no-shot">
+        此頁尚未截圖<br>請參考 live portal
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 07 / 19</div>
+        <h2 class="page-title">Event Detail</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">單一事件深入分析</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">這事件要不要記過?要不要做駕駛訓練?要不要丟棄?</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">雙鏡頭影片 + 事件位置地圖 + 速度時間圖 + 加速度時間圖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">25 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · File Retrieval</div>
+    <div class="breadcrumb">PART 4 · 8/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Safety-FIleRetrieval.png" alt="FLEET Portal — File Retrieval">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 08 / 19</div>
+        <h2 class="page-title">File Retrieval</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">管理已調閱的影片檔案</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">下載 / 整理事故證據</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">已調閱影片清單</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">26 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Safety Reports</div>
+    <div class="breadcrumb">PART 4 · 9/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Safety-SafetyReport.png" alt="FLEET Portal — Safety Reports">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 09 / 19</div>
+        <h2 class="page-title">Safety Reports</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊安全月報 / 期間報表</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看趨勢有沒有改善,跟主管 / 保險彙報</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">駕駛 / 車輛 / 事件分類 排名與趨勢</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">27 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Coaching</div>
+    <div class="breadcrumb">PART 4 · 10/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image no-shot">
+        此頁尚未截圖<br>請參考 live portal
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 10 / 19</div>
+        <h2 class="page-title">Coaching</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">駕駛訓練教材庫</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">挑選有教育意義的事件,跟司機坐下來檢討</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">被標記為「教材」的事件清單(從 Event Detail 標記過來)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">28 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Devices</div>
+    <div class="breadcrumb">PART 4 · 11/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Management-Devices.png" alt="FLEET Portal — Devices">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 11 / 19</div>
+        <h2 class="page-title">Devices</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊內所有 K-series 設備清單</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看哪台設備需要 FAE 介入(ADAS / DMS Health)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">設備 ID / 機型 / 上線狀態 / 韌體版本 / AI 健康度</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">29 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Drivers</div>
+    <div class="breadcrumb">PART 4 · 12/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Management-Drivers.png" alt="FLEET Portal — Drivers">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 12 / 19</div>
+        <h2 class="page-title">Drivers</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊駕駛員清單(綁 RFID 卡)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">加新司機 / 停用離職司機 / 看哪位司機開哪些車</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">司機名 / 員工編號 / IC 卡序號 / Email</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">30 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Vehicles</div>
+    <div class="breadcrumb">PART 4 · 13/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Management-Vehicles.png" alt="FLEET Portal — Vehicles">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 13 / 19</div>
+        <h2 class="page-title">Vehicles</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車輛資料(綁設備)</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">確認車牌 / 車型 / 設備配對</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">VIN / 車型 / 對應的設備 ID</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">31 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Geofences</div>
+    <div class="breadcrumb">PART 4 · 14/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Management-Geofences.png" alt="FLEET Portal — Geofences">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 14 / 19</div>
+        <h2 class="page-title">Geofences</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">地理圍欄設定</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">設定哪些區域進入 / 離開要警示</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">已建圍欄清單 + 地圖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">32 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Configurations</div>
+    <div class="breadcrumb">PART 4 · 15/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Configurations-DeviceSetting.png" alt="FLEET Portal — Configurations">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 15 / 19</div>
+        <h2 class="page-title">Configurations</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊全域設備行為調整</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">依車型(轎車 / 中型 / 重型)調觸發門檻、音量、語音、超速安全分數</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">5 個 tab — Device Settings / Sensor Event / AI Event / Road Safety / Safety Score</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">33 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Accounts &amp; Permissions</div>
+    <div class="breadcrumb">PART 4 · 16/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-AccountsPermissions.png" alt="FLEET Portal — Accounts & Permissions">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 16 / 19</div>
+        <h2 class="page-title">Accounts &amp; Permissions</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">Fleet Portal 帳號管理</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">加管理員 / 設角色權限</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">帳號清單 + 角色 + 啟用狀態</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">34 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Fleets</div>
+    <div class="breadcrumb">PART 4 · 17/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-Fleets.png" alt="FLEET Portal — Fleets">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 17 / 19</div>
+        <h2 class="page-title">Fleets</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">車隊本身的資料(logo / 時區 / 地址 / 電話)+ Contract Fleets</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">更改車隊基本資料</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">Fleet 資訊表單</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">35 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · Device Usage</div>
+    <div class="breadcrumb">PART 4 · 18/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-DeviceUsage.png" alt="FLEET Portal — Device Usage">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 18 / 19</div>
+        <h2 class="page-title">Device Usage</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">設備使用率</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">看哪些設備閒置該回收 / 重派</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">每台設備使用紀錄</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">36 / 43</span>
+  </div>
+</section>
+
+<section class="slide inner">
+  <header class="title-bar">
+    <div class="title-text">FLEET Portal · User Activity Logs</div>
+    <div class="breadcrumb">PART 4 · 19/19 FLEET<span class="breadcrumb-dot">●</span></div>
+  </header>
+  <div class="body">
+    <div class="page-detail fleet reveal">
+      <div class="page-detail-image">
+        <img src="../VMX_images/Fleet/Fleet-UserActivityLogs.png" alt="FLEET Portal — User Activity Logs">
+      </div>
+      <div class="page-detail-info">
+        <div class="page-num-badge">FLEET · 19 / 19</div>
+        <h2 class="page-title">User Activity Logs</h2>
+        <div class="page-rule"></div>
+        <div class="meta-block">
+          <div class="meta-label">用途</div>
+          <div class="meta-val">Fleet 內帳號操作稽核</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">能決定</div>
+          <div class="meta-val">查可疑操作 / 違規授權</div>
+        </div>
+        <div class="meta-block">
+          <div class="meta-label">看到</div>
+          <div class="meta-val">操作時間 / 用戶 / 動作</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © MiTAC Digital Technology Corp.</span>
+    <span class="page-num">37 / 43</span>
   </div>
 </section>
 
@@ -1186,17 +1186,12 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Demo A · 給「車隊老闆」</div>
-    <div class="breadcrumb">PART 5 · ROI · RISK<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 5 · ROI · RISK<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="demo-flow owner" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 0.85rem); flex: 1;">
-  <div class="demo-hook  reveal">
-    <span class="hook-label">30-SEC HOOK</span>
-    你最在意 — <strong>車隊有沒有出事 / 司機表現好不好 / 保險有沒有依據</strong>
-  </div>
-  <div class="demo-steps">
-    
+    <div class="demo-flow owner">
+      <div class="demo-hook reveal"><span class="hook-label">30-SEC HOOK</span>你最在意 — <strong>車隊有沒有出事 / 司機表現好不好 / 保險有沒有依據</strong></div>
+      <div class="demo-steps">
     <div class="demo-step reveal">
       <div class="num">1</div>
       <div>
@@ -1205,7 +1200,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">15 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">2</div>
       <div>
@@ -1214,7 +1208,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">60 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">3</div>
       <div>
@@ -1223,7 +1216,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">90 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">4</div>
       <div>
@@ -1232,7 +1224,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">90 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">5</div>
       <div>
@@ -1241,35 +1232,28 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">45 秒</div>
     </div>
-
-  </div>
-  <div class="demo-close reveal">
-    <span class="close-label">CLOSE WITH</span>
-    "你想先看看哪個司機 / 哪個事件?"
-  </div>
-</div>
-
+      </div>
+      <div class="demo-close reveal">
+        <span class="close-label">CLOSE WITH</span>
+        &quot;你想先看看哪個司機 / 哪個事件?&quot;
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">21 / 25</span>
+    <span class="page-num">39 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Demo B · 給「IT 經理」</div>
-    <div class="breadcrumb">PART 5 · CONTROL · INTEGRATION<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 5 · CONTROL · INTEGRATION<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="demo-flow it" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 0.85rem); flex: 1;">
-  <div class="demo-hook gold reveal">
-    <span class="hook-label">30-SEC HOOK</span>
-    你關心 — <strong>設備健康 / 帳號權限 / 資料能匯出 / 對接系統</strong>
-  </div>
-  <div class="demo-steps">
-    
+    <div class="demo-flow it">
+      <div class="demo-hook gold reveal"><span class="hook-label">30-SEC HOOK</span>你關心 — <strong>設備健康 / 帳號權限 / 資料能匯出 / 對接系統</strong></div>
+      <div class="demo-steps">
     <div class="demo-step reveal">
       <div class="num">1</div>
       <div>
@@ -1278,7 +1262,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">60 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">2</div>
       <div>
@@ -1287,16 +1270,14 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">90 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">3</div>
       <div>
-        <div class="step-name">Accounts & Permissions</div>
+        <div class="step-name">Accounts &amp; Permissions</div>
         <div class="step-desc">加管理員、設權限,SSO 等可談</div>
       </div>
       <div class="step-time">60 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">4</div>
       <div>
@@ -1305,7 +1286,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">45 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">5</div>
       <div>
@@ -1314,35 +1294,28 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">45 秒</div>
     </div>
-
-  </div>
-  <div class="demo-close reveal">
-    <span class="close-label">CLOSE WITH</span>
-    "你的內部系統有什麼想對接的?(API / Webhook / Custom SDK)"
-  </div>
-</div>
-
+      </div>
+      <div class="demo-close reveal">
+        <span class="close-label">CLOSE WITH</span>
+        &quot;你的內部系統有什麼想對接的?(API / Webhook / Custom SDK)&quot;
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">22 / 25</span>
+    <span class="page-num">40 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">Demo C · 給「司機主管」</div>
-    <div class="breadcrumb">PART 5 · BEHAVIOR · COACHING<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">PART 5 · BEHAVIOR · COACHING<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<div class="demo-flow driver" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 0.85rem); flex: 1;">
-  <div class="demo-hook  reveal">
-    <span class="hook-label">30-SEC HOOK</span>
-    你關心 — <strong>司機怎麼開 / 事故有沒有影片佐證 / 能不能拿來教育</strong>
-  </div>
-  <div class="demo-steps">
-    
+    <div class="demo-flow driver">
+      <div class="demo-hook reveal"><span class="hook-label">30-SEC HOOK</span>你關心 — <strong>司機怎麼開 / 事故有沒有影片佐證 / 能不能拿來教育</strong></div>
+      <div class="demo-steps">
     <div class="demo-step reveal">
       <div class="num">1</div>
       <div>
@@ -1351,7 +1324,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">30 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">2</div>
       <div>
@@ -1360,7 +1332,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">90 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">3</div>
       <div>
@@ -1369,7 +1340,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">60 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">4</div>
       <div>
@@ -1378,7 +1348,6 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">90 秒</div>
     </div>
-
     <div class="demo-step reveal">
       <div class="num">5</div>
       <div>
@@ -1387,47 +1356,54 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
       </div>
       <div class="step-time">60 秒</div>
     </div>
-
-  </div>
-  <div class="demo-close reveal">
-    <span class="close-label">CLOSE WITH</span>
-    "你目前怎麼跟司機檢討事故?可以省下你這部分時間。"
-  </div>
-</div>
-
+      </div>
+      <div class="demo-close reveal">
+        <span class="close-label">CLOSE WITH</span>
+        &quot;你目前怎麼跟司機檢討事故?可以省下你這部分時間。&quot;
+      </div>
+    </div>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">23 / 25</span>
+    <span class="page-num">41 / 43</span>
   </div>
 </section>
 
 <section class="slide inner">
   <header class="title-bar">
     <div class="title-text">速查 — 客戶想做某事 → 看哪頁</div>
-    <div class="breadcrumb">QUICK REFERENCE<span style="color: var(--orange); font-weight: 700;">●</span></div>
+    <div class="breadcrumb">QUICK REFERENCE<span class="breadcrumb-dot">●</span></div>
   </header>
   <div class="body">
-    
-<table class="qref reveal">
-  <thead>
-    <tr><th>客戶想做什麼</th><th style="width: 120px;">Portal</th><th>看哪一頁</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>看今天車隊狀態</td><td><span class="portal-tag fleet">Fleet</span></td><td>Dashboard</td></tr><tr><td>找特定司機的行程</td><td><span class="portal-tag fleet">Fleet</span></td><td>Trips > Trip List(搜尋)</td></tr><tr><td>調某個事故影片</td><td><span class="portal-tag fleet">Fleet</span></td><td>Trip Detail / Event Detail</td></tr><tr><td>看誰開太快</td><td><span class="portal-tag fleet">Fleet</span></td><td>Safety > Events(篩 Speed Sign Violation)</td></tr><tr><td>訓練問題司機</td><td><span class="portal-tag fleet">Fleet</span></td><td>Safety > Coaching</td></tr><tr><td>改車隊觸發門檻</td><td><span class="portal-tag fleet">Fleet</span></td><td>Configurations</td></tr><tr><td>加新司機</td><td><span class="portal-tag fleet">Fleet</span></td><td>Management > Drivers</td></tr><tr><td>加管理員帳號</td><td><span class="portal-tag fleet">Fleet</span></td><td>Administration > A&amp;P</td></tr><tr><td>派發新設備給客戶</td><td><span class="portal-tag master">Master</span></td><td>Management > Inventory</td></tr><tr><td>看跨車隊有幾台壞了</td><td><span class="portal-tag master">Master</span></td><td>Management > Diagnostics</td></tr><tr><td>加新車隊客戶</td><td><span class="portal-tag master">Master</span></td><td>Management > Fleets</td></tr><tr><td>看哪些經銷商員工進來看了</td><td><span class="portal-tag master">Master</span></td><td>User Activity Logs</td></tr>
-  </tbody>
-</table>
-
+    <table class="qref reveal">
+      <thead>
+        <tr><th>客戶想做什麼</th><th class="portal-col">Portal</th><th>看哪一頁</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>看今天車隊狀態</td><td><span class="portal-tag fleet">Fleet</span></td><td>Dashboard</td></tr>
+        <tr><td>找特定司機的行程</td><td><span class="portal-tag fleet">Fleet</span></td><td>Trips &gt; Trip List(搜尋)</td></tr>
+        <tr><td>調某個事故影片</td><td><span class="portal-tag fleet">Fleet</span></td><td>Trip Detail / Event Detail</td></tr>
+        <tr><td>看誰開太快</td><td><span class="portal-tag fleet">Fleet</span></td><td>Safety &gt; Events(篩 Speed Sign Violation)</td></tr>
+        <tr><td>訓練問題司機</td><td><span class="portal-tag fleet">Fleet</span></td><td>Safety &gt; Coaching</td></tr>
+        <tr><td>改車隊觸發門檻</td><td><span class="portal-tag fleet">Fleet</span></td><td>Configurations</td></tr>
+        <tr><td>加新司機</td><td><span class="portal-tag fleet">Fleet</span></td><td>Management &gt; Drivers</td></tr>
+        <tr><td>加管理員帳號</td><td><span class="portal-tag fleet">Fleet</span></td><td>Administration &gt; A&amp;P</td></tr>
+        <tr><td>派發新設備給客戶</td><td><span class="portal-tag master">Master</span></td><td>Management &gt; Inventory</td></tr>
+        <tr><td>看跨車隊有幾台壞了</td><td><span class="portal-tag master">Master</span></td><td>Management &gt; Diagnostics</td></tr>
+        <tr><td>加新車隊客戶</td><td><span class="portal-tag master">Master</span></td><td>Management &gt; Fleets</td></tr>
+        <tr><td>看哪些經銷商員工進來看了</td><td><span class="portal-tag master">Master</span></td><td>User Activity Logs</td></tr>
+      </tbody>
+    </table>
   </div>
   <div class="footer">
     <span>Copyright © MiTAC Digital Technology Corp.</span>
-    <span class="page-num">24 / 25</span>
+    <span class="page-num">42 / 43</span>
   </div>
 </section>
 
 <section class="slide end-slide">
   <div class="slide-content end-content">
-    <div class="part-tag reveal" style="color: var(--orange);">FIN</div>
+    <div class="part-tag fin reveal">FIN</div>
     <div class="end-text reveal">謝謝</div>
     <div class="end-rule reveal"></div>
     <div class="end-tag reveal">想看哪個 demo flow?車隊老闆 / IT 經理 / 司機主管 — 5 分鐘各一場。</div>
@@ -1439,14 +1415,12 @@ body:has(.slide.visible.end-slide) .nav-dot.active { background: #fff; }
   </div>
 </section>
 
-
-  <script>
-    
+<script>
 class SlidePresentation {
   constructor() {
-    this.slides = Array.from(document.querySelectorAll('.slide'));
+    this.slides = Array.from(document.querySelectorAll(".slide"));
     this.currentIdx = 0;
-    if (this.slides.length > 0) this.slides[0].classList.add('visible');
+    if (this.slides.length > 0) this.slides[0].classList.add("visible");
     this.setupIntersectionObserver();
     this.setupKeyboardNav();
     this.setupTouchNav();
@@ -1457,7 +1431,7 @@ class SlidePresentation {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          e.target.classList.add('visible');
+          e.target.classList.add("visible");
           const i = this.slides.indexOf(e.target);
           if (i >= 0) {
             this.currentIdx = i;
@@ -1471,55 +1445,62 @@ class SlidePresentation {
   }
   goTo(i) {
     if (i < 0 || i >= this.slides.length) return;
-    this.slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.slides[i].scrollIntoView({ behavior: "smooth", block: "start" });
   }
   setupKeyboardNav() {
-    document.addEventListener('keydown', (e) => {
-      if (['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)) {
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowDown","ArrowRight"," ","PageDown"].includes(e.key)) {
         e.preventDefault(); this.goTo(this.currentIdx + 1);
-      } else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key)) {
+      } else if (["ArrowUp","ArrowLeft","PageUp"].includes(e.key)) {
         e.preventDefault(); this.goTo(this.currentIdx - 1);
-      } else if (e.key === 'Home') { e.preventDefault(); this.goTo(0); }
-      else if (e.key === 'End') { e.preventDefault(); this.goTo(this.slides.length - 1); }
+      } else if (e.key === "Home") { e.preventDefault(); this.goTo(0); }
+      else if (e.key === "End") { e.preventDefault(); this.goTo(this.slides.length - 1); }
     });
   }
   setupTouchNav() {
     let startY = 0;
-    document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
-    document.addEventListener('touchend', e => {
+    document.addEventListener("touchstart", e => { startY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener("touchend", e => {
       const dy = startY - e.changedTouches[0].clientY;
       if (Math.abs(dy) > 50) this.goTo(this.currentIdx + (dy > 0 ? 1 : -1));
     }, { passive: true });
   }
   setupProgressBar() {
-    this.progressBar = document.querySelector('.progress-bar');
+    this.progressBar = document.querySelector(".progress-bar");
     this.updateProgressBar();
   }
   updateProgressBar() {
     if (!this.progressBar) return;
     const pct = (this.currentIdx / Math.max(1, this.slides.length - 1)) * 100;
-    this.progressBar.style.width = pct + '%';
+    this.progressBar.style.width = pct + "%";
   }
   setupNavDots() {
-    const c = document.querySelector('.nav-dots');
+    const c = document.querySelector(".nav-dots");
     if (!c) return;
-    c.innerHTML = '';
+    c.innerHTML = "";
     this.navDotsEls = this.slides.map((_, i) => {
-      const b = document.createElement('button');
-      b.className = 'nav-dot' + (i === 0 ? ' active' : '');
-      b.setAttribute('aria-label', `Go to slide ${i+1}`);
-      b.addEventListener('click', () => this.goTo(i));
+      const b = document.createElement("button");
+      b.className = "nav-dot" + (i === 0 ? " active" : "");
+      b.setAttribute("aria-label", `Go to slide ${i+1}`);
+      b.addEventListener("click", () => this.goTo(i));
       c.appendChild(b);
       return b;
     });
   }
   updateNavDots() {
     if (!this.navDotsEls) return;
-    this.navDotsEls.forEach((d, i) => d.classList.toggle('active', i === this.currentIdx));
+    this.navDotsEls.forEach((d, i) => d.classList.toggle("active", i === this.currentIdx));
   }
 }
 new SlidePresentation();
+</script>
 
-  </script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="js/lightbox.js" defer></script>
+
 </body>
 </html>

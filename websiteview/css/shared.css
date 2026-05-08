@@ -130,6 +130,117 @@ html, body {
 }
 .mdt-btn:hover { background: var(--mdt-blue); color: #fff; border-color: var(--mdt-blue); }
 
+/* ── Slide-deck image (sized to fit inside a 100vh slide body) ── */
+.slide-image {
+  display: block;
+  flex: 0 1 auto;          /* don't auto-grow; use intrinsic / max-height */
+  align-self: center;      /* center horizontally inside flex column body */
+  width: 100%;
+  max-width: 1100px;       /* don't over-stretch on ultra-wide screens */
+  aspect-ratio: 16 / 9;    /* fixed proportions → all slides match */
+  max-height: 56vh;
+  height: auto;
+  object-fit: contain;     /* show entire UI, no cropping */
+  background: #0f172a;     /* dark slate to mask letterbox / match VMX UI */
+  border: 1px solid var(--mdt-border);
+  border-radius: 8px;
+  box-shadow: var(--mdt-shadow);
+  cursor: zoom-in;
+  transition: transform 0.15s var(--mdt-ease), box-shadow 0.15s var(--mdt-ease);
+  margin: 0 auto;
+}
+.slide-image:hover {
+  transform: scale(1.01);
+  box-shadow: var(--mdt-shadow-lg);
+}
+
+/* Inline thumbnail — uniform 16:9 inside page-cards / dense grids */
+.slide-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 120px;
+  object-fit: cover;
+  object-position: top center;
+  background: #0f172a;
+  border-radius: 6px;
+  border: 1px solid var(--mdt-border);
+  cursor: zoom-in;
+  margin-top: 8px;
+  transition: transform 0.15s var(--mdt-ease), box-shadow 0.15s var(--mdt-ease);
+}
+.slide-thumb:hover {
+  transform: scale(1.02);
+  box-shadow: var(--mdt-shadow);
+}
+
+/* Constrain existing portal-img-grid (case-hub) to avoid breakage on big screens */
+.portal-img-grid figure img {
+  aspect-ratio: 16 / 9;
+  max-height: 220px;
+  object-fit: cover;
+  object-position: top center;
+  background: #0f172a;
+}
+
+/* ── LIGHTBOX OVERLAY (shared by all hub HTML) ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.2s var(--mdt-ease);
+}
+.lightbox.is-open { display: flex; opacity: 1; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  cursor: zoom-out;
+  user-select: none;
+}
+.lightbox-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-style: italic;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  pointer-events: none;
+  max-width: 80%;
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 36px;
+  text-align: center;
+  padding: 0;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.28); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
   html { scroll-behavior: auto; }

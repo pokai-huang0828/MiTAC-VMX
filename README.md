@@ -2,7 +2,8 @@
 
 > Kenny Huang(黃柏凱)在 MiTAC VMX 評估期(2026-04 起)的工作目錄。
 > 收容:portal 知識資產、客戶案件追蹤、會議紀錄、NotebookLM 同步、簡報模板、PM 教材。
-> 最後更新:2026-05-07
+> 最後更新:2026-05-08
+> ⭐ **若你是接手 Claude session**:先讀 [`HANDOFF-2026-05-08.md`](HANDOFF-2026-05-08.md)(最完整交接)+ `~/.claude/.../memory/MEMORY.md`
 
 ---
 
@@ -29,7 +30,7 @@
 | [`meetings/`](meetings/) | 會議筆記 | Video Safety / Q2 Review |
 | [`VMX_images/`](VMX_images/) | Portal 截圖 | Fleet 16 張 + Master 8 張 |
 | `EVO_image_update/` | 韌體更新流程文件 | `.gitignore` 排除 binary,只留 process.md |
-| [`docs/`](docs/) | Repo-level meta 文件 | git history 清理評估等 |
+| [`repo-meta/`](repo-meta/) | Repo-level meta 文件 | git history 清理評估等 |
 | `MDT_2026_powerpoint_template.pptx` | 官方簡報模板(6 layouts, 16:9) | — |
 | `MiAI Roadmap Introduce 2026024.pptx` | AI Roadmap 對外版(7 張) | — |
 
@@ -88,7 +89,7 @@
 
 所有 dotfiles / dotfolders(`.claude/`、`.vscode/` 等個人 IDE / 工具設定)整體排除,只保留 `.gitignore` 本身。`image_update/*` 與 `EVO_image_update/*` 排除(韌體大檔不入 repo),保留 `EVO_image_update/EVO image update process.md`(流程文件)。
 
-> Repo 體積偏大(`.git` 140 MB / 工作樹 31 MB),原因與處理方式見 [docs/git-history-cleanup-assessment.md](docs/git-history-cleanup-assessment.md)。
+> Repo 體積偏大(`.git` 140 MB / 工作樹 31 MB),原因與處理方式見 [repo-meta/git-history-cleanup-assessment.md](repo-meta/git-history-cleanup-assessment.md)。
 
 ---
 

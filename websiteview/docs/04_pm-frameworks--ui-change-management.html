@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重大 UI 變更管理框架 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<style>
+  body { background: var(--bg); margin: 0; padding: 0; height: auto; overflow: auto; }
+  .doc-standalone-topbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .doc-standalone-topbar a.back {
+    color: rgba(255,255,255,0.92); text-decoration: none; font-size: 13px;
+    background: rgba(255,255,255,0.15); padding: 5px 11px; border-radius: 6px;
+  }
+  .doc-standalone-topbar a.back:hover { background: rgba(255,255,255,0.28); }
+  .doc-standalone-topbar .heading {
+    font-weight: 600; font-size: 15px; letter-spacing: 0.2px;
+  }
+  .doc-standalone-topbar .filename {
+    margin-left: auto; font-size: 12px; opacity: 0.78;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .doc-standalone-meta {
+    max-width: 920px; margin: 0 auto;
+    padding: 14px 32px 0;
+    font-size: 12px; color: var(--text-muted);
+  }
+  main.doc-standalone {
+    max-width: 920px; margin: 0 auto; padding: 18px 32px 24px;
+  }
+  .doc-prevnext {
+    max-width: 920px; margin: 0 auto;
+    padding: 0 32px 80px;
+    display: flex; justify-content: space-between; gap: 16px;
+    border-top: 1px solid var(--border); padding-top: 24px;
+  }
+  .doc-prevnext a {
+    flex: 1; max-width: 48%;
+    padding: 12px 16px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    transition: all 0.15s var(--ease);
+  }
+  .doc-prevnext a:hover {
+    border-color: var(--primary); transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .doc-prevnext a.next { text-align: right; margin-left: auto; }
+  .doc-prevnext .label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .doc-prevnext .doc-name {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#04_pm-frameworks/04_pm-frameworks--ui-change-management" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading">📐 PM 框架 · 重大 UI 變更管理框架</span>
+  <span class="filename">ui-change-management.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="ui">重大 UI 變更管理框架</h1>
+<blockquote>
+<p>源自 2026-05-06 Q2 Review 會議:HDFE 抱怨 + 舊 Playback Sunset Plan</p>
+</blockquote>
+<h2 id="brian-beta">Brian 引入的 Beta 模式</h2>
+<blockquote>
+<p>「未來重大變更時可以考慮 BT(beta)期 — 像 AWS、Box、Atlassian 都是先告訴你新介面試用,給你時間,再正式 deprecate。」 — Brian 2026-05-06</p>
+</blockquote>
+<h2 id="kenny">對應 Kenny 承諾層次框架</h2>
+<table>
+<thead>
+<tr>
+<th>變更類型</th>
+<th>承諾風險</th>
+<th>解法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>強制日期切換</td>
+<td>高風險</td>
+<td>不建議</td>
+</tr>
+<tr>
+<td>beta period + 切換按鈕</td>
+<td>中風險</td>
+<td>✅ Brian 想引入</td>
+</tr>
+<tr>
+<td>紅色預告 + GA 追蹤 + 漸進式 sunset</td>
+<td>低風險</td>
+<td>✅ 已在做(舊 Playback)</td>
+</tr>
+<tr>
+<td>純資訊更新</td>
+<td>極低風險</td>
+<td>任何時期都可</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-sunset-sop-playback">4 階段標準 Sunset SOP(從舊 Playback 案萃取)</h2>
+<h3 id="stage-1ga">Stage 1:GA 追蹤期(觀察)</h3>
+<ul>
+<li>埋 GA 看誰在用</li>
+<li><strong>觀察至少一個月</strong>(時間太短沒意義)</li>
+<li>不只看 page view,要看 visitor / device / browser</li>
+</ul>
+<h3 id="stage-2">Stage 2:預告期(資訊更新層)</h3>
+<ul>
+<li>在頁面上加紅色預告 / 驚嘆號</li>
+<li>寫具體日期(不是「即將不再維護」)</li>
+<li>範例:「此功能將於 2026-09-30 終止支援」</li>
+</ul>
+<h3 id="stage-3beta-period">Stage 3:Beta period(中風險承諾層)</h3>
+<ul>
+<li>提供「新版 / 舊版切換」按鈕</li>
+<li>4 個月 grace period(現在 → 9月底)</li>
+<li>用戶有選擇權</li>
+</ul>
+<h3 id="stage-4-deprecate">Stage 4:正式 deprecate(高風險承諾層)</h3>
+<ul>
+<li>跳 alert</li>
+<li>引導到新介面</li>
+<li>舊頁面下線</li>
+</ul>
+<h2 id="sunset-vmx">已在跑的 Sunset 案例(VMX 內)</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>預告日</th>
+<th>正式下線</th>
+<th>Stage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>舊 Playback 頁面(#135 / #147 / #182 / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7132" rel="noopener" target="_blank">VMX-7132</a>)</td>
+<td>Q2 2026-05</td>
+<td>Q3 2026-09-30</td>
+<td>Stage 2-3 之間</td>
+</tr>
+</tbody>
+</table>
+<h2 id="template">客戶溝通 template</h2>
+<p>對抱怨「不習慣」的客戶(像 HDFE):</p>
+<blockquote>
+<p>❌ 「新介面比較好,習慣就好了」</p>
+<p>✅ 「我聽到你的 feedback。<strong>這個變更我們確實該提供 transition 期</strong>,我會跟產品確認能否給你切換按鈕。同時你能告訴我哪些操作具體變難嗎?(滑鼠次數 / 找事件 / 篩選)我整理後給 owner」</p>
+</blockquote>
+<p>→ 對應 4 條核心原則:
+1. 讀懂動機(他要可信度,不只是 UI)
+2. 讓事情不卡住(主動推 toggle 提案)
+3. 商業翻譯(把 UX 痛點翻成產品 task)
+4. Next Step + Owner + Timeline</p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="04_pm-frameworks--tech-client-comm.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">技術型客戶溝通</span></a>
+  <span></span>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>
