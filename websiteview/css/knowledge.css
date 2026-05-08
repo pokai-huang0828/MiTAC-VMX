@@ -238,10 +238,7 @@ body.resizing .layout { transition: none; }
   margin: 0 auto;
   animation: fadeUp 0.25s var(--ease);
 }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/* fadeUp keyframes lives in animations.css */
 
 .doc-meta {
   font-size: 12px;
@@ -553,4 +550,12 @@ li.hidden { display: none; }
   .layout { display: block; }
   .content { overflow: visible; max-height: none; padding: 0; }
   .doc-wrapper { box-shadow: none; padding: 0; max-width: none; animation: none; }
+}
+
+/* Honor reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .doc-wrapper,
+  .pending-page { animation: none; }
+  .pending-file li { transition: none; }
+  .pending-file li:hover { transform: none; }
 }

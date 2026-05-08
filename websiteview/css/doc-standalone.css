@@ -1,0 +1,111 @@
+/* ================================================================
+ * doc-standalone.css — chrome for individual knowledge doc pages
+ * ----------------------------------------------------------------
+ * Loaded by every websiteview/docs/<id>.html. Lives outside _build_index.py
+ * so 44+ doc files don't each carry an inlined copy.
+ * ================================================================ */
+
+body {
+  background: var(--bg);
+  margin: 0; padding: 0;
+  height: auto; overflow: auto;
+}
+
+.doc-standalone-topbar {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #fff;
+  padding: 12px 24px;
+  display: flex; align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: docTopbarSlide 0.35s var(--anim-spring) both;
+}
+.doc-standalone-topbar a.back {
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  font-size: 13px;
+  background: rgba(255,255,255,0.15);
+  padding: 5px 11px;
+  border-radius: 6px;
+  transition: background 0.15s, transform 0.15s;
+}
+.doc-standalone-topbar a.back:hover {
+  background: rgba(255,255,255,0.28);
+  transform: translateX(-2px);
+}
+.doc-standalone-topbar .heading {
+  font-weight: 600; font-size: 15px;
+  letter-spacing: 0.2px;
+}
+.doc-standalone-topbar .filename {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.78;
+  font-family: 'SF Mono', Consolas, monospace;
+}
+
+.doc-standalone-meta {
+  max-width: 920px; margin: 0 auto;
+  padding: 14px 32px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+main.doc-standalone {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px 32px 24px;
+  animation: docEntryFade 0.4s var(--anim-spring) both;
+}
+
+/* ── Prev / Next nav at bottom of standalone doc ── */
+.doc-prevnext {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+}
+.doc-prevnext a {
+  flex: 1;
+  max-width: 48%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s var(--anim-smooth),
+              transform 0.15s var(--anim-smooth),
+              box-shadow 0.15s var(--anim-smooth);
+}
+.doc-prevnext a:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.doc-prevnext a.next {
+  text-align: right;
+  margin-left: auto;
+}
+.doc-prevnext .label {
+  display: block;
+  font-size: 10px; font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.doc-prevnext .doc-name {
+  font-size: 14px; font-weight: 600;
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main.doc-standalone,
+  .doc-standalone-topbar { animation: none; }
+  .doc-standalone-topbar a.back:hover,
+  .doc-prevnext a:hover { transform: none; }
+}

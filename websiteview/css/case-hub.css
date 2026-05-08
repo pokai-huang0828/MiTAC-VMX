@@ -62,21 +62,53 @@ body {
 }
 .sidebar-item {
   display: flex; align-items: center; gap: 10px;
-  padding: 9px 12px; border-radius: 8px; cursor: pointer;
-  color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500;
-  transition: all .2s; text-decoration: none;
+  padding: 9px 14px; border-radius: 6px; cursor: pointer;
+  color: rgba(255,255,255,0.85);
+  font-size: 13px; font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+  text-decoration: none;
 }
-.sidebar-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
-.sidebar-item.active { background: rgba(230,126,34,0.2); color: var(--accent-light); font-weight: 600; }
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.sidebar-item.active {
+  background: rgba(237,125,49,0.18);
+  color: #FFD9A8;
+  font-weight: 600;
+}
 .sidebar-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
 .sidebar-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 12px 16px; }
 
 /* ── MAIN ── */
 .main { flex: 1; padding: 32px; overflow-y: auto; max-width: 1100px; }
 
-/* ── SECTION PAGES (tab switching) ── */
+/* ── SECTION PAGES (tab switching, with fade-in from animations.css) ── */
 .page { display: none; }
-.page.active { display: block; }
+.page.active {
+  display: block;
+  animation: fadeInUp 0.3s var(--anim-spring) both;
+}
+
+/* Sidebar slide-in (keyframes in animations.css) */
+.sidebar:not(.hidden) {
+  animation: slideInLeft 0.28s var(--anim-spring) both;
+}
+
+/* Custom focus ring (no white browser outline) */
+.tab-btn { outline: none; }
+.tab-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent), 0 0 0 4px rgba(237,125,49,0.25);
+}
+.sidebar-item { outline: none; }
+.sidebar-item:focus-visible {
+  box-shadow: inset 3px 0 0 var(--accent), 0 0 0 1px rgba(255,255,255,0.25);
+}
+
+/* Sidebar item active state — accent left bar via inset shadow (no extra DOM) */
+.sidebar-item.active {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
 
 /* ============================================================
  * UTILITY CLASSES — replacing inline style="..." patterns
@@ -201,4 +233,12 @@ body {
   .sidebar { display: none; }
   .topnav { padding: 0 16px; }
   .main { padding: 20px 16px; }
+}
+
+/* ── Honor reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .page.active,
+  .sidebar:not(.hidden) { animation: none; }
+  .tab-btn::after,
+  .sidebar-item::before { transition: none; }
 }

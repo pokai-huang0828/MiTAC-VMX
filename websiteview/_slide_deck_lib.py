@@ -27,6 +27,7 @@ def head_block(*, title: str, lang: str, css_file: str) -> str:
         f'  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         f'  <title>{title}</title>\n'
         f'  <link rel="stylesheet" href="css/shared.css">\n'
+        f'  <link rel="stylesheet" href="css/animations.css">\n'
         f'  <link rel="stylesheet" href="css/{css_file}">\n'
         f'</head>\n'
         f'<body>\n'

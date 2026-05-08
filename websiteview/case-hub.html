@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiTAC Case Learning Hub</title>
 <link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/case-hub.css">
 </head>
@@ -22,9 +23,9 @@
     </a>
   </div>
   <div class="topnav-tabs">
-    <button class="tab-btn active" onclick="switchCase('ps')">Platform Science</button>
-    <button class="tab-btn" onclick="switchCase('cs')">CONNECTSOURCE</button>
-    <button class="tab-btn" onclick="switchCase('pm')">PM 策略洞察</button>
+    <button class="tab-btn active" data-case="ps" onclick="switchCase('ps', event)">Platform Science</button>
+    <button class="tab-btn" data-case="cs" onclick="switchCase('cs', event)">CONNECTSOURCE</button>
+    <button class="tab-btn" data-case="pm" onclick="switchCase('pm', event)">PM 策略洞察</button>
   </div>
 </nav>
 
@@ -34,38 +35,38 @@
 <aside class="sidebar" id="sidebar-ps">
   <div class="sidebar-section">
     <div class="sidebar-label">Platform Science</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero')"><span class="sidebar-icon">🏢</span>專案總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people')"><span class="sidebar-icon">👥</span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline')"><span class="sidebar-icon">📅</span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech')"><span class="sidebar-icon">🔧</span>技術資訊</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions')"><span class="sidebar-icon">✅</span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks')"><span class="sidebar-icon">⚠️</span>商機與風險</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis')"><span class="sidebar-icon">🧠</span>PM 分析</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero', event)"><span class="sidebar-icon">🏢</span>專案總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people', event)"><span class="sidebar-icon">👥</span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline', event)"><span class="sidebar-icon">📅</span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech', event)"><span class="sidebar-icon">🔧</span>技術資訊</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions', event)"><span class="sidebar-icon">✅</span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks', event)"><span class="sidebar-icon">⚠️</span>商機與風險</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis', event)"><span class="sidebar-icon">🧠</span>PM 分析</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-cs">
   <div class="sidebar-section">
     <div class="sidebar-label">CONNECTSOURCE</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero')"><span class="sidebar-icon">🌏</span>事件總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people')"><span class="sidebar-icon">👥</span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers')"><span class="sidebar-icon">💰</span>商業規模</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline')"><span class="sidebar-icon">📅</span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual')"><span class="sidebar-icon">🖥️</span>Portal 視覺對照</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict')"><span class="sidebar-icon">⚡</span>衝突分析</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions')"><span class="sidebar-icon">✅</span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm')"><span class="sidebar-icon">🧠</span>PM 建議</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero', event)"><span class="sidebar-icon">🌏</span>事件總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people', event)"><span class="sidebar-icon">👥</span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers', event)"><span class="sidebar-icon">💰</span>商業規模</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline', event)"><span class="sidebar-icon">📅</span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual', event)"><span class="sidebar-icon">🖥️</span>Portal 視覺對照</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict', event)"><span class="sidebar-icon">⚡</span>衝突分析</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions', event)"><span class="sidebar-icon">✅</span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm', event)"><span class="sidebar-icon">🧠</span>PM 建議</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-pm">
   <div class="sidebar-section">
     <div class="sidebar-label">PM 策略</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero')"><span class="sidebar-icon">📚</span>跨案例洞察</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit')"><span class="sidebar-icon">🎯</span>承諾層次框架</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client')"><span class="sidebar-icon">💬</span>技術型客戶溝通</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal')"><span class="sidebar-icon">🔄</span>內部溝通斷層</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles')"><span class="sidebar-icon">💡</span>核心原則</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero', event)"><span class="sidebar-icon">📚</span>跨案例洞察</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit', event)"><span class="sidebar-icon">🎯</span>承諾層次框架</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client', event)"><span class="sidebar-icon">💬</span>技術型客戶溝通</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal', event)"><span class="sidebar-icon">🔄</span>內部溝通斷層</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles', event)"><span class="sidebar-icon">💡</span>核心原則</a>
   </div>
 </aside>
 
@@ -792,22 +793,26 @@
 </div><!-- /layout -->
 
 <script>
-  function switchCase(id) {
+  /* Tab switching — uses class toggling so CSS controls visibility + animations */
+  function switchCase(id, evt) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.sidebar').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.sidebar').forEach(s => s.classList.add('hidden'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    document.getElementById('sidebar-' + id).style.display = 'block';
-    event.target.classList.add('active');
-    window.scrollTo(0, 0);
+    const page = document.getElementById('page-' + id);
+    const sidebar = document.getElementById('sidebar-' + id);
+    if (page) page.classList.add('active');
+    if (sidebar) sidebar.classList.remove('hidden');
+    const trigger = (evt && evt.currentTarget)
+      || document.querySelector('.tab-btn[data-case="' + id + '"]');
+    if (trigger) trigger.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function scrollToSection(id) {
+  function scrollToSection(id, evt) {
+    if (evt) evt.preventDefault();
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    event.preventDefault();
   }
-
 </script>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">

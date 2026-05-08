@@ -1,0 +1,99 @@
+/* ================================================================
+ * animations.css — single home for all @keyframes + animation utilities
+ * ----------------------------------------------------------------
+ * Linked from every hub HTML so motion lives in one place, not scattered
+ * across page-specific CSS or inlined in build-script templates.
+ *
+ * Naming convention: each @keyframes is short, describes the motion,
+ * and the corresponding `.anim-*` utility class applies it with a sane
+ * default duration / easing. Pages can also reference keyframes directly
+ * (e.g. .doc-wrapper { animation: fadeUp 0.25s ...; }).
+ *
+ * Reduced-motion safety: every animation block here is wrapped under a
+ * fallback that disables animations when the user opts out.
+ * ================================================================ */
+
+/* ── Easings ────────────────────────────────────────────────────── */
+:root {
+  --anim-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-smooth: cubic-bezier(0.25, 0.8, 0.3, 1);
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+
+/* Generic fade in + small upward translate. Used by:
+   - knowledge.css .doc-wrapper
+   - knowledge.css .pending-page
+   - case-hub .page.active (alias: fadeInUp) */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stronger fade-in for major page transitions (case-hub tab switch) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sidebar slide-in from left (case-hub when becoming active) */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Card entry — staggered grid landing animation (index.html) */
+@keyframes cardEntry {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide-deck reveal (used by portal-briefing + portal-architecture) */
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Standalone knowledge doc page entry */
+@keyframes docEntryFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Standalone doc topbar slide-down */
+@keyframes docTopbarSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Reusable utility classes (apply via class only, no extra CSS) ── */
+
+.anim-fade-up      { animation: fadeUp 0.28s var(--anim-spring) both; }
+.anim-fade-in-up   { animation: fadeInUp 0.3s var(--anim-spring) both; }
+.anim-slide-in-l   { animation: slideInLeft 0.28s var(--anim-spring) both; }
+.anim-card-entry   { animation: cardEntry 0.45s var(--anim-spring) both; }
+.anim-reveal       { animation: revealIn 0.7s var(--anim-spring) both; }
+.anim-doc-entry    { animation: docEntryFade 0.4s var(--anim-spring) both; }
+.anim-doc-topbar   { animation: docTopbarSlide 0.35s var(--anim-spring) both; }
+
+/* Stagger helpers (apply on children inside an animated container) */
+.anim-stagger > :nth-child(1) { animation-delay: 0.05s; }
+.anim-stagger > :nth-child(2) { animation-delay: 0.12s; }
+.anim-stagger > :nth-child(3) { animation-delay: 0.19s; }
+.anim-stagger > :nth-child(4) { animation-delay: 0.26s; }
+.anim-stagger > :nth-child(5) { animation-delay: 0.33s; }
+.anim-stagger > :nth-child(6) { animation-delay: 0.40s; }
+.anim-stagger > :nth-child(7) { animation-delay: 0.47s; }
+
+/* ── Reduced-motion safety net (applies to every animation here) ── */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all .anim-* utilities */
+  .anim-fade-up,
+  .anim-fade-in-up,
+  .anim-slide-in-l,
+  .anim-card-entry,
+  .anim-reveal,
+  .anim-doc-entry,
+  .anim-doc-topbar,
+  .anim-stagger > * { animation: none !important; }
+}

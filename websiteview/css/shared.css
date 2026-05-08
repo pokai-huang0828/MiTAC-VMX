@@ -130,6 +130,26 @@ html, body {
 }
 .mdt-btn:hover { background: var(--mdt-blue); color: #fff; border-color: var(--mdt-blue); }
 
+/* ── Web Hub return link (slide-decks use bottom-left to avoid title bar) ── */
+.web-hub-link {
+  position: fixed;
+  bottom: 18px; left: 22px;
+  z-index: 1000;
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  transition: background 0.15s var(--mdt-ease), transform 0.15s var(--mdt-ease);
+}
+.web-hub-link:hover {
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 /* ── Slide-deck image (sized to fit inside a 100vh slide body) ── */
 .slide-image {
   display: block;
