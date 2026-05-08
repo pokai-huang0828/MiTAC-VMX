@@ -541,6 +541,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kenny VMX Knowledge Hub</title>
 <link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/components.css">
 <style>
   /* Page-specific tokens (colors / fonts come from shared.css) */
   :root {

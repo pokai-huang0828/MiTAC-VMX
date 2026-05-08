@@ -50,6 +50,19 @@ PM 角色升級成「Sheet/Jira sync owner」,要處理兩個方向的落差:
 | **Lens Cover 雙軌維護(5/7)**| 客戶規格分歧 | 對 Azuga 講「標準版解除車速」,對 BMS 講「車速 > 0」 — 別混 |
 | **Eating 17x 客訴 ID 6652(5/7)**| BMS 客訴爆炸 | 對外 Roadmap 維持 2027,對 BMS 講 6/15 緊急重訓進度 |
 
-## ⚠️ Wendy 待補
+## ✅ Wendy = wendy.hammond / MiTAC AU(2026-05-08 解密)
 
-Wendy 是 Hub 第三 tab 提到的內部業務端 stakeholder。身份 / 部門 / 跟進案件不明 — **找 Brian 確認後補進 stakeholders.md**。
+Wendy 是 Hub 第三 tab「資訊不對稱框架原型」對應的真實人物。
+
+| 項目 | 值 |
+|------|---|
+| 全名 | wendy.hammond |
+| Email | wendy.hammond@mitac.com.au |
+| 部門 | **MiTAC AU(澳洲)** — 跟 Cary Lo 同部門 |
+| 角色 | 業務 / 客戶代表(代 reseller 客戶端傳達需求) |
+| 案件 | PASSENGER BLURRING / 跨 reseller feature reuse |
+| 訴求 | 「conception stage 早期介入,save work 給 regional teams」(5/5 信原話) |
+
+她的案 = **「資訊不對稱框架原型」最完整體現**:外部 stakeholder 只能在 feature 已 ship 後才知道,要從事後告知改成早期介入。Brian 5/4 回應提供 Sheet + AI Roadmap doc sync 入口,屬於「結構性解法」而非個案處理。
+
+詳見 stakeholders.md MiTAC AU 列 + memory `reference_wendy_hammond_identity.md`。

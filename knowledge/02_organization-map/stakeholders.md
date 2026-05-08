@@ -17,7 +17,7 @@
 | **Webservice / Blurring API** | **chiehli.wang(王傑立)**| HAWK-573 / HAWK-577 / HAWK-578 / SQS retention 改 14 天(5/6 ping spencer.su)/ Health check 機制 |
 | Front-end | **Lucy** | UI 設計 / 軌跡顏色 / Severity 等級 / **Yawning UI toggle = VMX-7432(5/6 開)** / Rollover UI |
 | Speed Sign 模型 | **woody.lee** | VMX-7430(exit ramp)/ VMX-7431(LED sign)5/6 新開 |
-| 業務端 | **Wendy** ⚠️ | 在 Hub 第三 tab 出現,身份 / 部門 待補 — Wendy 案是「資訊不對稱」框架原型 |
+| MiTAC AU 業務端 | **Wendy Hammond** | wendy.hammond@mitac.com.au · MiTAC AU(澳洲)· 跟 Cary 同部門 · 4/30 起信推 HQ「BMS feature 應跨 reseller reusable」· 5/5 訴求「conception stage 早期介入」· thread = "RE: VMX Roadmap Update and Explanation \<PASSENGER BLURRING\>" |
 | GA 分析 | Luke / Sacer | 5/6 起 Lucy 用同一 GA 帳號 |
 | 韌體 / Akamai 中介 | Tony | OTA #11 真因 — 跟 Akamai 之間轉述 |
 
@@ -29,8 +29,8 @@
 | **Bridgeron** | API integration | (待補) | 整合會議每週 |
 | **Mainfreight** | Web Platform 測試 | (待補) | 測試中 |
 | **BMS** | API + 客製 | (待補) | 雙版本同步戰略對象 / 200Hz / Smoking config / VMX-6920 |
-| **Platform Science (Vinicius)** | 評估中 | Vinicius / John Smith Jr / Peter | US,K265 portal 問題 / SDK 文件需求 |
-| **CONNECTSOURCE** | 評估中 | (詳 case-learning) | Passenger blurring 需求 |
+| **Platform Science (Vinicius)** | 評估中 | Vinicius (Engineering Director) · vinicius.francisquinho@platformscience.com · cc 內部 paul.sp.lee / conant.ho / righter.song / stark.yang / brian.chienlee | US · 5/7 已成功 connect VisionMax(原以為 cable 問題,實為 APN)· **5/7 testing plan**:Evo K265 + 2 side cam + 1 rear cam + InCab Display,後續測 **K165 single lens** + K245 Video Hub(K246 Orion future)· 在等 cable 資訊訂購 sample equipment |
+| **CONNECTSOURCE** | 評估中 | Cary Lo (MiTAC AU) + Wendy Hammond (MiTAC AU 業務端) | Passenger blurring 需求 · 起源 = Wendy 4/30 信推 BMS feature reusable / Brian 5/4 承諾 Q2 2026 update,7月給 CONNECTSOURCE / 5/7 Cary 跟進 |
 | **Quantatec** | 客製 | (待補) | Camera obstruction 系列(VMX-6983 / 7427) |
 | **HDFE** | (待補) | (S 那邊) | 2026-05-06 抱怨 Q1 Events Page UI 變動 |
 | **LB Technology** | (待補) | (待補) | Plow PTO / Posted Speed Alert |

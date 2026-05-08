@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026-05-06 Q2 Request Management Review — Kenny PM 紀錄</title>
+<link rel="stylesheet" href="../websiteview/css/shared.css">
 <style>
   :root {
-    /* MDT 2026 PowerPoint Template colors */
-    --accent1: #5B9BD5;        /* 主藍 */
-    --accent5: #4472C4;        /* 深藍 */
-    --accent2: #ED7D31;        /* 橘 強調 */
-    --accent3: #A5A5A5;        /* 灰 */
-    --accent4: #FFC000;        /* 金 */
-    --accent6: #70AD47;        /* 綠 */
-    --bg: #FFFFFF;
-    --bg-soft: #F4F6FA;
-    --bg-stripe: #EAEDF2;
-    --text: #1B2541;
-    --text-muted: #5A6779;
-    --border: #DDE3EC;
-    --shadow: 0 2px 12px rgba(68, 114, 196, 0.08);
-    --shadow-hover: 0 6px 24px rgba(68, 114, 196, 0.16);
+    /* MDT 2026 — 接到 shared.css design tokens(改色票一處生效)*/
+    --accent1: var(--mdt-blue-light);   /* 主藍 = #5B9BD5 */
+    --accent5: var(--mdt-blue);         /* 深藍 = #4472C4 */
+    --accent2: var(--mdt-orange);       /* 橘強調 = #ED7D31 */
+    --accent3: #A5A5A5;                 /* 灰(MDT 沒對應)*/
+    --accent4: var(--mdt-gold);         /* 金 = #D9A82D */
+    --accent6: var(--mdt-success);      /* 綠 */
+    /* shared.css 已有 --bg / --bg-stripe / --text / --text-muted / --border / --shadow / --shadow-hover */
+    --bg: var(--mdt-card);              /* card bg */
+    --bg-soft: var(--mdt-bg);
     --resolved-bg: #E7F3DA;
     --resolved-text: #4F7B2D;
     --pending-bg: #FFF4D6;

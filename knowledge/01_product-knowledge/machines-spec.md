@@ -4,11 +4,11 @@
 >
 > 📄 **客戶介紹會議的完整機種規格紀錄** → [Google Doc](https://docs.google.com/document/d/1QJj6EOnZz4HFV-wG_SAlFywEw0M01FMjriRc8hwSH7M/edit?tab=t.opseshkr4x94)
 
-## 機種列表(校正過)
+## 機種列表(2026-05-08 再校正)
 
-**K145c / K220 / K245 / K245c / K265** — 共 5 個機種
+**K145c / K165 / K220 / K245 / K245c / K265** — 共 6 個機種(+ K246 Orion 為下一代,接班 K245c)
 
-⚠️ **沒有 K165**(之前 Claude 答錯過)
+✅ **K165 真的存在**:Vinicius (Platform Science) 5/7 testing plan 確認 K165 是 EVO 系列 single lens dashcam,**有實機可測**(某些客戶 single lens 是 requirement)。前一版 memory 寫「沒有 K165」是錯的(2026-04 早期校正),5/8 已修正。
 
 Kenny 自己的測試機:**K245**(L3024290010)
 
@@ -39,7 +39,7 @@ Kenny 自己的測試機:**K245**(L3024290010)
 | Medium Truck | Orion – K246 series | QCM6125 | 接班 K245c、4K、強化安全、分級 AI |
 | Van / Light Truck (up to 3CH) | **Sprint (K220)** | SDM450 | 1× USB 擴充、LTE Cat6、WiFi 11ac、BLE 4.2、NFC |
 
-⚠️ **K165 出現在 Roadmap** 但前面我們校正說「沒有 K165」 — 看來 Roadmap 把 EVO family 含 K165 一起算,但客戶實機目前是 K265。要跟 Mori 確認 K165 是否有實機 ship,還是純 Roadmap planning。
+✅ **K165 確認有實機**(2026-05-08 Vinicius / Platform Science 5/7 testing plan 揭露):是 EVO 系列 single lens dashcam。前面 memory 寫「沒有 K165」已校正。K165 跟 K265 一起在 Heavy Truck (up to 7CH) tier。待 Mori 確認:K165 specific chip / 算力 / SD 容量。
 
 ⚠️ **Orion / K246 系列** 是接班 K245c 的下一代(4K + 分級 AI),memory 沒提過 — 新加進來。
 
@@ -48,6 +48,7 @@ Kenny 自己的測試機:**K245**(L3024290010)
 | 機種 | Chip(待確認) | Tier(待確認) | TOPs(待確認) | RFID(KB) | QR(KB) |
 |------|--------------|--------------|---------------|---------|--------|
 | K145c | ? | ? | ? | ❌ | ❌ |
+| K165 | ? | EVO single lens | ? | ❌ | ❌ |
 | K145 (with i25) | ? | ? | ? | ❌ | ❌ |
 | K220 | ? | ? | ? | ❌ | ✅ |
 | K245 | ? | ? | ? | ✅ | ✅ |
@@ -108,11 +109,11 @@ KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/led-behaviors
 ⚠️ **memory 之前說 15-30 fps 是錯的**(2026-05-06 KB 校正)— 全部 10 fps。
 KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/what-is-the-resolution-fps-bitrate-and-video-size-for-mitac-s-cameras
 
-⚠️ KB 上沒按 K145c / K220 / K245 / K245c / K265 拆分 — 是按 video type(Side by Side / Separated / AUX UVC / AUX USB)拆。各 K 機種能跑哪些 video type **要 Mori 確認**。
+⚠️ KB 上沒按 K145c / K165 / K220 / K245 / K245c / K265 拆分 — 是按 video type(Side by Side / Separated / AUX UVC / AUX USB)拆。各 K 機種能跑哪些 video type **要 Mori 確認**。
 
 ## 待 Coffee Chat 問 Mori
 
-1. K145c / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip
+1. K145c / **K165** / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip(K165 5/8 新加,Vinicius 5/7 確認有實機)
 2. K245(Kenny 自己的)屬 Entry / Basic / Advanced 哪個 tier
 3. ~~各機種 frame rate~~ ✅ 已釐清:機體可達 15-30 fps,**對外 only 10 fps**(運算資源限制,2026-05-07)
 4. 紅色按鍵各機種語音不一致 — 是哪幾台?

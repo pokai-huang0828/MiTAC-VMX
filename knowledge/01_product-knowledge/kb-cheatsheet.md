@@ -22,7 +22,7 @@
 
 - 各 KB 文章內「圖片表格」具體數字(FCW TTC / Tailgating distance / Stop and Go configured distance)
 - 「Why are thresholds different for Passenger / Medium Vehicle / Heavy Duty?」(車種差異)
-- 機種 spec 對照表(K145c / K220 / K245 / K245c / K265 各自鏡頭 / 算力 / SD 容量)
+- 機種 spec 對照表(K145c / **K165** / K220 / K245 / K245c / K265 各自鏡頭 / 算力 / SD 容量)— K165 5/8 確認(Vinicius 5/7 testing plan,EVO single lens)
 - Master Portal / Fleet Portal / VisionAgent 三大類 KB 文章
 
 ## 結構性事實(對所有客戶適用)

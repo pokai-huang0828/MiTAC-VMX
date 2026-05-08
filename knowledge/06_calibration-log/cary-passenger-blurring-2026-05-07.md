@@ -112,3 +112,134 @@ Cheers, Cary
 - 案件主檔（已更新時間軸 + Action Items）：`case-learning/connectsource-passenger-blurring.md`
 - Jira 對齊佐證：`knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md`
 - API 文件（v2026-Q1）：https://visionmax.redocly.app/
+
+---
+
+## F. Kenny 5/7 14:41 已發回信(對外 commitment 紀錄)
+
+> ⚠️ **這是已發出的對外承諾,將來會被檢驗**。後續 RD 任何修改若跟這封信內容不一致,Kenny 必須主動補正 thread。
+
+### 收件結構
+- 收件:cary.lo-mitac, brian.chienlee, **wendy.hammond**
+- 副本:elvis.tran-mitac, spencer.su
+
+### Kenny 的具體承諾(逐條對照前段「結論」內部判讀)
+
+| 議題 | 內部結論(C 段) | 對外回信(F 段已發) | 落差 |
+|------|---------------|--------------------|------|
+| 自我介紹 | — | 「Pokai (Kenny) Huang, **Technical Support**, Brian's team at MDT, based in Taipei. Brian has looped me in」 | 對外 title 用 Technical Support(對齊 user_kenny memory) |
+| **Q1 Passenger-only blurring** | 現行不支援,技術可行,排 Q2 2026 update / 7 月 | **「Yes feasible. Our current API for the European deployment already supports independent blurring control for driver and passenger faces.」** | 🚨 **對外升級成「現有 API 已支援」**(原內部判讀「現行不支援」)— 比 C 段樂觀。**待確認:European deployment API 真的有 driver/passenger 獨立 control?** |
+| Q1 給客戶兩個釐清 | — | (1) Camera scope — DMS only? (2) Trigger model — automatic vs on-demand? | ✓ 把球丟回客戶端對齊需求 |
+| **Q2 Fleet 層級** | 兩條路:(A) 客戶端自控 / (B) Server-side flag | **「Path: Master Portal > Management > Fleets > (select) > Fleet Detail > Configurations > (new) Blurring」**, per-Fleet 粒度,dealer 中央管控 | 🚨 **對外給了具體 portal path + (new) Blurring config UI 位置**。**待確認:這條路徑誰拍?Brian 過目了嗎?Lucy 確認 UI 可行嗎?** |
+| Q3 Teams session | 不裸接,等 Brian dev scope 拍 | 「Fully supportive. Internal sync to align Q1/Q2 first.」 | ✓ 沒承諾時間,符合 C 段紅線 |
+
+### 🚨 立即要補的內部對齊(Kenny 對自己)
+
+1. **Q1「European deployment API 已支援 driver/passenger 獨立 blurring」依據?**
+   - 找出對應 API 文件 / Jira ticket back up
+   - 若沒明確證據:跟內部 Jira(HAWK-331/527/578 都是 all-face)有落差
+   - 風險:Cary / Wendy 會用這句對外 commit,若不支援會被打臉
+
+2. **Q2 portal path「Master Portal > ... > (new) Blurring」誰拍?**
+   - 若 Kenny 自己推的 → 對外講 = 對外承諾此 UI 路徑
+   - 待 Brian / Spencer 確認可實作 + Lucy 確認 UI 可行
+   - 若 Brian 之後改位置,要主動補正 thread
+
+3. **「Brian has looped me in for this thread going forward」= 對外承諾持續對接**
+   - Kenny 已自定位為 Cary / Wendy 的對接 PM
+   - 後續 thread 每次動,24h 內要回
+
+### D 段紅線校正
+
+D 段原紅線「不在 thread 裡搶在 Brian 前回 Q1/Q2」— **5/7 14:41 已回**,Brian 在副本(不是收件)。
+
+- ✓ Brian 在 cc,有問題會糾正
+- ✓ 自介「Brian has looped me in」表授權
+- ⚠️ 但 Q1「European API 已支援」若 Brian 沒事先看過,後續打臉責任在 Kenny
+
+### Kenny 對 Brian 補對齊話術
+
+> 「Brian,5/7 14:41 我回了 Cary thread。Q1 我寫『European deployment API 已支援 driver/passenger 獨立 blurring』,Q2 我寫 Master Portal 加 (new) Blurring config 在 Fleet Detail 下。**請確認這兩個答覆 OK?**有需要修正我立刻補正 thread。」
+
+---
+
+## G. Back-up 依據補充(2026-05-08 Kenny 確認)
+
+> 上一段 F 標的兩個 🚨 風險,Kenny 5/8 確認後**全部解除**。
+
+### Q1「European deployment API 已支援 driver/passenger 獨立 blurring」依據
+- **真實依據:BMS 客戶端用的內部 API 已有此能力,只是沒對外公開**
+- 因此 redocly v2026-Q1 公開文件搜不到 blurring endpoint(對外沒露出)
+- 但 BMS 客戶實際使用時的 API 確實支援 driver/passenger 獨立 blur
+- 對 Cary / Wendy 講「現有 API 已支援」是有依據的(內部 BMS API)
+- ⚠️ **對外口徑邊界**:能說「能力存在」,但不能說「公開可用」— 因為要做 modifications 才能給 CONNECTSOURCE,對應 Brian 5/4 給 Wendy 的「Q2 2026 update / 7 月最早」commitment
+
+### Q2「Master Portal > Fleets > Fleet Detail > Configurations > (new) Blurring」路徑依據
+- **真實依據:Brian / Spencer 已內部確認此路徑可實作**
+- 不是 Kenny 自己看 portal 結構推的
+- 對外承諾此 UI 路徑有 RD 端 backing
+- 後續 Lucy UI 設計、實際 Q2 2026 update 排程,follow Brian / Spencer 拍板
+
+### 🟢 風險解除後的對 Cary / Wendy 後續處理
+
+兩個答覆都有依據,不需要主動補正 thread。**等客戶回覆 Q1 釐清(Camera scope + Trigger model)後,把球轉給 Brian / Spencer 排 dev scope**。
+
+### 對 Kenny 自己的 reminder
+
+下次寫對外信前,**對任何「現有已支援」這種 commitment**,自己先記:
+- 依據在哪裡(內部 API / Jira ticket / Brian 跟我講過)
+- 對外講 vs 對內現實差幾步(本次:BMS 已有,對外要 7 月才 ship 給 CONNECTSOURCE)
+- 風險邊界(本次:能說「能力存在」,不能說「公開可用」)
+
+寫到 calibration log 留 trace,**避免下次自己也忘記為什麼這樣回**。
+
+---
+
+## H. 2026-05-08 Syncup Meeting 校正(Q2 portal path 修正)
+
+### 會議基本
+- 5/8 02:21 UTC(台北 10:21)21 分鐘 Teams call
+- Kenny 主動 reach out / Cary + Elvis 加入
+- 完整紀錄:[`meetings/2026-05-08_syncup-cary-elvis_meeting-record.md`](../../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md)
+
+### 🚨 Kenny 5/7 14:41 對外承諾的 Q2 portal path 被現場糾正
+
+Kenny 5/7 信寫:
+> Master Portal > Management > Fleets > (select Fleet) > Fleet Detail > Configurations > (new) Blurring
+
+**Elvis 現場用 Master Portal 螢幕分享揭露**:
+- 那條路徑只能在 **main fleet 級**操作
+- 動一個 = main fleet + 所有 contract fleets 一起套用
+- **沒有 per-contract-fleet 粒度**
+- 客戶實況(Cary 解釋):Australia 1 main fleet,所有 reseller 客戶都是 contract fleets,必須 pinpoint 特定 contract fleet 套設定
+- Elvis 用 Live User 為例:**Fleet Portal 已有 per-contract-fleet config 的能力**,Blurring 應沿用
+
+→ **5/7 信對外的 portal path 描述對 main fleet OK,對 contract fleet 不行**。要校正。
+
+### 修正後的兩條實作路徑(待 Brian / Spencer 拍)
+
+| Path | 說明 | 顧慮 |
+|------|------|------|
+| **(A)** Master Portal 補 contract fleet 視圖 + 加 Blurring config | dealer/MAU 中央控制所有 contract fleet | ⚠️ **隱私問題** — Cary 警告 contract fleet 不見得想讓上層 dealer 看到 |
+| **(B)** Fleet Portal 加 per-contract-fleet Blurring config UI | 沿用 Live User pattern,維持 contract fleet boundary | 沒明顯顧慮 |
+
+### Q1 API documentation 議題(會中 Cary 尖銳追問)
+
+> Cary: 「Has the blurring notes been added on to the API documentation? Then what can I share with my customer please?」
+
+Kenny 答:目前對外文件沒寫(只 BMS 用),要問 Spencer 能否 share 內部版。Cary 妥協:CONNECTSOURCE 是 integrated customer 願意用 API 直接整合 -> doc 暫用版本即可。
+
+### 對 5/7 14:41 信的 Δ(整理)
+
+| 項目 | 5/7 信寫的 | 5/8 sync 揭露 | 是否要修正 thread |
+|------|---|---|---|
+| Q1 driver/passenger 獨立 blur 已支援 | ✓ | 對(BMS 內部 API)| 不用 |
+| Q1 API doc | (沒明寫)| 對外目前無 doc,要問 Spencer 能否 share | **回信中提:會找 Spencer** |
+| Q2 portal path | Master Portal config | **只到 main fleet 級,沒粒度** | **要回信校正成 (A)/(B) 兩條路** |
+| Q3 Teams session | Fully supportive | ✓ 5/8 已開,客戶滿意 | 不用 |
+
+### 對外回信狀態
+
+草稿已擬好(兩個 Q + 兩條路徑 + Spencer/Brian 確認 next steps)。**Kenny 5/8 決定先寫進 case-learning + meetings + memory,回信暫緩**。
+
+_Last updated: 2026-05-08 — 加 H 段 5/8 sync 校正紀錄。回信草稿等 Kenny 確認後寄出。_

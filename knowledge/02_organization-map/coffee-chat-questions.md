@@ -90,9 +90,13 @@
 
 - [ ] 合約中對 Contract Fleet / Sub-fleet 的措辭
 
-## ☕ Wendy ⚠️(身份不明,Hub 第三 tab 提到)
+## ☕ Wendy Hammond(MiTAC AU 業務端,5/8 已解密)
 
-- [ ] **基本身份**:她是哪個部門?跟進什麼客戶?
-- [ ] 她對 roadmap 資訊不對稱的具體痛點
+- ✅ **基本身份**:wendy.hammond@mitac.com.au · MiTAC AU(澳洲)· 跟 Cary Lo 同部門
+- ✅ **跟進案件**:PASSENGER BLURRING / 跨 reseller feature reuse / Roadmap sync
+- ✅ **資訊不對稱痛點**(5/5 信揭露):「希望 conception stage 早期介入,save work 給 regional teams」— 不要事後告知
+- ✅ **跟 Brian 4/30→5/4→5/5 thread 已建立**:Brian 給她 Sheet + AI Roadmap doc 同步入口
 
-→ 找 Brian 確認 Wendy 是誰再去約。
+→ 不需要再「找 Brian 確認 Wendy 是誰」,身份已知。詳見 [reference_wendy_hammond_identity memory] 跟 stakeholders.md。下次跟她直接對話可問:
+- [ ] AU 端 Sheet 同步她實際進去看了沒?頻率?
+- [ ] AI feature Roadmap doc Brian 給的版本 vs 我自己整理的 5/7 版有沒有差?

@@ -5,18 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiTAC Case Learning Hub</title>
 <link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/components.css">
 <style>
-  /* Page-specific tag tokens (colors / fonts come from shared.css) */
-  :root {
-    --tag-blue:        var(--mdt-blue-soft);
-    --tag-blue-text:   var(--mdt-blue);
-    --tag-orange:      var(--mdt-orange-soft);
-    --tag-orange-text: var(--mdt-orange-dark);
-    --tag-green:       rgba(22,163,74,0.10);
-    --tag-green-text:  var(--mdt-success);
-    --tag-red:         rgba(220,38,38,0.10);
-    --tag-red-text:    var(--mdt-pending);
-  }
+  /* Page-specific layout(只放 case-hub 專用 — topnav / sidebar / main / page hierarchy)*/
 
   body {
     background: var(--bg);
@@ -26,7 +17,7 @@
     flex-direction: column;
   }
 
-  /* ── TOP NAV ── */
+  /* ── TOP NAV(case-hub 專用)── */
   .topnav {
     background: var(--primary);
     color: #fff;
@@ -57,10 +48,10 @@
   .tab-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
   .tab-btn.active { background: var(--accent); color: #fff; }
 
-  /* ── LAYOUT ── */
+  /* ── LAYOUT(case-hub 專用)── */
   .layout { display: flex; flex: 1; }
 
-  /* ── SIDEBAR ── */
+  /* ── SIDEBAR(case-hub 專用)── */
   .sidebar {
     width: 260px; flex-shrink: 0; background: var(--primary);
     padding: 24px 0; position: sticky; top: 60px;
@@ -84,194 +75,16 @@
   .sidebar-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
   .sidebar-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 12px 16px; }
 
-  /* ── MAIN ── */
+  /* ── MAIN(case-hub 專用)── */
   .main { flex: 1; padding: 32px; overflow-y: auto; max-width: 1100px; }
 
-  /* ── SECTION PAGES ── */
+  /* ── SECTION PAGES(case-hub 專用 tab switching)── */
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── HERO CARD ── */
-  .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: 16px; padding: 36px 40px; color: #fff; margin-bottom: 28px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; right: -40px; top: -40px;
-    width: 220px; height: 220px; border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-  .hero::after {
-    content: ''; position: absolute; right: 40px; bottom: -60px;
-    width: 150px; height: 150px; border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-  .hero-tag {
-    display: inline-block; background: var(--accent); color: #fff;
-    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
-    letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 14px;
-  }
-  .hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
-  .hero-sub { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 600px; }
-  .hero-meta { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
-  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
-  .hero-stat-val { font-size: 20px; font-weight: 800; }
-  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.55); }
-
-  /* ── CARDS GRID ── */
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
-  .metric-card {
-    background: var(--card); border-radius: 12px; padding: 20px;
-    border: 1px solid var(--border); box-shadow: var(--shadow);
-  }
-  .metric-card-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
-  .metric-card-val { font-size: 24px; font-weight: 800; color: var(--primary); }
-  .metric-card-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-  .metric-card.green .metric-card-val { color: var(--success); }
-  .metric-card.orange .metric-card-val { color: var(--accent); }
-  .metric-card.red .metric-card-val { color: var(--danger); }
-
-  /* ── SECTION TITLE ── */
-  .section-title {
-    font-size: 16px; font-weight: 700; color: var(--primary);
-    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-  }
-  .section-title::after {
-    content: ''; flex: 1; height: 2px;
-    background: linear-gradient(to right, var(--border), transparent);
-  }
-
-  /* ── CONTENT CARD ── */
-  .card {
-    background: var(--card); border-radius: 14px; padding: 24px;
-    border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 20px;
-  }
-  .card-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 16px; }
-
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
-    width: 2px; background: var(--border);
-  }
-  .tl-item { position: relative; margin-bottom: 20px; }
-  .tl-dot {
-    position: absolute; left: -24px; top: 3px; width: 12px; height: 12px;
-    border-radius: 50%; background: var(--primary-light); border: 2px solid #fff;
-    box-shadow: 0 0 0 2px var(--primary-light);
-  }
-  .tl-dot.done { background: var(--success); box-shadow: 0 0 0 2px var(--success); }
-  .tl-dot.warn { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
-  .tl-dot.issue { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
-  .tl-phase {
-    font-size: 11px; font-weight: 700; color: var(--primary-light);
-    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
-  }
-  .tl-date { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-  .tl-content { font-size: 13.5px; line-height: 1.6; color: var(--text); }
-  .tl-content ul { padding-left: 18px; margin-top: 6px; }
-  .tl-content ul li { margin-bottom: 3px; }
-  .tl-tag {
-    display: inline-block; font-size: 10px; font-weight: 700;
-    padding: 2px 8px; border-radius: 20px; margin-left: 8px;
-  }
-  .tl-tag.issue { background: var(--tag-red); color: var(--tag-red-text); }
-  .tl-tag.done { background: var(--tag-green); color: var(--tag-green-text); }
-  .tl-tag.action { background: var(--tag-orange); color: var(--tag-orange-text); }
-
-  /* ── TABLE ── */
-  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  .data-table th {
-    background: var(--bg); color: var(--primary); font-weight: 700;
-    text-align: left; padding: 10px 14px; font-size: 12px;
-    border-bottom: 2px solid var(--border);
-  }
-  .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  .data-table tr:last-child td { border-bottom: none; }
-  .data-table tr:hover td { background: #f8fafc; }
-
-  /* ── TAG CHIPS ── */
-  .chip {
-    display: inline-block; font-size: 11px; font-weight: 600;
-    padding: 3px 10px; border-radius: 20px; margin: 2px;
-  }
-  .chip.blue { background: var(--tag-blue); color: var(--tag-blue-text); }
-  .chip.orange { background: var(--tag-orange); color: var(--tag-orange-text); }
-  .chip.green { background: var(--tag-green); color: var(--tag-green-text); }
-  .chip.red { background: var(--tag-red); color: var(--tag-red-text); }
-
-  /* ── ACTION ITEMS ── */
-  .action-list { list-style: none; }
-  .action-list li {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px;
-  }
-  .action-list li:last-child { border-bottom: none; }
-  .action-list .owner {
-    flex-shrink: 0; background: var(--primary); color: #fff;
-    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
-    margin-top: 2px;
-  }
-
-  /* ── INSIGHT BOX ── */
-  .insight {
-    border-left: 4px solid var(--accent); background: #fff8f0;
-    border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 14px;
-  }
-  .insight-title { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .insight p { font-size: 13.5px; line-height: 1.65; color: var(--text); }
-  .insight.blue { border-color: var(--primary-light); background: #eff6ff; }
-  .insight.blue .insight-title { color: var(--primary-light); }
-  .insight.green { border-color: var(--success); background: #f0fdf4; }
-  .insight.green .insight-title { color: var(--success); }
-  .insight.red { border-color: var(--danger); background: #fef2f2; }
-  .insight.red .insight-title { color: var(--danger); }
-
-  /* ── COMPARISON TABLE ── */
-  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .compare-table th { padding: 10px 16px; text-align: left; font-size: 12px; font-weight: 700; }
-  .compare-table th:first-child { background: var(--bg); color: var(--text-muted); }
-  .compare-table th.biz { background: #dbeafe; color: #1e40af; }
-  .compare-table th.prod { background: #dcfce7; color: #166534; }
-  .compare-table td { padding: 10px 16px; border-top: 1px solid var(--border); vertical-align: top; }
-  .compare-table td:first-child { font-weight: 600; color: var(--text-muted); background: #fafafa; }
-  .compare-table td.biz { color: #1e3a8a; }
-  .compare-table td.prod { color: #14532d; }
-
-  /* ── PM FRAMEWORK ── */
-  .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .framework-card {
-    border-radius: 10px; padding: 16px; border: 1px solid var(--border);
-    background: var(--card);
-  }
-  .framework-card-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .framework-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
-  .framework-card.short { border-top: 3px solid var(--accent); }
-  .framework-card.mid { border-top: 3px solid var(--primary-light); }
-  .framework-card.long { border-top: 3px solid var(--success); }
-  .framework-card.short .framework-card-title { color: var(--accent); }
-  .framework-card.mid .framework-card-title { color: var(--primary-light); }
-  .framework-card.long .framework-card-title { color: var(--success); }
-
-  /* ── COMMIT TABLE ── */
-  .commit-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .commit-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; }
-  .commit-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  .commit-table tr:last-child td { border-bottom: none; }
-  .commit-table td:first-child { font-weight: 600; color: var(--text-muted); }
-  .commit-table .level-low { color: var(--success); font-weight: 700; }
-  .commit-table .level-mid { color: var(--warning); font-weight: 700; }
-  .commit-table .level-high { color: var(--danger); font-weight: 700; }
-
-  /* ── LINKS ── */
-  a { color: var(--primary-light); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE override ── */
   @media (max-width: 900px) {
     .sidebar { display: none; }
-    .framework-grid { grid-template-columns: 1fr; }
     .topnav { padding: 0 16px; }
     .main { padding: 20px 16px; }
   }
@@ -320,6 +133,7 @@
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people')"><span class="sidebar-icon">👥</span>關係人</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers')"><span class="sidebar-icon">💰</span>商業規模</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline')"><span class="sidebar-icon">📅</span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual')"><span class="sidebar-icon">🖥️</span>Portal 視覺對照</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict')"><span class="sidebar-icon">⚡</span>衝突分析</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions')"><span class="sidebar-icon">✅</span>待辦事項</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm')"><span class="sidebar-icon">🧠</span>PM 建議</a>
@@ -503,6 +317,28 @@
         </table>
       </div>
     </div>
+
+    <!-- K265 Portal 視覺(Vinicius 卡關 reference)-->
+    <div class="card">
+      <div class="card-title">🖥️ K265 Portal 卡關 reference(Inventory + Diagnostics)</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">
+        Vinicius 5/7 confirmed K265 image LM 版本不能透過 SD update 升到 VisionMax(Righter 解釋)— 設備 F4723090033 已加進 inventory(Master Portal),後續從 Diagnostics 監控狀態。
+      </p>
+      <div class="portal-img-grid">
+        <figure>
+          <img src="../VMX_images/Master/Master-Inventory.png" alt="Master Portal — Inventory">
+          <figcaption>Master Portal — Inventory(裝置加入 / 狀態管理)</figcaption>
+        </figure>
+        <figure>
+          <img src="../VMX_images/Master/Master-Diagnostics.png" alt="Master Portal — Diagnostics">
+          <figcaption>Master Portal — Diagnostics(K265 image 狀態 / 健康度)</figcaption>
+        </figure>
+        <figure>
+          <img src="../VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
+          <figcaption>Master Portal — Active in Fleet(設備分配給 fleet)</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 
   <!-- ACTIONS -->
@@ -588,15 +424,24 @@
 
   <div id="cs-hero">
     <div class="hero" style="background:linear-gradient(135deg,#92400e 0%,#c2410c 100%);">
-      <div class="hero-tag">Case 02 · 內部協作</div>
+      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-08</div>
       <h1>CONNECTSOURCE × Passenger Blurring</h1>
-      <p class="hero-sub">澳洲 MiTAC 經銷商（CONNECTSOURCE）為馬來西亞車隊業者提出乘客模糊化 AI 功能需求，引發內部對路線圖透明度與成本歸屬的討論。</p>
+      <p class="hero-sub">澳洲 MiTAC AU(Wendy + Cary + Elvis)代 reseller 客戶提出乘客模糊化 AI 功能需求,引發內部對路線圖透明度、成本歸屬,及 portal 配置粒度的討論。Kenny 5/7 接手對外,5/8 開 sync-up 升格主對接 PM。</p>
       <div class="hero-meta">
         <div class="hero-stat"><div class="hero-stat-val">1,165</div><div class="hero-stat-label">台裝置</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">$216K</div><div class="hero-stat-label">潛在收益（USD）</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">$216K</div><div class="hero-stat-label">潛在收益(USD)</div></div>
         <div class="hero-stat"><div class="hero-stat-val">$700</div><div class="hero-stat-label">AWS 成本/月</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">Q2 2026</div><div class="hero-stat-label">目標上線</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">Q2 2026</div><div class="hero-stat-label">目標上線(7月)</div></div>
       </div>
+    </div>
+    <div class="card" style="border-left:4px solid #ED7D31;margin-top:16px;">
+      <div class="card-title">⚡ 5/8 sync-up 後最新狀態</div>
+      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.7;">
+        <li><strong>Kenny 升格主對接 PM</strong> — Cary「we will be stalking you」,從現在開始直接 ping Kenny,跳過 Brian/Spencer</li>
+        <li><strong>🚨 Q2 portal path 5/7 對外承諾要校正</strong> — Master Portal 路徑只到 main fleet 級,需改成 per-contract-fleet(雙路徑 A/B 待 Brian/Spencer 拍)</li>
+        <li><strong>Q1 客戶用 API 直接整合就好</strong> — Kenny 要問 Spencer 能否 share 內部 API doc</li>
+        <li><strong>對外回信草稿已擬好</strong>,等 Kenny 確認後寄</li>
+      </ul>
     </div>
   </div>
 
@@ -607,9 +452,12 @@
       <table class="data-table">
         <thead><tr><th>姓名</th><th>角色</th><th>立場</th></tr></thead>
         <tbody>
-          <tr><td><strong>Wendy</strong></td><td>澳洲 CONNECTSOURCE 業務窗口（MiTAC 經銷商端）</td><td><span class="chip blue">業務端</span></td></tr>
-          <tr><td><strong>Brian Chienlee（李健）</strong></td><td>VisionMax 解決方案負責人（MiTAC 產品端）</td><td><span class="chip green">產品端</span></td></tr>
-          <tr><td><strong>Cary Lo</strong></td><td>MiTAC 內部財務/商務分析</td><td><span class="chip orange">商務端</span></td></tr>
+          <tr><td><strong>Wendy Hammond</strong></td><td>MiTAC AU 業務（wendy.hammond@mitac.com.au）— 5/8 解密身份,代 reseller 客戶端傳達需求</td><td><span class="chip blue">業務端</span></td></tr>
+          <tr><td><strong>Cary Lo</strong></td><td>MiTAC AU 業務 / Account Manager — 跟 Wendy 同部門,5/8 sync-up 主對話人</td><td><span class="chip blue">業務端</span></td></tr>
+          <tr><td><strong>Elvis Tran</strong></td><td>MiTAC AU PM — 5/8 sync-up 加入,負責 release notes review,技術糾正 Q2 portal path</td><td><span class="chip blue">業務端</span></td></tr>
+          <tr><td><strong>Brian Chienlee（李健）</strong></td><td>VisionMax 解決方案負責人（MiTAC HQ 產品端）</td><td><span class="chip green">產品端</span></td></tr>
+          <tr><td><strong>Spencer Su（蘇家弘）</strong></td><td>Cloud / API team lead（HQ）— Q1 API doc / Q2 portal 路徑可實作性 owner</td><td><span class="chip green">產品端</span></td></tr>
+          <tr><td><strong>Pokai (Kenny) Huang</strong></td><td>Technical Support, Brian's team @ Taipei — 5/7 對外回信 / 5/8 主動 reach out 開 sync,目前 MiTAC AU 線主對接 PM</td><td><span class="chip orange">主對接</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -662,10 +510,76 @@
           <div class="tl-date">2026/05/04</div>
           <div class="tl-content">
             <strong>路線圖透明度衝突</strong> <span class="tl-tag issue">內部衝突</span><br>
-            <strong>Wendy</strong> 表達不滿：長期無路線圖同步會議、業務端無法對客戶承諾。<br>
-            <strong>Brian</strong> 回覆：分享 AI Feature Roadmap 簡報與需求追蹤 Sheets，確認七月為目標。
+            <strong>Wendy</strong> 表達不滿:長期無路線圖同步會議、業務端無法對客戶承諾。<br>
+            <strong>Brian</strong> 回覆:分享 AI Feature Roadmap 簡報與需求追蹤 Sheets,確認七月為目標。
           </div>
         </div>
+        <div class="tl-item">
+          <div class="tl-dot warn"></div>
+          <div class="tl-phase">客戶端追問</div>
+          <div class="tl-date">2026/05/07 11:22</div>
+          <div class="tl-content">
+            <strong>Cary 主動進 thread 問三件具體</strong> <span class="tl-tag action">外部追問</span><br>
+            (1) Passenger-only blurring (driver 保留) 是否可行?<br>
+            (2) 可否套用到特定 Fleet / Contract Fleet?<br>
+            (3) 能否安排 Teams customer session?
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-phase">Kenny 對外回信</div>
+          <div class="tl-date">2026/05/07 14:41</div>
+          <div class="tl-content">
+            <strong>Kenny 接手 thread,Brian 在 cc</strong> <span class="tl-tag action">對外承諾</span><br>
+            <strong>Q1</strong>:Yes feasible — European deployment API 已支援 driver/passenger 獨立 blurring(BMS 內部 API 為依據)<br>
+            <strong>Q2</strong>:Path 在 Master Portal &gt; Management &gt; Fleets &gt; (select) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring,per-Fleet 粒度<br>
+            <strong>Q3</strong>:Fully supportive,先內部對齊 Q1/Q2
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot issue"></div>
+          <div class="tl-phase">Sync-up 現場糾正</div>
+          <div class="tl-date">2026/05/08 02:21 UTC</div>
+          <div class="tl-content">
+            <strong>21 分鐘 Teams call(Kenny / Cary / Elvis)</strong> <span class="tl-tag issue">承諾校正</span><br>
+            <strong>🚨 Q2 portal path 被 Elvis 螢幕分享現場糾正</strong>:Master Portal 路徑只到 main fleet 級,動一個 = 影響所有 contract fleets,**沒粒度**。客戶結構需 per-contract-fleet 粒度(沿用 Live User pattern)。<br>
+            <strong>修正後雙路徑</strong>:(A) Master Portal 補 contract fleet 視圖 ⚠️ 隱私問題 / (B) Fleet Portal 加 per-contract-fleet UI(沿用 Live User)<br>
+            <strong>Q1 API doc</strong>:Cary 追問「what can I share with my customer?」客戶妥協用 API,Kenny 承諾問 Spencer 能否 share 內部 API doc<br>
+            <strong>Cary 對 Kenny 評價</strong>:「very refreshing」/「we will be stalking you」— Kenny 升格 MiTAC AU 線主對接 PM
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTAL VISUAL — Q2 path 對照 -->
+  <div id="cs-portal-visual">
+    <div class="section-title">Q2 portal path 視覺對照(5/7 信 vs 5/8 sync 修正)</div>
+    <div class="card">
+      <div class="card-title">🔍 Kenny 5/7 對外信寫的路徑(實際在 Master Portal 看到的)</div>
+      <p style="font-size:13.5px;line-height:1.7;margin-bottom:14px;">
+        <code>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</code>
+      </p>
+      <div class="portal-img-grid">
+        <figure>
+          <img src="../VMX_images/Master/Master-Fleets.png" alt="Master Portal — Fleets 頁">
+          <figcaption>Master Portal — Fleets 列表(看到所有 main fleets)</figcaption>
+        </figure>
+        <figure>
+          <img src="../VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
+          <figcaption>Master Portal — Active in Fleet 視圖(per-fleet 細項從這進)</figcaption>
+        </figure>
+      </div>
+      <div class="insight red" style="margin-top:14px;">
+        <div class="insight-title">🚨 Elvis 5/8 現場糾正</div>
+        <p>這條路徑只能控制 <strong>main fleet 級</strong>,動一個 = main fleet + 所有 contract fleets 一起套用,<strong>沒 per-contract-fleet 粒度</strong>。客戶結構(Australia 1 fleet + 多 reseller contract fleets)必須 pinpoint 特定 contract fleet。</p>
+      </div>
+      <div class="insight blue" style="margin-top:8px;">
+        <div class="insight-title">✅ 修正後雙路徑(等 Brian / Spencer 拍)</div>
+        <p>
+          <strong>(A)</strong> Master Portal 補 contract fleet 視圖 — ⚠️ 隱私問題(contract fleet 不見得想讓上層 dealer 看到)<br>
+          <strong>(B)</strong> Fleet Portal 加 per-contract-fleet Blurring config UI — 沿用 Live User pattern(現有 Fleet Portal 已示範可行)
+        </p>
       </div>
     </div>
   </div>
@@ -712,11 +626,29 @@
   <!-- ACTIONS -->
   <div id="cs-actions">
     <div class="section-title">待辦事項</div>
+    <div class="card" style="border-left:4px solid #ED7D31;margin-bottom:16px;">
+      <div class="card-title">🔥 Kenny 主動接 P0(2026-05-08 sync 後)</div>
+      <ul class="action-list">
+        <li>
+          <span class="owner">Kenny</span>
+          <span><strong>回 thread 校正 Q2 portal path</strong> — 不能裝沒事,Elvis 現場糾正了。明確提兩條路:(A) Master Portal 補 contract fleet 視圖 / (B) Fleet Portal 加 per-contract-fleet UI(Live User pattern)。<em>草稿已擬,待 Kenny 確認後寄出</em></span>
+        </li>
+        <li>
+          <span class="owner">Kenny → Spencer</span>
+          <span><strong>確認 Blurring API doc 能否 share</strong> 給 CONNECTSOURCE 對外用(暫用,在前端 UI 出來前)</span>
+        </li>
+        <li>
+          <span class="owner">Kenny → Brian + Spencer</span>
+          <span><strong>對齊 contract-fleet-level Blurring config 走 (A) 還是 (B)</strong>。下個 sync 前要拍板</span>
+        </li>
+      </ul>
+    </div>
     <div class="card">
+      <div class="card-title">既有待辦(早期 4/24 起)</div>
       <ul class="action-list">
         <li>
           <span class="owner">Brian</span>
-          <span>提供 Passenger Blurring 的具體里程碑節點（不只說「七月」），讓業務端可以管理客戶預期。</span>
+          <span>提供 Passenger Blurring 的具體里程碑節點(不只說「七月」),讓業務端可以管理客戶預期。</span>
         </li>
         <li>
           <span class="owner">Brian</span>
@@ -724,11 +656,11 @@
         </li>
         <li>
           <span class="owner">Brian</span>
-          <span>建立定期 roadmap sync 機制（建議每季一次），確保澳洲業務端有常態資訊流。</span>
+          <span>建立定期 roadmap sync 機制(建議每季一次),確保澳洲業務端有常態資訊流。<em>5/4 已部分執行 — Brian 給 Wendy Sheet + AI Roadmap doc 連結</em></span>
         </li>
         <li>
           <span class="owner">Wendy</span>
-          <span>向馬來西亞客戶溝通：Q2 2026 / 七月為目標，待 Brian 提供更細里程碑後再確認。</span>
+          <span>向馬來西亞客戶溝通:Q2 2026 / 七月為目標,待 Brian 提供更細里程碑後再確認。</span>
         </li>
         <li>
           <span class="owner">Cary Lo</span>

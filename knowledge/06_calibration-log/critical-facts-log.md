@@ -2,11 +2,32 @@
 
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
 
-## 機種列表
-- ❌ 之前答:K245 / K265 / K165
-- ✅ **正確:K145c / K220 / K245 / K245c / K265**(沒有 K165)
-- 校正日:2026-04 早期
-- 校正人:Kenny
+## BMS 客戶端 API 有 driver/passenger 獨立 blurring 能力(2026-05-08 校正)
+- ❌ 之前以為:redocly v2026-Q1 沒 blurring endpoint = blurring 沒 driver/passenger 區分
+- ✅ **正確**:**BMS 客戶端內部 API 已支援 driver/passenger 獨立 blurring control,只是沒對外公開**
+- 校正日:2026-05-08
+- 校正人:Kenny(回覆 Cary 5/7 thread 後內部確認)
+- 應用:對 Cary / Wendy 講「現有 API 已支援」有依據,但**邊界**是「能力存在」≠「公開可用」(要 Q2 2026 update 才能 ship 給 CONNECTSOURCE)
+- 跟 Brian 5/4 給 Wendy 的「Q2 2026 update / 7 月最早 ship」commitment 一致
+
+## Master Portal Blurring config UI 路徑(2026-05-08 兩次校正)
+- ⚠️ **v1 早上 Brian/Spencer 確認可實作**:`Master Portal > Management > Fleets > (select Fleet) > Fleet Detail > Configurations > (new) Blurring`
+- 🚨 **v2 同日下午 5/8 Sync-up Meeting Elvis 螢幕分享現場糾正**:這條路徑**只能控制整個 main fleet 級**,一動 = 影響 main + 所有 contract fleets,**沒 per-contract-fleet 粒度**
+- 客戶實況:Australia 1 fleet + 各 reseller 客戶當 contract fleets,**必須 pinpoint 特定 contract fleet**
+- ✅ **修正後兩條實作路徑**(待 Brian / Spencer 拍):
+  - **(A)** Master Portal 補 contract fleet 視圖 + 加 Blurring config — ⚠️ 隱私問題(contract fleet 不見得想讓上層看到)
+  - **(B)** Fleet Portal 加 per-contract-fleet Blurring config UI(沿用 Live User pattern)
+- 應用:**Kenny 5/7 14:41 回信對外承諾的 portal path 不夠精細**,要回 thread 校正
+- 詳見:`meetings/2026-05-08_syncup-cary-elvis_meeting-record.md` + `cary-passenger-blurring-2026-05-07.md` H 段
+
+## 機種列表(2026-05-08 再校正)
+- ❌ v1 之前答:K245 / K265 / K165
+- ⚠️ v2 校正(2026-04):K145c / K220 / K245 / K245c / K265(認為沒有 K165)
+- ✅ **v3 真相(2026-05-08 Outlook Vinicius 5/7 信件揭露)**:**K165 真的存在** — Vinicius 在 5/7 11:02 AM 給 Paul Lee 的 testing plan 中明確要求測 K165(single lens dashcam,某些客戶 single lens 是 requirement)。
+  - 所以 K-series 完整應為:**K145c / K165 / K220 / K245 / K245c / K265**(可能還有 K246 Orion 未來機種,Vinicius 也提到)
+- 校正人:Vinicius Francisquinho (Platform Science) 5/7 testing plan
+- 重要:**對 Vinicius / Platform Science 不要再說「沒有 K165」**;K165 = 單鏡頭 dashcam 版本
+- 待動作:跟 Mori 確認 K165 完整 spec(chip / 鏡頭 / 算力)+ 為什麼之前 memory 說沒有
 
 ## 紅色按鍵功能
 - ❌ 之前答:Panic + 雙擊取消 + 長按重啟 + factory reset
