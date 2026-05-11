@@ -342,3 +342,187 @@ Spencer 透過 Kenny 傳達:
 - [ ] Endpoint open 條件「internal validation」具體 criteria + 預估完成日
 
 _Last updated: 2026-05-11 早上 — 補 5/11 Teams thread + Cary 拍板 Option B + monthly report 新需求 + endpoint 未 open 限制 + 2pm Q1 API sync 安排。_
+
+---
+
+## 8. 2026-05-11 下午 14:00 · Cary / Elvis / Brian sync · Q2 scope 拍板
+
+> 詳見:[`meetings/2026-05-11_afternoon_cary-elvis-sync.md`](../meetings/2026-05-11_afternoon_cary-elvis-sync.md)
+
+### 8.1 Q2 Scope 最終拍板(Brian take over 釐清)
+
+| Scope | 內容 | 時程 |
+|-------|------|------|
+| **Q2 In Scope** | BMS Blurring 整合進 VisionMax cloud + Release API doc 給 Connect Source | Staging end of June / Production end of July |
+| **Q2 Out of Scope** | UI on Master/Fleet Portal(Auto Sense 用)— 要 GUI design,是 long term | 不在 Q2 |
+| **Post-Q2** | Monthly subscription report 加 Blurring tracking | "Future planning" — Brian's call |
+
+### 8.2 Connect Source 走 API only · 不需要 UI portal toggle
+
+Brian 拍板:
+> "if they use the API they could use the API to blurring any video they want... we don't need to consider is the customer is under the free or subly."
+
+→ **Connect Source 走 API 整合,不分 fleet vs contract fleet permission**。API 自己可控任何 video / fleet。
+
+### 8.3 Option B 拍板的真實意義(早上 vs 下午對齊)
+
+| 早上 Spencer 框架 | 下午 Brian 釐清 |
+|----------------|---------------|
+| Option A delegated / Option B centralised(UI 視角) | Option A 跟 B 在 API 層 **是同一條 flow**(Kenny 在會議裡有講出來,但太晚太含糊) |
+| Cary 選 Option B = Master 中央控制 UI | **Connect Source 不需要任何 UI**(API only)· Auto Sense 需要 UI 是另案 |
+| 隱含「Master Portal 有 toggle」 | Master 端 entitlement 是 backend 設,**只能 API 層呈現** |
+
+### 8.4 Jira tickets(已開 · 2026-05-11)
+
+| Ticket | Summary | Type | Priority | Component | Assignee | Due / Timeline |
+|--------|---------|------|----------|-----------|---------|---------------|
+| [**VMX-7457**](https://jira.navman.co.nz/jira/browse/VMX-7457) | [API] Integrate BMS Blurring functionality into VisionMax cloud(含 API doc share to MAU 作為 AC) | Task | 2 - Medium | *Fleet/Master backend API | **Spencer** | **Due 30/Jun/2026**(staging)· Production end of July |
+| [**VMX-7458**](https://jira.navman.co.nz/jira/browse/VMX-7458) | [VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers | Task | 2 - Medium | *Fleet/Master frontend | **Kenny**(自己 own scoping)| Q2 feasibility · 實作 long-term |
+| _(暫不開 ticket)_ | Monthly subscription report — Blurring enablement & usage tracking | — | — | — | — | Post-Q2 production · 等真實需求落地再開新單 |
+
+#### 為什麼 #4(Monthly report)暫不開 ticket
+- **參考舊單**:[VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427) "Improve reporting function #107" — Elvis 2025/06/05 開,目前 assign Spencer,但**這張是更大的 events reporting 改造**(需要 Time Series DB migration,Brian 4/20 acknowledge 但未排入 sprint)
+- VMX-6427 ≠ Blurring monthly report 的對應位置 — overlap 但不是同一件事
+- **決策(2026-05-11)**:Blurring monthly report 等 Production deploy 後(end of July 後)有具體 SI usage 資料時再開新單,不疊在 VMX-6427 上
+- **對 Cary 口徑**:「Tracked as future enhancement post-Q2 production, will scope once we have real usage data」
+
+#### Kenny 在 VMX-7457 / 7458 的 2 個 sharp 處理
+1. **#1+#2 合併在 VMX-7457**:cloud integration + API doc share 同票,doc share 寫進 AC,不分兩張避免並行追蹤負擔
+2. **VMX-7458 把 pattern reference 改精準**:從「Live User」改成「**Driver-Facing Camera Live View**」— 對 Lucy / GUI team 更明確
+
+#### VMX-7457 內 2 個 deliverable 不同 timeline(Kenny 5/11 加 comment 釐清)
+
+合併同票會讓票面 Due date(30/Jun/26)誤導 — 看似 doc share 也要等到 6 月底。**Kenny 在 VMX-7457 加 comment 標清楚 2 個 deliverable 不同 commitment**:
+
+| Deliverable | Timeline | 對 Cary commitment |
+|------------|----------|------------------|
+| **A · API documentation share to MAU – Connect Source** | **本週 post-QPR** · 等 Brian sign-off | 「receive doc this week」(本週收到 doc)· cover note 必須標 "doc share ≠ endpoint live" |
+| **B · Cloud integration**(ticket main scope) | **Staging 30/Jun/2026** · Production end of July(post-DQE)| 「Q2 release notes summary by end of June」(對外發給客戶前先 review) |
+
+→ Endpoint cannot be called live against production until Deliverable B validation completes — Cary 已 briefed。
+
+→ **Comment 已加進 VMX-7457**,Brian / Spencer 一讀就知道兩條 timeline 不同 · 後續對 Cary 任何承諾都 traceable 在 ticket 上。
+
+### 8.5 對 MAU 的 commitment 更新
+
+| Cary 5/11 早上要的 | 2pm 結論 |
+|------------------|---------|
+| ① 確認 Option B(per-fleet billing 控制) | ✅ 走 API · per-fleet/contract-fleet 在 API 層自然支援 |
+| ② Monthly subscription report 加啟用裝置數 | 🕐 開 Ticket #4 · post-Q2 future planning · 不能消失 |
+| ③ 2pm Q1 API sync | ✅ 已開 · Q2 scope 鎖定 |
+| (Elvis 加碼)未來 deployment 前 notify · Q2 release notes 提早給 | ✅ Kenny commit · end of June 給 release notes |
+
+### 8.6 Action Items(2pm 結束後)
+
+#### 🔥 P0 · 今天剩下時間
+- [ ] **Cary follow-up email**(把今天 dismiss 掉的 monthly report 救回來)· cc Brian / Spencer / Wendy / Elvis
+- [ ] Brian / Spencer 1-on-1 ping · review 今天會議的 execution gap
+
+#### 📅 P1 · 本週
+- [ ] 開 4 張 Jira ticket(§ 8.4)
+- [ ] 跟 Spencer 拿 endpoint open production 的 concrete ETA
+- [ ] Q1 release notes 對 MAU 客戶部署前先安排(Cary 5/11「don't surprise」訊號)
+- [ ] update knowledge(critical-facts / changelog / case-hub.html · 已執行)
+
+#### 🎯 P2 · End of June 前
+- [ ] Q2 release notes summary 給 Cary(對外發給客戶之前)
+- [ ] GUI team kick-off(Ticket #3 Auto Sense UI 可行性)
+- [ ] Connect Source SI 端 integration 進度追蹤
+
+### 8.7 Kenny 自評:Execution gap
+
+**真實問題**:準備層(Kenny 版 / Cary 版 HTML / sound-bites)極完整 → 但會議現場幾乎沒 deploy。Brian 進場 take over 5 分鐘把所有事情講完,**主導權失分**。
+
+**下次 protocol**:T-30min pre-game drill 內化(verbatim 念 sound-bite / 指圖練習 / 念 DON'T SAY)· 會議室只帶 Cary 版 · 手機備 Kenny 版(緊急廁所看)· Kenny 版 **不帶進會議室**(INTERNAL banner 被旁邊主管看到尷尬)。
+
+_Last updated: 2026-05-11 下午 · 補 § 8 2pm sync 結論 + Q2 scope 拍板 + Jira queue + Kenny 執行 gap 自評。_
+
+---
+
+## § 8.8 · 2026-05-11 傍晚 · Brian 攔下 Cary follow-up email
+
+### 事件
+
+2pm sync 後 Kenny 起草了一封 follow-up email 給 Cary / Elvis(cc Wendy / Brian / Spencer)— 內容包含:
+- Q1 + Q2 兩個原始 5/7 問題的 ✅ Confirmed 答案
+- VMX-7457 / VMX-7458 ticket link
+- 4 條 commitment timeline(doc share 本週 / staging 30/Jun / production end-Jul / Q2 release notes end-Jun)
+- Monthly subscription report 救球段(tracked as post-Q2 future enhancement)
+
+**Brian 5/11 傍晚 review 後說「不要發」**,Kenny 接受並暫停。
+
+### 推測 Brian 攔下的可能原因
+
+| 可能性 | 訊號 |
+|--------|------|
+| A · Brian 想自己發 | 維持 Connect Source 對外主導 · 不把主導權回給 Kenny 書面動作 |
+| **B · 不想對 Cary 紙上 commit 時程** | "doc this week / staging 30/Jun / production end-Jul" 寫成 email → 萬一延誤客戶有紙本追責 |
+| **C · 內部還沒完全對齊** | QPR 未走完 · Spencer endpoint 條件未鎖死 · 不想 Kenny 先 lock in |
+
+→ **最大概率 B + C 混合**(Brian 反射動作 = 別在 spec / timeline 鎖死前留書面 trail)
+
+### Kenny 後續動作
+
+1. **Teams 短訊 ping Brian**(已執行 / 待執行):
+   - Q1: Brian 自己發,還是這 thread 先 hold?
+   - Q2: 若 hold,什麼 trigger 後再 communicate(doc sign-off / staging deploy / other)?
+
+2. **準備好「Cary / Wendy chase」的口頭答覆模板**(沒書面 trail 不代表 Kenny 沒記住結論)
+
+3. **不要主動再寫 follow-up email**,等 Brian 動作或明確授權
+
+### Email draft 存底(沒發但留 record)
+
+完整 draft(中英對照)備份在 `weekly-summary/2026-05-11_blurring-followup-email-draft.md`(若未來 Brian 授權發,直接拿)。Email 涵蓋:
+- Subject: "Confirmed · Passenger Blurring Q1 + Q2 — Implementation Summary"
+- Q1 ✅ Confirmed feasible(driver/passenger 區分 BMS API 已支援)
+- Q2 ✅ Confirmed feasible at API level(三層 inheritance + override)
+- Jira tickets VMX-7457 / VMX-7458
+- 4 條 commitment timeline
+- Monthly report future enhancement 救球段
+
+### Implication(Kenny 心裡要記)
+
+| 沒發的後果 | 影響 |
+|----------|------|
+| Cary 早上 monthly report 球 | 沒救回來 · 她下次會 chase |
+| 2pm 拍板的 4 條 commitment | 只有口頭印象 · Cary / Wendy / Brian 都可能忘細節 |
+| Wendy 完全不知道 2pm 結論 | 她下次 ping 你問「最後決定什麼」, 你只能口頭 forward |
+
+→ **這些不是 Kenny 的鍋**(Brian 攔下),但 Kenny 腦中要記「Cary / Wendy 任何時候 chase, 我有準備好答案」。
+
+### 校正紀錄(2026-05-11 傍晚 v2 · Brian 二次回應後校正)
+
+**Kenny 二次 ping Brian 後**,Brian 回:**「不用那麼麻煩, 他看我 Jira 寫清楚了」**
+
+→ 校正之前的推測(B+C 混合,Brian 不想留書面 trail)成更精準的解讀:
+
+| 我之前推測(過度保守)| Brian 真實立場(更 relaxed)|
+|---------------------|--------------------------|
+| Brian 不想在 spec/timeline 鎖死前對客戶留書面 trail | **Jira ticket 寫清楚 = 對外 commitment 已建立 · external email 是 redundant** |
+| 「未來對外發 commitment 文件前先 Brian sign-off」| **內部 Jira / case file 寫清楚 = SSOT 已建立 · 對外只在客戶要書面 audit 時才寫** |
+| 等於 Kenny 動作被 gate | **Brian 對 Kenny 的開單質量肯定**(特別是 VMX-7457 拆 Deliverable A/B 那個 comment 動作有效) |
+
+### Kenny 拿到的 3 個訊號
+
+1. **書面工作 > 口頭工作** — 今天 2pm 會議 execution gap 的失分,被 Jira 開單質量補回一半
+2. **MDT 文化內 SSOT = ticket** — 不需要重複做 external 文件
+3. **客戶 chase 時口頭 / Teams 回答**根據 Jira 內容即可,不用 wait Brian sign-off email
+
+### Cary / Wendy chase 時的口頭答覆模板
+
+預期本週內會收到 chase(「Q1+Q2 最後決定?」/「doc 何時給?」/「monthly report 你們會做嗎?」)。
+直接照 § 8.8 email draft 內容口頭 / Teams 回:
+
+| 客戶問什麼 | Kenny 怎麼答 |
+|----------|------------|
+| "Q1 (driver/passenger blur) 確認嗎?" | "Confirmed feasible at API level. BMS API already supports it. For Connect Source, your SI calls the API specifying scope." |
+| "Q2 (per fleet / contract fleet) 確認嗎?" | "Confirmed feasible at API level. Three-layer inheritance — Master → Fleet → Contract Fleet, with API override at any layer. Connect Source has full programmatic control." |
+| "doc 什麼時候給?" | "This week, post Brian's sign-off after QPR. I'll ping you the moment it's ready." |
+| "endpoint 什麼時候 live?" | "Production end of July, post-DQE. Staging end of June. I'll confirm exact date once Spencer's internal validation lands." |
+| "monthly subscription report?" | "Tracked as future enhancement post-Q2 production. Data foundation is in VMX-7457 (every API call logged). We'll scope the format with you once we have real usage data flowing — happy to revisit format after July." |
+| "你 5/8 提的兩條 portal path 路徑(A/B)?" | "After deeper RD alignment, the per-Contract-Fleet control you needed is fully supported at the API level today. Auto Sense's UI track is separate — long-term." |
+
+→ 這些答覆**跟 Jira / Brian 立場一致**,客戶任何時候 chase 都答得出來。
+
+_Last updated: 2026-05-11 傍晚 v2 · 校正 § 8.8 Brian 二次回應 + Kenny 學到 + chase 時口頭答覆模板。_

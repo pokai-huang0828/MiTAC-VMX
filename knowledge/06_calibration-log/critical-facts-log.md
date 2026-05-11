@@ -42,6 +42,51 @@
 - ⏳ 待 Brian QPR 後 confirm 拍板
 - 詳見:`meetings/2026-05-11_morning_cary-elvis-teams-thread.md` + `case-learning/connectsource-passenger-blurring.md` § 6
 
+## Connect Source = API only / Auto Sense = UI(Q2 不做)(2026-05-11 下午 Brian 拍板)
+- ✅ **Connect Source(MAU 客戶)**:已 API integrated · **走 API only,不需要 UI portal toggle** · API 可控任何 video / 任何 fleet · contract fleet 不需要在 portal 端做 permission
+- 🕐 **Auto Sense(MAU 客戶)**:用 VMX web UI(2000+ devices)· 要 GUI design 才能加 Blurring 控制 · **Q2 不做**(long term)
+- ✅ **Q2 scope 拍板**:(1) Integrate BMS Blurring into VMX cloud · (2) Release API doc 給 Connect Source
+- 🕐 **Monthly subscription report 加 Blurring tracking**:Brian「not the target for now, future planning」· **暫不開 ticket** · Production deploy 後有真實 usage 資料再開新單 · 舊單 VMX-6427(events reporting infra)不對等
+- 📅 **時程**:Staging end of June · Production end of July · Q2 release notes end of June 給 Cary(對外發布前)
+- 對外應用:對 MAU 講「Connect Source 走 API,Q2 可 ship;Auto Sense 走 UI 是另案 long term」· **不要把 Connect Source 跟 Auto Sense 的方案混講**
+- 來源:Brian 2026-05-11 14:00 sync(Cary / Elvis 在場)
+- **Jira tickets(2026-05-11 開)**:
+  - [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) — Cloud API integration + doc share(Spencer · Due 30/Jun/26 staging)
+    - **2 個 deliverable 不同 timeline**(Kenny 5/11 加 comment 釐清):
+      - A · **API doc share**:本週 post-QPR(對 Cary commit「本週收 doc」)· cover note 必須標 "doc share ≠ endpoint live"
+      - B · **Cloud integration**:Staging 30/Jun · Production end of July post-DQE(對 Cary commit「end of June 給 Q2 release notes summary」)
+  - [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) — GUI feasibility for non-API customers(Kenny · long-term)
+  - VMX-6427(舊單,事實 reference,**不當作 Blurring monthly report 對應位置**)
+
+## Option A vs Option B 在 API 層是同一條 flow(2026-05-11 下午 Kenny 講出但太晚)
+- 🚨 **5/11 早上 Spencer 給的 Option A(delegated)/ Option B(centralised at Master)是 UI 視角的框架**
+- ✅ **下午 Brian 拍板**:在 API 層,A 跟 B 是**同一條 flow** — 因為 API 本來就可以控任何 fleet 任何粒度 · UI 視角的差異在 API 層消失
+- 對外應用:**未來討論 Blurring per-fleet 控制,直接用 inheritance + override + on-demand 模型講**,不要回去用 UI Option A/B 框架(已 superseded)
+- 對 Cary 線:後續 follow up 不要再提 5/11 早上的 Option A/B,直接講「API 路徑 + inheritance model」
+
+## Jira ticket = SSOT,external email follow-up 通常 redundant(2026-05-11 傍晚 calibration)
+- 🎯 **真實 calibration**(經 Brian 5/11 傍晚二次澄清後校正):
+- **事件**:Kenny 2pm sync 後起草 follow-up email 給 Cary(Q1/Q2 ✅ Confirmed + ticket link + 4 條 commitment timeline + monthly report 救球段)→ Brian 第一次回「不要發」→ Kenny 再 ping 確認 → **Brian「不用那麼麻煩,他看我 Jira 寫清楚了」**
+- **Brian 真實立場**:
+  - Jira ticket 寫清楚 = **對外 commitment 已建立**(內部 SSOT)
+  - External email 重複 Jira 內容 = **redundant overhead**
+  - 客戶 chase 時:口頭 / Teams 回答即可,不需要 email 留書面 trail
+  - 對 Kenny 開單質量肯定(特別是 VMX-7457 加 comment 拆 Deliverable A/B 那個動作)
+- **新規則**:
+  - 內部 ticket / case file 寫清楚 = commitment 已建立 · 不需要再做 external 書面文件重複
+  - 對外發 email 只在「客戶看不到 Jira + 需要書面 visibility 給上級 audit」時做
+  - 客戶 chase 時口頭 / Teams 回答(根據 Jira 內容)即可
+- **Kenny 學到的**:
+  - **書面工作 > 口頭工作**(MDT 文化內 net positive)
+  - 把 Jira / case file / changelog 寫精細 = 對 Brian 來說「Kenny 有 own」訊號
+  - 但 Kenny 心裡要存好 chase 時的口頭答覆 mental model
+- 適用情境(同樣不發 external email):
+  - timeline / scope 確認類(Jira 內有時)· spec 澄清類(ticket comment 內有時)· 對客戶承諾 audit 類
+- **要發 email 的情境**(這個沒變):
+  - 客戶看不到 Jira 但要書面 visibility 給他們上級 audit · 跨組織正式宣告 · 真實必須留書面 trail 的法務/商務 commitment
+- email draft 不丟掉 → 存在 `case-learning/connectsource-passenger-blurring.md` § 8.8 · 未來 Brian 授權時可直接拿(可能性低)
+- 來源:Brian 5/11 傍晚二次回應「不用那麼麻煩, 看我 Jira 寫清楚了」
+
 ## Blurring API doc share ≠ endpoint open(2026-05-11 揭露)
 - 🚨 **重大限制**:即使 Brian 同意 share API doc 給 CONNECTSOURCE,客戶**仍不能 call API**
 - 原因:**endpoint 還沒在現 VisionMax 環境 open**,要 internal validation 完成才開

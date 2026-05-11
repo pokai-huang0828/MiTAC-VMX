@@ -367,38 +367,105 @@
 
   <div id="cs-hero">
     <div class="hero amber">
-      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-11 早上</div>
+      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-11 下午 14:00 sync 後</div>
       <h1>CONNECTSOURCE × Passenger Blurring</h1>
-      <p class="hero-sub">澳洲 MiTAC AU(Wendy + Cary + Elvis)代 reseller 客戶提出乘客模糊化 AI 功能需求。5/8 sync-up 校正 Q2 portal path → 5/11 早上 Cary 拍板 Option B(Master Centralised)+ 新需求 monthly subscription report。</p>
+      <p class="hero-sub">澳洲 MiTAC AU(MAU)Wendy / Cary / Elvis 代 reseller 客戶提出乘客模糊化 AI 需求。2026-05-11 下午 Brian 拍板 Q2 scope:BMS Blurring 整合進 VMX cloud + Release API doc 給 Connect Source(API only)· Auto Sense UI 是另案 long term · Q2 release notes end of June 給 MAU。</p>
       <div class="hero-meta">
         <div class="hero-stat"><div class="hero-stat-val">1,165</div><div class="hero-stat-label">台裝置</div></div>
         <div class="hero-stat"><div class="hero-stat-val">$216K</div><div class="hero-stat-label">潛在收益(USD)</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">Option B</div><div class="hero-stat-label">Master Centralised 拍板</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">2pm 今天</div><div class="hero-stat-label">Q1 API sync(Kenny+Elvis)</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">API only</div><div class="hero-stat-label">Connect Source Q2 路徑</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">End Jul</div><div class="hero-stat-label">Production deploy</div></div>
       </div>
     </div>
 
-    <div class="card bordered-orange spaced-top-md" style="border-left:4px solid #ED7D31">
-      <div class="card-title">🆕 2026-05-11 早上 Teams thread 重大進展</div>
+    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+      <div class="card-title">✅ 2026-05-11 下午 14:00 sync · Brian 拍板 Q2 scope</div>
       <ul class="bullet-loose">
-        <li><strong>✅ Cary 拍板 Q2 portal path:Option B(Master Centralised)</strong> — Master 直接控所有 Blurring permission 含 Contract Fleet,Fleet 不 manage</li>
-        <li><strong>立場翻轉理由</strong>:feature 可能 incur extra fee → SI 要 full control which fleet 推(billing 控制 &gt; 5/8 警告的隱私顧慮)</li>
-        <li><strong>🆕 新需求</strong>:monthly subscription report 加「每 master account 下啟用裝置數」(billing tracking)— 訊號 = Blurring 將成新 subscription tier</li>
-        <li><strong>🚨 Q1 API doc share ≠ endpoint open</strong> — 即使 Brian sign-off 同意 share,客戶仍不能 call(endpoint 未在現 VMX 環境 open,要 internal validation 完成才開)</li>
-        <li><strong>暫時對外口徑</strong>:「Blurring on our roadmap」(等 Brian QPR 結束 confirm)</li>
-        <li><strong>2pm 今天</strong>:Kenny + Elvis(可能 Cary)Teams sync 講 Q1 API,同 group meeting link</li>
+        <li><strong>Q2 In Scope</strong>:(1) BMS Blurring 整合進 VisionMax cloud · (2) Release API doc 給 Connect Source(MAU API integrated 客戶)</li>
+        <li><strong>Connect Source = API only</strong> · 不需要 UI portal toggle · API 自己可控任何 video / fleet / contract fleet · 不分 fleet vs contract fleet permission</li>
+        <li><strong>Auto Sense(MAU 另一客戶)= 走 UI</strong> · 2000+ devices on VMX web UI · 要 GUI design 才能加 Blurring 控制 · <strong>Q2 不做</strong>(long term)</li>
+        <li><strong>Option A vs B(早上 Spencer 框架)在 API 層其實是同一條 flow</strong> — Kenny 會議裡講出來但太晚太含糊 · Brian take over 釐清</li>
+        <li><strong>Monthly subscription report</strong> · Brian「not the target for now, future planning」· **Ticket #4 暫不開**,post-Q2 production 後有真實 usage 資料再開新單</li>
+        <li><strong>時程</strong>:Staging end of June / Production end of July / Q2 release notes end of June 給 MAU(對外發布前)</li>
+        <li><strong>Elvis 訊號</strong>:「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 對 MAU 客戶部署前先安排</li>
       </ul>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:8px">完整 thread:<a href="../meetings/2026-05-11_morning_cary-elvis-teams-thread.md.html" style="color:var(--mdt-blue);font-weight:600">2026-05-11_morning_cary-elvis-teams-thread.md</a></p>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:8px">完整紀錄:<a href="../meetings/2026-05-11_afternoon_cary-elvis-sync.md.html" style="color:var(--mdt-blue);font-weight:600">2026-05-11_afternoon_cary-elvis-sync.md</a></p>
+    </div>
+
+    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+      <div class="card-title">🎫 Jira Tickets 已開(2026-05-11 下午)</div>
+      <table class="data-table" style="font-size:13px">
+        <thead><tr><th>Ticket</th><th>Summary</th><th>Type / Priority</th><th>Assignee</th><th>Due / Timeline</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457" target="_blank" style="color:var(--mdt-blue);font-weight:700">VMX-7457</a></td>
+            <td>
+              [API] Integrate BMS Blurring functionality into VisionMax cloud<br>
+              <em style="font-size:12px;color:var(--text-muted)">2 deliverables in one ticket(Kenny 加 comment 釐清):</em>
+              <ul style="font-size:12px;margin:4px 0 0 18px;line-height:1.6">
+                <li><strong>A · API doc share</strong> → 本週 post-QPR</li>
+                <li><strong>B · Cloud integration</strong> → Staging 30/Jun · Prod end-Jul</li>
+              </ul>
+            </td>
+            <td>Task · 2 - Medium</td>
+            <td><strong>Spencer</strong></td>
+            <td><strong>30/Jun/2026</strong>(staging · ticket Due)</td>
+          </tr>
+          <tr>
+            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458" target="_blank" style="color:var(--mdt-blue);font-weight:700">VMX-7458</a></td>
+            <td>[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers</td>
+            <td>Task · 2 - Medium</td>
+            <td><strong>Kenny</strong></td>
+            <td>Q2 feasibility · 實作 long-term</td>
+          </tr>
+          <tr style="background:#F6F8FB">
+            <td><em>(暫不開)</em></td>
+            <td>Monthly subscription report — Blurring tracking</td>
+            <td>—</td>
+            <td>—</td>
+            <td>Post-production · 等真實 usage 資料再開新單</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:10px">
+        <strong>#4 為什麼暫不開</strong>:舊單
+        <a href="https://jira.navman.co.nz/jira/browse/VMX-6427" target="_blank" style="color:var(--mdt-blue);font-weight:600">VMX-6427</a>
+        "Improve reporting function #107" 是更大的 events reporting infra 工作(Time Series DB migration),
+        跟 Blurring monthly report 不完全 overlap。Production deploy 後有真實 usage 資料再開新單。
+        對 Cary 口徑:"Tracked as future enhancement post-Q2 production, will scope once we have real usage data"。
+      </p>
+    </div>
+
+    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+      <div class="card-title">🎯 2026-05-11 傍晚 · Brian 認可 Jira ticket 是 SSOT(校正)</div>
+      <ul class="bullet-loose" style="font-size:13px">
+        <li>Kenny 2pm sync 後起草 follow-up email(Q1+Q2 ✅ + ticket link + 4 條 timeline + monthly report 救球)→ Brian 第一次回「不要發」</li>
+        <li>Kenny ping Brian 確認 → <strong>Brian 二次回應:「不用那麼麻煩,他看我 Jira 寫清楚了」</strong></li>
+        <li><strong>真實 calibration</strong>:Jira ticket = 對外 commitment 已建立 · external email 重複 Jira 內容是 redundant · 客戶 chase 時口頭/Teams 答即可</li>
+        <li><strong>對 Kenny 開單質量的肯定</strong> — VMX-7457 拆 Deliverable A/B comment 動作有效 · <strong>書面工作 &gt; 口頭工作</strong>(今天 execution gap 失分被補回一半)</li>
+        <li><strong>新規則(critical-facts-log v2)</strong>:內部 Jira / case file 寫清楚 = SSOT 已建立 · 不需重複做 external 文件 · 客戶 chase 時根據 Jira 內容口頭回</li>
+        <li>Email draft 不丟 · 存在 case file § 8.8 · 預期本週 Cary/Wendy chase 用 § 8.8 口頭答覆模板</li>
+      </ul>
+    </div>
+
+    <div class="card spaced-top-md" style="border-left:4px solid #C42F3C;background:#FCE7E9">
+      <div class="card-title">⚠️ Kenny 自評 · 2pm sync execution gap</div>
+      <ul class="bullet-loose" style="font-size:13px">
+        <li>準備層完整(HTML 圖 / sound-bites / push back 預期 / DON'T SAY 警示)</li>
+        <li><strong>但會議現場幾乎沒 deploy</strong>:沒 share screen / 開場違反 DON'T SAY / Monthly report 一句話 dismiss(違反自己 HTML 寫的 sales pitch)</li>
+        <li>Brian 進場 5 分鐘 take over · 主導權失分 · 對「升格主對接 PM」定位造成傷害</li>
+        <li><strong>真實問題不是 prep gap,是 execution gap</strong> — 準備了沒 deploy = 沒準備</li>
+        <li>下次 protocol:T-30min 獨自地方 drill(verbatim 念 sound-bite / 指圖練習 / 念 DON'T SAY)· 會議室只帶 Cary 版 HTML · Kenny 版手機備用</li>
+      </ul>
     </div>
 
     <div class="card spaced-top-md" style="border-left:4px solid #8893A4;background:#F6F8FB">
-      <div class="card-title">📜 5/8 sync-up 結論(歷史)</div>
+      <div class="card-title">📜 5/8 sync-up 結論(已 superseded · 歷史 reference)</div>
       <ul class="bullet-loose" style="font-size:13px">
         <li>Kenny 升格主對接 PM — Cary「we will be stalking you」</li>
         <li>Q2 portal path 校正:Master Portal 路徑只到 main fleet 級,需 per-contract-fleet 粒度</li>
-        <li>提出兩條路徑:(A) Master 補視圖 vs (B) Fleet Portal 加 UI</li>
-        <li>Q1 客戶用 API 直接整合,Kenny 問 Spencer 能否 share API doc</li>
-        <li><em>5/11 早上 update</em>:Spencer 重新框架成 Option A/B,Cary 選 Option B(等於 5/8 的 A)</li>
+        <li>提出兩條路徑:(A) Master 補視圖 vs (B) Fleet Portal 加 UI <em>← 已被 5/11 下午 API-only 路徑取代</em></li>
+        <li>Q1 客戶用 API 直接整合,Kenny 問 Spencer 能否 share API doc <em>← 已開 VMX-7457</em></li>
       </ul>
     </div>
   </div>

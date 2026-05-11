@@ -138,15 +138,17 @@ Cary 警告(隱私):
 >
 > 詳見:[`2026-05-11_morning_cary-elvis-teams-thread.md`](2026-05-11_morning_cary-elvis-teams-thread.md)
 
-### 📅 本週(P1)
-- [ ] 把 5/8 會議結論寫進 `case-learning/connectsource-passenger-blurring.md`
-- [ ] 把 5/8 會議結論寫進 `knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md`(加 H 段 5/8 校正)
-- [ ] 建 memory `project_meeting_2026-05-08_cary-elvis_syncup.md`
-- [ ] Kenny 對外定位:Cary / Elvis / Wendy 主對接 PM(Brian / Spencer 退到後援)
+### 📅 本週(P1)— ✅ 全部執行(2026-05-11)
+- [x] 把 5/8 會議結論寫進 `case-learning/connectsource-passenger-blurring.md` — ✅ 寫進 § 5
+- [x] 把 5/8 會議結論寫進 `knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md` — ✅ 已加 § H · 後續 2026-05-11 整個檔 archived 到 `knowledge/archive/`
+- [x] 建 memory `project_meeting_2026-05-08_cary-elvis_syncup.md` — ✅ 已建
+- [x] Kenny 對外定位:Cary / Elvis / Wendy 主對接 PM(Brian / Spencer 退到後援)— ✅ 5/11 早上 Cary 直接 Kenny over Brian/Spencer 確認
 
-### 🎯 下個 sync 前(P2)
-- [ ] Brian / Spencer 拍板 Q2 走 (A) 還是 (B)
-- [ ] 若走 (B),跟 Lucy 對 Fleet Portal UI 設計
+### 🎯 下個 sync 前(P2)— ✅ 5/11 下午 sync 完成
+- [x] Brian / Spencer 拍板 Q2 走 (A) 還是 (B)— ✅ **2026-05-11 下午 Brian 拍板:都不走 UI A/B,Connect Source 走 API only** · 5/8 (A)/(B) UI 路徑框架 **已 superseded**
+- [x] 若走 (B),跟 Lucy 對 Fleet Portal UI 設計 — ✅ Auto Sense UI 在 [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) feasibility(Lucy 已加 CC)· long-term
+
+> **後續 sync 紀錄**:[`2026-05-11_morning_cary-elvis-teams-thread.md`](2026-05-11_morning_cary-elvis-teams-thread.md) + [`2026-05-11_afternoon_cary-elvis-sync.md`](2026-05-11_afternoon_cary-elvis-sync.md)
 
 ---
 

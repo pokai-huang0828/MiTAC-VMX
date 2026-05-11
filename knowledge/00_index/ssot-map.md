@@ -82,11 +82,29 @@
 
 ## 📋 客戶案件
 
-| 案件 | SSOT 主檔 | 狀態 |
-|-----|---------|-----|
-| Honeywell ME CDR(新案 5/8 啟動) | [`case-learning/honeywell-me-cdr-opportunity.md`](../../case-learning/honeywell-me-cdr-opportunity.md) | 🆕 NEW |
-| Platform Science / Vinicius | [`case-learning/vinicius-platform-science.md`](../../case-learning/vinicius-platform-science.md) | 🟢 ACTIVE |
-| CONNECTSOURCE / Cary / Wendy | [`case-learning/connectsource-passenger-blurring.md`](../../case-learning/connectsource-passenger-blurring.md) | 🟡 5/8 校正中 |
+| 案件 | SSOT 主檔 | 狀態 | 對應 Jira(2026-05-11)|
+|-----|---------|-----|-------------------|
+| Honeywell ME CDR(新案 5/8 啟動) | [`case-learning/honeywell-me-cdr-opportunity.md`](../../case-learning/honeywell-me-cdr-opportunity.md) | 🆕 NEW | (待開 Honeywell setup ticket)|
+| Platform Science / Vinicius | [`case-learning/vinicius-platform-science.md`](../../case-learning/vinicius-platform-science.md) | 🟢 ACTIVE | Live View JS lib(Brian 5/9 承諾)· camera-side video without download 開放問題 |
+| CONNECTSOURCE / Cary / Wendy / MAU | [`case-learning/connectsource-passenger-blurring.md`](../../case-learning/connectsource-passenger-blurring.md) | 🟢 ACTIVE · **Q2 scope 已鎖定**(2026-05-11 Brian 拍板)| [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) Cloud API + doc share(Spencer · Due 30/Jun)· [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) GUI feasibility long-term(Kenny)|
+
+## 📋 Jira tickets 對應主檔
+
+| Jira | 案件 / 議題 | 主檔 SSOT |
+|------|----------|---------|
+| [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) | CONNECTSOURCE Blurring · Cloud API integration + doc share(Spencer · Due 30/Jun/26 staging · Production end-Jul) | `case-learning/connectsource-passenger-blurring.md` § 8.4 |
+| [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) | Auto Sense / non-API customers · Blurring UI feasibility(Kenny · long-term)| `case-learning/connectsource-passenger-blurring.md` § 8.4 |
+| [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) | ADAS Failure(評估期主力)· 8/10 設備 health failure | `knowledge/06_calibration-log/vmx-7404-tracking.md` |
+| VMX-6427(reference 舊單,不對等)| Improve reporting function #107 · events reporting infra(非 Blurring monthly report 對應位置)| `case-learning/connectsource-passenger-blurring.md` § 8.4 註腳 |
+
+## 🎯 Calibration rules(critical-facts-log 內 SSOT)
+
+| Rule | 來源 | 主檔 |
+|------|------|------|
+| **Jira ticket = SSOT,external email follow-up 通常 redundant** | Brian 2026-05-11 傍晚二次回應 | `06_calibration-log/critical-facts-log.md` |
+| Blurring API doc share ≠ endpoint open | Spencer 2026-05-11 揭露 | `06_calibration-log/critical-facts-log.md` |
+| Option A vs Option B 在 API 層是同一條 flow | Brian 2026-05-11 下午 take over | `06_calibration-log/critical-facts-log.md` |
+| Connect Source = API only / Auto Sense = UI(Q2 不做) | Brian 2026-05-11 下午拍板 | `06_calibration-log/critical-facts-log.md` |
 
 ---
 

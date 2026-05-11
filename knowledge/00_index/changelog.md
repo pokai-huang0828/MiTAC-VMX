@@ -3,6 +3,57 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-11 收工 audit(本日最終對齊檢查)
+
+- 2026-05-11 · **AUDIT** · 跑完整天 SSOT consistency check · grep VMX-7457/7458/6427 + Option A/B + Brian Jira=SSOT + 5/8 P0 標記 · 找出 5 個 drift / 漏洞並修正:
+  - **F1**:changelog 寫的 `2026-05-11_blurring-inheritance-model.html` v0 draft 已不存在,描述改成 SUPERSEDED
+  - **F2**:`00_index/ssot-map.md` CONNECTSOURCE 狀態從「🟡 5/8 校正中」更新為「🟢 ACTIVE · Q2 scope 已鎖定」· 加 Jira tickets 對應主檔分類 · 加 Calibration rules 4 條
+  - **F3**:`memory/project_week_summary_2026-05-11.md` 補完整 5/11 timeline(早上→下午→傍晚四段)+ Kenny 失分/補分 ledger · `MEMORY.md` 加「Brian Jira=SSOT rule」⭐⭐ entry
+  - **F4**:`meetings/2026-05-08_syncup-cary-elvis_meeting-record.md` P1 + P2 Action Items 全標已執行(5/11 下午 sync 完成 + 5/8 (A)/(B) UI 框架 superseded)
+  - **F5**:`websiteview/case-hub.html` CS page 卡片重新排序(5/8 superseded 灰卡從中間移到底部 · Q2 拍板→Jira queue→Brian SSOT 三張綠卡連續 · monthly report wording 修正「仍開 #4」→「Ticket #4 暫不開」)
+- 2026-05-11 · **NEW ENTRY** · `00_index/ssot-map.md` 加「📋 Jira tickets 對應主檔」+「🎯 Calibration rules」兩個新分類 · 對應 4 張 Jira(VMX-7457/7458/7404/6427) + 4 條 calibration rule(Jira=SSOT / doc≠endpoint / Option A vs B / Connect Source API only)
+
+## 2026-05-11 傍晚 v4(本日 · Brian 二次回應 + calibration 校正)
+
+- 2026-05-11 · **CALIBRATION** · Kenny ping Brian 確認後 · **Brian 二次回應「不用那麼麻煩, 他看我 Jira 寫清楚了」** · 校正之前「不留書面 trail」推測 → **真實立場 = Jira ticket 就是 SSOT, external email 重複 Jira 內容 redundant**
+- 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · 「Brian 攔下」條重寫成「Jira = SSOT, email follow-up redundant」· 加適用/不適用情境 + 客戶 chase 時口頭答覆規則
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.8 · 加 v2 校正紀錄 + 6 個 chase 時口頭答覆模板(Q1/Q2/doc/endpoint/monthly report/Option A/B)
+- 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` · 橘卡(攔下)改成綠卡(認可)· 修正解讀為 Brian 對 Kenny 開單質量肯定
+- 2026-05-11 · **INSIGHT** · MDT 文化:**書面工作 > 口頭工作** · 把 Jira / case file / changelog 寫精細 = 對 Brian 等同「Kenny 有 own」訊號 · 補回今天 2pm execution gap 一半失分
+
+## 2026-05-11 傍晚 v3(本日 · Brian 攔下 follow-up email + calibration)
+
+- 2026-05-11 · **DECISION** · Cary follow-up email 起草後 Brian 說「不要發」· 暫停 · 推測 Brian 不想在 spec/timeline 鎖死前留書面 commitment trail
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.8 · 完整紀錄事件 + 推測原因 + Kenny 後續動作 + email draft 存底 + implication
+- 2026-05-11 · **NEW CALIBRATION** · `06_calibration-log/critical-facts-log.md` · 加「Brian 攔下對 Cary 書面 follow-up」校正條 · **規則:未來對外發 commitment 文件前先 Brian sign-off**
+- 2026-05-11 · **TODO** · Kenny Teams 短訊 ping Brian 確認:(1) Brian 自己發還是 hold?(2) 若 hold,什麼 trigger 後再 communicate
+
+## 2026-05-11 傍晚 v2(本日 · VMX-7457 deliverable 拆分 + repo 對齊)
+
+- 2026-05-11 · **JIRA COMMENT** · `VMX-7457` 加 comment 釐清 2 個 deliverable 不同 timeline · A(doc share 本週)/ B(cloud integration staging 30/Jun · prod end-Jul)· 對 Cary 兩條 commitment traceable
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · 加「VMX-7457 內 2 個 deliverable 不同 timeline」table
+- 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · Jira tickets reference 段加 deliverable A/B 拆分說明 + 對 Cary 兩條 commitment
+- 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` CS page · VMX-7457 row 加 2 deliverable bullet 表 + timeline 拆分
+
+## 2026-05-11 傍晚(本日 · Jira tickets 開好 + repo 對齊)
+
+- 2026-05-11 · **NEW JIRA** · `VMX-7457` "[API] Integrate BMS Blurring functionality into VisionMax cloud" · Task · 2-Med · Spencer assignee · Due 30/Jun/26(staging)· #1+#2 合併 · API doc share 寫進 AC
+- 2026-05-11 · **NEW JIRA** · `VMX-7458` "[GUI] Blurring control UI on Master/Fleet Portal for non-API customers" · Task · 2-Med · Kenny assignee · Q2 feasibility · pattern 改 "Driver-Facing Camera Live View"
+- 2026-05-11 · **DECISION** · #4 monthly subscription report 暫不開 ticket · 舊單 VMX-6427 是更大 events reporting infra 不對等 · Production deploy 後再開新單
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · placeholder #1/#2/#3/#4 換成真實 VMX-7457 / VMX-7458 + 加 sharp 處理說明
+- 2026-05-11 · **UPDATE** · `meetings/2026-05-11_afternoon_cary-elvis-sync.md` § C · 同步 Jira queue + Kenny 開單 sharp 處理
+- 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` CS page · Jira queue table 改成真實票號 + 加 #4 不開原因註腳
+- 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · ticket reference 加進對應段落
+
+## 2026-05-11 下午晚段(本日 · 2pm Cary/Elvis/Brian sync 後)
+
+- 2026-05-11 · **NEW**    · `meetings/2026-05-11_afternoon_cary-elvis-sync.md` · 2pm sync 完整紀錄 — Brian take over 拍板 Q2 scope + Jira queue + Kenny execution gap 自評
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` · 加 § 8 2pm sync 結論 + § 8.4 Jira ticket queue(4 張)+ § 8.7 Kenny execution gap 自評
+- 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · 加 2 條校正:(1) Connect Source = API only / Auto Sense = UI(Q2 不做)(2) Option A vs B 在 API 層同一條 flow(superseded UI 視角框架)
+- 2026-05-11 · **NEW(2 prep assets)** · `weekly-summary/2026-05-11_blurring-model_kenny.html` + `_cary.html` · 給 Cary 2pm sync 用的 HTML 圖(Kenny 內部練習用 + Cary 對外 client-facing 兩版)
+- 2026-05-11 · **SUPERSEDED** · `weekly-summary/2026-05-11_blurring-inheritance-model.html` v0 draft · 已被 `_kenny.html` + `_cary.html` 雙版本取代並移除 · weekly-summary/ 內僅留 _kenny / _cary 兩版
+- 2026-05-11 · **NOTE**   · Jira tickets #1-#4 由 Kenny 自己手動開 · ticket draft 完整內容見 `meetings/2026-05-11_afternoon_cary-elvis-sync.md` § C
+
 ## 2026-05-11 下午(本日 · CONNECTSOURCE morning thread 後續)
 
 - 2026-05-11 · **NEW**    · `meetings/2026-05-11_morning_cary-elvis-teams-thread.md` · 早上 Teams thread 紀錄 — Cary 拍板 Option B(Centralised at Master) + endpoint 未 open 限制 + monthly report 新需求 + 2pm Q1 API sync 安排
