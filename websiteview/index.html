@@ -3,75 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kenny VMX — Website View</title>
-<link rel="stylesheet" href="css/shared.css">
-<link rel="stylesheet" href="css/animations.css">
+<title>Kenny VMX · Mission Control</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-<header class="topbar">
-  <h1>📚 Kenny VMX <span class="accent">Website View</span></h1>
-  <div class="meta">MDT 2026 · v1.0</div>
-</header>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">
+      <div class="logo">K</div>
+      Kenny VMX<span class="accent-dot">.</span>
+    </div>
+    <div class="topnav-meta">
+      <span class="live-dot"></span>
+      <span>Updated 2026-05-11 · MDT 2026 · v2</span>
+    </div>
+  </div>
+</nav>
 
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <h2>VMX PM 工作目錄 · Web Hub</h2>
-  <p>4 個 self-contained HTML 集中於此資料夾。配色與字型統一自 <code>css/shared.css</code> 一處控管,改一次全套同步。</p>
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="week-pill">Week 19 · 2026</span>
+          <span>Mission Control</span>
+        </div>
+        <h1>Kenny 的 <span class="underline">VMX 評估期</span><br>工作中樞</h1>
+        <p class="hero-lede">本週對齊 5 大 Outlook thread、47 票 VMX pending、48 票 HAWK opened,以及對 repo 內 8 處 knowledge 的 Δ 校正。最新狀態與本週 P0 動作從這裡進。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="../weekly-summary/2026-05-11_week-of-may-8.md.html">
+            本週 Summary <span class="arrow">→</span>
+          </a>
+          <a class="btn btn-ghost" href="knowledge.html">
+            Knowledge Hub <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge-label">VMX Subscription KPI · 2026 YE</div>
+        <div class="gauge" style="--pct: 85">
+          <div class="gauge-num">85<small>K</small></div>
+        </div>
+        <div class="gauge-sub">Target <strong>100K</strong> · <strong>差 15K</strong> · Steve QBR 5/9</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<main class="grid">
+<div class="container">
 
-  <a class="card" href="knowledge.html">
-    <span class="card-arrow">→</span>
-    <div class="card-icon">📚</div>
-    <h3>Knowledge Hub</h3>
-    <p>結構化知識庫 — 6 大分類 / 43 份文件,自動掃描待釐清項目,重要性 ★ 排序。每天打開的工作頁。</p>
-    <div class="card-meta">
-      <span class="mdt-pill blue">6 + 1 tabs</span>
-      <span class="mdt-pill orange">★ 評級</span>
-      <span class="mdt-pill red">📌 待釐清</span>
-    </div>
-  </a>
+<!-- ============ ZONE 1: NOW ============ -->
+<section class="zone" id="now">
+  <div class="zone-head">
+    <span class="zone-num">01</span>
+    <h2 class="zone-title">🔥 NOW · 本週戰場</h2>
+    <span class="zone-sub">最新對齊狀態 + 本週 P0 / P1 動作</span>
+  </div>
 
-  <a class="card accent" href="case-hub.html">
-    <span class="card-arrow">→</span>
-    <div class="card-icon">📋</div>
-    <h3>Case Learning Hub</h3>
-    <p>客戶案件 dashboard — Platform Science / CONNECTSOURCE 兩案總覽 + PM 策略洞察萃取。</p>
-    <div class="card-meta">
-      <span class="mdt-pill blue">3 tabs</span>
-      <span class="mdt-pill orange">PM 框架</span>
-    </div>
-  </a>
+  <div class="now-grid">
+    <a class="card-feature" href="../weekly-summary/2026-05-11_week-of-may-8.md.html">
+      <span class="tag">⭐ Latest · 2026-05-11</span>
+      <h3>Weekly Summary · Week of May 8</h3>
+      <p>5 大 email + 47 VMX pending + 48 HAWK opened + 8 處 knowledge Δ 對齊。週一上工前先讀完。</p>
+      <div class="stats">
+        <div>P0 actions<strong>3</strong></div>
+        <div>P1 actions<strong>5</strong></div>
+        <div>Δ 校正<strong>12</strong></div>
+        <div>New case<strong>1</strong></div>
+      </div>
+      <div style="margin-top:16px"><span class="more">深入閱讀 →</span></div>
+    </a>
 
-  <a class="card" href="portal-briefing.html">
-    <span class="card-arrow">→</span>
-    <div class="card-icon">🎯</div>
-    <h3>Portal Client Briefing</h3>
-    <p>客戶端用 25 張中文簡報 — Brian Portal Task 主交付。鍵盤上下鍵切 slide,可現場 demo。</p>
-    <div class="card-meta">
-      <span class="mdt-pill blue">25 slides</span>
-      <span class="mdt-pill orange">中文 / 客戶用</span>
-    </div>
-  </a>
+    <a class="card-mini" href="../knowledge/06_calibration-log/critical-facts-log.md">
+      <span class="label"><span class="dot red"></span> 別再答錯</span>
+      <h4>Critical Facts Log</h4>
+      <p>5/11 新增 2 條 — KPI 100K · Lens Cover 6 月 release(HAWK-582 單軌)</p>
+      <div class="footer-row">
+        <span class="count">15+</span>
+        <span class="arrow-link">查校正 →</span>
+      </div>
+    </a>
 
-  <a class="card dark" href="portal-architecture.html">
-    <span class="card-arrow">→</span>
-    <div class="card-icon">🏛</div>
-    <h3>Architecture &amp; Integration</h3>
-    <p>VisionMax 架構文件英文版 55 張(原始 PDF 複刻)— 海外客戶 / 技術方對接用。</p>
-    <div class="card-meta">
-      <span class="mdt-pill blue">55 slides</span>
-      <span class="mdt-pill orange">English</span>
-    </div>
-  </a>
+    <a class="card-mini" href="../knowledge/06_calibration-log/vmx-7404-tracking.md">
+      <span class="label"><span class="dot amber"></span> 評估期籌碼</span>
+      <h4>VMX-7404 ADAS Failure</h4>
+      <p>新加 HAWK 側平行案(HAWK-501 / 574 / 401),根因 30 km/h × 3 mins 行駛條件</p>
+      <div class="footer-row">
+        <span class="count">8/10</span>
+        <span class="arrow-link">追蹤 →</span>
+      </div>
+    </a>
+  </div>
+</section>
 
-</main>
+<!-- ============ ZONE 2: CASES ============ -->
+<section class="zone" id="cases">
+  <div class="zone-head">
+    <span class="zone-num">02</span>
+    <h2 class="zone-title">📋 CASES · 客戶與專案</h2>
+    <span class="zone-sub">Active 客戶案 · 會議紀錄 · PM 框架</span>
+  </div>
 
-<footer class="footer">
-  色票 / 字型 / 共通樣式集中於 <a href="css/shared.css">css/shared.css</a>。
-  Knowledge Hub 由 <code>knowledge/_build_index.py</code> 自動產生。
+  <div class="case-grid">
+    <a class="case" href="case-hub.html#honeywell">
+      <div class="case-header">
+        <div>
+          <div class="case-name">Honeywell MiddleEast</div>
+          <div class="case-region">CDR + White-label VMX</div>
+        </div>
+        <span class="status new">NEW · 5/8</span>
+      </div>
+      <p>Stark 5/8 啟動,第一單 5 月 6,000 pcs(K220 + K265),Kenny 接 VMX setup(white-label logo + sample import)。</p>
+      <div class="case-meta">
+        <span class="chip">6K pcs</span>
+        <span class="chip">White-label</span>
+        <span class="chip">5/11 P0</span>
+      </div>
+    </a>
+
+    <a class="case" href="case-hub.html#ps">
+      <div class="case-header">
+        <div>
+          <div class="case-name">Platform Science</div>
+          <div class="case-region">US · cloud-to-cloud</div>
+        </div>
+        <span class="status active">ACTIVE</span>
+      </div>
+      <p>Vinicius 5/9 兩 open Q — Live View JS lib + camera-side video without download。Brian 承諾 Server-to-Server JS lib。</p>
+      <div class="case-meta">
+        <span class="chip">K245 × 2 + K265</span>
+        <span class="chip">JS lib pending</span>
+      </div>
+    </a>
+
+    <a class="case" href="case-hub.html#cs">
+      <div class="case-header">
+        <div>
+          <div class="case-name">CONNECTSOURCE</div>
+          <div class="case-region">AU · Cary / Wendy 線</div>
+        </div>
+        <span class="status warn">5/8 校正</span>
+      </div>
+      <p>5/8 Sync up Q2 portal path 被 Elvis 現場糾正 — 只到 main fleet 級沒粒度,(A) Master 補視圖 vs (B) Fleet UI 待 Brian/Spencer 拍。</p>
+      <div class="case-meta">
+        <span class="chip">VMX-5908</span>
+        <span class="chip">VMX-6586</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="asset-row">
+    <a class="asset" href="../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md.html">
+      <div class="asset-icon">📞</div>
+      <div class="asset-body">
+        <strong>5/8 Sync up · Kenny / Cary / Elvis</strong>
+        <span>Q2 portal path 校正 · Elvis 糾正 main fleet 級 · 21 min Teams</span>
+      </div>
+    </a>
+    <a class="asset" href="../meetings/2026-05-07_ai-weekly_meeting-record.md.html">
+      <div class="asset-icon">🧠</div>
+      <div class="asset-body">
+        <strong>5/7 AI Weekly</strong>
+        <span>飲食誤判 17x · LDWS YOLO Pending · Lens Cover 雙軌(已校正單軌)· Yawning 灰階</span>
+      </div>
+    </a>
+    <a class="asset orange" href="case-hub.html#pm">
+      <div class="asset-icon">💡</div>
+      <div class="asset-body">
+        <strong>PM 策略洞察</strong>
+        <span>承諾層次 · 技術型客戶溝通 · 內部斷層 · 4 條核心原則</span>
+      </div>
+    </a>
+    <a class="asset" href="../meetings/2026-05-06_q2-request-review_meeting-record.md">
+      <div class="asset-icon">📊</div>
+      <div class="asset-body">
+        <strong>5/6 Q2 Review</strong>
+        <span>戰略翻案 · Yawning 真實狀態 · Single SKU+UVC 緊急 hotfix · Label gap</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ ZONE 3: KNOWLEDGE ============ -->
+<section class="zone" id="knowledge">
+  <div class="zone-head">
+    <span class="zone-num">03</span>
+    <h2 class="zone-title">📚 KNOWLEDGE · 穩定知識庫</h2>
+    <span class="zone-sub">43 份文件 · 6 大分類 · KB 已 ship 事實</span>
+  </div>
+
+  <p style="color:var(--muted);font-size:14px;margin-bottom:20px;max-width:780px">
+    完整搜尋 / 文件樹 / 待釐清在
+    <a href="knowledge.html" style="color:var(--brand);font-weight:700;border-bottom:1.5px solid">Knowledge Hub</a>。
+    下方依分類入口。
+  </p>
+
+  <div class="know-grid">
+    <a class="know-card" href="knowledge.html#cat-product">
+      <div class="icon ic1">🔧</div>
+      <h5>產品知識</h5>
+      <span class="cnt">11 docs · KB / Roadmap / 機種 spec</span>
+    </a>
+    <a class="know-card" href="knowledge.html#cat-org">
+      <div class="icon ic2">👥</div>
+      <h5>組織與利害關係人</h5>
+      <span class="cnt">2 docs · Stakeholder map</span>
+    </a>
+    <a class="know-card" href="knowledge.html#cat-systems">
+      <div class="icon ic3">🏛</div>
+      <h5>系統架構</h5>
+      <span class="cnt">5 docs · Portal / Plan Type / AI</span>
+    </a>
+    <a class="know-card" href="knowledge.html#cat-pm">
+      <div class="icon ic4">📐</div>
+      <h5>PM 框架</h5>
+      <span class="cnt">6 docs · 承諾 / 三層真相 / 溝通</span>
+    </a>
+    <a class="know-card" href="knowledge.html#cat-workflows">
+      <div class="icon ic5">⚙️</div>
+      <h5>工作流 SOP</h5>
+      <span class="cnt">6 docs · HTML pipeline / Sweeper</span>
+    </a>
+    <a class="know-card" href="knowledge.html#cat-calibration">
+      <div class="icon ic6">🎯</div>
+      <h5>校正紀錄</h5>
+      <span class="cnt">7 docs · Critical facts / VMX-7404</span>
+    </a>
+  </div>
+
+  <div class="asset-row" style="margin-top:24px">
+    <a class="asset orange" href="portal-briefing.html">
+      <div class="asset-icon">🎯</div>
+      <div class="asset-body">
+        <strong>Portal Client Briefing</strong>
+        <span>25 張中文簡報 · Brian portal task 主交付 · 客戶 demo 用</span>
+      </div>
+    </a>
+    <a class="asset" href="portal-architecture.html">
+      <div class="asset-icon">🏛</div>
+      <div class="asset-body">
+        <strong>Architecture & Integration</strong>
+        <span>55 張英文簡報 · 海外客戶技術對接 · PDF 複刻</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <strong style="color:var(--ink-2)">Kenny VMX Mission Control v2</strong> · MDT 2026 ·
+  改設計 token 在 <code>websiteview/css/index.css</code> · 全 static · 無 build script
 </footer>
 
 </body>

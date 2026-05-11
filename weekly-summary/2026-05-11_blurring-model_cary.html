@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passenger Blurring · Implementation Approach · VisionMax</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0B1220;
+    --ink-2:      #1B2433;
+    --muted:      #5B6878;
+    --muted-2:    #8893A4;
+    --line:       #E5E9F0;
+    --line-2:     #EEF1F6;
+    --paper:      #FFFFFF;
+    --canvas:     #F6F8FB;
+    --canvas-2:   #EDF1F7;
+
+    --brand:      #1E4E8C;
+    --brand-2:    #2C6FB8;
+    --brand-3:    #4E90D1;
+    --brand-soft: #E8EEFB;
+    --accent:     #ED7D31;
+    --accent-2:   #FF9E5C;
+    --accent-soft:#FFF1E0;
+
+    --green:      #18A06B;
+    --green-bg:   #E7F7EE;
+    --red:        #C42F3C;
+    --red-bg:     #FCE7E9;
+
+    --shadow-md:  0 8px 24px -8px rgba(11,18,32,.12), 0 2px 4px rgba(11,18,32,.04);
+    --shadow-lg:  0 24px 56px -16px rgba(11,18,32,.18), 0 6px 12px -4px rgba(11,18,32,.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    line-height: 1.65;
+    padding: 36px 24px 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: "Cabinet Grotesk", sans-serif; letter-spacing: -.02em; line-height: 1.15; font-weight: 900; }
+  .page { max-width: 1180px; margin: 0 auto; }
+
+  /* ===== Header ===== */
+  .head {
+    background: linear-gradient(135deg, #0B1830 0%, #142B53 55%, #1E4E8C 100%);
+    color: #fff; border-radius: 18px; padding: 36px 44px;
+    box-shadow: var(--shadow-lg); margin-bottom: 32px;
+    position: relative; overflow: hidden;
+  }
+  .head::before {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(237,125,49,.35), transparent 70%);
+    pointer-events: none;
+  }
+  .head::after {
+    content: ''; position: absolute; left: -80px; bottom: -120px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(78,144,209,.3), transparent 70%);
+    pointer-events: none;
+  }
+  .head .tag {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .22em;
+    color: var(--accent-2); font-size: 11px; margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+  .head h1 {
+    color: #fff; font-size: 36px; margin-bottom: 10px;
+    position: relative; z-index: 1; letter-spacing: -.025em;
+  }
+  .head .sub {
+    color: #C9D5EA; font-size: 16px; max-width: 720px;
+    line-height: 1.55; position: relative; z-index: 1;
+  }
+  .head .meta {
+    margin-top: 22px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    display: flex; gap: 28px; flex-wrap: wrap;
+    font-size: 13px; color: #B6C3D8;
+    position: relative; z-index: 1;
+  }
+  .head .meta strong { color: #fff; font-weight: 600; }
+
+  /* ===== Section ===== */
+  .section {
+    background: var(--paper); border-radius: 16px;
+    padding: 32px 36px; margin-bottom: 24px;
+    box-shadow: var(--shadow-md); border: 1px solid var(--line);
+  }
+  .section h2 {
+    font-size: 22px; color: var(--brand);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8px; margin-bottom: 6px;
+    display: inline-block;
+  }
+  .section .lede {
+    color: var(--muted); font-size: 14px; margin-bottom: 24px;
+  }
+
+  /* ===== Diagram canvas ===== */
+  .diagram-wrap {
+    display: flex; flex-direction: column;
+    align-items: center;
+    gap: 32px; margin-top: 12px;
+  }
+
+  .tree {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+    width: 100%; max-width: 760px;
+  }
+
+  .layer {
+    width: 100%; max-width: 560px;
+    background: var(--paper); border: 2px solid var(--brand-3);
+    border-radius: 14px; padding: 20px 26px;
+    box-shadow: var(--shadow-md); position: relative;
+    text-align: center;
+  }
+  .layer .label {
+    display: inline-block; background: var(--brand); color: #fff;
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
+  }
+  .layer h3 { font-size: 22px; margin-bottom: 4px; }
+  .layer .desc { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+
+  .state {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-bg); color: var(--green);
+    border: 1px solid #B5E6CB;
+    padding: 4px 11px; border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+  }
+  .state.off { background: var(--red-bg); color: var(--red); border-color: #F5C2C6; }
+  .state .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+  .arrow {
+    width: 2px; height: 32px; background: var(--brand-3);
+    position: relative; flex-shrink: 0;
+  }
+  .arrow::after {
+    content: ''; position: absolute; bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--brand-3);
+  }
+  .arrow-label {
+    background: var(--brand-soft); color: var(--brand);
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 999px;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); white-space: nowrap;
+    border: 1px solid var(--brand-3);
+  }
+
+  .cf-arrow {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    width: 100%; max-width: 720px; margin-top: 4px;
+  }
+  .cf-arrow .a {
+    width: 2px; height: 26px; background: var(--brand-3);
+    margin: 0 auto; position: relative;
+  }
+  .cf-arrow .a::after {
+    content: ''; position: absolute; bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--brand-3);
+  }
+
+  .cf-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 14px; width: 100%; max-width: 720px;
+  }
+  @media (max-width: 720px) { .cf-row { grid-template-columns: 1fr; } .cf-arrow { display: none; } }
+  .cf {
+    background: var(--paper); border: 2px solid var(--brand-3);
+    border-radius: 12px; padding: 16px 14px;
+    text-align: center; position: relative;
+  }
+  .cf.override {
+    border-color: var(--red);
+    background: linear-gradient(135deg, #FFF7F8, var(--red-bg));
+  }
+  .cf .label {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .cf h4 { font-size: 13px; margin-bottom: 6px; }
+  .cf .inherit-note { font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+  .cf .override-badge {
+    position: absolute; top: -10px; right: -8px;
+    background: var(--red); color: #fff;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .1em;
+    padding: 2px 7px; border-radius: 6px; transform: rotate(8deg);
+  }
+
+  /* ===== API panel (horizontal full-width, below the tree) ===== */
+  .api-panel {
+    width: 100%; max-width: 960px;
+    background: linear-gradient(135deg, #FFFAF3, #FFF1E0);
+    border: 2px solid #F4D5A8; border-radius: 16px;
+    padding: 30px 28px 24px; position: relative;
+    margin-top: 8px;
+  }
+  .api-panel::before {
+    content: 'API · The Control Tool'; position: absolute; top: -14px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent); color: #fff;
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
+    font-size: 12px; letter-spacing: .15em;
+    padding: 5px 18px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .api-panel .sub {
+    font-size: 13px; color: var(--muted); margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .api-actions-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 760px) { .api-actions-row { grid-template-columns: 1fr; } }
+
+  .api-action {
+    background: var(--paper); border: 1px solid #F4D5A8;
+    border-radius: 10px; padding: 16px 16px;
+  }
+  .api-action .num {
+    display: inline-block; width: 26px; height: 26px;
+    border-radius: 50%; background: var(--accent); color: #fff;
+    font-weight: 800; font-size: 13px;
+    text-align: center; line-height: 26px; margin-right: 8px;
+  }
+  .api-action strong { font-family: "Cabinet Grotesk", sans-serif; font-weight: 800; font-size: 14px; }
+  .api-action p { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.55; }
+
+  .api-action.commercial {
+    background: #F4F7FC; border-color: var(--brand-3);
+  }
+  .api-action.commercial .num {
+    background: var(--brand);
+  }
+  .api-action.commercial strong { color: var(--brand); }
+
+  /* ===== Scenarios ===== */
+  .scenarios {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 16px;
+  }
+  @media (max-width: 880px) { .scenarios { grid-template-columns: 1fr; } }
+  .sc {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px 22px;
+    box-shadow: var(--shadow-md);
+  }
+  .sc-tag {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: #fff; padding: 4px 10px; border-radius: 999px;
+    display: inline-block; margin-bottom: 12px;
+  }
+  .sc-tag.green { background: var(--green); }
+  .sc-tag.amber { background: #C57A0B; }
+  .sc-tag.brand { background: var(--brand); }
+  .sc h4 {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 16px; margin-bottom: 10px;
+  }
+  .sc p { font-size: 13.5px; color: var(--ink-2); }
+  .sc code {
+    background: var(--canvas-2); padding: 2px 7px; border-radius: 4px;
+    font-family: ui-monospace, "Cascadia Code", monospace; font-size: 12px;
+    color: var(--brand);
+  }
+
+  /* ===== Reporting benefit ===== */
+  .reporting {
+    background: linear-gradient(135deg, #F4F7FC, var(--brand-soft));
+    border: 1px solid var(--brand-3);
+    border-radius: 16px; padding: 24px 28px;
+    box-shadow: var(--shadow-md); margin-bottom: 24px;
+  }
+  .reporting h2 {
+    color: var(--brand); border-bottom-color: var(--brand-3);
+  }
+  .report-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px;
+  }
+  @media (max-width: 720px) { .report-grid { grid-template-columns: 1fr; } }
+  .report-card {
+    background: var(--paper); border-radius: 10px;
+    padding: 14px 16px; border: 1px solid var(--line);
+  }
+  .report-card .icon {
+    font-size: 22px; margin-bottom: 6px;
+  }
+  .report-card h4 { font-size: 14px; margin-bottom: 4px; color: var(--brand); }
+  .report-card p { font-size: 12.5px; color: var(--muted); }
+
+  /* ===== Confirmation questions ===== */
+  .qs {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 880px) { .qs { grid-template-columns: 1fr; } }
+  .q-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px 22px;
+    border-top: 4px solid var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+  .q-card .num {
+    display: inline-block;
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
+    color: var(--accent); font-size: 26px; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .q-card h4 {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 15px; margin-bottom: 10px;
+  }
+  .q-card .question { font-size: 13.5px; color: var(--ink-2); margin-bottom: 12px; }
+  .q-card .opt {
+    background: var(--canvas); border-left: 3px solid var(--brand-3);
+    padding: 8px 12px; border-radius: 0 6px 6px 0;
+    margin-bottom: 6px; font-size: 12.5px; color: var(--ink-2);
+  }
+  .q-card .opt strong { color: var(--brand); }
+
+  /* ===== Closing card ===== */
+  .closing {
+    background: linear-gradient(135deg, #0B1830 0%, #1E4E8C 100%);
+    color: #fff; border-radius: 16px;
+    padding: 28px 32px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .closing::before {
+    content: ''; position: absolute; right: -60px; bottom: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(237,125,49,.25), transparent 70%);
+  }
+  .closing h2 { color: #fff; border-color: var(--accent-2); }
+  .closing p {
+    color: #C9D5EA; font-size: 14px; line-height: 1.65;
+    margin-bottom: 8px; position: relative; z-index: 1;
+  }
+  .signature {
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    font-size: 13px; color: #B6C3D8;
+    position: relative; z-index: 1;
+  }
+  .signature strong { color: #fff; font-weight: 700; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center; color: var(--muted-2);
+    font-size: 11.5px; margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== Header ===== -->
+  <header class="head">
+    <div class="tag">CONNECTSOURCE × VisionMax · Implementation Summary</div>
+    <h1>Passenger Blurring<br>Implementation Approach</h1>
+    <p class="sub">Three-layer entitlement model — Master Portal, Fleet, and Contract Fleet — combined with API-level control for precision and full audit trail.</p>
+    <div class="meta">
+      <div><strong>Prepared for</strong> · Cary Lo · Elvis Tran · Wendy Hammond</div>
+      <div><strong>Prepared by</strong> · Kenny Huang · MiTAC VisionMax</div>
+      <div><strong>Date</strong> · 11 May 2026</div>
+    </div>
+  </header>
+
+  <!-- ===== Implementation Model ===== -->
+  <section class="section">
+    <h2>How It Works</h2>
+    <p class="lede">A three-layer inheritance structure with API as the precision control tool — giving your SI full operational control over which Contract Fleets are enabled and when blurring is applied.</p>
+
+    <div class="diagram-wrap">
+      <div class="tree">
+
+        <div class="layer">
+          <span class="label">Layer 1</span>
+          <h3>Master Portal</h3>
+          <div class="desc">Holds the total Blurring entitlement for the account.</div>
+          <span class="state"><span class="dot"></span>ENTITLEMENT: ON</span>
+        </div>
+
+        <div class="arrow"><span class="arrow-label">inherits ↓</span></div>
+
+        <div class="layer">
+          <span class="label">Layer 2</span>
+          <h3>Main Fleet</h3>
+          <div class="desc">Inherits from Master by default.</div>
+          <span class="state"><span class="dot"></span>= ON (inherited)</span>
+        </div>
+
+        <div class="arrow"><span class="arrow-label">inherits ↓</span></div>
+
+        <div class="cf-arrow">
+          <div class="a"></div><div class="a"></div><div class="a"></div>
+        </div>
+
+        <div class="cf-row">
+          <div class="cf">
+            <div class="label">Contract Fleet A</div>
+            <h4>Customer α</h4>
+            <div class="inherit-note">no individual setting</div>
+            <span class="state" style="font-size:11px"><span class="dot"></span>= ON</span>
+          </div>
+          <div class="cf override">
+            <span class="override-badge">OVERRIDE</span>
+            <div class="label">Contract Fleet B</div>
+            <h4>Customer β</h4>
+            <div class="inherit-note">individual = OFF</div>
+            <span class="state off" style="font-size:11px"><span class="dot"></span>= OFF</span>
+          </div>
+          <div class="cf">
+            <div class="label">Contract Fleet C</div>
+            <h4>Customer γ</h4>
+            <div class="inherit-note">no individual setting</div>
+            <span class="state" style="font-size:11px"><span class="dot"></span>= ON</span>
+          </div>
+        </div>
+
+        <p style="margin-top:18px;font-size:13px;color:var(--muted);text-align:center;max-width:580px">
+          Any layer can hold an "individual setting" that overrides the inherited value.<br>
+          In the example above, Contract Fleet B is set to OFF even though Master and Fleet are ON.
+        </p>
+      </div>
+
+      <div class="api-panel">
+        <p class="sub">Precise · Auditable · Within current pricing</p>
+
+        <div class="api-actions-row">
+          <div class="api-action">
+            <span class="num">1</span><strong>Override setting</strong>
+            <p>Set the individual setting at Master, Fleet, or Contract Fleet level — overrides default inheritance.</p>
+          </div>
+
+          <div class="api-action">
+            <span class="num">2</span><strong>Trigger on-demand blur</strong>
+            <p>Request blurring per video or per event when needed. Full call-level audit trail.</p>
+          </div>
+
+          <div class="api-action commercial">
+            <span class="num">3</span><strong>Auto / always-on (optional)</strong>
+            <p>Available as a separate commercial arrangement — let us know if your customer specifically requires this and we can scope it.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== How it operates · 3 scenarios ===== -->
+  <section class="section">
+    <h2>Operating Scenarios</h2>
+    <p class="lede">Three common patterns based on how Blurring is typically used by SIs.</p>
+
+    <div class="scenarios">
+
+      <div class="sc">
+        <span class="sc-tag green">Scenario A · Default</span>
+        <h4>All inherited from Master</h4>
+        <p>Master is enabled, no individual overrides are set anywhere. Every Fleet and Contract Fleet inherits ON automatically — no additional API calls required.</p>
+      </div>
+
+      <div class="sc">
+        <span class="sc-tag amber">Scenario B · Selective</span>
+        <h4>Disable specific Contract Fleet</h4>
+        <p>Master remains ON. Your SI calls the API to set Contract Fleet B's individual setting to <code>OFF</code>. Contract Fleets A and C continue to inherit ON; B stays OFF until changed.</p>
+      </div>
+
+      <div class="sc">
+        <span class="sc-tag brand">Scenario C · On-demand</span>
+        <h4>Trigger blur per video</h4>
+        <p>Your SI's application calls <code>POST /blur</code> with a video ID and fleet ID — for example, when an end user clicks "blur this clip" in your platform. Each call is logged for usage-based reporting.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Reporting benefit ===== -->
+  <section class="reporting">
+    <h2>Built-in Support for Monthly Subscription Reporting</h2>
+    <p class="lede" style="color:var(--ink-2)">Because every action — both configuration changes and blur triggers — flows through the API, all activity is logged at call level. This provides a richer data source than a simple on/off toggle for the monthly subscription report you raised.</p>
+
+    <div class="report-grid">
+      <div class="report-card">
+        <div class="icon">📊</div>
+        <h4>Per-fleet enablement audit</h4>
+        <p>See exactly which Contract Fleets currently have Blurring enabled, and the change history for each.</p>
+      </div>
+      <div class="report-card">
+        <div class="icon">📈</div>
+        <h4>Per-fleet usage metrics</h4>
+        <p>Count of actual blur operations per Contract Fleet per month — supports usage-based billing to your end customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Confirmation Questions ===== -->
+  <section class="section">
+    <h2>To Finalize · Three Confirmations Needed</h2>
+    <p class="lede">Your answers shape the implementation timeline and scope. Please confirm during our sync or by reply.</p>
+
+    <div class="qs">
+
+      <div class="q-card">
+        <div class="num">1</div>
+        <h4>Integration Model</h4>
+        <p class="question">How will your SI access the Blurring control?</p>
+        <div class="opt"><strong>Option 1</strong> — SI calls the VisionMax API directly from their platform (recommended, available today).</div>
+        <div class="opt"><strong>Option 2</strong> — SI requires a UI toggle inside the VisionMax portal (separate development track, longer timeline).</div>
+      </div>
+
+      <div class="q-card">
+        <div class="num">2</div>
+        <h4>Operating Mode</h4>
+        <p class="question">When should blurring be applied?</p>
+        <div class="opt"><strong>On-demand</strong> — SI triggers blur per video / per event when needed (recommended, within current pricing).</div>
+        <div class="opt"><strong>Auto / always-on</strong> — Blur applied automatically to every uploaded video for enabled fleets (separate commercial arrangement).</div>
+      </div>
+
+      <div class="q-card">
+        <div class="num">3</div>
+        <h4>Monthly Report</h4>
+        <p class="question">What format suits your end customer?</p>
+        <div class="opt"><strong>Read-only audit feed</strong> — Periodic report (e.g. monthly export) showing enablement and usage per fleet.</div>
+        <div class="opt"><strong>Live configuration interface</strong> — Interactive view with the ability to enable / disable fleets directly.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Closing ===== -->
+  <section class="closing">
+    <h2>Next Step</h2>
+    <p>Once you've confirmed the three points above, we will send a written summary to you and Wendy, aligning everyone's commitment to your end customer — including a concrete timeline for API documentation share and endpoint availability on the production environment.</p>
+    <p>We are glad to walk through this on Teams at any time that suits your schedule.</p>
+
+    <div class="signature">
+      <strong>Kenny Huang</strong> · Technical Support · MiTAC VisionMax<br>
+      Brian Chienlee · VisionMax Solutions<br>
+      Spencer Su · Cloud / API
+    </div>
+  </section>
+
+  <footer>
+    CONNECTSOURCE × VisionMax · Passenger Blurring Implementation Summary · 2026-05-11
+  </footer>
+
+</div>
+
+</body>
+</html>

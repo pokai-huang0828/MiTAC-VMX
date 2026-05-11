@@ -1,6 +1,25 @@
 # 已校正的關鍵 VMX 事實
 
+> 🎯 **SSOT** — 所有「過去答錯後校正」的事實在這裡。其他檔提到這些事實時只能 link,不要複製。
+>
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
+> 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md)
+
+## VMX subscription KPI:100K(目前差 15K)(2026-05-09 QBR 揭露)
+- 來源:Brian 2026-05-09 10:07 信「VisionMax 2026 Q1 QBR」內明寫
+- **Steve 今年底 KPI = 100,000 台**,目前進度估**還差 15K**
+- 等於目前 ≈ 85K,要再簽 15K 才能達標
+- QBR Deck:`https://docs.google.com/presentation/d/1UWin65dXNCtp_ExzP1_pCF9Upzu4tQOp`
+- 對外應用:**不要對任何客戶 quote 這個數字**(內部 KPI),只對 Brian / Spencer / Mori / Spencer 線講
+- 對內應用:Kenny 自己工作如果跟 QBR deck 列的 projects 沒對齊,Brian 信中明說「請最好再來和我確認一下」
+
+## HAWK-582 Lens Cover 設計修正:單軌即可滿足客戶(2026-05-11 校正)
+- ❌ 之前理解(memory `project_meeting_2026-05-07_ai_weekly.md`):RD 緊急雙軌維護(Azuga 標準版解除車速、BMS 版車速 > 0 才啟動)
+- ✅ **HAWK-582 揭露**:Webfleet (Sebastian Schneider) 報告,Bridgestone (Jakob Mund) 確認偏好 Flow 1(ignition ON + 無移動就偵測),**spec 改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**
+- **Eric H (謝翔宇) 2026-05-08 13:38 comment 確認**:`The feature is planned for the next release in June`
+- 校正後現狀:**不是「雙軌維護」,是改設計後單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga)**
+- 對外應用:6 月 release 可以對 Cary / Wendy(MiTAC AU 線)提,passenger blurring 是同 pattern 案,客戶會問
+- Jira link:`https://jira.navman.co.nz/jira/browse/HAWK-582`
 
 ## BMS 客戶端 API 有 driver/passenger 獨立 blurring 能力(2026-05-08 校正)
 - ❌ 之前以為:redocly v2026-Q1 沒 blurring endpoint = blurring 沒 driver/passenger 區分
@@ -10,15 +29,26 @@
 - 應用:對 Cary / Wendy 講「現有 API 已支援」有依據,但**邊界**是「能力存在」≠「公開可用」(要 Q2 2026 update 才能 ship 給 CONNECTSOURCE)
 - 跟 Brian 5/4 給 Wendy 的「Q2 2026 update / 7 月最早 ship」commitment 一致
 
-## Master Portal Blurring config UI 路徑(2026-05-08 兩次校正)
-- ⚠️ **v1 早上 Brian/Spencer 確認可實作**:`Master Portal > Management > Fleets > (select Fleet) > Fleet Detail > Configurations > (new) Blurring`
-- 🚨 **v2 同日下午 5/8 Sync-up Meeting Elvis 螢幕分享現場糾正**:這條路徑**只能控制整個 main fleet 級**,一動 = 影響 main + 所有 contract fleets,**沒 per-contract-fleet 粒度**
+## Master Portal Blurring config UI 路徑(2026-05-08 兩次校正 → 2026-05-11 Cary 拍板 Option B)
+- ⚠️ **v1 (5/8 早上)Brian/Spencer 確認可實作**:`Master Portal > Management > Fleets > (select Fleet) > Fleet Detail > Configurations > (new) Blurring`
+- 🚨 **v2 (5/8 下午)Sync-up Elvis 現場糾正**:這條路徑**只能控制整個 main fleet 級**,一動 = 影響 main + 所有 contract fleets,**沒 per-contract-fleet 粒度**
 - 客戶實況:Australia 1 fleet + 各 reseller 客戶當 contract fleets,**必須 pinpoint 特定 contract fleet**
-- ✅ **修正後兩條實作路徑**(待 Brian / Spencer 拍):
-  - **(A)** Master Portal 補 contract fleet 視圖 + 加 Blurring config — ⚠️ 隱私問題(contract fleet 不見得想讓上層看到)
-  - **(B)** Fleet Portal 加 per-contract-fleet Blurring config UI(沿用 Live User pattern)
-- 應用:**Kenny 5/7 14:41 回信對外承諾的 portal path 不夠精細**,要回 thread 校正
-- 詳見:`meetings/2026-05-08_syncup-cary-elvis_meeting-record.md` + `cary-passenger-blurring-2026-05-07.md` H 段
+- **v3 (5/11 早上)Spencer 重新框架兩個 model**:
+  - **Option A — Two-tier delegated**:Master 持 overall entitlement,delegate 給 Fleet,Fleet 自己決定 Contract Fleet 開關(≈ 5/8 (B) Fleet Portal UI)
+  - **Option B — Centralised at Master**:Master 直接控所有 Blurring permission 含 Contract Fleet 層級,Fleet 不 manage(≈ 5/8 (A) Master 補視圖)
+- ✅ **2026-05-11 Cary 拍板:Option B(Centralised at Master)**
+  - 立場翻轉理由:**feature 可能 incur extra fee → SI 要 full control which fleet 推**(billing 控制 > 隱私顧慮)
+  - 同時提新需求:**monthly subscription report 加「每 master account 下啟用裝置數」**(billing tracking)
+- ⏳ 待 Brian QPR 後 confirm 拍板
+- 詳見:`meetings/2026-05-11_morning_cary-elvis-teams-thread.md` + `case-learning/connectsource-passenger-blurring.md` § 6
+
+## Blurring API doc share ≠ endpoint open(2026-05-11 揭露)
+- 🚨 **重大限制**:即使 Brian 同意 share API doc 給 CONNECTSOURCE,客戶**仍不能 call API**
+- 原因:**endpoint 還沒在現 VisionMax 環境 open**,要 internal validation 完成才開
+- 對外口徑:**「Blurring function is on our roadmap」**(等 Brian agree 才能講)
+- 對內待動作:跟 Brian 確認 internal validation 完成 criteria + 預估 endpoint open 日期
+- 應用:對任何客戶提 Blurring API 都要兩段式說明 — (1) doc 可給 (2) 但 endpoint 未開,**不要讓客戶以為「拿到 doc = 馬上可用」**
+- 來源:Spencer 5/11 早上經 Kenny 傳達(QPR 期間 alignment)
 
 ## 機種列表(2026-05-08 再校正)
 - ❌ v1 之前答:K245 / K265 / K165

@@ -275,21 +275,70 @@ Kenny 答:目前對外文件沒寫(只給 BMS),要問 Spencer 能否提供。Car
 
 ### Action Items(從會議掉出來)
 
-#### P0(24h 內)
-- [ ] **回 thread 校正 Q2 portal path**(草稿已擬,等 Kenny 確認後寄出)
-- [ ] 跟 Spencer 確認 Blurring API doc 能否 share
-- [ ] 跟 Brian + Spencer 對齊 (A)/(B) 走哪條路
+#### P0(24h 內)→ 5/11 早上實況
+- [x] **回 thread 校正 Q2 portal path** — ✅ 5/11 早上 Kenny 經 Spencer alignment 後在 Teams 提 Option A/B 兩個 model
+- [x] 跟 Spencer 確認 Blurring API doc 能否 share — 🟡 Spencer aligned,**仍等 Brian sign-off**
+- [x] 跟 Brian + Spencer 對齊 (A)/(B) 走哪條路 — ✅ Spencer 端 OK · ⏳ 等 Brian QPR 後拍板
 
-#### P1(本週)
-- [ ] 5/8 會議結論已寫進 `meetings/2026-05-08_syncup-cary-elvis_meeting-record.md`
-- [ ] 5/8 會議結論已寫進 `knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md` H 段
-- [ ] memory project file 已建
+---
 
-#### P2(下個 sync 前)
-- [ ] Brian / Spencer 拍板 Q2 走 (A) 還是 (B)
-- [ ] 若 (B):跟 Lucy 對 Fleet Portal UI 設計
+## 6. 2026-05-11 早上 · Teams thread + Cary 拍板 Option B
 
-### 對外回信(暫緩)
-草稿已擬好兩個 Q 跟兩條路徑,**等 Kenny 確認後再寄**。詳見 inline 對話紀錄。
+> 詳見:[`meetings/2026-05-11_morning_cary-elvis-teams-thread.md`](../meetings/2026-05-11_morning_cary-elvis-teams-thread.md)
 
-_Last updated: 2026-05-08 — 補 5/8 sync-up meeting 結論 + Q2 portal path 校正 + 雙路徑討論。_
+### 6.1 Spencer 重新框架的兩個 model(等於 5/8 (A)/(B) 順序對調)
+
+| Spencer 提的 | 對應 5/8 sync | 拍板 |
+|------------|--------------|-----|
+| Option A — Two-tier delegated control(Master 持 entitlement,delegate 給 Fleet)| ≈ 5/8 sync 的 **(B)** Fleet Portal UI | ❌ 未選 |
+| **Option B — Centralised control at Master**(Master 直接控所有 Blurring permission 含 Contract Fleet 層級)| ≈ 5/8 sync 的 **(A)** Master Portal 補視圖 | ✅ **Cary 拍板** |
+
+### 6.2 Cary 拍 Option B 理由(立場翻轉)
+
+> "this will potentially incur an extra fee, thus the SI need to be able to have full control which fleet they would like to push this feature out to."
+
+- **billing 控制 > 5/8 提的隱私顧慮** — 5/8 Cary 還警告 Master 視圖會「alarming」,但今天反向選 Centralised
+- 推測:內部討論後確認「extra fee 由誰收 / 誰決定推」才是核心商業問題,隱私可用 BMS 既有「Master 預設 on,Fleet 不顯示開關」mitigate
+
+### 6.3 🆕 新需求 · Monthly subscription report
+
+> "It will also be great, if we can have this appear on the monthly subscription report. So we know how many devices under each master account has this feature implemented."
+
+- 訊號:Cary / Wendy 已把 Blurring 當成**下一輪 monetization tier**,SI 要 billing visibility
+- 對 MiTAC HQ 意義:Blurring 不只 feature,**是新 subscription tier 上升的依據**
+- 待動作:跟 Spencer 細談 monthly subscription report 加 Blurring 啟用裝置數的可行性(Jira 哪張單?新單?)
+
+### 6.4 Q1 API doc share — 重大新限制揭露
+
+Spencer 透過 Kenny 傳達:
+> "even once the document is shared, the customer will not be able to call the API yet, because the endpoint has not been opened on our current VisionMax environment. It will only be enabled after our internal validation is completed."
+
+- **doc sharing 跟 endpoint open 是兩件事** — 即使 Brian 同意 share doc,客戶**仍不能 call**
+- 暫時對外口徑:「Blurring function is on our roadmap」(等 Brian 同意才講)
+- 待動作:準備「能 share 但不能 call」的 wording 給 Cary 對外用
+
+### 6.5 今天 2pm 計畫 · Q1 API sync
+
+- Kenny + Elvis(可能 Cary)— 14:00 台灣時間
+- 同 Teams group meeting link
+- Stark 另有 call shortly(不在本 group)
+
+---
+
+## 7. 更新後的 Action Items(2026-05-11 morning 之後)
+
+#### 🔥 P0(今天剩下時間)
+- [ ] **2pm Q1 API sync 跟 Elvis(可能 Cary)** — 同 Teams group
+- [ ] Brian QPR 結束後 confirm:API doc share / Option B 拍板 / Endpoint open 時程
+- [ ] 寫正式 email reply,把 Spencer preliminary + Brian 最終 position 一起發
+
+#### 📅 P1(本週)
+- [ ] 跟 Spencer 細談 monthly subscription report 加 Blurring 欄位的可行性
+- [ ] Critical Facts log 加 Option B 拍板紀錄 + endpoint 未 open 限制
+- [ ] 把 5/11 morning thread 同步給 Wendy(她不在這個 Teams group)
+
+#### 🎯 P2(下個 sync 前)
+- [ ] Monthly subscription report 加 Blurring 欄位若進 sprint,排優先級
+- [ ] Endpoint open 條件「internal validation」具體 criteria + 預估完成日
+
+_Last updated: 2026-05-11 早上 — 補 5/11 Teams thread + Cary 拍板 Option B + monthly report 新需求 + endpoint 未 open 限制 + 2pm Q1 API sync 安排。_

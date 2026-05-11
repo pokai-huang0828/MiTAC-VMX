@@ -23,9 +23,11 @@
     </a>
   </div>
   <div class="topnav-tabs">
+    <button class="tab-btn" data-case="honeywell" onclick="switchCase('honeywell', event)">🆕 Honeywell ME</button>
     <button class="tab-btn active" data-case="ps" onclick="switchCase('ps', event)">Platform Science</button>
     <button class="tab-btn" data-case="cs" onclick="switchCase('cs', event)">CONNECTSOURCE</button>
     <button class="tab-btn" data-case="pm" onclick="switchCase('pm', event)">PM 策略洞察</button>
+    <button class="tab-btn" data-case="weekly" onclick="switchCase('weekly', event)">📅 Weekly Summary</button>
   </div>
 </nav>
 
@@ -67,6 +69,28 @@
     <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client', event)"><span class="sidebar-icon">💬</span>技術型客戶溝通</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal', event)"><span class="sidebar-icon">🔄</span>內部溝通斷層</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles', event)"><span class="sidebar-icon">💡</span>核心原則</a>
+  </div>
+</aside>
+
+<aside class="sidebar hidden" id="sidebar-honeywell">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Honeywell ME · NEW</div>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('hw-hero', event)"><span class="sidebar-icon">🏢</span>專案總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-directive', event)"><span class="sidebar-icon">📋</span>Stark 指令</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-kenny', event)"><span class="sidebar-icon">🎯</span>Kenny 對接點</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-people', event)"><span class="sidebar-icon">👥</span>利害關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-risks', event)"><span class="sidebar-icon">⚠️</span>風險點</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-actions', event)"><span class="sidebar-icon">✅</span>Action Items</a>
+  </div>
+</aside>
+
+<aside class="sidebar hidden" id="sidebar-weekly">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Weekly Summary</div>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('wk-hero', event)"><span class="sidebar-icon">📅</span>本週總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon">⭐</span>2026-05-11(本週)</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-archive', event)"><span class="sidebar-icon">📚</span>歷史 Summary</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-howto', event)"><span class="sidebar-icon">🔄</span>每週流程</a>
   </div>
 </aside>
 
@@ -343,23 +367,38 @@
 
   <div id="cs-hero">
     <div class="hero amber">
-      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-08</div>
+      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-11 早上</div>
       <h1>CONNECTSOURCE × Passenger Blurring</h1>
-      <p class="hero-sub">澳洲 MiTAC AU(Wendy + Cary + Elvis)代 reseller 客戶提出乘客模糊化 AI 功能需求,引發內部對路線圖透明度、成本歸屬,及 portal 配置粒度的討論。Kenny 5/7 接手對外,5/8 開 sync-up 升格主對接 PM。</p>
+      <p class="hero-sub">澳洲 MiTAC AU(Wendy + Cary + Elvis)代 reseller 客戶提出乘客模糊化 AI 功能需求。5/8 sync-up 校正 Q2 portal path → 5/11 早上 Cary 拍板 Option B(Master Centralised)+ 新需求 monthly subscription report。</p>
       <div class="hero-meta">
         <div class="hero-stat"><div class="hero-stat-val">1,165</div><div class="hero-stat-label">台裝置</div></div>
         <div class="hero-stat"><div class="hero-stat-val">$216K</div><div class="hero-stat-label">潛在收益(USD)</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">$700</div><div class="hero-stat-label">AWS 成本/月</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">Q2 2026</div><div class="hero-stat-label">目標上線(7月)</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">Option B</div><div class="hero-stat-label">Master Centralised 拍板</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">2pm 今天</div><div class="hero-stat-label">Q1 API sync(Kenny+Elvis)</div></div>
       </div>
     </div>
-    <div class="card bordered-orange spaced-top-md">
-      <div class="card-title">⚡ 5/8 sync-up 後最新狀態</div>
+
+    <div class="card bordered-orange spaced-top-md" style="border-left:4px solid #ED7D31">
+      <div class="card-title">🆕 2026-05-11 早上 Teams thread 重大進展</div>
       <ul class="bullet-loose">
-        <li><strong>Kenny 升格主對接 PM</strong> — Cary「we will be stalking you」,從現在開始直接 ping Kenny,跳過 Brian/Spencer</li>
-        <li><strong>🚨 Q2 portal path 5/7 對外承諾要校正</strong> — Master Portal 路徑只到 main fleet 級,需改成 per-contract-fleet(雙路徑 A/B 待 Brian/Spencer 拍)</li>
-        <li><strong>Q1 客戶用 API 直接整合就好</strong> — Kenny 要問 Spencer 能否 share 內部 API doc</li>
-        <li><strong>對外回信草稿已擬好</strong>,等 Kenny 確認後寄</li>
+        <li><strong>✅ Cary 拍板 Q2 portal path:Option B(Master Centralised)</strong> — Master 直接控所有 Blurring permission 含 Contract Fleet,Fleet 不 manage</li>
+        <li><strong>立場翻轉理由</strong>:feature 可能 incur extra fee → SI 要 full control which fleet 推(billing 控制 &gt; 5/8 警告的隱私顧慮)</li>
+        <li><strong>🆕 新需求</strong>:monthly subscription report 加「每 master account 下啟用裝置數」(billing tracking)— 訊號 = Blurring 將成新 subscription tier</li>
+        <li><strong>🚨 Q1 API doc share ≠ endpoint open</strong> — 即使 Brian sign-off 同意 share,客戶仍不能 call(endpoint 未在現 VMX 環境 open,要 internal validation 完成才開)</li>
+        <li><strong>暫時對外口徑</strong>:「Blurring on our roadmap」(等 Brian QPR 結束 confirm)</li>
+        <li><strong>2pm 今天</strong>:Kenny + Elvis(可能 Cary)Teams sync 講 Q1 API,同 group meeting link</li>
+      </ul>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:8px">完整 thread:<a href="../meetings/2026-05-11_morning_cary-elvis-teams-thread.md.html" style="color:var(--mdt-blue);font-weight:600">2026-05-11_morning_cary-elvis-teams-thread.md</a></p>
+    </div>
+
+    <div class="card spaced-top-md" style="border-left:4px solid #8893A4;background:#F6F8FB">
+      <div class="card-title">📜 5/8 sync-up 結論(歷史)</div>
+      <ul class="bullet-loose" style="font-size:13px">
+        <li>Kenny 升格主對接 PM — Cary「we will be stalking you」</li>
+        <li>Q2 portal path 校正:Master Portal 路徑只到 main fleet 級,需 per-contract-fleet 粒度</li>
+        <li>提出兩條路徑:(A) Master 補視圖 vs (B) Fleet Portal 加 UI</li>
+        <li>Q1 客戶用 API 直接整合,Kenny 問 Spencer 能否 share API doc</li>
+        <li><em>5/11 早上 update</em>:Spencer 重新框架成 Option A/B,Cary 選 Option B(等於 5/8 的 A)</li>
       </ul>
     </div>
   </div>
@@ -788,6 +827,199 @@
   </div>
 
 </div><!-- /page-pm -->
+
+<!-- ════ PAGE: HONEYWELL ME (NEW) ════ -->
+<div class="page" id="page-honeywell">
+
+  <div id="hw-hero">
+    <div class="hero">
+      <div class="hero-tag">Case 03 · 全新案 · 2026-05-08 啟動</div>
+      <h1>Honeywell MiddleEast × MiTAC VisionMax</h1>
+      <p class="hero-sub">Stark 5/8 23:27 啟動的 CDR 新機會 · 第一單 5 月 6,000 pcs(K220 + K265)· 要做 white-label Honeywell VMX portal · Brian 點 Kenny 進 VMX setup line。</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><div class="hero-stat-val">6,000</div><div class="hero-stat-label">pcs 第一單(5 月)</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">2 機種</div><div class="hero-stat-label">K220 + K265 樣機</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">White-label</div><div class="hero-stat-label">Honeywell logo VMX</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">🆕 5/11</div><div class="hero-stat-label">週一 P0 啟動</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hw-directive">
+    <div class="section-title">Stark 5/8 23:27 指令清單(給 Paul,cc Kevin / Brian)</div>
+    <div class="card">
+      <ol style="margin-left:24px;line-height:2;font-size:14px;color:var(--text)">
+        <li><strong>5/11 樣機出件</strong>:K220 × 1 + K265 × 1,含 open wires cable / OBD power cable / 點菸頭 cable,跟 Brian 申請 <strong>webbing SIM card</strong>。後續再準備 K220 × 4 + K265 × 4 set。</li>
+        <li><strong>機構評估</strong>:PM / 機構討論機構殼上能否貼 <strong>Honeywell logo sticker</strong>(或更好做法)。</li>
+        <li><strong>Setup VisionMax Honeywell testing account</strong>:Master & Fleet portal,sample import 至該 fleet 下,<strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)。</li>
+        <li><strong>K220 / K265 tier pricing</strong>:5/11 週一上午會議討論,客戶要求第一單 5 月 6K pcs 量做報價。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="hw-kenny">
+    <div class="section-title">Kenny 對接點 · VMX setup line</div>
+    <div class="card">
+      <p style="color:var(--text-muted);font-size:14px;margin-bottom:14px">Brian 把 Kenny 加進 list → <strong>VisionMax setup(Master & Fleet portal + white-label login logo + sample import)</strong>是 Kenny 實際參與點。對應 Plan Type / Contract Fleet 結構工作。</p>
+      <table class="data-table">
+        <thead><tr><th>任務</th><th>對應 portal 操作</th><th>已知技術依據</th></tr></thead>
+        <tbody>
+          <tr><td><strong>建 Honeywell main fleet</strong></td><td>Master Portal > Management > Fleets > Create</td><td>5/8 Sync-up 已 walk 過</td></tr>
+          <tr><td><strong>換 login logo 為 Honeywell</strong></td><td>Master Portal > (white-label config 位置)</td><td>⚠️ 待確認:是否影響 Plan Type</td></tr>
+          <tr><td><strong>Sample import 至 Honeywell fleet</strong></td><td>Master Portal > (Inventory)</td><td>K220 + K265 SN 拿到後</td></tr>
+          <tr><td><strong>Plan type 對應 CDR + ADAS/DMS</strong></td><td>Fleet Portal > Plan Type config</td><td>⚠️ 跟 Vinicius case 同議題,要問 Brian/Conant</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="hw-people">
+    <div class="section-title">利害關係人地圖</div>
+    <div class="col-2-grid">
+      <div class="card">
+        <div class="card-title">🏭 MiTAC 內部</div>
+        <table class="data-table">
+          <thead><tr><th>姓名</th><th>角色</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stark Yang(楊永吉)</strong></td><td>Video Telematics Director · 啟動者 · tier pricing 拍板</td></tr>
+            <tr><td><strong>Paul Lee(李世博)</strong></td><td>Account Sales Manager · Honeywell 主對接</td></tr>
+            <tr><td>Kevin Yhwang(王耀賢)</td><td>HW PM · Sample / cable / mounting kit</td></tr>
+            <tr><td><strong>Brian Chienlee(李健)</strong></td><td>VMX 解決方案 · SIM / VMX setup / 品質全責</td></tr>
+            <tr><td><strong>Kenny Huang(本人)</strong></td><td>VMX setup 落地操作</td></tr>
+            <tr><td>Righter Song(宋祐全)</td><td>RD inventory + firmware</td></tr>
+            <tr><td>Conant Ho(何肇峯)</td><td>技術 PM 窗口</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">📨 Mail thread cc</div>
+        <table class="data-table">
+          <thead><tr><th>姓名</th><th>角色</th></tr></thead>
+          <tbody>
+            <tr><td>Alicia Shih(史才容)</td><td>Marketing · white-label brand 規劃</td></tr>
+            <tr><td>Milky Ko(柯乃云)</td><td>Marketing</td></tr>
+            <tr><td>Spencer Su(蘇家弘)</td><td>Cloud / API lead(Brian FW 在 list)</td></tr>
+            <tr><td>Mori Jhang(張貴森)</td><td>HW 規格(Brian FW 在 list)</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:12px"><strong>客戶端</strong>:Honeywell ME 端聯絡人待補(目前只有 Paul 直接對外)</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="hw-risks">
+    <div class="section-title">風險點</div>
+    <table class="data-table">
+      <thead><tr><th>風險</th><th>描述</th><th>對應動作</th></tr></thead>
+      <tbody>
+        <tr><td>White-label login logo 機制 KB 沒寫</td><td>不確定是 Master Portal 自助開關還是要 Spencer / Brian 後端改 config</td><td>5/11 上午 Brian 對齊</td></tr>
+        <tr><td>K220 + K265 tier pricing 沒拍板</td><td>客戶第一單 6K 要報價,定價人在 Stark / Paul</td><td>Kenny 不主導,但記下價格區間</td></tr>
+        <tr><td>5 月 6K 第一單交付風險</td><td>庫存 / 產能 / SIM 配發節奏</td><td>Kevin + Brian SIM 申請</td></tr>
+        <tr><td>機殼貼 Honeywell logo</td><td>是否有 MOQ / 客製週期</td><td>PM/機構 評估</td></tr>
+        <tr><td>跟 Vinicius / PS 機型重疊</td><td>K220 + K265 也是 PS 測試機種,產能 / firmware 版本要對齊</td><td>Brian / Conant 統一管</td></tr>
+        <tr><td><strong>K265 LM 版 SD update 限制</strong></td><td>架構限制:LM 版不能用 SD update 升 VMX 版 → 6K 出貨必須出廠就是 VMX 版 firmware</td><td>Righter / 製造端確認</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="hw-actions">
+    <div class="section-title">Action Items</div>
+    <div class="col-2-grid">
+      <div class="card" style="border-left:4px solid #DC2626">
+        <div class="card-title">🔥 P0 · 5/11 週一</div>
+        <ul style="margin-left:20px;line-height:1.9;font-size:13.5px">
+          <li>上午跟 Brian 對齊 Kenny 在 VMX setup 的具體 step</li>
+          <li>確認 white-label login logo 機制(自助 / 後端 config / 開發)</li>
+          <li>確認 Honeywell fleet 的 Plan Type(對應 ADAS/DMS / Live View / Privacy Mode)</li>
+          <li>等 Righter / Kevin 把樣機 SN 給出來</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:4px solid #CA8A04">
+        <div class="card-title">📅 P1 · 本週</div>
+        <ul style="margin-left:20px;line-height:1.9;font-size:13.5px">
+          <li>Honeywell fleet 建好 + 樣機 import + logo 換好(若可自助)</li>
+          <li>把 Honeywell setup 流程記下來 → 給 Phil 當 Master Portal manual 範例</li>
+          <li>確認 6K 出貨 firmware 版本一致</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:18px;font-size:13px;color:var(--text-muted)">完整文件:<a href="../case-learning/honeywell-me-cdr-opportunity.md.html" style="color:var(--mdt-blue);font-weight:600">case-learning/honeywell-me-cdr-opportunity.md</a></p>
+  </div>
+
+</div><!-- /page-honeywell -->
+
+
+<!-- ════ PAGE: WEEKLY SUMMARY ════ -->
+<div class="page" id="page-weekly">
+
+  <div id="wk-hero">
+    <div class="hero">
+      <div class="hero-tag">Insights · Weekly cadence · 每週一上工前更新</div>
+      <h1>Weekly Summary · 每週對齊摘要</h1>
+      <p class="hero-sub">每週一上工前對齊上週 / 週末新增情境,結合 Outlook 5+ thread + Jira pending filter + Repo Δ 校正 + 下一週 P0/P1 動作清單。</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><div class="hero-stat-val">v2</div><div class="hero-stat-label">Template 版本</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">3 來源</div><div class="hero-stat-label">Outlook + Jira + Repo</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">P0/P1/P2</div><div class="hero-stat-label">三層 priority</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">⭐ 5/11</div><div class="hero-stat-label">最新 issue</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="wk-current">
+    <div class="section-title">⭐ 本週 · 2026-05-11(Week of May 8 → May 11)</div>
+    <a href="../weekly-summary/2026-05-11_week-of-may-8.md.html" class="card" style="display:block;text-decoration:none;color:inherit;border-left:4px solid #ED7D31">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+        <div>
+          <div class="card-title" style="margin-bottom:4px">📅 Week of May 8 → May 11, 2026</div>
+          <div style="font-size:12px;color:var(--text-muted)">KW19 · 5 email · 47+48 Jira · 8 處 knowledge Δ</div>
+        </div>
+        <span style="background:#ED7D31;color:#fff;padding:4px 12px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.05em">⭐ LATEST</span>
+      </div>
+      <p style="font-size:13px;color:var(--text);line-height:1.6;margin-bottom:14px">
+        Outlook:Honeywell ME 啟動 / Vinicius Live View JS lib / QBR KPI 100K(差 15K)/ Device Listing app version / Fleet Portal manual。
+        Jira:VMX pending 180d 47 票分組 + HAWK opened 48 票(<strong>HAWK-582 Lens Cover 6 月 release 確認</strong>)。
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="mdt-pill orange">P0 × 3</span>
+        <span class="mdt-pill blue">P1 × 5</span>
+        <span class="mdt-pill red">NEW · Honeywell</span>
+        <span class="mdt-pill green">Δ × 12</span>
+      </div>
+      <div style="margin-top:14px;font-size:13px;font-weight:700;color:var(--mdt-orange)">深入閱讀 →</div>
+    </a>
+  </div>
+
+  <div id="wk-archive">
+    <div class="section-title">📚 歷史 Weekly Summary</div>
+    <div class="card">
+      <p style="color:var(--text-muted);font-size:13px;line-height:1.7">
+        本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" style="color:var(--mdt-blue);font-weight:600">PM 策略洞察 tab</a> 與 <a href="../meetings/" style="color:var(--mdt-blue);font-weight:600">meetings/</a> 資料夾。
+      </p>
+      <ul style="margin-top:14px;margin-left:22px;line-height:2;font-size:13.5px">
+        <li><a href="../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md.html" style="color:var(--mdt-blue);font-weight:600">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
+        <li><a href="../meetings/2026-05-07_ai-weekly_meeting-record.md.html" style="color:var(--mdt-blue);font-weight:600">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
+        <li><a href="../meetings/2026-05-06_q2-request-review_meeting-record.md" style="color:var(--mdt-blue);font-weight:600">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="wk-howto">
+    <div class="section-title">🔄 每週流程(Template v2)</div>
+    <div class="card">
+      <ol style="margin-left:24px;line-height:2;font-size:14px">
+        <li><strong>週一上工前</strong>掃 Outlook 上週開始的信件,挑 5 大 thread</li>
+        <li>查 Jira filter <a href="https://jira.navman.co.nz/jira/issues/?filter=36523" target="_blank" style="color:var(--mdt-blue);font-weight:600">VMX pending 180 days(36523)</a> 跟 <a href="https://jira.navman.co.nz/jira/issues/?filter=36458" target="_blank" style="color:var(--mdt-blue);font-weight:600">Hawk opened(36458)</a></li>
+        <li>找出對 repo 既有 knowledge 的 Δ(新事實 / 校正 / 新案)</li>
+        <li>產出 <code>weekly-summary/YYYY-MM-DD_week-of-XXX.md</code> + companion <code>.md.html</code></li>
+        <li>更新 <code>knowledge/06_calibration-log/critical-facts-log.md</code> + 受影響的 knowledge files</li>
+        <li>更新 memory <code>~/.claude/.../memory/MEMORY.md</code> 指向本週 summary 為「下個 Claude 先讀」</li>
+      </ol>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:12px;font-style:italic">完整 template 範例:看本週 weekly-summary 檔案結構即可重用。</p>
+    </div>
+  </div>
+
+</div><!-- /page-weekly -->
 
 </main>
 </div><!-- /layout -->

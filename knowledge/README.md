@@ -2,12 +2,17 @@
 
 > Kenny 的 PM 評估期知識庫,結構化來自:KB / Sheet / Jira / 會議錄音 / Coffee chat / Hub 第三 tab 自萃取框架。
 > 整理日期:2026-05-06(初版)
-> 最新狀態同步:2026-05-07 AI Weekly 後(含 Yawning 灰階模型 / VMX-7432 對應 / Eating 17x 客訴 / LDWS YOLO Pending / Lens Cover 雙軌 / Spencer Cloud lead 校正)
+> 最新狀態同步:**2026-05-11 Weekly**(含 QBR KPI 100K / Honeywell ME 新案 / Lens Cover **6 月 release**(HAWK-582 單軌)/ Vinicius Live View JS lib / Plan Type ↔ 啟用層級議題)
+> ⭐ **本週 Summary**:[`weekly-summary/2026-05-11_week-of-may-8.md`](../weekly-summary/2026-05-11_week-of-may-8.md)(含 47 票 VMX pending 180d triage + 48 票 HAWK opened 分組 + 對外 Δ 校正表)
 
-🌐 **[在瀏覽器開啟 Knowledge Hub →](../websiteview/knowledge.html)**(離線可用,7 個分類 tab + 待釐清頁 + 搜尋)
-🏠 [Website View landing](../websiteview/index.html) — 4 個 HTML 集中入口
+🌐 **[在瀏覽器開啟 Knowledge Hub →](../websiteview/knowledge.html)**(static v2,離線可用,6 分類 + 搜尋 Ctrl+K + sticky TOC)
+🏠 [Mission Control](../websiteview/index.html) — 三層 IA(NOW / CASES / KNOWLEDGE)
 
-更新內容後重新產生:`python3 knowledge/_build_index.py`(輸出到 `websiteview/knowledge.html`)
+**直接編輯 HTML / CSS / JS** — 無 build script(2026-05-11 起改 static)。
+- HTML:`websiteview/knowledge.html`
+- CSS:`websiteview/css/knowledge.css`
+- JS:`websiteview/js/knowledge.js`(scroll spy + 搜尋 filter)
+- 新增 / 刪除 .md 文件後,要手動更新 `knowledge.html` 內對應 `<a class="doc-card">` 卡片。
 
 ---
 

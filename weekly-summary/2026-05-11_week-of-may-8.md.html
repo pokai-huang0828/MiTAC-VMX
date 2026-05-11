@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Summary · Week of May 8, 2026 · Kenny Huang</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../websiteview/css/weekly-summary.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="crumb">
+      <a href="../websiteview/index.html">← Mission Control</a>
+      <a href="../websiteview/knowledge.html">Knowledge Hub</a>
+    </div>
+    <div class="title">Weekly Summary</div>
+    <div class="meta">weekly-summary/2026-05-11_week-of-may-8.md</div>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <aside class="toc">
+    <div class="toc-label">On this page</div>
+    <ul>
+      <li><a href="#overview">概要</a></li>
+      <li><a href="#emails">A · Outlook 5 大 thread</a></li>
+      <li><a href="#email-honeywell" class="toc-sub">A1 Honeywell ME</a></li>
+      <li><a href="#email-vinicius" class="toc-sub">A2 Vinicius / PS</a></li>
+      <li><a href="#email-qbr" class="toc-sub">A3 QBR KPI</a></li>
+      <li><a href="#email-device" class="toc-sub">A4 Device Listing</a></li>
+      <li><a href="#email-manual" class="toc-sub">A5 Fleet Portal manual</a></li>
+      <li><a href="#vmx">B · VMX pending 47</a></li>
+      <li><a href="#hawk">C · HAWK opened 48</a></li>
+      <li><a href="#hawk-582" class="toc-sub">C1 HAWK-582 Lens Cover</a></li>
+      <li><a href="#delta">D · Repo Δ 校正</a></li>
+      <li><a href="#actions">E · Action Items</a></li>
+      <li><a href="#links">F · 跨檔案連結</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">Weekly Summary · KW19</div>
+      <h1>Week of May 8 → May 11, 2026</h1>
+      <p class="lede">Outlook 信件、Jira <code>VMX pending 180d</code> 與 <code>Hawk opened</code> 三條來源的對齊摘要。週一上工前先讀完,Δ 校正、P0/P1 動作、跨檔案連結都在裡面。</p>
+      <div class="hero-meta">
+        <div><strong>整理</strong> · Kenny / Claude</div>
+        <div><strong>覆蓋</strong> · 5 封 email · 47 + 48 票 Jira</div>
+        <div><strong>產出</strong> · 8 處 knowledge 同步 · 1 新 case file</div>
+        <div><strong>狀態</strong> · v1 · 2026-05-11 早上</div>
+      </div>
+    </section>
+
+    <!-- ========= OVERVIEW ========= -->
+    <h2 id="overview" style="margin-top:32px">概要 · 四個來源的主訊號</h2>
+    <div class="kpi-strip">
+      <div class="kpi featured">
+        <div class="kpi-label">VMX Subscription KPI</div>
+        <div class="kpi-big">85K / 100K</div>
+        <div class="kpi-sub">Steve 年底 KPI 100,000 台 · <strong style="color:var(--accent)">差 15K</strong> 才達標 · QBR 5/9</div>
+        <div class="progress"><span style="width:85%"></span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Outlook</div>
+        <div class="kpi-big">5</div>
+        <div class="kpi-sub">5 大 thread · 涵蓋 Honeywell / Vinicius / QBR / Device / Manual</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">VMX Pending 180d</div>
+        <div class="kpi-big">47</div>
+        <div class="kpi-sub">filter 36523 · 需 triage 一輪</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">HAWK Opened</div>
+        <div class="kpi-big">48</div>
+        <div class="kpi-sub">filter 36458 · HAWK-582 <strong style="color:var(--green)">6 月 release 確認</strong></div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:14px">
+      <table>
+        <thead><tr><th style="width:24%">來源</th><th>主訊號</th><th style="width:18%">動作層級</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>📧 Outlook 5 大 thread</strong></td>
+            <td>Honeywell ME 6K 樣機 + VMX setup / Vinicius 追 Live View JS lib / QBR 100K 缺 15K / Device Listing app version 確認 / Fleet Portal manual draft 1 review</td>
+            <td><span class="pill pill-p0">P0</span> Honeywell + Vinicius</td>
+          </tr>
+          <tr>
+            <td><strong>🐞 VMX pending 180d (47)</strong></td>
+            <td>IOSix dongle 連環 5 / API+文件 5 / DMS-AI 4 / Contract Fleet 2 / NZ Biometric Privacy Code 法規 1</td>
+            <td><span class="pill pill-p1">P1</span> 跟 Brian 一輪 triage</td>
+          </tr>
+          <tr>
+            <td><strong>🦅 HAWK opened (48)</strong></td>
+            <td><strong>HAWK-582 Lens Cover 6 月 release</strong>(Eric 5/8 13:38) / HAWK-545 飲食/抽菸誤判同向 / HAWK-501 ADAS self-calib / HAWK-583 MX timezone</td>
+            <td><span class="pill pill-p0">P0</span> 同步 Cary/Wendy</td>
+          </tr>
+          <tr>
+            <td><strong>🔗 Repo Δ</strong></td>
+            <td>QBR 數字 / Honeywell ME 新案 / Lens Cover 6 月 release / Plan Type ↔ Vinicius "Platform Science" fleet</td>
+            <td><span class="pill pill-p1">P1</span> 8 處 knowledge 同步</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ========= A. EMAILS ========= -->
+    <section id="emails" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-mail">✉</div>
+        <div>
+          <h2 style="margin:0">A · Outlook 信件 (5/8 Fri → 5/9 Sat)</h2>
+          <div class="sub">5 大 thread · 兩個對外客戶線 · 三條對內動線</div>
+        </div>
+      </div>
+
+      <div id="email-honeywell" class="thread hot">
+        <h3>🔥 A1 · Honeywell MiddleEast CDR opportunity <span class="pill pill-new">NEW CASE</span></h3>
+        <div class="thread-meta">Stark Yang → Paul / Brian / Kevin · 2026-05-08 23:27 · Brian 5/9 10:09 FW Kenny</div>
+        <ul class="bullet">
+          <li><strong>下週一(5/11)準備樣機</strong>:K220 × 1 + K265 × 1,含 open wires / OBD power / 點菸頭 cable。後續 K220 × 4 + K265 × 4 set</li>
+          <li>機構評估:機構殼上能否貼 <strong>Honeywell logo sticker</strong></li>
+          <li><strong>Setup VisionMax Honeywell testing account</strong>:Master & Fleet portal、sample import、<strong>Login logo 換 Honeywell</strong>(white-label 雙 portal)</li>
+          <li>週一上午會議:K220 / K265 <strong>tier pricing</strong>(第一單 5 月 <strong>6,000 pcs</strong>)</li>
+        </ul>
+        <div class="quote">Brian 點 Kenny 進 list → <strong>VisionMax setup(Master & Fleet portal + logo 客製 + sample import)</strong>是 Kenny 實際參與點。對應 Plan Type / Contract Fleet 結構工作。</div>
+      </div>
+
+      <div id="email-vinicius" class="thread hot">
+        <h3>🔥 A2 · Vision Max APIs · Vinicius / Platform Science</h3>
+        <div class="thread-meta">Vinicius 5/9 13:11 · Brian 5/9 10:27</div>
+        <p><strong>Vinicius 最新兩個 open question</strong>:</p>
+        <ol>
+          <li><strong>JS library 供 testing</strong>(Live View P2P browser-to-device 用)</li>
+          <li><strong>Camera-side video 直接看,不下載</strong> — VMX 支不支援</li>
+        </ol>
+        <div class="quote">Brian 5/9 10:27 回:<em>"Live View works as a P2P connection (directly from browser or app to device), it does not use cloud API calls. If you decide to adopt a Server-to-Server API integration approach, we will provide the JavaScript library or the necessary technical assistance."</em></div>
+        <h4>設備現況(對應 A4)</h4>
+        <ul class="bullet">
+          <li>Vinicius 手上 3 台:K245 × 2(F4723090088 / F4723090033)+ K265 × 1(L1225380005)</li>
+          <li>K265 已分配給 <strong>"Platform Science" fleet</strong>,Righter 說 AI function 看起來 OK</li>
+          <li>Brian 提醒:舊樣機 app version 可能要 update + 估網路用量告知客戶</li>
+          <li>K265 LM 版限制:<strong>SD card 不能 update 升 VMX 版</strong>,要直接給 VMX 版 sample</li>
+        </ul>
+      </div>
+
+      <div id="email-qbr" class="thread warn">
+        <h3>📊 A3 · VisionMax 2026 Q1 QBR</h3>
+        <div class="thread-meta">Brian → Spencer / Eric / Leo / Mori / Kenny / Righter / Richard · 5/9 10:07</div>
+        <ul class="bullet">
+          <li>第一頁 = VMX subscription 量</li>
+          <li>最後三頁 = <strong>2027 年底</strong> VMX 要 support 的 CDR HW 產品線 + Event Features</li>
+        </ul>
+        <div class="quote"><strong>🚨 KPI 數字</strong>:Steve 今年底定的 VMX subscription KPI = <strong>100,000 台</strong>,以目前進度估計<strong>還差 15K</strong>。請各位確認團隊工作要對齊 deck 列的 projects。</div>
+        <p style="margin-top:10px"><strong>Deck</strong>:<code>https://docs.google.com/presentation/d/1UWin65dXNCtp_ExzP1_pCF9Upzu4tQOp/edit</code></p>
+      </div>
+
+      <div id="email-device" class="thread info">
+        <h3>🛠 A4 · VisonMax Account Device Listing</h3>
+        <div class="thread-meta">Paul 5/8 13:22 → Brian / Righter 對接 Vinicius</div>
+        <table>
+          <thead><tr><th style="width:14%">時間</th><th style="width:14%">人</th><th>動作</th></tr></thead>
+          <tbody>
+            <tr><td>5/8 13:22</td><td>Paul</td><td>Vinicius 3 台 SN 寄給 Brian / Conant,要求確保 <strong>EVO (K265) ADAS / DMS 啟動</strong></td></tr>
+            <tr><td>5/8 15:35</td><td>Brian</td><td>對 Righter:確認 3 台 SN 是否在 PS Master account 下,app version 是否要 update,<strong>plan type 是否正確</strong></td></tr>
+            <tr><td>5/8 15:48</td><td>Righter</td><td>K245 × 2 在 inventory,K265 已分配給 "Platform Science" fleet。K265 AI function 看起來 OK</td></tr>
+            <tr><td>5/8 15:56</td><td>Brian</td><td>確認舊樣機 app version 是否 2026 Q1,否則告知 Vinicius update + 估網路用量</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="email-manual" class="thread fresh">
+        <h3>📘 A5 · Fleet portal manual draft 1</h3>
+        <div class="thread-meta">Phil Soung 5/8 14:34 → Luke / Brian / Kenny / Simon</div>
+        <ul class="bullet">
+          <li><strong>Phil Soung (Marketing PM)</strong> 出第一版 <code>VisionMax Fleet Portal R02 draft 1.pdf</code>(9MB)</li>
+          <li>Phil 下週開始做 <strong>Master Portal manual</strong></li>
+          <li>Luke 點出 'Playback SD Card' 和 'Create Time-lapse Trip Video' 在 'Retrieve Video' tab 漏掉</li>
+          <li>Brian 把 Simon 加進 loop</li>
+        </ul>
+        <div class="quote"><strong>Kenny 動作</strong>:本週看完 + 把 5/8 Sync-up 校正過的 Q2 portal path(per-contract-fleet)寫進 feedback 給 Phil。</div>
+      </div>
+    </section>
+
+    <!-- ========= B. VMX ========= -->
+    <section id="vmx" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-bug">🐞</div>
+        <div>
+          <h2 style="margin:0">B · VMX <code style="font-size:.7em">pending 180 days</code> · filter 36523</h2>
+          <div class="sub">47 票超過 180 天沒動 · 主要 6 大主題 · 建議 Brian 一輪 triage</div>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip"><span class="dot"></span> IOSix 5</span>
+        <span class="chip"><span class="dot"></span> API 5</span>
+        <span class="chip"><span class="dot"></span> DMS-AI 4</span>
+        <span class="chip"><span class="dot"></span> Contract Fleet 2</span>
+        <span class="chip"><span class="dot"></span> 法規 1</span>
+        <span class="chip"><span class="dot"></span> SpeedCam 4</span>
+        <span class="chip"><span class="dot"></span> 其他 26</span>
+      </div>
+
+      <h3>B1-1 · IOSix dongle 連環(5)— 同 sub-system 卡住</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6528</span><span class="ticket-title">IOSix FW version 更新 Mitac API</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6523</span><span class="ticket-title">Enable/Disable IOSix advance data API</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6326</span><span class="ticket-title">[IOSix] Debug log upload</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6521</span><span class="ticket-title">新增 BT MAC 當 IOSix dongle UID</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6374</span><span class="ticket-title">IOSix dongle debug web page</span></div>
+      </div>
+      <p style="color:var(--muted);font-size:13px">→ <strong>建議</strong>:全部歸到一個 IOSix Epic,跟 Brian 確認 dongle 模組是否還在 roadmap,否則一次性 close。</p>
+
+      <h3>B1-2 · API & API 文件(5)</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6369</span><span class="ticket-title">[API 文件] 移除不再使用的 event</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6885</span><span class="ticket-title">[API] event time precision ms</span></div>
+        <div class="ticket"><span class="pill pill-task">Sub</span><span class="ticket-key">VMX-6886</span><span class="ticket-title">[API] 前置作業</span></div>
+        <div class="ticket"><span class="pill pill-task">Sub</span><span class="ticket-key">VMX-6888</span><span class="ticket-title">[API] A super account (likely)</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6924</span><span class="ticket-title">[API] recording duplicate entry</span></div>
+      </div>
+
+      <h3>B1-3 · DMS / AI 模型(4)</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6419</span><span class="ticket-title">Invalid phone usage events (RPN 45)</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6692</span><span class="ticket-title">Blurry DMS camera</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6453</span><span class="ticket-title">Server Model Research - Phone Usage</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6221</span><span class="ticket-title">AI Self-Training Optimization System</span></div>
+      </div>
+      <p style="color:var(--muted);font-size:13px">→ 與 5/7 AI Weekly「飲食誤判 17x 客訴」+ HAWK-545 同根因方向。</p>
+
+      <h3>B1-4 · Contract Fleet & Multi-Fleet(2) — 對位 5/8 Sync-up</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-5908</span><span class="ticket-title">Contract fleet 的 Webhook 處理</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6586</span><span class="ticket-title">Group main + contract fleets display</span></div>
+      </div>
+
+      <h3>B1-5 · 法規驅動(1)</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6881</span><span class="ticket-title">'Recording Start' audio · NZ Biometric Privacy Code 2025</span></div>
+      </div>
+
+      <h3>B1-6 · Speed Camera A-test(4)</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6662</span><span class="ticket-title">Camera Type 6 not displayed on VMX web</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6734</span><span class="ticket-title">Camera Type 9128 data not found</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6821</span><span class="ticket-title">Region name "V2" instead of "SA"</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-5922</span><span class="ticket-title">TT AU No redlight camera alerts</span></div>
+      </div>
+
+      <h3>B1-7 · 其他關鍵單張票</h3>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-5879</span><span class="ticket-title">[Feasibility] AI debug view on VMX UI</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6382</span><span class="ticket-title">Allow AI detection parameters config</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6602</span><span class="ticket-title">CDR LED pattern change #134</span></div>
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6420</span><span class="ticket-title">Driver tagging in Events #107</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-5880</span><span class="ticket-title">UVC Dual Cameras DMS · Single SKU hotfix</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6203</span><span class="ticket-title">Inward/UVC/Outward cameras no record</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6040</span><span class="ticket-title">Storage Good but not reading SD</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6507</span><span class="ticket-title">[K265][Region] Build 2025Q2 Region</span></div>
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6076</span><span class="ticket-title">Server outage login pop-up</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6841</span><span class="ticket-title">SmartGo data via Webhook</span></div>
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6265</span><span class="ticket-title">GPIO RS232 Passthrough + Digital Input</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6166</span><span class="ticket-title">[MMF] OSM USA MMF v9801 install fail</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6343</span><span class="ticket-title">Indonesia MMF</span></div>
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6222</span><span class="ticket-title">Earliest SD timestamp in device info API</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6486</span><span class="ticket-title">SD card life calculation</span></div>
+        <div class="ticket"><span class="pill pill-feat">Feat</span><span class="ticket-key">VMX-6703</span><span class="ticket-title">Configurable Server AI Response Time</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6736</span><span class="ticket-title">Stop and go event no media upload</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6512</span><span class="ticket-title">MiDM api 選 Site/group 後匯入機器</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-5744</span><span class="ticket-title">event 觸發時上傳更多資訊</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6348</span><span class="ticket-title">Solid LED when camera connected</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6465</span><span class="ticket-title">[K145][MAU] Abnormal camera image</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">VMX-6785</span><span class="ticket-title">Review Audio File Quality</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">VMX-6866</span><span class="ticket-title">Device recall invalid usage period date</span></div>
+        <div class="ticket"><span class="pill pill-task">Task</span><span class="ticket-key">VMX-6851</span><span class="ticket-title">precise MRM 包 APN 進 region image</span></div>
+      </div>
+
+      <h3>B2 · 給 Brian 的 triage 建議</h3>
+      <table>
+        <thead><tr><th>處理建議</th><th style="width:10%">票數</th><th>動作</th></tr></thead>
+        <tbody>
+          <tr><td><strong>歸 Epic 後一次 close</strong>(IOSix dongle)</td><td>5</td><td>Brian 1-on-1 講完</td></tr>
+          <tr><td><strong>升優先級</strong>(Contract Fleet + 法規 + Single SKU+UVC)</td><td>4</td><td>進現 sprint</td></tr>
+          <tr><td>歸 Map / SpeedCam 子隊</td><td>7</td><td>re-assign</td></tr>
+          <tr><td>歸 AI 隊</td><td>4</td><td>接 5/7 AI Weekly 動線</td></tr>
+          <tr><td>API / 文件</td><td>5</td><td>Spencer / Conant</td></tr>
+          <tr><td>其餘逐張快速 disposition</td><td>~22</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ========= C. HAWK ========= -->
+    <section id="hawk" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-hawk">🦅</div>
+        <div>
+          <h2 style="margin:0">C · HAWK <code style="font-size:.7em">opened</code> · filter 36458</h2>
+          <div class="sub">48 票 Bridgestone/Webfleet/Azuga 客戶接口 · 焦點 HAWK-582 6 月 release</div>
+        </div>
+      </div>
+
+      <div id="hawk-582" class="thread fresh" style="border-left-width:6px">
+        <h3>🌟 C1 · HAWK-582 · Improve Lens cover detection design</h3>
+        <div class="thread-meta">Webfleet (Sebastian Schneider) reported · Bridgestone (Jakob Mund) · Azuga (Sirphi Manivannan) · Assignee jieli.liu (MIC)</div>
+        <table>
+          <tbody>
+            <tr><td style="width:24%"><strong>Type</strong></td><td><span class="pill pill-imp">Improvement</span> · Label <code>AI</code></td></tr>
+            <tr><td><strong>Priority / RPN</strong></td><td>2 - Medium · RPN 45(Occ 5 · Sev 3 · Vis 3)</td></tr>
+            <tr><td><strong>Created / Updated</strong></td><td>2026-05-06 16:11 / 2026-05-08 13:39</td></tr>
+          </tbody>
+        </table>
+        <h4>現況(原文)</h4>
+        <ul class="bullet">
+          <li>Lens cover detection 只在 <strong>vehicle speed ≥ 20 km/h</strong> AND <strong>DMS calibration 完成</strong>才啟動</li>
+          <li>客戶觀察:駕駛可能在<strong>還沒開車前</strong>就遮鏡頭(speed=0、calibration 未完成)→ <strong>漏偵測</strong></li>
+        </ul>
+        <h4>Planned spec update</h4>
+        <ol>
+          <li>Lens covered function <strong>取消車速限制</strong></li>
+          <li><strong>DMS calibration 依賴拿掉</strong></li>
+        </ol>
+        <h4>討論線</h4>
+        <ul class="bullet">
+          <li><strong>5/6 16:29 Martin Rothe (Webfleet)</strong>:Flow 1(ignition ON + 無移動就偵測)還是 Flow 2(要先動一下,之後忽略車速)?</li>
+          <li><strong>5/6 20:04 Jakob Mund (Bridgestone)</strong>:<strong>Flow 1 better</strong>。理由 — 開車中拆遮蔽不安全;隱私問題用 Private Mode 處理</li>
+          <li><strong>5/8 13:38 Eric H (謝翔宇)</strong>:✅ <strong>The feature is planned for the next release in June</strong></li>
+        </ul>
+        <div class="quote"><strong>Kenny 動作</strong>:校正既有「Lens Cover 雙軌」記憶 — <strong>不是雙軌,是改設計後單軌即可滿足三客戶</strong>。把 6 月 release 同步給 Cary / Wendy(MiTAC AU passenger blurring 同 pattern)。</div>
+      </div>
+
+      <h3>C2 · 其他關鍵 HAWK ticket</h3>
+
+      <h4>直接關聯 5/7 AI Weekly 議題</h4>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">HAWK-545</span><span class="ticket-title">Mobile phone detection ↓ + smoking influence</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">HAWK-551</span><span class="ticket-title">[CAM Lite] Inaccurate fatigue · EyeStableRate</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-544</span><span class="ticket-title">"lens covered" snapshot missing thumbnails</span></div>
+      </div>
+
+      <h4>ADAS 校正(跟 VMX-7404 同族)</h4>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-501</span><span class="ticket-title">ADAS Self-cal wrong height · 平行案</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-574</span><span class="ticket-title">WEBFLEET DMS Calib Looping message</span></div>
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">HAWK-401</span><span class="ticket-title">DMS detection low installation position</span></div>
+      </div>
+
+      <h4>客戶感受度高</h4>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-584</span><span class="ticket-title">Error in assigning device to fleet</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-583</span><span class="ticket-title">Timezone (in MX) not correct</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-579</span><span class="ticket-title">Camera Consuming High data</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-498</span><span class="ticket-title">Huge Alert Button Events on WEBFLEET</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-410</span><span class="ticket-title">[Production] Blue lines on Video</span></div>
+      </div>
+
+      <h4>串流 / 錄影斷裂(同根因可能)</h4>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-535</span><span class="ticket-title">LiveStreaming not working</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-508</span><span class="ticket-title">Livestream video missing</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-511</span><span class="ticket-title">Missing videos from aux cameras</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-528</span><span class="ticket-title">Camera stop recording randomly</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-519</span><span class="ticket-title">Recording missing</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-457</span><span class="ticket-title">Videos stuck in pending</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-441</span><span class="ticket-title">TVI Video stream stay black</span></div>
+        <div class="ticket"><span class="pill pill-bug">Bug</span><span class="ticket-key">HAWK-159</span><span class="ticket-title">LiveStream selectCam early response</span></div>
+      </div>
+
+      <h4>法規 / 隱私</h4>
+      <div class="ticket-grid">
+        <div class="ticket"><span class="pill pill-imp">Imp</span><span class="ticket-key">HAWK-502</span><span class="ticket-title">Changes to the privacy mode · 跟 Cary/Wendy 線</span></div>
+      </div>
+    </section>
+
+    <!-- ========= D. DELTA ========= -->
+    <section id="delta" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-pin">📍</div>
+        <div>
+          <h2 style="margin:0">D · 與 Repo 既有知識的 Δ 校正</h2>
+          <div class="sub">已執行 8 處同步 · 含新建 1 個 case file</div>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th style="width:30%">既有知識點</th><th>5/8–5/11 新事實</th><th style="width:18%">動作</th></tr></thead>
+        <tbody>
+          <tr><td><code>memory/project_vmx.md</code></td><td>QBR:今年底 KPI 100K,差 15K</td><td><span class="pill pill-imp">已更新</span></td></tr>
+          <tr><td><code>memory/feedback_vmx_facts.md</code> Lens Cover</td><td>HAWK-582 客戶要的是取消 speed / calibration 限制 → 單軌即可,Eric 5/8 確認 6 月 release</td><td><span class="pill pill-imp">已更新</span></td></tr>
+          <tr><td><code>case-learning/vinicius-platform-science.md</code></td><td>5/8–5/9 Live View P2P / JS lib 承諾 / camera-side video without download open Q</td><td><span class="pill pill-imp">已加 § 11</span></td></tr>
+          <tr><td><code>case-learning/honeywell-me-cdr-opportunity.md</code></td><td>全新案 — 6K 樣機 + white-label VMX portal + tier pricing</td><td><span class="pill pill-new">新建</span></td></tr>
+          <tr><td><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code></td><td>HAWK-501 是 HAWK 側 ADAS Failure 平行案</td><td><span class="pill pill-imp">已加 § H</span></td></tr>
+          <tr><td><code>knowledge/06_calibration-log/cary-passenger-blurring</code></td><td>HAWK-582 / HAWK-502 / VMX-5908 / VMX-6586 平行案族</td><td><span class="pill pill-imp">已加 § I</span></td></tr>
+          <tr><td><code>knowledge/01_product-knowledge/adas-dms-events.md</code></td><td>Lens Cover 6 月 release · 設計改為單軌</td><td><span class="pill pill-imp">已更新</span></td></tr>
+          <tr><td><code>knowledge/01_product-knowledge/machines-spec.md</code></td><td>K265 LM 版 SD update 限制(架構)</td><td><span class="pill pill-imp">已加段</span></td></tr>
+          <tr><td><code>knowledge/02_organization-map/stakeholders.md</code></td><td>Steve KPI / Stark Honeywell / Phil Soung / Kevin / Conant / Righter / Paul / Webfleet+Bridgestone+Azuga / Honeywell ME</td><td><span class="pill pill-imp">已更新</span></td></tr>
+          <tr><td><code>knowledge/03_systems-architecture/plan-types.md</code></td><td>Plan Type ↔ ADAS/DMS 啟用層級 / Contract Fleet 配置 / Honeywell 驗證</td><td><span class="pill pill-imp">已加段</span></td></tr>
+          <tr><td><code>knowledge/06_calibration-log/critical-facts-log.md</code></td><td>KPI 100K · Lens Cover 6 月 release 單軌</td><td><span class="pill pill-imp">已加 2 條</span></td></tr>
+          <tr><td><code>knowledge/README.md</code> 索引</td><td>weekly-summary 入口 + 最新狀態 2026-05-11</td><td><span class="pill pill-imp">已更新</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ========= E. ACTIONS ========= -->
+    <section id="actions" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-fire">🔥</div>
+        <div>
+          <h2 style="margin:0">E · Action Items</h2>
+          <div class="sub">P0 今天 · P1 本週 · P2 下個 sync 前</div>
+        </div>
+      </div>
+
+      <h3 style="color:var(--red)"><span class="pill pill-p0">P0</span> 今天 5/11 一定要做</h3>
+      <ul class="action-list p0">
+        <li><span class="checkbox"></span><div class="body"><strong>Honeywell ME</strong> · 週一上午跟 Brian 同步 Kenny 在 VMX setup 的責任範圍(Master + Fleet portal、Honeywell logo white-label、sample 匯入)</div></li>
+        <li><span class="checkbox"></span><div class="body"><strong>Vinicius</strong> · 把 5/9 13:11 兩問拆給 Brian / Conant 看是否要 Kenny 出 reply 草稿(camera-side video without download 是 KB / 文件層的回答)</div></li>
+        <li><span class="checkbox"></span><div class="body"><strong>Lens Cover (HAWK-582)</strong> · 把 6 月 release 消息與 Cary / Wendy 同步(passenger blurring 同 pattern,客戶會 ask)</div></li>
+      </ul>
+
+      <h3 style="color:var(--amber)"><span class="pill pill-p1">P1</span> 本週 5/11–5/15</h3>
+      <ul class="action-list p1">
+        <li><span class="checkbox"></span><div class="body">看完 QBR deck → 對齊自己工作焦點</div></li>
+        <li><span class="checkbox"></span><div class="body">看完 <code>VisionMax Fleet Portal R02 draft 1.pdf</code> → 給 Phil feedback,把 5/8 Sync-up 校正過的 Q2 portal path(per-contract-fleet)寫進去</div></li>
+        <li><span class="checkbox"></span><div class="body">跟 Brian 提案 VMX pending 180 days 47 票 triage(B2 表)</div></li>
+        <li><span class="checkbox"></span><div class="body">HAWK-545「Phone detection + smoking」併進 5/7 AI Weekly 17x 客訴 thread,看是不是同 root cause</div></li>
+        <li><span class="checkbox"></span><div class="body">HAWK-501 ADAS self-calibration 已加進 <code>vmx-7404-tracking.md</code> H 段 — 寫 Jira comment 同步給 HAWK assignee</div></li>
+      </ul>
+
+      <h3 style="color:var(--brand)"><span class="pill pill-p2">P2</span> 下個 sync 前</h3>
+      <ul class="action-list p2">
+        <li><span class="checkbox"></span><div class="body">Lens Cover 6 月 release 後同步 Cary / Wendy(passenger blurring 同 cycle?)</div></li>
+        <li><span class="checkbox"></span><div class="body">VMX-5908 / VMX-6586(Contract Fleet 兩票)優先級拍板</div></li>
+        <li><span class="checkbox"></span><div class="body">跟 Phil 對齊 Master Portal manual draft(他下週開工)</div></li>
+      </ul>
+    </section>
+
+    <!-- ========= F. LINKS ========= -->
+    <section id="links" class="section">
+      <div class="section-head">
+        <div class="section-icon ic-link">🔗</div>
+        <div>
+          <h2 style="margin:0">F · 跨檔案連結</h2>
+          <div class="sub">會議紀錄 · Calibration log · Jira filter · Outlook thread</div>
+        </div>
+      </div>
+
+      <h3>會議與 Knowledge</h3>
+      <ul class="bullet">
+        <li><a href="../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md.html">5/8 Sync up Kenny / Cary / Elvis</a></li>
+        <li><a href="../meetings/2026-05-07_ai-weekly_meeting-record.md.html">5/7 AI Weekly 重大訊號</a></li>
+        <li><a href="../meetings/2026-05-06_q2-request-review_meeting-record.md">5/6 Q2 Review 戰略翻案</a></li>
+        <li><a href="../knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md">Cary Passenger Blurring 對外承諾</a></li>
+        <li><a href="../knowledge/06_calibration-log/vmx-7404-tracking.md">VMX-7404 ADAS Failure 追蹤</a></li>
+        <li><a href="../knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md">AI Team 16 件逐行狀態</a></li>
+        <li><a href="../knowledge/06_calibration-log/critical-facts-log.md">Critical Facts(別再答錯)</a></li>
+        <li><a href="../case-learning/honeywell-me-cdr-opportunity.md">Honeywell ME CDR(新案)</a></li>
+        <li><a href="../case-learning/vinicius-platform-science.md">Platform Science / Vinicius</a></li>
+      </ul>
+
+      <h3>Jira 直連</h3>
+      <ul class="bullet">
+        <li><a href="https://jira.navman.co.nz/jira/issues/?filter=36523">VMX pending 180 days · filter 36523(47 票)</a></li>
+        <li><a href="https://jira.navman.co.nz/jira/issues/?filter=36458">Hawk opened · filter 36458(48 票)</a></li>
+        <li><a href="https://jira.navman.co.nz/jira/issues/?filter=36457">VMX 全 open · filter 36457</a></li>
+      </ul>
+
+      <h3>Outlook(本週 thread 入口)</h3>
+      <ul class="bullet">
+        <li>Vision Max APIs(Vinicius / Brian)— Working / Important</li>
+        <li>Honeywell MiddleEast CDR opportunity(Stark / Brian FW)— Working / Important</li>
+        <li>VisionMax 2026 Q1 QBR(Brian)— Working / Important</li>
+        <li>VisonMax Account Device Listing(Paul / Brian / Righter / Vinicius)— Working / Important</li>
+        <li>Fleet portal manual draft 1(Phil / Luke / Brian / Simon)— Usefull info / Working / Important</li>
+      </ul>
+    </section>
+
+    <div class="site-footer">
+      <strong>Weekly Summary template v2</strong> · Kenny Huang · MiTAC VMX · 2026-05-11<br>
+      <span style="color:var(--muted-2)">CSS:<code>websiteview/css/weekly-summary.css</code> · JS:<code>websiteview/js/weekly-summary.js</code> · 無 build script</span>
+    </div>
+
+  </main>
+</div>
+
+<script src="../websiteview/js/weekly-summary.js" defer></script>
+</body>
+</html>

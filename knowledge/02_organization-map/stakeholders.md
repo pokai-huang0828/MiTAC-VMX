@@ -5,6 +5,13 @@
 | 領域 | 人 | 職責 / 關鍵議題 |
 |------|---|----------------|
 | **Software Head** | **Brian** | VisionMax / Cloud / Camera App / AI 整體;團隊 ~20 人;Jira dashboard 主導者 |
+| **High-level KPI 拍板** | **Steve** | **5/8 QBR 揭露**:VMX 2026 全年 subscription KPI = **100,000 台**,目前差 15K(Brian 5/9 信)。Kenny 不直接對接,**內部 KPI 不對外** |
+| **Video Telematics Director** | **Stark Yang(楊永吉)** | 5/8 23:27 啟動 Honeywell ME CDR 新案,負責戰略 + tier pricing 拍板。也在 Vinicius / PS 案 thread 內監督 |
+| **HW PM** | **Kevin Yhwang(王耀賢)** | Honeywell ME 案 sample / cable / mounting kit |
+| **Marketing PM** | **Phil Soung(宋介恂)** | 5/8 14:34 出 VisionMax Fleet Portal R02 draft 1.pdf 第一版 manual(9MB),下週開始做 Master Portal manual。Kenny 要 review |
+| **RD 對外技術 PM** | **Conant Ho(何肇峯)** | PS 案技術窗口;sample equipment 訂單對接;SDK / CDR roadmap 對外 share |
+| **RD inventory / FW Engineer** | **Righter Song(宋祐全)** | 設備 inventory + image flashing 限制(K265 LM 版 SD update 限制 = 他揭露)|
+| **Account Sales Manager** | **Paul Lee(李世博)** | PS 主對接 sales;Honeywell ME 主對接 sales(Stark 點 task)|
 | Camera App | Hsinyi, Jack, Leo | 設備端錄影 / UI / 紅色按鍵 |
 | AI Inference | **Jimmy**, Vincent, Eric | ADAS / DMS 模型、訓練、validation。**5/7:Vincent 角色擴大,加入飲食誤判 7000+ Edge case 重訓主導** |
 | AI Inference 補 | Jieli, Andy, **Jay** | Yawning / Quantatec / Lens Cover / DMS Golden Case / Speed Sign 重訓(Jay 5/7) |
@@ -32,6 +39,8 @@
 | **Platform Science (Vinicius)** | 評估中 | Vinicius (Engineering Director) · vinicius.francisquinho@platformscience.com · cc 內部 paul.sp.lee / conant.ho / righter.song / stark.yang / brian.chienlee | US · 5/7 已成功 connect VisionMax(原以為 cable 問題,實為 APN)· **5/7 testing plan**:Evo K265 + 2 side cam + 1 rear cam + InCab Display,後續測 **K165 single lens** + K245 Video Hub(K246 Orion future)· 在等 cable 資訊訂購 sample equipment |
 | **CONNECTSOURCE** | 評估中 | Cary Lo (MiTAC AU) + Wendy Hammond (MiTAC AU 業務端) | Passenger blurring 需求 · 起源 = Wendy 4/30 信推 BMS feature reusable / Brian 5/4 承諾 Q2 2026 update,7月給 CONNECTSOURCE / 5/7 Cary 跟進 |
 | **Quantatec** | 客製 | (待補) | Camera obstruction 系列(VMX-6983 / 7427) |
+| **Webfleet / Bridgestone / Azuga(三客戶聯動)** | BMS Hawk 平台 | Sebastian Schneider (Webfleet), Martin Rothe (Webfleet), Jakob Mund (Bridgestone), Sirphi Manivannan (Azuga) | **HAWK-582 Lens Cover detection 改設計**(取消 speed/calibration 限制),**Eric H 5/8 13:38 確認 6 月 release**。三客戶共用同一 Improvement,Flow 1 Bridgestone 偏好 |
+| **Honeywell MiddleEast(新案)** | CDR 採購 + white-label VMX portal | Honeywell ME 端待補 | **2026-05-08 23:27 啟動**:K220 × 1 + K265 × 1 樣機(5/11),後續 K220 × 4 + K265 × 4 set。第一單 5 月 6K pcs。要做 white-label Honeywell logo VMX portal + 機殼貼紙。Kenny 對接 VMX setup 線 |
 | **HDFE** | (待補) | (S 那邊) | 2026-05-06 抱怨 Q1 Events Page UI 變動 |
 | **LB Technology** | (待補) | (待補) | Plow PTO / Posted Speed Alert |
 | **Rastrac** | (待補) | (待補) | False Speed Event(VMX-7317)|

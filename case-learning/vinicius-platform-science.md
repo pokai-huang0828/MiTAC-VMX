@@ -281,3 +281,51 @@ _Last updated: 2026/05/05 — 新增 PM 分析與策略洞察（Section 8）。C
 | Stark Yang(楊永吉 - MDT)| Director, Video Telematics — thread 內監督 |
 
 _Last updated: 2026-05-08 — 補 5/7 testing plan + APN 解決 + K165 校正 + K265 SD update 限制。_
+
+---
+
+## 11. 2026-05-08 / 5-9 weekend 進度(Live View API 議題浮現)
+
+### 5/8 13:22 Paul → Brian/Conant(VisonMax Account Device Listing thread)
+- Vinicius 手上 3 台清單:K245 × 2(F4723090088 / F4723090033)+ K265 × 1(L1225380005)
+- 客戶反映 **EVO (K265) ADAS 和 DMS 沒啟動**
+- 請 Brian / Conant 確認 device 在 VMX platform 上設定正確
+
+### 5/8 15:35 → 15:56 Brian / Righter / Brian 連動
+- Brian 對 Righter:**確認 3 台 SN 是否在 PS Master account 下,application version 是否要 update,plan type 是否正確**
+- Righter:K245 × 2 在 inventory,K265 已分配給 **"Platform Science" fleet**,K265 (L1225380005) AI function 看起來 OK
+- Brian:舊樣機 app version 不一定 2026 Q1,可能要 update + 告知客戶網路用量
+
+→ **校正**:Righter 說 K265 AI 沒問題,但 Vinicius 反映 ADAS/DMS 沒啟動 → 推測差在 **plan type 沒對到 ADAS/DMS 啟用層級** 或 **DMS calibration 沒完成**(需 20 km/h × 15 sec)
+
+### 5/9 01:57 Vinicius 新問題:Live View 怎麼接到 PS portal
+- VMX docs 沒寫 live view streaming 怎麼接到客戶 portal
+- 客戶端要做 cloud-to-cloud 整合,但 Live View 部分卡住
+
+### 5/9 10:27 Brian 回應 Live View 機制
+> "Since Live View works as a P2P connection (directly from browser or app to device), it does not use cloud API calls. If you decide to adopt a Server-to-Server API integration approach, we will provide the JavaScript library or the necessary technical assistance."
+
+**重大事實**:
+- **Live View = P2P 直連**(browser/app → device),**不走 cloud API**
+- 要做 Server-to-Server 整合,MiTAC 提供 **JS library + 技術協助**
+
+### 5/9 13:11 Vinicius 最新狀態(2 個 open question)
+1. **JS library 供 testing**:做完了 PS portal 的 clone,要對接 VMX API 驗證,要 JS lib
+2. **Camera-side video 直接看不下載**:VMX 支不支援?
+
+### 對 Action Items 的更新
+
+| Action | 狀態 |
+|---|---|
+| K265 image 修正流程 | 等新 VisionMax sample 採購(LM 版不能 SD upgrade)|
+| 設備報價下單 | Conant / Paul 對接中,5/11 週一上午 tier pricing 會議 |
+| ADAS/DMS 啟動 | **新議題** — 推測 plan type / calibration,需 Brian / Conant 確認 |
+| Live View JS lib | **新承諾** — Brian 5/9 承諾提供,等 Conant 出件 |
+| Camera-side video without download | **新開放問題** — KB 沒列,要查 |
+
+### Kenny 動作(本週)
+- 開新檔 / 加段同步 Live View JS lib 議題到 case-learning
+- 跟 Brian / Conant 對齊 plan type 對應 ADAS/DMS 啟用的具體條件
+- 把「Camera-side video without download」開個 question 給 KB / Spencer 答
+
+_Last updated: 2026-05-11 — 補 5/8–5/9 Device Listing thread + Live View P2P/JS lib + camera-side video without download 兩個 open question。_

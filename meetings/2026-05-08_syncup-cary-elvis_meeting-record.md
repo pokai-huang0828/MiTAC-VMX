@@ -125,12 +125,18 @@ Cary 警告(隱私):
 
 ## C. Action Items
 
-### 🔥 Kenny 自己(P0,24h 內)
-- [ ] **回 Cary / Wendy thread 校正 Q2 portal path** — 不能裝沒事,Elvis 現場糾正了。雙路徑(Master 補視圖 vs Fleet Portal 加 UI)帶進信中
-- [ ] 跟 **Spencer** 確認:**Blurring API documentation 能否 share** 給 CONNECTSOURCE 對外用(暫用,在 front-end UI 出來前)
-- [ ] 跟 **Brian + Spencer** 對齊:contract-fleet-level Blurring config 走哪條路
-  - (A) Master Portal 補 contract fleet 視圖(處理隱私)
-  - (B) Fleet Portal 加 per-contract-fleet UI(沿用 Live User pattern)
+### 🔥 Kenny 自己(P0,24h 內)— ✅ 2026-05-11 早上 Teams thread 執行
+- [x] **回 Cary / Wendy thread 校正 Q2 portal path** — ✅ 5/11 早上 Kenny 經 Spencer alignment 後在 Teams group 提 Option A/B 兩個 model
+- [x] 跟 **Spencer** 確認:**Blurring API documentation 能否 share** 給 CONNECTSOURCE — 🟡 Spencer aligned · ⏳ **仍等 Brian QPR 後 sign-off**
+- [x] 跟 **Brian + Spencer** 對齊:contract-fleet-level Blurring config 走哪條路 — ✅ Spencer 已給兩個 model · **Cary 5/11 拍板 Option B(Master Centralised)** · ⏳ 等 Brian QPR 後 confirm
+
+> 🆕 5/11 揭露的新訊號:
+> 1. Cary 立場翻轉(5/8 警告隱私 → 5/11 選 Centralised),理由 = **extra fee → SI 要 billing 控制**
+> 2. Spencer 端揭露 **endpoint 還沒在現 VMX 環境 open**,即使 doc 分享客戶也不能 call(待 internal validation 完成)
+> 3. **新需求**:monthly subscription report 加「Blurring 啟用裝置數」(billing tracking)
+> 4. 今天 2pm Kenny + Elvis 另開 Teams 講 Q1 API
+>
+> 詳見:[`2026-05-11_morning_cary-elvis-teams-thread.md`](2026-05-11_morning_cary-elvis-teams-thread.md)
 
 ### 📅 本週(P1)
 - [ ] 把 5/8 會議結論寫進 `case-learning/connectsource-passenger-blurring.md`

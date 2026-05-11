@@ -25,8 +25,9 @@
 | 路徑 | 用途 | 重點 |
 |------|------|-----|
 | **[`knowledge/`](knowledge/README.md)** ⭐ | 結構化知識庫(source of truth) | 43 份 md / 6 大分類:Product / Org / Systems / PM Frameworks / Workflows / Calibration |
-| **[`websiteview/`](websiteview/index.html)** ⭐ | 5 個 HTML hub + build scripts | landing / Knowledge Hub / Case Hub / Portal Briefing 43 張 / Architecture 47 張 |
-| [`case-learning/`](case-learning/) | 客戶案件追蹤(.md 來源) | Connect Source / Platform Science |
+| **[`websiteview/`](websiteview/index.html)** ⭐⭐ | **Mission Control** v2 — 三層 IA(NOW / CASES / KNOWLEDGE)+ Hero KPI gauge + Cabinet Grotesk / Satoshi 字型 | landing / Knowledge Hub / Case Hub(含 Honeywell + Weekly Summary tab)/ Portal Briefing / Architecture |
+| **[`weekly-summary/`](weekly-summary/2026-05-11_week-of-may-8.md)** ⭐ | 每週對齊摘要(email + Jira + repo Δ) | 5/11 起每週一上工前 · 對應 case-hub Weekly tab |
+| [`case-learning/`](case-learning/) | 客戶案件追蹤(.md 來源) | Connect Source / Platform Science / **Honeywell ME(新)** |
 | [`meetings/`](meetings/) | 會議筆記 | Video Safety / Q2 Review / AI Weekly / Sync-up |
 | [`VMX_images/`](VMX_images/) | Portal 截圖 | Fleet 21 張 + Master 8 張 |
 | [`portal_reference/`](portal_reference/) | Brian portal task 原始交付歸檔 | 客戶版 pptx + 架構版 PDF + 草稿 md |
@@ -66,12 +67,24 @@
 ## 工作流入口
 
 ### Web Hub(本機開)
-打開 [`websiteview/index.html`](websiteview/index.html) — 4 個 hub card 入口。建議用 VS Code Live Server(http://127.0.0.1:5500/),否則 fetch 會被 file:// 擋。
+打開 [`websiteview/index.html`](websiteview/index.html) — Mission Control v2,三層 IA(NOW / CASES / KNOWLEDGE)。**全 static HTML,直接編輯**,無 Python build script。
+
+### HTML 結構(2026-05-11 起 v2 static)
+- 每頁 = 一個 .html + 對應 css/ + js/(都在 `websiteview/css/` 和 `websiteview/js/`)
+- 直接 edit HTML / CSS / JS,**不再用 Python 生成**
+- 字型升級:Cabinet Grotesk(heading)+ Satoshi(body),Fontshare CDN
+- 主要檔案:
+  - `websiteview/index.html` + `css/index.css` — Mission Control 入口
+  - `websiteview/knowledge.html` + `css/knowledge.css` + `js/knowledge.js` — Knowledge Hub(43 文件 6 分類)
+  - `websiteview/case-hub.html` + `css/case-hub.css` — 5 tab(Honeywell / PS / CS / PM / Weekly)
+  - `weekly-summary/*.md.html` + `css/weekly-summary.css` + `js/weekly-summary.js` — 每週 summary
+- 舊 build script `_build_*.py` 已全部移除
 
 ### 簡報製作
 - **PPT 路線**:拷貝 `MDT_2026_powerpoint_template.pptx`,從 6 個 layout 插入 slide
-- **HTML 路線**:`#5B9BD5` / `#4472C4` / `#ED7D31` + Calibri,SOP 見 [knowledge/05_workflows/html-presentation-pipeline.md](knowledge/05_workflows/html-presentation-pipeline.md)
-- 改文案後重新產出:`python websiteview/_build_briefing.py` / `python websiteview/_build_architecture.py` / `python knowledge/_build_index.py`
+- **HTML 路線**:#5B9BD5 / #4472C4 / #ED7D31 + Calibri(舊主題)或 Cabinet Grotesk / Satoshi(新主題 v2)
+- SOP 見 [knowledge/05_workflows/html-presentation-pipeline.md](knowledge/05_workflows/html-presentation-pipeline.md)
+- portal-briefing / portal-architecture 兩個 slide deck 仍是 static(2026-05-11 前由 python build,現已 freeze)
 
 ### Jira(MiTAC R&D)
 - 入口:`https://jira.navman.co.nz/jira/`

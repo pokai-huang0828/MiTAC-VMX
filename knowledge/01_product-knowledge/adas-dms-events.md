@@ -45,7 +45,7 @@
 |------|--------------|-----------------------------|
 | **Yawning(Fatigue 子)** | Basic(2025) | ⚠️ 還沒給客戶 / 內部測試中 / 效果不如預期 / Fatigue config 下要加獨立開關。**5/7 補:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓 + 考慮 Server 端從辨識嘴巴改為「辨識整張臉」**。Yawning UI toggle 對應 **VMX-7432**(Lucy 5/6 開) |
 | **Smoking** | Basic(2025) | ⚠️ KB 標 (in development)/ Sheet 隱藏 / 4 個 Jira ticket open(VMX-6670 / 7324 / 6380 / 6920) |
-| **Obstructed Camera** | Basic | 對應 Quantatec 案 VMX-6983 / VMX-7427 / HAWK-582。**5/7 揭露 Lens Cover 規格雙軌**:Azuga 標準版 = 解除車速;BMS 版 = 車速 > 0 才啟動 |
+| **Obstructed Camera (Lens Cover)** | Basic | 對應 Quantatec 案 VMX-6983 / VMX-7427 / HAWK-582。<br>**5/7 揭露雙軌**:Azuga 標準版 = 解除車速;BMS 版 = 車速 > 0 才啟動。<br>**5/11 校正(HAWK-582 thread)**:Webfleet (Sebastian Schneider) + Bridgestone (Jakob Mund) + Azuga 三客戶聯動,**設計改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**(Flow 1 — ignition ON + 無移動就偵測)。**Eric H (謝翔宇) 5/8 13:38 確認 6 月 release**,單軌即可滿足三客戶,不再「雙軌維護」 |
 | Eating | Advanced(2027) | HAWK-562 已開 ticket(Jimmy + Vincent 5/7 加入)— **比 Roadmap 提早動工**。**🚨 5/7 揭露:BMS 客訴量是過去 17 倍(客訴 ID 6652),6/15 前 7000+ Edge case 一次性緊急重訓** |
 | Drinking | Advanced | (同 Eating,共用 6/15 重訓) |
 | Blurring function (DMS) | (Roadmap Slide 2 寫 Burning DMS,實為 Blurring) | 對應 cabin 影像模糊化(2026-05-07 校正) |

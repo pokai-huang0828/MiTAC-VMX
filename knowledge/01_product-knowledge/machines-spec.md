@@ -111,6 +111,19 @@ KB 來源:https://service.visionmaxfleet.com/portal/en/kb/articles/what-is-the-r
 
 ⚠️ KB 上沒按 K145c / K165 / K220 / K245 / K245c / K265 拆分 — 是按 video type(Side by Side / Separated / AUX UVC / AUX USB)拆。各 K 機種能跑哪些 video type **要 Mori 確認**。
 
+## K265 SD update 架構限制(2026-05-07 Righter 揭露,Platform Science 案)
+
+> 來源:Righter Song 2026-05-07 給 Vinicius 信件
+
+- **K265 SD 卡更新不能 overwrite all partitions**(架構限制)
+- 設備如果是 **LM (Lightmetrics) 版本,不能用 SD update 升到 VisionMax 版**
+- 升 SD 後設備會 malfunction
+- 對應策略:**直接給 VisionMax 版 sample**,不要先給 LM 版再升
+
+→ **影響 Honeywell ME CDR 案**:5/11 起 6K 出貨的 K265 必須出廠就是 VMX 版 firmware,不能晚期切換。對應 [case-learning/honeywell-me-cdr-opportunity.md](../../case-learning/honeywell-me-cdr-opportunity.md) 風險點。
+
+---
+
 ## 待 Coffee Chat 問 Mori
 
 1. K145c / **K165** / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip(K165 5/8 新加,Vinicius 5/7 確認有實機)
