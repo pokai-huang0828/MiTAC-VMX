@@ -269,15 +269,15 @@
       </p>
       <div class="portal-img-grid">
         <figure>
-          <img src="../VMX_images/Master/Master-Inventory.png" alt="Master Portal — Inventory">
+          <img src="VMX_images/Master/Master-Inventory.png" alt="Master Portal — Inventory">
           <figcaption>Master Portal — Inventory(裝置加入 / 狀態管理)</figcaption>
         </figure>
         <figure>
-          <img src="../VMX_images/Master/Master-Diagnostics.png" alt="Master Portal — Diagnostics">
+          <img src="VMX_images/Master/Master-Diagnostics.png" alt="Master Portal — Diagnostics">
           <figcaption>Master Portal — Diagnostics(K265 image 狀態 / 健康度)</figcaption>
         </figure>
         <figure>
-          <img src="../VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
+          <img src="VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
           <figcaption>Master Portal — Active in Fleet(設備分配給 fleet)</figcaption>
         </figure>
       </div>
@@ -378,7 +378,7 @@
       </div>
     </div>
 
-    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+    <div class="card spaced-top-md is-ok">
       <div class="card-title">✅ 2026-05-11 下午 14:00 sync · Brian 拍板 Q2 scope</div>
       <ul class="bullet-loose">
         <li><strong>Q2 In Scope</strong>:(1) BMS Blurring 整合進 VisionMax cloud · (2) Release API doc 給 Connect Source(MAU API integrated 客戶)</li>
@@ -389,20 +389,20 @@
         <li><strong>時程</strong>:Staging end of June / Production end of July / Q2 release notes end of June 給 MAU(對外發布前)</li>
         <li><strong>Elvis 訊號</strong>:「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 對 MAU 客戶部署前先安排</li>
       </ul>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:8px">完整紀錄:<a href="../meetings/2026-05-11_afternoon_cary-elvis-sync.md.html" style="color:var(--mdt-blue);font-weight:600">2026-05-11_afternoon_cary-elvis-sync.md</a></p>
+      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/meetings--2026-05-11_afternoon_cary-elvis-sync.html" class="mdt-link">2026-05-11_afternoon_cary-elvis-sync</a></p>
     </div>
 
-    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+    <div class="card spaced-top-md is-ok">
       <div class="card-title">🎫 Jira Tickets 已開(2026-05-11 下午)</div>
-      <table class="data-table" style="font-size:13px">
+      <table class="data-table is-compact">
         <thead><tr><th>Ticket</th><th>Summary</th><th>Type / Priority</th><th>Assignee</th><th>Due / Timeline</th></tr></thead>
         <tbody>
           <tr>
-            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457" target="_blank" style="color:var(--mdt-blue);font-weight:700">VMX-7457</a></td>
+            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457" target="_blank" class="mdt-link-700">VMX-7457</a></td>
             <td>
               [API] Integrate BMS Blurring functionality into VisionMax cloud<br>
-              <em style="font-size:12px;color:var(--text-muted)">2 deliverables in one ticket(Kenny 加 comment 釐清):</em>
-              <ul style="font-size:12px;margin:4px 0 0 18px;line-height:1.6">
+              <em class="txt-meta">2 deliverables in one ticket(Kenny 加 comment 釐清):</em>
+              <ul class="list-tight">
                 <li><strong>A · API doc share</strong> → 本週 post-QPR</li>
                 <li><strong>B · Cloud integration</strong> → Staging 30/Jun · Prod end-Jul</li>
               </ul>
@@ -412,13 +412,13 @@
             <td><strong>30/Jun/2026</strong>(staging · ticket Due)</td>
           </tr>
           <tr>
-            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458" target="_blank" style="color:var(--mdt-blue);font-weight:700">VMX-7458</a></td>
+            <td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458" target="_blank" class="mdt-link-700">VMX-7458</a></td>
             <td>[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers</td>
             <td>Task · 2 - Medium</td>
             <td><strong>Kenny</strong></td>
             <td>Q2 feasibility · 實作 long-term</td>
           </tr>
-          <tr style="background:#F6F8FB">
+          <tr class="highlight-row">
             <td><em>(暫不開)</em></td>
             <td>Monthly subscription report — Blurring tracking</td>
             <td>—</td>
@@ -427,18 +427,18 @@
           </tr>
         </tbody>
       </table>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:10px">
+      <p class="txt-meta spaced-top-10">
         <strong>#4 為什麼暫不開</strong>:舊單
-        <a href="https://jira.navman.co.nz/jira/browse/VMX-6427" target="_blank" style="color:var(--mdt-blue);font-weight:600">VMX-6427</a>
+        <a href="https://jira.navman.co.nz/jira/browse/VMX-6427" target="_blank" class="mdt-link">VMX-6427</a>
         "Improve reporting function #107" 是更大的 events reporting infra 工作(Time Series DB migration),
         跟 Blurring monthly report 不完全 overlap。Production deploy 後有真實 usage 資料再開新單。
         對 Cary 口徑:"Tracked as future enhancement post-Q2 production, will scope once we have real usage data"。
       </p>
     </div>
 
-    <div class="card spaced-top-md" style="border-left:4px solid #18A06B;background:#F0FBF5">
+    <div class="card spaced-top-md is-ok">
       <div class="card-title">🎯 2026-05-11 傍晚 · Brian 認可 Jira ticket 是 SSOT(校正)</div>
-      <ul class="bullet-loose" style="font-size:13px">
+      <ul class="bullet-loose font-13">
         <li>Kenny 2pm sync 後起草 follow-up email(Q1+Q2 ✅ + ticket link + 4 條 timeline + monthly report 救球)→ Brian 第一次回「不要發」</li>
         <li>Kenny ping Brian 確認 → <strong>Brian 二次回應:「不用那麼麻煩,他看我 Jira 寫清楚了」</strong></li>
         <li><strong>真實 calibration</strong>:Jira ticket = 對外 commitment 已建立 · external email 重複 Jira 內容是 redundant · 客戶 chase 時口頭/Teams 答即可</li>
@@ -448,9 +448,9 @@
       </ul>
     </div>
 
-    <div class="card spaced-top-md" style="border-left:4px solid #C42F3C;background:#FCE7E9">
+    <div class="card spaced-top-md is-warn">
       <div class="card-title">⚠️ Kenny 自評 · 2pm sync execution gap</div>
-      <ul class="bullet-loose" style="font-size:13px">
+      <ul class="bullet-loose font-13">
         <li>準備層完整(HTML 圖 / sound-bites / push back 預期 / DON'T SAY 警示)</li>
         <li><strong>但會議現場幾乎沒 deploy</strong>:沒 share screen / 開場違反 DON'T SAY / Monthly report 一句話 dismiss(違反自己 HTML 寫的 sales pitch)</li>
         <li>Brian 進場 5 分鐘 take over · 主導權失分 · 對「升格主對接 PM」定位造成傷害</li>
@@ -459,9 +459,9 @@
       </ul>
     </div>
 
-    <div class="card spaced-top-md" style="border-left:4px solid #8893A4;background:#F6F8FB">
+    <div class="card spaced-top-md is-info">
       <div class="card-title">📜 5/8 sync-up 結論(已 superseded · 歷史 reference)</div>
-      <ul class="bullet-loose" style="font-size:13px">
+      <ul class="bullet-loose font-13">
         <li>Kenny 升格主對接 PM — Cary「we will be stalking you」</li>
         <li>Q2 portal path 校正:Master Portal 路徑只到 main fleet 級,需 per-contract-fleet 粒度</li>
         <li>提出兩條路徑:(A) Master 補視圖 vs (B) Fleet Portal 加 UI <em>← 已被 5/11 下午 API-only 路徑取代</em></li>
@@ -587,11 +587,11 @@
       </p>
       <div class="portal-img-grid">
         <figure>
-          <img src="../VMX_images/Master/Master-Fleets.png" alt="Master Portal — Fleets 頁">
+          <img src="VMX_images/Master/Master-Fleets.png" alt="Master Portal — Fleets 頁">
           <figcaption>Master Portal — Fleets 列表(看到所有 main fleets)</figcaption>
         </figure>
         <figure>
-          <img src="../VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
+          <img src="VMX_images/Master/Master-Active_in_fleet.png" alt="Master Portal — Active in Fleet">
           <figcaption>Master Portal — Active in Fleet 視圖(per-fleet 細項從這進)</figcaption>
         </figure>
       </div>
@@ -915,7 +915,7 @@
   <div id="hw-directive">
     <div class="section-title">Stark 5/8 23:27 指令清單(給 Paul,cc Kevin / Brian)</div>
     <div class="card">
-      <ol style="margin-left:24px;line-height:2;font-size:14px;color:var(--text)">
+      <ol class="list-step">
         <li><strong>5/11 樣機出件</strong>:K220 × 1 + K265 × 1,含 open wires cable / OBD power cable / 點菸頭 cable,跟 Brian 申請 <strong>webbing SIM card</strong>。後續再準備 K220 × 4 + K265 × 4 set。</li>
         <li><strong>機構評估</strong>:PM / 機構討論機構殼上能否貼 <strong>Honeywell logo sticker</strong>(或更好做法)。</li>
         <li><strong>Setup VisionMax Honeywell testing account</strong>:Master & Fleet portal,sample import 至該 fleet 下,<strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)。</li>
@@ -927,7 +927,7 @@
   <div id="hw-kenny">
     <div class="section-title">Kenny 對接點 · VMX setup line</div>
     <div class="card">
-      <p style="color:var(--text-muted);font-size:14px;margin-bottom:14px">Brian 把 Kenny 加進 list → <strong>VisionMax setup(Master & Fleet portal + white-label login logo + sample import)</strong>是 Kenny 實際參與點。對應 Plan Type / Contract Fleet 結構工作。</p>
+      <p class="text-body-14-tight">Brian 把 Kenny 加進 list → <strong>VisionMax setup(Master & Fleet portal + white-label login logo + sample import)</strong>是 Kenny 實際參與點。對應 Plan Type / Contract Fleet 結構工作。</p>
       <table class="data-table">
         <thead><tr><th>任務</th><th>對應 portal 操作</th><th>已知技術依據</th></tr></thead>
         <tbody>
@@ -969,7 +969,7 @@
             <tr><td>Mori Jhang(張貴森)</td><td>HW 規格(Brian FW 在 list)</td></tr>
           </tbody>
         </table>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:12px"><strong>客戶端</strong>:Honeywell ME 端聯絡人待補(目前只有 Paul 直接對外)</p>
+        <p class="txt-meta spaced-top-12"><strong>客戶端</strong>:Honeywell ME 端聯絡人待補(目前只有 Paul 直接對外)</p>
       </div>
     </div>
   </div>
@@ -992,25 +992,25 @@
   <div id="hw-actions">
     <div class="section-title">Action Items</div>
     <div class="col-2-grid">
-      <div class="card" style="border-left:4px solid #DC2626">
+      <div class="card is-critical">
         <div class="card-title">🔥 P0 · 5/11 週一</div>
-        <ul style="margin-left:20px;line-height:1.9;font-size:13.5px">
+        <ul class="list-loose">
           <li>上午跟 Brian 對齊 Kenny 在 VMX setup 的具體 step</li>
           <li>確認 white-label login logo 機制(自助 / 後端 config / 開發)</li>
           <li>確認 Honeywell fleet 的 Plan Type(對應 ADAS/DMS / Live View / Privacy Mode)</li>
           <li>等 Righter / Kevin 把樣機 SN 給出來</li>
         </ul>
       </div>
-      <div class="card" style="border-left:4px solid #CA8A04">
+      <div class="card is-attn">
         <div class="card-title">📅 P1 · 本週</div>
-        <ul style="margin-left:20px;line-height:1.9;font-size:13.5px">
+        <ul class="list-loose">
           <li>Honeywell fleet 建好 + 樣機 import + logo 換好(若可自助)</li>
           <li>把 Honeywell setup 流程記下來 → 給 Phil 當 Master Portal manual 範例</li>
           <li>確認 6K 出貨 firmware 版本一致</li>
         </ul>
       </div>
     </div>
-    <p style="margin-top:18px;font-size:13px;color:var(--text-muted)">完整文件:<a href="../case-learning/honeywell-me-cdr-opportunity.md.html" style="color:var(--mdt-blue);font-weight:600">case-learning/honeywell-me-cdr-opportunity.md</a></p>
+    <p class="txt-meta-13 spaced-top-md">完整文件:<a href="docs/case-learning--honeywell-me-cdr-opportunity.html" class="mdt-link">case-learning · honeywell-me-cdr-opportunity</a></p>
   </div>
 
 </div><!-- /page-honeywell -->
@@ -1035,38 +1035,38 @@
 
   <div id="wk-current">
     <div class="section-title">⭐ 本週 · 2026-05-11(Week of May 8 → May 11)</div>
-    <a href="../weekly-summary/2026-05-11_week-of-may-8.md.html" class="card" style="display:block;text-decoration:none;color:inherit;border-left:4px solid #ED7D31">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+    <a href="docs/weekly-summary--2026-05-11_week-of-may-8.html" class="card card-link is-alert">
+      <div class="flex-between-wrap">
         <div>
-          <div class="card-title" style="margin-bottom:4px">📅 Week of May 8 → May 11, 2026</div>
-          <div style="font-size:12px;color:var(--text-muted)">KW19 · 5 email · 47+48 Jira · 8 處 knowledge Δ</div>
+          <div class="card-title is-tight">📅 Week of May 8 → May 11, 2026</div>
+          <div class="txt-meta">KW19 · 5 email · 47+48 Jira · 8 處 knowledge Δ</div>
         </div>
-        <span style="background:#ED7D31;color:#fff;padding:4px 12px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.05em">⭐ LATEST</span>
+        <span class="badge-latest">⭐ LATEST</span>
       </div>
-      <p style="font-size:13px;color:var(--text);line-height:1.6;margin-bottom:14px">
+      <p class="text-body-13-tight">
         Outlook:Honeywell ME 啟動 / Vinicius Live View JS lib / QBR KPI 100K(差 15K)/ Device Listing app version / Fleet Portal manual。
         Jira:VMX pending 180d 47 票分組 + HAWK opened 48 票(<strong>HAWK-582 Lens Cover 6 月 release 確認</strong>)。
       </p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <div class="flex-row-tight">
         <span class="mdt-pill orange">P0 × 3</span>
         <span class="mdt-pill blue">P1 × 5</span>
         <span class="mdt-pill red">NEW · Honeywell</span>
         <span class="mdt-pill green">Δ × 12</span>
       </div>
-      <div style="margin-top:14px;font-size:13px;font-weight:700;color:var(--mdt-orange)">深入閱讀 →</div>
+      <div class="cta-arrow">深入閱讀 →</div>
     </a>
   </div>
 
   <div id="wk-archive">
     <div class="section-title">📚 歷史 Weekly Summary</div>
     <div class="card">
-      <p style="color:var(--text-muted);font-size:13px;line-height:1.7">
-        本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" style="color:var(--mdt-blue);font-weight:600">PM 策略洞察 tab</a> 與 <a href="../meetings/" style="color:var(--mdt-blue);font-weight:600">meetings/</a> 資料夾。
+      <p class="text-lead-13">
+        本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
       </p>
-      <ul style="margin-top:14px;margin-left:22px;line-height:2;font-size:13.5px">
-        <li><a href="../meetings/2026-05-08_syncup-cary-elvis_meeting-record.md.html" style="color:var(--mdt-blue);font-weight:600">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
-        <li><a href="../meetings/2026-05-07_ai-weekly_meeting-record.md.html" style="color:var(--mdt-blue);font-weight:600">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
-        <li><a href="../meetings/2026-05-06_q2-request-review_meeting-record.md" style="color:var(--mdt-blue);font-weight:600">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
+      <ul class="list-loose-20">
+        <li><a href="docs/meetings--2026-05-08_syncup-cary-elvis_meeting-record.html" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
+        <li><a href="docs/meetings--2026-05-07_ai-weekly_meeting-record.html" class="mdt-link">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
+        <li><a href="docs/meetings--2026-05-06_q2-request-review_meeting-record.html" class="mdt-link">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
       </ul>
     </div>
   </div>
@@ -1074,15 +1074,15 @@
   <div id="wk-howto">
     <div class="section-title">🔄 每週流程(Template v2)</div>
     <div class="card">
-      <ol style="margin-left:24px;line-height:2;font-size:14px">
+      <ol class="list-step">
         <li><strong>週一上工前</strong>掃 Outlook 上週開始的信件,挑 5 大 thread</li>
-        <li>查 Jira filter <a href="https://jira.navman.co.nz/jira/issues/?filter=36523" target="_blank" style="color:var(--mdt-blue);font-weight:600">VMX pending 180 days(36523)</a> 跟 <a href="https://jira.navman.co.nz/jira/issues/?filter=36458" target="_blank" style="color:var(--mdt-blue);font-weight:600">Hawk opened(36458)</a></li>
+        <li>查 Jira filter <a href="https://jira.navman.co.nz/jira/issues/?filter=36523" target="_blank" class="mdt-link">VMX pending 180 days(36523)</a> 跟 <a href="https://jira.navman.co.nz/jira/issues/?filter=36458" target="_blank" class="mdt-link">Hawk opened(36458)</a></li>
         <li>找出對 repo 既有 knowledge 的 Δ(新事實 / 校正 / 新案)</li>
-        <li>產出 <code>weekly-summary/YYYY-MM-DD_week-of-XXX.md</code> + companion <code>.md.html</code></li>
+        <li>產出 <code>weekly-summary/YYYY-MM-DD_week-of-XXX.md</code>(source)+ <code>websiteview/docs/weekly-summary--YYYY-MM-DD_*.html</code>(view)</li>
         <li>更新 <code>knowledge/06_calibration-log/critical-facts-log.md</code> + 受影響的 knowledge files</li>
         <li>更新 memory <code>~/.claude/.../memory/MEMORY.md</code> 指向本週 summary 為「下個 Claude 先讀」</li>
       </ol>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:12px;font-style:italic">完整 template 範例:看本週 weekly-summary 檔案結構即可重用。</p>
+      <p class="txt-italic-meta spaced-top-12">完整 template 範例:看本週 weekly-summary 檔案結構即可重用。</p>
     </div>
   </div>
 
@@ -1091,28 +1091,7 @@
 </main>
 </div><!-- /layout -->
 
-<script>
-  /* Tab switching — uses class toggling so CSS controls visibility + animations */
-  function switchCase(id, evt) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.sidebar').forEach(s => s.classList.add('hidden'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    const page = document.getElementById('page-' + id);
-    const sidebar = document.getElementById('sidebar-' + id);
-    if (page) page.classList.add('active');
-    if (sidebar) sidebar.classList.remove('hidden');
-    const trigger = (evt && evt.currentTarget)
-      || document.querySelector('.tab-btn[data-case="' + id + '"]');
-    if (trigger) trigger.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function scrollToSection(id, evt) {
-    if (evt) evt.preventDefault();
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-</script>
+<script src="js/case-hub.js"></script>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>

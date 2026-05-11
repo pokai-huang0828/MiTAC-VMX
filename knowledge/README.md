@@ -26,7 +26,7 @@
 | Jira | https://jira.navman.co.nz/jira/ | RD ticket 事實狀態 |
 | MiAI Roadmap (對外) | `../MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管版 |
 | case-learning Hub | `../websiteview/case-hub.html` | 客戶案 + PM 框架 |
-| Portal HTML Briefings | `../portal_reference/*.html` | 客戶簡報用 |
+| Portal HTML Briefings | `../websiteview/portal-briefing.html` + `../websiteview/portal-architecture.html` | 客戶簡報用 |
 
 ---
 

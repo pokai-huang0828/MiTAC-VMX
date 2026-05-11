@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事件記錄：CONNECTSOURCE × Passenger Blurring 需求 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
+  <span class="heading">🌏 案件學習 · ConnectSource Passenger Blurring</span>
+  <span class="filename">connectsource-passenger-blurring.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:—</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="connectsource-passenger-blurring">事件記錄：CONNECTSOURCE × Passenger Blurring 需求</h1>
+<blockquote>
+<p>信件主旨：<code>RE: VMX Roadmap Update and Explanation &lt;PASSENGER BLURRING&gt;</code>
+記錄範圍：2026/04 – 2026/05/04
+記錄人：Pokai Huang (pokai.huang@mitacmdt.com)</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 事件背景</h2>
+<p>澳洲 MiTAC 經銷商（產品品牌名：<strong>CONNECTSOURCE</strong>）接獲一個馬來西亞車隊業者的合作需求。該客戶因當地隱私法規及工會規定，要求在行車記錄器影像中自動模糊乘客臉部，此即 <strong>Passenger Blurring（乘客模糊化）</strong> AI 功能。</p>
+<p>Wendy（澳洲業務窗口）向 MiTAC VisionMax 產品端（Brian）反映此需求，並詢問功能上線時程，引發內部關於路線圖透明度、功能開發優先順序與成本分攤的討論。</p>
+<hr />
+<h2 id="2">2. 主要關係人</h2>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wendy Hammond</strong></td>
+<td>MiTAC AU 業務(wendy.hammond@mitac.com.au)— 5/8 解密身份,代 reseller 客戶端傳達需求</td>
+</tr>
+<tr>
+<td><strong>Cary Lo</strong></td>
+<td>MiTAC AU 業務 / Account Manager — 跟 Wendy 同部門,5/8 sync-up 主對話人</td>
+</tr>
+<tr>
+<td><strong>Elvis Tran</strong></td>
+<td>MiTAC AU PM — 5/8 sync-up 加入,負責 release notes review,5/8 技術糾正 Q2 portal path</td>
+</tr>
+<tr>
+<td>Brian Chienlee(李健)</td>
+<td>VisionMax 解決方案負責人(MiTAC HQ 產品端)</td>
+</tr>
+<tr>
+<td>Spencer Su(蘇家弘)</td>
+<td>Cloud / API team lead(HQ)— Q1 API doc / Q2 portal 路徑可實作性 owner</td>
+</tr>
+<tr>
+<td><strong>Pokai (Kenny) Huang</strong></td>
+<td>Technical Support, Brian's team @ Taipei — 5/7 對外回信 / 5/8 主動 reach out 開 sync,目前 MiTAC AU 線<strong>主對接 PM</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. 商業規模</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>數字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>馬來西亞客戶硬體台數</td>
+<td>1,165 台裝置</td>
+</tr>
+<tr>
+<td>預估連線數</td>
+<td>1,000 個連線</td>
+</tr>
+<tr>
+<td>合約期限</td>
+<td>36 個月</td>
+</tr>
+<tr>
+<td>潛在收益（Wendy 估算）</td>
+<td>~$216,000 USD（約 $6/月/連線）</td>
+</tr>
+<tr>
+<td>Passenger Blurring AWS 額外成本</td>
+<td>$700 USD/月</td>
+</tr>
+<tr>
+<td>AWS 成本（36 個月合計）</td>
+<td>~$25,200 USD</td>
+</tr>
+<tr>
+<td>淨收益估算（扣除 AWS 成本）</td>
+<td>~$190,800 USD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>財務上具備可行性，前提是 $6/月/連線的定價模型已涵蓋 AWS 成本分攤。</p>
+</blockquote>
+<hr />
+<h2 id="4">4. 時間軸</h2>
+<h3 id="202604">早期需求提出（2026/04 初）</h3>
+<ul>
+<li>Wendy 向 Brian 提出馬來西亞客戶的 Passenger Blurring 需求</li>
+<li>說明合約規模（1,165 台、1,000 連線、36 個月）以及功能背景（隱私法規與工會要求）</li>
+</ul>
+<h3 id="20260424">2026/04/24 — 財務與功能可行性討論</h3>
+<ul>
+<li><strong>Cary Lo</strong> 提出財務問題：</li>
+<li>1,165 台 HW 每月產生約 $1,165 USD 的基礎收益</li>
+<li>Passenger Blurring AWS 成本 $700/月 是否已計入定價模型？</li>
+<li>車隊規模是否符合 Passenger Blurring 功能的適用條件？</li>
+<li><strong>Brian</strong> 回覆：</li>
+<li>確認 AWS 額外成本為 $700/月</li>
+<li>說明此功能原為 <strong>BMS 客戶</strong> 開發的原型，整合至 CONNECTSOURCE 環境需要<strong>額外開發工作</strong>，不能直接套用</li>
+<li>預計目標時程：<strong>Q2 2026（七月）</strong></li>
+</ul>
+<h3 id="20260504">2026/05/04 — 路線圖透明度衝突浮上檯面</h3>
+<ul>
+<li><strong>Wendy</strong> 表達對 MiTAC 路線圖缺乏透明度的不滿：</li>
+<li>長期沒有召開路線圖同步會議</li>
+<li>業務端無法對客戶做出有效承諾</li>
+<li>要求 Brian 提供更明確的時程資訊</li>
+<li><strong>Brian</strong> 回覆：</li>
+<li>分享 <strong>AI Feature Roadmap 簡報</strong>：https://docs.google.com/presentation/d/1FIkUrx_-f1ouI3j0Tne7HdjuW1nTgnBST7GvNwcPuo/edit?usp=sharing</li>
+<li>分享 <strong>需求管理追蹤表（Google Sheets）</strong>：https://docs.google.com/spreadsheets/d/1DXCf8yU7ZrtzVdMEPSxHgmDb7cPKIFDK/edit?gid=639348744</li>
+<li>說明 Passenger Blurring 功能已排入 Q2 2026 路線圖，七月為目標</li>
+<li>強調 feature 為 BMS 設計，CONNECTSOURCE 需要額外 modifications，Q2 2026 update / 7 月最早</li>
+</ul>
+<h3 id="20260507-cary-session">2026/05/07 — Cary 加碼兩個技術可行性問題 + 客戶 session 請求</h3>
+<p><strong>Cary 5/7 11:22 信件</strong>（收件人：Brian、Wendy、Pokai；副本：Elvis Tran、Spencer Su）：</p>
+<blockquote>
+<p>Can I confirm that the below is achievable, given BMS implementation.
+- Blurring to be applied to passengers only with the driver's face as is.
+- Blurring to be applied to a certain Fleet or Contract Fleet?
+Is it possible to have a customer session on teams on this topic?</p>
+</blockquote>
+<p><strong>內部對照（Pokai 分析，完整版於 plan 檔）</strong>：</p>
+<ul>
+<li><strong>Q1 passenger-only</strong>：redocly v2026-Q1 沒 blurring API；Jira HAWK-331 / 527 / 578 全是 all-face；<strong>現行不支援駕乘區分</strong>；BMS DMS 結果可餵 blur 模組是可行路徑，但需新 ticket</li>
+<li><strong>Q2 fleet-level</strong>：現行為 caller 端 on-demand；<strong>沒有 server-side fleet gating</strong>；兩條路 — 客戶端自控（快） vs VMX 加 server flag（Q2 2026）</li>
+<li><strong>Q3 Teams session</strong>：應開，但前置必須先在內部把 Q1/Q2 dev scope 拍版，免得在客戶面前 over-promise</li>
+<li>對 Cary 不應搶在 Brian 之前回 "Yes" — Cary 信中 quick reply 提示 "Yes, that is correct."/"Yes, it can."/"Yes." 三選項，<strong>這正是要警戒的點</strong></li>
+</ul>
+<p>完整分析：<code>~/.claude/plans/https-outlook-cloud-microsoft-mail-categ-glimmering-sky.md</code></p>
+<h3 id="20260507-kenny-v6-final">2026/05/07 下午 — Kenny 寄出回信（v6 final）</h3>
+<p>跟 Spencer 確認 Q1 / Q2 真實狀態後寄出。決策摘要：</p>
+<p><strong>Q1</strong>：揭露「歐洲 API 已支援 driver/passenger 分開」，請客戶確認鏡頭範圍 + 觸發模式
+<strong>Q2</strong>：提議實作位置 <code>Master Portal › Management › Fleets › Fleet Detail › Configurations › (new) Blurring</code>，per-Fleet 粒度，dealer 端集中管理
+<strong>Q3</strong>：先內部 sync 對齊再排客戶 Teams call</p>
+<p>收件人：Cary、Brian、Wendy；副本：Elvis Tran、Spencer Su</p>
+<p>實際寄出版本與後續追蹤：<code>knowledge/06_calibration-log/cary-passenger-blurring-reply-draft-2026-05-07.md</code></p>
+<p><strong>已知風險點（待 Cary 回覆後處理）</strong>：
+- Q1 camera scope 簡化成只問 DMS，沒對比 ADAS → 需追問
+- Q2 確認題拿掉留「Once confirmed」帶過 → 需追問是否真的要 Master Portal 集中
+- 寄出前未先 DM Brian preview → 看 Brian 後續是否有調整意見</p>
+<hr />
+<h2 id="5">5. 衝突核心分析</h2>
+<h3 id="51-vs">5.1 業務端 vs 產品端的期望落差</h3>
+<table>
+<thead>
+<tr>
+<th>面向</th>
+<th>Wendy（業務端）的期望</th>
+<th>Brian（產品端）的現實</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能時程</td>
+<td>盡快上線，可對客戶承諾</td>
+<td>需額外開發，Q2 2026 / 七月</td>
+</tr>
+<tr>
+<td>功能範圍</td>
+<td>CONNECTSOURCE 可直接使用</td>
+<td>需針對 CONNECTSOURCE 重新整合</td>
+</tr>
+<tr>
+<td>資訊頻率</td>
+<td>定期路線圖同步</td>
+<td>被動回應，沒有主動推播機制</td>
+</tr>
+<tr>
+<td>承諾精度</td>
+<td>具體日期</td>
+<td>「Q2 / 七月」（粗粒度）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52">5.2 根本問題診斷</h3>
+<ol>
+<li>
+<p><strong>資訊不對稱是主因</strong>：業務端不知道路線圖，只能被動等待。Wendy 的情緒反應背後是系統性的溝通斷裂，不是個人關係問題。</p>
+</li>
+<li>
+<p><strong>功能原型 ≠ 可交付功能</strong>：Passenger Blurring 對 BMS 可用，但對 CONNECTSOURCE 需要重新整合。這個差異沒有在早期被清楚傳達，導致業務端誤判功能的就緒程度。</p>
+</li>
+<li>
+<p><strong>承諾時程粒度不足</strong>：「Q2 2026 / 七月」對業務端太粗，客戶端無法據此規劃。更有效的說法應是：「六月確認可行性、七月開始整合測試、Q3 正式上線」。</p>
+</li>
+<li>
+<p><strong>成本歸屬未釐清</strong>：$700/月的 AWS 成本是否計入 $6/月/連線的定價？若未涵蓋，CONNECTSOURCE 的報價結構需要重新評估。</p>
+</li>
+</ol>
+<hr />
+<h2 id="6-action-items">6. 待辦事項（Action Items）</h2>
+<h3 id="brian-visionmax">Brian / VisionMax 產品端</h3>
+<ul>
+<li>[ ] 提供 Passenger Blurring 的具體里程碑節點（不只說「七月」），讓業務端可以管理客戶預期</li>
+<li>[ ] 確認 $6/月/連線的定價模型是否已包含 $700/月 AWS 成本分攤</li>
+<li>[ ] 建立定期 roadmap sync 機制（建議每季一次），確保澳洲業務端有常態資訊流</li>
+</ul>
+<h3 id="wendy-connectsource">Wendy / CONNECTSOURCE 業務端</h3>
+<ul>
+<li>[ ] 向馬來西亞客戶溝通功能時程：Q2 2026 / 七月為目標，但需等 Brian 提供更細的里程碑確認</li>
+</ul>
+<h3 id="cary-lo">Cary Lo / 商務端</h3>
+<ul>
+<li>[ ] 確認 1,165 台裝置是否符合 Passenger Blurring 功能的最小部署規模條件</li>
+<li>[ ] 釐清 AWS 成本分攤是否已反映在 CONNECTSOURCE 現行定價結構中</li>
+<li>[ ] <strong>（5/7 新加）</strong> 等 Brian 拍 Q1/Q2 dev scope 後再排 Teams customer session</li>
+</ul>
+<h3 id="20260507-brian">2026/05/07 新增（待 Brian 拍板）</h3>
+<ul>
+<li>[ ] <strong>Q1 passenger-only blurring</strong> dev scope 評估：BMS DMS 結果如何餵給 blur 模組？需新開 spike ticket</li>
+<li>[ ] <strong>Q2 fleet-level blurring 開關</strong> 路線抉擇：客戶端自控（馬上可做）vs VMX server-side gating（Q2 2026 update）</li>
+<li>[ ] <strong>Teams customer session prep</strong>：scope 對齊後再訂時間，禁止裸接客戶</li>
+</ul>
+<hr />
+<h2 id="7">7. 參考資料</h2>
+<ul>
+<li>AI Feature Roadmap 簡報：https://docs.google.com/presentation/d/1FIkUrx_-f1ouI3j0Tne7HdjuW1nTgnBST7GvNwcPuo/edit?usp=sharing</li>
+<li>需求管理追蹤表（Google Sheets）：https://docs.google.com/spreadsheets/d/1DXCf8yU7ZrtzVdMEPSxHgmDb7cPKIFDK/edit?gid=639348744</li>
+</ul>
+<hr />
+<h2 id="8-pm">8. PM 觀察與建議</h2>
+<h3 id="_1">短期（立即可做）</h3>
+<p>Brian 應在下次回信中把「七月」轉化為可驗證的里程碑：</p>
+<blockquote>
+<p>「預計六月底確認整合方案可行性，七月啟動開發，Q3 結束前提供 CONNECTSOURCE 測試版本。任何變動我會提前通知。」</p>
+</blockquote>
+<p>這句話的關鍵不在日期，而在「任何變動我會提前通知」——這才是 Wendy 真正需要的承諾。</p>
+<h3 id="_2">中期（流程改善）</h3>
+<p>建立 <strong>VisionMax Roadmap Sync</strong> 定期會議（每季一次），澳洲、台灣業務端與產品端共同參與，輸出一頁簡報說明：
+- 已上線功能
+- 進行中的功能（含預計里程碑）
+- 規劃中但未承諾的功能</p>
+<h3 id="_3">長期（定價結構）</h3>
+<p>若 Passenger Blurring 成為標準功能，需在 CONNECTSOURCE 的定價模型中明確將 AWS 成本納入，避免每次都需要個案討論。</p>
+<hr />
+<p><em>Last updated: 2026/05/07 下午 — Kenny 寄出 v6 回信。Q1/Q2 都答「可行」，請客戶補確認。後續追蹤檔：<code>knowledge/06_calibration-log/cary-passenger-blurring-reply-draft-2026-05-07.md</code>。</em></p>
+<p><em>Earlier 2026/05/07：補入 Cary 5/7 11:22 新提兩個問題（passenger-only / fleet-level）+ Teams session 請求。對照 HAWK-527 description 發現 driver_blurry/passenger_blurry 已是分開 flag，redocly 沒文件化（→ memory <code>feedback_jira_first_not_redocly.md</code>）。</em></p>
+<p><em>Previous: 2026/05/05 — 初版建立，記錄 2026/04–05 信件串內容。</em></p>
+<hr />
+<h2 id="2026-05-08-kenny-57-1441-back-up">2026-05-08 後續校正(Kenny 5/7 14:41 回信的 back-up 確認)</h2>
+<h3 id="q1european-deployment-api-driverpassenger-blurring">Q1「European deployment API 已支援 driver/passenger 獨立 blurring」依據</h3>
+<p><strong>真實依據:BMS 客戶端內部 API 已支援,只是沒對外公開</strong>。</p>
+<ul>
+<li>redocly v2026-Q1 公開 API doc 沒露出 blurring endpoint(對外保留)</li>
+<li>但 BMS 客戶實際使用的內部 API 確實有 driver/passenger 獨立 blur control</li>
+<li>5/7 對 Cary / Wendy 講「現有 API 已支援」是有依據的(內部 BMS API)</li>
+<li>對應 HAWK-527 description 中 driver_blurry / passenger_blurry 分開 flag 的觀察 ✓</li>
+</ul>
+<p><strong>對外口徑邊界</strong>:
+- ✓ 「能力存在」可以講
+- ❌ 「公開可用」不能講 — 要 modifications + Q2 2026 update + 7 月 ship 給 CONNECTSOURCE
+- 對齊 Brian 5/4 給 Wendy 的 commitment</p>
+<h3 id="q2master-portal-management-fleets-select-fleet-fleet-detail-configurations-new-blurring">Q2「Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring」路徑</h3>
+<p><strong>真實依據:Brian / Spencer 內部已確認此路徑可實作</strong>。</p>
+<ul>
+<li>不是 Kenny 自己看 portal 結構推的</li>
+<li>對外承諾此 UI 路徑有 RD 端 backing</li>
+<li>後續 Lucy UI 設計 + Brian / Spencer 拍 Q2 2026 update 排程</li>
+</ul>
+<h3 id="_4">風險解除狀態</h3>
+<table>
+<thead>
+<tr>
+<th>風險</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1 對外升級成「現有已支援」沒依據</td>
+<td>🟢 解除(BMS 內部 API 真的有)</td>
+</tr>
+<tr>
+<td>Q2 portal path 自推沒驗證</td>
+<td>🟢 解除(Brian/Spencer 已確認)</td>
+</tr>
+<tr>
+<td>是否要主動補正 thread</td>
+<td>❌ 不需要 — 兩答覆都成立</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">等客戶下一步</h3>
+<p>等 Cary / Wendy 回覆 Q1 的兩個釐清:
+1. <strong>Camera scope</strong>:DMS (Driver facing) only?
+2. <strong>Trigger model</strong>:automatic blurring on every uploaded event,or on-demand only when they request a specific event clip?</p>
+<p>收到後球轉給 Brian / Spencer 排 dev scope。</p>
+<p><em>Last updated: 2026-05-08 — Q1 BMS API back-up + Q2 portal path 由 Brian/Spencer 確認。風險解除,thread 不需主動補正。</em></p>
+<hr />
+<h2 id="2026-05-08-sync-up-meetingkenny-cary-elvis21">2026-05-08 Sync-up Meeting(Kenny + Cary + Elvis,21 分鐘)</h2>
+<h3 id="_6">起源</h3>
+<p>Kenny 5/7 14:41 回信 thread 後,客戶端有疑問。Kenny <strong>主動 reach out</strong> 開 Teams call 釐清(= 5/7 信中承諾的 Q3 Teams session 實際發生)。</p>
+<h3 id="_7">重大發現</h3>
+<h4 id="q2-portal-path-elvis">🚨 Q2 Portal path 不夠精細 — Elvis 現場糾正</h4>
+<p>Kenny 5/7 信寫的:</p>
+<blockquote>
+<p>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</p>
+</blockquote>
+<p>Elvis 在會議中用螢幕分享確認:
+- 那條 Master Portal 路徑<strong>只能控制整個 main fleet 級</strong>
+- 一動 = 影響 main fleet + 所有 contract fleet 一起,<strong>沒粒度</strong>
+- 客戶結構:Australia 1 fleet + 各 reseller 客戶當 contract fleets,<strong>必須能 pinpoint 特定 contract fleet</strong>
+- Fleet Portal 已有 per-contract-fleet config 的能力(以 <strong>Live User</strong> 為例),Blurring 應沿用同 pattern</p>
+<p>→ 5/7 信中對外承諾的 portal path <strong>不滿足客戶實際需求</strong>,要校正。</p>
+<h4 id="_8">兩條未來實作路徑</h4>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>說明</th>
+<th>顧慮</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(A)</strong> Master Portal 補 contract fleet 視圖</td>
+<td>dealer/MAU 中央管控所有 contract fleet</td>
+<td>⚠️ Cary 警告隱私問題 — contract fleet 不見得想讓上層看到</td>
+</tr>
+<tr>
+<td><strong>(B)</strong> Fleet Portal 加 Blurring config UI 在 per-contract-fleet 層級</td>
+<td>沿用 Live User pattern,維持 contract fleet 邊界</td>
+<td>沒明顯顧慮,跟客戶現有操作模式一致</td>
+</tr>
+</tbody>
+</table>
+<p>→ 兩條路都要帶回給 Brian / Spencer 評估,Kenny 在 thread 會明確點出兩個方向。</p>
+<h4 id="q1-api-documentation">Q1 API documentation 議題</h4>
+<p>Cary 在會中尖銳追問:「<strong>Has the blurring notes been added on to the API documentation? Then what can I share with my customer please?</strong>」</p>
+<p>Kenny 答:目前對外文件沒寫(只給 BMS),要問 Spencer 能否提供。Cary 妥協:CONNECTSOURCE 是 integrated customer,願意用 API 直接整合暫用,不一定要等前端 UI。</p>
+<p>→ Action:<strong>問 Spencer 能否 share blurring API doc 給 CONNECTSOURCE 對外</strong>(暫用版本)。</p>
+<h3 id="cary-elvis-kenny">Cary / Elvis 對 Kenny 的接納</h3>
+<ul>
+<li>Cary 開頭:「Brian and Spencer are under star, they go just 'yes' — you reaching out is so refreshing」</li>
+<li>結尾:「<strong>we will be stalking you</strong>」(以後直接 ping Kenny,跳過 Brian/Spencer)</li>
+<li>→ Kenny 已成為 MiTAC AU 線(Cary + Elvis + Wendy)的<strong>主對接 PM</strong></li>
+</ul>
+<h3 id="action-items">Action Items(從會議掉出來)</h3>
+<h4 id="p024h-511">P0(24h 內)→ 5/11 早上實況</h4>
+<ul>
+<li>[x] <strong>回 thread 校正 Q2 portal path</strong> — ✅ 5/11 早上 Kenny 經 Spencer alignment 後在 Teams 提 Option A/B 兩個 model</li>
+<li>[x] 跟 Spencer 確認 Blurring API doc 能否 share — 🟡 Spencer aligned,<strong>仍等 Brian sign-off</strong></li>
+<li>[x] 跟 Brian + Spencer 對齊 (A)/(B) 走哪條路 — ✅ Spencer 端 OK · ⏳ 等 Brian QPR 後拍板</li>
+</ul>
+<hr />
+<h2 id="6-2026-05-11-teams-thread-cary-option-b">6. 2026-05-11 早上 · Teams thread + Cary 拍板 Option B</h2>
+<blockquote>
+<p>詳見:<a href="meetings--2026-05-11_morning_cary-elvis-teams-thread.html"><code>meetings/2026-05-11_morning_cary-elvis-teams-thread.md</code></a></p>
+</blockquote>
+<h3 id="61-spencer-model-58-ab">6.1 Spencer 重新框架的兩個 model(等於 5/8 (A)/(B) 順序對調)</h3>
+<table>
+<thead>
+<tr>
+<th>Spencer 提的</th>
+<th>對應 5/8 sync</th>
+<th>拍板</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Option A — Two-tier delegated control(Master 持 entitlement,delegate 給 Fleet)</td>
+<td>≈ 5/8 sync 的 <strong>(B)</strong> Fleet Portal UI</td>
+<td>❌ 未選</td>
+</tr>
+<tr>
+<td><strong>Option B — Centralised control at Master</strong>(Master 直接控所有 Blurring permission 含 Contract Fleet 層級)</td>
+<td>≈ 5/8 sync 的 <strong>(A)</strong> Master Portal 補視圖</td>
+<td>✅ <strong>Cary 拍板</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-cary-option-b">6.2 Cary 拍 Option B 理由(立場翻轉)</h3>
+<blockquote>
+<p>"this will potentially incur an extra fee, thus the SI need to be able to have full control which fleet they would like to push this feature out to."</p>
+</blockquote>
+<ul>
+<li><strong>billing 控制 &gt; 5/8 提的隱私顧慮</strong> — 5/8 Cary 還警告 Master 視圖會「alarming」,但今天反向選 Centralised</li>
+<li>推測:內部討論後確認「extra fee 由誰收 / 誰決定推」才是核心商業問題,隱私可用 BMS 既有「Master 預設 on,Fleet 不顯示開關」mitigate</li>
+</ul>
+<h3 id="63-monthly-subscription-report">6.3 🆕 新需求 · Monthly subscription report</h3>
+<blockquote>
+<p>"It will also be great, if we can have this appear on the monthly subscription report. So we know how many devices under each master account has this feature implemented."</p>
+</blockquote>
+<ul>
+<li>訊號:Cary / Wendy 已把 Blurring 當成<strong>下一輪 monetization tier</strong>,SI 要 billing visibility</li>
+<li>對 MiTAC HQ 意義:Blurring 不只 feature,<strong>是新 subscription tier 上升的依據</strong></li>
+<li>待動作:跟 Spencer 細談 monthly subscription report 加 Blurring 啟用裝置數的可行性(Jira 哪張單?新單?)</li>
+</ul>
+<h3 id="64-q1-api-doc-share">6.4 Q1 API doc share — 重大新限制揭露</h3>
+<p>Spencer 透過 Kenny 傳達:</p>
+<blockquote>
+<p>"even once the document is shared, the customer will not be able to call the API yet, because the endpoint has not been opened on our current VisionMax environment. It will only be enabled after our internal validation is completed."</p>
+</blockquote>
+<ul>
+<li><strong>doc sharing 跟 endpoint open 是兩件事</strong> — 即使 Brian 同意 share doc,客戶<strong>仍不能 call</strong></li>
+<li>暫時對外口徑:「Blurring function is on our roadmap」(等 Brian 同意才講)</li>
+<li>待動作:準備「能 share 但不能 call」的 wording 給 Cary 對外用</li>
+</ul>
+<h3 id="65-2pm-q1-api-sync">6.5 今天 2pm 計畫 · Q1 API sync</h3>
+<ul>
+<li>Kenny + Elvis(可能 Cary)— 14:00 台灣時間</li>
+<li>同 Teams group meeting link</li>
+<li>Stark 另有 call shortly(不在本 group)</li>
+</ul>
+<hr />
+<h2 id="7-action-items2026-05-11-morning">7. 更新後的 Action Items(2026-05-11 morning 之後)</h2>
+<h4 id="p0">🔥 P0(今天剩下時間)</h4>
+<ul>
+<li>[ ] <strong>2pm Q1 API sync 跟 Elvis(可能 Cary)</strong> — 同 Teams group</li>
+<li>[ ] Brian QPR 結束後 confirm:API doc share / Option B 拍板 / Endpoint open 時程</li>
+<li>[ ] 寫正式 email reply,把 Spencer preliminary + Brian 最終 position 一起發</li>
+</ul>
+<h4 id="p1">📅 P1(本週)</h4>
+<ul>
+<li>[ ] 跟 Spencer 細談 monthly subscription report 加 Blurring 欄位的可行性</li>
+<li>[ ] Critical Facts log 加 Option B 拍板紀錄 + endpoint 未 open 限制</li>
+<li>[ ] 把 5/11 morning thread 同步給 Wendy(她不在這個 Teams group)</li>
+</ul>
+<h4 id="p2-sync">🎯 P2(下個 sync 前)</h4>
+<ul>
+<li>[ ] Monthly subscription report 加 Blurring 欄位若進 sprint,排優先級</li>
+<li>[ ] Endpoint open 條件「internal validation」具體 criteria + 預估完成日</li>
+</ul>
+<p><em>Last updated: 2026-05-11 早上 — 補 5/11 Teams thread + Cary 拍板 Option B + monthly report 新需求 + endpoint 未 open 限制 + 2pm Q1 API sync 安排。</em></p>
+<hr />
+<h2 id="8-2026-05-11-1400-cary-elvis-brian-sync-q2-scope">8. 2026-05-11 下午 14:00 · Cary / Elvis / Brian sync · Q2 scope 拍板</h2>
+<blockquote>
+<p>詳見:<a href="meetings--2026-05-11_afternoon_cary-elvis-sync.html"><code>meetings/2026-05-11_afternoon_cary-elvis-sync.md</code></a></p>
+</blockquote>
+<h3 id="81-q2-scope-brian-take-over">8.1 Q2 Scope 最終拍板(Brian take over 釐清)</h3>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>內容</th>
+<th>時程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Q2 In Scope</strong></td>
+<td>BMS Blurring 整合進 VisionMax cloud + Release API doc 給 Connect Source</td>
+<td>Staging end of June / Production end of July</td>
+</tr>
+<tr>
+<td><strong>Q2 Out of Scope</strong></td>
+<td>UI on Master/Fleet Portal(Auto Sense 用)— 要 GUI design,是 long term</td>
+<td>不在 Q2</td>
+</tr>
+<tr>
+<td><strong>Post-Q2</strong></td>
+<td>Monthly subscription report 加 Blurring tracking</td>
+<td>"Future planning" — Brian's call</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-connect-source-api-only-ui-portal-toggle">8.2 Connect Source 走 API only · 不需要 UI portal toggle</h3>
+<p>Brian 拍板:</p>
+<blockquote>
+<p>"if they use the API they could use the API to blurring any video they want... we don't need to consider is the customer is under the free or subly."</p>
+</blockquote>
+<p>→ <strong>Connect Source 走 API 整合,不分 fleet vs contract fleet permission</strong>。API 自己可控任何 video / fleet。</p>
+<h3 id="83-option-b-vs">8.3 Option B 拍板的真實意義(早上 vs 下午對齊)</h3>
+<table>
+<thead>
+<tr>
+<th>早上 Spencer 框架</th>
+<th>下午 Brian 釐清</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Option A delegated / Option B centralised(UI 視角)</td>
+<td>Option A 跟 B 在 API 層 <strong>是同一條 flow</strong>(Kenny 在會議裡有講出來,但太晚太含糊)</td>
+</tr>
+<tr>
+<td>Cary 選 Option B = Master 中央控制 UI</td>
+<td><strong>Connect Source 不需要任何 UI</strong>(API only)· Auto Sense 需要 UI 是另案</td>
+</tr>
+<tr>
+<td>隱含「Master Portal 有 toggle」</td>
+<td>Master 端 entitlement 是 backend 設,<strong>只能 API 層呈現</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="84-jira-tickets-2026-05-11">8.4 Jira tickets(已開 · 2026-05-11)</h3>
+<table>
+<thead>
+<tr>
+<th>Ticket</th>
+<th>Summary</th>
+<th>Type</th>
+<th>Priority</th>
+<th>Component</th>
+<th>Assignee</th>
+<th>Due / Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457"><strong>VMX-7457</strong></a></td>
+<td>[API] Integrate BMS Blurring functionality into VisionMax cloud(含 API doc share to MAU 作為 AC)</td>
+<td>Task</td>
+<td>2 - Medium</td>
+<td>*Fleet/Master backend API</td>
+<td><strong>Spencer</strong></td>
+<td><strong>Due 30/Jun/2026</strong>(staging)· Production end of July</td>
+</tr>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458"><strong>VMX-7458</strong></a></td>
+<td>[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers</td>
+<td>Task</td>
+<td>2 - Medium</td>
+<td>*Fleet/Master frontend</td>
+<td><strong>Kenny</strong>(自己 own scoping)</td>
+<td>Q2 feasibility · 實作 long-term</td>
+</tr>
+<tr>
+<td><em>(暫不開 ticket)</em></td>
+<td>Monthly subscription report — Blurring enablement &amp; usage tracking</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Post-Q2 production · 等真實需求落地再開新單</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4monthly-report-ticket">為什麼 #4(Monthly report)暫不開 ticket</h4>
+<ul>
+<li><strong>參考舊單</strong>:<a href="https://jira.navman.co.nz/jira/browse/VMX-6427">VMX-6427</a> "Improve reporting function #107" — Elvis 2025/06/05 開,目前 assign Spencer,但<strong>這張是更大的 events reporting 改造</strong>(需要 Time Series DB migration,Brian 4/20 acknowledge 但未排入 sprint)</li>
+<li>VMX-6427 ≠ Blurring monthly report 的對應位置 — overlap 但不是同一件事</li>
+<li><strong>決策(2026-05-11)</strong>:Blurring monthly report 等 Production deploy 後(end of July 後)有具體 SI usage 資料時再開新單,不疊在 VMX-6427 上</li>
+<li><strong>對 Cary 口徑</strong>:「Tracked as future enhancement post-Q2 production, will scope once we have real usage data」</li>
+</ul>
+<h4 id="kenny-vmx-7457-7458-2-sharp">Kenny 在 VMX-7457 / 7458 的 2 個 sharp 處理</h4>
+<ol>
+<li><strong>#1+#2 合併在 VMX-7457</strong>:cloud integration + API doc share 同票,doc share 寫進 AC,不分兩張避免並行追蹤負擔</li>
+<li><strong>VMX-7458 把 pattern reference 改精準</strong>:從「Live User」改成「<strong>Driver-Facing Camera Live View</strong>」— 對 Lucy / GUI team 更明確</li>
+</ol>
+<h4 id="vmx-7457-2-deliverable-timelinekenny-511-comment">VMX-7457 內 2 個 deliverable 不同 timeline(Kenny 5/11 加 comment 釐清)</h4>
+<p>合併同票會讓票面 Due date(30/Jun/26)誤導 — 看似 doc share 也要等到 6 月底。<strong>Kenny 在 VMX-7457 加 comment 標清楚 2 個 deliverable 不同 commitment</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Timeline</th>
+<th>對 Cary commitment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A · API documentation share to MAU – Connect Source</strong></td>
+<td><strong>本週 post-QPR</strong> · 等 Brian sign-off</td>
+<td>「receive doc this week」(本週收到 doc)· cover note 必須標 "doc share ≠ endpoint live"</td>
+</tr>
+<tr>
+<td><strong>B · Cloud integration</strong>(ticket main scope)</td>
+<td><strong>Staging 30/Jun/2026</strong> · Production end of July(post-DQE)</td>
+<td>「Q2 release notes summary by end of June」(對外發給客戶前先 review)</td>
+</tr>
+</tbody>
+</table>
+<p>→ Endpoint cannot be called live against production until Deliverable B validation completes — Cary 已 briefed。</p>
+<p>→ <strong>Comment 已加進 VMX-7457</strong>,Brian / Spencer 一讀就知道兩條 timeline 不同 · 後續對 Cary 任何承諾都 traceable 在 ticket 上。</p>
+<h3 id="85-mau-commitment">8.5 對 MAU 的 commitment 更新</h3>
+<table>
+<thead>
+<tr>
+<th>Cary 5/11 早上要的</th>
+<th>2pm 結論</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 確認 Option B(per-fleet billing 控制)</td>
+<td>✅ 走 API · per-fleet/contract-fleet 在 API 層自然支援</td>
+</tr>
+<tr>
+<td>② Monthly subscription report 加啟用裝置數</td>
+<td>🕐 開 Ticket #4 · post-Q2 future planning · 不能消失</td>
+</tr>
+<tr>
+<td>③ 2pm Q1 API sync</td>
+<td>✅ 已開 · Q2 scope 鎖定</td>
+</tr>
+<tr>
+<td>(Elvis 加碼)未來 deployment 前 notify · Q2 release notes 提早給</td>
+<td>✅ Kenny commit · end of June 給 release notes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="86-action-items2pm">8.6 Action Items(2pm 結束後)</h3>
+<h4 id="p0_1">🔥 P0 · 今天剩下時間</h4>
+<ul>
+<li>[ ] <strong>Cary follow-up email</strong>(把今天 dismiss 掉的 monthly report 救回來)· cc Brian / Spencer / Wendy / Elvis</li>
+<li>[ ] Brian / Spencer 1-on-1 ping · review 今天會議的 execution gap</li>
+</ul>
+<h4 id="p1_1">📅 P1 · 本週</h4>
+<ul>
+<li>[ ] 開 4 張 Jira ticket(§ 8.4)</li>
+<li>[ ] 跟 Spencer 拿 endpoint open production 的 concrete ETA</li>
+<li>[ ] Q1 release notes 對 MAU 客戶部署前先安排(Cary 5/11「don't surprise」訊號)</li>
+<li>[ ] update knowledge(critical-facts / changelog / case-hub.html · 已執行)</li>
+</ul>
+<h4 id="p2-end-of-june">🎯 P2 · End of June 前</h4>
+<ul>
+<li>[ ] Q2 release notes summary 給 Cary(對外發給客戶之前)</li>
+<li>[ ] GUI team kick-off(Ticket #3 Auto Sense UI 可行性)</li>
+<li>[ ] Connect Source SI 端 integration 進度追蹤</li>
+</ul>
+<h3 id="87-kenny-execution-gap">8.7 Kenny 自評:Execution gap</h3>
+<p><strong>真實問題</strong>:準備層(Kenny 版 / Cary 版 HTML / sound-bites)極完整 → 但會議現場幾乎沒 deploy。Brian 進場 take over 5 分鐘把所有事情講完,<strong>主導權失分</strong>。</p>
+<p><strong>下次 protocol</strong>:T-30min pre-game drill 內化(verbatim 念 sound-bite / 指圖練習 / 念 DON'T SAY)· 會議室只帶 Cary 版 · 手機備 Kenny 版(緊急廁所看)· Kenny 版 <strong>不帶進會議室</strong>(INTERNAL banner 被旁邊主管看到尷尬)。</p>
+<p><em>Last updated: 2026-05-11 下午 · 補 § 8 2pm sync 結論 + Q2 scope 拍板 + Jira queue + Kenny 執行 gap 自評。</em></p>
+<hr />
+<h2 id="88-2026-05-11-brian-cary-follow-up-email">§ 8.8 · 2026-05-11 傍晚 · Brian 攔下 Cary follow-up email</h2>
+<h3 id="_9">事件</h3>
+<p>2pm sync 後 Kenny 起草了一封 follow-up email 給 Cary / Elvis(cc Wendy / Brian / Spencer)— 內容包含:
+- Q1 + Q2 兩個原始 5/7 問題的 ✅ Confirmed 答案
+- VMX-7457 / VMX-7458 ticket link
+- 4 條 commitment timeline(doc share 本週 / staging 30/Jun / production end-Jul / Q2 release notes end-Jun)
+- Monthly subscription report 救球段(tracked as post-Q2 future enhancement)</p>
+<p><strong>Brian 5/11 傍晚 review 後說「不要發」</strong>,Kenny 接受並暫停。</p>
+<h3 id="brian">推測 Brian 攔下的可能原因</h3>
+<table>
+<thead>
+<tr>
+<th>可能性</th>
+<th>訊號</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A · Brian 想自己發</td>
+<td>維持 Connect Source 對外主導 · 不把主導權回給 Kenny 書面動作</td>
+</tr>
+<tr>
+<td><strong>B · 不想對 Cary 紙上 commit 時程</strong></td>
+<td>"doc this week / staging 30/Jun / production end-Jul" 寫成 email → 萬一延誤客戶有紙本追責</td>
+</tr>
+<tr>
+<td><strong>C · 內部還沒完全對齊</strong></td>
+<td>QPR 未走完 · Spencer endpoint 條件未鎖死 · 不想 Kenny 先 lock in</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>最大概率 B + C 混合</strong>(Brian 反射動作 = 別在 spec / timeline 鎖死前留書面 trail)</p>
+<h3 id="kenny">Kenny 後續動作</h3>
+<ol>
+<li>
+<p><strong>Teams 短訊 ping Brian</strong>(已執行 / 待執行):
+   - Q1: Brian 自己發,還是這 thread 先 hold?
+   - Q2: 若 hold,什麼 trigger 後再 communicate(doc sign-off / staging deploy / other)?</p>
+</li>
+<li>
+<p><strong>準備好「Cary / Wendy chase」的口頭答覆模板</strong>(沒書面 trail 不代表 Kenny 沒記住結論)</p>
+</li>
+<li>
+<p><strong>不要主動再寫 follow-up email</strong>,等 Brian 動作或明確授權</p>
+</li>
+</ol>
+<h3 id="email-draft-record">Email draft 存底(沒發但留 record)</h3>
+<p>完整 draft(中英對照)備份在 <code>weekly-summary/2026-05-11_blurring-followup-email-draft.md</code>(若未來 Brian 授權發,直接拿)。Email 涵蓋:
+- Subject: "Confirmed · Passenger Blurring Q1 + Q2 — Implementation Summary"
+- Q1 ✅ Confirmed feasible(driver/passenger 區分 BMS API 已支援)
+- Q2 ✅ Confirmed feasible at API level(三層 inheritance + override)
+- Jira tickets VMX-7457 / VMX-7458
+- 4 條 commitment timeline
+- Monthly report future enhancement 救球段</p>
+<h3 id="implicationkenny">Implication(Kenny 心裡要記)</h3>
+<table>
+<thead>
+<tr>
+<th>沒發的後果</th>
+<th>影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cary 早上 monthly report 球</td>
+<td>沒救回來 · 她下次會 chase</td>
+</tr>
+<tr>
+<td>2pm 拍板的 4 條 commitment</td>
+<td>只有口頭印象 · Cary / Wendy / Brian 都可能忘細節</td>
+</tr>
+<tr>
+<td>Wendy 完全不知道 2pm 結論</td>
+<td>她下次 ping 你問「最後決定什麼」, 你只能口頭 forward</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>這些不是 Kenny 的鍋</strong>(Brian 攔下),但 Kenny 腦中要記「Cary / Wendy 任何時候 chase, 我有準備好答案」。</p>
+<h3 id="2026-05-11-v2-brian">校正紀錄(2026-05-11 傍晚 v2 · Brian 二次回應後校正)</h3>
+<p><strong>Kenny 二次 ping Brian 後</strong>,Brian 回:<strong>「不用那麼麻煩, 他看我 Jira 寫清楚了」</strong></p>
+<p>→ 校正之前的推測(B+C 混合,Brian 不想留書面 trail)成更精準的解讀:</p>
+<table>
+<thead>
+<tr>
+<th>我之前推測(過度保守)</th>
+<th>Brian 真實立場(更 relaxed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brian 不想在 spec/timeline 鎖死前對客戶留書面 trail</td>
+<td><strong>Jira ticket 寫清楚 = 對外 commitment 已建立 · external email 是 redundant</strong></td>
+</tr>
+<tr>
+<td>「未來對外發 commitment 文件前先 Brian sign-off」</td>
+<td><strong>內部 Jira / case file 寫清楚 = SSOT 已建立 · 對外只在客戶要書面 audit 時才寫</strong></td>
+</tr>
+<tr>
+<td>等於 Kenny 動作被 gate</td>
+<td><strong>Brian 對 Kenny 的開單質量肯定</strong>(特別是 VMX-7457 拆 Deliverable A/B 那個 comment 動作有效)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kenny-3">Kenny 拿到的 3 個訊號</h3>
+<ol>
+<li><strong>書面工作 &gt; 口頭工作</strong> — 今天 2pm 會議 execution gap 的失分,被 Jira 開單質量補回一半</li>
+<li><strong>MDT 文化內 SSOT = ticket</strong> — 不需要重複做 external 文件</li>
+<li><strong>客戶 chase 時口頭 / Teams 回答</strong>根據 Jira 內容即可,不用 wait Brian sign-off email</li>
+</ol>
+<h3 id="cary-wendy-chase">Cary / Wendy chase 時的口頭答覆模板</h3>
+<p>預期本週內會收到 chase(「Q1+Q2 最後決定?」/「doc 何時給?」/「monthly report 你們會做嗎?」)。
+直接照 § 8.8 email draft 內容口頭 / Teams 回:</p>
+<table>
+<thead>
+<tr>
+<th>客戶問什麼</th>
+<th>Kenny 怎麼答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Q1 (driver/passenger blur) 確認嗎?"</td>
+<td>"Confirmed feasible at API level. BMS API already supports it. For Connect Source, your SI calls the API specifying scope."</td>
+</tr>
+<tr>
+<td>"Q2 (per fleet / contract fleet) 確認嗎?"</td>
+<td>"Confirmed feasible at API level. Three-layer inheritance — Master → Fleet → Contract Fleet, with API override at any layer. Connect Source has full programmatic control."</td>
+</tr>
+<tr>
+<td>"doc 什麼時候給?"</td>
+<td>"This week, post Brian's sign-off after QPR. I'll ping you the moment it's ready."</td>
+</tr>
+<tr>
+<td>"endpoint 什麼時候 live?"</td>
+<td>"Production end of July, post-DQE. Staging end of June. I'll confirm exact date once Spencer's internal validation lands."</td>
+</tr>
+<tr>
+<td>"monthly subscription report?"</td>
+<td>"Tracked as future enhancement post-Q2 production. Data foundation is in VMX-7457 (every API call logged). We'll scope the format with you once we have real usage data flowing — happy to revisit format after July."</td>
+</tr>
+<tr>
+<td>"你 5/8 提的兩條 portal path 路徑(A/B)?"</td>
+<td>"After deeper RD alignment, the per-Contract-Fleet control you needed is fully supported at the API level today. Auto Sense's UI track is separate — long-term."</td>
+</tr>
+</tbody>
+</table>
+<p>→ 這些答覆<strong>跟 Jira / Brian 立場一致</strong>,客戶任何時候 chase 都答得出來。</p>
+<p><em>Last updated: 2026-05-11 傍晚 v2 · 校正 § 8.8 Brian 二次回應 + Kenny 學到 + chase 時口頭答覆模板。</em></p>
+  </div>
+</main>
+</body>
+</html>

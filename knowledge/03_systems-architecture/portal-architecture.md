@@ -47,41 +47,41 @@ Master Portal
 
 ## 📸 Fleet Portal 主要頁面實際截圖
 
-> 從 Kenny 名下測試帳號截圖。對客戶 demo + 內部訓練用。完整 21 張在 `VMX_images/Fleet/`。
+> 從 Kenny 名下測試帳號截圖。對客戶 demo + 內部訓練用。完整 21 張在 `websiteview/VMX_images/Fleet/`。
 
 ### Map Overview — 即時車隊地圖
-![Fleet Map Overview](../../VMX_images/Fleet/Fleet-MapOverview.png)
+![Fleet Map Overview](../../websiteview/VMX_images/Fleet/Fleet-MapOverview.png)
 *Fleet Portal 入口頁,所有車輛即時位置 / 軌跡 / events 標示。客戶 demo 開場必用。*
 
 ### Dashboard — KPI 儀表板
-![Fleet Dashboard](../../VMX_images/Fleet/Fleet-Dashboard-I.png)
+![Fleet Dashboard](../../websiteview/VMX_images/Fleet/Fleet-Dashboard-I.png)
 *Safety Score / Trip count / Distance / Events 統計。Fleet Manager 每天打開的頁。*
 
 ### Safety > Events — 事件列表
-![Fleet Safety Events](../../VMX_images/Fleet/Fleet-Safety-Events.png)
+![Fleet Safety Events](../../websiteview/VMX_images/Fleet/Fleet-Safety-Events.png)
 *所有 ADAS / DMS / G-Sensor 事件清單。**5/6 會議 HDFE 抱怨的就是這頁的 Q1 改版**(點擊次數變多)。*
 
 ### Trip List — 行程列表
-![Fleet Trip List](../../VMX_images/Fleet/Fleet-TripList.png)
+![Fleet Trip List](../../websiteview/VMX_images/Fleet/Fleet-TripList.png)
 *依車輛 / 日期 / 駕駛過濾的 trip 紀錄。VMX-7404 ADAS Failure 案件的 trip 7028714 / 7079470 從這找。*
 
 ### Configurations > AI Events Detection — AI 事件設定
-![Fleet Config AI Events](../../VMX_images/Fleet/Fleet-Configurations-AIEventsDetection.png)
+![Fleet Config AI Events](../../websiteview/VMX_images/Fleet/Fleet-Configurations-AIEventsDetection.png)
 *Fatigue / Distraction / Phone / Smoking / **Yawning** sub-toggle 的設定頁。**5/6 會議 Yawning 獨立開關 + Lucy UI(VMX-7432)就要加在這頁**。*
 
 ### Configurations > Sensor Event Detection — G-Sensor 設定
-![Fleet Config Sensor Events](../../VMX_images/Fleet/Fleet-Configurations-SensorEventDetection.png)
+![Fleet Config Sensor Events](../../websiteview/VMX_images/Fleet/Fleet-Configurations-SensorEventDetection.png)
 *Harsh Braking / Cornering / Driving Impact / Parking Impact / Harsh Acceleration / Rollover 6 種事件門檻。**Mori 200Hz G-Sensor 議題 + Rollover detection 都對應這頁**。*
 
 ### Management > Devices — 設備管理
-![Fleet Management Devices](../../VMX_images/Fleet/Fleet-Management-Devices.png)
+![Fleet Management Devices](../../websiteview/VMX_images/Fleet/Fleet-Management-Devices.png)
 *單一 fleet 內所有 K-series 設備清單,App Version / ADAS+DMS Health 顯示。*
 
 ### Accounts & Permissions — 帳號權限
-![Fleet Accounts Permissions](../../VMX_images/Fleet/Fleet-AccountsPermissions.png)
+![Fleet Accounts Permissions](../../websiteview/VMX_images/Fleet/Fleet-AccountsPermissions.png)
 *L2 Account 管理(Admin / **Viewer Only** roles)。**5/6 會議 VMX-7088 Viewer Only 角色「detail 能不能看」議題對應這頁**。*
 
-> 完整 21 張其他頁面(Trip Report / Safety Reports / File Retrieval / Drivers / Vehicles / Geofences / Device Usage / User Activity Logs / Configurations 其他 4 tabs / Dashboard II / Fleets tab)在 `VMX_images/Fleet/`,需要時直接 reference。
+> 完整 21 張其他頁面(Trip Report / Safety Reports / File Retrieval / Drivers / Vehicles / Geofences / Device Usage / User Activity Logs / Configurations 其他 4 tabs / Dashboard II / Fleets tab)在 `websiteview/VMX_images/Fleet/`,需要時直接 reference。
 
 ---
 

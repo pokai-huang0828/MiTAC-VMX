@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-05-11 下午 14:00 · Cary / Elvis / Brian Teams sync · Blurring API 拍板 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
+  <span class="heading">📋 會議紀錄 · 2026-05-11 下午 Cary/Elvis Sync</span>
+  <span class="filename">2026-05-11_afternoon_cary-elvis-sync.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:—</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="2026-05-11-1400-cary-elvis-brian-teams-sync-blurring-api">2026-05-11 下午 14:00 · Cary / Elvis / Brian Teams sync · Blurring API 拍板</h1>
+<blockquote>
+<p><strong>時間</strong>:2026-05-11 14:00 起(~30 分鐘)
+<strong>形式</strong>:Teams call · 同 group meeting link
+<strong>參與</strong>:Kenny / Cary Lo (MAU) / Elvis Tran (MAU PM) / Brian Chienlee(中途加入 take over)
+<strong>轉錄</strong>:Teams 自動 transcript(中英混合)
+<strong>性質</strong>:5/8 sync up + 5/11 早上 thread 的延續 · API-level 路徑最終拍板 · Q2 scope 鎖定</p>
+</blockquote>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<table>
+<thead>
+<tr>
+<th>結論</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ <strong>Q2 scope 鎖定</strong></td>
+<td>(1) BMS Blurring 整合進 VisionMax cloud · (2) Release API doc 給 Connect Source</td>
+</tr>
+<tr>
+<td>✅ <strong>Connect Source 走 API only</strong></td>
+<td>不需要 UI portal toggle · API 自己可控任何 video / fleet / contract fleet</td>
+</tr>
+<tr>
+<td>🕐 <strong>Auto Sense UI 是另一個 story</strong></td>
+<td>用 web UI 的客戶要等 GUI design · <strong>Q2 不做</strong>(long term)</td>
+</tr>
+<tr>
+<td>🕐 <strong>Monthly subscription report</strong></td>
+<td>Brian「not the target for now, future planning」· 仍要開 ticket 不能消失</td>
+</tr>
+<tr>
+<td>📅 <strong>時程</strong></td>
+<td>End of June staging · End of July production · End of June Q2 release notes 給 Cary</td>
+</tr>
+<tr>
+<td>🚨 <strong>Elvis push 的訊號</strong></td>
+<td>「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 還沒給客戶就要先安排</td>
+</tr>
+<tr>
+<td>⚠️ <strong>Kenny 自評</strong></td>
+<td>Execution gap — 準備的 ammunition(HTML 圖 / sound-bites)沒在現場 deploy · Brian 進來 take over · 主導權失分</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="a">A. 會議動線(逐段紀錄)</h2>
+<h3 id="a1-kenny-reframe004-132">A1. Kenny 開場 reframe(0:04 – 1:32)</h3>
+<p>Kenny:</p>
+<blockquote>
+<p>"last Friday I think there was something I think is misunderstand about like the request. So I was starting too fast to talk about the UI for the front end. But based on that, I've been checking back for our previous emails information that you've been mentioned about, like the API level, so let's get back to the API level to talk about the blurring function."</p>
+</blockquote>
+<p>Cary:「Yep.」 → 接受 reframe。</p>
+<p>⚠️ <strong>Kenny 自評失分點</strong>:
+- "I think... I think... I think" 訊號 = 自己也不確定
+- "starting too fast" 把責任全攬,觸發 DON'T SAY 警示
+- 沒在這時 share screen 帶 Cary 看 inheritance 圖
+- 之後 1:19 句「pass to develop teams... different ways to manage」語言碎裂,沒給 mental model</p>
+<h3 id="a2-cary-master-portal-function">A2. Cary 戳關鍵:Master Portal 沒有 function</h3>
+<p>Cary 第一個 push:</p>
+<blockquote>
+<p>"I thought we've given the information that they want all events to be applied to blur the passenger only for a particular fleet."</p>
+</blockquote>
+<p>→ Cary 認為早上需求已經給清楚。</p>
+<p>Kenny 試圖解釋 master 開總開關 + API 控:</p>
+<blockquote>
+<p>"we can switch on the master master proto and then the because the master proto will have the all the like the powers to enable the blurring systems."</p>
+</blockquote>
+<p>Cary:</p>
+<blockquote>
+<p>"but right now the master portal doesn't have that function. So can it be enabled in the API?"</p>
+</blockquote>
+<p>Kenny:「Yes. Now or API.」 → ⚠️ <strong>訊號模糊,Cary 開始懷疑 Kenny 不熟悉 product。</strong></p>
+<h3 id="a3-elvis-inheritance-override-model">A3. Elvis 自己講出 inheritance + override model(主導權第二次旁落)</h3>
+<p>Elvis:</p>
+<blockquote>
+<p>"contract fleets are treated as if their own fleet. So there may be instances where a customer or acquire different settings for contract fleets not necessarily have to follow the master fleet. So in saying that to give the more flexibility and customization then I would suggest that we go with option A but only admins or master account can change the configuration."</p>
+</blockquote>
+<p>→ <strong>這本來是 Kenny 該講的東西</strong>(Kenny HTML 圖 Contract Fleet B override 那段邏輯)。Elvis 自己口頭重建後 conclude reframe 成 Option A。</p>
+<p>Kenny 反應:</p>
+<blockquote>
+<p>"I mean like option A and B actually under the system how the flows the it is the same thing how it goes."</p>
+</blockquote>
+<p>→ ✅ <strong>這個洞察是對的</strong>(Spencer 早上的 A/B 在 API 層是同一條 flow),但講出來:
+- 太晚(在被糾正後才講)
+- 太含糊(沒解釋為什麼「same thing」)
+- 沒先指 inheritance 圖再講</p>
+<h3 id="a4-cary-screen-share-fleet-portal">A4. Cary screen share 走 Fleet Portal(主導權第三次旁落)</h3>
+<p>Cary 直接 share screen,走「MAT New South Wales 主 fleet → Sydney contract fleet」流程,自己解釋 5/8 提的「需要 per-contract-fleet 粒度」。</p>
+<p>Cary 重申 Option B 拍板理由:</p>
+<blockquote>
+<p>"this feature potentially will cost extra money. ... I don't want them to turn on and on blurring. It needs to be controlled on the master level."</p>
+</blockquote>
+<p>Cary 再提 monthly report:</p>
+<blockquote>
+<p>"we can also track the blurring feature on the monthly report whether what fleet has it applied from when or like some sort of usage tracking"</p>
+</blockquote>
+<p>Kenny 回應:</p>
+<blockquote>
+<p>"I think the monthly report it's not the target for now... but yeah, we can think about in the future."</p>
+</blockquote>
+<p>⚠️ <strong>Kenny 自評嚴重失分</strong>:這是 Cary 早上提的核心商業需求,<strong>直接 dismiss = 否定 her input</strong>。違反 Kenny 自己 Cary 版 HTML 寫的 "Built-in Support for Monthly Subscription Reporting" 整個 section。</p>
+<h3 id="a5-brian-take-over">A5. Brian 進場 take over</h3>
+<p>Brian 接手釐清:</p>
+<h4 id="brian-case">Brian 拆分 case</h4>
+<blockquote>
+<p>"The only difference is so connect source has their own master account and auto sense has their own master account. The different. So that means that currently the connect source is has already integrated with the our API. Correct?"</p>
+</blockquote>
+<h4 id="brian-api-fleet-contract-fleet">Brian 拍板 API 層不分 fleet / contract fleet</h4>
+<blockquote>
+<p>"Because if they use the API they could use the API to blurring any video they want. ... So we don't need to consider is the customer is under the free or subly."</p>
+</blockquote>
+<h4 id="brian-q2-scope">Brian 確認 Q2 scope</h4>
+<blockquote>
+<p>"So first is I think we should integrate the BMS blurring feature into our vision max. And second we need to release our API document for connection source to implement their API and then we can start this integrate with the connectors."</p>
+</blockquote>
+<h4 id="brian-auto-sense-q2">Brian 把 Auto Sense 切出 Q2</h4>
+<blockquote>
+<p>"the autosense is another another story and scope because the for autosense their customer are use currently the m vision max web UI. So we have to use implement the UI before they can have this feature."</p>
+</blockquote>
+<p>⚠️ <strong>Kenny 自評</strong>:Brian 5 分鐘把所有事情講完。對 Cary / Elvis 來說「Brian 一講就清楚 → Kenny 講半天還是糊的」,直接傷 Kenny「主對接 PM」定位。</p>
+<h3 id="a6">A6. 時程確認</h3>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>時程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Staging deploy</td>
+<td>End of June 2026</td>
+</tr>
+<tr>
+<td>Production deploy(post-DQE)</td>
+<td>End of July 2026</td>
+</tr>
+<tr>
+<td>Q2 release notes 給 Cary</td>
+<td>End of June 2026(對外發給客戶之前)</td>
+</tr>
+<tr>
+<td>API doc share</td>
+<td>本週(等 Brian QPR 後 sign-off)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="a7-elvis-push-back">A7. Elvis 的 push back(關鍵保護動作)</h3>
+<p>Elvis:</p>
+<blockquote>
+<p>"Do you have any other major changes planned for Q2 as well? Because we don't want to be surprised again and have customers text us up for changes we weren't aware of."</p>
+</blockquote>
+<p>Kenny 接住:「we will notify before our deployment next time.」</p>
+<p>Cary 補:</p>
+<blockquote>
+<p>"We need the release note first... before you can push it out, that will be ideal."</p>
+</blockquote>
+<p>Kenny commit:「we can summary the Q2 feature change to you by the end of June」</p>
+<p>✅ <strong>Kenny 自評做得好的部分</strong>:結尾這段把信任挽回,給具體時間。Cary 跟 Elvis 同意。</p>
+<h3 id="a8">A8. 結尾互動</h3>
+<ul>
+<li>Kenny 主動 offer 後續答疑:「if you have a questions then you can ask me」</li>
+<li>Cary:「that's great, thank you」</li>
+<li>Elvis:「Clear as mud」(意思 = clearly understood)</li>
+<li>互道感謝結束</li>
+</ul>
+<hr />
+<h2 id="b-ssot">B. 拍板的事實(SSOT 該去哪更新)</h2>
+<table>
+<thead>
+<tr>
+<th>新事實</th>
+<th>SSOT 主檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q2 scope = BMS Blurring 整合進 VMX cloud + 釋出 API doc</td>
+<td><code>06_calibration-log/critical-facts-log.md</code> 新增條</td>
+</tr>
+<tr>
+<td>Connect Source = API only · 不需要 UI portal toggle · API 控 any video / fleet</td>
+<td><code>critical-facts-log.md</code> Master Portal Blurring path 段加 v4</td>
+</tr>
+<tr>
+<td>Auto Sense = 用 VMX web UI · 要 GUI design · <strong>Q2 不做</strong></td>
+<td><code>critical-facts-log.md</code> 新增條 + <code>case-learning/connectsource-passenger-blurring.md</code> § 8</td>
+</tr>
+<tr>
+<td>Monthly subscription report = post-Q2 future planning · 仍開 Ticket</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code> § 8 + Jira Ticket #4</td>
+</tr>
+<tr>
+<td>時程:Staging end of June / Production end of July / Q2 release notes end of June</td>
+<td><code>critical-facts-log.md</code> + case file</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="c-jira-tickets-2026-05-11">C. Jira tickets(已開 · 2026-05-11 下午)</h2>
+<table>
+<thead>
+<tr>
+<th>Ticket</th>
+<th>Summary</th>
+<th>Type</th>
+<th>Priority</th>
+<th>Assignee</th>
+<th>Due / Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457"><strong>VMX-7457</strong></a></td>
+<td>[API] Integrate BMS Blurring functionality into VisionMax cloud(含 API doc share to MAU)</td>
+<td>Task</td>
+<td>2 - Medium</td>
+<td><strong>Spencer</strong></td>
+<td><strong>Due 30/Jun/2026</strong> staging · End of July production</td>
+</tr>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458"><strong>VMX-7458</strong></a></td>
+<td>[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers</td>
+<td>Task</td>
+<td>2 - Medium</td>
+<td><strong>Kenny</strong></td>
+<td>Q2 feasibility · 實作 long-term</td>
+</tr>
+<tr>
+<td><em>(暫不開)</em></td>
+<td>Monthly subscription report — Blurring tracking</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Post-production · 等真實 usage 資料再開新單</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4">為什麼 #4 暫不開:</h3>
+<ul>
+<li>舊單 <a href="https://jira.navman.co.nz/jira/browse/VMX-6427">VMX-6427</a> "Improve reporting function #107"(Elvis 2025/06/05 開)是更大的 events reporting infra 工作 — Brian 4/20 acknowledge 但目前 DB performance 不足,要 Time Series DB migration</li>
+<li>Blurring monthly report 跟 VMX-6427 overlap 但不是同一件事</li>
+<li><strong>2026-05-11 決策</strong>:等 Production deploy 後有真實 usage 資料再開新單</li>
+</ul>
+<h3 id="kenny-sharp-repo-propagate">Kenny 開單時的 sharp 處理(repo 已 propagate):</h3>
+<ol>
+<li><strong>#1+#2 合併在 VMX-7457</strong>:cloud integration + API doc share 寫成 2 個 deliverable 進同一票,doc share 成為 AC</li>
+<li><strong>VMX-7458 pattern reference 改精準</strong>:從「Live User」改成「<strong>Driver-Facing Camera Live View</strong>」(GUI/Lucy team 更明確)</li>
+<li><strong>VMX-7458 Priority 2-Medium</strong>(比一般 spike 高,訊號這雖然 long-term 但要動)</li>
+</ol>
+<hr />
+<h2 id="d-action-items">D. Action Items</h2>
+<h3 id="p0">🔥 P0 · 今天剩下時間</h3>
+<ul>
+<li>[ ] <strong>Cary follow-up email</strong>(把今天會議丟掉的球撿回來)— Brian / Spencer / Wendy / Elvis cc</li>
+<li>確認 Q2 scope(Ticket #1 + #2)</li>
+<li>補 monthly report 救球(Ticket #4 tracked for future)</li>
+<li>3 個 confirmation 寫進 email,讓 Cary 在文字裡答</li>
+<li>[ ] <strong>Brian / Spencer 1-on-1 ping</strong>:今天會議過程 review · 把 Kenny 的「execution gap 不是 product gap」框架講清楚</li>
+</ul>
+<h3 id="p1">📅 P1 · 本週</h3>
+<ul>
+<li>[ ] 開 4 張 Jira ticket(see § C)</li>
+<li>[ ] 跟 Spencer 拿 endpoint open production 的 concrete ETA</li>
+<li>[ ] Q1 release notes 還沒給 MAU 客戶之前先安排(Cary 5/11 提的 surprise prevention)</li>
+<li>[ ] 更新 case file + critical-facts-log + changelog(Claude 已執行)</li>
+</ul>
+<h3 id="p2-sync-end-of-june">🎯 P2 · 下個 sync 前(End of June)</h3>
+<ul>
+<li>[ ] Q2 release notes summary 給 Cary(end of June)</li>
+<li>[ ] 跟 GUI team kick-off Ticket #3(Auto Sense UI 可行性)</li>
+<li>[ ] API doc 對 Connect Source SI 端 integration 進度追蹤</li>
+</ul>
+<hr />
+<h2 id="e-kenny-review-execution-gap-diagnosis">E. Kenny 自我 review · Execution gap diagnosis</h2>
+<h3 id="prep-gap-execution-gap">真實問題不是 prep gap,是 execution gap</h3>
+<table>
+<thead>
+<tr>
+<th>準備層(做得好)</th>
+<th>執行層(沒 deploy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Kenny 版 HTML 完整(timeline / sound-bites / DON'T SAY / push back)</td>
+<td>❌ 會議現場沒打開 HTML / 沒 share screen 給 Cary 看 inheritance 圖</td>
+</tr>
+<tr>
+<td>✅ Cary 版 HTML 圖完整 + 3 個 confirmation question 預備</td>
+<td>❌ 沒主動帶 Cary 走圖 · Elvis 跟 Cary 自己 reframe · Kenny 變回答者不是領導者</td>
+</tr>
+<tr>
+<td>✅ Don't say warning(別講 "I think" / "starting too fast")</td>
+<td>❌ 開場 30 秒就違反</td>
+</tr>
+<tr>
+<td>✅ Monthly report 在 Cary 版 HTML 寫整段 "richer than UI"</td>
+<td>❌ 會議裡 "not the target for now" 直接 dismiss</td>
+</tr>
+<tr>
+<td>✅ Sound-bite verbatim 寫好</td>
+<td>❌ 沒練習,進場 freestyle 失序</td>
+</tr>
+</tbody>
+</table>
+<h3 id="protocol">下次 protocol(會議室場景適配)</h3>
+<pre><code>T-30min  獨自地方(廁所 / 工位)念 opening sound-bite × 5 次
+         指圖練習 · 念 DON'T SAY × 3 遍
+T-5min   關 Kenny 版 · 只留 Cary 版
+         手機 Kenny 版開好(備用)
+T-0      進會議室 · share Cary 版 · 開場 verbatim
+         被 push 反射 = &quot;Let me point at the diagram&quot;
+緊急     &quot;Let me grab water&quot; → 廁所看手機 30 秒 → 回會議
+</code></pre>
+<p>⚠️ <strong>Kenny 版 HTML 不帶進會議室</strong>(有 INTERNAL banner + DON'T SAY 字眼,被旁邊 Brian / Spencer 看到觀感差)</p>
+<hr />
+<h2 id="f">F. 跨檔案連結</h2>
+<ul>
+<li>5/11 早上 Teams thread:<a href="2026-05-11_morning_cary-elvis-teams-thread.md"><code>2026-05-11_morning_cary-elvis-teams-thread.md</code></a></li>
+<li>5/8 Sync up source meeting:<a href="2026-05-08_syncup-cary-elvis_meeting-record.md"><code>2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
+<li>CONNECTSOURCE case 主檔:<a href="case-learning--connectsource-passenger-blurring.html"><code>../case-learning/connectsource-passenger-blurring.md</code></a></li>
+<li>Critical Facts log:<a href="06_calibration-log--critical-facts-log.html"><code>../knowledge/06_calibration-log/critical-facts-log.md</code></a></li>
+<li>Cary 版 HTML 圖(2pm screen share 用):<a href="../weekly-summary/2026-05-11_blurring-model_cary.html"><code>../weekly-summary/2026-05-11_blurring-model_cary.html</code></a></li>
+<li>Kenny 版 HTML(會議前 drill 用,<strong>不帶進會議室</strong>):<a href="../weekly-summary/2026-05-11_blurring-model_kenny.html"><code>../weekly-summary/2026-05-11_blurring-model_kenny.html</code></a></li>
+</ul>
+<hr />
+<p><em>Created 2026-05-11 下午,2pm sync 結束後 30 分鐘內。記錄人:Kenny / Claude。</em></p>
+  </div>
+</main>
+</body>
+</html>

@@ -12,4 +12,4 @@
 
 - **客戶簡報 HTML**:`../../websiteview/portal-briefing.html`(中文 25 張)
 - **PDF 複刻 HTML**:`../../websiteview/portal-architecture.html`(英文 55 張)
-- **Portal 截圖**:`../../VMX_images/Fleet/`(16 張)+ `../../VMX_images/Master/`(8 張)
+- **Portal 截圖**:`../../websiteview/VMX_images/Fleet/`(16 張)+ `../../websiteview/VMX_images/Master/`(8 張)

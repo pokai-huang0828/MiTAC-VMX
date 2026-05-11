@@ -55,7 +55,7 @@
 <h2 id="_1">已踩過的坑</h2>
 <ul>
 <li>⚠️ <strong>navigate tool 對 <code>file://</code> URL 會失敗</strong>(自動加 https://)
-  → 用本機 HTTP server:<code>python -m http.server 8766</code>(在 portal_reference/)</li>
+  → 用本機 HTTP server:<code>python -m http.server 8766</code>(在 presentations/ 或 websiteview/)</li>
 <li>⚠️ PowerPoint COM 自動化用 win32com:<code>pip install pywin32</code>,需要 Windows + 已裝 PowerPoint</li>
 <li>⚠️ LibreOffice / pdftoppm 沒裝 → 用 PowerPoint COM 替代(已寫好 export_pngs.py / export_pdf.py)</li>
 <li>⚠️ pdftoppm 沒裝:Read tool 讀 PDF 會失敗。改用 PyMuPDF(<code>pip install pymupdf</code>)抽文字</li>
@@ -71,23 +71,23 @@
 </thead>
 <tbody>
 <tr>
-<td><code>../../portal_reference/build_html_replica.py</code> ⭐</td>
+<td><code>../../presentations/build_html_replica.py</code> ⭐</td>
 <td>55 頁 PDF 複刻 HTML 生成器</td>
 </tr>
 <tr>
-<td><code>../../portal_reference/build_briefing_html.py</code> ⭐</td>
+<td><code>../../presentations/build_briefing_html.py</code> ⭐</td>
 <td>25 頁客戶簡報 HTML 生成器</td>
 </tr>
 <tr>
-<td><code>../../portal_reference/build_replica_pptx.py</code></td>
+<td><code>../../presentations/build_replica_pptx.py</code></td>
 <td>55 頁 .pptx 生成器</td>
 </tr>
 <tr>
-<td><code>../../portal_reference/export_pngs.py</code></td>
+<td><code>../../presentations/export_pngs.py</code></td>
 <td>PowerPoint COM .pptx → PNG</td>
 </tr>
 <tr>
-<td><code>../../portal_reference/export_pdf.py</code></td>
+<td><code>../../presentations/export_pdf.py</code></td>
 <td>PowerPoint COM .pptx → PDF</td>
 </tr>
 </tbody>

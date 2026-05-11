@@ -3,6 +3,17 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-11 晚 · Repo 整併 + UI / CSS / JS 完全分離
+
+- 2026-05-11 · **MOVE** · `VMX_images/` → `websiteview/VMX_images/`(29 PNG · 7 檔路徑同步)· Web 資產統一進 `websiteview/`
+- 2026-05-11 · **MOVE** · `meetings/*.md.html` × 2 + `weekly-summary/*.html` × 3 → `websiteview/docs/{meetings,weekly-summary}--*.html`(加前綴避免撞名)
+- 2026-05-11 · **CONVERT** · 7 個未轉的 `.md` 補產 HTML view · `case-learning/` × 3 + `meetings/` × 4(舊版自帶 inline style 的 2 個也重做進 doc-standalone.css 框架)
+- 2026-05-11 · **DELETE** · `knowledge/archive/`(3 個 md 已搬進 calibration-log 主檔,本來就重複)
+- 2026-05-11 · **RENAME** · `portal_reference/` → `presentations/`(Kenny 後續會放其他 pptx 進來)
+- 2026-05-11 · **REFACTOR** · `websiteview/case-hub.html` inline `<script>` 抽到 `js/case-hub.js` · 42 處 `style="..."` 抽到 `css/case-hub.css`(新增 5 個 card status 變體 + 12 個 utility class)· 結果:**0 個 inline style / script**
+- 2026-05-11 · **UI** · `css/knowledge.css` 內 `.doc-content` 排版優化 · 行高 1.7→1.75 · 段落 14px margin · 內文 72ch max-width · h1 30px / h2 padding+ / h3 `▸` marker / blockquote 強化 / hr 改 gradient / 首段 lede / inline code 顏色 brand-blue
+- 2026-05-11 · **README** · 重寫資料夾結構表 + HTML 結構段(反映 .md = source、.html = view 分層)
+
 ## 2026-05-11 收工 audit(本日最終對齊檢查)
 
 - 2026-05-11 · **AUDIT** · 跑完整天 SSOT consistency check · grep VMX-7457/7458/6427 + Option A/B + Brian Jira=SSOT + 5/8 P0 標記 · 找出 5 個 drift / 漏洞並修正:

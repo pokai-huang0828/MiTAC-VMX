@@ -228,7 +228,97 @@ body {
   line-height: 1.6;
 }
 
-/* ── RESPONSIVE override ── */
+/* ─────────────── Status-tagged cards(border-left + tinted bg) ─────────────── */
+/* Replaces repeated inline `style="border-left:4px solid #...;background:#..."` */
+.card.is-ok       { border-left: 4px solid #18A06B; background: #F0FBF5; }
+.card.is-warn     { border-left: 4px solid #C42F3C; background: #FCE7E9; }
+.card.is-info     { border-left: 4px solid #8893A4; background: #F6F8FB; }
+.card.is-alert    { border-left: 4px solid #ED7D31; }
+.card.is-critical { border-left: 4px solid #DC2626; }
+.card.is-attn     { border-left: 4px solid #CA8A04; }
+
+/* ─────────────── Inline text/link utilities ─────────────── */
+.txt-meta      { font-size: 12px; color: var(--text-muted); }
+.txt-meta-13   { font-size: 13px; color: var(--text-muted); }
+.txt-italic-meta { font-style: italic; font-size: 12px; color: var(--text-muted); }
+.mdt-link      { color: var(--mdt-blue); font-weight: 600; }
+.mdt-link-700  { color: var(--mdt-blue); font-weight: 700; }
+
+/* ─────────────── Flex layout helpers ─────────────── */
+.flex-between-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.flex-row-tight {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ─────────────── List utilities(used inside cards) ─────────────── */
+.list-tight  { margin: 4px 0 0 18px; line-height: 1.6; font-size: 12px; }
+.list-loose  { margin-left: 20px; line-height: 1.9; font-size: 13.5px; }
+.list-loose-20 { margin: 14px 0 0 22px; line-height: 2; font-size: 13.5px; }
+.list-step   { margin-left: 24px; line-height: 2; font-size: 14px; }
+
+/* ─────────────── Pill (LATEST badge etc.) ─────────────── */
+.badge-latest {
+  background: #ED7D31;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+/* ─────────────── Misc small helpers ─────────────── */
+.spaced-top-sm { margin-top: 8px; }
+.spaced-top-10 { margin-top: 10px; }
+.spaced-top-12 { margin-top: 12px; }
+.spaced-top-md { margin-top: 18px; }
+.cta-arrow {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mdt-orange);
+}
+.font-13 { font-size: 13px; }
+.text-lead-13 {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.text-body-13-tight {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.text-body-14-tight {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+/* Link variant of .card (replaces inline display:block;text-decoration:none;color:inherit) */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Compact data table + highlighted row */
+.data-table.is-compact { font-size: 13px; }
+.data-table tr.highlight-row { background: #F6F8FB; }
+
+/* Card-title with a tighter bottom gap */
+.card-title.is-tight { margin-bottom: 4px; }
+
+/* ─────────────── RESPONSIVE override ─────────────── */
 @media (max-width: 900px) {
   .sidebar { display: none; }
   .topnav { padding: 0 16px; }

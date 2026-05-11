@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-05-11 早上 · Cary / Elvis Teams thread + 2pm 計畫 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
+  <span class="heading">📋 會議紀錄 · 2026-05-11 早上 Cary/Elvis Teams Thread</span>
+  <span class="filename">2026-05-11_morning_cary-elvis-teams-thread.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:—</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="2026-05-11-cary-elvis-teams-thread-2pm">2026-05-11 早上 · Cary / Elvis Teams thread + 2pm 計畫</h1>
+<blockquote>
+<p><strong>時間</strong>:2026-05-11 上午(QPR 會議期間,Brian 不在場)
+<strong>形式</strong>:Teams chat thread(同 5/8 sync 的 group)
+<strong>參與</strong>:Kenny / Cary Lo (MiTAC AU) / Elvis Tran (MiTAC AU PM)
+<strong>性質</strong>:5/8 Sync up 的 P0 Action Items 實際執行 + Q2 portal path 經 Spencer alignment 後<strong>拍板 Option B</strong>
+<strong>後續</strong>:今天 2pm(台灣)Kenny + Elvis(可能 Cary)另開 Teams 講 Q1 API</p>
+</blockquote>
+<hr />
+<h2 id="_1">一頁總覽</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>結論</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Q2 portal path</strong></td>
+<td>✅ <strong>Cary 拍板 Option B(Master Centralised)</strong> — Master 直接控所有 Blurring permission(含 Contract Fleet level),Fleet 不 manage</td>
+</tr>
+<tr>
+<td><strong>拍板理由</strong></td>
+<td>1. Feature 可能 incur extra fee → SI 要 full control which fleet 推<br>2. <strong>新需求</strong>:monthly subscription report 加上「每 master account 下有多少 device 啟用此 feature」(billing tracking)</td>
+</tr>
+<tr>
+<td><strong>Q1 API doc share</strong></td>
+<td>⏳ 等 Brian sign-off(QPR 後)</td>
+</tr>
+<tr>
+<td><strong>重大限制揭露</strong></td>
+<td>🚨 <strong>即使 doc 分享,客戶不能 call API</strong> — endpoint 還沒在現 VMX 環境 open,要 internal validation 完成才開</td>
+</tr>
+<tr>
+<td><strong>暫時對外口徑</strong></td>
+<td>「Blurring function is on our roadmap」(等 Brian 同意才講)</td>
+</tr>
+<tr>
+<td><strong>2pm 安排</strong></td>
+<td>Kenny + Elvis 今天 2pm 再 sync 講 Q1 API · 同 group meeting link · Stark 也有 call shortly</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="a-thread">A. Thread 動線(逐則摘要)</h2>
+<h3 id="a1-kenny-qpr-brian">A1. Kenny 開頭(QPR 進行中暫不能拍 Brian)</h3>
+<blockquote>
+<p>"Brian and Spencer are currently in a meeting, I'll follow up with them once they're available and get back to you with the results via email."</p>
+</blockquote>
+<h3 id="a2-kenny-spencer-aligned-preliminary-update">A2. Kenny + Spencer aligned 後出 preliminary update</h3>
+<h4 id="q1-sharing-the-blurring-api-documentation">Q1 · Sharing the Blurring API documentation</h4>
+<ul>
+<li><strong>狀態</strong>:API spec sharing 仍需 Brian sign-off</li>
+<li><strong>🚨 重要限制(新揭露)</strong>:<blockquote>
+<p>"even once the document is shared, the customer will not be able to call the API yet, <strong>because the endpoint has not been opened on our current VisionMax environment</strong>. It will only be enabled after our internal validation is completed."</p>
+</blockquote>
+</li>
+<li>暫時可告知客戶「Blurring on roadmap」(等 Brian agree)</li>
+</ul>
+<h4 id="q2-fleet-contract-fleet-level-controlspencer-model">Q2 · Fleet / Contract Fleet level control(Spencer 提兩個 model)</h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>說明</th>
+<th>5/8 sync 對應</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Option A — Two-tier delegated</strong></td>
+<td>Master 持 overall blurring entitlement,delegate 給 Fleet · Fleet 自己決定 Contract Fleet 上 enable 與否</td>
+<td>≈ 5/8 sync 的 <strong>(B)</strong> Fleet Portal 加 UI</td>
+</tr>
+<tr>
+<td><strong>Option B — Centralised at Master</strong></td>
+<td>Master 直接控所有 Blurring permission(含 Contract Fleet 層級)· Fleet 不 manage</td>
+<td>≈ 5/8 sync 的 <strong>(A)</strong> Master Portal 補視圖</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>兩個都 technically feasible · 差別在「客戶要給 Fleet 多少 autonomy」</p>
+</blockquote>
+<h3 id="a3-cary-option-b">A3. Cary 回應:選 <strong>Option B</strong></h3>
+<blockquote>
+<p>"We both select OPTION B
+reason being this will potentially incur an extra fee, thus the SI need to be able to have full control which fleet they would like to push this feature out to.
+Meanwhile, It will also be great, if we can have this appear on the <strong>monthly subscription report</strong>.
+So we know how many devices under each master account has this feature implemented."</p>
+</blockquote>
+<p><strong>重大轉折</strong>:5/8 Cary 還警告 Master Portal 視圖會有「隱私 alarming」顧慮,<strong>今天反而選 Centralised</strong>。</p>
+<p><strong>原因解讀</strong>:
+- billing 控制 &gt; 隱私顧慮(extra fee 對 SI 商業模式更重要)
+- Master 視角 = SI / dealer 視角,SI 要直接管 fee 流向
+- 新需求 monthly subscription report 也只能由 Master 統一產出</p>
+<h3 id="a4-2pm-syncq1-api">A4. 2pm 後續 sync(Q1 API)</h3>
+<ul>
+<li>Kenny 邀請 Cary + Elvis 下午 sync 講 Q1 API</li>
+<li>Cary:14:00 our time(台灣)OK</li>
+<li>Elvis: 「I am available」</li>
+<li>Stark 那邊另外有 call shortly(不在本 group)</li>
+<li>同 group meeting link</li>
+</ul>
+<hr />
+<h2 id="b-ssot">B. 新事實摘要(SSOT 該去哪改)</h2>
+<table>
+<thead>
+<tr>
+<th>新事實</th>
+<th>SSOT 主檔</th>
+<th>更新動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q2 portal path 拍板 Option B Centralised at Master</td>
+<td><code>06_calibration-log/critical-facts-log.md</code>「Master Portal Blurring config UI」段</td>
+<td>加結論:Cary 5/11 確認走 Centralised at Master</td>
+</tr>
+<tr>
+<td><strong>Endpoint 未在現 VMX 環境 open</strong> — 即使 doc 分享客戶也不能 call</td>
+<td><code>06_calibration-log/critical-facts-log.md</code></td>
+<td>加新校正條</td>
+</tr>
+<tr>
+<td>Monthly subscription report 加「Blurring 啟用裝置數」新需求</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code></td>
+<td>加新需求段</td>
+</tr>
+<tr>
+<td>CONNECTSOURCE Action Items 進度更新</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code> § Action Items</td>
+<td>P0 第一條已執行 5/11 早上</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="c-58-sync-up-p0-action-items">C. 對 5/8 Sync up 的 P0 Action Items 進度</h2>
+<p>從 5/8 meeting record:</p>
+<table>
+<thead>
+<tr>
+<th>P0</th>
+<th>5/8 寫的</th>
+<th>5/11 早上實況</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>回 thread 校正 Q2 portal path</td>
+<td>草稿待寄</td>
+<td>✅ 已 reach out(經 Spencer alignment),提 Option A/B 兩個 model,<strong>Cary 已拍板 Option B</strong></td>
+</tr>
+<tr>
+<td>跟 Spencer 確認 Blurring API doc 能否 share</td>
+<td>待動作</td>
+<td>🟡 進行中:Spencer aligned · 仍等 Brian sign-off</td>
+</tr>
+<tr>
+<td>跟 Brian + Spencer 對齊 (A)/(B) 走哪條</td>
+<td>待動作</td>
+<td>🟡 進行中:Spencer 端已給兩個 model · 等 Brian QPR 後拍板</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="d-action-items-thread">D. Action Items(從本次 thread 掉出來)</h2>
+<h3 id="p0">🔥 P0(今天)</h3>
+<ul>
+<li>[ ] <strong>2pm Q1 API sync 跟 Elvis(可能 Cary)</strong> — 同 Teams group</li>
+<li>[ ] <strong>Brian QPR 結束後</strong> 回頭 confirm:</li>
+<li>API doc share 是否 OK</li>
+<li>Option B 拍板是否符合 RD 端能力評估</li>
+<li>Endpoint open 時程(internal validation 何時完成)</li>
+<li>[ ] 寫正式 email reply 給 Cary thread,確認 Brian 最終 position(Spencer preliminary already aligned)</li>
+</ul>
+<h3 id="p1">📅 P1(本週)</h3>
+<ul>
+<li>[ ] 跟 Spencer 細談 monthly subscription report 加新欄位的可行性</li>
+<li>對應 Jira 哪張 ticket?(VMX-5908 webhook?VMX-6586 group?或新單?)</li>
+<li>[ ] 把 Option B 拍板訊息寫進 <code>case-learning/connectsource-passenger-blurring.md</code></li>
+<li>[ ] 更新 <code>06_calibration-log/critical-facts-log.md</code> Master Portal Blurring path 段</li>
+</ul>
+<h3 id="p2">🎯 P2</h3>
+<ul>
+<li>[ ] 若 Brian 同意 share API doc,準備一份「能 share 但不能 call」的 wording 給 Cary 對外用</li>
+<li>[ ] Monthly subscription report 加 Blurring 欄位若進 sprint,排優先級</li>
+</ul>
+<hr />
+<h2 id="e">E. 戰略觀察</h2>
+<h3 id="cary">Cary 的決策邏輯</h3>
+<ul>
+<li>5/8 vs 5/11 立場翻轉:從「擔心隱私(反對 Master 視圖)」→ 變成「billing 優先(選 Master centralised)」</li>
+<li>推測:5/8 後內部討論發現「extra fee 由誰收 / 誰決定推」才是核心商業問題,隱私是次要顧慮可後續用 BMS 既有「Master 預設 on,Fleet 端不顯示開關」的設計 mitigate</li>
+</ul>
+<h3 id="spencer-option-58-ab">Spencer 的 Option 重新框架(語意上比 5/8 (A)/(B) 更精準)</h3>
+<ul>
+<li>Spencer 用「<strong>delegated</strong> vs <strong>centralised</strong>」當主軸,比 5/8 sync 的「視圖層級」更貼近實作意圖</li>
+<li>Two-tier delegated 更貼近現有 Live User pattern;Centralised at Master 更貼近 SI billing 角度</li>
+<li>→ 未來再有類似議題,用「delegation model」框架對外講會比「portal path」清晰</li>
+</ul>
+<h3 id="monthly-subscription-report">Monthly subscription report 新需求 = 商業模式深化訊號</h3>
+<ul>
+<li>5/8 還在問「能不能做」,5/11 直接要求「能不能算錢」</li>
+<li>→ 客戶已經把這當成下一輪 monetization,SI 要 billing visibility</li>
+<li>對 MiTAC HQ 意義:Blurring 不只 feature,<strong>是新一輪 subscription tier 上升的依據</strong></li>
+</ul>
+<h3 id="kenny-thread">Kenny 在 thread 中的定位繼續鞏固</h3>
+<ul>
+<li>Brian 不在的時候 Kenny 直接代為 align Spencer,不是 Brian backup 而是<strong>前線 PM</strong></li>
+<li>Cary 沒有等 Brian,直接跟 Kenny 拍板 Option B + 開新 2pm meeting</li>
+<li>→ 5/8 sync 之後 Cary 線真的把 Kenny 當 entry point</li>
+</ul>
+<hr />
+<h2 id="f">F. 跨檔案連結</h2>
+<ul>
+<li>5/8 Sync up source meeting:<a href="2026-05-08_syncup-cary-elvis_meeting-record.md"><code>2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
+<li>CONNECTSOURCE case 主檔:<a href="case-learning--connectsource-passenger-blurring.html"><code>../case-learning/connectsource-passenger-blurring.md</code></a></li>
+<li>Critical Facts(Master Portal Blurring path 校正):<a href="06_calibration-log--critical-facts-log.html"><code>../knowledge/06_calibration-log/critical-facts-log.md</code></a></li>
+<li>Plan Type 議題(可能跟 Blurring 並列為新 plan tier):<a href="03_systems-architecture--plan-types.html"><code>../knowledge/03_systems-architecture/plan-types.md</code></a></li>
+</ul>
+  </div>
+</main>
+</body>
+</html>

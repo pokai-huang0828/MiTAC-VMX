@@ -26,11 +26,11 @@
 |------|------|-----|
 | **[`knowledge/`](knowledge/README.md)** ⭐ | 結構化知識庫(source of truth) | 43 份 md / 6 大分類:Product / Org / Systems / PM Frameworks / Workflows / Calibration |
 | **[`websiteview/`](websiteview/index.html)** ⭐⭐ | **Mission Control** v2 — 三層 IA(NOW / CASES / KNOWLEDGE)+ Hero KPI gauge + Cabinet Grotesk / Satoshi 字型 | landing / Knowledge Hub / Case Hub(含 Honeywell + Weekly Summary tab)/ Portal Briefing / Architecture |
-| **[`weekly-summary/`](weekly-summary/2026-05-11_week-of-may-8.md)** ⭐ | 每週對齊摘要(email + Jira + repo Δ) | 5/11 起每週一上工前 · 對應 case-hub Weekly tab |
-| [`case-learning/`](case-learning/) | 客戶案件追蹤(.md 來源) | Connect Source / Platform Science / **Honeywell ME(新)** |
-| [`meetings/`](meetings/) | 會議筆記 | Video Safety / Q2 Review / AI Weekly / Sync-up |
-| [`VMX_images/`](VMX_images/) | Portal 截圖 | Fleet 21 張 + Master 8 張 |
-| [`portal_reference/`](portal_reference/) | Brian portal task 原始交付歸檔 | 客戶版 pptx + 架構版 PDF + 草稿 md |
+| **[`weekly-summary/`](weekly-summary/)** ⭐ | 每週對齊摘要(.md source · HTML view 在 `websiteview/docs/weekly-summary--*.html`) | 5/11 起每週一上工前 · 對應 case-hub Weekly tab |
+| [`case-learning/`](case-learning/) | 客戶案件追蹤(.md source · HTML view 在 `websiteview/docs/case-learning--*.html`) | Connect Source / Platform Science / **Honeywell ME(新)** |
+| [`meetings/`](meetings/) | 會議筆記(.md source · HTML view 在 `websiteview/docs/meetings--*.html`) | Q2 Review / AI Weekly / Sync-up |
+| [`websiteview/VMX_images/`](websiteview/VMX_images/) | Portal 截圖(2026-05-11 起搬到 websiteview/ 下) | Fleet 21 張 + Master 8 張 |
+| [`presentations/`](presentations/) | PPT / PDF 簡報資產(2026-05-11 改名,前身 `portal_reference/`) | 客戶版 pptx + 架構版 PDF + 後續放入其他 ppt |
 | `EVO_image_update/` | 韌體更新流程文件 | `.gitignore` 排除 binary,只留 process.md |
 | `MDT_2026_powerpoint_template.pptx` | 官方簡報模板(6 layouts, 16:9) | — |
 | `MiAI Roadmap Introduce 2026024.pptx` | AI Roadmap 對外版(7 張) | — |
@@ -69,15 +69,16 @@
 ### Web Hub(本機開)
 打開 [`websiteview/index.html`](websiteview/index.html) — Mission Control v2,三層 IA(NOW / CASES / KNOWLEDGE)。**全 static HTML,直接編輯**,無 Python build script。
 
-### HTML 結構(2026-05-11 起 v2 static)
-- 每頁 = 一個 .html + 對應 css/ + js/(都在 `websiteview/css/` 和 `websiteview/js/`)
+### HTML 結構(2026-05-11 起 v2 static · 全 HTML 集中在 websiteview/)
+- 每頁 = 一個 .html + 對應 `css/` + `js/`(完全分離,**0 個 inline `<style>` / `<script>` block / `style=""` 屬性**)
 - 直接 edit HTML / CSS / JS,**不再用 Python 生成**
 - 字型升級:Cabinet Grotesk(heading)+ Satoshi(body),Fontshare CDN
 - 主要檔案:
   - `websiteview/index.html` + `css/index.css` — Mission Control 入口
   - `websiteview/knowledge.html` + `css/knowledge.css` + `js/knowledge.js` — Knowledge Hub(43 文件 6 分類)
-  - `websiteview/case-hub.html` + `css/case-hub.css` — 5 tab(Honeywell / PS / CS / PM / Weekly)
-  - `weekly-summary/*.md.html` + `css/weekly-summary.css` + `js/weekly-summary.js` — 每週 summary
+  - `websiteview/case-hub.html` + `css/case-hub.css` + `js/case-hub.js` — 5 tab(Honeywell / PS / CS / PM / Weekly)
+  - `websiteview/docs/<category>--<slug>.html` + `css/doc-standalone.css` — knowledge / case-learning / meetings / weekly-summary 的 rendered view
+  - `websiteview/VMX_images/{Fleet,Master}/*.png` — Portal 截圖(2026-05-11 起搬到 websiteview/ 下)
 - 舊 build script `_build_*.py` 已全部移除
 
 ### 簡報製作
@@ -110,6 +111,8 @@
 
 1. 先讀本檔(README.md)+ [knowledge/README.md](knowledge/README.md)
 2. 用 Live Server 開 [`websiteview/index.html`](websiteview/index.html),從 Knowledge Hub 開始翻
-3. 開 [`websiteview/case-hub.html`](websiteview/case-hub.html)(3 tab),先看「PM 策略洞察」tab 拿框架,再看兩個客戶案
+3. 開 [`websiteview/case-hub.html`](websiteview/case-hub.html)(5 tab),先看「PM 策略洞察」tab 拿框架,再看 3 個客戶案
 4. 找 Brian 對齊主管期待
-5. 評估期可見度從 [VMX-7404 ADAS Failure](knowledge/06_calibration-log/vmx-7404-tracking.md) 入手最快
+5. 評估期可見度從 [`websiteview/docs/06_calibration-log--vmx-7404-tracking.html`](websiteview/docs/06_calibration-log--vmx-7404-tracking.html) 入手最快
+
+> 📌 **規則**:看內容用 `websiteview/` 的 HTML view;改內容改 `knowledge/` / `case-learning/` / `meetings/` / `weekly-summary/` 內的 .md source。md 是資料層,html 是顯示層。

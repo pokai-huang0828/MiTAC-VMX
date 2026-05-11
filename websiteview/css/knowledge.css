@@ -377,38 +377,62 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
 .doc-meta .back-btn:disabled { opacity: 0.4; cursor: not-allowed; background: var(--canvas-2); color: var(--muted); }
 
 /* ─── Markdown content ─── */
+/* Typography rhythm tuned 2026-05-11 for sustained reading on long docs.
+   line-height 1.75 + paragraph margin 14px + readable measure ≈ 72ch. */
 .doc-content {
   word-wrap: break-word; overflow-wrap: anywhere;
   font-family: "Satoshi", -apple-system, sans-serif;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink);
 }
+/* Long-form text columns: constrain prose to a comfortable measure.
+   Tables / images / pre still span the full container via the resets below. */
+.doc-content > p,
+.doc-content > ul,
+.doc-content > ol,
+.doc-content > blockquote { max-width: 72ch; }
+.doc-content > table,
+.doc-content > pre,
+.doc-content > figure,
+.doc-content > img { max-width: 100%; }
+
 .doc-content h1 {
   font-family: "Cabinet Grotesk", sans-serif;
-  color: var(--brand); font-size: 28px; font-weight: 800;
-  margin: 0 0 18px; padding-bottom: 10px;
+  color: var(--brand); font-size: 30px; font-weight: 800;
+  margin: 0 0 20px; padding-bottom: 12px;
   border-bottom: 3px solid var(--accent);
   letter-spacing: -.02em;
+  line-height: 1.25;
 }
 .doc-content h2 {
   font-family: "Cabinet Grotesk", sans-serif;
-  color: var(--brand); font-size: 21px; font-weight: 800;
-  margin: 32px 0 14px; padding-left: 12px;
+  color: var(--brand); font-size: 22px; font-weight: 800;
+  margin: 36px 0 14px; padding: 4px 0 4px 14px;
   border-left: 4px solid var(--accent);
   letter-spacing: -.015em;
+  line-height: 1.3;
 }
 .doc-content h3 {
   font-family: "Cabinet Grotesk", sans-serif;
-  color: var(--brand-2); font-size: 17px; font-weight: 700;
-  margin: 22px 0 10px;
+  color: var(--brand-2); font-size: 17.5px; font-weight: 700;
+  margin: 26px 0 10px;
+  line-height: 1.35;
 }
-.doc-content h4 { color: var(--ink-2); font-size: 15px; font-weight: 700; margin: 18px 0 8px; }
-.doc-content p { margin: 10px 0; }
-.doc-content ul, .doc-content ol { margin: 10px 0 10px 24px; }
-.doc-content li { margin: 4px 0; }
+.doc-content h3::before {
+  content: "▸ ";
+  color: var(--accent);
+  font-weight: 800;
+}
+.doc-content h4 { color: var(--ink-2); font-size: 15px; font-weight: 700; margin: 20px 0 8px; }
+.doc-content p { margin: 14px 0; }
+.doc-content ul, .doc-content ol { margin: 12px 0 12px 26px; }
+.doc-content li { margin: 6px 0; }
+.doc-content li > ul, .doc-content li > ol { margin-top: 6px; margin-bottom: 6px; }
 .doc-content code {
   background: var(--canvas-2); padding: 2px 6px; border-radius: 4px;
   font-family: ui-monospace, 'SF Mono', Consolas, monospace;
-  font-size: 13px; color: var(--accent);
+  font-size: 13.5px; color: var(--brand);
   word-break: break-word;
 }
 .doc-content pre {
@@ -430,9 +454,13 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
 }
 .doc-content blockquote {
   border-left: 4px solid var(--accent); background: #FFF8EC;
-  padding: 10px 16px; margin: 14px 0;
+  padding: 12px 18px; margin: 18px 0;
   color: var(--ink-2); border-radius: 0 8px 8px 0;
+  font-size: 14.5px; line-height: 1.7;
 }
+.doc-content blockquote p { margin: 6px 0; }
+.doc-content blockquote p:first-child { margin-top: 0; }
+.doc-content blockquote p:last-child  { margin-bottom: 0; }
 .doc-content table {
   border-collapse: collapse; width: 100%; margin: 14px 0;
   font-size: 14px; display: block; overflow-x: auto;
@@ -462,8 +490,20 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
 .doc-content a.internal-doc-link { color: var(--brand); border-bottom: 1px solid var(--brand-3); }
 .doc-content a.internal-doc-link::before { content: "📄 "; margin-right: 1px; }
 .doc-content a.internal-doc-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.doc-content hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
+.doc-content hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--line) 20%, var(--line) 80%, transparent 100%);
+  margin: 32px 0;
+}
 .doc-content strong { color: var(--ink); font-weight: 700; }
+/* Subtle pop for first paragraph (lede) — only inside standalone doc pages */
+main.doc-standalone .doc-content > p:first-of-type {
+  font-size: 16.5px;
+  color: var(--ink-2);
+}
+/* Scannable list highlight — ✅ / ❌ / ⚠️ etc. visually grouped */
+.doc-content li::marker { color: var(--brand-3); }
 
 /* Prev / Next nav (doc-standalone pages) */
 .doc-prevnext {

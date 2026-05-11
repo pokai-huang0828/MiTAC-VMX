@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handover: Platform Science × MiTAC — Vision Max APIs 專案 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
+  <span class="heading">🚛 案件學習 · Vinicius / Platform Science</span>
+  <span class="filename">vinicius-platform-science.md</span>
+</header>
+<div class="doc-standalone-meta">最後更新:—</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="handover-platform-science-mitac-vision-max-apis">Handover: Platform Science × MiTAC — Vision Max APIs 專案</h1>
+<blockquote>
+<p>本文件彙整黃柏凱 (pokai.huang@mitacmdt.com) Outlook 收件匣中所有與 <strong>Vinicius Francisquinho</strong> (Platform Science) 相關之信件,時間範圍 <strong>2026/04/16 – 2026/05/04</strong>,主旨皆為 <code>Re: Vision Max APIs</code>,標籤 <code>Working</code> / <code>Important!!!</code>。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 專案背景</h2>
+<p>Platform Science 為一家位於美國 Minnetonka, MN 的車隊軟體服務商,旗下 Video Safety 解決方案正在評估與 MiTAC AIoTBC (車載/視訊) 攝影機產品線整合。本案以 <strong>VisionMax</strong> 平台 (MiTAC 雲端管理 portal) 與 <strong>MiTAC CDR 系列攝影機</strong> (K220 / K245 / K265 / K425 等) 為核心,目標是讓 Platform Science 透過 SDK / API 取得攝影機資料並做 cloud-to-cloud 整合,亦不排除 OEM image 客製化。</p>
+<hr />
+<h2 id="2">2. 主要關係人</h2>
+<h3 id="platform-science">Platform Science (客戶端)</h3>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>角色</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vinicius Francisquinho</td>
+<td>Engineering Director, Video Safety (今年初新任)</td>
+<td>vinicius.francisquinho@platformscience.com</td>
+</tr>
+<tr>
+<td>Vikram Jayaraman</td>
+<td>(前期窗口)</td>
+<td>vikram.jayaraman@platformscience.com</td>
+</tr>
+</tbody>
+</table>
+<p>地址: 4400 Baker Road, Minnetonka, MN 55343 / M: +1 (612) 250-2664</p>
+<h3 id="mitac">MiTAC (供應端)</h3>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>中文</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stark Yang</td>
+<td>楊永吉</td>
+<td>Director,Video Telematics 團隊負責人</td>
+</tr>
+<tr>
+<td>Brian Chienlee</td>
+<td>李健</td>
+<td>VisionMax 解決方案負責人</td>
+</tr>
+<tr>
+<td>Conant Ho</td>
+<td>何肇峯</td>
+<td>技術 PM,主要對外窗口</td>
+</tr>
+<tr>
+<td>Paul SP Lee</td>
+<td>李世博</td>
+<td>PS Account Sales</td>
+</tr>
+<tr>
+<td>Righter Song</td>
+<td>宋祐全</td>
+<td>RD Engineer (AIoTBC RD SW1),韌體/inventory 操作</td>
+</tr>
+<tr>
+<td>Pokai Huang</td>
+<td>黃柏凱</td>
+<td>(本人,Cc 串內)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-timeline">3. 時間軸 (Timeline)</h2>
+<h3 id="phase-1-416-417">Phase 1 — 初次需求接洽 (4/16 – 4/17)</h3>
+<ul>
+<li><strong>4/16 18:20</strong> Stark 將 Brian 加入串列,並請 Vikram 分享 Platform Science 的 camera project plan &amp; milestone,以提供對應 roadmap。</li>
+<li><strong>4/17 10:19</strong> Vikram 回覆: 目前主力是對 <strong>K265</strong> 進行 additional validation,希望了解 MiTAC 今年至明年初的 camera roadmap。</li>
+<li><strong>4/17 11:46</strong> Vikram 補充: 期望項目包含 <strong>multi-channel 支援</strong>、<strong>CAN decoding</strong>、<strong>non-China manufacturing</strong>。</li>
+<li>Stark 回覆: MiTAC 新平台特色為 <strong>AI 算力提升</strong>、<strong>清晰前車車牌擷取</strong>、<strong>5G</strong>、<strong>non-Chinese modem</strong>,符合 PS 期待,並可後續安排 briefing。</li>
+</ul>
+<h3 id="phase-2-visionmax-420-421">Phase 2 — VisionMax 帳號與設備設定 (4/20 – 4/21)</h3>
+<ul>
+<li><strong>4/20 14:42</strong> Brian 完成設定:</li>
+<li>為 Vinicius 建立 VisionMax production 帳號,verification 信已寄至 vinicius.francisquinho@platformscience.com</li>
+<li><strong>Master Portal</strong>: https://portal.visionmaxfleet.com/</li>
+<li><strong>Fleet Portal</strong>: https://www.visionmaxfleet.com/</li>
+<li><strong>API 文件</strong>: https://visionmax.redocly.app/</li>
+<li><strong>API KEY</strong>: <code>tH5YIgS5TjM8pvFIxrIU0WkP-eUZe6YtBO4JQ8MA2dg</code></li>
+<li>規則: VisionMax 註冊需以裝置 SN,且 SN 必須先加到 backend whitelist 才能加入 master portal inventory。</li>
+<li>K425 (Lightmetrics version) 刷成 MiTAC 版本: Righter 將提供 SD 卡刷 image 文件;最新版為 <strong>2025 Q4</strong>,<strong>2026 Q1</strong> 測試中,完成後可提供更新。</li>
+<li><strong>4/21 01:25</strong> Righter 寄附件給 Vikram,說明 device update 方式。</li>
+<li><strong>4/21 06:31</strong> Vinicius 回覆出差至週四,將於下週五至下週一執行流程。</li>
+</ul>
+<h3 id="phase-3-421-422">Phase 3 — 安排首次正式會議 (4/21 – 4/22)</h3>
+<ul>
+<li><strong>4/22 02:45</strong> Vinicius 主動提案下週開會,自我介紹為今年初新任 Engineering Director,有許多問題想請教 MiTAC。</li>
+<li><strong>4/22 04:16</strong> Stark 在英國出差,授權 Conant + Brian 找時段對接;Paul 將遠端加入。</li>
+<li><strong>4/21 23:44</strong> Conant 提議 4/27 ~ 4/30,Taiwan 20:00 (CDT 07:00) 之時段。</li>
+<li><strong>4/22 09:54</strong> Vinicius 確定 <strong>4/29</strong>。</li>
+</ul>
+<h3 id="phase-4-inventory-428">Phase 4 — Inventory 加入問題 (4/28)</h3>
+<ul>
+<li><strong>4/28 08:59</strong> Vinicius 回報無法將 K265 加入 VisionMax portal,出現錯誤。</li>
+<li>K265: IMEI <code>353995720096134</code> / SN <code>L1225380005</code></li>
+<li><strong>4/28 10:31</strong> Vinicius 補上需加入 whitelist 的兩台裝置:</li>
+<li>K265: IMEI <code>353995720096134</code> / SN <code>L1225380005</code></li>
+<li>K245: IMEI <code>357216578001266</code> / SN <code>F4723090088</code></li>
+<li><strong>4/29 01:58</strong> Righter 確認:兩台裝置皆已加入 inventory。</li>
+</ul>
+<h3 id="phase-5-429-429">Phase 5 — 4/29 會議與後續行動 (4/29)</h3>
+<ul>
+<li><strong>4/29 07:53</strong> Vinicius 「Thanks Righter, I will test these today!」</li>
+<li><strong>4/29 08:59 (會後)</strong> Vinicius 致謝 Conant、Brian,並提出下一步:
+  1. 分享簡報檔
+  2. 分享 SDK 文件 (建立自有 camera app 評估用,API 文件已有)
+  3. 提供設備報價
+  4. 提供下單流程</li>
+<li>「There are multiple things I want to try out now and get installed in our test truck.」</li>
+<li><strong>4/29 08:19</strong> Conant 回覆:附上 CDR roadmap 與 SDK 連結</li>
+<li>SDK: https://drive.google.com/file/d/121XoPoTtx7R1QBXXzkdovsKMzMm1auN5/view?usp=sharing</li>
+<li><strong>4/29 09:38</strong> Vinicius 詢問: SDK 是否 K265 / K245 / <strong>Orion K246</strong> 共用?</li>
+<li><strong>5/3 19:15</strong> Conant 回覆: SDK 對所有 CDR 機型 (K220 Sprint / K245c Gemini SE / K265 EVO) 通用,僅有少數 model-specific API 變異,文件中明示。</li>
+</ul>
+<h3 id="phase-6-54">Phase 6 — 週末密集測試 (5/4,最新狀態)</h3>
+<ul>
+<li><strong>5/4 09:30</strong> Vinicius 最新進度回報:</li>
+<li>整體測試良好,SDK 完整。</li>
+<li><strong>問題: K265 dashcam 仍無法在 VisionMax portal 運作</strong>,推測 K265 image 也有問題,需要 Righter 為 K265 提供 <strong>與 K245 相同的處理流程</strong>。</li>
+<li>已用 K245 成功:修改 OEM image、替換錄影 app 為自家 app、傳輸至自有 server。</li>
+<li>但初期實作仍希望透過 VisionMax 進行 <strong>cloud-to-cloud 整合</strong>,而非走 OEM image 路線。</li>
+<li>再次催促 <strong>設備報價</strong>,以利完整方案驗證。</li>
+</ul>
+<hr />
+<h2 id="4">4. 技術資訊速查</h2>
+<h3 id="mitac-cdr">相關產品線 (MiTAC CDR)</h3>
+<ul>
+<li><strong>K220</strong> (Sprint)</li>
+<li><strong>K245 / K245c</strong> (Gemini SE) — 已成功修改 OEM image 與錄影 app</li>
+<li><strong>K246</strong> (Orion) — Vinicius 詢問是否同 SDK</li>
+<li><strong>K265</strong> (EVO) — Platform Science 主驗證對象,目前 portal 註冊與 image 仍卡關</li>
+<li><strong>K425</strong> (Lightmetrics → MiTAC 版本可刷),最新 2025 Q4,2026 Q1 測試中</li>
+</ul>
+<h3 id="_1">服務與工具</h3>
+<ul>
+<li>Master Portal: https://portal.visionmaxfleet.com/</li>
+<li>Fleet Portal: https://www.visionmaxfleet.com/</li>
+<li>API Docs: https://visionmax.redocly.app/</li>
+<li>SDK (Google Drive): 連結同上 Phase 5</li>
+</ul>
+<h3 id="inventory">已加入 inventory 的測試裝置</h3>
+<table>
+<thead>
+<tr>
+<th>機種</th>
+<th>IMEI</th>
+<th>SN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K265</td>
+<td>353995720096134</td>
+<td>L1225380005</td>
+</tr>
+<tr>
+<td>K245</td>
+<td>357216578001266</td>
+<td>F4723090088</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>註:這些是客戶端裝置識別碼,屬商業敏感資訊,共用時請留意。</p>
+</blockquote>
+<hr />
+<h2 id="5-action-items">5. 待辦事項 (Action Items)</h2>
+<h3 id="mitac_1">MiTAC 端 (急迫)</h3>
+<ol>
+<li><strong>[Righter]</strong> 為 <strong>K265</strong> 提供 image 修正流程 (對齊先前提供 K245 的版本) — Vinicius 認為 K265 image 有誤,導致 dashcam 在 VisionMax portal 無法運作。</li>
+<li><strong>[Conant / Sales]</strong> 提供 Vinicius 先前要求的 <strong>設備報價</strong> 與 <strong>下單流程</strong>;具體機種待確認 (推測涵蓋 K265 / K245 / K246 及測試卡車所需配件)。</li>
+<li><strong>[Brian / RD]</strong> 後續 <strong>2026 Q1</strong> K425 image 完成後,主動提供 PS 更新。</li>
+</ol>
+<h3 id="_2">待客戶端釐清</h3>
+<ul>
+<li>Vinicius 雖然提到 cloud-to-cloud 整合為「初期實作」首選,但同時也嘗試 OEM image 路線。需釐清最終商業模式 (純 API 整合 vs. 客製 OEM)。</li>
+<li>K246 Orion 是否在採購清單中。</li>
+</ul>
+<hr />
+<h2 id="6">6. 商機與風險判讀</h2>
+<h3 id="_3">機會點</h3>
+<ul>
+<li>客戶端對 SDK 整體評價正面 (<code>SDK is very comprehensive</code>、<code>worked nicely</code>)。</li>
+<li>Vinicius 已實際完成 K245 的 OEM image 修改與錄影 app 替換,代表整合能力強、推進迅速。</li>
+<li>雙方在 1 個月內已完成:首次接洽 → 帳號 / 設備建立 → Kickoff 會議 → SDK 測試 → 提出採購意向。</li>
+<li>Platform Science 規劃在 <strong>test truck</strong> 安裝多項設備,屬於可量化的試點階段,後續具備擴大採購潛力。</li>
+</ul>
+<h3 id="_4">風險點</h3>
+<ul>
+<li><strong>K265 image / portal 註冊問題重複出現</strong>,若無法在短期內解決,恐影響客戶信任。</li>
+<li>報價遲未提供,Vinicius 已二次催促 (4/29 與 5/4),拖延將影響 PO 時程。</li>
+<li>Platform Science 強調 <strong>non-China manufacturing</strong> 與 <strong>non-Chinese modem</strong>,需確認所提報機種完全符合。</li>
+<li>客戶內部對 cloud-to-cloud vs OEM 雙路線並行,存在後續整合範圍變動風險。</li>
+</ul>
+<hr />
+<h2 id="7">7. 信件清單索引</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>日期時間</th>
+<th>寄件者</th>
+<th>摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2026/05/04 09:30</td>
+<td>Vinicius</td>
+<td>週末測試回報,K265 image 仍有問題,催報價</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2026/05/03 19:15</td>
+<td>Conant</td>
+<td>SDK 通用於所有 CDR 機型</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2026/04/30</td>
+<td>Vinicius</td>
+<td>(Working / Important)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2026/04/29 09:38</td>
+<td>Vinicius</td>
+<td>詢問 K265/K245/K246 SDK 是否共用</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2026/04/29 08:59</td>
+<td>Vinicius</td>
+<td>會後行動清單:簡報、SDK、報價、下單流程</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2026/04/29 08:19</td>
+<td>Conant</td>
+<td>提供 CDR roadmap 與 SDK 連結</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2026/04/29 07:53</td>
+<td>Vinicius</td>
+<td>將測試 Righter 提供之 inventory 設定</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2026/04/29 01:58</td>
+<td>Righter</td>
+<td>兩台裝置已加入 inventory</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2026/04/28 10:31</td>
+<td>Vinicius</td>
+<td>補充 whitelist 需加入清單 (K265/K245)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2026/04/28 08:59</td>
+<td>Vinicius</td>
+<td>回報 K265 加入 portal 失敗</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2026/04/22 09:54</td>
+<td>Vinicius</td>
+<td>確認 4/29 開會</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2026/04/22 04:16</td>
+<td>Stark</td>
+<td>授權 Conant + Brian 安排會議</td>
+</tr>
+<tr>
+<td>13</td>
+<td>2026/04/22 02:45</td>
+<td>Vinicius</td>
+<td>自我介紹,提案下週會議</td>
+</tr>
+<tr>
+<td>14</td>
+<td>2026/04/21 23:44</td>
+<td>Conant</td>
+<td>建議 4/27–4/30 之時段</td>
+</tr>
+<tr>
+<td>15</td>
+<td>2026/04/21 06:31</td>
+<td>Vinicius</td>
+<td>出差中,下週執行流程</td>
+</tr>
+<tr>
+<td>16</td>
+<td>2026/04/21 01:25</td>
+<td>Righter</td>
+<td>提供裝置更新附件</td>
+</tr>
+<tr>
+<td>17</td>
+<td>2026/04/20 14:42</td>
+<td>Brian</td>
+<td>建立 VisionMax 帳號與所有資源連結</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2026/04/17 11:46</td>
+<td>Vikram</td>
+<td>需求補充:multi-channel、CAN、non-China</td>
+</tr>
+<tr>
+<td>19</td>
+<td>2026/04/17 10:19</td>
+<td>Vikram</td>
+<td>K265 validation,需 roadmap</td>
+</tr>
+<tr>
+<td>20</td>
+<td>2026/04/16 18:20</td>
+<td>Stark</td>
+<td>將 Brian 加入,詢問 PS camera 計畫</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-pm">8. PM 分析與策略洞察</h2>
+<h3 id="81-platform-science-vinicius">8.1 Platform Science (Vinicius) — 客戶關係解讀</h3>
+<p><strong>客戶動機層次</strong></p>
+<table>
+<thead>
+<tr>
+<th>表面需求</th>
+<th>背後真正在意的事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需要 SDK 文件</td>
+<td>在內部評估 MiTAC 是否值得深度投入</td>
+</tr>
+<tr>
+<td>詢問報價</td>
+<td>想確認 MiTAC 有意願正式做生意，不只是做 POC</td>
+</tr>
+<tr>
+<td>K265 portal 問題</td>
+<td>在測試 MiTAC 的技術支援反應速度</td>
+</tr>
+<tr>
+<td>提到 cloud-to-cloud</td>
+<td>希望與 MiTAC 是平台對平台的夥伴關係，而非純硬體採購</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vinicius 的行為特徵</strong>
+- 技術型決策者，週末自己動手測試 SDK，代表他同時是評估者也是執行者
+- 已成功完成 K245 OEM image 修改與 app 替換，整合能力強
+- 兩度催促報價（4/29 與 5/4），說明他內部已有採購壓力，主動性高
+- 用「初期實作」描述 cloud-to-cloud，暗示後續還有更深合作規劃</p>
+<p><strong>風險信號</strong>
+- K265 問題若持續未解，會讓 Vinicius 認為 K265 不成熟，轉向只用 K245
+- 報價遲未回應，在技術評估期可能導致決策停擺
+- Platform Science 對 non-China manufacturing 的要求，是潛在否決條件，需提前確認所提機種是否完全符合</p>
+<hr />
+<h3 id="82-pm-platform-science">8.2 PM 策略啟示（Platform Science 視角）</h3>
+<p><strong>承諾的層次應與確定性對應</strong></p>
+<p>研發 PM 無法保證固定上線日期，但可以承諾透明度：</p>
+<table>
+<thead>
+<tr>
+<th>可承諾的事</th>
+<th>說法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>評估時程</td>
+<td>「兩週內告訴你這個功能可不可以做」</td>
+</tr>
+<tr>
+<td>里程碑節點</td>
+<td>「六月底前給你 MVP 評估結果」</td>
+</tr>
+<tr>
+<td>資訊更新頻率</td>
+<td>「每月底給你一次進度更新，任何變化你會第一個知道」</td>
+</tr>
+</tbody>
+</table>
+<p>客戶失去信任，往往不是因為「日期延了」，而是因為「延了才通知」。</p>
+<p><strong>技術型客戶的溝通策略</strong></p>
+<p>Vinicius 這類客戶不需要你說功能多強，他需要：精準的技術文件、清楚的限制說明、以及你能跟上他測試節奏的反應速度。對技術型決策者，要用技術語言溝通，不只講商業故事。</p>
+<hr />
+<h2 id="9-claude-code">9. 給 Claude Code 的後續任務建議</h2>
+<p>如將此 handover 帶入 Claude Code,可考慮下列開發或文件任務:</p>
+<ol>
+<li><strong>整理一份英文版回信草稿給 Vinicius</strong>,內容包含:
+   - K265 image 修正流程預計提供時程
+   - 設備報價與下單流程的初步回覆 (待業務確認)
+   - 重申 SDK / API 支援</li>
+<li><strong>建立內部 tracking checklist</strong> (Markdown / GitHub Issue 模板),追蹤 Action Items #1~3。</li>
+<li><strong>建立 K245 vs K265 image flashing SOP 文件骨架</strong>,讓 Righter 補充細節。</li>
+<li><strong>針對 VisionMax API 文件 (https://visionmax.redocly.app/) 進行整合範例程式撰寫</strong>,協助 Platform Science cloud-to-cloud 串接驗證。</li>
+<li><strong>建立 Platform Science 測試裝置 Inventory 表 (CSV / JSON)</strong>,後續若有更多裝置加入便於管理。</li>
+</ol>
+<hr />
+<hr />
+<h2 id="last-updated-20260505-pm-section-8connectsource-passenger-blurring-connectsource-passenger-blurringmd"><em>Last updated: 2026/05/05 — 新增 PM 分析與策略洞察（Section 8）。CONNECTSOURCE Passenger Blurring 事件已獨立記錄於 <code>connectsource-passenger-blurring.md</code>。</em></h2>
+<h2 id="10-2026-05-07-5-8-outlook-thread">10. 2026-05-07 / 5-8 重大更新(從 Outlook thread 補)</h2>
+<h3 id="57-1102-am-vinicius-paul-lee-conant-ho-testing-plancc-vikram-righter-stark-brian-kenny">5/7 11:02 AM Vinicius 給 Paul Lee + Conant Ho 的 testing plan(cc Vikram, Righter, Stark, Brian, Kenny)</h3>
+<p><strong>Test truck setup</strong>(in Platform Science office):
+- Install <strong>Evo K265</strong> in test truck
+- 2 side cameras connected to Evo
+- 1 rear camera connected to Evo(先 truck 內測,後續要連 trailer)
+- InCab Display 連 Evo</p>
+<p><strong>後續變化</strong>:
+- 換 <strong>K165</strong> 測 single lens dashcam(某些客戶 single lens 是 requirement)
+- 用 K245 + Video Hub 測,評估這條方案可行性(K246 Orion 是未來機種,目前 K245 先頂)</p>
+<p>→ <strong>🚨 K165 重要</strong>:之前 memory 寫「沒有 K165」是錯的(2026-04 早期校正)。Vinicius 5/7 信件確認 K165 真的存在,是 EVO 系列 single lens dashcam 版本。已校正 critical-facts-log + machines-spec。</p>
+<h3 id="57-844-pm-vinicius-righter">5/7 8:44 PM Vinicius 給 Righter 的進度</h3>
+<p>✅ <strong>VisionMax 已成功連線</strong> — 原本以為 cable 問題,實際是 <strong>camera APN 問題</strong>,已解決。</p>
+<p>⏳ 等 cable 資訊 → 訂 sample equipment → truck 物理連接測試。</p>
+<h3 id="57-326-am-righter-song-vinicius">5/7 3:26 AM Righter Song 給 Vinicius 的關鍵限制</h3>
+<ul>
+<li>設備 F4723090033(K245 IMEI 357216578000516)已加進 inventory ✓</li>
+<li>⚠️ <strong>K265 SD card 限制</strong>:不能 overwrite all partitions(架構限制)</li>
+<li>⚠️ <strong>LM(Lightmetrics)版本不能用 SD update</strong> 升到 VisionMax → 必須<strong>直接給 VisionMax 版 sample</strong>,不要先給 LM 再升</li>
+<li>需要新 VisionMax sample 給 Vinicius 後續測試</li>
+</ul>
+<h3 id="action-items">對 Action Items 的影響</h3>
+<ul>
+<li><strong>Action Item #1 K265 image 修正流程</strong> → 已經由 Righter 5/7 直接回應限制(不能 SD upgrade);後續策略改成「直接給 VisionMax sample」</li>
+<li><strong>Action Item #2 設備報價下單</strong> → 5/7 11:02 Vinicius 把 testing plan + cable 需求轉給 Conant Ho,Conant 在處理</li>
+<li><strong>Action Item #3 SDK/API 支援</strong> → 已連線成功,等下一輪測試發現再說</li>
+</ul>
+<h3 id="stakeholders">對 stakeholders 的更新</h3>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>5/7 揭露</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conant Ho(何肇睪 - MDT)</td>
+<td>接 Vinicius testing plan + cable 規劃,sample equipment 訂單對接窗口</td>
+</tr>
+<tr>
+<td>Righter Song(宋祐全 - MIC)</td>
+<td>設備 inventory + image flashing 限制專家</td>
+</tr>
+<tr>
+<td>Paul Lee(李世博 - MDT)</td>
+<td>Account Sales Manager,Vinicius 主對接 sales</td>
+</tr>
+<tr>
+<td>Stark Yang(楊永吉 - MDT)</td>
+<td>Director, Video Telematics — thread 內監督</td>
+</tr>
+</tbody>
+</table>
+<p><em>Last updated: 2026-05-08 — 補 5/7 testing plan + APN 解決 + K165 校正 + K265 SD update 限制。</em></p>
+<hr />
+<h2 id="11-2026-05-08-5-9-weekend-live-view-api">11. 2026-05-08 / 5-9 weekend 進度(Live View API 議題浮現)</h2>
+<h3 id="58-1322-paul-brianconantvisonmax-account-device-listing-thread">5/8 13:22 Paul → Brian/Conant(VisonMax Account Device Listing thread)</h3>
+<ul>
+<li>Vinicius 手上 3 台清單:K245 × 2(F4723090088 / F4723090033)+ K265 × 1(L1225380005)</li>
+<li>客戶反映 <strong>EVO (K265) ADAS 和 DMS 沒啟動</strong></li>
+<li>請 Brian / Conant 確認 device 在 VMX platform 上設定正確</li>
+</ul>
+<h3 id="58-1535-1556-brian-righter-brian">5/8 15:35 → 15:56 Brian / Righter / Brian 連動</h3>
+<ul>
+<li>Brian 對 Righter:<strong>確認 3 台 SN 是否在 PS Master account 下,application version 是否要 update,plan type 是否正確</strong></li>
+<li>Righter:K245 × 2 在 inventory,K265 已分配給 <strong>"Platform Science" fleet</strong>,K265 (L1225380005) AI function 看起來 OK</li>
+<li>Brian:舊樣機 app version 不一定 2026 Q1,可能要 update + 告知客戶網路用量</li>
+</ul>
+<p>→ <strong>校正</strong>:Righter 說 K265 AI 沒問題,但 Vinicius 反映 ADAS/DMS 沒啟動 → 推測差在 <strong>plan type 沒對到 ADAS/DMS 啟用層級</strong> 或 <strong>DMS calibration 沒完成</strong>(需 20 km/h × 15 sec)</p>
+<h3 id="59-0157-vinicius-live-view-ps-portal">5/9 01:57 Vinicius 新問題:Live View 怎麼接到 PS portal</h3>
+<ul>
+<li>VMX docs 沒寫 live view streaming 怎麼接到客戶 portal</li>
+<li>客戶端要做 cloud-to-cloud 整合,但 Live View 部分卡住</li>
+</ul>
+<h3 id="59-1027-brian-live-view">5/9 10:27 Brian 回應 Live View 機制</h3>
+<blockquote>
+<p>"Since Live View works as a P2P connection (directly from browser or app to device), it does not use cloud API calls. If you decide to adopt a Server-to-Server API integration approach, we will provide the JavaScript library or the necessary technical assistance."</p>
+</blockquote>
+<p><strong>重大事實</strong>:
+- <strong>Live View = P2P 直連</strong>(browser/app → device),<strong>不走 cloud API</strong>
+- 要做 Server-to-Server 整合,MiTAC 提供 <strong>JS library + 技術協助</strong></p>
+<h3 id="59-1311-vinicius-2-open-question">5/9 13:11 Vinicius 最新狀態(2 個 open question)</h3>
+<ol>
+<li><strong>JS library 供 testing</strong>:做完了 PS portal 的 clone,要對接 VMX API 驗證,要 JS lib</li>
+<li><strong>Camera-side video 直接看不下載</strong>:VMX 支不支援?</li>
+</ol>
+<h3 id="action-items_1">對 Action Items 的更新</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K265 image 修正流程</td>
+<td>等新 VisionMax sample 採購(LM 版不能 SD upgrade)</td>
+</tr>
+<tr>
+<td>設備報價下單</td>
+<td>Conant / Paul 對接中,5/11 週一上午 tier pricing 會議</td>
+</tr>
+<tr>
+<td>ADAS/DMS 啟動</td>
+<td><strong>新議題</strong> — 推測 plan type / calibration,需 Brian / Conant 確認</td>
+</tr>
+<tr>
+<td>Live View JS lib</td>
+<td><strong>新承諾</strong> — Brian 5/9 承諾提供,等 Conant 出件</td>
+</tr>
+<tr>
+<td>Camera-side video without download</td>
+<td><strong>新開放問題</strong> — KB 沒列,要查</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kenny">Kenny 動作(本週)</h3>
+<ul>
+<li>開新檔 / 加段同步 Live View JS lib 議題到 case-learning</li>
+<li>跟 Brian / Conant 對齊 plan type 對應 ADAS/DMS 啟用的具體條件</li>
+<li>把「Camera-side video without download」開個 question 給 KB / Spencer 答</li>
+</ul>
+<p><em>Last updated: 2026-05-11 — 補 5/8–5/9 Device Listing thread + Live View P2P/JS lib + camera-side video without download 兩個 open question。</em></p>
+  </div>
+</main>
+</body>
+</html>

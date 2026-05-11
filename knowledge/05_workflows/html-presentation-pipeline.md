@@ -39,7 +39,7 @@ BG_STRIPE   = '#EAEDF2'  # 表格條紋
 ## 已踩過的坑
 
 - ⚠️ **navigate tool 對 `file://` URL 會失敗**(自動加 https://)
-  → 用本機 HTTP server:`python -m http.server 8766`(在 portal_reference/)
+  → 用本機 HTTP server:`python -m http.server 8766`(在 presentations/ 或 websiteview/)
 - ⚠️ PowerPoint COM 自動化用 win32com:`pip install pywin32`,需要 Windows + 已裝 PowerPoint
 - ⚠️ LibreOffice / pdftoppm 沒裝 → 用 PowerPoint COM 替代(已寫好 export_pngs.py / export_pdf.py)
 - ⚠️ pdftoppm 沒裝:Read tool 讀 PDF 會失敗。改用 PyMuPDF(`pip install pymupdf`)抽文字
@@ -49,11 +49,11 @@ BG_STRIPE   = '#EAEDF2'  # 表格條紋
 
 | 檔案 | 角色 |
 |---|---|
-| `../../portal_reference/build_html_replica.py` ⭐ | 55 頁 PDF 複刻 HTML 生成器 |
-| `../../portal_reference/build_briefing_html.py` ⭐ | 25 頁客戶簡報 HTML 生成器 |
-| `../../portal_reference/build_replica_pptx.py` | 55 頁 .pptx 生成器 |
-| `../../portal_reference/export_pngs.py` | PowerPoint COM .pptx → PNG |
-| `../../portal_reference/export_pdf.py` | PowerPoint COM .pptx → PDF |
+| `../../presentations/build_html_replica.py` ⭐ | 55 頁 PDF 複刻 HTML 生成器 |
+| `../../presentations/build_briefing_html.py` ⭐ | 25 頁客戶簡報 HTML 生成器 |
+| `../../presentations/build_replica_pptx.py` | 55 頁 .pptx 生成器 |
+| `../../presentations/export_pngs.py` | PowerPoint COM .pptx → PNG |
+| `../../presentations/export_pdf.py` | PowerPoint COM .pptx → PDF |
 
 ⚠️ 既有 build script **沒套 MDT 2026 模板**(用空白 Presentation 從零畫的)。下次重做要遷移到模板基底:
 
