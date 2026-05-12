@@ -42,12 +42,30 @@ PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TO
 |------|---------------|-------------|----------|
 | VLM | 2H'2027 | 2026 Q3 | **講 2027** |
 | Eating & Drinking | 1H'2027 | [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562) / 🚨 **5/7 揭露 BMS 客訴 17x 量級(ID 6652),6/15 前 7000+ Edge case 一次性重訓**(Jimmy + Vincent)| 對外維持 2027,**對 BMS 講 6/15 內部緊急重訓** |
-| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / **5/7 加灰階模型,考慮改辨識整張臉 / UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Lucy)** | **改:Roadmap planned, 內部測試中** |
+| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / 5/7 加灰階模型 → **5/11 校正**:用 **Model 11P**(嘴部→全臉)+ 統一到 **Model 26** 架構 / UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Lucy)/ **掛 6/2 Fix Version** | **改:Roadmap planned, 內部測試中,Model 11P 改全臉打哈欠** |
 | Smoking | Basic 2025 已 ship | **KB 標 (in development)** / Sheet 隱藏 / 4 ticket open | **改:Roadmap planned, KB 列開發中** |
 | MMF | (列在 overview) | 還沒上線 | **不對客戶承諾** |
-| Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **Device-side YOLO Lane Detection 改善 5/7 Pending 暫緩**(資源緊繃,新 ticket 編號待釐清)| 「Server-side 已部屬,device 端持續改善」 |
+| Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **5/11 校正**:LDWS API 從 5/7 Pending 暫緩 → **5/11 重新掛 6/2 Fix Version**([VMX-7375](https://jira.navman.co.nz/jira/browse/VMX-7375) 待 Jira transition)| 「Server-side 已部屬,device 端 6/2 release 含 LDWS API」 |
 | Speed Sign | Advanced 2027 | KB 標 in development / **5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓**(Jay)| 對外保持 2027 Roadmap |
-| Lens Cover(BMS / Azuga 雙軌)| Basic | **5/7 規格分歧**:Azuga = 解除車速;BMS = 車速 > 0(司機休息隱私)/ Jieli 6/2 前緊急雙軌實作 | 對 Azuga 講標準版,對 BMS 講「車速 > 0」 |
+| Lens Cover(BMS / Azuga ~~雙軌~~ → **5/11 校正單軌**)| Basic | 5/7 雙軌實作 → ⚠️ **5/11 校正**:[HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) 規格改為單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga),取消 speed ≥ 20 + DMS calibration 兩個 dependency / Eric H 5/8 confirmed **6 月 release**(6/2 Fix Version)| 對三客戶講「6/2 release 統一單軌規格」 |
+
+## AI Model 版本對應(2026-05-12 從 5/11 AI Weekly NotebookLM 錄音校正)
+
+> SSOT 詳細在 [`06_calibration-log/critical-facts-log.md` § AI Model 版本對應 + 6/2 Fix Version 死線](../06_calibration-log/critical-facts-log.md)。
+
+| Model | 用途 | 狀態 | 對應 ticket / 客戶 |
+|-------|------|------|------------------|
+| **11P** | 原:嘴部 (Mouth) 分類 → **改為:全臉 (Full Face) 打哈欠 (Yawning) 辨識** | 修改中,掛 6/2 Fix Version | Yawning UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432) (Lucy) |
+| **11L** | 舊版 DMS(含安全帶)分類 | **將被 Model 26 取代** | — |
+| **26** | 新導入 DMS 分類 + Detect 模型架構,**準確度優於 11L** | 預計掛 **6/2 Fix Version** 上線 | Yawning + 安全帶 + Distraction 統一架構 |
+| **V14** | 影像模糊化 (Blurring) 舊模型版本 | 對外維持「2026-05-06 已 fix」口徑 | [HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) / [HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578) Blurring 修問題 |
+
+### 🚨 6/2 Fix Version(2026-06-02)三大必上 deliverable
+1. **LDWS API**(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)
+2. **BMS 鏡頭遮蔽拆分**([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) Lens Cover,Eric H 5/8 confirmed Jun release)
+3. **新版 DMS 模型(Model 26)**
+
+### 5/15 Beta 測試前置:外部 API / 模組必須 ready
 
 ## Data Auto-Optimization Pipeline(月節奏)
 

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheet × Jira Sync Sweeper SOP · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-workflows" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚙️</span> 工作流 SOP · Sheet × Jira Sync Sweeper SOP</span>
+  <span class="filename"><code>sheet-jira-sync-sweeper.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="sheet-jira-sync-sweeper-sop">Sheet × Jira Sync Sweeper SOP</h1>
+<blockquote>
+<p>Kenny PM 角色升級:每兩週做 Sheet × Jira 雙向 sync。
+起源:2026-05-05 抓出 Sheet stale → 2026-05-06 會議直接落地 4 件同步 → 但又生出 3 個新 mismatch。</p>
+</blockquote>
+<h2 id="_1">為什麼要做這件事</h2>
+<p>業務端的不滿通常是資訊不對稱:</p>
+<ul class="smushed-fix">
+  <li><strong>方向 1:Sheet 落後 Jira</strong>(Jira 已 close,Sheet 沒改)→ 業務以為「PM/RD 拖延」</li>
+  <li><strong>方向 2:Sheet 領先 Jira</strong>(口頭說完成,Jira 沒 close)→ 看 Jira 以為「沒做完」</li>
+</ul>
+<p>PM 是商業翻譯,要消除這層不對稱。</p>
+<h2 id="sweeper-sop">雙週 Sweeper SOP(每兩週執行一次)</h2>
+<h3 id="step-1-sheet-visible-rows">Step 1:撈 Sheet 真實 visible rows</h3>
+<ul>
+<li>開 <a class="ext-link" href="https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit" rel="noopener" target="_blank">https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit</a></li>
+<li><strong>用截圖,不要用 CSV export</strong>(CSV 會把 hidden row 一起拉)</li>
+<li>看右下角「已顯示 X 列(共 Y 列)」確認 visible 數</li>
+<li>Status 欄 filter 顯示 In Process / Discussion / Pending / Feasibility</li>
+</ul>
+<h3 id="step-2-visible-row-jira-link">Step 2:抓出每筆 visible row 的 Jira link</h3>
+<h3 id="step-3-jira">Step 3:批量驗證 Jira 真實狀態</h3>
+<ul>
+<li>用 Chrome MCP 或手動點開</li>
+<li>重點看:<strong>Status</strong>(Open / In Progress / Resolved / Closed)+ <strong>Resolution</strong>(Unresolved / Fixed)</li>
+</ul>
+<h3 id="step-4-mismatch">Step 4:整理兩個方向的 mismatch</h3>
+<table>
+<thead>
+<tr>
+<th>Sheet</th>
+<th>Jira</th>
+<th>方向</th>
+<th>動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In Process</td>
+<td>Resolved</td>
+<td>Sheet 落後</td>
+<td>私訊 owner 確認後改 sheet status</td>
+</tr>
+<tr>
+<td>Resolved</td>
+<td>Open</td>
+<td>Sheet 領先</td>
+<td>私訊 owner 提醒 transition Jira</td>
+</tr>
+<tr>
+<td>Discussion</td>
+<td>In Progress</td>
+<td>Sheet 慢一拍</td>
+<td>同步 sheet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-5-owner">Step 5:私訊 owner(分人,別丟群組)</h3>
+<p>Template:</p>
+<blockquote>
+<p>「Hi [Owner],我在做雙週 sheet sync 發現 [#XXX, VMX-XXXX]:</p>
+<ul class="smushed-fix">
+  <li>Sheet 顯示:[status]</li>
+  <li>Jira 顯示:[status]</li>
+</ul>
+<p>是不是 [推測:已交付但 ticket 沒 transition / 還在做但 sheet 改太快]?要不要一起對齊一下?」</p>
+</blockquote>
+<h3 id="step-6-sheet-sheet-sweep">Step 6:更新 sheet + 在 sheet 加 sweep 紀錄</h3>
+<p>在 Discussion Note 欄加註:<code>5/X PM sync - Jira status: [X]</code></p>
+<h2 id="mismatch">已知歷史 mismatch 紀錄</h2>
+<h3 id="2026-05-05-sheet">2026-05-05 抓出(會議前)— Sheet 落後</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Jira</th>
+<th>Sheet</th>
+<th>Jira</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>162</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6754" rel="noopener" target="_blank">VMX-6754</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>165</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7029" rel="noopener" target="_blank">VMX-7029</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>187</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7161" rel="noopener" target="_blank">VMX-7161</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>188</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7162" rel="noopener" target="_blank">VMX-7162</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2026-05-06-sheet">2026-05-06 抓出(會議後)— Sheet 領先</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Jira</th>
+<th>Sheet</th>
+<th>Jira</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>180</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7082" rel="noopener" target="_blank">VMX-7082</a></td>
+<td>Resolved</td>
+<td>New</td>
+<td>⏳ 待私訊 Lucy</td>
+</tr>
+<tr>
+<td>195</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7233" rel="noopener" target="_blank">VMX-7233</a></td>
+<td>Resolved</td>
+<td>New</td>
+<td>⏳ 待私訊 Internal</td>
+</tr>
+<tr>
+<td>199</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6782" rel="noopener" target="_blank">VMX-6782</a></td>
+<td>Resolved</td>
+<td>Open</td>
+<td>⏳ 待私訊 joe.lien</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2026-05-06-sheet-link">2026-05-06 Sheet link 錯誤</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sheet 寫</th>
+<th>真實應該是</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>194 IOSix dongle</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7316" rel="noopener" target="_blank">VMX-7316</a>(實為 AZUGA SmartLink)</td>
+<td>(待釐清)</td>
+</tr>
+<tr>
+<td>197 UVC integration</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7224" rel="noopener" target="_blank">VMX-7224</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7147" rel="noopener" target="_blank">VMX-7147</a>(實為 Camera recording bug)</td>
+<td>移除 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7147" rel="noopener" target="_blank">VMX-7147</a></td>
+</tr>
+<tr>
+<td>209 Viewer only</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7407" rel="noopener" target="_blank">VMX-7407</a>(重複)</td>
+<td>應為 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7088" rel="noopener" target="_blank">VMX-7088</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">工具命令</h2>
+<h3 id="python-chrome-mcp">用 Python + Chrome MCP 批量驗證(已驗證可用)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 從 sheet visible rows 抓出 jira list,批量檢查</span>
+<span class="n">tickets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'VMX-6754'</span><span class="p">,</span> <span class="s1">'VMX-7029'</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickets</span><span class="p">:</span>
+    <span class="c1"># navigate to https://jira.navman.co.nz/jira/browse/{t}</span>
+    <span class="c1"># find Status field</span>
+    <span class="c1"># log result</span>
+</code></pre></div>
+<p>→ 可批量自動化,我用過 22 票一次過。</p>
+<h2 id="off-cycle-sweep">何時做 Off-cycle sweep</h2>
+<ul>
+<li>大會議前 1 天(會議當天才動會被打臉)</li>
+<li>客戶 demo 前</li>
+<li>跟 Brian 1on1 前</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../05_workflows/customer-onboarding.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Customer Onboarding SOP(裝相機 → 配置 → 上線)</span></a>
+  <a class="next" href="../05_workflows/troubleshooting.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Troubleshooting Checklist(對 fleet manager / 技術人員)</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap vs 內部現實 不一致紀錄 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-truth" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🎯</span> 校正紀錄 · Roadmap vs 內部現實 不一致紀錄</span>
+  <span class="filename"><code>roadmap-vs-internal.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-07</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="roadmap-vs">Roadmap vs 內部現實 不一致紀錄</h1>
+<blockquote>
+<p>對外 Roadmap 講的 ≠ 內部 Sheet / Jira / 會議揭露的。
+這份的目的:<strong>對客戶講話前先 cross-check</strong>,別重蹈覆轍。</p>
+</blockquote>
+<h2 id="2026-05-07">已知不一致(2026-05-07 更新)</h2>
+<h3 id="yawning-detection">Yawning Detection</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap 對外版</td>
+<td>Basic tier(2025 Expansion)= 已 ship</td>
+</tr>
+<tr>
+<td>會議揭露(2026-05-06)</td>
+<td>還沒給客戶,內部測試中,<strong>效果不如預期</strong></td>
+</tr>
+<tr>
+<td>5/7 AI weekly 補</td>
+<td>夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓,並考慮 Server 端從辨識嘴巴改為「辨識整張臉」</td>
+</tr>
+<tr>
+<td>Fatigue config</td>
+<td>目前只有眼睛偵測,<strong>Yawning 開關待加 → 對應 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開)</td>
+</tr>
+<tr>
+<td>Jira tickets</td>
+<td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Yawning UI toggle, Lucy assignee)<span aria-hidden="true">⚠️</span> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> 是 Eye threshold 不是 Yawning</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td><span aria-hidden="true">✅</span> 「Roadmap planned, 內部測試中」<br/><span aria-hidden="true">❌</span> 「已支援 Yawning」</td>
+</tr>
+</tbody>
+</table>
+<h3 id="smoking">Smoking</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap 對外版</td>
+<td>Basic tier 2025 = 已 ship</td>
+</tr>
+<tr>
+<td>KB</td>
+<td>沒寫</td>
+</tr>
+<tr>
+<td>AI Sheet</td>
+<td>row 隱藏(2026-05-05 確認)</td>
+</tr>
+<tr>
+<td>Jira</td>
+<td>4 個 open ticket(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6670" rel="noopener" target="_blank">VMX-6670</a> / 7324 / 6380 / 6920)</td>
+</tr>
+<tr>
+<td>會議 Note(4/2)</td>
+<td>「Edge 70% 準確,正在跟 server YOLO11-L 整合」</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td><span aria-hidden="true">⚠️</span> 必問 Jimmy 真實狀態。預設「Roadmap planned, 內部開發中」</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmf-mobility-map-function">MMF (Mobility Map Function)</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap</td>
+<td>Slide 2 列在 overview</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>還沒上線、測試中</td>
+</tr>
+<tr>
+<td>Jira</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6353" rel="noopener" target="_blank">VMX-6353</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6925" rel="noopener" target="_blank">VMX-6925</a>(open)</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td><span aria-hidden="true">❌</span> <strong>不對任何客戶承諾</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vlmvision-language-models">VLM(Vision-Language Models)</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap 對外版</td>
+<td>2H‘2027(Premium tier)</td>
+</tr>
+<tr>
+<td>AI Sheet 內部</td>
+<td><strong>2026 Q3</strong></td>
+</tr>
+<tr>
+<td>Jira</td>
+<td>(No PIC, sheet 標 2026 Q3)</td>
+</tr>
+<tr>
+<td>Kenny 裁示</td>
+<td>sheet 是內部真相,roadmap 對外</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td><span aria-hidden="true">✅</span> 「2H‘2027 Roadmap 規劃」</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eating-drinking">Eating / Drinking</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap</td>
+<td>Advanced tier 1H‘2027</td>
+</tr>
+<tr>
+<td>AI Sheet</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> 已開,Jimmy 在動</td>
+</tr>
+<tr>
+<td>5/6 會議</td>
+<td>提早 feasibility(or 早於 Roadmap)</td>
+</tr>
+<tr>
+<td><strong>5/7 AI weekly 揭露</strong></td>
+<td><span aria-hidden="true">🚨</span> <strong>客訴重災區 — BMS 端誤判量是過去 17 倍</strong>(客訴 ID 6652)。團隊 6/15 前一次性 7000+ Edge case 重訓。Jimmy + Vincent 共扛</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td><span aria-hidden="true">✅</span> 「2027 Roadmap 規劃」對外不變,內部 6/15 前緊急重訓</td>
+</tr>
+</tbody>
+</table>
+<h3 id="burning-adas-burning-dms-blurring-function2026-05-07">Burning ADAS / Burning DMS → 實為 Blurring function(2026-05-07 校正)</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roadmap Slide 2</td>
+<td>寫成 Burning ADAS / Burning DMS(typo)</td>
+</tr>
+<tr>
+<td>KB</td>
+<td>沒寫</td>
+</tr>
+<tr>
+<td>真實意義</td>
+<td><span aria-hidden="true">✅</span> <strong>Blurring function</strong> — 影像 / 隱私模糊化</td>
+</tr>
+<tr>
+<td><strong>對客戶口徑</strong></td>
+<td>「對應 server-side 影像模糊化(隱私 / 合規場景)」</td>
+</tr>
+</tbody>
+</table>
+<h3 id="server-ai-stages-57">Server AI Stages 進度(5/7 修正)</h3>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>Roadmap</th>
+<th>內部進度</th>
+<th>對客戶口徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage 1 Edge AI</td>
+<td>已上</td>
+<td><span aria-hidden="true">✅</span> 已上</td>
+<td>可講</td>
+</tr>
+<tr>
+<td>Stage 2 Edge + Server AI</td>
+<td>已上</td>
+<td><span aria-hidden="true">✅</span> <strong>Server-side LDWS(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a>)Q1 已 deploy prod</strong>(jimmy 3/11 確認)。<span aria-hidden="true">⚠️</span> Device-side YOLO Lane Detection 改善 5/7 決議 Pending 暫緩(資源緊繃,新 ticket 編號待釐清)</td>
+<td>「Server-side LDWS 已部屬,device 端持續改善中」</td>
+</tr>
+<tr>
+<td>Stage 3 Edge + Server VLM</td>
+<td>對外規劃</td>
+<td>沒人扛(VLM sheet #27 = pending pending pending)</td>
+<td>講「Roadmap 中」(對外 2027)</td>
+</tr>
+<tr>
+<td>Stage 4 Edge VLM</td>
+<td>終局</td>
+<td>沒動工</td>
+<td>講「終局視野」</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">規則</h2>
+<p>跟客戶 / 主管講之前:</p>
+<ol class="smushed-fix">
+  <li>對 product spec 詢問 → 看 <a class="internal-doc-link" href="../01_product-knowledge/kb-reference.html">kb-cheatsheet</a> + 本檔</li>
+  <li>對時程詢問 → 對外用 Roadmap(本檔最後一欄「對客戶口徑」)</li>
+  <li>對技術細節 → 用 KB + 標 <span aria-hidden="true">⚠️</span> 估計</li>
+</ol>
+<h2 id="_2">更新頻率</h2>
+<p>每月做一次跨 KB / Sheet / Jira / Roadmap cross-check,把新出現的不一致記到本檔。</p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../06_calibration-log/vmx-7404-tracking.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VMX-7404 ADAS Failure 追蹤</span></a>
+  <a class="next" href="../06_calibration-log/sheet-jira-mismatches.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Sheet ↔ Jira Mismatch 紀錄</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

@@ -53,7 +53,7 @@
 | 會議 | 時段 | 性質 | 重點 |
 |------|------|------|------|
 | **Azuga AI weekly** | 每週三 15:30 – 17:00 | 客戶端 | 5/6 揭露 Lens Cover 標準版規格 / 飲食誤判少數提及 |
-| **內部 AI weekly** | 每週二、四 10:00 – 12:00 | 內部 | 5/7 最近一場揭露 4 條 action items + Lens Cover 雙軌 / 飲食 17x 客訴 / Yawning 灰階 / LDWS YOLO Pending |
-| **Field-side requirements sync**(= Quarter tracking review) | 隔週三 10:00 – 12:00 | 跨團隊 | Quarter 追蹤 |
-| **Bridgestone (BMS) 整合** | 隔週二 15:30 – 17:00 | 客戶端 | BMS 雙版本同步戰略對齊 |
+| **內部 AI weekly** | 每週二、四 10:00 – 12:00 | 內部 | 🆕 **5/11 最新場揭露**:Model 11P/11L/26/V14 對應 + **6/2 Fix Version** 三大死線(LDWS API + Lens Cover + Model 26)+ 5/15 Beta 前置 → 詳細在 [`meetings/ai-weekly-internal-roundup.md`](../../meetings/ai-weekly-internal-roundup.md)(series 檔,新場追加 H2 不開新 dated 檔)|
+| **Field-side requirements sync** = **Quater tracking review** = **Q2 Tasks meeting**(同一場三個名稱)| 隔週三 10:00 – 12:00 | 跨團隊 | Quarter 追蹤 / Q2 Tasks 進度 |
+| **Bridgestone (BMS) 整合** | 隔週二 15:30 – 17:00 | 客戶端 | BMS 雙版本同步戰略對齊 → ⚠️ **5/11 校正**:已從雙軌 → 單軌(<a href="https://jira.navman.co.nz/jira/browse/HAWK-582" target="_blank">HAWK-582</a>),Eric H 5/8 confirmed 6 月 release |
 | ~~Q2 Tracker review(Brian 主持,5/6)~~ | — | ❌ 已過期(5/6 已開) | 結論已記在 [meetings/2026-05-06_q2-request-review_meeting-record.md](../../meetings/2026-05-06_q2-request-review_meeting-record.md) |

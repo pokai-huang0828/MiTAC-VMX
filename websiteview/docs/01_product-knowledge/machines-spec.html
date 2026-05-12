@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-series 機種規格 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-product" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🔧</span> 產品知識 · K-series 機種規格</span>
+  <span class="filename"><code>machines-spec.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-08</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="k-series">K-series 機種規格</h1>
+<blockquote>
+<p><span aria-hidden="true">⚠️</span> K-series ↔ Chip ↔ Tier 的具體 mapping <strong>memory 還沒齊</strong> — 必問 Mori。</p>
+<p><span aria-hidden="true">📄</span> <strong>客戶介紹會議的完整機種規格紀錄</strong> → <a class="ext-link" href="https://docs.google.com/document/d/1QJj6EOnZz4HFV-wG_SAlFywEw0M01FMjriRc8hwSH7M/edit?tab=t.opseshkr4x94" rel="noopener" target="_blank">Google Doc</a></p>
+</blockquote>
+<h2 id="2026-05-08">機種列表(2026-05-08 再校正)</h2>
+<p><strong>K145c / K165 / K220 / K245 / K245c / K265</strong> — 共 6 個機種(+ K246 Orion 為下一代,接班 K245c)</p>
+<p><span aria-hidden="true">✅</span> <strong>K165 真的存在</strong>:Vinicius (Platform Science) 5/7 testing plan 確認 K165 是 EVO 系列 single lens dashcam,<strong>有實機可測</strong>(某些客戶 single lens 是 requirement)。前一版 memory 寫「沒有 K165」是錯的(2026-04 早期校正),5/8 已修正。</p>
+<p>Kenny 自己的測試機:<strong>K245</strong>(L3024290010)</p>
+<h2 id="connected-dash-camera-lineup-2025">Connected Dash Camera Lineup 2025(對客戶介紹用)</h2>
+<table>
+<thead>
+<tr>
+<th>規格</th>
+<th>Sprint (K220)</th>
+<th>Gemini SE (K245c)</th>
+<th>EVO (K265)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>適用車型</td>
+<td>LCV</td>
+<td>Medium Truck</td>
+<td>Heavy Truck</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>Qualcomm SDM450</td>
+<td>Qualcomm SDM450</td>
+<td>Qualcomm QCS610</td>
+</tr>
+<tr>
+<td>RAM / Flash</td>
+<td>2GB / 16GB</td>
+<td>2GB / 16GB</td>
+<td>3GB / 32GB</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Android 10</td>
+<td>Android 9</td>
+<td>Android 10 / Linux</td>
+</tr>
+<tr>
+<td>Video Channels</td>
+<td>最多 3(+Video Hub 可達 6)</td>
+<td>最多 3(+Video Hub 可達 6)</td>
+<td>最多 7</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>1× SD(最高 1TB)</td>
+<td>1× SD(最高 1TB)</td>
+<td>2× SD(最高 2TB,1TB×2)</td>
+</tr>
+<tr>
+<td>WiFi / BT</td>
+<td>11ac 2.4/5GHz、BLE 4.2</td>
+<td>11ac 2.4/5GHz、BLE 4.2</td>
+<td>11ac 2.4/5GHz、BLE 5.0</td>
+</tr>
+<tr>
+<td>NFC</td>
+<td>–</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>OBD / CAN</td>
+<td>OBD Cable、MiTAC SmartGO、IOSix</td>
+<td>同左</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td>CE/FCC/IC/RCM/PTCRB;AT&amp;T、T-Mobile</td>
+<td>CE/FCC/IC/RCM/PTCRB;AT&amp;T、Verizon、T-Mobile、Telstra</td>
+<td>CE/FCC/IC/RCM/PTCRB;AT&amp;T、Verizon、T-Mobile</td>
+</tr>
+</tbody>
+</table>
+<p>→ 來源:客戶介紹會議簡報(Google Doc 同上)。</p>
+<h2 id="cdrconnected-dash-recorder-roadmap">CDR(Connected Dash Recorder) Roadmap</h2>
+<table>
+<thead>
+<tr>
+<th>區隔</th>
+<th>機種</th>
+<th>平台</th>
+<th>主要規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heavy Truck (up to 7CH)</td>
+<td><strong>EVO (K265, K165)</strong></td>
+<td>QCS610</td>
+<td>最高 3 TOPS AI、最多 5 路擴充 (1×USB + 4×TVI)、LTE Cat4、WiFi 11ac、BLE 5.0、GPS/QZSS/GLONASS/Galileo、NFC、雙 SD 槽(各 512GB)</td>
+</tr>
+<tr>
+<td>Heavy Truck</td>
+<td>EVO 5G RedCap</td>
+<td>QCS610</td>
+<td>5G NR SA、NA/EU/GL SKU、5G 223 / 123 Mbps、LTE 195 / 105 Mbps</td>
+</tr>
+<tr>
+<td>Medium Truck (up to 3CH)</td>
+<td><strong>Gemini SE (K245c, K145c)</strong></td>
+<td>SDM450</td>
+<td>1× USB 擴充、LTE Cat6、WiFi 11ac、BLE 4.2、NFC</td>
+</tr>
+<tr>
+<td>Medium Truck</td>
+<td>Orion – K246 series</td>
+<td>QCM6125</td>
+<td>接班 K245c、4K、強化安全、分級 AI</td>
+</tr>
+<tr>
+<td>Van / Light Truck (up to 3CH)</td>
+<td><strong>Sprint (K220)</strong></td>
+<td>SDM450</td>
+<td>1× USB 擴充、LTE Cat6、WiFi 11ac、BLE 4.2、NFC</td>
+</tr>
+</tbody>
+</table>
+<p><span aria-hidden="true">✅</span> <strong>K165 確認有實機</strong>(2026-05-08 Vinicius / Platform Science 5/7 testing plan 揭露):是 EVO 系列 single lens dashcam。前面 memory 寫「沒有 K165」已校正。K165 跟 K265 一起在 Heavy Truck (up to 7CH) tier。待 Mori 確認:K165 specific chip / 算力 / SD 容量。</p>
+<p><span aria-hidden="true">⚠️</span> <strong>Orion / K246 系列</strong> 是接班 K245c 的下一代(4K + 分級 AI),memory 沒提過 — 新加進來。</p>
+<h2 id="mori">待補對應(問 Mori)</h2>
+<table>
+<thead>
+<tr>
+<th>機種</th>
+<th>Chip(待確認)</th>
+<th>Tier(待確認)</th>
+<th>TOPs(待確認)</th>
+<th>RFID(KB)</th>
+<th>QR(KB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K145c</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">❌</span></td>
+<td><span aria-hidden="true">❌</span></td>
+</tr>
+<tr>
+<td>K165</td>
+<td>?</td>
+<td>EVO single lens</td>
+<td>?</td>
+<td><span aria-hidden="true">❌</span></td>
+<td><span aria-hidden="true">❌</span></td>
+</tr>
+<tr>
+<td>K145 (with i25)</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">❌</span></td>
+<td><span aria-hidden="true">❌</span></td>
+</tr>
+<tr>
+<td>K220</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">❌</span></td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>K245</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">✅</span></td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>K245c</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">✅</span></td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>K265</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td><span aria-hidden="true">✅</span></td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+</tbody>
+</table>
+<p><span aria-hidden="true">⭐</span> <strong>第一個 KB 確認的機種 mapping</strong>(2026-05-06):K220 只支援 QR Code(沒 RFID)/ K145(c) 連 QR 都不行(需 i25)。
+KB 來源:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/articles/driver-identification-setup-and-usage-for-models-k245-k245c-k265-and-k220" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/articles/driver-identification-setup-and-usage-for-models-k245-k245c-k265-and-k220</a></p>
+<h2 id="led-behaviorskb">LED Behaviors(KB 確認的機種差異)</h2>
+<table>
+<thead>
+<tr>
+<th>機種</th>
+<th>LED 數量</th>
+<th>差異</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K220 / K245</strong></td>
+<td>1 個(紅)</td>
+<td>Manual Event Button 紅燈;沒 SD 每 15 秒閃</td>
+</tr>
+<tr>
+<td><strong>K265</strong></td>
+<td><strong>2 個</strong></td>
+<td>紅(Manual Event Button)+ <strong>橘左</strong>(沒網路常亮)+ <strong>藍/綠右</strong></td>
+</tr>
+<tr>
+<td><strong>K145c / K245c</strong></td>
+<td>(KB 待補,沒抓全)</td>
+<td>(待 deep read)</td>
+</tr>
+</tbody>
+</table>
+<p>KB 來源:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/articles/led-behaviors" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/articles/led-behaviors</a></p>
+<h2 id="reset-buttonkb">Reset Button(KB 確認的機種差異)</h2>
+<table>
+<thead>
+<tr>
+<th>機種</th>
+<th>Reset Button 位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K245 / K145c / K245c</strong></td>
+<td><strong>在 tamper proof cover 後</strong>(要先拆)</td>
+</tr>
+<tr>
+<td><strong>K220 / K265</strong></td>
+<td>(KB 沒明說,可能是露出的)</td>
+</tr>
+</tbody>
+</table>
+<p>→ Reset = paper clip 戳。對應 troubleshooting Q10。</p>
+<h2 id="miai-roadmap-chip">從 MiAI Roadmap 對應的 Chip 候選</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Year</th>
+<th>Chip</th>
+<th>TOPs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entry</td>
+<td>2023 Foundation</td>
+<td>Snapdragon 450</td>
+<td>&lt; 1</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>2025 Expansion</td>
+<td>QCS 6125 / QCS 610</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Advanced</td>
+<td>1H‘2027</td>
+<td>QCS 5430</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>2H‘2027</td>
+<td>QCS 6490</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>→ 推測:K245(Kenny 的)很可能是 Basic tier(2025 主力 ship 機種),但<strong>沒確認</strong>。</p>
+<h2 id="_1">硬體技術棧</h2>
+<ul>
+<li>4G LTE 連網</li>
+<li><strong>雙鏡頭</strong>:road-facing ADAS + cabin-facing DMS</li>
+<li>Android SoC 平台</li>
+<li>Cloud:<code>visionmaxfleet.com</code></li>
+<li>三層客戶整合深度:Web Platform / API / Custom SDK</li>
+</ul>
+<h2 id="kb-2026-05-06">影像規格(KB 已抓 2026-05-06)</h2>
+<table>
+<thead>
+<tr>
+<th>Video Type</th>
+<th>Resolution</th>
+<th>FPS</th>
+<th>Bitrate</th>
+<th>Size/3min</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Side by Side(雙鏡頭並列)</td>
+<td>2560 × 720</td>
+<td><strong>10</strong></td>
+<td>2,764,800</td>
+<td>58.8 MB</td>
+</tr>
+<tr>
+<td>Separated Video(雙鏡頭分離)</td>
+<td>1280 × 720</td>
+<td><strong>10</strong></td>
+<td>1,382,400</td>
+<td>29.4 MB</td>
+</tr>
+<tr>
+<td>AUX UVC Cam(外接 UVC)</td>
+<td>1280 × 720</td>
+<td><strong>10</strong></td>
+<td>5,000,000</td>
+<td>106.8 MB</td>
+</tr>
+<tr>
+<td>AUX USB Cam(外接 USB)</td>
+<td>2560 × 1440</td>
+<td><strong>10</strong></td>
+<td>5,529,600</td>
+<td>118.8 MB</td>
+</tr>
+<tr>
+<td>Live View</td>
+<td>854 × 480</td>
+<td>—</td>
+<td>800,000</td>
+<td>0.1 MB/s</td>
+</tr>
+</tbody>
+</table>
+<p><span aria-hidden="true">⚠️</span> <strong>memory 之前說 15-30 fps 是錯的</strong>(2026-05-06 KB 校正)— 全部 10 fps。
+KB 來源:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/articles/what-is-the-resolution-fps-bitrate-and-video-size-for-mitac-s-cameras" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/articles/what-is-the-resolution-fps-bitrate-and-video-size-for-mitac-s-cameras</a></p>
+<p><span aria-hidden="true">⚠️</span> KB 上沒按 K145c / K165 / K220 / K245 / K245c / K265 拆分 — 是按 video type(Side by Side / Separated / AUX UVC / AUX USB)拆。各 K 機種能跑哪些 video type <strong>要 Mori 確認</strong>。</p>
+<h2 id="coffee-chat-mori">待 Coffee Chat 問 Mori</h2>
+<ol>
+<li>K145c / <strong>K165</strong> / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip(K165 5/8 新加,Vinicius 5/7 確認有實機)</li>
+<li>K245(Kenny 自己的)屬 Entry / Basic / Advanced 哪個 tier</li>
+<li><del>各機種 frame rate</del> <span aria-hidden="true">✅</span> 已釐清:機體可達 15-30 fps,<strong>對外 only 10 fps</strong>(運算資源限制,2026-05-07)</li>
+<li>紅色按鍵各機種語音不一致 — 是哪幾台?</li>
+<li>Private Mode 切換按法(KB 沒寫清楚)</li>
+<li><strong>Harsh Acceleration / Rollover G 值門檻</strong>(只 lock 4 種,缺這 2 種)</li>
+<li>200 Hz G-Sensor 韌體可行性(2026-05-06 會議 Simon 客戶要求)</li>
+</ol>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../01_product-knowledge/kb-reference.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VMX KB Cheatsheet</span></a>
+  <a class="next" href="../01_product-knowledge/diagnostics.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">VisionMax Diagnostics</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

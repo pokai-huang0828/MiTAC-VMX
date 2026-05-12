@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VMX KB Reference · MiTAC Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+<link rel="stylesheet" href="../../css/kb-reference.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-product" title="返回">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🔧</span> 產品知識 · VMX KB Reference(Quick + Full)</span>
+  <span class="filename">kb-reference</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-11</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<blockquote><p><strong>VMX KB 完整參考</strong> · 已讀核心 9 篇深度摘要(Quick)+ 全 60 篇分類目錄(Full Catalog)。新人:從 Quick 開始;Sales / Support 場景:翻 Full Catalog。</p></blockquote>
+<div class="kbr-tabs" role="tablist">
+  <button class="active" data-tab="quick" type="button"><span aria-hidden="true">⚡</span> Quick · 9 篇深讀</button>
+  <button data-tab="full" type="button"><span aria-hidden="true">📚</span> Full · 60 篇目錄</button>
+</div>
+<section id="kbr-quick" class="kbr-panel active">
+<h2 id="vmx-kb-cheatsheet">VMX KB Cheatsheet</h2>
+<blockquote>
+<p><strong>官方 KB</strong>:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/vm" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/vm</a>
+<span aria-hidden="true">⚠️</span> KB 實際 <strong>60+ 篇</strong>(完整 catalog 見 <a class="internal-doc-link" href="../01_product-knowledge/kb-reference.html">kb-full-catalog</a>),這頁只摘核心 9 篇。
+其他重要 KB 內容:<a class="internal-doc-link" href="../01_product-knowledge/sales-faq.html">sales-faq</a>(對客戶 RFP)/ <a class="internal-doc-link" href="../03_systems-architecture/master-portal-operations.html">master-portal-operations</a>(Master Portal 8 篇)</p>
+</blockquote>
+<h2 id="9">已讀核心 9 篇</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>主題</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Manual Event Button Behaviors</td>
+<td>紅色按鍵:接電話 / Manual event / Server callback / 格化 SD(<strong>沒 panic event</strong>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LED Behaviors(分機種)</td>
+<td>LED 號燈分機種,要查 KB 文章對應</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Parking Mode Behavior</td>
+<td>停車模式行為定義</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Camera stay-on after ignition off</td>
+<td><strong>3 分鐘 suspend 窗口</strong>(熄火後續傳 + 等 ACC 重啟)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Supported ADAS events</td>
+<td><strong>FCW / LDW / Stop and Go / Tailgating</strong>(只這 4 個)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Supported DMS events</td>
+<td>Distraction / Fatigue / Lens Cover / Phone / Seatbelt(<strong>KB 沒列 Smoking</strong>)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>In-cabin alerts</td>
+<td>完整語音指令地圖,見 <a class="internal-doc-link" href="../01_product-knowledge/voice-alerts.html">voice-alerts</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sensor events</td>
+<td>G-Sensor 4 種 + 數值 threshold,見 <a class="internal-doc-link" href="../01_product-knowledge/adas-dms-events.html">adas-dms-events</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Traffic Sign features</td>
+<td><strong>TW 客戶只能承諾 Speed Limit</strong>;Stop / School / Railway 沒支援</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kb-mori-jimmy">KB 待補的區塊(問 Mori / Jimmy)</h2>
+<ul>
+<li>各 KB 文章內「圖片表格」具體數字(FCW TTC / Tailgating distance / Stop and Go configured distance)</li>
+<li>「Why are thresholds different for Passenger / Medium Vehicle / Heavy Duty?」(車種差異)</li>
+<li>機種 spec 對照表(K145c / <strong>K165</strong> / K220 / K245 / K245c / K265 各自鏡頭 / 算力 / SD 容量)— K165 5/8 確認(Vinicius 5/7 testing plan,EVO single lens)</li>
+<li>Master Portal / Fleet Portal / VisionAgent 三大類 KB 文章</li>
+</ul>
+<h2 id="_1">結構性事實(對所有客戶適用)</h2>
+<ul>
+<li><strong>20 km/h 是 DMS 全域門檻</strong> — 速度沒到 DMS 不會觸發</li>
+<li><strong>30 km/h × 3 分鐘 + 平坦少彎</strong> = ADAS 基礎計算 / calibration 條件 <span aria-hidden="true">⚠️</span> <strong>2026-05-05 校正過,不是 60 km/h</strong></li>
+<li><strong>DMS calibration</strong>:20 km/h × 15 秒,只要司機臉穩定即可</li>
+<li><strong>Lens Cover exponential backoff</strong>:觸發間隔 2→4→8→16 分鐘</li>
+<li><strong>熄火後 3 分鐘窗口</strong>:設備不立即關機,先續傳 + 等 ACC 重啟</li>
+<li><strong>Traffic Sign 分區域支援</strong>:<strong>TW 客戶只能承諾 Speed Limit</strong></li>
+<li><strong>MMF (Mobility Map Function)</strong>:<strong>還沒上線、測試中</strong>,不要對任何客戶承諾</li>
+<li><strong>DMS IR 補光</strong>:夜間反而比白天好(但深色隔熱紙會擋 IR)</li>
+<li><strong>ADAS 沒 IR</strong>:夜間 recall 必然較差 — 結構性事實</li>
+</ul>
+<h2 id="kb">不在 KB 但常被問</h2>
+<table>
+<thead>
+<tr>
+<th>主題</th>
+<th>真實狀態</th>
+<th>對客戶口徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smoking</td>
+<td><strong>KB 標 (in development)</strong>(memory 之前說「KB 沒寫」是錯的)/ Sheet 隱藏 / Roadmap 列 Basic / 4 個 Jira open</td>
+<td><span aria-hidden="true">⚠️</span> 「KB 列開發中」可講有官方依據,<strong>不能保證上線時間</strong></td>
+</tr>
+<tr>
+<td>Yawning</td>
+<td>KB 沒寫 / Sheet #3 顯示但 still in dev / 2026-05-06 會議:效果不如預期 / <strong>5/7 AI weekly:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉</strong> / Yawning UI toggle 對應 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開)</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned, 內部測試中</td>
+</tr>
+<tr>
+<td>Eating/Drinking</td>
+<td>Roadmap Advanced 2027 / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> 已開 / <strong>5/7:BMS 客訴量是過去 17 倍(ID 6652),6/15 前 7000+ 案例緊急重訓</strong></td>
+<td><span aria-hidden="true">⚠️</span> 對外維持 2027 Roadmap,內部 6/15 重訓</td>
+</tr>
+<tr>
+<td>MMF</td>
+<td>KB 沒寫 / Roadmap 列 / 沒上線</td>
+<td><span aria-hidden="true">⚠️</span> 不對客戶承諾</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kbr-full" class="kbr-panel">
+<h2 id="vmx-kb-catalog">VMX KB 完整文章 Catalog</h2>
+<blockquote>
+<p>來源:<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/vm" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/vm</a>
+掃描日期:2026-05-06
+<span aria-hidden="true">⚠️</span> memory 之前說「KB 9 篇」是嚴重低估 — 實際 <strong>60+ 篇</strong></p>
+</blockquote>
+<h2 id="6-top-level-categories">6 個 Top-level Categories</h2>
+<div class="highlight"><pre><span></span><code>VM Knowledge Base
+├── General                  (子目錄 5 個,共 32 篇)
+│   ├── API                  (3 篇)
+│   ├── FAQ                  (15 篇)
+│   ├── Installation         (2 篇)
+│   ├── Troubleshooting      (2 篇)
+│   └── Getting Started      (10 篇)
+├── Fleet Portal             (15 篇)
+├── Master Portal            (8 篇)
+├── Using camera             (14 篇)
+├── VisionAgent              (3 篇)
+└── Declarations             (4 篇 — 法律,不重要)
+</code></pre></div>
+<h2 id="general-api3">General &gt; API(技術型客戶必看,3 篇)</h2>
+<ol>
+<li>VisionMax Portal Interface Updates</li>
+<li><strong>API Reference</strong> <span aria-hidden="true">⭐</span> 對 Vinicius 等技術型 buyer 是必殺</li>
+<li>Is the portal cloud hosted (AWS, Azure, etc.)?</li>
+</ol>
+<h2 id="general-faq15">General &gt; FAQ(銷售級必背,15 篇)<span aria-hidden="true">⭐⭐⭐</span></h2>
+<ol>
+<li>How does the emergency 2-way call feature work?</li>
+<li><strong>VisionMax Driver Scorecard</strong> <span aria-hidden="true">⭐</span></li>
+<li><strong>VisionMax Diagnostics Information</strong> <span aria-hidden="true">⭐</span></li>
+<li>Parking Mode Behavior</li>
+<li>How long does the camera stay on after I turn off my vehicle?(熄火 3min 窗口)</li>
+<li>SD CARD Recording time: Connected DashCam Footage Storage Calculator</li>
+<li>I’m not receiving the password reset email</li>
+<li><strong>Can we white label the platform?</strong> <span aria-hidden="true">⭐</span> Sales</li>
+<li><strong>What ADAS and DMS features do you support?</strong> <span aria-hidden="true">⭐⭐</span> RFP 標準答案</li>
+<li><strong>How mature is your AI model?</strong> <span aria-hidden="true">⭐⭐</span> Deep dive 必問</li>
+<li><strong>How long are videos and data stored?</strong> <span aria-hidden="true">⭐⭐</span> 隱私 / 合規</li>
+<li>What’s the difference between VisionMax Device Portal and Fleet Portal?</li>
+<li><strong>How often do you update your AI model?</strong> <span aria-hidden="true">⭐</span> 對應月節奏 Roadmap</li>
+<li><strong>Are AI models processed locally or in the cloud?</strong> <span aria-hidden="true">⭐</span> Edge vs Server</li>
+<li><strong>Can thresholds and alerts be customized?</strong> <span aria-hidden="true">⭐</span> 對應 Brian 同步戰略</li>
+</ol>
+<h2 id="general-getting-started10">General &gt; Getting Started(10 篇)</h2>
+<ol>
+<li>What are the supported ADAS events? <span class="kb-link">→ <a href="../01_product-knowledge/adas-dms-events.html">adas-dms-events</a></span></li>
+<li>What are the supported DMS events? <span class="kb-link">→ <a href="../01_product-knowledge/adas-dms-events.html">adas-dms-events</a></span></li>
+<li>How long does a software update take?</li>
+<li>What in-cabin alerts are available? <span class="kb-link">→ <a href="../01_product-knowledge/voice-alerts.html">voice-alerts</a></span></li>
+<li>Which NFC cards are compatible with the camera?</li>
+<li>How do I update the camera’s software?</li>
+<li><strong>What Are the Trigger Conditions for Each Traffic Sign and Signal Feature</strong> <span aria-hidden="true">⭐</span> memory 標待補,實則有</li>
+<li>Where Are My Videos Stored on the SD Card?</li>
+<li><strong>What is the resolution, FPS, Bitrate and video size for MiTAC’s cameras?</strong> <span aria-hidden="true">⭐</span> memory 標待補,實則有(已抓內容)</li>
+<li><strong>Why are thresholds different for Passenger, Medium Vehicle and Heavy Duty?</strong> <span aria-hidden="true">⭐</span> memory 標待補,實則有(已抓)</li>
+</ol>
+<h2 id="general-installation2">General &gt; Installation(2 篇)</h2>
+<ol>
+<li>What is the Installation procedure</li>
+<li>VisionMax Quick start Guide</li>
+</ol>
+<h2 id="general-troubleshooting2">General &gt; Troubleshooting(2 篇)</h2>
+<ol>
+<li>How to export the system logs from K220?</li>
+<li>What if the camera is not turning on when I start the vehicle?</li>
+</ol>
+<h2 id="fleet-portal15">Fleet Portal(15 篇)</h2>
+<ol>
+<li>How can we turn off the sound “please tap your ID card”?</li>
+<li>Can I save the live view video?</li>
+<li>What is the Map Overview?</li>
+<li><strong>How to change the sensitivity of ADAS and DMS?</strong> <span aria-hidden="true">⭐</span> 對應 sensitivity dial</li>
+<li>What are the supported sensor events? <span class="kb-link">→ <a href="../01_product-knowledge/adas-dms-events.html">adas-dms-events</a> G-Sensor</span></li>
+<li><strong>How to retrieve a video file</strong></li>
+<li><strong>Behaviour of Privacy Mode in VisionMax</strong> <span aria-hidden="true">⭐</span> memory 標待釐清,實則有</li>
+<li>VisionMax Update History &amp; Release Notes</li>
+<li>How do I view what version of the SW installed currently?</li>
+<li><strong>How are passenger / medium-duty / heavy-duty vehicles defined, and how is camera height set?</strong> <span aria-hidden="true">⭐</span> memory 標待補,實則有</li>
+<li>How many geofences can be configured in the camera?</li>
+<li>What is the meta data shown with the video?</li>
+<li>Is the video compressed?</li>
+<li>What is the codec used for live view?</li>
+<li>What if I need video from last month?</li>
+</ol>
+<h2 id="master-portalmemory-08-8">Master Portal(memory 0/8 完全沒覆蓋,8 篇)<span aria-hidden="true">⚠️</span></h2>
+<ol>
+<li>How do I add a new device to my fleet?</li>
+<li><strong>What can I do in Master portal?</strong> <span aria-hidden="true">⭐⭐</span> 對應 portal 雙層</li>
+<li>VisionMax Update History &amp; Release Notes</li>
+<li>How to Change Devices Settings to a Normal Car</li>
+<li>How do I set portal language, time zone, date format?</li>
+<li><strong>How do I update SW for all devices at one time?</strong> <span aria-hidden="true">⭐</span> 批量 OTA</li>
+<li>Portal Usage Guides</li>
+<li>How to Add New Account?</li>
+</ol>
+<h2 id="using-camera14">Using camera(14 篇)</h2>
+<ol>
+<li>Manual Event Button Behaviors <span class="kb-link">→ 已校正紅色按鍵(本頁 Quick tab §3)</span></li>
+<li>How to care for the camera?</li>
+<li>Will a software update erase my stored videos?</li>
+<li>What are the various LED Behaviors <span class="kb-link">→ 分機種 LED(本頁 Quick tab §3)</span></li>
+<li><strong>Driver Identification Setup and Usage for Models K245, K245C, K265, K220</strong> <span aria-hidden="true">⭐</span> K-series spec 線索</li>
+<li>Where can I find the QR code for the Driver ID?</li>
+<li><strong>Internal Flash Overwrite Mechanism</strong> <span aria-hidden="true">⭐</span></li>
+<li><strong>SD Card Overwriting Mechanism</strong> <span aria-hidden="true">⭐</span></li>
+<li><strong>How to reset device?</strong> <span aria-hidden="true">⭐</span></li>
+<li>How often does diagnostic refresh or runs a check of the device?</li>
+<li>Precautions and notices</li>
+<li>What happens if I tap my card again? Does it start a new trip?</li>
+<li>What if my card always got failed when taping?</li>
+<li>What are the supported NFC card formats?</li>
+<li>How do I know that my card is recognized?</li>
+</ol>
+<h2 id="visionagent3">VisionAgent(3 篇)</h2>
+<ol>
+<li>How to Check Camera Install Position</li>
+<li>How do I set APN for the SIM in the camera through VisionAgent?</li>
+<li>Can I use a smartphone to connect to the device via WiFi or BT?</li>
+</ol>
+<h2 id="declarations4">Declarations(4 篇 — 法律)</h2>
+<p>略</p>
+<h2 id="kb-memory"><span aria-hidden="true">⚠️</span> 關鍵 KB 事實校正(memory 之前錯)</h2>
+<h3 id="fps-10memory-15-30">影像 FPS = 10(memory 寫 15-30 是錯)</h3>
+<table>
+<thead>
+<tr>
+<th>Video Type</th>
+<th>Resolution</th>
+<th>FPS</th>
+<th>Bitrate</th>
+<th>Size/3min</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Side by Side</td>
+<td>2560 × 720</td>
+<td>10</td>
+<td>2,764,800</td>
+<td>58.8 MB</td>
+</tr>
+<tr>
+<td>Separated</td>
+<td>1280 × 720</td>
+<td>10</td>
+<td>1,382,400</td>
+<td>29.4 MB</td>
+</tr>
+<tr>
+<td>AUX UVC</td>
+<td>1280 × 720</td>
+<td>10</td>
+<td>5,000,000</td>
+<td>106.8 MB</td>
+</tr>
+<tr>
+<td>AUX USB</td>
+<td>2560 × 1440</td>
+<td>10</td>
+<td>5,529,600</td>
+<td>118.8 MB</td>
+</tr>
+<tr>
+<td>Live View</td>
+<td>854 × 480</td>
+<td>—</td>
+<td>800,000</td>
+<td>0.1 MB/s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="threshold-kb">車種 threshold 差異(KB 解釋過,但無具體數字)</h3>
+<ul>
+<li>載重影響加速 → 大車需要更多時間到同樣速度</li>
+<li>因此 threshold 不同</li>
+<li><span aria-hidden="true">⚠️</span> 具體數字 KB 沒給,還是要問 Mori / Jimmy</li>
+</ul>
+<h2 id="deep-read-2026-05-06">Deep Read 進度(截至 2026-05-06)</h2>
+<p class="deep-read-status">✅ 已 deep-read <strong>~25 / 60+ 篇</strong>(~40% coverage) · ⏳ 剩 ~35 篇 P2/P3</p>
+
+<h3 id="deep-read-batch-1">Batch 1 · 完成 18 篇</h3>
+
+<h4>📑 General · FAQ(8 篇 · 全在 <code>sales-faq</code>)</h4>
+<ul class="dr-list">
+  <li>What ADAS and DMS features do you support</li>
+  <li>How mature is your AI model — Local 75-80% / Cloud 90-95%</li>
+  <li>How long are videos and data stored — 180 days</li>
+  <li>How often do you update your AI model — Dataset monthly / Models quarterly</li>
+  <li>Are AI models processed locally or in the cloud — hybrid</li>
+  <li>Can thresholds and alerts be customized — NOT open</li>
+  <li>Can we white label the platform — ✅ logo + domain</li>
+  <li>What's the difference between Device Portal and Fleet Portal</li>
+</ul>
+
+<h4>📑 General · FAQ 補(4 篇)</h4>
+<ul class="dr-list">
+  <li>VisionMax Driver Scorecard <span class="dr-src"><code>safety-score</code></span></li>
+  <li>VisionMax Diagnostics Information <span class="dr-src"><code>diagnostics</code></span></li>
+  <li>Parking Mode Behavior — 待整合</li>
+  <li>How long does the camera stay on — 校正(3 分鐘 suspend window)</li>
+</ul>
+
+<h4>🚀 General · Getting Started(3 篇)</h4>
+<ul class="dr-list">
+  <li>Resolution / FPS / Bitrate — 全 10 fps / 4 video types <span class="dr-src"><code>machines-spec</code></span></li>
+  <li>Thresholds differ for Passenger / Medium / Heavy <span class="dr-src"><code>vehicle-classification</code></span></li>
+  <li>In-cabin alerts(完整 11 類) <span class="dr-src"><code>voice-alerts</code></span></li>
+</ul>
+
+<h4>🔌 General · API(2 篇)</h4>
+<ul class="dr-list">
+  <li>API Reference(link 到 web API doc)</li>
+  <li>Is the portal cloud hosted — AWS confirmed</li>
+</ul>
+
+<h4>🏛 Master Portal(2 篇)</h4>
+<ul class="dr-list">
+  <li>What can I do in Master portal <span class="dr-src"><code>sales-faq</code> Master section</span></li>
+  <li>How to batch-update SW for all devices — batch OTA SOP</li>
+</ul>
+
+<h4>🚐 Fleet Portal(2 篇)</h4>
+<ul class="dr-list">
+  <li>How passenger / medium / heavy are defined <span class="dr-src"><code>vehicle-classification</code></span></li>
+  <li>Privacy Mode behaviour <span class="dr-src"><code>voice-alerts</code> Privacy section</span></li>
+</ul>
+
+<h4>📹 Using camera(2 篇)</h4>
+<ul class="dr-list">
+  <li>Manual Event Button Behaviors(8 種) <span class="dr-src"><code>voice-alerts</code></span></li>
+  <li>Driver ID Setup · K245/K245C/K265/K220 <span class="dr-src"><code>machines-spec</code> RFID/QR map</span></li>
+</ul>
+
+<h4>📱 VisionAgent(1 篇)</h4>
+<ul class="dr-list">
+  <li>Smartphone via WiFi / BT <span class="dr-src"><code>visionagent-app</code></span></li>
+</ul>
+
+<h4>🚦 Getting Started · Traffic Sign(1 篇)</h4>
+<ul class="dr-list">
+  <li>Trigger conditions — 只摘 Speed Limit(全文長)</li>
+</ul>
+
+<h3 id="deep-read-batch-2">Batch 2 · 新增 8 篇</h3>
+
+<h4>🚐 Fleet Portal</h4>
+<ul class="dr-list">
+  <li>Change sensitivity of ADAS / DMS — Configurations → AI Event Detection → vehicle class → Low/Med/High</li>
+  <li>Retrieve a video file — Trip → Trip List → Retrieve Video → Playback SD Card</li>
+</ul>
+
+<h4>📹 Using camera</h4>
+<ul class="dr-list">
+  <li>SD Card Overwriting Mechanism <span class="dr-src"><code>storage-mechanism</code></span></li>
+  <li>Internal Flash Overwrite Mechanism <span class="dr-src"><code>storage-mechanism</code></span></li>
+  <li>Reset device — paper clip; K245/K145c/K245c 在 tamper cover 後 <span class="dr-src"><code>troubleshooting</code></span></li>
+  <li>LED Behaviors — 機種差異 K220/K245 1 個 / K265 2 個 <span class="dr-src"><code>machines-spec</code></span></li>
+</ul>
+
+<h4>🏛 Master Portal</h4>
+<ul class="dr-list">
+  <li>Add New Account <span class="dr-src"><code>customer-onboarding</code></span></li>
+  <li>Add new device <span class="dr-src"><code>customer-onboarding</code></span></li>
+  <li>VisionMax Update History — 目前空(沒當期 update)</li>
+</ul>
+
+<h4>📱 VisionAgent</h4>
+<ul class="dr-list">
+  <li>Camera Install Position — Outward 50:50 / Inward driver location <span class="dr-src"><code>customer-onboarding</code></span></li>
+  <li>Set APN <span class="dr-src"><code>customer-onboarding</code> APN SOP</span></li>
+</ul>
+
+<h4>🛠 Installation / Troubleshooting</h4>
+<ul class="dr-list">
+  <li>VisionMax Quick start Guide <span class="dr-src"><code>customer-onboarding</code></span></li>
+  <li>Camera not turning on <span class="dr-src"><code>troubleshooting</code> Q1</span></li>
+  <li class="dr-todo">⏳ Export system logs from K220</li>
+  <li class="dr-todo">⏳ Installation procedure</li>
+</ul>
+
+<h4>📑 General · FAQ(misc)</h4>
+<ul class="dr-list">
+  <li>SD CARD Recording time(link to Jotform calculator)</li>
+  <li class="dr-todo">⏳ Not receiving password reset</li>
+</ul>
+<h3 id="readp2-p3">⏳ 仍未 read(P2-P3,實際要用時再讀)</h3>
+<ul>
+<li>General &gt; FAQ 剩 3 篇</li>
+<li>Fleet Portal 剩 ~9 篇(geofences / video metadata / codec / 等技術細節)</li>
+<li>Using camera 剩 ~8 篇(care for camera / NFC formats / precautions / 等)</li>
+<li>Master Portal 剩 ~3 篇(language / change to normal car / Portal Usage Guides)</li>
+<li>Getting Started 剩 5 篇(software update time / NFC compat / video storage / 等)</li>
+<li>API Reference(只是 link)/ Installation procedure</li>
+</ul>
+</section>
+
+  </div>
+</main>
+<script src="../../js/kb-reference.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jira Snapshot · 2026-05-12 · MiTAC Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+<link rel="stylesheet" href="../../css/jira-snapshot.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html" title="返回">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🎫</span> 索引 · Jira Ticket Snapshot</span>
+  <span class="filename">jira-snapshot-2026-05-12</span>
+</header>
+<div class="doc-standalone-meta">最後同步:<strong>2026-05-12 下午</strong> · 透過 Jira REST API 全量抓取 · 137 票(原 hub 提及)+ 27 票(5/12 同日新建)= <strong>164 票</strong></div>
+<main class="doc-standalone">
+  <div class="doc-content">
+
+<h1 id="jira-ticket-snapshot">Jira Ticket Snapshot · 2026-05-12</h1>
+
+<blockquote>
+<p>全 hub 文檔內提及的 <strong>137 個 VMX / HAWK ticket</strong> 一次抓取狀態。透過 Kenny 本機 Chrome session call Jira REST API,2026-05-12 完成。</p>
+<p><strong>提醒</strong>:Jira <code>New</code> status 內含大量「實際已做完但 RD 沒按 transition button」的 ticket(見 <a href="../06_calibration-log/critical-facts-log.html"><strong>Critical Facts § VMX-6722 transition discipline gap</strong></a>)。<code>New</code> ≠ 沒做。要看 <code>Updated</code> 日期 + 對應 doc 內 comment 才能判斷真實狀態。</p>
+</blockquote>
+
+<h2 id="status-distribution">Status 分佈(164 票,2026-05-12 下午重抓)</h2>
+<p class="ji-hero"><strong>New</strong> 105 · <strong>Resolved</strong> 25 · <strong>Open</strong> 11 · <strong>In Progress</strong> 9 · <strong>Deferred</strong> 7 · <strong>Closed</strong> 6 · <strong>Pending</strong> 1</p>
+<p><small>對比 morning snapshot (137 票):New 93 → 105 (+12) · Resolved 16 → 25 (+9) · Open 9 → 11 (+2) · In Progress 6 → 9 (+3) · Closed 5 → 6 (+1)</small></p>
+
+<h2 id="afternoon-delta">⚡ 2026-05-12 下午 Δ(handoff 之後重抓)</h2>
+<blockquote>
+<p>對照 morning snapshot 重抓 Jira:<strong>1 票狀態變動 + 27 票同日新建</strong>。詳細在 <a href="../weekly-summary/2026-05-12_afternoon-delta.html"><strong>weekly-summary/2026-05-12_afternoon-delta</strong></a>(若還沒生 HTML,直接讀 `weekly-summary/2026-05-12_afternoon-delta.md`)。</p>
+</blockquote>
+
+<h3>狀態變動(原 137 票)</h3>
+<ul>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7407" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7407</strong></a> · <span class="ji-status ji-new">New</span> → <span class="ji-status ji-resolved">Resolved</span> <span class="ji-updated"><small>5/12 13:25</small></span> · @righter.song — `UVC RAW Frame 不支援 error handling`</li>
+</ul>
+
+<h3>5/12 同日新建 — Blurring / Lens Cover / Rollover 線(直接連客戶 commitment)</h3>
+<ul>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7459" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7459</strong></a> · <span class="ji-status ji-new">New</span> · @lucy.sw.yen — `Disable Lens Cover Event`(PreCise 客戶 cover driver-facing camera toggle)</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7462" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7462</strong></a> · <span class="ji-status ji-open">Open</span> · @lucy.sw.yen — `[UI/GUI] Rollover Event` (承接 VMX-7419 API Resolved 5/7)</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7441" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7441</strong></a> · <span class="ji-status ji-new">New</span> · @mori.jhang — Blurring 透過 API 控 portal,Master 層 switch(VMX-7458 parent)</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7458" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7458</strong></a> · <span class="ji-status ji-new">New</span> · @pokai.huang — Blurring control UI on Master/Fleet Portal for non-API customers(Auto Sense 2K+ 客戶)</li>
+</ul>
+
+<h3>5/12 同日 Resolved(對外可講「✅ 已 ship」)</h3>
+<ul>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7287" target="_blank" rel="noopener" class="mdt-link">VMX-7287</a> · <span class="ji-status ji-resolved">Resolved</span> — `[K265][Region] Build VisionMax 2026Q1 Region (260420)` · 對 Vinicius (Platform Science) 5/12 OTA 直接生效</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7395" target="_blank" rel="noopener" class="mdt-link">VMX-7395</a> · <span class="ji-status ji-resolved">Resolved</span> · @spencer.su — `[API] 調整 coach able 判斷條件`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7460" target="_blank" rel="noopener" class="mdt-link">VMX-7460</a> · <span class="ji-status ji-resolved">Resolved</span> · @cary.lo — `MAU Device Provisioning: SEEING MACHINE AU US Master`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7463" target="_blank" rel="noopener" class="mdt-link">VMX-7463</a> · <span class="ji-status ji-resolved">Resolved</span> · @spencer.su — `[API] [Permission] device controller actionSd`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7388" target="_blank" rel="noopener" class="mdt-link">VMX-7388</a> · <span class="ji-status ji-resolved">Resolved</span> · @elvis.tran — `Request for inventory report with simcard ICCID`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7326" target="_blank" rel="noopener" class="mdt-link">VMX-7326</a> · <span class="ji-status ji-resolved">Resolved</span> · @leo.tsai — `[Crashlytics] EngineManager.notifyShutdown`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7449" target="_blank" rel="noopener" class="mdt-link">VMX-7449</a> · <span class="ji-status ji-resolved">Resolved</span> · @lucy.sw.yen — `[VisionAgent] [AOS] Device List 難控制`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7454" target="_blank" rel="noopener" class="mdt-link">VMX-7454</a> · <span class="ji-status ji-resolved">Resolved</span> · @lucy.sw.yen — `[VisionAgent] [AOS] 載入更多資料時的畫面閃爍`</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7103" target="_blank" rel="noopener" class="mdt-link">VMX-7103</a> · <span class="ji-status ji-closed">Closed</span> · @elvis.tran — `Camera not recording new trips`(2026-01-20 created)</li>
+</ul>
+
+<h3>🚨 AI Model 6/2 Fix Version 死線(從 5/11 AI Weekly NotebookLM 錄音校正)</h3>
+<p>詳細在 <a href="../06_calibration-log/critical-facts-log.html"><strong>Critical Facts § AI Model 版本對應 + 6/2 Fix Version 死線</strong></a>。要點:</p>
+<ul>
+<li><strong>Model 26</strong>(新 DMS,取代 Model 11L)+ <strong>Model 11P</strong>(嘴部→全臉打哈欠)+ <strong>LDWS API</strong> + <strong>Lens Cover 拆分</strong>(<a href="https://jira.navman.co.nz/jira/browse/HAWK-582" target="_blank" rel="noopener" class="mdt-link">HAWK-582</a>)都掛 <strong>6/2 Fix Version</strong></li>
+<li><strong>5/15 Beta 測試</strong> — 外部 API / 模組必須在此之前 ready</li>
+</ul>
+
+<h2 id="new-closed">🆕 本週新 Resolved / Closed(docs 可能還沒反映)</h2>
+<ul>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7239" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7239</strong></a> · <span class="ji-status ji-closed">Closed</span> <span class="ji-updated"><small>5/11</small></span> · @vincent.ho — Add handheld object classification model for phone usage feature</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7419" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7419</strong></a> · <span class="ji-status ji-resolved">Resolved</span> <span class="ji-updated"><small>5/7</small></span> · @spencer.su — [API] new event type: rollover</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-7381" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-7381</strong></a> · <span class="ji-status ji-resolved">Resolved</span> <span class="ji-updated"><small>5/8</small></span> · @lucy.sw.yen — [VisionAgent] iOS / AOS 無法刪除 Event</li>
+<li><a href="https://jira.navman.co.nz/jira/browse/VMX-6353" target="_blank" rel="noopener" class="mdt-link"><strong>VMX-6353</strong></a> · <span class="ji-status ji-resolved">Resolved</span> <span class="ji-updated"><small>5/7</small></span> · @mori.jhang — [MMF] Map Data Update Flow Design</li>
+
+</ul>
+
+<h2 id="full-table">完整 Ticket 表(按被引用次數排序)</h2>
+<p class="ji-controls">
+  Filter:
+  <button class="ji-filter active" data-filter="all" type="button">All (137)</button>
+  <button class="ji-filter" data-filter="New" type="button">New (93)</button>
+  <button class="ji-filter" data-filter="Open" type="button">Open (9)</button>
+  <button class="ji-filter" data-filter="In Progress" type="button">In Progress (6)</button>
+  <button class="ji-filter" data-filter="Resolved" type="button">Resolved (16)</button>
+  <button class="ji-filter" data-filter="Closed" type="button">Closed (5)</button>
+  <button class="ji-filter" data-filter="Deferred" type="button">Deferred (7)</button>
+  <button class="ji-filter" data-filter="Pending" type="button">Pending (1)</button>
+</p>
+<p style="margin-top:-8px;font-size:13px;color:var(--ink-2)">注:此表為 morning 137 票完整列表,filter counts 對應該批 · <strong>5/12 下午 +27 新票</strong>(已於上方「下午 Δ」段列出,164 票完整 JSON 在 <code>jira_data/jira_tickets_snapshot_2026-05-12T15.json</code>)</p>
+<table class="ji-table">
+<thead>
+<tr>
+  <th style="width: 105px">Key</th>
+  <th style="width: 130px">Status</th>
+  <th style="width: 135px">Assignee</th>
+  <th style="width: 115px">Updated</th>
+  <th style="width: 60px">Cited</th>
+  <th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr data-status="New" data-key="VMX-6722">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6722" target="_blank" rel="noopener" class="ji-key-link">VMX-6722</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jimmy.jy.huang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">72×</td>
+  <td class="ji-summary">Server AI | Build a server-side lane departure model to block false-po</td>
+</tr>
+<tr data-status="New" data-key="VMX-7404">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7404" target="_blank" rel="noopener" class="ji-key-link">VMX-7404</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jimmy.jy.huang</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-29</span><br><small>13d ago</small></td>
+  <td class="ji-cited">71×</td>
+  <td class="ji-summary">[2026Q1_user_try] Tirp 中沒有”ADAS start” 也沒有”ADAS failure” 的event</td>
+</tr>
+<tr data-status="New" data-key="VMX-7457">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7457" target="_blank" rel="noopener" class="ji-key-link">VMX-7457</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">59×</td>
+  <td class="ji-summary">[API]Integrate BMS Blurring functionality into VisionMax cloud</td>
+</tr>
+<tr data-status="Open" data-key="VMX-7309">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7309" target="_blank" rel="noopener" class="ji-key-link">VMX-7309</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">joe.lien</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-27</span><br><small>15d ago</small></td>
+  <td class="ji-cited">47×</td>
+  <td class="ji-summary">Provide the configuration of the EyeStableRate threshold</td>
+</tr>
+<tr data-status="New" data-key="VMX-7432">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7432" target="_blank" rel="noopener" class="ji-key-link">VMX-7432</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">lucy.sw.yen</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">46×</td>
+  <td class="ji-summary">【VMX / Fleet】Add a detect rule 'Detect Yawing' toggle under Fatigue Co</td>
+</tr>
+<tr data-status="Open" data-key="HAWK-582">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-582" target="_blank" rel="noopener" class="ji-key-link">HAWK-582</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">jieli.liu</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">40×</td>
+  <td class="ji-summary">Improve Lens cover detection design</td>
+</tr>
+<tr data-status="New" data-key="VMX-7458">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7458" target="_blank" rel="noopener" class="ji-key-link">VMX-7458</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">pokai.huang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">38×</td>
+  <td class="ji-summary">[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-A</td>
+</tr>
+<tr data-status="Resolved" data-key="HAWK-527">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-527" target="_blank" rel="noopener" class="ji-key-link">HAWK-527</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">30×</td>
+  <td class="ji-summary">Blurring not reliable</td>
+</tr>
+<tr data-status="New" data-key="VMX-7088">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7088" target="_blank" rel="noopener" class="ji-key-link">VMX-7088</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">30×</td>
+  <td class="ji-summary">New Role as Viewer only</td>
+</tr>
+<tr data-status="New" data-key="HAWK-501">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-501" target="_blank" rel="noopener" class="ji-key-link">HAWK-501</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">29×</td>
+  <td class="ji-summary">ADAS Self-calibration resolves wrong height resulting inacurate ADAS e</td>
+</tr>
+<tr data-status="New" data-key="HAWK-562">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-562" target="_blank" rel="noopener" class="ji-key-link">HAWK-562</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-30</span><br><small>12d ago</small></td>
+  <td class="ji-cited">24×</td>
+  <td class="ji-summary">Eating &amp; Drinking detection</td>
+</tr>
+<tr data-status="Resolved" data-key="HAWK-578">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-578" target="_blank" rel="noopener" class="ji-key-link">HAWK-578</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">Luís Miguel Couto</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">23×</td>
+  <td class="ji-summary">VisionMax PROD deployment is not blurring videos</td>
+</tr>
+<tr data-status="New" data-key="VMX-6427">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6427" target="_blank" rel="noopener" class="ji-key-link">VMX-6427</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-28</span><br><small>14d ago</small></td>
+  <td class="ji-cited">22×</td>
+  <td class="ji-summary">Improve reporting function #107</td>
+</tr>
+<tr data-status="Open" data-key="HAWK-577">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-577" target="_blank" rel="noopener" class="ji-key-link">HAWK-577</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">chiehli.wang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">22×</td>
+  <td class="ji-summary">Blurring on-demand fails when not all event media resources are availa</td>
+</tr>
+<tr data-status="Closed" data-key="HAWK-331">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-331" target="_blank" rel="noopener" class="ji-key-link">HAWK-331</a></td>
+  <td><span class="ji-status ji-closed">Closed</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">Luís Miguel Couto</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-22</span><br><small>20d ago</small></td>
+  <td class="ji-cited">21×</td>
+  <td class="ji-summary">Blurring (face, background, license plate)</td>
+</tr>
+<tr data-status="New" data-key="HAWK-573">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-573" target="_blank" rel="noopener" class="ji-key-link">HAWK-573</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">chiehli.wang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">20×</td>
+  <td class="ji-summary">Request event blurry not updating the content</td>
+</tr>
+<tr data-status="New" data-key="VMX-7194">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7194" target="_blank" rel="noopener" class="ji-key-link">VMX-7194</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">20×</td>
+  <td class="ji-summary">Vehicle rollover event detection</td>
+</tr>
+<tr data-status="New" data-key="VMX-7147">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7147" target="_blank" rel="noopener" class="ji-key-link">VMX-7147</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-13</span><br><small>60d ago</small></td>
+  <td class="ji-cited">18×</td>
+  <td class="ji-summary">Camera recording no longer exists and unable to playback</td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-6983">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6983" target="_blank" rel="noopener" class="ji-key-link">VMX-6983</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">james.cw.chou</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">18×</td>
+  <td class="ji-summary">Quantatec - 新增鏡頭遮擋及移除遮擋事件</td>
+</tr>
+<tr data-status="New" data-key="VMX-7407">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7407" target="_blank" rel="noopener" class="ji-key-link">VMX-7407</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jack.fl.chen</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-12</span><br><small>0d ago</small></td>
+  <td class="ji-cited">17×</td>
+  <td class="ji-summary">Implement error handling for UVC cameras that do not support RAW frame</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6754">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6754" target="_blank" rel="noopener" class="ji-key-link">VMX-6754</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">josh.ch.tseng</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-29</span><br><small>13d ago</small></td>
+  <td class="ji-cited">15×</td>
+  <td class="ji-summary">Fleet Portal - Events Page Optimization </td>
+</tr>
+<tr data-status="Deferred" data-key="VMX-5908">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5908" target="_blank" rel="noopener" class="ji-key-link">VMX-5908</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">14×</td>
+  <td class="ji-summary">Contract fleet 的 Webhook 處理</td>
+</tr>
+<tr data-status="New" data-key="VMX-6586">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6586" target="_blank" rel="noopener" class="ji-key-link">VMX-6586</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">14×</td>
+  <td class="ji-summary">Group main fleet and contract fleets together and display data under p</td>
+</tr>
+<tr data-status="New" data-key="VMX-7101">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7101" target="_blank" rel="noopener" class="ji-key-link">VMX-7101</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jimmy.jy.huang</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-24</span><br><small>49d ago</small></td>
+  <td class="ji-cited">13×</td>
+  <td class="ji-summary">LDWS Improving (Server)</td>
+</tr>
+<tr data-status="New" data-key="VMX-5909">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5909" target="_blank" rel="noopener" class="ji-key-link">VMX-5909</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">13×</td>
+  <td class="ji-summary">Add box around event to highlight event trigger #11</td>
+</tr>
+<tr data-status="New" data-key="VMX-7082">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7082" target="_blank" rel="noopener" class="ji-key-link">VMX-7082</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">lucy.sw.yen</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">11×</td>
+  <td class="ji-summary">於VMX Fleet Portal 與 Master Portal 中埋設GA的追蹤Code</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6391">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6391" target="_blank" rel="noopener" class="ji-key-link">VMX-6391</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">josh.ch.tseng</td>
+  <td class="ji-updated"><span class="age-cold">2025-12-10</span><br><small>153d ago</small></td>
+  <td class="ji-cited">10×</td>
+  <td class="ji-summary">AI New Feature Development：Blurring (face, license plate)</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7029">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7029" target="_blank" rel="noopener" class="ji-key-link">VMX-7029</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">leo.tsai</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-25</span><br><small>48d ago</small></td>
+  <td class="ji-cited">10×</td>
+  <td class="ji-summary">SD Card encryption for VisionMax</td>
+</tr>
+<tr data-status="Open" data-key="VMX-7324">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7324" target="_blank" rel="noopener" class="ji-key-link">VMX-7324</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-14</span><br><small>28d ago</small></td>
+  <td class="ji-cited">10×</td>
+  <td class="ji-summary">Improve smoking event accuracy</td>
+</tr>
+<tr data-status="New" data-key="VMX-7316">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7316" target="_blank" rel="noopener" class="ji-key-link">VMX-7316</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">leo.tsai</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-22</span><br><small>20d ago</small></td>
+  <td class="ji-cited">10×</td>
+  <td class="ji-summary">[AZUGA SmartLink] 新增事件支援（總單）</td>
+</tr>
+<tr data-status="Open" data-key="VMX-6782">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6782" target="_blank" rel="noopener" class="ji-key-link">VMX-6782</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">joe.lien</td>
+  <td class="ji-updated"><span class="age-recent">2026-05-04</span><br><small>8d ago</small></td>
+  <td class="ji-cited">10×</td>
+  <td class="ji-summary">CDR scan for Bluetooth (BLE) Beacons in the vicinity and send a report</td>
+</tr>
+<tr data-status="New" data-key="VMX-7427">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7427" target="_blank" rel="noopener" class="ji-key-link">VMX-7427</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">righter.song</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-05</span><br><small>7d ago</small></td>
+  <td class="ji-cited">9×</td>
+  <td class="ji-summary">Quantatec - 增加語音檔obstruction removed</td>
+</tr>
+<tr data-status="New" data-key="VMX-7317">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7317" target="_blank" rel="noopener" class="ji-key-link">VMX-7317</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">9×</td>
+  <td class="ji-summary">Rastrac – False Speed Event Review</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7161">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7161" target="_blank" rel="noopener" class="ji-key-link">VMX-7161</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-25</span><br><small>48d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Enhance camera error handling</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7162">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7162" target="_blank" rel="noopener" class="ji-key-link">VMX-7162</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-25</span><br><small>48d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Optimize the retry mechanism for certificate retrieval</td>
+</tr>
+<tr data-status="New" data-key="HAWK-545">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-545" target="_blank" rel="noopener" class="ji-key-link">HAWK-545</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-stale">2026-04-01</span><br><small>41d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Mobile phone detection rates seems decreased a lot, sometimes it also </td>
+</tr>
+<tr data-status="New" data-key="VMX-7233">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7233" target="_blank" rel="noopener" class="ji-key-link">VMX-7233</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">lucy.sw.yen</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-16</span><br><small>26d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">[VisionAgent] 埋GA Code</td>
+</tr>
+<tr data-status="Closed" data-key="HAWK-517">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-517" target="_blank" rel="noopener" class="ji-key-link">HAWK-517</a></td>
+  <td><span class="ji-status ji-closed">Closed</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">Luís Miguel Couto</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-22</span><br><small>20d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Blurring not working on STAGING</td>
+</tr>
+<tr data-status="New" data-key="VMX-7224">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7224" target="_blank" rel="noopener" class="ji-key-link">VMX-7224</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jack.fl.chen</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-23</span><br><small>19d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Integration of the UVC camera and road-facing camera in a side-by-side</td>
+</tr>
+<tr data-status="New" data-key="VMX-7430">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7430" target="_blank" rel="noopener" class="ji-key-link">VMX-7430</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">woody.lee</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Improve speed sign recognition to not detect exit ramp speed</td>
+</tr>
+<tr data-status="New" data-key="VMX-7431">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7431" target="_blank" rel="noopener" class="ji-key-link">VMX-7431</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">woody.lee</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">8×</td>
+  <td class="ji-summary">Speed sign recognition triggering incorrect speed</td>
+</tr>
+<tr data-status="New" data-key="VMX-6703">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6703" target="_blank" rel="noopener" class="ji-key-link">VMX-6703</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">7×</td>
+  <td class="ji-summary">Support Configurable Server AI Response Time</td>
+</tr>
+<tr data-status="Open" data-key="VMX-6453">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6453" target="_blank" rel="noopener" class="ji-key-link">VMX-6453</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">jieli.liu</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-12</span><br><small>242d ago</small></td>
+  <td class="ji-cited">7×</td>
+  <td class="ji-summary">Server Model Research - Phone Usage</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6670">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6670" target="_blank" rel="noopener" class="ji-key-link">VMX-6670</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">josh.ch.tseng</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-27</span><br><small>197d ago</small></td>
+  <td class="ji-cited">6×</td>
+  <td class="ji-summary">Add Smoking Event Icon and Configuration to VisionMax</td>
+</tr>
+<tr data-status="New" data-key="VMX-7151">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7151" target="_blank" rel="noopener" class="ji-key-link">VMX-7151</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-17</span><br><small>25d ago</small></td>
+  <td class="ji-cited">6×</td>
+  <td class="ji-summary">Safety Score at the vehicle level instead of by driver</td>
+</tr>
+<tr data-status="New" data-key="VMX-7373">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7373" target="_blank" rel="noopener" class="ji-key-link">VMX-7373</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-17</span><br><small>25d ago</small></td>
+  <td class="ji-cited">6×</td>
+  <td class="ji-summary">GPS 未定位時相關欄位（事件 / GPS）內容處理規則</td>
+</tr>
+<tr data-status="New" data-key="HAWK-570">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-570" target="_blank" rel="noopener" class="ji-key-link">HAWK-570</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-10</span><br><small>2d ago</small></td>
+  <td class="ji-cited">6×</td>
+  <td class="ji-summary">PCWS (Pedestrian Collision Warning System) Specification Confirmation</td>
+</tr>
+<tr data-status="New" data-key="VMX-7083">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7083" target="_blank" rel="noopener" class="ji-key-link">VMX-7083</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">lucy.sw.yen</td>
+  <td class="ji-updated"><span class="age-cold">2026-01-14</span><br><small>118d ago</small></td>
+  <td class="ji-cited">5×</td>
+  <td class="ji-summary">Update the content of safety reports</td>
+</tr>
+<tr data-status="New" data-key="VMX-7030">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7030" target="_blank" rel="noopener" class="ji-key-link">VMX-7030</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-25</span><br><small>48d ago</small></td>
+  <td class="ji-cited">5×</td>
+  <td class="ji-summary">Fleet Mobile APP - Push notification</td>
+</tr>
+<tr data-status="New" data-key="VMX-7320">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7320" target="_blank" rel="noopener" class="ji-key-link">VMX-7320</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-14</span><br><small>28d ago</small></td>
+  <td class="ji-cited">5×</td>
+  <td class="ji-summary">Speed sign violation when driving at or below the sign posted speed li</td>
+</tr>
+<tr data-status="New" data-key="VMX-7321">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7321" target="_blank" rel="noopener" class="ji-key-link">VMX-7321</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-14</span><br><small>28d ago</small></td>
+  <td class="ji-cited">5×</td>
+  <td class="ji-summary">School zone speed sign violation outside school times </td>
+</tr>
+<tr data-status="New" data-key="VMX-7132">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7132" target="_blank" rel="noopener" class="ji-key-link">VMX-7132</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">ben.ko</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-20</span><br><small>22d ago</small></td>
+  <td class="ji-cited">5×</td>
+  <td class="ji-summary">#179 Allow users to request footage outside the trip from SD card </td>
+</tr>
+<tr data-status="New" data-key="VMX-6382">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6382" target="_blank" rel="noopener" class="ji-key-link">VMX-6382</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-18</span><br><small>298d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">Allow AI detection parameters to be configured </td>
+</tr>
+<tr data-status="New" data-key="VMX-6221">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6221" target="_blank" rel="noopener" class="ji-key-link">VMX-6221</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jay.qiu</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-15</span><br><small>239d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">Survey AI Model Self-Training and Optimization System</td>
+</tr>
+<tr data-status="New" data-key="HAWK-401">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-401" target="_blank" rel="noopener" class="ji-key-link">HAWK-401</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2026-02-09</span><br><small>92d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">Support proper DMS AI detection with low installation position</td>
+</tr>
+<tr data-status="New" data-key="HAWK-502">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-502" target="_blank" rel="noopener" class="ji-key-link">HAWK-502</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Jakob Mund</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-16</span><br><small>26d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">Changes to the privacy mode</td>
+</tr>
+<tr data-status="New" data-key="HAWK-551">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-551" target="_blank" rel="noopener" class="ji-key-link">HAWK-551</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">[CAM Lite] Inaccurate fatique detection --&gt; new config to lower EyeSta</td>
+</tr>
+<tr data-status="New" data-key="HAWK-574">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-574" target="_blank" rel="noopener" class="ji-key-link">HAWK-574</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">WEBFLEET Alpha Fleet Cameras Sporadically Looping “DMS Calibration Com</td>
+</tr>
+<tr data-status="New" data-key="HAWK-583">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-583" target="_blank" rel="noopener" class="ji-key-link">HAWK-583</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-09</span><br><small>3d ago</small></td>
+  <td class="ji-cited">4×</td>
+  <td class="ji-summary">Timezone (in MX) not correct</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6724">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6724" target="_blank" rel="noopener" class="ji-key-link">VMX-6724</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">jieli.liu</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-20</span><br><small>204d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">Phone Usage | enable/disable “hand lowered” and “looking down” detecti</td>
+</tr>
+<tr data-status="Resolved" data-key="HAWK-397">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-397" target="_blank" rel="noopener" class="ji-key-link">HAWK-397</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">Sebastian Schneider</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-05</span><br><small>188d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">Edge AI | Phone Usage | enable/disable “hand lowered” and “looking dow</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6837">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6837" target="_blank" rel="noopener" class="ji-key-link">VMX-6837</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">jieli.liu</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-26</span><br><small>167d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">Independent Sensitivity Thresholds for Distractions</td>
+</tr>
+<tr data-status="Closed" data-key="VMX-6920">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6920" target="_blank" rel="noopener" class="ji-key-link">VMX-6920</a></td>
+  <td><span class="ji-status ji-closed">Closed</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">jimmy.jy.huang</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-09</span><br><small>64d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[DMS] Smoking新參數</td>
+</tr>
+<tr data-status="New" data-key="VMX-7099">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7099" target="_blank" rel="noopener" class="ji-key-link">VMX-7099</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-19</span><br><small>54d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">Migrate IOSix service to AZUGA server</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7346">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7346" target="_blank" rel="noopener" class="ji-key-link">VMX-7346</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-24</span><br><small>18d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[ServerAI] 在pre_event_message 裡加上cdr的版號</td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-7377">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7377" target="_blank" rel="noopener" class="ji-key-link">VMX-7377</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">andrew.cheng</td>
+  <td class="ji-updated"><span class="age-recent">2026-05-04</span><br><small>8d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[VisionAgent] [iOS] Can't Access Driver Info from Map Overview</td>
+</tr>
+<tr data-status="Closed" data-key="HAWK-419">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-419" target="_blank" rel="noopener" class="ji-key-link">HAWK-419</a></td>
+  <td><span class="ji-status ji-closed">Closed</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">Sirphi Manivannan</td>
+  <td class="ji-updated"><span class="age-recent">2026-05-04</span><br><small>8d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">Independent Sensitivity Thresholds for Distractions</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6925">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6925" target="_blank" rel="noopener" class="ji-key-link">VMX-6925</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">jay.qiu</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-05</span><br><small>7d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[MMF] Partial Map Update</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-6353">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6353" target="_blank" rel="noopener" class="ji-key-link">VMX-6353</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[MMF] Map Data Update Flow Design</td>
+</tr>
+<tr data-status="New" data-key="VMX-7374">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7374" target="_blank" rel="noopener" class="ji-key-link">VMX-7374</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">leo.tsai</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[VisionAgent] [iOS] [aOS] Add Parking Photo Button on Trip Details Pag</td>
+</tr>
+<tr data-status="New" data-key="VMX-7375">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7375" target="_blank" rel="noopener" class="ji-key-link">VMX-7375</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">leo.tsai</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[VisionAgent] [iOS] [aOS] Add Manual End Button on Trip Details Page</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7381">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7381" target="_blank" rel="noopener" class="ji-key-link">VMX-7381</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">lucy.sw.yen</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">3×</td>
+  <td class="ji-summary">[VisionAgent] [iOS] [AOS] 無法刪除Event</td>
+</tr>
+<tr data-status="New" data-key="VMX-6419">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6419" target="_blank" rel="noopener" class="ji-key-link">VMX-6419</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-02</span><br><small>314d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Invalid phone usage events</td>
+</tr>
+<tr data-status="Open" data-key="VMX-6528">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6528" target="_blank" rel="noopener" class="ji-key-link">VMX-6528</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">charlie.tychen</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-11</span><br><small>305d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">IOSix dongle 需要開一個更新FW version的Mitac API</td>
+</tr>
+<tr data-status="New" data-key="VMX-5879">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5879" target="_blank" rel="noopener" class="ji-key-link">VMX-5879</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-15</span><br><small>301d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Feasibility] Display AI debug view on VisionMax browser UI (#11)</td>
+</tr>
+<tr data-status="New" data-key="VMX-6523">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6523" target="_blank" rel="noopener" class="ji-key-link">VMX-6523</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-16</span><br><small>300d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Enable /Disable IOSix advance data的 Mitac API</td>
+</tr>
+<tr data-status="New" data-key="VMX-6326">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6326" target="_blank" rel="noopener" class="ji-key-link">VMX-6326</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-07-25</span><br><small>291d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[IOSix] Debug log upload</td>
+</tr>
+<tr data-status="New" data-key="VMX-5744">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5744" target="_blank" rel="noopener" class="ji-key-link">VMX-5744</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-28</span><br><small>257d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">event觸發時，上傳更多資訊以提升debug效率</td>
+</tr>
+<tr data-status="New" data-key="VMX-6265">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6265" target="_blank" rel="noopener" class="ji-key-link">VMX-6265</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">simon.wu</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">GPIO - RS232 Passthrough and Digital Binary Input Signal</td>
+</tr>
+<tr data-status="New" data-key="VMX-6348">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6348" target="_blank" rel="noopener" class="ji-key-link">VMX-6348</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">simon.wu</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Solid light indicates the camera is connected to the server/network, i</td>
+</tr>
+<tr data-status="New" data-key="VMX-6486">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6486" target="_blank" rel="noopener" class="ji-key-link">VMX-6486</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">SD card life calculation</td>
+</tr>
+<tr data-status="New" data-key="VMX-6512">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6512" target="_blank" rel="noopener" class="ji-key-link">VMX-6512</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">righter.song</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">MiDM api 可以選擇Site/group後再匯入機器</td>
+</tr>
+<tr data-status="New" data-key="VMX-6521">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6521" target="_blank" rel="noopener" class="ji-key-link">VMX-6521</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">新增BT MAC的欄位當IOSix dongle UID ACC on的時候丟UID給VMX，單獨管理，不和CDR做連結，Cloud API</td>
+</tr>
+<tr data-status="New" data-key="VMX-6602">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6602" target="_blank" rel="noopener" class="ji-key-link">VMX-6602</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">simon.wu</td>
+  <td class="ji-updated"><span class="age-cold">2025-08-29</span><br><small>256d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">CDR LED pattern change request #134</td>
+</tr>
+<tr data-status="Deferred" data-key="VMX-5922">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5922" target="_blank" rel="noopener" class="ji-key-link">VMX-5922</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-02</span><br><small>252d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">TT AU Speed cam data - No redlight camera alerts</td>
+</tr>
+<tr data-status="Deferred" data-key="VMX-6166">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6166" target="_blank" rel="noopener" class="ji-key-link">VMX-6166</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-02</span><br><small>252d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[MMF]OSM USA MMF v9801 install failed</td>
+</tr>
+<tr data-status="Deferred" data-key="VMX-6343">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6343" target="_blank" rel="noopener" class="ji-key-link">VMX-6343</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-02</span><br><small>252d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Indonesia MMF</td>
+</tr>
+<tr data-status="Deferred" data-key="VMX-6662">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6662" target="_blank" rel="noopener" class="ji-key-link">VMX-6662</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-02</span><br><small>252d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Speed camera A-test]Camera Type 6 can trigger event in DVR,but can't </td>
+</tr>
+<tr data-status="New" data-key="VMX-6222">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6222" target="_blank" rel="noopener" class="ji-key-link">VMX-6222</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">simon.wu</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-03</span><br><small>251d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Adding earliest SD card file’s timestamp to the device info API for ea</td>
+</tr>
+<tr data-status="Pending" data-key="VMX-5880">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5880" target="_blank" rel="noopener" class="ji-key-link">VMX-5880</a></td>
+  <td><span class="ji-status ji-pending">Pending</span></td>
+  <td class="ji-assignee">mori.jhang</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Install Tool] UVC在Dual Cameras SKU上搭載DMS功能</td>
+</tr>
+<tr data-status="New" data-key="VMX-6040">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6040" target="_blank" rel="noopener" class="ji-key-link">VMX-6040</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">neil.mercer</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Storage status is Good but not reading the memory card and no video be</td>
+</tr>
+<tr data-status="New" data-key="VMX-6420">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6420" target="_blank" rel="noopener" class="ji-key-link">VMX-6420</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Driver tagging in Events for coaching #107</td>
+</tr>
+<tr data-status="New" data-key="VMX-6465">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6465" target="_blank" rel="noopener" class="ji-key-link">VMX-6465</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-05</span><br><small>249d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[K145][MAU] Abnormal camera image </td>
+</tr>
+<tr data-status="New" data-key="VMX-6692">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6692" target="_blank" rel="noopener" class="ji-key-link">VMX-6692</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">leon.lan</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-08</span><br><small>246d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Blurry DMS camera</td>
+</tr>
+<tr data-status="New" data-key="VMX-6203">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6203" target="_blank" rel="noopener" class="ji-key-link">VMX-6203</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">-</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-12</span><br><small>242d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Inward, UVC &amp; Outward cameras unable to record video</td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-6369">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6369" target="_blank" rel="noopener" class="ji-key-link">VMX-6369</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">joe.lien</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-19</span><br><small>235d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API 文件] 移除不再使用的event。</td>
+</tr>
+<tr data-status="New" data-key="VMX-6734">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6734" target="_blank" rel="noopener" class="ji-key-link">VMX-6734</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-23</span><br><small>231d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Speed camera A-test]Not find Camera Type 9128 data</td>
+</tr>
+<tr data-status="New" data-key="VMX-6736">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6736" target="_blank" rel="noopener" class="ji-key-link">VMX-6736</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-26</span><br><small>228d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Stop and go event not uploading any media</td>
+</tr>
+<tr data-status="New" data-key="VMX-6374">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6374" target="_blank" rel="noopener" class="ji-key-link">VMX-6374</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-09-30</span><br><small>224d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">IOSix dongle debug web page </td>
+</tr>
+<tr data-status="New" data-key="VMX-6785">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6785" target="_blank" rel="noopener" class="ji-key-link">VMX-6785</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">righter.song</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-07</span><br><small>217d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Review Audio File Quality</td>
+</tr>
+<tr data-status="New" data-key="VMX-6507">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6507" target="_blank" rel="noopener" class="ji-key-link">VMX-6507</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">gennie.fan</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-17</span><br><small>207d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[K265][Region] Build VisionMax 2025Q2 Region (250815)</td>
+</tr>
+<tr data-status="Open" data-key="VMX-6076">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6076" target="_blank" rel="noopener" class="ji-key-link">VMX-6076</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-20</span><br><small>204d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Pop up notification on log in page for server outage</td>
+</tr>
+<tr data-status="New" data-key="VMX-6841">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6841" target="_blank" rel="noopener" class="ji-key-link">VMX-6841</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-21</span><br><small>203d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Making SmartGo data available through a Webhook for easier integration</td>
+</tr>
+<tr data-status="New" data-key="VMX-6821">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6821" target="_blank" rel="noopener" class="ji-key-link">VMX-6821</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">nell.chen</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-27</span><br><small>197d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Speed camera A-test]The SpeedCam Region name display as "V2" instead </td>
+</tr>
+<tr data-status="New" data-key="VMX-6851">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6851" target="_blank" rel="noopener" class="ji-key-link">VMX-6851</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-28</span><br><small>196d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">協助precise MRM 包APN 進region image </td>
+</tr>
+<tr data-status="New" data-key="VMX-6866">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6866" target="_blank" rel="noopener" class="ji-key-link">VMX-6866</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-28</span><br><small>196d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Device recall history showing invalid usage period date</td>
+</tr>
+<tr data-status="New" data-key="VMX-6881">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6881" target="_blank" rel="noopener" class="ji-key-link">VMX-6881</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">righter.song</td>
+  <td class="ji-updated"><span class="age-cold">2025-10-31</span><br><small>193d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Add 'Recording Start' audio alert to comply with NZ Biometric Processi</td>
+</tr>
+<tr data-status="New" data-key="VMX-6885">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6885" target="_blank" rel="noopener" class="ji-key-link">VMX-6885</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-01</span><br><small>192d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API] Upgrade event time precision to ms from s</td>
+</tr>
+<tr data-status="New" data-key="VMX-6886">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6886" target="_blank" rel="noopener" class="ji-key-link">VMX-6886</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-01</span><br><small>192d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API] 前置作業</td>
+</tr>
+<tr data-status="New" data-key="VMX-6888">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6888" target="_blank" rel="noopener" class="ji-key-link">VMX-6888</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">joe.lien</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-04</span><br><small>189d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API] A super account (likely)</td>
+</tr>
+<tr data-status="New" data-key="VMX-6924">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6924" target="_blank" rel="noopener" class="ji-key-link">VMX-6924</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">neil.kuo</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-08</span><br><small>185d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API] recording 新增時有機會造成 duplicate entry 衝突</td>
+</tr>
+<tr data-status="Open" data-key="VMX-6761">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6761" target="_blank" rel="noopener" class="ji-key-link">VMX-6761</a></td>
+  <td><span class="ji-status ji-open">Open</span></td>
+  <td class="ji-assignee">jieli.liu</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-13</span><br><small>180d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Stop sign detection with traffic lights involved</td>
+</tr>
+<tr data-status="New" data-key="HAWK-457">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-457" target="_blank" rel="noopener" class="ji-key-link">HAWK-457</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Daniel Kara</td>
+  <td class="ji-updated"><span class="age-cold">2025-11-18</span><br><small>175d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Videos stuck in pending status</td>
+</tr>
+<tr data-status="Deferred" data-key="HAWK-410">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-410" target="_blank" rel="noopener" class="ji-key-link">HAWK-410</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-cold">2025-12-08</span><br><small>155d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[Production Issue] - Blue lines on the Video</td>
+</tr>
+<tr data-status="New" data-key="VMX-6380">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6380" target="_blank" rel="noopener" class="ji-key-link">VMX-6380</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">jimmy.jy.huang</td>
+  <td class="ji-updated"><span class="age-cold">2025-12-10</span><br><small>153d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Distracted Driving - Smoking</td>
+</tr>
+<tr data-status="New" data-key="HAWK-441">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-441" target="_blank" rel="noopener" class="ji-key-link">HAWK-441</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-02</span><br><small>71d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">TVI Video stream stay black after last installation step</td>
+</tr>
+<tr data-status="New" data-key="HAWK-544">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-544" target="_blank" rel="noopener" class="ji-key-link">HAWK-544</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Olugbo Oniyide</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-13</span><br><small>60d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Thumbnail events of type "lens covered" missing thumbnails when media </td>
+</tr>
+<tr data-status="New" data-key="HAWK-528">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-528" target="_blank" rel="noopener" class="ji-key-link">HAWK-528</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Utkarsh Patel</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-18</span><br><small>55d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Camera stop recording randomly during trips</td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-6378">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-6378" target="_blank" rel="noopener" class="ji-key-link">VMX-6378</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-19</span><br><small>54d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Speed sign violation</td>
+</tr>
+<tr data-status="New" data-key="VMX-7014">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7014" target="_blank" rel="noopener" class="ji-key-link">VMX-7014</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">righter.song</td>
+  <td class="ji-updated"><span class="age-stale">2026-03-27</span><br><small>46d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Remote Playback supports audio</td>
+</tr>
+<tr data-status="New" data-key="VMX-7389">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7389" target="_blank" rel="noopener" class="ji-key-link">VMX-7389</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">brian.chienlee</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-22</span><br><small>20d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Add sim card ICCID information to assigned inventory report</td>
+</tr>
+<tr data-status="New" data-key="HAWK-508">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-508" target="_blank" rel="noopener" class="ji-key-link">HAWK-508</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Harish Bolneni</td>
+  <td class="ji-updated"><span class="age-recent">2026-04-29</span><br><small>13d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Livestream video missing</td>
+</tr>
+<tr data-status="New" data-key="VMX-5915">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-5915" target="_blank" rel="noopener" class="ji-key-link">VMX-5915</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-recent">2026-05-04</span><br><small>8d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">TT AU Speed cam data - Stop signs at traffic lights are being detected</td>
+</tr>
+<tr data-status="Deferred" data-key="HAWK-159">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-159" target="_blank" rel="noopener" class="ji-key-link">HAWK-159</a></td>
+  <td><span class="ji-status ji-deferred">Deferred</span></td>
+  <td class="ji-assignee">Sebastian Schneider</td>
+  <td class="ji-updated"><span class="age-recent">2026-05-04</span><br><small>8d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">LiveStream: Response to selectCam command is sent before the stream ha</td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-7254">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7254" target="_blank" rel="noopener" class="ji-key-link">VMX-7254</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-05</span><br><small>7d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Cloud integration for rollover event and configuration</td>
+</tr>
+<tr data-status="New" data-key="HAWK-332">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-332" target="_blank" rel="noopener" class="ji-key-link">HAWK-332</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">eric.h</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-06</span><br><small>6d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Fatigue (Yawning added) </td>
+</tr>
+<tr data-status="In Progress" data-key="VMX-7149">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7149" target="_blank" rel="noopener" class="ji-key-link">VMX-7149</a></td>
+  <td><span class="ji-status ji-inprog">In Progress</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">LB Technology - Plow PTO status via GPIO input and snapshot</td>
+</tr>
+<tr data-status="Resolved" data-key="VMX-7419">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7419" target="_blank" rel="noopener" class="ji-key-link">VMX-7419</a></td>
+  <td><span class="ji-status ji-resolved">Resolved</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-07</span><br><small>5d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[API] new event type: rollover</td>
+</tr>
+<tr data-status="New" data-key="HAWK-519">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-519" target="_blank" rel="noopener" class="ji-key-link">HAWK-519</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Daniel Kara</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Recording missing</td>
+</tr>
+<tr data-status="New" data-key="HAWK-535">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-535" target="_blank" rel="noopener" class="ji-key-link">HAWK-535</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">LiveStreaming not working</td>
+</tr>
+<tr data-status="New" data-key="HAWK-579">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-579" target="_blank" rel="noopener" class="ji-key-link">HAWK-579</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">Harish Bolneni</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-08</span><br><small>4d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Camera Consuming High data</td>
+</tr>
+<tr data-status="Closed" data-key="VMX-7239">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7239" target="_blank" rel="noopener" class="ji-key-link">VMX-7239</a></td>
+  <td><span class="ji-status ji-closed">Closed</span> <span class="ji-res">/Fixed</span></td>
+  <td class="ji-assignee">vincent.ho</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Add handboject classification model for phone usage feature.</td>
+</tr>
+<tr data-status="New" data-key="VMX-7391">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7391" target="_blank" rel="noopener" class="ji-key-link">VMX-7391</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">ben.ko</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Update UI text for New Fleet Account</td>
+</tr>
+<tr data-status="New" data-key="HAWK-498">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-498" target="_blank" rel="noopener" class="ji-key-link">HAWK-498</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">allen.yc.chung</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Huge Amount of Unexpected Alert Button Events on WEBFLEET Production C</td>
+</tr>
+<tr data-status="New" data-key="HAWK-511">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-511" target="_blank" rel="noopener" class="ji-key-link">HAWK-511</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">luchun.chen</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Missing videos from aux cameras</td>
+</tr>
+<tr data-status="New" data-key="HAWK-584">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/HAWK-584" target="_blank" rel="noopener" class="ji-key-link">HAWK-584</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">spencer.su</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-11</span><br><small>1d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">Error in assigning device to fleet</td>
+</tr>
+<tr data-status="New" data-key="VMX-7335">
+  <td class="ji-key"><a href="https://jira.navman.co.nz/jira/browse/VMX-7335" target="_blank" rel="noopener" class="ji-key-link">VMX-7335</a></td>
+  <td><span class="ji-status ji-new">New</span></td>
+  <td class="ji-assignee">leo.tsai</td>
+  <td class="ji-updated"><span class="age-fresh">2026-05-12</span><br><small>0d ago</small></td>
+  <td class="ji-cited">2×</td>
+  <td class="ji-summary">[AZUGA SmartLink] ACCIDENT_DETECTION - 撞擊事件（含 10Hz NMEA G-sensor）</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="how-to-refresh">如何重新整理這份 snapshot</h2>
+<ol>
+<li>打開 Chrome 已登入 Jira,連 Chrome MCP</li>
+<li>跟 Claude 說「重新跑 Jira snapshot」</li>
+<li>Claude 會用 Jira REST API <code>/jira/rest/api/2/issue/&lt;key&gt;</code> 一次抓全部 ticket</li>
+<li>產出新版 <code>websiteview/docs/00_index/jira-snapshot.html</code> + 更新本檔 <code>最後同步</code> 日期</li>
+</ol>
+
+  </div>
+</main>
+<script src="../../js/jira-snapshot.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

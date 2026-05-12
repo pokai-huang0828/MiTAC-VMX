@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Chat 待問清單 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-pm" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">👥</span> 組織與利害關係人 · Coffee Chat 待問清單</span>
+  <span class="filename"><code>coffee-chat-questions.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-08</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="coffee-chat">Coffee Chat 待問清單</h1>
+<p>依人分類,問完就劃掉。</p>
+<h2 id="briansoftware-head"><span aria-hidden="true">☕</span> Brian(Software Head)</h2>
+<h3 id="_1">戰略級</h3>
+<ul>
+<li>[ ] <strong>VMX/BMS 同步戰略時程</strong>(6 個月內?具體 milestone?)</li>
+<li>[ ] BMS/VMX 同步我可以扛哪一塊(API 文件 / Fleet portal UI / 客戶溝通)</li>
+<li>[ ] <strong>Roadmap vs Sheet 同步缺口</strong>(Smoking / VLM 等不一致)是否有正式機制</li>
+<li>[ ] HDFE beta 模式想要什麼形式(toggle 切舊版?transition 期?)</li>
+</ul>
+<h3 id="_2">戰術級</h3>
+<ul>
+<li>[ ] Pro / Suspend 完整定價</li>
+<li>[ ] 「13 cams / 47 cams」含義</li>
+<li>[ ] Contract Fleet 真實定義(Portal 上有 tab 但 PDF 未列)</li>
+<li>[ ] PDF 補強 Wiki ticket 推不推</li>
+<li>[ ] MMF 是已 ship 還是 roadmap planned</li>
+<li>[ ] Jira dashboard 4 個 filter 的 JQL</li>
+<li>[ ] <strong>#154 真實 process gap = transition discipline,不是 label</strong>(5/7 校正:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a> 本身有 label <code>vmx_2026Q2</code>,jimmy 留 deploy comment 但沒按 transition button)— PM 提改善從「transition 紀律」切入</li>
+<li>[ ] <strong>5/7 揭露 LDWS device-side YOLO Pending 暫緩</strong> — 新 ticket 編號?何時重啟?</li>
+<li>[ ] <strong>5/7 Lens Cover 雙軌維護 RD 成本評估</strong> — Azuga 標準版 vs BMS「車速 &gt; 0」長期維護成本</li>
+</ul>
+<h2 id="mori"><span aria-hidden="true">☕</span> Mori(硬體)</h2>
+<h3 id="_3">機種對應</h3>
+<ul>
+<li>[ ] <strong>K145c / K220 / K245 / K245c / K265 各跑哪顆 Qualcomm chip</strong></li>
+<li>[ ] Kenny 自己的 K245 屬 Entry / Basic / Advanced 哪個 tier</li>
+<li><span aria-hidden="true">✅</span> 各機種 frame rate — 機體可達 15-30 fps,<strong>對外 only 10 fps</strong>(2026-05-07 已釐清,運算資源限制)</li>
+</ul>
+<h3 id="g-sensor">G-Sensor</h3>
+<ul>
+<li>[ ] <strong>Harsh Acceleration / Rollover G 值門檻</strong>(只 lock 4 種,缺這 2)</li>
+<li>[ ] <strong>200 Hz G-Sensor 韌體可行性</strong>(Simon must-have)</li>
+</ul>
+<h3 id="_4">細節</h3>
+<ul>
+<li>[ ] 紅色按鍵語音不一致 — 是哪幾台</li>
+<li>[ ] Private Mode 切換按法</li>
+<li>[ ] K-series spec 對照表(鏡頭 / 算力 / SD 容量)現成文件?</li>
+</ul>
+<h2 id="jimmyai-inference"><span aria-hidden="true">☕</span> Jimmy(AI Inference)</h2>
+<h3 id="vs">對外 vs 內部不一致</h3>
+<ul>
+<li><span aria-hidden="true">✅</span> <strong>Smoking 真實狀態</strong>:KB 標 (in development) / Sheet 隱藏 / Roadmap 列 / 4 ticket open — 對外可講「KB 列開發中」(2026-05-06 校正)</li>
+<li><span aria-hidden="true">✅</span> <strong>Yawning 內部測試效果指標</strong>(5/6 揭露效果不如預期 / 5/7 補:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉)</li>
+<li>[ ] <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7324" rel="noopener" target="_blank">VMX-7324</a> 客訴 Smoking 怎麼解</li>
+<li><span aria-hidden="true">✅</span> <strong>「Burning ADAS / Burning DMS」是什麼意思</strong> — typo,實為 <strong>Blurring function</strong>(2026-05-07 已釐清)</li>
+</ul>
+<h3 id="_5">技術深度</h3>
+<ul>
+<li>[ ] 各 event 真實 Confidence threshold(memory 是估計值)</li>
+<li>[ ] Sensitivity dial Low / Med / High 真實 debounce / cooldown</li>
+<li>[ ] Yawning 灰階模型訓練結果 / 「辨識整張臉」server 端切換時程</li>
+<li>[ ] <strong>Eating / Drinking 6/15 重訓進度</strong>(7000+ Edge case,客訴 ID 6652 17 倍量級)— Vincent 加入後 Jimmy 角色變化</li>
+<li>[ ] Server-side AI 進度(Server-side LDWS Q1 deploy / Device-side YOLO 5/7 Pending)</li>
+<li>[ ] <strong>Face Not Found Issue</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 同根因?)5/7 揭露要導入 Head 邏輯</li>
+</ul>
+<h3 id="jimmy">甜頭(送 Jimmy)</h3>
+<ul>
+<li>[ ] <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> ADAS Failure evidence 提交(8/10 設備 / Trip 7028714 vs 7079470)</li>
+</ul>
+<h2 id="lucyui"><span aria-hidden="true">☕</span> Lucy(UI)</h2>
+<h3 id="rollover">模糊 / Rollover</h3>
+<ul>
+<li>[ ] 模糊功能 UI 設計時程</li>
+<li>[ ] Rollover UI 設計(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7194" rel="noopener" target="_blank">VMX-7194</a> 5/6 加 UI)</li>
+<li>[ ] 任務完成主動通知機制</li>
+</ul>
+<h3 id="portal">Portal 視覺</h3>
+<ul>
+<li>[ ] <strong>軌跡顏色含義</strong>(藍 / 橘 / 紅)</li>
+<li>[ ] <strong>Severity 等級</strong>(Minor / 推測還有 Major / Critical)</li>
+<li>[ ] 舊 Playback 紅色預告 UI 設計</li>
+</ul>
+<h3 id="56">5/6 後續</h3>
+<ul>
+<li>[ ] Yawning Fatigue config 開關 UI</li>
+<li>[ ] HDFE「切回舊版」開關設計</li>
+</ul>
+<h2 id="spencercloud"><span aria-hidden="true">☕</span> Spencer(Cloud)</h2>
+<ul>
+<li>[ ] <strong>Server-side AI Stage 2/3 進度</strong>(Edge+Server / Server VLM)</li>
+<li>[ ] Master/MAU 模糊 API 開關設計</li>
+<li>[ ] <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a> 文件 / Casebase 同步</strong>(對應 Brian 的雙版本同步戰略)</li>
+<li>[ ] Contract Fleet RBAC spec</li>
+<li>[ ] ADAS Failure 跟 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 關聯</li>
+<li>[ ] AI debug overlay 是否該對客戶關閉</li>
+</ul>
+<h2 id="tony-akamai"><span aria-hidden="true">☕</span> Tony(韌體 / Akamai 中介)</h2>
+<ul>
+<li>[ ] <strong>Akamai CDN PG 失效進度</strong>(Brian 已派工)</li>
+<li>[ ] OTA JSON purge 機制可不可靠</li>
+</ul>
+<h2 id="sales"><span aria-hidden="true">☕</span> Sales 主管</h2>
+<ul>
+<li>[ ] 合約中對 Contract Fleet / Sub-fleet 的措辭</li>
+</ul>
+<h2 id="wendy-hammondmitac-au-58"><span aria-hidden="true">☕</span> Wendy Hammond(MiTAC AU 業務端,5/8 已解密)</h2>
+<ul>
+<li><span aria-hidden="true">✅</span> <strong>基本身份</strong>:<a href="mailto:wendy.hammond@mitac.com.au">wendy.hammond@mitac.com.au</a> · MiTAC AU(澳洲)· 跟 Cary Lo 同部門</li>
+<li><span aria-hidden="true">✅</span> <strong>跟進案件</strong>:PASSENGER BLURRING / 跨 reseller feature reuse / Roadmap sync</li>
+<li><span aria-hidden="true">✅</span> <strong>資訊不對稱痛點</strong>(5/5 信揭露):「希望 conception stage 早期介入,save work 給 regional teams」— 不要事後告知</li>
+<li><span aria-hidden="true">✅</span> <strong>跟 Brian 4/30→5/4→5/5 thread 已建立</strong>:Brian 給她 Sheet + AI Roadmap doc 同步入口</li>
+</ul>
+<p>→ 不需要再「找 Brian 確認 Wendy 是誰」,身份已知。詳見 [reference_wendy_hammond_identity memory] 跟 <code>stakeholders.md</code>。下次跟她直接對話可問:</p>
+<ul class="smushed-fix">
+  <li>[ ] AU 端 Sheet 同步她實際進去看了沒?頻率?</li>
+  <li>[ ] AI feature Roadmap doc Brian 給的版本 vs 我自己整理的 5/7 版有沒有差?</li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../../knowledge.html#cat-pm" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">02 Organization Map</span></a>
+  <a class="next" href="../02_organization-map/stakeholders.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">內部利害關係人地圖</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

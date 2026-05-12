@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Memory 系統使用 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-workflows" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚙️</span> 工作流 SOP · Claude Memory 系統使用</span>
+  <span class="filename"><code>memory-system.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-06</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="claude-memory">Claude Memory 系統使用</h1>
+<blockquote>
+<p>Claude Code 跨 session memory 路徑:<code>C:\Users\pokai.huang\.claude\projects\C--Users-pokai-huang-Desktop-MiTAC-KennyHuang\memory\</code></p>
+</blockquote>
+<h2 id="memory-knowledge-folder">為什麼要記到 memory(而不是 knowledge folder)</h2>
+<table>
+<thead>
+<tr>
+<th>屬性</th>
+<th>knowledge folder(這資料夾)</th>
+<th>Claude memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久度</td>
+<td>跨 session / 跨工具</td>
+<td>跨 session(只給 Claude 用)</td>
+</tr>
+<tr>
+<td>可分享</td>
+<td><span aria-hidden="true">✅</span> 可給 Brian / Lucy</td>
+<td><span aria-hidden="true">❌</span> 私人</td>
+</tr>
+<tr>
+<td>內容</td>
+<td>結構化、operational</td>
+<td>Claude 行為規則 + 校正歷史</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>手動編輯</td>
+<td>自然語言觸發 Claude 寫入</td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-13-2026-05-06">Memory 13 條索引(2026-05-06 截止)</h2>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>名稱</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td><code>user_kenny.md</code></td>
+<td>Kenny 個人 profile</td>
+</tr>
+<tr>
+<td>project</td>
+<td><code>project_vmx.md</code></td>
+<td>VMX 產品 + 利害關係人</td>
+</tr>
+<tr>
+<td>project</td>
+<td><code>project_training_progress.md</code></td>
+<td>30-day onboarding 暫停狀態</td>
+</tr>
+<tr>
+<td>project</td>
+<td><code>project_portal_walkthrough.md</code></td>
+<td>Brian portal task + 26 頁系統地圖</td>
+</tr>
+<tr>
+<td>project</td>
+<td><code>project_meeting_2026-05-06_q2_review.md</code></td>
+<td>5/6 Q2 Review 戰略洞察</td>
+</tr>
+<tr>
+<td>feedback</td>
+<td><code>feedback_training_style.md</code></td>
+<td>訓練官風格 8 條</td>
+</tr>
+<tr>
+<td>feedback</td>
+<td><code>feedback_vmx_facts.md</code></td>
+<td>已校正事實 + Sheet vs Jira mismatch 紀錄</td>
+</tr>
+<tr>
+<td>feedback</td>
+<td><code>feedback_internal_vs_external_truth.md</code></td>
+<td>三層真相規則</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_vmx_resources.md</code></td>
+<td>KB / NotebookLM / Jira 等連結</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_html_pipeline.md</code></td>
+<td>HTML 簡報 SOP(已校正色板)</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_user_skills.md</code></td>
+<td>~/.claude/skills/ 4 個</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_mdt_pptx_template.md</code></td>
+<td>MDT 2026 模板規格</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_miai_roadmap_2026.md</code></td>
+<td>Tier × Chip × Model</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_ai_tasks_sheet_2026-05-05.md</code></td>
+<td>AI sheet 結構洞察 + sync 缺口</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><code>reference_kenny_pm_frameworks.md</code></td>
+<td>Hub 第三 tab 4 框架</td>
+</tr>
+</tbody>
+</table>
+<h2 id="claude-memory_1">何時觸發 Claude 寫 memory</h2>
+<ul>
+<li><span aria-hidden="true">✅</span> Kenny 校正 Claude 過去答錯的事實</li>
+<li><span aria-hidden="true">✅</span> Kenny 給互動風格 feedback(「不要做 X」/「保持做 Y」)</li>
+<li><span aria-hidden="true">✅</span> 重大專案 / 戰略決策(Brian 同步戰略 / 客戶名單變動)</li>
+<li><span aria-hidden="true">✅</span> 跨 session 才會用到的 reference(KB 連結 / 帳號 / 路徑)</li>
+</ul>
+<h2 id="not-memory">何時 NOT 寫 memory</h2>
+<ul>
+<li><span aria-hidden="true">❌</span> 一次性對話狀態</li>
+<li><span aria-hidden="true">❌</span> 已經在 git history 的程式碼</li>
+<li><span aria-hidden="true">❌</span> Knowledge folder 已經有的(別重複)</li>
+<li><span aria-hidden="true">❌</span> 機密資料(雖然 memory 在本機,但別當保險箱用)</li>
+</ul>
+<h2 id="_1">維護建議</h2>
+<p>每 2 週執行一次:</p>
+<ol class="smushed-fix">
+  <li>跟 Claude 說「列出 memory 索引,看哪些該合併 / 刪除」</li>
+  <li>看哪些 reference 已被 KB / Sheet 取代</li>
+  <li>看哪些 project 已結案,可降級為 archive</li>
+</ol>
+<h2 id="memory-knowledge-folder_1">Memory 跟 Knowledge folder 的同步</h2>
+<p>當 Claude 校正 memory 時,如果該事實也應該在 knowledge folder:</p>
+<ul class="smushed-fix">
+  <li>要 Claude 同步更新 knowledge folder 對應檔案</li>
+  <li>例:Yawning 狀態校正 → 同時更新 <code>01_product-knowledge/kb-cheatsheet.md</code> 和 <code>feedback_vmx_facts.md</code></li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../05_workflows/troubleshooting.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Troubleshooting Checklist(對 fleet manager / 技術人員)</span></a>
+  <span></span>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

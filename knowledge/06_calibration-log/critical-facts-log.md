@@ -5,6 +5,29 @@
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
 > 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md) | Jira 即時狀態:[`00_index/jira-snapshot.md`](../00_index/jira-snapshot.md)(2026-05-12 抓 137 票)
 
+## AI Model 版本對應 + 6/2 Fix Version 死線(2026-05-12 下午從 5/11 AI Weekly 錄音揭露 via NotebookLM)
+
+### 4 個現役 / 規劃中 AI Model
+- **Model 11P**:原本用於「嘴部 (Mouth)」辨識的分類模型 → 現正被修改為「全臉 (Full Face) 打哈欠 (Yawning)」辨識
+- **Model 11L**:舊版的 DMS(含安全帶)分類模型 — **將被 Model 26 取代**
+- **Model 26**:新導入的 DMS 分類 + Detect 模型架構,**準確度優於 11L**,預計掛 6/2 Fix Version 上線
+- **V14**:先前用於影像模糊化 (Blurring) 的舊模型版本(對應 [HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) / [HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578) Blurring 修問題的舊基礎,對外仍是「2026-05-06 已 fix」口徑)
+
+### 6/2 Fix Version(2026-06-02)— 三個必上 deliverable
+- **LDWS API** — 之前 [VMX-7375](https://jira.navman.co.nz/jira/browse/VMX-7375) Pending,5/7 AI Weekly 講過暫緩,但 5/11 AI Weekly **重新掛 6/2**(後續需從 Jira 確認 transition 狀態)
+- **BMS 鏡頭遮蔽拆分**([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) Lens Cover,Eric H 2026-05-08 13:38 confirmed `planned for the next release in June`,handoff 已記)
+- **新版 DMS 模型(Model 26)** — Yawning + 安全帶 + Distraction 統一架構,**必須在 6/2 Fix Version 發布**
+
+### 5/15(15 號)Beta 測試前置死線
+- **要求外部 API / 模組需在此之前 ready** — 等於 Kenny 對 Cary / Elvis / Wendy / MiTAC AU 的 commitment 都要在 5/15 前確認 API 規格凍結
+
+### Regression Risk(NotebookLM 自動 PM 建議)
+- 6/2 同時上 Model 26(DMS 底層替換)+ 11P(嘴部→全臉)+ V14 → vNext(Blurring)— **三個 model 同時動,Regression Bug 高風險**
+- 動作建議:跟 QA 團隊(Righter / Richard)擬 Regression Test Plan 鎖「Head 邏輯」+「Model 26」雙重路徑;UI 團隊敲「打哈欠開關」Figma 設計
+
+- 校正人:Kenny + NotebookLM 自動摘要(5/11 AI Weekly 錄音 + 4 個 source 交叉)
+- 應用:對 Brian / Jimmy / Vincent / Eric H 提 6/2 release 時用 Model 26 / 11P / V14 三個 model 區分,**不能再講「DMS 模型」這個籠統字**
+
 ## Jira 本週新 Resolved/Closed(2026-05-12 全 137 ticket comment ingest 揭露)
 
 ### 已 deploy / Resolved(對外可講「✅ 已 ship」)
@@ -29,7 +52,7 @@
 
 - 校正人:Kenny + Jira REST API 全量抓取(透過 Chrome MCP 連 jira.navman.co.nz,2026-05-12 第一次完整 ticket comment ingest)
 - 應用:對 Brian / Mori / Lucy / Spencer / Vincent / Sebastian 提對應功能時,**用「✅ 已 ship」**
-- 完整 137 ticket 即時狀態:[`websiteview/docs/00_index--jira-snapshot.html`](../../websiteview/docs/00_index--jira-snapshot.html)
+- 完整 137 ticket 即時狀態:[`websiteview/docs/00_index/jira-snapshot.html`](../../websiteview/docs/00_index/jira-snapshot.html)
 
 ## Jira `New` status 含意(2026-05-12 大規模發現)
 - 全 hub 提到的 137 ticket 中:**93 個 (68%) 是 New status**

@@ -3,6 +3,24 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-12 下午 Δ · Jira 重抓 + Outlook + NotebookLM 三線對齊
+
+- 2026-05-12 · **NEW SNAPSHOT** · `jira_data/jira_tickets_snapshot_2026-05-12T15.json`(164 票 = 137 舊 + 27 新)— 透過 Chrome MCP + Jira REST API `key in (...)` JQL + `updated >= 2026-05-12 AND project in (VMX, HAWK)` 二次抓取,Diff 結果:**1 票狀態變動 + 27 票同日新建**
+- 2026-05-12 · **DIFF** · [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407) New → Resolved 5/12 13:25(@righter.song)— UVC RAW Frame 不支援 error handling 已 fix
+- 2026-05-12 · **NEW DOC** · `weekly-summary/2026-05-12_afternoon-delta.md` — Jira / Outlook / NotebookLM 三線 delta,含 5/12 新建的 [VMX-7459](https://jira.navman.co.nz/jira/browse/VMX-7459)(Lens Cover toggle)/ [VMX-7462](https://jira.navman.co.nz/jira/browse/VMX-7462)(Rollover UI)/ [VMX-7441](https://jira.navman.co.nz/jira/browse/VMX-7441) 7458(Blurring Master/Fleet 雙層)等 27 票
+- 2026-05-12 · **CALIBRATION** · `06_calibration-log/critical-facts-log.md` 加 **AI Model 版本對應 + 6/2 Fix Version 死線**(從 5/11 AI Weekly 錄音 NotebookLM 揭露:Model 11P 嘴部→全臉打哈欠 / 11L 舊 DMS / 26 新 DMS 取代 11L / V14 舊 Blurring · 6/2 死線含 LDWS API + Lens Cover + Model 26)
+- 2026-05-12 · **UPDATE** · `01_product-knowledge/miai-roadmap-2026.md` 加 4 個 Model 版本對應表(11P / 11L / 26 / V14)+ 6/2 Fix Version 死線標註
+- 2026-05-12 · **OUTLOOK** · 確認 5 個訊號:Lucy VMX-7441 設計稿 cc Kenny review / Jimmy 5/12 11:00-13:00 AI Weekly @ A0512 / Vinicius 5/11 22:03 收到 JS lib V1.0.4 開始測試 / Simon Wu 對 Brian Fleet Portal R02 draft 給 page-by-page feedback / Honeywell ME CDR 5/11 內部會待補
+- 2026-05-12 · **NOTEBOOKLM** · 揭露 repo 缺的 3 個錄音:**5-10 Syncup with MAU for API questions** / **5-11 ai weekly meeting.m4a** / **5-8 Chat for API with MAU**(meeting note 待做)
+- 2026-05-12 · **JIRA-SNAPSHOT HTML** · `websiteview/docs/00_index/jira-snapshot.html` 加 5/12 下午 Δ 段(1 狀態變動 + 27 新票快取 + 4 個 AI Model 死線標)
+
+## 2026-05-12 晚 · 視覺 UIUX 13 頁 audit + 7 個 polish + session handoff
+
+- 2026-05-12 · **AUDIT** · Chrome MCP screenshot 主動審 13 頁(index / knowledge / case-hub 4 tab / styleguide / 2 portal slide / 6 docs)
+- 2026-05-12 · **VISUAL FIX** · 7 個 polish:nested anchor / Zone 0 4+1 / NOW card 空白 / table column squeeze / .html→.md / Sticky TOC overlap / TOC §N prefix
+- 2026-05-12 · **NEW DOC** · `weekly-summary/2026-05-12_session-handoff.md` — 完整 session 收尾與下一個 Claude 入口
+- 2026-05-12 · **STAKEHOLDERS** · 「每週固定會議」list → 表格(會議 / 時段 / 性質 / 重點),Q2 Tracker review 標 ❌ 已過期
+
 ## 2026-05-12 後續 · 全 hub 自動加 Jira 連結 + comment-level ingest
 
 - 2026-05-12 · **AUTO-LINK** · 全 hub `.md` + `.html` 內 **549 個 unlinked VMX-* / HAWK-* mention** 自動加上 Jira hyperlink(MD 用 `[KEY](url)` · HTML 用 `<a class="ext-link jira-link">`),跨 **50 個檔案**
@@ -11,13 +29,13 @@
 
 ## 2026-05-12 · Jira 全量 snapshot ingest + cross-ref audit
 
-- 2026-05-12 · **NEW DOC** · `websiteview/docs/00_index--jira-snapshot.html`:透過 Chrome MCP + Jira REST API 一次抓取**全 hub 提及的 137 個 VMX/HAWK ticket** 即時狀態,加進 Knowledge Hub hero 「Meta links」第三個入口
+- 2026-05-12 · **NEW DOC** · `websiteview/docs/00_index/jira-snapshot.html`:透過 Chrome MCP + Jira REST API 一次抓取**全 hub 提及的 137 個 VMX/HAWK ticket** 即時狀態,加進 Knowledge Hub hero 「Meta links」第三個入口
 - 2026-05-12 · **NEW CSS/JS** · `css/jira-snapshot.css` + `js/jira-snapshot.js`:status 過濾 + age-based 顏色強化 + 連 Jira ticket 的外部連結
 - 2026-05-12 · **CALIBRATION** · `06_calibration-log/critical-facts-log.md`:加 2 段
   - 「Jira 本週新 Resolved/Closed」5 個 ticket([VMX-7239](https://jira.navman.co.nz/jira/browse/VMX-7239) / 7419 / 7381 / 6353 / 6920)docs 之前未反映
   - 「Jira `New` status 含意」段 — 全 hub 137 票 93 個 (68%) 是 New,實際多數已完成只是 RD transition 漏按
 - 2026-05-12 · **UPDATE** · `02_organization-map/stakeholders.md` BMS 列:[`VMX-6920`](https://jira.navman.co.nz/jira/browse/VMX-6920) 加 ✅ Closed 2026-03-09 (Jimmy)
-- 2026-05-12 · **SNAPSHOT** · `jira_tickets_snapshot_2026-05-12.json`(repo root, 25 KB)— 137 ticket 完整狀態 raw data,以後可拿來 diff 比對
+- 2026-05-12 · **SNAPSHOT** · `jira_data/jira_tickets_snapshot_2026-05-12.json`(repo root, 25 KB)— 137 ticket 完整狀態 raw data,以後可拿來 diff 比對
 
 ## 2026-05-11 晚 · Repo 整併 + UI / CSS / JS 完全分離
 
@@ -110,7 +128,7 @@
 
 ## 2026-05-07
 
-- 2026-05-07 · **NEW**    · `meetings/2026-05-07_ai-weekly_meeting-record.md` · 5/7 AI Weekly 重大訊號(17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階)
+- 2026-05-07 · **NEW**    · `meetings/ai-weekly-internal-roundup.md` · 5/7 AI Weekly 重大訊號(17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階)
 - 2026-05-07 · **NEW**    · `06_calibration-log/cary-passenger-blurring-2026-05-07.md` → 2026-05-11 已 archive
 - 2026-05-07 · **NEW**    · `06_calibration-log/ai-team-row-by-row-status-2026-05-07.md` → 2026-05-11 已 archive
 - 2026-05-07 · **NEW**    · `06_calibration-log/ai-tab-jira-alignment-2026-05-07.md` → 2026-05-11 已 archive

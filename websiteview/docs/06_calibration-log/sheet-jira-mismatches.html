@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheet ↔ Jira Mismatch 紀錄 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-truth" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🎯</span> 校正紀錄 · Sheet ↔ Jira Mismatch 紀錄</span>
+  <span class="filename"><code>sheet-jira-mismatches.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-07</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="sheet-jira-mismatch">Sheet ↔ Jira Mismatch 紀錄</h1>
+<blockquote>
+<p>雙向同步缺口。Sheet 跟 Jira 不一致是常態,需 PM 每兩週 sweep。</p>
+</blockquote>
+<h2 id="_1">兩個方向</h2>
+<h3 id="1sheet-jirajira-sheet">方向 1:Sheet 落後 Jira(Jira 已關 / Sheet 沒改)</h3>
+<p>業務端看 Sheet 以為「PM/RD 拖延」,實際 RD 已交付。</p>
+<h3 id="2sheet-jira-jira-close">方向 2:Sheet 領先 Jira(口頭說完成 / Jira 沒 close)</h3>
+<p>看 Jira 以為「沒做完」,實際產品端認為已交付。</p>
+<h2 id="_2">歷史紀錄</h2>
+<h3 id="2026-05-05-sweep-sheet-4">2026-05-05 sweep(會議前抓)— Sheet 落後 4 件</h3>
+<table>
+<thead>
+<tr>
+<th>Sheet #</th>
+<th>Jira</th>
+<th>Sheet 寫</th>
+<th>Jira 真實</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>162</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6754" rel="noopener" target="_blank">VMX-6754</a></td>
+<td>In Process(7 個月)</td>
+<td>Resolved</td>
+<td>5/6 會議同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>165</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7029" rel="noopener" target="_blank">VMX-7029</a></td>
+<td>In Process(5 個月)</td>
+<td>Resolved</td>
+<td>5/6 會議同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>187</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7161" rel="noopener" target="_blank">VMX-7161</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 會議同步 <span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>188</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7162" rel="noopener" target="_blank">VMX-7162</a></td>
+<td>In Process</td>
+<td>Resolved</td>
+<td>5/6 會議同步 <span aria-hidden="true">✅</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2026-05-06-sweep-sheet-3">2026-05-06 sweep(會議後新增)— Sheet 領先 3 件</h3>
+<table>
+<thead>
+<tr>
+<th>Sheet #</th>
+<th>Jira</th>
+<th>Sheet 寫</th>
+<th>Jira 真實</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>180</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7082" rel="noopener" target="_blank">VMX-7082</a>(Lucy GA tracking)</td>
+<td>Resolved</td>
+<td><strong>New</strong></td>
+<td>⏳ 待私訊 Lucy</td>
+</tr>
+<tr>
+<td>195</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7233" rel="noopener" target="_blank">VMX-7233</a>(VisionAgent GA Code)</td>
+<td>Resolved</td>
+<td><strong>New</strong></td>
+<td>⏳ 待私訊 Internal</td>
+</tr>
+<tr>
+<td>199</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6782" rel="noopener" target="_blank">VMX-6782</a>(BLE Beacons)</td>
+<td>Resolved</td>
+<td><strong>Open</strong></td>
+<td>⏳ 待私訊 joe.lien</td>
+</tr>
+</tbody>
+</table>
+<p>→ 5/6 動作 owner 在 sheet 加註「5/6 已完成 提供給客戶測試」但沒 close Jira。</p>
+<h3 id="sheet-link-2026-05-06">Sheet link 錯誤(2026-05-06)</h3>
+<table>
+<thead>
+<tr>
+<th>Sheet #</th>
+<th>Sheet 寫 link</th>
+<th>Jira 實際是</th>
+<th>應該是</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>194</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7316" rel="noopener" target="_blank">VMX-7316</a></td>
+<td>[AZUGA SmartLink] 新增事件支援</td>
+<td>該找 IOSix 對應 ticket</td>
+</tr>
+<tr>
+<td>197</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7147" rel="noopener" target="_blank">VMX-7147</a>(第二個 link)</td>
+<td>Camera recording no longer exists</td>
+<td>移除 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7147" rel="noopener" target="_blank">VMX-7147</a>,只留 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7224" rel="noopener" target="_blank">VMX-7224</a></td>
+</tr>
+<tr>
+<td>209</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7407" rel="noopener" target="_blank">VMX-7407</a>(重複)</td>
+<td>UVC RAW frame error handling</td>
+<td>應為 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7088" rel="noopener" target="_blank">VMX-7088</a> Viewer only</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2026-05-07-ai-tab-10-comments">2026-05-07 AI 工作計畫 tab 深掘(讀 10 張票 comments)</h3>
+<p><strong>只看 Jira status 欄會誤判</strong>。深讀 comment 後新增 7 種 mismatch 模式,推翻一些表面判斷。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>案例</th>
+<th>教訓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 接力新單後沒 hide 舊 row</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a> → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a></td>
+<td>sheet link 加括號標新單,但 row status 沒同步</td>
+</tr>
+<tr>
+<td>2. 議題 ≠ ticket</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-578" rel="noopener" target="_blank">HAWK-578</a> + SQS retention follow-up</td>
+<td>sheet 在追議題級工作,Jira 票只是事件單據</td>
+</tr>
+<tr>
+<td>3. Resolved 後又出新問題,加 Fix Version 不 reopen</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> 加 20260602</td>
+<td>Jira RESOLVED 反而誤導,sheet active 是對的</td>
+</tr>
+<tr>
+<td>4. 修完等 release,Jira transition 沒走</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-573" rel="noopener" target="_blank">HAWK-573</a></td>
+<td>sheet 寫「Awaiting Release」是正確訊號</td>
+</tr>
+<tr>
+<td>5. Sheet update 寫錯 row</td>
+<td>(誤判)</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-577" rel="noopener" target="_blank">HAWK-577</a>/578 對應實際正確,我曾誤判</td>
+</tr>
+<tr>
+<td>6. Comment 留「已完成」但 transition 沒走</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a></td>
+<td>jimmy 寫 deploy prod 但沒按 Open→Resolved button</td>
+</tr>
+<tr>
+<td>7. 單一 ticket 對應多 sheet rows,scope mismatch</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> ↔ Sheet #3 Yawning + #4 Eyes</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> 只是 Eye threshold API,沒 Yawning 內容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重要校正</strong>:Brian 5/6 自評「label 漏 pick」narrative 不準確 — <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6722" rel="noopener" target="_blank">VMX-6722</a> 本身有 label <code>vmx_2026Q2</code>,真實 process gap 是 <strong>transition discipline</strong>(RD 寫完 comment 沒按 button)。</p>
+<h2 id="_3">規律 / 啟示</h2>
+<ol>
+<li><strong>Resolved → 沒人回頭關</strong> 是常態。Sheet 上看到 In Process 不一定真的 active</li>
+<li><strong>「我做完了」≠ Jira closed</strong>。產品端認為交付給客戶測試 = sheet 動;但 Jira ticket 要等 QA / verification 才 close</li>
+<li><strong>Sheet link 寫錯</strong>多發生在新增 row 時複製貼上沒改 link</li>
+<li><strong>Sheet 隱藏 row</strong> 跟 mismatch 不同 — hidden = 不在使用,mismatch = 還在用但狀態不對齊</li>
+<li><strong>🆕 Sheet active 不一定錯</strong>:Jira RESOLVED 可能誤導,要看 comment 才知道有沒有第二輪 fix 或議題級 follow-up</li>
+<li><strong>🆕 議題 vs ticket 心智模型</strong>:sheet row = 議題;Jira ticket = 事件單據。一議題可能 N 張票或 0 張票</li>
+<li><strong>🆕 Transition discipline gap &gt; Label discipline gap</strong>:RD 不按 button 比沒下 label 更常見</li>
+</ol>
+<h2 id="brian-sheet-owner">防呆建議(對 Brian / Sheet owner)</h2>
+<ul>
+<li>每兩週 sweep(PM 來扛)</li>
+<li>新增 row 時驗證 link</li>
+<li>Resolved 後在 sheet 加 verification 階段(client testing / staging / production)</li>
+<li>Sheet 加「Last verified」欄</li>
+<li><strong>🆕 不要光看 Jira status 推 sheet 改動,要進去看 comment 跟 linked issues 再決定</strong></li>
+<li><strong>🆕 對 Brian 提改善:從「transition 紀律」切入,不是「label 紀律」</strong></li>
+</ul>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../06_calibration-log/roadmap-vs-internal.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">Roadmap vs 內部現實 不一致紀錄</span></a>
+  <a class="next" href="../06_calibration-log/ai-weekly-2026-05-07-roundup.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">AI 工作計畫 Tab × Jira Filter 36457 對齊分析</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

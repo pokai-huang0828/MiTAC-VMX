@@ -15,8 +15,8 @@
 | 角色 | VMX Product Manager |
 | 測試設備 | MioEYE K245(L3024290010,401 events) |
 | 主力案件 | Brian portal task(已交付) + Platform Science / Connect Source |
-| 簡報基底(2026-05-05 起) | `MDT_2026_powerpoint_template.pptx` |
-| AI Roadmap 對外版 | `MiAI Roadmap Introduce 2026024.pptx`(7 張) |
+| 簡報基底(2026-05-05 起) | `presentations/MDT_2026_powerpoint_template.pptx` |
+| AI Roadmap 對外版 | `presentations/MiAI Roadmap Introduce 2026024.pptx`(7 張) |
 
 ---
 
@@ -32,8 +32,8 @@
 | [`websiteview/VMX_images/`](websiteview/VMX_images/) | Portal 截圖(2026-05-11 起搬到 websiteview/ 下) | Fleet 21 張 + Master 8 張 |
 | [`presentations/`](presentations/) | PPT / PDF 簡報資產(2026-05-11 改名,前身 `portal_reference/`) | 客戶版 pptx + 架構版 PDF + 後續放入其他 ppt |
 | `EVO_image_update/` | 韌體更新流程文件 | `.gitignore` 排除 binary,只留 process.md |
-| `MDT_2026_powerpoint_template.pptx` | 官方簡報模板(6 layouts, 16:9) | — |
-| `MiAI Roadmap Introduce 2026024.pptx` | AI Roadmap 對外版(7 張) | — |
+| `presentations/MDT_2026_powerpoint_template.pptx` | 官方簡報模板(6 layouts, 16:9) | — |
+| `presentations/MiAI Roadmap Introduce 2026024.pptx` | AI Roadmap 對外版(7 張) | — |
 
 ---
 
@@ -43,7 +43,7 @@
 |----|------|-------|
 | **KB**(已 ship 事實) | `https://service.visionmaxfleet.com/portal/en/kb/vm` | 客戶可具體承諾 |
 | **AI Sheet**(內部進行中) | [VMX Features Tracking Table](https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit?gid=339075798) | PM 內部判斷 |
-| **MiAI Roadmap**(對外規劃) | `MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管 |
+| **MiAI Roadmap**(對外規劃) | `presentations/MiAI Roadmap Introduce 2026024.pptx` | 客戶 / 主管 |
 
 **衝突處理**:對外用 Roadmap、對內用 Sheet、實際是否能用看 KB。詳見 [knowledge/04_pm-frameworks/three-truth-layers.md](knowledge/04_pm-frameworks/three-truth-layers.md)。
 
@@ -59,7 +59,7 @@
 | Coffee chat 待問清單(Brian / Mori / Jimmy / Spencer / Lucy / Tony) | [knowledge/02_organization-map/coffee-chat-questions.md](knowledge/02_organization-map/coffee-chat-questions.md) |
 | AI Team 16 件逐行 5/7 狀態 + Brian 1on1 talking points | [knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md](knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md) |
 | AI 工作計畫 × Jira filter 36457 對齊 + 10 票 comment 深掘 | [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) |
-| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/2026-05-07_ai-weekly_meeting-record.md](meetings/2026-05-07_ai-weekly_meeting-record.md) |
+| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/ai-weekly-internal-roundup.md](meetings/ai-weekly-internal-roundup.md) |
 | 已校正的 VMX 事實(別再答錯) | [knowledge/06_calibration-log/critical-facts-log.md](knowledge/06_calibration-log/critical-facts-log.md) |
 
 ---
@@ -82,7 +82,7 @@
 - 舊 build script `_build_*.py` 已全部移除
 
 ### 簡報製作
-- **PPT 路線**:拷貝 `MDT_2026_powerpoint_template.pptx`,從 6 個 layout 插入 slide
+- **PPT 路線**:拷貝 `presentations/MDT_2026_powerpoint_template.pptx`,從 6 個 layout 插入 slide
 - **HTML 路線**:#5B9BD5 / #4472C4 / #ED7D31 + Calibri(舊主題)或 Cabinet Grotesk / Satoshi(新主題 v2)
 - SOP 見 [knowledge/05_workflows/html-presentation-pipeline.md](knowledge/05_workflows/html-presentation-pipeline.md)
 - portal-briefing / portal-architecture 兩個 slide deck 仍是 static(2026-05-11 前由 python build,現已 freeze)
@@ -113,6 +113,6 @@
 2. 用 Live Server 開 [`websiteview/index.html`](websiteview/index.html),從 Knowledge Hub 開始翻
 3. 開 [`websiteview/case-hub.html`](websiteview/case-hub.html)(5 tab),先看「PM 策略洞察」tab 拿框架,再看 3 個客戶案
 4. 找 Brian 對齊主管期待
-5. 評估期可見度從 [`websiteview/docs/06_calibration-log--vmx-7404-tracking.html`](websiteview/docs/06_calibration-log--vmx-7404-tracking.html) 入手最快
+5. 評估期可見度從 [`websiteview/docs/06_calibration-log/vmx-7404-tracking.html`](websiteview/docs/06_calibration-log/vmx-7404-tracking.html) 入手最快
 
 > 📌 **規則**:看內容用 `websiteview/` 的 HTML view;改內容改 `knowledge/` / `case-learning/` / `meetings/` / `weekly-summary/` 內的 .md source。md 是資料層,html 是顯示層。

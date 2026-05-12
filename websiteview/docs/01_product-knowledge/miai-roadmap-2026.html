@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiAI Roadmap 2026-04-24 · Knowledge Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html#cat-product" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🔧</span> 產品知識 · MiAI Roadmap 2026-04-24</span>
+  <span class="filename"><code>miai-roadmap-2026.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-12 下午 · 加 Model 11P / 11L / 26 / V14 對應表 + 6/2 Fix Version 死線</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="miai-roadmap-2026-04-24">MiAI Roadmap 2026-04-24</h1>
+<blockquote>
+<p>來源:<code>../../MiAI Roadmap Introduce 2026024.pptx</code>(7 張)
+<span aria-hidden="true">⚠️</span> 這是<strong>對外版本</strong>(三層真相中的「對外故事」層)</p>
+</blockquote>
+<h2 id="tier-year-chip-tops-timeline">Tier × Year × Chip × TOPs <span aria-hidden="true">⭐</span>(關鍵 timeline)</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Year</th>
+<th>Theme</th>
+<th>Chip</th>
+<th>AI Compute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entry</strong></td>
+<td>2023</td>
+<td>Foundation</td>
+<td>Snapdragon 450</td>
+<td>&lt; 1 TOPs</td>
+</tr>
+<tr>
+<td><strong>Basic</strong></td>
+<td>2025</td>
+<td>Expansion</td>
+<td>QCS 6125 / QCS 610</td>
+<td>1 TOPs</td>
+</tr>
+<tr>
+<td><strong>Advanced</strong></td>
+<td>1H‘2027</td>
+<td>Advanced</td>
+<td>QCS 5430</td>
+<td>6 TOPs</td>
+</tr>
+<tr>
+<td><strong>Premium</strong></td>
+<td>2H‘2027</td>
+<td>Intelligence</td>
+<td>QCS 6490</td>
+<td>12 TOPs</td>
+</tr>
+</tbody>
+</table>
+<p><span aria-hidden="true">⚠️</span> <strong>2026 是過渡期</strong> — Advanced / Premium 都是 2027 計畫,目前 production 是 Basic tier。Sales 講 6 TOPs / 12 TOPs 功能要小心。</p>
+<h2 id="ai-model">AI Model 細節</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Detector</th>
+<th>Classifier</th>
+<th>Pose Est.</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entry</td>
+<td>YOLOv5n (~1.9M)</td>
+<td>CustomCNNv1 (~1M)</td>
+<td>PFLDNet (~2-3M)</td>
+<td>~5M</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>YOLOv8s (~11M)</td>
+<td>CustomCNNv2 (~2M)</td>
+<td>WHENetPose (~8M)</td>
+<td>~21M</td>
+</tr>
+<tr>
+<td>Advanced</td>
+<td>YOLOv11m (~20M)</td>
+<td>CustomCNNv3 (~10M)</td>
+<td>HRNetPose (~35M)</td>
+<td>~65M</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>YOLOv26l (~50M)</td>
+<td>Transformer (~25M)</td>
+<td>+ Lightweight VLM (~125M)</td>
+<td>~200M</td>
+</tr>
+</tbody>
+</table>
+<p>PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TOPs 解釋。</p>
+<h2 id="ai-architecture-evolutionserver-ai">AI Architecture Evolution(Server AI 階段)</h2>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>架構</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Edge AI</strong>(目前主流)</td>
+<td>Real-time / Low latency / Offline / Privacy</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Edge AI + Server AI</strong></td>
+<td>二次驗證,降 FP / 借 server 算力</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Edge AI + Server VLM</strong></td>
+<td>全影片語意理解 / 處理複雜混合行為</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Edge VLM</strong>(終局)</td>
+<td>Real-time semantic on-device / 不依賴網路</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>Expected Overall Accuracy Improvement: 20% ~ 40%</strong>(視場景)</p>
+<h2 id="roadmap-vs-sheet-vs"><span aria-hidden="true">⚠️</span> Roadmap vs Sheet 衝突(對外 vs 內部)</h2>
+<table>
+<thead>
+<tr>
+<th>主題</th>
+<th>Roadmap(對外)</th>
+<th>Sheet(內部)</th>
+<th>對客戶口徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VLM</td>
+<td>2H‘2027</td>
+<td>2026 Q3</td>
+<td><strong>講 2027</strong></td>
+</tr>
+<tr>
+<td>Eating &amp; Drinking</td>
+<td>1H‘2027</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> / <span aria-hidden="true">🚨</span> <strong>5/7 揭露 BMS 客訴 17x 量級(ID 6652),6/15 前 7000+ Edge case 一次性重訓</strong>(Jimmy + Vincent)</td>
+<td>對外維持 2027,<strong>對 BMS 講 6/15 內部緊急重訓</strong></td>
+</tr>
+<tr>
+<td>Yawning</td>
+<td>Basic 2025 已 ship</td>
+<td>還沒給客戶 / 測試中 / 5/7 加灰階模型 → <strong>5/11 校正</strong>:用 <strong>Model 11P</strong>(嘴部→全臉)+ 統一到 <strong>Model 26</strong> 架構 / UI toggle = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a>(Lucy)/ <strong>掛 6/2 Fix Version</strong></td>
+<td><strong>改:Roadmap planned, 內部測試中,Model 11P 改全臉打哈欠</strong></td>
+</tr>
+<tr>
+<td>Smoking</td>
+<td>Basic 2025 已 ship</td>
+<td><strong>KB 標 (in development)</strong> / Sheet 隱藏 / 4 ticket open</td>
+<td><strong>改:Roadmap planned, KB 列開發中</strong></td>
+</tr>
+<tr>
+<td>MMF</td>
+<td>(列在 overview)</td>
+<td>還沒上線</td>
+<td><strong>不對客戶承諾</strong></td>
+</tr>
+<tr>
+<td>Server-side LDWS(Stage 2)</td>
+<td>已上</td>
+<td><span aria-hidden="true">✅</span> Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ <strong>5/11 校正</strong>:LDWS API 從 5/7 Pending 暫緩 → <strong>5/11 重新掛 6/2 Fix Version</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7375" rel="noopener" target="_blank">VMX-7375</a> 待 Jira transition)</td>
+<td>「Server-side 已部屬,device 端 6/2 release 含 LDWS API」</td>
+</tr>
+<tr>
+<td>Speed Sign</td>
+<td>Advanced 2027</td>
+<td>KB 標 in development / <strong>5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓</strong>(Jay)</td>
+<td>對外保持 2027 Roadmap</td>
+</tr>
+<tr>
+<td>Lens Cover(BMS / Azuga <s>雙軌</s> → <strong>5/11 校正單軌</strong>)</td>
+<td>Basic</td>
+<td>5/7 雙軌實作 → <span aria-hidden="true">⚠️</span> <strong>5/11 校正</strong>:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 規格改為單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga),取消 speed ≥ 20 + DMS calibration 兩個 dependency / Eric H 5/8 confirmed <strong>6 月 release</strong>(6/2 Fix Version)</td>
+<td>對三客戶講「6/2 release 統一單軌規格」</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-model-versions">AI Model 版本對應(2026-05-12 從 5/11 AI Weekly NotebookLM 錄音校正)</h2>
+<blockquote>
+<p>SSOT 詳細在 <a href="../06_calibration-log/critical-facts-log.html#ai-model-versions-6-2-fix"><strong>Critical Facts § AI Model 版本對應 + 6/2 Fix Version 死線</strong></a>。</p>
+</blockquote>
+
+<table>
+<thead>
+<tr><th>Model</th><th>用途</th><th>狀態</th><th>對應 ticket / 客戶</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>11P</strong></td><td>原:嘴部 (Mouth) 分類 → <strong>改為:全臉 (Full Face) 打哈欠 (Yawning) 辨識</strong></td><td>修改中,掛 6/2 Fix Version</td><td>Yawning UI toggle = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a> (Lucy)</td></tr>
+<tr><td><strong>11L</strong></td><td>舊版 DMS(含安全帶)分類</td><td><strong>將被 Model 26 取代</strong></td><td>—</td></tr>
+<tr><td><strong>26</strong></td><td>新導入 DMS 分類 + Detect 模型架構,<strong>準確度優於 11L</strong></td><td>預計掛 <strong>6/2 Fix Version</strong> 上線</td><td>Yawning + 安全帶 + Distraction 統一架構</td></tr>
+<tr><td><strong>V14</strong></td><td>影像模糊化 (Blurring) 舊模型版本</td><td>對外維持「2026-05-06 已 fix」口徑</td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-578" rel="noopener" target="_blank">HAWK-578</a> Blurring 修問題</td></tr>
+</tbody>
+</table>
+
+<h3 id="6-2-deliverables">🚨 6/2 Fix Version(2026-06-02)三大必上 deliverable</h3>
+<ol>
+<li><strong>LDWS API</strong>(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)</li>
+<li><strong>BMS 鏡頭遮蔽拆分</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Lens Cover,Eric H 5/8 confirmed Jun release)</li>
+<li><strong>新版 DMS 模型(Model 26)</strong></li>
+</ol>
+
+<h3 id="5-15-beta">5/15 Beta 測試前置:外部 API / 模組必須 ready</h3>
+
+<h2 id="data-auto-optimization-pipeline">Data Auto-Optimization Pipeline(月節奏)</h2>
+<div class="highlight"><pre><span></span><code>Collect → Filter → Label → Train → Validate → Deploy → ...
+</code></pre></div>
+<p>每月一輪。PM lens:跟客戶講「持續優化」有具體 cadence 可提。</p>
+<p><span aria-hidden="true">⚠️</span> AI Sheet 上 row 41「Monthly Model Optimization &amp; Release Workflow」<strong>已隱藏 = 不在使用</strong>(2026-05-05 確認)。Roadmap 講有,實際內部沒人扛這個 process — <strong>PM 可推進的真空白地帶之一</strong>。</p>
+  </div>
+</main>
+<nav class="doc-prevnext">
+  <a class="prev" href="../01_product-knowledge/diagnostics.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VisionMax Diagnostics</span></a>
+  <a class="next" href="../01_product-knowledge/voice-alerts.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">VMX In-Cabin Voice Alerts(完整 KB 抓)</span></a>
+</nav>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+</div>
+<script src="../../js/lightbox.js" defer></script>
+<script src="../../js/external-share.js" defer></script>
+<script src="../../js/sticky-toc.js" defer></script>
+</body>
+</html>

@@ -59,7 +59,7 @@ BG_STRIPE   = '#EAEDF2'  # 表格條紋
 
 ```python
 from pptx import Presentation
-p = Presentation('MDT_2026_powerpoint_template.pptx')  # 拿模板當底
+p = Presentation('presentations/MDT_2026_powerpoint_template.pptx')  # 拿模板當底
 slide = p.slides.add_slide(p.slide_layouts[2])  # Title and Content 01
 slide.placeholders[0].text = '標題'
 slide.placeholders[1].text = '內文'

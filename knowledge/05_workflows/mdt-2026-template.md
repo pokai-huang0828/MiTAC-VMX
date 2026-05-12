@@ -37,7 +37,7 @@
 from pptx import Presentation
 
 # 拿模板當底
-p = Presentation('MDT_2026_powerpoint_template.pptx')
+p = Presentation('presentations/MDT_2026_powerpoint_template.pptx')
 
 # (選擇)模板已有 6 張 sample slide,可全部刪掉
 xml_slides = p.slides._sldIdLst
@@ -60,7 +60,7 @@ p.save('output.pptx')
 
 ## 直接手動編輯 SOP
 
-1. 拷貝 `MDT_2026_powerpoint_template.pptx` 改名(例:`Q2-Review.pptx`)
+1. 拷貝 `presentations/MDT_2026_powerpoint_template.pptx` 改名(例:`Q2-Review.pptx`)
 2. PowerPoint 開啟
 3. 刪掉 6 張 sample slide
 4. **新增投影片時選對應 layout**(右鍵 → 新增投影片 → 選 layout)

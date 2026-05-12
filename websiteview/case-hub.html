@@ -89,7 +89,7 @@
   <div class="sidebar-section">
     <div class="sidebar-label">Weekly Summary</div>
     <a class="sidebar-item active" href="#" onclick="scrollToSection('wk-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>本週總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon"><span aria-hidden="true">⭐</span></span>2026-05-11(本週)</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>2026-05-12 下午 Δ(最新)</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('wk-archive', event)"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>歷史 Summary</a>
     <a class="sidebar-item" href="#" onclick="scrollToSection('wk-howto', event)"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>每週流程</a>
   </div>
@@ -390,7 +390,7 @@
         <li><strong>時程</strong>:Staging end of June / Production end of July / Q2 release notes end of June 給 MAU(對外發布前)</li>
         <li><strong>Elvis 訊號</strong>:「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 對 MAU 客戶部署前先安排</li>
       </ul>
-      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/meetings--cary-elvis-blurring-timeline.html#part-3" class="mdt-link">Cary/Elvis Timeline · 5/11 下午 sync</a></p>
+      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/meetings/cary-elvis-blurring-timeline.html#part-3" class="mdt-link">Cary/Elvis Timeline · 5/11 下午 sync</a></p>
     </div>
 
     <div class="card spaced-top-md is-ok">
@@ -1011,7 +1011,7 @@
         </ul>
       </div>
     </div>
-    <p class="txt-meta-13 spaced-top-md">完整文件:<a href="docs/case-learning--honeywell-me-cdr-opportunity.html" class="mdt-link">case-learning · honeywell-me-cdr-opportunity</a></p>
+    <p class="txt-meta-13 spaced-top-md">完整文件:<a href="docs/case-learning/honeywell-me-cdr-opportunity.html" class="mdt-link">case-learning · honeywell-me-cdr-opportunity</a></p>
   </div>
 
 </div><!-- /page-honeywell -->
@@ -1035,17 +1035,37 @@
   </div>
 
   <div id="wk-current">
-    <div class="section-title"><span aria-hidden="true">⭐</span> 本週 · 2026-05-11(Week of May 8 → May 11)</div>
-    <a href="docs/weekly-summary--2026-05-11_week-of-may-8.html" class="card card-link is-alert">
+    <div class="section-title"><span aria-hidden="true">⚡</span> 最新 · 2026-05-12 下午 Δ(handoff 之後重抓)</div>
+    <a href="docs/weekly-summary/2026-05-12_afternoon-delta.html" class="card card-link is-alert">
+      <div class="flex-between-wrap">
+        <div>
+          <div class="card-title is-tight"><span aria-hidden="true">⚡</span> 2026-05-12 下午 Δ Calibration</div>
+          <div class="txt-meta">Jira 重抓(1 變 + 27 新)· Outlook 7 信 · NotebookLM 揭露</div>
+        </div>
+        <span class="badge-latest"><span aria-hidden="true">⚡</span> LATEST</span>
+      </div>
+      <p class="text-body-13-tight">
+        Jira 164 票(原 137 + 27 同日新建,<strong>VMX-7407</strong> Resolved)/ Lucy 交 Blurring 設計稿 / Vinicius JS lib V1.0.4 已測試 / Simon Wu Fleet Portal R02 review / <strong>NotebookLM 揭露 Model 11P/11L/26/V14 + 6/2 Fix Version 死線</strong>。
+      </p>
+      <div class="flex-row-tight">
+        <span class="mdt-pill orange">Jira Δ × 28</span>
+        <span class="mdt-pill blue">Outlook × 7</span>
+        <span class="mdt-pill red">6/2 死線 × 3</span>
+        <span class="mdt-pill green">Model × 4</span>
+      </div>
+      <div class="cta-arrow">深入閱讀 →</div>
+    </a>
+
+    <div class="section-title" style="margin-top: 24px"><span aria-hidden="true">📅</span> 本週 · 2026-05-11(Week of May 8 → May 11)</div>
+    <a href="docs/weekly-summary/2026-05-11_week-of-may-8.html" class="card card-link">
       <div class="flex-between-wrap">
         <div>
           <div class="card-title is-tight"><span aria-hidden="true">📅</span> Week of May 8 → May 11, 2026</div>
           <div class="txt-meta">KW19 · 5 email · 47+48 Jira · 8 處 knowledge Δ</div>
         </div>
-        <span class="badge-latest"><span aria-hidden="true">⭐</span> LATEST</span>
       </div>
       <p class="text-body-13-tight">
-        Outlook:Honeywell ME 啟動 / Vinicius Live View JS lib / QBR KPI 100K(差 15K)/ Device Listing app version / Fleet Portal manual。
+        Outlook:Honeywell ME 啟動 / <s>Vinicius Live View JS lib</s> ✅ 5/11 已交 / QBR KPI 100K(差 15K)/ Device Listing app version / Fleet Portal manual。
         Jira:VMX pending 180d 47 票分組 + HAWK opened 48 票(<strong>HAWK-582 Lens Cover 6 月 release 確認</strong>)。
       </p>
       <div class="flex-row-tight">
@@ -1065,9 +1085,9 @@
         本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
       </p>
       <ul class="list-loose-20">
-        <li><a href="docs/meetings--cary-elvis-blurring-timeline.html#part-1" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
-        <li><a href="docs/meetings--2026-05-07_ai-weekly_meeting-record.html" class="mdt-link">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
-        <li><a href="docs/meetings--2026-05-06_q2-request-review_meeting-record.html" class="mdt-link">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
+        <li><a href="docs/meetings/cary-elvis-blurring-timeline.html#part-1" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
+        <li><a href="docs/meetings/ai-weekly-internal-roundup.html" class="mdt-link">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
+        <li><a href="docs/meetings/2026-05-06_q2-request-review_meeting-record.html" class="mdt-link">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
       </ul>
     </div>
   </div>
