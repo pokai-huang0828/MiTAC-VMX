@@ -6,6 +6,7 @@
 <title>Knowledge Hub · Kenny VMX</title>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-tokens.css">
 <link rel="stylesheet" href="css/knowledge.css">
 </head>
 <body class="hub">
@@ -29,14 +30,18 @@
   <div class="hub-hero-inner">
     <div class="hub-hero-grid">
       <div>
-        <div class="hero-eyebrow">Knowledge Base · v2 Static</div>
-        <h1>📚 Knowledge Hub</h1>
-        <p>43 份 KB / Sheet / Jira / Meeting 萃取的結構化文件。6 大分類:產品 / 組織 / 系統 / PM 框架 / SOP / 校正紀錄。直接搜尋或從左側 TOC 跳。</p>
+        <div class="hero-eyebrow">Knowledge Base · v3(2026-05-12 重組)</div>
+        <h1><span aria-hidden="true">📚</span> Knowledge Hub</h1>
+        <p><strong>27 份核心文件</strong>,從 KB / Sheet / Jira / Meeting 萃取,分 5 大主題。新人從每類星等最高的 <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 開始讀。</p>
+        <div class="hub-meta-links">
+          <a href="docs/00_index--ssot-map.html" class="hub-meta-link"><span aria-hidden="true">🗺️</span> SSOT Map(概念↔主檔)</a>
+          <a href="docs/00_index--changelog.html" class="hub-meta-link"><span aria-hidden="true">📅</span> Changelog(30 天 Δ)</a>
+        </div>
       </div>
       <div class="stats-mini">
-        <div class="stat"><div class="num">43</div><div class="lab">總文件</div></div>
-        <div class="stat"><div class="num">6</div><div class="lab">分類</div></div>
-        <div class="stat"><div class="num">2026-05-11</div><div class="lab">Last sync</div></div>
+        <div class="stat"><div class="num">27</div><div class="lab">核心文件</div></div>
+        <div class="stat"><div class="num">5</div><div class="lab">主題</div></div>
+        <div class="stat"><div class="num">2026-05-12</div><div class="lab">Last sync</div></div>
       </div>
     </div>
   </div>
@@ -46,16 +51,13 @@
 <div class="container">
 
   <aside class="toc">
-    <div class="toc-label">分類導覽</div>
+    <div class="toc-label">主題導覽</div>
     <ul>
-      <li><a data-cat href="#cat-index">📇 索引層 <span class="count"><span class="num">3</span></span></a></li>
-      <li><a data-cat href="#cat-product">🔧 產品知識 <span class="count"><span class="num">11</span></span></a></li>
-      <li><a data-cat href="#cat-org">👥 組織與利害關係人 <span class="count"><span class="num">2</span></span></a></li>
-      <li><a data-cat href="#cat-systems">🏛 系統架構 <span class="count"><span class="num">5</span></span></a></li>
-      <li><a data-cat href="#cat-pm">📐 PM 框架 <span class="count"><span class="num">6</span></span></a></li>
-      <li><a data-cat href="#cat-workflows">⚙️ 工作流 SOP <span class="count"><span class="num">7</span></span></a></li>
-      <li><a data-cat href="#cat-truth">🎯 校正事實表 <span class="count"><span class="num">4</span></span></a></li>
-      <li><a data-cat href="#cat-archive">🗄️ Archive <span class="count"><span class="num">3</span></span></a></li>
+      <li><a data-cat href="#cat-product"><span aria-hidden="true">🔧</span> 產品知識 <span class="count"><span class="num">10</span></span></a></li>
+      <li><a data-cat href="#cat-systems"><span aria-hidden="true">🏛</span> 系統架構 <span class="count"><span class="num">5</span></span></a></li>
+      <li><a data-cat href="#cat-pm"><span aria-hidden="true">📐</span> 人與框架 <span class="count"><span class="num">6</span></span></a></li>
+      <li><a data-cat href="#cat-workflows"><span aria-hidden="true">⚙️</span> 工作流 SOP <span class="count"><span class="num">6</span></span></a></li>
+      <li><a data-cat href="#cat-truth"><span aria-hidden="true">🎯</span> 校正紀錄 <span class="count"><span class="num">5</span></span></a></li>
     </ul>
   </aside>
 
@@ -63,145 +65,69 @@
 
     <div id="nomatch" class="nomatch hidden">沒有符合搜尋條件的文件。按 Esc 清除搜尋。</div>
 
-    <!-- ════════ 00 · 索引層(2026-05-11 新加) ════════ -->
-    <section class="cat" id="cat-index">
-      <div class="cat-head">
-        <div class="cat-icon" style="background:#0B1830;color:#FFD9A8">📇</div>
-        <div>
-          <h2 class="cat-title">索引層</h2>
-          <div class="cat-sub">Changelog · SSOT 索引 · IA 三層模型</div>
-        </div>
-        <div class="cat-count"><span class="num">3</span> <small>docs</small></div>
-      </div>
-      <div class="cat-readme">
-        ⭐ <strong>先看這層</strong>。要找事實主檔 → 看 <code>ssot-map.md</code>;要看近期變動 → 看 <code>changelog.md</code>。
-      </div>
-      <div class="doc-grid">
-        <a class="doc-card featured" href="../knowledge/00_index/changelog.md" data-title="Changelog" data-file="changelog.md" data-tags="changelog 變動">
-          <div class="doc-title">📅 Changelog 近 30 天變動</div>
-          <div class="doc-file">changelog.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/00_index/ssot-map.md" data-title="SSOT Map" data-file="ssot-map.md" data-tags="ssot index">
-          <div class="doc-title">🗺️ SSOT Map · 概念 ↔ 主檔索引</div>
-          <div class="doc-file">ssot-map.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/00_index/README.md" data-title="00 Index README" data-file="README.md" data-tags="index overview">
-          <div class="doc-title">00 Index 索引層說明</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
-        </a>
-      </div>
-    </section>
-
     <!-- ════════ 01 · 產品知識 ════════ -->
     <section class="cat" id="cat-product">
       <div class="cat-head">
-        <div class="cat-icon ic-product">🔧</div>
+        <div class="cat-icon ic-product"><span aria-hidden="true">🔧</span></div>
         <div>
           <h2 class="cat-title">產品知識</h2>
-          <div class="cat-sub">KB cheatsheet / 機種 spec / ADAS-DMS / Voice / Diagnostics</div>
+          <div class="cat-sub">VMX 已 ship 事實:KB / 機種 spec / ADAS-DMS / Voice / Diagnostics / Roadmap</div>
         </div>
-        <div class="cat-count"><span class="num">11</span> <small>docs</small></div>
+        <div class="cat-count"><span class="num">10</span> <small>docs</small></div>
       </div>
-
       <div class="cat-readme">
-        VMX 產品的「已 ship 事實」基底 — KB / Roadmap / 機種 spec / 紅色按鍵語音對應。對客戶任何承諾前先 cross-check 這層。
+        VMX 產品「已 ship 事實」層。對客戶任何承諾前 cross-check 這層。新人從 <strong>KB Reference</strong> 開始(內含 Quick 9 篇 + Full 60 篇 tab)。
       </div>
-
       <div class="doc-grid">
-        <a class="doc-card" href="../knowledge/01_product-knowledge/README.md" data-title="01 Product Knowledge" data-file="README.md" data-tags="overview">
-          <div class="doc-title">01 Product Knowledge</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆☆☆☆☆</span></div>
+        <a class="doc-card featured" href="docs/01_product-knowledge--kb-reference.html" data-title="VMX KB Reference" data-file="kb-reference.html" data-tags="kb cheatsheet catalog client demo">
+          <div class="doc-title"><span aria-hidden="true">📚</span> VMX KB Reference(Quick + Full)</div>
+          <div class="doc-file">kb-reference.html</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/01_product-knowledge/kb-cheatsheet.md" data-title="KB Cheat Sheet" data-file="kb-cheatsheet.md" data-tags="kb client demo">
-          <div class="doc-title">KB Cheat Sheet</div>
-          <div class="doc-file">kb-cheatsheet.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/01_product-knowledge/machines-spec.md" data-title="K-series 機種規格" data-file="machines-spec.md" data-tags="hardware k220 k245 k265 k165">
+        <a class="doc-card featured" href="docs/01_product-knowledge--machines-spec.html" data-title="K-series 機種規格" data-file="machines-spec.md" data-tags="hardware k220 k245 k265 k165">
           <div class="doc-title">K-series 機種規格</div>
           <div class="doc-file">machines-spec.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/01_product-knowledge/adas-dms-events.md" data-title="ADAS / DMS / G-Sensor 完整事件" data-file="adas-dms-events.md" data-tags="adas dms event lens-cover">
+        <a class="doc-card featured" href="docs/01_product-knowledge--adas-dms-events.html" data-title="ADAS / DMS / G-Sensor 完整事件" data-file="adas-dms-events.md" data-tags="adas dms event lens-cover">
           <div class="doc-title">ADAS / DMS / G-Sensor / Map / OBD-II 完整事件</div>
           <div class="doc-file">adas-dms-events.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/voice-alerts.md" data-title="Voice Alerts" data-file="voice-alerts.md" data-tags="voice alert">
+        <a class="doc-card" href="docs/01_product-knowledge--voice-alerts.html" data-title="Voice Alerts" data-file="voice-alerts.md" data-tags="voice alert">
           <div class="doc-title">Voice Alerts 語音對應</div>
           <div class="doc-file">voice-alerts.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/diagnostics.md" data-title="Diagnostics" data-file="diagnostics.md" data-tags="adas-failure dms-failure">
+        <a class="doc-card" href="docs/01_product-knowledge--diagnostics.html" data-title="Diagnostics" data-file="diagnostics.md" data-tags="adas-failure dms-failure">
           <div class="doc-title">Diagnostics 診斷</div>
           <div class="doc-file">diagnostics.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/miai-roadmap-2026.md" data-title="MiAI Roadmap 2026" data-file="miai-roadmap-2026.md" data-tags="roadmap ai">
+        <a class="doc-card" href="docs/01_product-knowledge--miai-roadmap-2026.html" data-title="MiAI Roadmap 2026" data-file="miai-roadmap-2026.md" data-tags="roadmap ai">
           <div class="doc-title">MiAI Roadmap 2026</div>
           <div class="doc-file">miai-roadmap-2026.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/kb-full-catalog.md" data-title="KB Full Catalog" data-file="kb-full-catalog.md" data-tags="kb">
-          <div class="doc-title">KB Full Catalog</div>
-          <div class="doc-file">kb-full-catalog.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/safety-score.md" data-title="Safety Score" data-file="safety-score.md" data-tags="safety score">
+        <a class="doc-card" href="docs/01_product-knowledge--safety-score.html" data-title="Safety Score" data-file="safety-score.md" data-tags="safety score">
           <div class="doc-title">Safety Score</div>
           <div class="doc-file">safety-score.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/sales-faq.md" data-title="Sales FAQ" data-file="sales-faq.md" data-tags="sales faq">
+        <a class="doc-card" href="docs/01_product-knowledge--sales-faq.html" data-title="Sales FAQ" data-file="sales-faq.md" data-tags="sales faq">
           <div class="doc-title">Sales FAQ</div>
           <div class="doc-file">sales-faq.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/storage-mechanism.md" data-title="Storage Mechanism" data-file="storage-mechanism.md" data-tags="storage sd">
+        <a class="doc-card" href="docs/01_product-knowledge--storage-mechanism.html" data-title="Storage Mechanism" data-file="storage-mechanism.md" data-tags="storage sd">
           <div class="doc-title">Storage Mechanism</div>
           <div class="doc-file">storage-mechanism.md</div>
-          <div class="doc-foot"><span class="stars">★★☆☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★☆☆☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/01_product-knowledge/visionagent-app.md" data-title="VisionAgent App" data-file="visionagent-app.md" data-tags="app">
+        <a class="doc-card" href="docs/01_product-knowledge--visionagent-app.html" data-title="VisionAgent App" data-file="visionagent-app.md" data-tags="app">
           <div class="doc-title">VisionAgent App</div>
           <div class="doc-file">visionagent-app.md</div>
-          <div class="doc-foot"><span class="stars">★★☆☆☆</span></div>
-        </a>
-      </div>
-    </section>
-
-    <!-- ════════ 02 · 組織與利害關係人 ════════ -->
-    <section class="cat" id="cat-org">
-      <div class="cat-head">
-        <div class="cat-icon ic-org">👥</div>
-        <div>
-          <h2 class="cat-title">組織與利害關係人</h2>
-          <div class="cat-sub">Stakeholder map · Coffee chat 問題清單</div>
-        </div>
-        <div class="cat-count"><span class="num">2</span> <small>docs</small></div>
-      </div>
-      <div class="cat-readme">
-        誰負責什麼 / 誰扛什麼 / 上次校正後新加入的人(Stark / Phil / Vinicius / Honeywell ME 線)。對外回信前先看這份。
-      </div>
-      <div class="doc-grid">
-        <a class="doc-card" href="../knowledge/02_organization-map/README.md" data-title="02 Organization Map" data-file="README.md" data-tags="overview">
-          <div class="doc-title">02 Organization Map</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆☆☆☆☆</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/02_organization-map/stakeholders.md" data-title="Stakeholders" data-file="stakeholders.md" data-tags="brian spencer mori stark phil vinicius">
-          <div class="doc-title">Stakeholders 利害關係人</div>
-          <div class="doc-file">stakeholders.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/02_organization-map/coffee-chat-questions.md" data-title="Coffee Chat Questions" data-file="coffee-chat-questions.md" data-tags="mori jimmy brian spencer lucy tony">
-          <div class="doc-title">Coffee Chat 問題清單</div>
-          <div class="doc-file">coffee-chat-questions.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★☆☆☆</span></span></div>
         </a>
       </div>
     </section>
@@ -209,7 +135,7 @@
     <!-- ════════ 03 · 系統架構 ════════ -->
     <section class="cat" id="cat-systems">
       <div class="cat-head">
-        <div class="cat-icon ic-systems">🏛</div>
+        <div class="cat-icon ic-systems"><span aria-hidden="true">🏛</span></div>
         <div>
           <h2 class="cat-title">系統架構</h2>
           <div class="cat-sub">Master/Fleet Portal · Plan Type · Server AI · 車輛分類</div>
@@ -220,87 +146,77 @@
         雙 portal 商業模型 · Plan Type ↔ ADAS/DMS 啟用 · Contract fleet 配置議題(Cary/Elvis 線打中的 VMX-5908 / VMX-6586)。
       </div>
       <div class="doc-grid">
-        <a class="doc-card" href="../knowledge/03_systems-architecture/README.md" data-title="03 Systems Architecture" data-file="README.md" data-tags="overview">
-          <div class="doc-title">03 Systems Architecture</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆☆☆☆☆</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/03_systems-architecture/portal-architecture.md" data-title="Portal Architecture" data-file="portal-architecture.md" data-tags="master fleet portal">
+        <a class="doc-card featured" href="docs/03_systems-architecture--portal-architecture.html" data-title="Portal Architecture" data-file="portal-architecture.md" data-tags="master fleet portal">
           <div class="doc-title">Portal Architecture(Master / Fleet 26 頁地圖)</div>
           <div class="doc-file">portal-architecture.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/03_systems-architecture/plan-types.md" data-title="Plan Types" data-file="plan-types.md" data-tags="plan standard advanced pro">
+        <a class="doc-card featured" href="docs/03_systems-architecture--plan-types.html" data-title="Plan Types" data-file="plan-types.md" data-tags="plan standard advanced pro">
           <div class="doc-title">Plan Types 商業模型(含 Honeywell 驗證)</div>
           <div class="doc-file">plan-types.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/03_systems-architecture/server-ai-architecture.md" data-title="Server AI Architecture" data-file="server-ai-architecture.md" data-tags="server ai vlm edge">
+        <a class="doc-card" href="docs/03_systems-architecture--server-ai-architecture.html" data-title="Server AI Architecture" data-file="server-ai-architecture.md" data-tags="server ai vlm edge">
           <div class="doc-title">Server AI Architecture</div>
           <div class="doc-file">server-ai-architecture.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/03_systems-architecture/master-portal-operations.md" data-title="Master Portal Operations" data-file="master-portal-operations.md" data-tags="master portal ops">
-          <div class="doc-title">Master Portal Operations</div>
+        <a class="doc-card" href="docs/03_systems-architecture--master-portal-operations.html" data-title="Master Portal Operations" data-file="master-portal-operations.md" data-tags="master portal ops">
+          <div class="doc-title">Master Portal Operations Runbook</div>
           <div class="doc-file">master-portal-operations.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/03_systems-architecture/vehicle-classification.md" data-title="Vehicle Classification" data-file="vehicle-classification.md" data-tags="vehicle classification">
+        <a class="doc-card" href="docs/03_systems-architecture--vehicle-classification.html" data-title="Vehicle Classification" data-file="vehicle-classification.md" data-tags="vehicle classification">
           <div class="doc-title">Vehicle Classification</div>
           <div class="doc-file">vehicle-classification.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
       </div>
     </section>
 
-    <!-- ════════ 04 · PM 框架 ════════ -->
+    <!-- ════════ 04 · 人與框架 (PM Frameworks + 原 02 組織) ════════ -->
     <section class="cat" id="cat-pm">
       <div class="cat-head">
-        <div class="cat-icon ic-pm">📐</div>
+        <div class="cat-icon ic-pm"><span aria-hidden="true">📐</span></div>
         <div>
-          <h2 class="cat-title">PM 框架</h2>
-          <div class="cat-sub">承諾層次 · 三層真相 · 技術型客戶溝通 · 內部斷層</div>
+          <h2 class="cat-title">人與框架</h2>
+          <div class="cat-sub">利害關係人 · 三層真相 · 溝通三件套 · 核心原則(2026-05-12 把組織 map 併入)</div>
         </div>
         <div class="cat-count"><span class="num">6</span> <small>docs</small></div>
       </div>
       <div class="cat-readme">
-        從 Platform Science / CONNECTSOURCE 兩個客戶案萃取的 PM 框架。對外回信 / 對內提案前的 mental model 參考。
+        <strong>「跟誰講話」+「怎麼想」</strong>合一。Stakeholders 是 who,frameworks 是 how。對外回信 / 對內提案前先翻這層。
       </div>
       <div class="doc-grid">
-        <a class="doc-card" href="../knowledge/04_pm-frameworks/README.md" data-title="04 PM Frameworks" data-file="README.md" data-tags="overview">
-          <div class="doc-title">04 PM Frameworks</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆☆☆☆☆</span></div>
+        <a class="doc-card featured" href="docs/02_organization-map--stakeholders.html" data-title="Stakeholders" data-file="stakeholders.md" data-tags="brian spencer mori stark phil vinicius wendy cary elvis">
+          <div class="doc-title"><span aria-hidden="true">👥</span> Stakeholders 利害關係人</div>
+          <div class="doc-file">stakeholders.md</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/04_pm-frameworks/three-truth-layers.md" data-title="Three Truth Layers" data-file="three-truth-layers.md" data-tags="kb sheet roadmap truth">
-          <div class="doc-title">三層真相 · KB / Sheet / Roadmap</div>
+        <a class="doc-card featured" href="docs/04_pm-frameworks--three-truth-layers.html" data-title="Three Truth Layers" data-file="three-truth-layers.md" data-tags="kb sheet roadmap truth">
+          <div class="doc-title"><span aria-hidden="true">🎯</span> 三層真相 · KB / Sheet / Roadmap</div>
           <div class="doc-file">three-truth-layers.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/04_pm-frameworks/core-principles.md" data-title="Core Principles" data-file="core-principles.md" data-tags="principle pm">
-          <div class="doc-title">Core Principles(4 條核心原則)</div>
+        <a class="doc-card featured" href="docs/04_pm-frameworks--communication-frameworks.html" data-title="Communication Frameworks" data-file="communication-frameworks.html" data-tags="commitment tech-client internal-comm wendy vinicius">
+          <div class="doc-title"><span aria-hidden="true">💬</span> 溝通三件套(承諾 + 技術型客戶 + 內部斷層)</div>
+          <div class="doc-file">communication-frameworks.html</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
+        </a>
+        <a class="doc-card featured" href="docs/04_pm-frameworks--core-principles.html" data-title="Core Principles" data-file="core-principles.md" data-tags="principle pm">
+          <div class="doc-title"><span aria-hidden="true">💡</span> Core Principles(4 條核心原則)</div>
           <div class="doc-file">core-principles.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/04_pm-frameworks/commitment-framework.md" data-title="Commitment Framework" data-file="commitment-framework.md" data-tags="commitment promise">
-          <div class="doc-title">Commitment Framework 承諾層次</div>
-          <div class="doc-file">commitment-framework.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+        <a class="doc-card" href="docs/02_organization-map--coffee-chat-questions.html" data-title="Coffee Chat Questions" data-file="coffee-chat-questions.md" data-tags="mori jimmy brian spencer lucy tony">
+          <div class="doc-title"><span aria-hidden="true">☕</span> Coffee Chat 問題清單</div>
+          <div class="doc-file">coffee-chat-questions.md</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/04_pm-frameworks/internal-comm-gap.md" data-title="Internal Comm Gap" data-file="internal-comm-gap.md" data-tags="internal comm wendy">
-          <div class="doc-title">Internal Comm Gap 內部斷層</div>
-          <div class="doc-file">internal-comm-gap.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/04_pm-frameworks/tech-client-comm.md" data-title="Tech Client Comm" data-file="tech-client-comm.md" data-tags="tech client vinicius">
-          <div class="doc-title">技術型客戶溝通</div>
-          <div class="doc-file">tech-client-comm.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/04_pm-frameworks/ui-change-management.md" data-title="UI Change Management" data-file="ui-change-management.md" data-tags="ui change">
-          <div class="doc-title">UI Change Management</div>
+        <a class="doc-card" href="docs/04_pm-frameworks--ui-change-management.html" data-title="UI Change Management" data-file="ui-change-management.md" data-tags="ui change">
+          <div class="doc-title"><span aria-hidden="true">🎨</span> UI Change Management</div>
           <div class="doc-file">ui-change-management.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
       </div>
     </section>
@@ -308,125 +224,88 @@
     <!-- ════════ 05 · 工作流 SOP ════════ -->
     <section class="cat" id="cat-workflows">
       <div class="cat-head">
-        <div class="cat-icon ic-workflows">⚙️</div>
+        <div class="cat-icon ic-workflows"><span aria-hidden="true">⚙️</span></div>
         <div>
           <h2 class="cat-title">工作流 SOP</h2>
-          <div class="cat-sub">Data ingestion · HTML pipeline · MDT 簡報模板 · Sheet/Jira sweeper</div>
+          <div class="cat-sub">Data ingestion · 簡報 pipeline · Sheet/Jira sweeper · Onboarding · Troubleshooting</div>
         </div>
-        <div class="cat-count"><span class="num">7</span> <small>docs</small></div>
+        <div class="cat-count"><span class="num">6</span> <small>docs</small></div>
       </div>
       <div class="cat-readme">
-        重複動作的 SOP — 簡報製作 / 校正 sweep / 客戶 onboarding / <strong>Data ingestion 新工作流</strong>(2026-05-11 新加,user 給資料 → Claude 整理 → 更新 HTML)。
+        重複動作的 SOP。新人:先看 <strong>Data Ingestion</strong>(2026-05-11 工作流核心)+ <strong>Presentation Workflow</strong>(內含 PPT + HTML 兩條路徑)。
       </div>
       <div class="doc-grid">
-        <a class="doc-card featured" href="../knowledge/05_workflows/data-ingestion-workflow.md" data-title="Data Ingestion Workflow" data-file="data-ingestion-workflow.md" data-tags="workflow data ingestion claude ssot">
-          <div class="doc-title">📥 Data Ingestion Workflow(新)</div>
+        <a class="doc-card featured" href="docs/05_workflows--data-ingestion-workflow.html" data-title="Data Ingestion Workflow" data-file="data-ingestion-workflow.md" data-tags="workflow data ingestion claude ssot">
+          <div class="doc-title"><span aria-hidden="true">📥</span> Data Ingestion Workflow(2026-05-11 新)</div>
           <div class="doc-file">data-ingestion-workflow.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/05_workflows/README.md" data-title="05 Workflows" data-file="README.md" data-tags="overview">
-          <div class="doc-title">05 Workflows</div>
-          <div class="doc-file">README.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆☆☆☆☆</span></div>
+        <a class="doc-card featured" href="docs/05_workflows--presentation-workflow.html" data-title="Presentation Workflow" data-file="presentation-workflow.html" data-tags="pptx html slide pipeline mdt">
+          <div class="doc-title"><span aria-hidden="true">🎨</span> Presentation Workflow(PPT + HTML 兩條路徑)</div>
+          <div class="doc-file">presentation-workflow.html</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/05_workflows/html-presentation-pipeline.md" data-title="HTML Presentation Pipeline" data-file="html-presentation-pipeline.md" data-tags="html slide pipeline">
-          <div class="doc-title">HTML Presentation Pipeline</div>
-          <div class="doc-file">html-presentation-pipeline.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card featured" href="../knowledge/05_workflows/mdt-2026-template.md" data-title="MDT 2026 Template" data-file="mdt-2026-template.md" data-tags="pptx template">
-          <div class="doc-title">MDT 2026 .pptx Template</div>
-          <div class="doc-file">mdt-2026-template.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/05_workflows/sheet-jira-sync-sweeper.md" data-title="Sheet Jira Sync Sweeper" data-file="sheet-jira-sync-sweeper.md" data-tags="sheet jira sweep">
+        <a class="doc-card" href="docs/05_workflows--sheet-jira-sync-sweeper.html" data-title="Sheet Jira Sync Sweeper" data-file="sheet-jira-sync-sweeper.md" data-tags="sheet jira sweep">
           <div class="doc-title">Sheet ↔ Jira Sync Sweeper</div>
           <div class="doc-file">sheet-jira-sync-sweeper.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/05_workflows/customer-onboarding.md" data-title="Customer Onboarding" data-file="customer-onboarding.md" data-tags="customer onboarding">
+        <a class="doc-card" href="docs/05_workflows--customer-onboarding.html" data-title="Customer Onboarding" data-file="customer-onboarding.md" data-tags="customer onboarding">
           <div class="doc-title">Customer Onboarding</div>
           <div class="doc-file">customer-onboarding.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/05_workflows/troubleshooting.md" data-title="Troubleshooting" data-file="troubleshooting.md" data-tags="troubleshooting debug">
+        <a class="doc-card" href="docs/05_workflows--troubleshooting.html" data-title="Troubleshooting" data-file="troubleshooting.md" data-tags="troubleshooting debug">
           <div class="doc-title">Troubleshooting</div>
           <div class="doc-file">troubleshooting.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/05_workflows/memory-system.md" data-title="Memory System" data-file="memory-system.md" data-tags="memory claude">
+        <a class="doc-card" href="docs/05_workflows--memory-system.html" data-title="Memory System" data-file="memory-system.md" data-tags="memory claude">
           <div class="doc-title">Memory System(Claude 兩層)</div>
           <div class="doc-file">memory-system.md</div>
-          <div class="doc-foot"><span class="stars">★★★☆☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
       </div>
     </section>
 
-    <!-- ════════ 06 · 校正事實表 ════════ -->
+    <!-- ════════ 06 · 校正紀錄 ════════ -->
     <section class="cat" id="cat-truth">
       <div class="cat-head">
-        <div class="cat-icon ic-calibration">🎯</div>
+        <div class="cat-icon ic-calibration"><span aria-hidden="true">🎯</span></div>
         <div>
-          <h2 class="cat-title">校正事實表</h2>
-          <div class="cat-sub">4 個永久 SSOT — Critical Facts / VMX-7404 / Roadmap drift / Sheet-Jira mismatch</div>
+          <h2 class="cat-title">校正紀錄</h2>
+          <div class="cat-sub">Critical Facts SSOT / VMX-7404 / Roadmap drift / Sheet-Jira mismatch / 5/7 AI Weekly roundup</div>
         </div>
-        <div class="cat-count"><span class="num">4</span> <small>docs</small></div>
+        <div class="cat-count"><span class="num">5</span> <small>docs</small></div>
       </div>
       <div class="cat-readme">
-        2026-05-11 整理:把帶日期的時序 snapshot 搬去 <code>archive/</code>,本層只留<strong>持續更新的永久事實表</strong>。Critical Facts 是 SSOT「別再答錯清單」,VMX-7404 是評估期最大籌碼。
+        被校正過 / 別再答錯的事實。新人 onboard 先看 <strong>Critical Facts Log</strong>,評估期可見度看 <strong>VMX-7404</strong>。
       </div>
       <div class="doc-grid">
-        <a class="doc-card featured" href="../knowledge/06_calibration-log/critical-facts-log.md" data-title="Critical Facts Log" data-file="critical-facts-log.md" data-tags="critical facts kpi lens-cover ssot">
-          <div class="doc-title">🎯 Critical Facts(SSOT · 別再答錯)</div>
+        <a class="doc-card featured" href="docs/06_calibration-log--critical-facts-log.html" data-title="Critical Facts Log" data-file="critical-facts-log.md" data-tags="critical facts kpi lens-cover ssot">
+          <div class="doc-title"><span aria-hidden="true">🎯</span> Critical Facts(SSOT · 別再答錯)</div>
           <div class="doc-file">critical-facts-log.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="../knowledge/06_calibration-log/vmx-7404-tracking.md" data-title="VMX-7404 Tracking" data-file="vmx-7404-tracking.md" data-tags="vmx-7404 adas-failure">
+        <a class="doc-card featured" href="docs/06_calibration-log--vmx-7404-tracking.html" data-title="VMX-7404 Tracking" data-file="vmx-7404-tracking.md" data-tags="vmx-7404 adas-failure">
           <div class="doc-title">VMX-7404 ADAS Failure 追蹤</div>
           <div class="doc-file">vmx-7404-tracking.md</div>
-          <div class="doc-foot"><span class="stars">★★★★★</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/06_calibration-log/roadmap-vs-internal.md" data-title="Roadmap vs Internal" data-file="roadmap-vs-internal.md" data-tags="roadmap internal external">
+        <a class="doc-card" href="docs/06_calibration-log--ai-weekly-2026-05-07-roundup.html" data-title="AI Weekly 5/7 Roundup" data-file="ai-weekly-2026-05-07-roundup.html" data-tags="ai weekly 5/7 jira sheet cary roundup">
+          <div class="doc-title"><span aria-hidden="true">📊</span> 5/7 AI Weekly Roundup(三 snapshot 合輯)</div>
+          <div class="doc-file">ai-weekly-2026-05-07-roundup.html</div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
+        </a>
+        <a class="doc-card" href="docs/06_calibration-log--roadmap-vs-internal.html" data-title="Roadmap vs Internal" data-file="roadmap-vs-internal.md" data-tags="roadmap internal external">
           <div class="doc-title">Roadmap(對外)vs Internal(對內)</div>
           <div class="doc-file">roadmap-vs-internal.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
-        <a class="doc-card" href="../knowledge/06_calibration-log/sheet-jira-mismatches.md" data-title="Sheet Jira Mismatches" data-file="sheet-jira-mismatches.md" data-tags="sheet jira mismatch">
+        <a class="doc-card" href="docs/06_calibration-log--sheet-jira-mismatches.html" data-title="Sheet Jira Mismatches" data-file="sheet-jira-mismatches.md" data-tags="sheet jira mismatch">
           <div class="doc-title">Sheet ↔ Jira Mismatches</div>
           <div class="doc-file">sheet-jira-mismatches.md</div>
-          <div class="doc-foot"><span class="stars">★★★★☆</span></div>
-        </a>
-      </div>
-    </section>
-
-    <!-- ════════ Archive · 時序 snapshot 歸檔 ════════ -->
-    <section class="cat" id="cat-archive">
-      <div class="cat-head">
-        <div class="cat-icon" style="background:#E9EDF4;color:#36465E">🗄️</div>
-        <div>
-          <h2 class="cat-title">Archive</h2>
-          <div class="cat-sub">已被永久檔取代的時序 snapshot — 歷史保留,不再 maintain</div>
-        </div>
-        <div class="cat-count"><span class="num">3</span> <small>docs</small></div>
-      </div>
-      <div class="cat-readme">
-        帶日期的 snapshot 過了 30 天 / 已被新檔取代 → 搬這裡。內容仍可查,但不再更新。命名 convention:<code>YYYY-MM-DD_topic.md</code>。
-      </div>
-      <div class="doc-grid">
-        <a class="doc-card" href="../knowledge/archive/2026-05-07_cary-passenger-blurring.md" data-title="Cary Passenger Blurring snapshot" data-file="2026-05-07_cary-passenger-blurring.md" data-tags="archive cary 5/7">
-          <div class="doc-title">2026-05-07 · Cary Passenger Blurring snapshot</div>
-          <div class="doc-file">archive/2026-05-07_cary-passenger-blurring.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆ archived</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/archive/2026-05-07_ai-team-row-by-row-status.md" data-title="AI Team Row by Row 5/7 snapshot" data-file="2026-05-07_ai-team-row-by-row-status.md" data-tags="archive ai team 5/7">
-          <div class="doc-title">2026-05-07 · AI Team 16 行逐行狀態 snapshot</div>
-          <div class="doc-file">archive/2026-05-07_ai-team-row-by-row-status.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆ archived</span></div>
-        </a>
-        <a class="doc-card" href="../knowledge/archive/2026-05-07_ai-tab-jira-alignment.md" data-title="AI Tab Jira Alignment 5/7 snapshot" data-file="2026-05-07_ai-tab-jira-alignment.md" data-tags="archive ai jira alignment 5/7">
-          <div class="doc-title">2026-05-07 · AI Sheet ↔ Jira Alignment snapshot</div>
-          <div class="doc-file">archive/2026-05-07_ai-tab-jira-alignment.md</div>
-          <div class="doc-foot"><span class="stars stars-empty">☆ archived</span></div>
+          <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
       </div>
     </section>
@@ -435,9 +314,8 @@
 </div>
 
 <footer class="site-footer">
-  <strong style="color:var(--ink-2)">Knowledge Hub · Static v2</strong>
-  · 無 build script · 直接編輯 <code>knowledge.html</code>
-  · CSS:<code>css/knowledge.css</code> · JS:<code>js/knowledge.js</code>
+  <strong style="color:var(--ink-2)">Knowledge Hub · Static v3</strong>
+  · 無 build script · 直接編輯 <code>knowledge.html</code> / <code>css/knowledge.css</code>
 </footer>
 
 <script src="js/knowledge.js" defer></script>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADAS / DMS / G-Sensor / Map / OBD-II 完整事件 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -11,9 +12,9 @@
 </head>
 <body>
 <header class="doc-standalone-topbar">
-  <a class="back" href="../knowledge.html#01_product-knowledge/01_product-knowledge--adas-dms-events" title="返回 Knowledge Hub">← Knowledge Hub</a>
-  <span class="heading">🔧 產品知識 · ADAS / DMS / G-Sensor / Map / OBD-II 完整事件</span>
-  <span class="filename">adas-dms-events.md</span>
+  <a class="back" href="../knowledge.html#cat-product" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🔧</span> 產品知識 · ADAS / DMS / G-Sensor / Map / OBD-II 完整事件</span>
+  <span class="filename"><code>adas-dms-events.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:2026-05-07</div>
 <main class="doc-standalone">
@@ -22,12 +23,14 @@
 <p>來源:KB 已讀 + MiAI Roadmap 2026-04-24 + 2026-05-06 Q2 Review 會議</p>
 <h2 id="adas-rd-facing-camera">ADAS 事件(rd-facing camera)</h2>
 <h3 id="kb-faq-ship">KB FAQ 確定(已 ship,可對客戶承諾)</h3>
-<p>官方 KB(<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/articles/what-adas-and-dms-features-do-you-support" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/articles/what-adas-and-dms-features-do-you-support</a>):
-- <strong>FCWS</strong>(語音 = <code>"Keep distance"</code>)
-- <strong>LDWS</strong>
-- <strong>Tailgating</strong>
-- <strong>Rolling Stop</strong> ⭐ (memory 之前漏)
-- <strong>Stop &amp; Go</strong></p>
+<p>官方 KB(<a class="ext-link" href="https://service.visionmaxfleet.com/portal/en/kb/articles/what-adas-and-dms-features-do-you-support" rel="noopener" target="_blank">https://service.visionmaxfleet.com/portal/en/kb/articles/what-adas-and-dms-features-do-you-support</a>):</p>
+<ul class="smushed-fix">
+  <li><strong>FCWS</strong>(語音 = <code>"Keep distance"</code>)</li>
+  <li><strong>LDWS</strong></li>
+  <li><strong>Tailgating</strong></li>
+  <li><strong>Rolling Stop</strong> <span aria-hidden="true">⭐</span> (memory 之前漏)</li>
+  <li><strong>Stop &amp; Go</strong></li>
+</ul>
 <h3 id="kb-in-development">KB 標(in development)— 對客戶可講「開發中」</h3>
 <ul>
 <li><strong>Speed Sign</strong>(in development) — Roadmap 列 Advanced 2027,KB 對外目前是 dev。<strong>5/7 AI weekly 補</strong>:模型對 18/25/40 數字易混淆,根因是訓練 Flip 參數開啟,Jay 已立即關閉 + 擴增降至 10 倍重訓。新單 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7430" rel="noopener" target="_blank">VMX-7430</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7431" rel="noopener" target="_blank">VMX-7431</a>(woody.lee 5/6 開)+ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7320" rel="noopener" target="_blank">VMX-7320</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7321" rel="noopener" target="_blank">VMX-7321</a>(speed sign violation)</li>
@@ -45,12 +48,12 @@
 <tr>
 <td>FCWS</td>
 <td>Basic(2025)</td>
-<td>✅ 已 ship(2026-05-07 校正,memory 之前寫 PCWS 是錯的)</td>
+<td><span aria-hidden="true">✅</span> 已 ship(2026-05-07 校正,memory 之前寫 PCWS 是錯的)</td>
 </tr>
 <tr>
 <td>Rolling Stop Sign</td>
 <td>Basic</td>
-<td>✅ 已 ship(2026-05-07 校正)</td>
+<td><span aria-hidden="true">✅</span> 已 ship(2026-05-07 校正)</td>
 </tr>
 <tr>
 <td>Blind Spot Monitoring (Side Camera)</td>
@@ -60,27 +63,27 @@
 <tr>
 <td>Speeding Sign</td>
 <td>Advanced(2027)</td>
-<td>⚠️ Roadmap planned</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned</td>
 </tr>
 <tr>
 <td>BCWS (Rear Camera)</td>
 <td>Advanced</td>
-<td>⚠️ Roadmap planned</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned</td>
 </tr>
 <tr>
 <td>Rash Driving</td>
 <td>Premium(2027)</td>
-<td>⚠️ Roadmap planned</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned</td>
 </tr>
 <tr>
 <td>Traffic Light</td>
 <td>Premium</td>
-<td>⚠️ Roadmap planned</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned</td>
 </tr>
 <tr>
 <td>ANPR (License Plate Recognition)</td>
 <td>Premium</td>
-<td>⚠️ Roadmap planned</td>
+<td><span aria-hidden="true">⚠️</span> Roadmap planned</td>
 </tr>
 <tr>
 <td>Blurring function (ADAS)</td>
@@ -100,7 +103,7 @@
 </ul>
 <h3 id="kb-in-development_1">KB 標(in development)</h3>
 <ul>
-<li><strong>Smoking</strong>(in development)⭐ memory 之前說「KB 沒寫」是錯的 — KB 有寫,標 in development</li>
+<li><strong>Smoking</strong>(in development)<span aria-hidden="true">⭐</span> memory 之前說「KB 沒寫」是錯的 — KB 有寫,標 in development</li>
 </ul>
 <h3 id="roadmap-kb_1">Roadmap 列但 KB 沒寫</h3>
 <table>
@@ -115,12 +118,12 @@
 <tr>
 <td><strong>Yawning(Fatigue 子)</strong></td>
 <td>Basic(2025)</td>
-<td>⚠️ 還沒給客戶 / 內部測試中 / 效果不如預期 / Fatigue config 下要加獨立開關。<strong>5/7 補:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓 + 考慮 Server 端從辨識嘴巴改為「辨識整張臉」</strong>。Yawning UI toggle 對應 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開)</td>
+<td><span aria-hidden="true">⚠️</span> 還沒給客戶 / 內部測試中 / 效果不如預期 / Fatigue config 下要加獨立開關。<strong>5/7 補:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓 + 考慮 Server 端從辨識嘴巴改為「辨識整張臉」</strong>。Yawning UI toggle 對應 <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></strong>(Lucy 5/6 開)</td>
 </tr>
 <tr>
 <td><strong>Smoking</strong></td>
 <td>Basic(2025)</td>
-<td>⚠️ KB 標 (in development)/ Sheet 隱藏 / 4 個 Jira ticket open(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6670" rel="noopener" target="_blank">VMX-6670</a> / 7324 / 6380 / 6920)</td>
+<td><span aria-hidden="true">⚠️</span> KB 標 (in development)/ Sheet 隱藏 / 4 個 Jira ticket open(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6670" rel="noopener" target="_blank">VMX-6670</a> / 7324 / 6380 / 6920)</td>
 </tr>
 <tr>
 <td><strong>Obstructed Camera</strong></td>
@@ -130,7 +133,7 @@
 <tr>
 <td>Eating</td>
 <td>Advanced(2027)</td>
-<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> 已開 ticket(Jimmy + Vincent 5/7 加入)— <strong>比 Roadmap 提早動工</strong>。<strong>🚨 5/7 揭露:BMS 客訴量是過去 17 倍(客訴 ID 6652),6/15 前 7000+ Edge case 一次性緊急重訓</strong></td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> 已開 ticket(Jimmy + Vincent 5/7 加入)— <strong>比 Roadmap 提早動工</strong>。<strong><span aria-hidden="true">🚨</span> 5/7 揭露:BMS 客訴量是過去 17 倍(客訴 ID 6652),6/15 前 7000+ Edge case 一次性緊急重訓</strong></td>
 </tr>
 <tr>
 <td>Drinking</td>
@@ -192,24 +195,24 @@
 <tr>
 <td><strong>Harsh Acceleration</strong></td>
 <td>?</td>
-<td>⚠️ 待 Mori</td>
-<td>⚠️</td>
-<td>⚠️</td>
+<td><span aria-hidden="true">⚠️</span> 待 Mori</td>
+<td><span aria-hidden="true">⚠️</span></td>
+<td><span aria-hidden="true">⚠️</span></td>
 </tr>
 <tr>
 <td><strong>Rollover</strong></td>
 <td>無</td>
-<td>⚠️ 待 Mori</td>
-<td>⚠️</td>
-<td>⚠️</td>
+<td><span aria-hidden="true">⚠️</span> 待 Mori</td>
+<td><span aria-hidden="true">⚠️</span></td>
+<td><span aria-hidden="true">⚠️</span></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Reference scale</strong>:普通煞車 ≈ 0.3-0.4 G / 急煞 (Med) = 0.45 G / 真實碰撞 (Med) = 0.9 G / 嚴重碰撞 = 1.2 G+</p>
-<p>⚠️ <strong>200 Hz G-Sensor 戰略議題</strong>(2026-05-06 會議):客戶 Simon must-have 事件發生時吐 200 Hz,目前 50 Hz。Mori 在弄。</p>
+<p><span aria-hidden="true">⚠️</span> <strong>200 Hz G-Sensor 戰略議題</strong>(2026-05-06 會議):客戶 Simon must-have 事件發生時吐 200 Hz,目前 50 Hz。Mori 在弄。</p>
 <h2 id="map-based-gps-map4">Map-based 事件(GPS + Map,4 種)</h2>
 <ul>
-<li>Mobility Map Function(MMF)— ⚠️ <strong>還沒上線,不要對客戶承諾</strong></li>
+<li>Mobility Map Function(MMF)— <span aria-hidden="true">⚠️</span> <strong>還沒上線,不要對客戶承諾</strong></li>
 <li>Speed Camera Violation</li>
 <li>Railroad Crossing Alert</li>
 <li>School Zone Alert</li>
@@ -223,7 +226,7 @@
 <li>VIN Change Event</li>
 <li>Diagnostic Trouble Codes</li>
 </ul>
-<h2 id="sensitivity-dial-jimmy">Sensitivity Dial 估計值(⚠️ 估計,真實要問 Jimmy)</h2>
+<h2 id="sensitivity-dial-jimmy">Sensitivity Dial 估計值(<span aria-hidden="true">⚠️</span> 估計,真實要問 Jimmy)</h2>
 <table>
 <thead>
 <tr>
@@ -263,16 +266,16 @@
 <div class="highlight"><pre><span></span><code>1. Capture(感測)         鏡頭 + IMU + GPS,**對外 only 10 fps**(機體可達 15-30,因運算資源限制)
 2. Preprocess(預處理)    resize / normalize / ROI 切割
 3. Detection(偵測「是什麼」)  bounding box + confidence
-4. Classification(分類「在做什麼」)  ⭐ 誤判主戰場
-5. Decision(決策)        ⭐ Sensitivity dial 在這層
+4. Classification(分類「在做什麼」)  <span aria-hidden="true">⭐</span> 誤判主戰場
+5. Decision(決策)        <span aria-hidden="true">⭐</span> Sensitivity dial 在這層
                           threshold + debounce + cooldown
 6. Fire(觸發 + 上傳)     event packaging + 4G upload
 </code></pre></div>
   </div>
 </main>
 <nav class="doc-prevnext">
-  <a class="prev" href="01_product-knowledge--readme.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">01 Product Knowledge</span></a>
-  <a class="next" href="01_product-knowledge--kb-cheatsheet.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">VMX KB Cheatsheet</span></a>
+  <a class="prev" href="../knowledge.html#cat-product" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">01 Product Knowledge</span></a>
+  <a class="next" href="01_product-knowledge--kb-reference.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">VMX KB Cheatsheet</span></a>
 </nav>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
@@ -281,5 +284,7 @@
   <div class="lightbox-caption"></div>
 </div>
 <script src="../js/lightbox.js" defer></script>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

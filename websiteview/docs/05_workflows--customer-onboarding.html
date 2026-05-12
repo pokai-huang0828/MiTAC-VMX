@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Customer Onboarding SOP(裝相機 → 配置 → 上線) · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -11,9 +12,9 @@
 </head>
 <body>
 <header class="doc-standalone-topbar">
-  <a class="back" href="../knowledge.html#05_workflows/05_workflows--customer-onboarding" title="返回 Knowledge Hub">← Knowledge Hub</a>
-  <span class="heading">⚙️ 工作流 SOP · Customer Onboarding SOP(裝相機 → 配置 → 上線)</span>
-  <span class="filename">customer-onboarding.md</span>
+  <a class="back" href="../knowledge.html#cat-workflows" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚙️</span> 工作流 SOP · Customer Onboarding SOP(裝相機 → 配置 → 上線)</span>
+  <span class="filename"><code>customer-onboarding.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:2026-05-06</div>
 <main class="doc-standalone">
@@ -54,7 +55,7 @@
 <li>New Device(individual 或 import CSV)</li>
 </ul>
 </li>
-<li>⚠️ Only master admin 可加 — fleet admin 不行</li>
+<li><span aria-hidden="true">⚠️</span> Only master admin 可加 — fleet admin 不行</li>
 </ul>
 <h3 id="2-assign-device-to-fleet">2. Assign Device to Fleet</h3>
 <ul>
@@ -68,35 +69,45 @@
 </ul>
 <h3 id="4-visionagentkbhow-to-check-camera-install-position">4. 裝相機 — VisionAgent(KB:How to Check Camera Install Position)</h3>
 <p><strong>前置</strong>:VisionAgent app(iOS / Android)+ smartphone WiFi 連 device hotspot</p>
-<p><strong>Outward Camera 設定</strong>:
-- 車輛停 level ground
-- 相機 view parallel to ground
-- <strong>Ground:Sky = 50:50</strong>
-- 矩形框內是 ADAS engine 處理區 → 確保 unobstructed view</p>
-<p><strong>Inward Camera 設定</strong>:
-- 設 Driver Location:<strong>Right (RHD)</strong> / <strong>Left (LHD)</strong>
-- Camera Location:選 A / B(具體選法看 KB 圖)
-- DMS 需 clear view of driver’s face</p>
+<p><strong>Outward Camera 設定</strong>:</p>
+<ul class="smushed-fix">
+  <li>車輛停 level ground</li>
+  <li>相機 view parallel to ground</li>
+  <li><strong>Ground:Sky = 50:50</strong></li>
+  <li>矩形框內是 ADAS engine 處理區 → 確保 unobstructed view</li>
+</ul>
+<p><strong>Inward Camera 設定</strong>:</p>
+<ul class="smushed-fix">
+  <li>設 Driver Location:<strong>Right (RHD)</strong> / <strong>Left (LHD)</strong></li>
+  <li>Camera Location:選 A / B(具體選法看 KB 圖)</li>
+  <li>DMS 需 clear view of driver’s face</li>
+</ul>
 <h3 id="5-apn-kbhow-do-i-set-apn-through-visionagent">5. APN 設定(KB:How do I set APN through VisionAgent)</h3>
 <p><strong>何時要做</strong>:Telecom APN setting 導致網路失敗時</p>
-<p>SOP:
-1. VisionAgent → Search Dashcam → 確認 CDR # match
-2. Save + Yes(連 device WiFi)
-3. Home → SIM → setting screen
-4. Enter APN info → Save Changes
-5. Verify → OK
-6. Diagnostics → 看 APN saved + online 狀態
-7. Disconnect</p>
+<p>SOP:</p>
+<ol class="smushed-fix">
+  <li>VisionAgent → Search Dashcam → 確認 CDR # match</li>
+  <li>Save + Yes(連 device WiFi)</li>
+  <li>Home → SIM → setting screen</li>
+  <li>Enter APN info → Save Changes</li>
+  <li>Verify → OK</li>
+  <li>Diagnostics → 看 APN saved + online 狀態</li>
+  <li>Disconnect</li>
+</ol>
 <h3 id="6-driver-identification">6. Driver Identification 設定</h3>
-<p><strong>機種能力</strong>:
-- K245 / K245C / K265:RFID + QR
-- K220:QR only
-- K145(c) with i25:都不行</p>
-<p><strong>SOP</strong>(KB:Driver Identification Setup):
-- VisionMax → Management → Driver → + New Driver
-- 輸入 IC Card S/N(RFID 號)+ name + photo + employee ID
-- 完成後,trip 開始時相機說「Please tap your ID card」/「Please scan your ID QR code」
-- Driver tap NFC 或 scan QR(in-cabin camera 前 3 秒內)</p>
+<p><strong>機種能力</strong>:</p>
+<ul class="smushed-fix">
+  <li>K245 / K245C / K265:RFID + QR</li>
+  <li>K220:QR only</li>
+  <li>K145(c) with i25:都不行</li>
+</ul>
+<p><strong>SOP</strong>(KB:Driver Identification Setup):</p>
+<ul class="smushed-fix">
+  <li>VisionMax → Management → Driver → + New Driver</li>
+  <li>輸入 IC Card S/N(RFID 號)+ name + photo + employee ID</li>
+  <li>完成後,trip 開始時相機說「Please tap your ID card」/「Please scan your ID QR code」</li>
+  <li>Driver tap NFC 或 scan QR(in-cabin camera 前 3 秒內)</li>
+</ul>
 <h3 id="7-calibration">7. 第一次 Calibration</h3>
 <ul>
 <li>開車到開放路段</li>
@@ -105,10 +116,12 @@
 <li>完成語音:”Calibration Completed”</li>
 </ul>
 <h3 id="8">8. 健康檢查</h3>
-<p><strong>Master Portal</strong>:Management → Diagnostics
-- 看 device 「Has Issue」狀態
-- Issue Type:Location Function / Sensor Events Detection / 等
-- KB Diagnostics 文章有詳細 Q&amp;A</p>
+<p><strong>Master Portal</strong>:Management → Diagnostics</p>
+<ul class="smushed-fix">
+  <li>看 device 「Has Issue」狀態</li>
+  <li>Issue Type:Location Function / Sensor Events Detection / 等</li>
+  <li>KB Diagnostics 文章有詳細 Q&amp;A</li>
+</ul>
 <h2 id="onboarding">常見 Onboarding 卡點</h2>
 <table>
 <thead>
@@ -155,7 +168,7 @@
   </div>
 </main>
 <nav class="doc-prevnext">
-  <a class="prev" href="05_workflows--mdt-2026-template.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">MDT 2026 PowerPoint Template SOP</span></a>
+  <a class="prev" href="05_workflows--presentation-workflow.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">MDT 2026 PowerPoint Template SOP</span></a>
   <a class="next" href="05_workflows--sheet-jira-sync-sweeper.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Sheet × Jira Sync Sweeper SOP</span></a>
 </nav>
 
@@ -165,5 +178,7 @@
   <div class="lightbox-caption"></div>
 </div>
 <script src="../js/lightbox.js" defer></script>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

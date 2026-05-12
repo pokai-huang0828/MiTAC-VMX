@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Workflow · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html#cat-workflows" title="返回">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚙️</span> 工作流 · 簡報製作 SOP(PPT + HTML)</span>
+  <span class="filename">presentation-workflow</span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-11</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<blockquote><p><strong>簡報製作完整 SOP</strong> · 兩條路徑合併在這一頁:PPT 路徑(MDT 2026 template)與 HTML 路徑(scroll-driven slide deck)。對應客戶 demo / 內部報告場景。</p></blockquote>
+<h2 id="toc">兩條路徑</h2>
+<ul>
+  <li><a href="#part-1"><span aria-hidden="true">🎨</span> MDT 2026 PowerPoint 模板(6 layouts, 16:9)使用 SOP</a></li>
+  <li><a href="#part-2"><span aria-hidden="true">🌐</span> HTML Presentation Pipeline(scroll-driven slide deck)</a></li>
+</ul>
+<hr/>
+<section id="part-1">
+<h2>1. <span aria-hidden="true">🎨</span> MDT 2026 PowerPoint 模板(6 layouts, 16:9)使用 SOP</h2>
+<h3>MDT 2026 PowerPoint Template SOP</h3>
+<blockquote>
+<p>路徑:<code>../../MDT_2026_powerpoint_template.pptx</code>(5.96 MB)
+2026-05-05 起所有報告基底</p>
+</blockquote>
+<h2 id="_1">規格</h2>
+<ul>
+<li>尺寸:<strong>16:9</strong>(13.33 × 7.50 inch)</li>
+<li>字型:<strong>Calibri Light</strong>(major)/ <strong>Calibri</strong>(minor)/ 新細明體(TC)</li>
+<li>6 layouts(內含 sample slide,可刪)</li>
+</ul>
+<h2 id="6-layout">6 個 Layout</h2>
+<table>
+<thead>
+<tr>
+<th>idx</th>
+<th>名稱</th>
+<th>用途</th>
+<th>主要 placeholder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><strong>Title Slide</strong></td>
+<td>封面</td>
+<td>Title(2 行 OK)/ Subtitle</td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Breakpage</strong></td>
+<td>章節分隔</td>
+<td>Title + 多層 bullet</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Title and Content 01</strong></td>
+<td>純文字內頁</td>
+<td>Header + bullet 內文</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Title and Content 02</strong></td>
+<td>內頁 + 物件</td>
+<td>Page Title + 段落</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Title and Content 03</strong></td>
+<td>滿版物件</td>
+<td>整片內容區</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Thank You Slide</strong></td>
+<td>結尾</td>
+<td>(純視覺)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="theme-accents">色票(theme accents)</h2>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>色碼</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accent1</td>
+<td><code>#5B9BD5</code></td>
+<td>主藍</td>
+</tr>
+<tr>
+<td>accent5</td>
+<td><code>#4472C4</code></td>
+<td>深藍</td>
+</tr>
+<tr>
+<td>accent2</td>
+<td><code>#ED7D31</code></td>
+<td>橘(強調 / CTA)</td>
+</tr>
+<tr>
+<td>accent3</td>
+<td><code>#A5A5A5</code></td>
+<td>灰</td>
+</tr>
+<tr>
+<td>accent4</td>
+<td><code>#FFC000</code></td>
+<td>金</td>
+</tr>
+<tr>
+<td>accent6</td>
+<td><code>#70AD47</code></td>
+<td>綠</td>
+</tr>
+</tbody>
+</table>
+<h2 id="python-pptx">python-pptx 拷模板程式</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pptx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Presentation</span>
+
+<span class="c1"># 拿模板當底</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Presentation</span><span class="p">(</span><span class="s1">'MDT_2026_powerpoint_template.pptx'</span><span class="p">)</span>
+
+<span class="c1"># (選擇)模板已有 6 張 sample slide,可全部刪掉</span>
+<span class="n">xml_slides</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">slides</span><span class="o">.</span><span class="n">_sldIdLst</span>
+<span class="n">slides</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">xml_slides</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">slide</span> <span class="ow">in</span> <span class="n">slides</span><span class="p">:</span>
+    <span class="n">xml_slides</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">slide</span><span class="p">)</span>
+
+<span class="c1"># 加新 slide(用 layout 0 = Title Slide)</span>
+<span class="n">slide</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">slides</span><span class="o">.</span><span class="n">add_slide</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">slide_layouts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'我的主題'</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'副標題'</span>
+
+<span class="c1"># 加內頁(layout 2 = Title and Content 01)</span>
+<span class="n">slide</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">slides</span><span class="o">.</span><span class="n">add_slide</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">slide_layouts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'章節標題'</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'內文 bullet 1</span><span class="se">\n</span><span class="s1">內文 bullet 2'</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'output.pptx'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="sop">直接手動編輯 SOP</h2>
+<ol>
+<li>拷貝 <code>MDT_2026_powerpoint_template.pptx</code> 改名(例:<code>Q2-Review.pptx</code>)</li>
+<li>PowerPoint 開啟</li>
+<li>刪掉 6 張 sample slide</li>
+<li><strong>新增投影片時選對應 layout</strong>(右鍵 → 新增投影片 → 選 layout)</li>
+<li>文字內容直接編輯 placeholder,<strong>不要動字型 / 顏色</strong>(讓 theme 跑)</li>
+<li>儲存</li>
+</ol>
+<h2 id="pptx-vs-html">何時用 .pptx vs HTML</h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>.pptx</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>給主管看 / 內部會議</td>
+<td><span aria-hidden="true">✅</span>(熟悉)</td>
+<td>△</td>
+</tr>
+<tr>
+<td>客戶現場 demo</td>
+<td>△</td>
+<td><span aria-hidden="true">✅</span>(更專業)</td>
+</tr>
+<tr>
+<td>海外客戶</td>
+<td>△</td>
+<td><span aria-hidden="true">✅</span>(連結即看)</td>
+</tr>
+<tr>
+<td>內部知識整理</td>
+<td>△</td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>含複雜動畫</td>
+<td><span aria-hidden="true">❌</span></td>
+<td><span aria-hidden="true">✅</span></td>
+</tr>
+<tr>
+<td>需要列印</td>
+<td><span aria-hidden="true">✅</span></td>
+<td>△(要 export PDF)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr/>
+<section id="part-2">
+<h2>2. <span aria-hidden="true">🌐</span> HTML Presentation Pipeline(scroll-driven slide deck)</h2>
+<h3>HTML 簡報製作 SOP</h3>
+<blockquote>
+<p>2026-05-05 起,新標準對齊 MDT 2026 PowerPoint 模板色 + Calibri</p>
+</blockquote>
+<h2 id="build-script">色票(寫死在 build script)</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 對齊 MDT 2026 模板</span>
+<span class="n">ACCENT1</span>     <span class="o">=</span> <span class="s1">'#5B9BD5'</span>  <span class="c1"># 主藍</span>
+<span class="n">ACCENT5</span>     <span class="o">=</span> <span class="s1">'#4472C4'</span>  <span class="c1"># 深藍</span>
+<span class="n">ACCENT2</span>     <span class="o">=</span> <span class="s1">'#ED7D31'</span>  <span class="c1"># 橘(強調 / CTA)</span>
+<span class="n">ACCENT3</span>     <span class="o">=</span> <span class="s1">'#A5A5A5'</span>  <span class="c1"># 灰</span>
+<span class="n">ACCENT4</span>     <span class="o">=</span> <span class="s1">'#FFC000'</span>  <span class="c1"># 金</span>
+<span class="n">ACCENT6</span>     <span class="o">=</span> <span class="s1">'#70AD47'</span>  <span class="c1"># 綠</span>
+<span class="n">TEXT</span>        <span class="o">=</span> <span class="s1">'#1B2541'</span>  <span class="c1"># 內文深色</span>
+<span class="n">TEXT_LIGHT</span>  <span class="o">=</span> <span class="s1">'#5A6779'</span>  <span class="c1"># 副文字</span>
+<span class="n">BG</span>          <span class="o">=</span> <span class="s1">'#FFFFFF'</span>  <span class="c1"># 白底</span>
+<span class="n">BG_SOFT</span>     <span class="o">=</span> <span class="s1">'#F4F6FA'</span>  <span class="c1"># 卡片背景</span>
+<span class="n">BG_STRIPE</span>   <span class="o">=</span> <span class="s1">'#EAEDF2'</span>  <span class="c1"># 表格條紋</span>
+</code></pre></div>
+<p><span aria-hidden="true">⚠️</span> <strong>舊 navy <code>#003B71</code> + Cabinet Grotesk + Satoshi 已作廢</strong>(2026-05-05)</p>
+<h2 id="cdn">字型(系統字型,不依賴 CDN)</h2>
+<ul>
+<li><strong>英文</strong>:Calibri / Segoe UI fallback</li>
+<li><strong>中文</strong>:微軟正黑體 / 思源宋體 fallback</li>
+</ul>
+<h2 id="html">HTML 簡報必備結構</h2>
+<ol>
+<li><span aria-hidden="true">⭐</span> 套 viewport-base.css(來自 frontend-slides skill,每張 slide 嚴格 <code>100vh</code>)</li>
+<li>CSS 用 <code>clamp()</code> 做尺寸,<strong>絕對不寫 fixed px</strong>(否則小螢幕破版)</li>
+<li>動畫用 <code>@keyframes revealIn</code> + <code>animation: ... both</code>
+   - <strong>不要</strong>用 <code>.reveal { opacity: 0 }</code> + transition + IntersectionObserver(會卡在 0 不顯示)
+   - 直接用 keyframe 載入即播</li>
+<li><strong>Slide types</strong>:<code>cover</code> / <code>section-divider</code> / <code>inner</code> / <code>end-slide</code></li>
+<li><strong>JS controller</strong>:<code>SlidePresentation</code> 類處理鍵盤 / 觸控 / progress bar / nav dots</li>
+</ol>
+<h2 id="_1-2">已踩過的坑</h2>
+<ul>
+<li><span aria-hidden="true">⚠️</span> <strong>navigate tool 對 <code>file://</code> URL 會失敗</strong>(自動加 https://)
+  → 用本機 HTTP server:<code>python -m http.server 8766</code>(在 presentations/ 或 websiteview/)</li>
+<li><span aria-hidden="true">⚠️</span> PowerPoint COM 自動化用 win32com:<code>pip install pywin32</code>,需要 Windows + 已裝 PowerPoint</li>
+<li><span aria-hidden="true">⚠️</span> LibreOffice / pdftoppm 沒裝 → 用 PowerPoint COM 替代(已寫好 export_pngs.py / export_pdf.py)</li>
+<li><span aria-hidden="true">⚠️</span> pdftoppm 沒裝:Read tool 讀 PDF 會失敗。改用 PyMuPDF(<code>pip install pymupdf</code>)抽文字</li>
+<li><span aria-hidden="true">⚠️</span> JS console.log 在 Chrome MCP 會被擋(<code>[BLOCKED]</code>)— 改用回傳值的方式 debug</li>
+</ul>
+<h2 id="build-script_1">已存在 build script(可拷貝改)</h2>
+<table>
+<thead>
+<tr>
+<th>檔案</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>../../presentations/build_html_replica.py</code> <span aria-hidden="true">⭐</span></td>
+<td>55 頁 PDF 複刻 HTML 生成器</td>
+</tr>
+<tr>
+<td><code>../../presentations/build_briefing_html.py</code> <span aria-hidden="true">⭐</span></td>
+<td>25 頁客戶簡報 HTML 生成器</td>
+</tr>
+<tr>
+<td><code>../../presentations/build_replica_pptx.py</code></td>
+<td>55 頁 .pptx 生成器</td>
+</tr>
+<tr>
+<td><code>../../presentations/export_pngs.py</code></td>
+<td>PowerPoint COM .pptx → PNG</td>
+</tr>
+<tr>
+<td><code>../../presentations/export_pdf.py</code></td>
+<td>PowerPoint COM .pptx → PDF</td>
+</tr>
+</tbody>
+</table>
+<p><span aria-hidden="true">⚠️</span> 既有 build script <strong>沒套 MDT 2026 模板</strong>(用空白 Presentation 從零畫的)。下次重做要遷移到模板基底:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pptx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Presentation</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Presentation</span><span class="p">(</span><span class="s1">'MDT_2026_powerpoint_template.pptx'</span><span class="p">)</span>  <span class="c1"># 拿模板當底</span>
+<span class="n">slide</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">slides</span><span class="o">.</span><span class="n">add_slide</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">slide_layouts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Title and Content 01</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'標題'</span>
+<span class="n">slide</span><span class="o">.</span><span class="n">placeholders</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'內文'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'output.pptx'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="sop-2">SOP 步驟</h2>
+<ol>
+<li>拷貝 <code>build_briefing_html.py</code> 為 <code>build_&lt;新主題&gt;_html.py</code></li>
+<li>改 <code>OUT</code> 路徑、<code>&lt;title&gt;</code>、所有 slide content</li>
+<li>改色票:從舊 navy → MDT 2026 accents</li>
+<li>跑 <code>python build_&lt;新主題&gt;_html.py</code></li>
+<li>開 <code>http://localhost:8766/&lt;新主題&gt;.html</code> 驗證</li>
+<li>要 PDF / PNG → 用 frontend-slides skill 的 <code>scripts/export-pdf.sh</code>(在 <code>~/.claude/skills/frontend-slides/scripts/</code>)</li>
+<li>要部署到雲端 → <code>scripts/deploy.sh</code>(Vercel)</li>
+</ol>
+<h2 id="html-mdt-2026">既有 HTML 簡報(已統一到 MDT 2026)</h2>
+<p>集中於 <a href="../websiteview/"><code>../../websiteview/</code></a>,共用 <code>css/shared.css</code>:</p>
+<ul>
+<li><code>../../websiteview/portal-briefing.html</code>(中文 25 張)</li>
+<li><code>../../websiteview/portal-architecture.html</code>(英文 55 張)</li>
+<li><code>../../websiteview/case-hub.html</code>(3-tab dashboard)</li>
+<li><code>../../websiteview/knowledge.html</code>(由 <code>knowledge/_build_index.py</code> 產生)</li>
+<li><code>../../websiteview/index.html</code> landing 頁</li>
+</ul>
+<p>→ 改配色 / 字型只動 <code>websiteview/css/shared.css</code>,4 個 HTML 同步生效。</p>
+</section>
+<hr/>
+
+  </div>
+</main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
+</body>
+</html>

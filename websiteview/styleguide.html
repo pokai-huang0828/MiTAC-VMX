@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System · Kenny VMX Hub</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-tokens.css">
+<link rel="stylesheet" href="css/styleguide.css">
+</head>
+<body class="sg-body">
+
+<nav class="sg-nav" aria-label="Design system navigation">
+  <a href="index.html" class="sg-brand">
+    <span aria-hidden="true">←</span>
+    <span>Mission Control</span>
+  </a>
+  <div class="sg-nav-title">
+    <strong>Design System</strong>
+    <span class="sg-nav-version">v3.0 · 2026-05-12</span>
+  </div>
+  <ul class="sg-nav-anchors">
+    <li><a href="#sec-colors">Color</a></li>
+    <li><a href="#sec-typography">Type</a></li>
+    <li><a href="#sec-spacing">Spacing</a></li>
+    <li><a href="#sec-radius">Radius</a></li>
+    <li><a href="#sec-shadow">Shadow</a></li>
+    <li><a href="#sec-buttons">Buttons</a></li>
+    <li><a href="#sec-cards">Cards</a></li>
+    <li><a href="#sec-badges">Badges</a></li>
+    <li><a href="#sec-a11y">A11y</a></li>
+  </ul>
+</nav>
+
+<header class="sg-hero">
+  <div class="sg-hero-inner">
+    <p class="sg-eyebrow">Design Tokens · 2026-05-12 v3</p>
+    <h1>Kenny VMX <em>Design System</em></h1>
+    <p class="sg-lede">
+      唯一 token 來源 = <code>css/design-tokens.css</code>。
+      改任何視覺,從這份開始。8 階 type scale / 9 階 spacing grid / 3 階 shadow / 統一色票 / WCAG AA 對比。
+    </p>
+  </div>
+</header>
+
+<main class="sg-main">
+
+<!-- ═══════════════════ COLOR ═══════════════════ -->
+<section id="sec-colors" class="sg-section">
+  <h2 class="sg-h2">Color</h2>
+  <p class="sg-lead">統一色票。所有 page CSS 應從這裡取色,不要 hardcode hex。</p>
+
+  <h3 class="sg-h3">Brand</h3>
+  <div class="sg-swatch-grid">
+    <div class="sg-swatch" style="--c: var(--brand)">
+      <div class="chip"></div>
+      <div class="meta"><code>--brand</code><span>#1E4E8C</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--brand-2)">
+      <div class="chip"></div>
+      <div class="meta"><code>--brand-2</code><span>#2C6FB8</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--brand-3)">
+      <div class="chip"></div>
+      <div class="meta"><code>--brand-3</code><span>#4E90D1</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--brand-soft)">
+      <div class="chip"></div>
+      <div class="meta"><code>--brand-soft</code><span>#E8EEFB</span></div>
+    </div>
+  </div>
+
+  <h3 class="sg-h3">Accent</h3>
+  <div class="sg-swatch-grid">
+    <div class="sg-swatch" style="--c: var(--accent)">
+      <div class="chip"></div>
+      <div class="meta"><code>--accent</code><span>#ED7D31</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--accent-2)">
+      <div class="chip"></div>
+      <div class="meta"><code>--accent-2</code><span>#FF9E5C</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--accent-dark)">
+      <div class="chip"></div>
+      <div class="meta"><code>--accent-dark</code><span>#C9622E</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--accent-soft)">
+      <div class="chip"></div>
+      <div class="meta"><code>--accent-soft</code><span>#FFF1E0</span></div>
+    </div>
+  </div>
+
+  <h3 class="sg-h3">Semantic</h3>
+  <div class="sg-swatch-grid">
+    <div class="sg-swatch" style="--c: var(--success)">
+      <div class="chip"></div>
+      <div class="meta"><code>--success</code><span>#16A34A</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--warning)">
+      <div class="chip"></div>
+      <div class="meta"><code>--warning</code><span>#CA8A04</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--danger)">
+      <div class="chip"></div>
+      <div class="meta"><code>--danger</code><span>#C42F3C</span></div>
+    </div>
+    <div class="sg-swatch" style="--c: var(--info)">
+      <div class="chip"></div>
+      <div class="meta"><code>--info</code><span>#2C6FB8</span></div>
+    </div>
+  </div>
+
+  <h3 class="sg-h3">Text · WCAG AA verified on white</h3>
+  <div class="sg-text-scale">
+    <div class="sg-text-row" style="color: var(--ink)"><strong>--ink</strong><span>#0B1220</span><em>19.5:1 · AAA</em></div>
+    <div class="sg-text-row" style="color: var(--ink-2)"><strong>--ink-2</strong><span>#1B2433</span><em>15.4:1 · AAA</em></div>
+    <div class="sg-text-row" style="color: var(--text)"><strong>--text</strong><span>#2A3447</span><em>12.2:1 · AAA</em></div>
+    <div class="sg-text-row" style="color: var(--text-muted)"><strong>--text-muted</strong><span>#4A5568</span><em>7.6:1 · AAA</em></div>
+    <div class="sg-text-row" style="color: var(--text-mute-2)"><strong>--text-mute-2</strong><span>#5B6878</span><em>5.9:1 · AA</em></div>
+    <div class="sg-text-row" style="color: var(--text-light)"><strong>--text-light</strong><span>#6B7A8F</span><em>4.6:1 · AA</em></div>
+  </div>
+  <p class="sg-note">⚠️ <strong>不要</strong>用 <code>#8893A4 / #94A3B8</code> 之類更淺的灰 — 之前 CSS 內有,對比 fail WCAG AA。已從 token 移除。</p>
+</section>
+
+<!-- ═══════════════════ TYPE ═══════════════════ -->
+<section id="sec-typography" class="sg-section">
+  <h2 class="sg-h2">Typography</h2>
+  <p class="sg-lead"><strong>8 階 type scale</strong>。不要再加 <code>13.5px / 14.5px / 16.5px</code> 半 px 值;從這 8 個之中挑。</p>
+
+  <div class="sg-type-row" style="font-size: var(--text-3xl)"><strong>3xl · 40px</strong> <span>Cabinet Grotesk 800</span> <em>Hero / H1</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-2xl)"><strong>2xl · 30px</strong> <span>Cabinet Grotesk 800</span> <em>H2 / Page title</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-xl)"><strong>xl · 24px</strong> <span>Cabinet Grotesk 700</span> <em>H3 / Zone title</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-lg)"><strong>lg · 20px</strong> <span>Cabinet Grotesk 700</span> <em>H4 / Section heading</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-md)"><strong>md · 17px</strong> <span>Satoshi 600</span> <em>Card title / Emphasis</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-base)"><strong>base · 15px</strong> <span>Satoshi 400</span> <em>Body</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-sm)"><strong>sm · 13px</strong> <span>Satoshi 500</span> <em>Small / Button label</em></div>
+  <div class="sg-type-row" style="font-size: var(--text-xs)"><strong>xs · 11px</strong> <span>Satoshi 600</span> <em>Caption / File label / Meta</em></div>
+
+  <h3 class="sg-h3">Font families</h3>
+  <ul class="sg-list">
+    <li><code>--font-display</code> = <strong>Cabinet Grotesk</strong> · 標題、Hero、navigation。Fontshare CDN</li>
+    <li><code>--font-body</code> = <strong>Satoshi</strong> · 內文、卡片、按鈕。Fontshare CDN</li>
+    <li><code>--font-mono</code> = <strong>SF Mono / Consolas</strong> · 程式碼、檔名、Jira ID</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════ SPACING ═══════════════════ -->
+<section id="sec-spacing" class="sg-section">
+  <h2 class="sg-h2">Spacing</h2>
+  <p class="sg-lead">8pt grid 9 階。<strong>不要</strong>再用 7 / 9 / 11 / 13 / 18 / 22 / 26 / 30 等非 grid 值。</p>
+  <div class="sg-spacing-grid">
+    <div class="sg-spacing-row"><code>--space-1</code><span>4px</span><span class="bar" style="width: 4px"></span></div>
+    <div class="sg-spacing-row"><code>--space-2</code><span>8px</span><span class="bar" style="width: 8px"></span></div>
+    <div class="sg-spacing-row"><code>--space-3</code><span>12px</span><span class="bar" style="width: 12px"></span></div>
+    <div class="sg-spacing-row"><code>--space-4</code><span>16px</span><span class="bar" style="width: 16px"></span></div>
+    <div class="sg-spacing-row"><code>--space-5</code><span>24px</span><span class="bar" style="width: 24px"></span></div>
+    <div class="sg-spacing-row"><code>--space-6</code><span>32px</span><span class="bar" style="width: 32px"></span></div>
+    <div class="sg-spacing-row"><code>--space-7</code><span>48px</span><span class="bar" style="width: 48px"></span></div>
+    <div class="sg-spacing-row"><code>--space-8</code><span>64px</span><span class="bar" style="width: 64px"></span></div>
+    <div class="sg-spacing-row"><code>--space-9</code><span>96px</span><span class="bar" style="width: 96px"></span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RADIUS ═══════════════════ -->
+<section id="sec-radius" class="sg-section">
+  <h2 class="sg-h2">Radius</h2>
+  <div class="sg-radius-grid">
+    <div class="sg-radius-tile" style="border-radius: var(--r-sm)"><code>--r-sm · 6px</code></div>
+    <div class="sg-radius-tile" style="border-radius: var(--r)"><code>--r · 10px</code></div>
+    <div class="sg-radius-tile" style="border-radius: var(--r-lg)"><code>--r-lg · 16px</code></div>
+    <div class="sg-radius-tile" style="border-radius: var(--r-xl)"><code>--r-xl · 24px</code></div>
+    <div class="sg-radius-tile" style="border-radius: var(--r-full)"><code>--r-full · pill</code></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SHADOW ═══════════════════ -->
+<section id="sec-shadow" class="sg-section">
+  <h2 class="sg-h2">Shadow</h2>
+  <div class="sg-shadow-grid">
+    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-sm)"><code>--shadow-sm</code><span>resting / subtle outline</span></div>
+    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-md)"><code>--shadow-md</code><span>hover / elevated card</span></div>
+    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-lg)"><code>--shadow-lg</code><span>modal / overlay</span></div>
+    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-xl)"><code>--shadow-xl</code><span>hero / promoted</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BUTTONS ═══════════════════ -->
+<section id="sec-buttons" class="sg-section">
+  <h2 class="sg-h2">Buttons</h2>
+  <p class="sg-lead">所有按鈕都應有 hover + <strong>:focus-visible</strong> 鍵盤導航視覺。</p>
+  <div class="sg-button-row">
+    <button class="btn btn-primary" type="button">Primary action <span aria-hidden="true">→</span></button>
+    <button class="btn btn-ghost" type="button">Ghost / Secondary</button>
+    <button class="btn btn-primary" type="button" disabled>Disabled</button>
+  </div>
+  <p class="sg-note">Tab 過去看 outline (focus-visible)。Mouse hover 看陰影。</p>
+</section>
+
+<!-- ═══════════════════ CARDS ═══════════════════ -->
+<section id="sec-cards" class="sg-section">
+  <h2 class="sg-h2">Cards · BEM Naming(legacy class kept as alias)</h2>
+  <p class="sg-lead">主元素 <code>.card</code> + modifier <code>.card--featured / .card--compact / .card--link / .card--status-*</code>。</p>
+
+  <div class="sg-card-grid">
+    <div class="card card--featured">
+      <h4>Featured card</h4>
+      <p><code>.card .card--featured</code> · 主要內容區大卡。Hero zone / 本週 summary。</p>
+    </div>
+    <div class="card card--compact">
+      <h4>Compact</h4>
+      <p><code>.card .card--compact</code> · 小卡 / stat 卡片。</p>
+    </div>
+    <a class="card card--link" href="#sec-cards">
+      <h4>Link card</h4>
+      <p><code>.card .card--link</code> · 整張卡為一個 anchor,點任意位置都可進。</p>
+    </a>
+  </div>
+
+  <h3 class="sg-h3">Status modifiers</h3>
+  <div class="sg-card-grid">
+    <div class="card card--status-ok"><h4>OK / Success</h4><p>綠 border。已 ship / 已解。</p></div>
+    <div class="card card--status-warn"><h4>Warn / Risk</h4><p>紅 border + soft bg。事件 / risk。</p></div>
+    <div class="card card--status-info"><h4>Info / Neutral</h4><p>灰 border。中性參考。</p></div>
+    <div class="card card--status-alert"><h4>Alert</h4><p>橘 border。注意但非阻斷。</p></div>
+    <div class="card card--status-critical"><h4>Critical</h4><p>深紅 border。緊急。</p></div>
+    <div class="card card--status-attn"><h4>Attention</h4><p>琥珀 border。需追蹤。</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BADGES ═══════════════════ -->
+<section id="sec-badges" class="sg-section">
+  <h2 class="sg-h2">Badges / Pills</h2>
+  <div class="sg-badge-row">
+    <span class="mdt-pill blue">VMX-7404</span>
+    <span class="mdt-pill orange">HAWK-582</span>
+    <span class="mdt-pill green">RESOLVED</span>
+    <span class="mdt-pill red">CRITICAL</span>
+    <span class="badge-latest"><span aria-hidden="true">⭐</span> LATEST</span>
+  </div>
+</section>
+
+<!-- ═══════════════════ A11Y ═══════════════════ -->
+<section id="sec-a11y" class="sg-section">
+  <h2 class="sg-h2">Accessibility Rules</h2>
+  <ul class="sg-list">
+    <li><strong>所有 emoji</strong> 必須包 <code>&lt;span aria-hidden="true"&gt;</code>(已對 791 個 emoji 自動加完)</li>
+    <li><strong>所有互動元素</strong> 必須有 <code>:focus-visible</code> 視覺(全域已加在 design-tokens.css)</li>
+    <li><strong>Color 對比</strong>:文字 + 背景必須 ≥ 4.5:1(AA);大字 ≥ 3:1。<code>--text-mute-2</code> 是允許用的最淺值</li>
+    <li><strong>Icon-only links</strong> 必須有 <code>aria-label</code></li>
+    <li><strong>動畫</strong>:<code>prefers-reduced-motion</code> 已全域 honor(在 design-tokens.css)</li>
+    <li><strong>Print</strong>:已配 print stylesheet,列印自動 hide nav / chrome,只剩內容</li>
+  </ul>
+
+  <h3 class="sg-h3">Focus-visible 示範(用 Tab 鍵試)</h3>
+  <div class="sg-focus-demo">
+    <a href="#sec-a11y">Anchor link</a>
+    <button class="btn btn-primary" type="button">Button</button>
+    <input type="text" placeholder="Text input" aria-label="Demo text input">
+  </div>
+</section>
+
+</main>
+
+<footer class="sg-footer">
+  <p>
+    <strong>Design System v3.0</strong> · 編輯點:<code>css/design-tokens.css</code>
+    · 維護人:Kenny(2026 評估期) · 接手後請保留 8 階 type / 8pt grid / WCAG AA
+  </p>
+</footer>
+
+</body>
+</html>

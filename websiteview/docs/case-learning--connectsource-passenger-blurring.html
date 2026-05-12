@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>事件記錄：CONNECTSOURCE × Passenger Blurring 需求 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -12,8 +13,8 @@
 <body>
 <header class="doc-standalone-topbar">
   <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
-  <span class="heading">🌏 案件學習 · ConnectSource Passenger Blurring</span>
-  <span class="filename">connectsource-passenger-blurring.md</span>
+  <span class="heading"><span aria-hidden="true">🌏</span> 案件學習 · ConnectSource Passenger Blurring</span>
+  <span class="filename"><code>connectsource-passenger-blurring.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:—</div>
 <main class="doc-standalone">
@@ -140,10 +141,12 @@
 <h3 id="20260507-cary-session">2026/05/07 — Cary 加碼兩個技術可行性問題 + 客戶 session 請求</h3>
 <p><strong>Cary 5/7 11:22 信件</strong>（收件人：Brian、Wendy、Pokai；副本：Elvis Tran、Spencer Su）：</p>
 <blockquote>
-<p>Can I confirm that the below is achievable, given BMS implementation.
-- Blurring to be applied to passengers only with the driver's face as is.
-- Blurring to be applied to a certain Fleet or Contract Fleet?
-Is it possible to have a customer session on teams on this topic?</p>
+<p>Can I confirm that the below is achievable, given BMS implementation.</p>
+<ul class="smushed-fix">
+  <li>Blurring to be applied to passengers only with the driver's face as is.</li>
+  <li>Blurring to be applied to a certain Fleet or Contract Fleet?
+Is it possible to have a customer session on teams on this topic?</li>
+</ul>
 </blockquote>
 <p><strong>內部對照（Pokai 分析，完整版於 plan 檔）</strong>：</p>
 <ul>
@@ -160,10 +163,12 @@ Is it possible to have a customer session on teams on this topic?</p>
 <strong>Q3</strong>：先內部 sync 對齊再排客戶 Teams call</p>
 <p>收件人：Cary、Brian、Wendy；副本：Elvis Tran、Spencer Su</p>
 <p>實際寄出版本與後續追蹤：<code>knowledge/06_calibration-log/cary-passenger-blurring-reply-draft-2026-05-07.md</code></p>
-<p><strong>已知風險點（待 Cary 回覆後處理）</strong>：
-- Q1 camera scope 簡化成只問 DMS，沒對比 ADAS → 需追問
-- Q2 確認題拿掉留「Once confirmed」帶過 → 需追問是否真的要 Master Portal 集中
-- 寄出前未先 DM Brian preview → 看 Brian 後續是否有調整意見</p>
+<p><strong>已知風險點（待 Cary 回覆後處理）</strong>：</p>
+<ul class="smushed-fix">
+  <li>Q1 camera scope 簡化成只問 DMS，沒對比 ADAS → 需追問</li>
+  <li>Q2 確認題拿掉留「Once confirmed」帶過 → 需追問是否真的要 Master Portal 集中</li>
+  <li>寄出前未先 DM Brian preview → 看 Brian 後續是否有調整意見</li>
+</ul>
 <hr />
 <h2 id="5">5. 衝突核心分析</h2>
 <h3 id="51-vs">5.1 業務端 vs 產品端的期望落差</h3>
@@ -252,10 +257,12 @@ Is it possible to have a customer session on teams on this topic?</p>
 </blockquote>
 <p>這句話的關鍵不在日期，而在「任何變動我會提前通知」——這才是 Wendy 真正需要的承諾。</p>
 <h3 id="_2">中期（流程改善）</h3>
-<p>建立 <strong>VisionMax Roadmap Sync</strong> 定期會議（每季一次），澳洲、台灣業務端與產品端共同參與，輸出一頁簡報說明：
-- 已上線功能
-- 進行中的功能（含預計里程碑）
-- 規劃中但未承諾的功能</p>
+<p>建立 <strong>VisionMax Roadmap Sync</strong> 定期會議（每季一次），澳洲、台灣業務端與產品端共同參與，輸出一頁簡報說明：</p>
+<ul class="smushed-fix">
+  <li>已上線功能</li>
+  <li>進行中的功能（含預計里程碑）</li>
+  <li>規劃中但未承諾的功能</li>
+</ul>
 <h3 id="_3">長期（定價結構）</h3>
 <p>若 Passenger Blurring 成為標準功能，需在 CONNECTSOURCE 的定價模型中明確將 AWS 成本納入，避免每次都需要個案討論。</p>
 <hr />
@@ -270,12 +277,14 @@ Is it possible to have a customer session on teams on this topic?</p>
 <li>redocly v2026-Q1 公開 API doc 沒露出 blurring endpoint(對外保留)</li>
 <li>但 BMS 客戶實際使用的內部 API 確實有 driver/passenger 獨立 blur control</li>
 <li>5/7 對 Cary / Wendy 講「現有 API 已支援」是有依據的(內部 BMS API)</li>
-<li>對應 HAWK-527 description 中 driver_blurry / passenger_blurry 分開 flag 的觀察 ✓</li>
+<li>對應 HAWK-527 description 中 driver_blurry / passenger_blurry 分開 flag 的觀察 <span aria-hidden="true">✓</span></li>
 </ul>
-<p><strong>對外口徑邊界</strong>:
-- ✓ 「能力存在」可以講
-- ❌ 「公開可用」不能講 — 要 modifications + Q2 2026 update + 7 月 ship 給 CONNECTSOURCE
-- 對齊 Brian 5/4 給 Wendy 的 commitment</p>
+<p><strong>對外口徑邊界</strong>:</p>
+<ul class="smushed-fix">
+  <li><span aria-hidden="true">✓</span> 「能力存在」可以講</li>
+  <li><span aria-hidden="true">❌</span> 「公開可用」不能講 — 要 modifications + Q2 2026 update + 7 月 ship 給 CONNECTSOURCE</li>
+  <li>對齊 Brian 5/4 給 Wendy 的 commitment</li>
+</ul>
 <h3 id="q2master-portal-management-fleets-select-fleet-fleet-detail-configurations-new-blurring">Q2「Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring」路徑</h3>
 <p><strong>真實依據:Brian / Spencer 內部已確認此路徑可實作</strong>。</p>
 <ul>
@@ -294,22 +303,24 @@ Is it possible to have a customer session on teams on this topic?</p>
 <tbody>
 <tr>
 <td>Q1 對外升級成「現有已支援」沒依據</td>
-<td>🟢 解除(BMS 內部 API 真的有)</td>
+<td><span aria-hidden="true">🟢</span> 解除(BMS 內部 API 真的有)</td>
 </tr>
 <tr>
 <td>Q2 portal path 自推沒驗證</td>
-<td>🟢 解除(Brian/Spencer 已確認)</td>
+<td><span aria-hidden="true">🟢</span> 解除(Brian/Spencer 已確認)</td>
 </tr>
 <tr>
 <td>是否要主動補正 thread</td>
-<td>❌ 不需要 — 兩答覆都成立</td>
+<td><span aria-hidden="true">❌</span> 不需要 — 兩答覆都成立</td>
 </tr>
 </tbody>
 </table>
 <h3 id="_5">等客戶下一步</h3>
-<p>等 Cary / Wendy 回覆 Q1 的兩個釐清:
-1. <strong>Camera scope</strong>:DMS (Driver facing) only?
-2. <strong>Trigger model</strong>:automatic blurring on every uploaded event,or on-demand only when they request a specific event clip?</p>
+<p>等 Cary / Wendy 回覆 Q1 的兩個釐清:</p>
+<ol class="smushed-fix">
+  <li><strong>Camera scope</strong>:DMS (Driver facing) only?</li>
+  <li><strong>Trigger model</strong>:automatic blurring on every uploaded event,or on-demand only when they request a specific event clip?</li>
+</ol>
 <p>收到後球轉給 Brian / Spencer 排 dev scope。</p>
 <p><em>Last updated: 2026-05-08 — Q1 BMS API back-up + Q2 portal path 由 Brian/Spencer 確認。風險解除,thread 不需主動補正。</em></p>
 <hr />
@@ -317,16 +328,18 @@ Is it possible to have a customer session on teams on this topic?</p>
 <h3 id="_6">起源</h3>
 <p>Kenny 5/7 14:41 回信 thread 後,客戶端有疑問。Kenny <strong>主動 reach out</strong> 開 Teams call 釐清(= 5/7 信中承諾的 Q3 Teams session 實際發生)。</p>
 <h3 id="_7">重大發現</h3>
-<h4 id="q2-portal-path-elvis">🚨 Q2 Portal path 不夠精細 — Elvis 現場糾正</h4>
+<h4 id="q2-portal-path-elvis"><span aria-hidden="true">🚨</span> Q2 Portal path 不夠精細 — Elvis 現場糾正</h4>
 <p>Kenny 5/7 信寫的:</p>
 <blockquote>
 <p>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</p>
 </blockquote>
-<p>Elvis 在會議中用螢幕分享確認:
-- 那條 Master Portal 路徑<strong>只能控制整個 main fleet 級</strong>
-- 一動 = 影響 main fleet + 所有 contract fleet 一起,<strong>沒粒度</strong>
-- 客戶結構:Australia 1 fleet + 各 reseller 客戶當 contract fleets,<strong>必須能 pinpoint 特定 contract fleet</strong>
-- Fleet Portal 已有 per-contract-fleet config 的能力(以 <strong>Live User</strong> 為例),Blurring 應沿用同 pattern</p>
+<p>Elvis 在會議中用螢幕分享確認:</p>
+<ul class="smushed-fix">
+  <li>那條 Master Portal 路徑<strong>只能控制整個 main fleet 級</strong></li>
+  <li>一動 = 影響 main fleet + 所有 contract fleet 一起,<strong>沒粒度</strong></li>
+  <li>客戶結構:Australia 1 fleet + 各 reseller 客戶當 contract fleets,<strong>必須能 pinpoint 特定 contract fleet</strong></li>
+  <li>Fleet Portal 已有 per-contract-fleet config 的能力(以 <strong>Live User</strong> 為例),Blurring 應沿用同 pattern</li>
+</ul>
 <p>→ 5/7 信中對外承諾的 portal path <strong>不滿足客戶實際需求</strong>,要校正。</p>
 <h4 id="_8">兩條未來實作路徑</h4>
 <table>
@@ -341,7 +354,7 @@ Is it possible to have a customer session on teams on this topic?</p>
 <tr>
 <td><strong>(A)</strong> Master Portal 補 contract fleet 視圖</td>
 <td>dealer/MAU 中央管控所有 contract fleet</td>
-<td>⚠️ Cary 警告隱私問題 — contract fleet 不見得想讓上層看到</td>
+<td><span aria-hidden="true">⚠️</span> Cary 警告隱私問題 — contract fleet 不見得想讓上層看到</td>
 </tr>
 <tr>
 <td><strong>(B)</strong> Fleet Portal 加 Blurring config UI 在 per-contract-fleet 層級</td>
@@ -364,14 +377,14 @@ Is it possible to have a customer session on teams on this topic?</p>
 <h3 id="action-items">Action Items(從會議掉出來)</h3>
 <h4 id="p024h-511">P0(24h 內)→ 5/11 早上實況</h4>
 <ul>
-<li>[x] <strong>回 thread 校正 Q2 portal path</strong> — ✅ 5/11 早上 Kenny 經 Spencer alignment 後在 Teams 提 Option A/B 兩個 model</li>
-<li>[x] 跟 Spencer 確認 Blurring API doc 能否 share — 🟡 Spencer aligned,<strong>仍等 Brian sign-off</strong></li>
-<li>[x] 跟 Brian + Spencer 對齊 (A)/(B) 走哪條路 — ✅ Spencer 端 OK · ⏳ 等 Brian QPR 後拍板</li>
+<li>[x] <strong>回 thread 校正 Q2 portal path</strong> — <span aria-hidden="true">✅</span> 5/11 早上 Kenny 經 Spencer alignment 後在 Teams 提 Option A/B 兩個 model</li>
+<li>[x] 跟 Spencer 確認 Blurring API doc 能否 share — <span aria-hidden="true">🟡</span> Spencer aligned,<strong>仍等 Brian sign-off</strong></li>
+<li>[x] 跟 Brian + Spencer 對齊 (A)/(B) 走哪條路 — <span aria-hidden="true">✅</span> Spencer 端 OK · ⏳ 等 Brian QPR 後拍板</li>
 </ul>
 <hr />
 <h2 id="6-2026-05-11-teams-thread-cary-option-b">6. 2026-05-11 早上 · Teams thread + Cary 拍板 Option B</h2>
 <blockquote>
-<p>詳見:<a href="meetings--2026-05-11_morning_cary-elvis-teams-thread.html"><code>meetings/2026-05-11_morning_cary-elvis-teams-thread.md</code></a></p>
+<p>詳見:<a href="meetings--cary-elvis-blurring-timeline.html"><code>meetings/2026-05-11_morning_cary-elvis-teams-thread.md</code></a></p>
 </blockquote>
 <h3 id="61-spencer-model-58-ab">6.1 Spencer 重新框架的兩個 model(等於 5/8 (A)/(B) 順序對調)</h3>
 <table>
@@ -386,12 +399,12 @@ Is it possible to have a customer session on teams on this topic?</p>
 <tr>
 <td>Option A — Two-tier delegated control(Master 持 entitlement,delegate 給 Fleet)</td>
 <td>≈ 5/8 sync 的 <strong>(B)</strong> Fleet Portal UI</td>
-<td>❌ 未選</td>
+<td><span aria-hidden="true">❌</span> 未選</td>
 </tr>
 <tr>
 <td><strong>Option B — Centralised control at Master</strong>(Master 直接控所有 Blurring permission 含 Contract Fleet 層級)</td>
 <td>≈ 5/8 sync 的 <strong>(A)</strong> Master Portal 補視圖</td>
-<td>✅ <strong>Cary 拍板</strong></td>
+<td><span aria-hidden="true">✅</span> <strong>Cary 拍板</strong></td>
 </tr>
 </tbody>
 </table>
@@ -430,19 +443,19 @@ Is it possible to have a customer session on teams on this topic?</p>
 </ul>
 <hr />
 <h2 id="7-action-items2026-05-11-morning">7. 更新後的 Action Items(2026-05-11 morning 之後)</h2>
-<h4 id="p0">🔥 P0(今天剩下時間)</h4>
+<h4 id="p0"><span aria-hidden="true">🔥</span> P0(今天剩下時間)</h4>
 <ul>
 <li>[ ] <strong>2pm Q1 API sync 跟 Elvis(可能 Cary)</strong> — 同 Teams group</li>
 <li>[ ] Brian QPR 結束後 confirm:API doc share / Option B 拍板 / Endpoint open 時程</li>
 <li>[ ] 寫正式 email reply,把 Spencer preliminary + Brian 最終 position 一起發</li>
 </ul>
-<h4 id="p1">📅 P1(本週)</h4>
+<h4 id="p1"><span aria-hidden="true">📅</span> P1(本週)</h4>
 <ul>
 <li>[ ] 跟 Spencer 細談 monthly subscription report 加 Blurring 欄位的可行性</li>
 <li>[ ] Critical Facts log 加 Option B 拍板紀錄 + endpoint 未 open 限制</li>
 <li>[ ] 把 5/11 morning thread 同步給 Wendy(她不在這個 Teams group)</li>
 </ul>
-<h4 id="p2-sync">🎯 P2(下個 sync 前)</h4>
+<h4 id="p2-sync"><span aria-hidden="true">🎯</span> P2(下個 sync 前)</h4>
 <ul>
 <li>[ ] Monthly subscription report 加 Blurring 欄位若進 sprint,排優先級</li>
 <li>[ ] Endpoint open 條件「internal validation」具體 criteria + 預估完成日</li>
@@ -451,7 +464,7 @@ Is it possible to have a customer session on teams on this topic?</p>
 <hr />
 <h2 id="8-2026-05-11-1400-cary-elvis-brian-sync-q2-scope">8. 2026-05-11 下午 14:00 · Cary / Elvis / Brian sync · Q2 scope 拍板</h2>
 <blockquote>
-<p>詳見:<a href="meetings--2026-05-11_afternoon_cary-elvis-sync.html"><code>meetings/2026-05-11_afternoon_cary-elvis-sync.md</code></a></p>
+<p>詳見:<a href="meetings--cary-elvis-blurring-timeline.html"><code>meetings/2026-05-11_afternoon_cary-elvis-sync.md</code></a></p>
 </blockquote>
 <h3 id="81-q2-scope-brian-take-over">8.1 Q2 Scope 最終拍板(Brian take over 釐清)</h3>
 <table>
@@ -600,36 +613,36 @@ Is it possible to have a customer session on teams on this topic?</p>
 <tbody>
 <tr>
 <td>① 確認 Option B(per-fleet billing 控制)</td>
-<td>✅ 走 API · per-fleet/contract-fleet 在 API 層自然支援</td>
+<td><span aria-hidden="true">✅</span> 走 API · per-fleet/contract-fleet 在 API 層自然支援</td>
 </tr>
 <tr>
 <td>② Monthly subscription report 加啟用裝置數</td>
-<td>🕐 開 Ticket #4 · post-Q2 future planning · 不能消失</td>
+<td><span aria-hidden="true">🕐</span> 開 Ticket #4 · post-Q2 future planning · 不能消失</td>
 </tr>
 <tr>
 <td>③ 2pm Q1 API sync</td>
-<td>✅ 已開 · Q2 scope 鎖定</td>
+<td><span aria-hidden="true">✅</span> 已開 · Q2 scope 鎖定</td>
 </tr>
 <tr>
 <td>(Elvis 加碼)未來 deployment 前 notify · Q2 release notes 提早給</td>
-<td>✅ Kenny commit · end of June 給 release notes</td>
+<td><span aria-hidden="true">✅</span> Kenny commit · end of June 給 release notes</td>
 </tr>
 </tbody>
 </table>
 <h3 id="86-action-items2pm">8.6 Action Items(2pm 結束後)</h3>
-<h4 id="p0_1">🔥 P0 · 今天剩下時間</h4>
+<h4 id="p0_1"><span aria-hidden="true">🔥</span> P0 · 今天剩下時間</h4>
 <ul>
 <li>[ ] <strong>Cary follow-up email</strong>(把今天 dismiss 掉的 monthly report 救回來)· cc Brian / Spencer / Wendy / Elvis</li>
 <li>[ ] Brian / Spencer 1-on-1 ping · review 今天會議的 execution gap</li>
 </ul>
-<h4 id="p1_1">📅 P1 · 本週</h4>
+<h4 id="p1_1"><span aria-hidden="true">📅</span> P1 · 本週</h4>
 <ul>
 <li>[ ] 開 4 張 Jira ticket(§ 8.4)</li>
 <li>[ ] 跟 Spencer 拿 endpoint open production 的 concrete ETA</li>
 <li>[ ] Q1 release notes 對 MAU 客戶部署前先安排(Cary 5/11「don't surprise」訊號)</li>
 <li>[ ] update knowledge(critical-facts / changelog / case-hub.html · 已執行)</li>
 </ul>
-<h4 id="p2-end-of-june">🎯 P2 · End of June 前</h4>
+<h4 id="p2-end-of-june"><span aria-hidden="true">🎯</span> P2 · End of June 前</h4>
 <ul>
 <li>[ ] Q2 release notes summary 給 Cary(對外發給客戶之前)</li>
 <li>[ ] GUI team kick-off(Ticket #3 Auto Sense UI 可行性)</li>
@@ -642,11 +655,13 @@ Is it possible to have a customer session on teams on this topic?</p>
 <hr />
 <h2 id="88-2026-05-11-brian-cary-follow-up-email">§ 8.8 · 2026-05-11 傍晚 · Brian 攔下 Cary follow-up email</h2>
 <h3 id="_9">事件</h3>
-<p>2pm sync 後 Kenny 起草了一封 follow-up email 給 Cary / Elvis(cc Wendy / Brian / Spencer)— 內容包含:
-- Q1 + Q2 兩個原始 5/7 問題的 ✅ Confirmed 答案
-- VMX-7457 / VMX-7458 ticket link
-- 4 條 commitment timeline(doc share 本週 / staging 30/Jun / production end-Jul / Q2 release notes end-Jun)
-- Monthly subscription report 救球段(tracked as post-Q2 future enhancement)</p>
+<p>2pm sync 後 Kenny 起草了一封 follow-up email 給 Cary / Elvis(cc Wendy / Brian / Spencer)— 內容包含:</p>
+<ul class="smushed-fix">
+  <li>Q1 + Q2 兩個原始 5/7 問題的 <span aria-hidden="true">✅</span> Confirmed 答案</li>
+  <li>VMX-7457 / VMX-7458 ticket link</li>
+  <li>4 條 commitment timeline(doc share 本週 / staging 30/Jun / production end-Jul / Q2 release notes end-Jun)</li>
+  <li>Monthly subscription report 救球段(tracked as post-Q2 future enhancement)</li>
+</ul>
 <p><strong>Brian 5/11 傍晚 review 後說「不要發」</strong>,Kenny 接受並暫停。</p>
 <h3 id="brian">推測 Brian 攔下的可能原因</h3>
 <table>
@@ -675,9 +690,11 @@ Is it possible to have a customer session on teams on this topic?</p>
 <h3 id="kenny">Kenny 後續動作</h3>
 <ol>
 <li>
-<p><strong>Teams 短訊 ping Brian</strong>(已執行 / 待執行):
-   - Q1: Brian 自己發,還是這 thread 先 hold?
-   - Q2: 若 hold,什麼 trigger 後再 communicate(doc sign-off / staging deploy / other)?</p>
+<p><strong>Teams 短訊 ping Brian</strong>(已執行 / 待執行):</p>
+<ul class="smushed-fix">
+  <li>Q1: Brian 自己發,還是這 thread 先 hold?</li>
+  <li>Q2: 若 hold,什麼 trigger 後再 communicate(doc sign-off / staging deploy / other)?</li>
+</ul>
 </li>
 <li>
 <p><strong>準備好「Cary / Wendy chase」的口頭答覆模板</strong>(沒書面 trail 不代表 Kenny 沒記住結論)</p>
@@ -687,13 +704,15 @@ Is it possible to have a customer session on teams on this topic?</p>
 </li>
 </ol>
 <h3 id="email-draft-record">Email draft 存底(沒發但留 record)</h3>
-<p>完整 draft(中英對照)備份在 <code>weekly-summary/2026-05-11_blurring-followup-email-draft.md</code>(若未來 Brian 授權發,直接拿)。Email 涵蓋:
-- Subject: "Confirmed · Passenger Blurring Q1 + Q2 — Implementation Summary"
-- Q1 ✅ Confirmed feasible(driver/passenger 區分 BMS API 已支援)
-- Q2 ✅ Confirmed feasible at API level(三層 inheritance + override)
-- Jira tickets VMX-7457 / VMX-7458
-- 4 條 commitment timeline
-- Monthly report future enhancement 救球段</p>
+<p>完整 draft(中英對照)備份在 <code>weekly-summary/2026-05-11_blurring-followup-email-draft.md</code>(若未來 Brian 授權發,直接拿)。Email 涵蓋:</p>
+<ul class="smushed-fix">
+  <li>Subject: "Confirmed · Passenger Blurring Q1 + Q2 — Implementation Summary"</li>
+  <li>Q1 <span aria-hidden="true">✅</span> Confirmed feasible(driver/passenger 區分 BMS API 已支援)</li>
+  <li>Q2 <span aria-hidden="true">✅</span> Confirmed feasible at API level(三層 inheritance + override)</li>
+  <li>Jira tickets VMX-7457 / VMX-7458</li>
+  <li>4 條 commitment timeline</li>
+  <li>Monthly report future enhancement 救球段</li>
+</ul>
 <h3 id="implicationkenny">Implication(Kenny 心裡要記)</h3>
 <table>
 <thead>
@@ -790,5 +809,7 @@ Is it possible to have a customer session on teams on this topic?</p>
 <p><em>Last updated: 2026-05-11 傍晚 v2 · 校正 § 8.8 Brian 二次回應 + Kenny 學到 + chase 時口頭答覆模板。</em></p>
   </div>
 </main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

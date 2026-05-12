@@ -60,22 +60,22 @@
   .head .tag {
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 700;
     text-transform: uppercase; letter-spacing: .22em;
-    color: var(--accent-2); font-size: 11px; margin-bottom: 14px;
+    color: var(--accent-2); font-size: var(--fs-11); margin-bottom: 14px;
     position: relative; z-index: 1;
   }
   .head h1 {
-    color: #fff; font-size: 36px; margin-bottom: 10px;
+    color: #fff; font-size: var(--fs-36); margin-bottom: 10px;
     position: relative; z-index: 1; letter-spacing: -.025em;
   }
   .head .sub {
-    color: #C9D5EA; font-size: 16px; max-width: 720px;
+    color: #C9D5EA; font-size: var(--fs-16); max-width: 720px;
     line-height: 1.55; position: relative; z-index: 1;
   }
   .head .meta {
     margin-top: 22px; padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,.12);
     display: flex; gap: 28px; flex-wrap: wrap;
-    font-size: 13px; color: #B6C3D8;
+    font-size: var(--fs-13); color: #B6C3D8;
     position: relative; z-index: 1;
   }
   .head .meta strong { color: #fff; font-weight: 600; }
@@ -87,13 +87,13 @@
     box-shadow: var(--shadow-md); border: 1px solid var(--line);
   }
   .section h2 {
-    font-size: 22px; color: var(--brand);
+    font-size: var(--fs-22); color: var(--brand);
     border-bottom: 3px solid var(--accent);
     padding-bottom: 8px; margin-bottom: 6px;
     display: inline-block;
   }
   .section .lede {
-    color: var(--muted); font-size: 14px; margin-bottom: 24px;
+    color: var(--muted); font-size: var(--fs-14); margin-bottom: 24px;
   }
 
   /* ===== Diagram canvas ===== */
@@ -118,18 +118,18 @@
   .layer .label {
     display: inline-block; background: var(--brand); color: #fff;
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-    font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    font-size: var(--fs-10_5); letter-spacing: .14em; text-transform: uppercase;
     padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
   }
-  .layer h3 { font-size: 22px; margin-bottom: 4px; }
-  .layer .desc { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+  .layer h3 { font-size: var(--fs-22); margin-bottom: 4px; }
+  .layer .desc { font-size: var(--fs-13_5); color: var(--muted); margin-bottom: 10px; }
 
   .state {
     display: inline-flex; align-items: center; gap: 6px;
     background: var(--green-bg); color: var(--green);
     border: 1px solid #B5E6CB;
     padding: 4px 11px; border-radius: 999px;
-    font-size: 12px; font-weight: 700;
+    font-size: var(--fs-12); font-weight: 700;
   }
   .state.off { background: var(--red-bg); color: var(--red); border-color: #F5C2C6; }
   .state .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
@@ -148,7 +148,7 @@
   }
   .arrow-label {
     background: var(--brand-soft); color: var(--brand);
-    font-size: 11px; font-weight: 700;
+    font-size: var(--fs-11); font-weight: 700;
     padding: 3px 10px; border-radius: 999px;
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%); white-space: nowrap;
@@ -188,15 +188,15 @@
   }
   .cf .label {
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    font-size: var(--fs-10); letter-spacing: .12em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 4px;
   }
-  .cf h4 { font-size: 13px; margin-bottom: 6px; }
-  .cf .inherit-note { font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+  .cf h4 { font-size: var(--fs-13); margin-bottom: 6px; }
+  .cf .inherit-note { font-size: var(--fs-11); color: var(--muted); margin-bottom: 7px; }
   .cf .override-badge {
     position: absolute; top: -10px; right: -8px;
     background: var(--red); color: #fff;
-    font-size: 9.5px; font-weight: 800; letter-spacing: .1em;
+    font-size: var(--fs-9_5); font-weight: 800; letter-spacing: .1em;
     padding: 2px 7px; border-radius: 6px; transform: rotate(8deg);
   }
 
@@ -213,12 +213,12 @@
     transform: translateX(-50%);
     background: var(--accent); color: #fff;
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
-    font-size: 12px; letter-spacing: .15em;
+    font-size: var(--fs-12); letter-spacing: .15em;
     padding: 5px 18px; border-radius: 999px;
     white-space: nowrap;
   }
   .api-panel .sub {
-    font-size: 13px; color: var(--muted); margin-bottom: 18px;
+    font-size: var(--fs-13); color: var(--muted); margin-bottom: 18px;
     text-align: center;
   }
 
@@ -235,11 +235,11 @@
   .api-action .num {
     display: inline-block; width: 26px; height: 26px;
     border-radius: 50%; background: var(--accent); color: #fff;
-    font-weight: 800; font-size: 13px;
+    font-weight: 800; font-size: var(--fs-13);
     text-align: center; line-height: 26px; margin-right: 8px;
   }
-  .api-action strong { font-family: "Cabinet Grotesk", sans-serif; font-weight: 800; font-size: 14px; }
-  .api-action p { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.55; }
+  .api-action strong { font-family: "Cabinet Grotesk", sans-serif; font-weight: 800; font-size: var(--fs-14); }
+  .api-action p { font-size: var(--fs-12_5); color: var(--muted); margin-top: 6px; line-height: 1.55; }
 
   .api-action.commercial {
     background: #F4F7FC; border-color: var(--brand-3);
@@ -262,7 +262,7 @@
   }
   .sc-tag {
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    font-size: var(--fs-10_5); letter-spacing: .12em; text-transform: uppercase;
     color: #fff; padding: 4px 10px; border-radius: 999px;
     display: inline-block; margin-bottom: 12px;
   }
@@ -271,12 +271,12 @@
   .sc-tag.brand { background: var(--brand); }
   .sc h4 {
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-    font-size: 16px; margin-bottom: 10px;
+    font-size: var(--fs-16); margin-bottom: 10px;
   }
-  .sc p { font-size: 13.5px; color: var(--ink-2); }
+  .sc p { font-size: var(--fs-13_5); color: var(--ink-2); }
   .sc code {
     background: var(--canvas-2); padding: 2px 7px; border-radius: 4px;
-    font-family: ui-monospace, "Cascadia Code", monospace; font-size: 12px;
+    font-family: ui-monospace, "Cascadia Code", monospace; font-size: var(--fs-12);
     color: var(--brand);
   }
 
@@ -299,10 +299,10 @@
     padding: 14px 16px; border: 1px solid var(--line);
   }
   .report-card .icon {
-    font-size: 22px; margin-bottom: 6px;
+    font-size: var(--fs-22); margin-bottom: 6px;
   }
-  .report-card h4 { font-size: 14px; margin-bottom: 4px; color: var(--brand); }
-  .report-card p { font-size: 12.5px; color: var(--muted); }
+  .report-card h4 { font-size: var(--fs-14); margin-bottom: 4px; color: var(--brand); }
+  .report-card p { font-size: var(--fs-12_5); color: var(--muted); }
 
   /* ===== Confirmation questions ===== */
   .qs {
@@ -319,18 +319,18 @@
   .q-card .num {
     display: inline-block;
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
-    color: var(--accent); font-size: 26px; line-height: 1;
+    color: var(--accent); font-size: var(--fs-26); line-height: 1;
     margin-bottom: 8px;
   }
   .q-card h4 {
     font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-    font-size: 15px; margin-bottom: 10px;
+    font-size: var(--fs-15); margin-bottom: 10px;
   }
-  .q-card .question { font-size: 13.5px; color: var(--ink-2); margin-bottom: 12px; }
+  .q-card .question { font-size: var(--fs-13_5); color: var(--ink-2); margin-bottom: 12px; }
   .q-card .opt {
     background: var(--canvas); border-left: 3px solid var(--brand-3);
     padding: 8px 12px; border-radius: 0 6px 6px 0;
-    margin-bottom: 6px; font-size: 12.5px; color: var(--ink-2);
+    margin-bottom: 6px; font-size: var(--fs-12_5); color: var(--ink-2);
   }
   .q-card .opt strong { color: var(--brand); }
 
@@ -348,13 +348,13 @@
   }
   .closing h2 { color: #fff; border-color: var(--accent-2); }
   .closing p {
-    color: #C9D5EA; font-size: 14px; line-height: 1.65;
+    color: #C9D5EA; font-size: var(--fs-14); line-height: 1.65;
     margin-bottom: 8px; position: relative; z-index: 1;
   }
   .signature {
     margin-top: 20px; padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,.15);
-    font-size: 13px; color: #B6C3D8;
+    font-size: var(--fs-13); color: #B6C3D8;
     position: relative; z-index: 1;
   }
   .signature strong { color: #fff; font-weight: 700; }
@@ -362,5 +362,5 @@
   /* ===== Footer ===== */
   footer {
     text-align: center; color: var(--muted-2);
-    font-size: 11.5px; margin-top: 24px;
+    font-size: var(--fs-11_5); margin-top: 24px;
   }

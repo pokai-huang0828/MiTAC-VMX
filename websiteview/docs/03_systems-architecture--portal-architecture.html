@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal 雙層架構 · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -11,16 +12,16 @@
 </head>
 <body>
 <header class="doc-standalone-topbar">
-  <a class="back" href="../knowledge.html#03_systems-architecture/03_systems-architecture--portal-architecture" title="返回 Knowledge Hub">← Knowledge Hub</a>
-  <span class="heading">🏛 系統架構 · Portal 雙層架構</span>
-  <span class="filename">portal-architecture.md</span>
+  <a class="back" href="../knowledge.html#cat-systems" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🏛</span> 系統架構 · Portal 雙層架構</span>
+  <span class="filename"><code>portal-architecture.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:2026-05-08</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="portal">Portal 雙層架構</h1>
 <blockquote>
-<p>完整客戶簡報:<code>../../websiteview/portal-briefing.html</code></p>
+<p>👉 完整客戶簡報(25 頁中文):<a href="../portal-briefing.html"><strong>Portal Client Briefing</strong></a> · 海外技術對接(55 頁英文):<a href="../portal-architecture.html"><strong>Architecture &amp; Integration</strong></a></p>
 </blockquote>
 <h2 id="_1">雙層架構</h2>
 <table>
@@ -53,7 +54,7 @@
 ─────────────
 Fleet Operation                            ← PDF 漏(整段)
 ├─ Map Overview                            ← PDF 漏
-├─ Dashboard                               ✅
+├─ Dashboard                               <span aria-hidden="true">✅</span>
 ├─ Trips: List / Detail / Report
 ├─ Safety: Events / Detail / File Retrieval / Safety Reports / Coaching   ← Coaching PDF 漏
 ├─ Management: Devices / Drivers / Vehicles / Geofences   ← Drivers/Vehicles PDF 漏
@@ -76,7 +77,7 @@ Administration                             ← PDF 漏(整段)
 │  └─ User Account                         ← PDF 漏(Admin / Viewer roles)
 └─ User Activity Logs                      ← PDF 漏
 </code></pre></div>
-<h2 id="fleet-portal">📸 Fleet Portal 主要頁面實際截圖</h2>
+<h2 id="fleet-portal"><span aria-hidden="true">📸</span> Fleet Portal 主要頁面實際截圖</h2>
 <blockquote>
 <p>從 Kenny 名下測試帳號截圖。對客戶 demo + 內部訓練用。完整 21 張在 <code>VMX_images/Fleet/</code>。</p>
 </blockquote>
@@ -139,7 +140,7 @@ Administration                             ← PDF 漏(整段)
 </tr>
 </tbody>
 </table>
-<p>⚠️ <strong>新 Viewer Only 角色</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7088" rel="noopener" target="_blank">VMX-7088</a>,2026-05-06 會議討論):不能 Delete / Edit / Download / Retrieve / Configuration — <strong>「detail 能不能看」待釐清</strong>。</p>
+<p><span aria-hidden="true">⚠️</span> <strong>新 Viewer Only 角色</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7088" rel="noopener" target="_blank">VMX-7088</a>,2026-05-06 會議討論):不能 Delete / Edit / Download / Retrieve / Configuration — <strong>「detail 能不能看」待釐清</strong>。</p>
 <h2 id="fleet-portal-entity">Fleet Portal 三大 Entity</h2>
 <div class="highlight"><pre><span></span><code>Device(車機)── K-series 硬體 / App Version / ADAS+DMS Health
    │
@@ -151,11 +152,13 @@ Driver(駕駛)── Employee ID / IC Card S/N / Email
 </code></pre></div>
 <h2 id="contract-fleet-pdf">Contract Fleet 真相(PDF 沒寫)</h2>
 <p>PDF 只承認 2 種商業身分:<code>Dealer</code> + <code>Customer</code>。</p>
-<p>但 <strong>Fleet Portal Admin &gt; Fleets 上有 <code>Contract Fleets</code> tab</strong>,且按鈕是 <code>+ New Account</code>(不是 + New Contract Fleet)→ 三種解釋:
-1. UI 超前 PDF
-2. UI 殘留
-3. <strong>最可能</strong>:Account-based 模擬(account 跨 fleet 共用,不是真 sub-fleet)</p>
-<p>→ ⚠️ <strong>PM 風險</strong>:Sales 用這個灰色地帶銷售,可能簽約後 RD 交不出。</p>
+<p>但 <strong>Fleet Portal Admin &gt; Fleets 上有 <code>Contract Fleets</code> tab</strong>,且按鈕是 <code>+ New Account</code>(不是 + New Contract Fleet)→ 三種解釋:</p>
+<ol class="smushed-fix">
+  <li>UI 超前 PDF</li>
+  <li>UI 殘留</li>
+  <li><strong>最可能</strong>:Account-based 模擬(account 跨 fleet 共用,不是真 sub-fleet)</li>
+</ol>
+<p>→ <span aria-hidden="true">⚠️</span> <strong>PM 風險</strong>:Sales 用這個灰色地帶銷售,可能簽約後 RD 交不出。</p>
 <h2 id="pdf">PDF 漏掉率</h2>
 <ul>
 <li>Fleet Portal nav:50% 漏(19 頁中 PDF 列 9)</li>
@@ -177,5 +180,7 @@ Driver(駕駛)── Employee ID / IC Card S/N / Email
   <div class="lightbox-caption"></div>
 </div>
 <script src="../js/lightbox.js" defer></script>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

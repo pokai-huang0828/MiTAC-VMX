@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VisionMax Driver Scorecard / Safety Score · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -11,9 +12,9 @@
 </head>
 <body>
 <header class="doc-standalone-topbar">
-  <a class="back" href="../knowledge.html#01_product-knowledge/01_product-knowledge--safety-score" title="返回 Knowledge Hub">← Knowledge Hub</a>
-  <span class="heading">🔧 產品知識 · VisionMax Driver Scorecard / Safety Score</span>
-  <span class="filename">safety-score.md</span>
+  <a class="back" href="../knowledge.html#cat-product" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🔧</span> 產品知識 · VisionMax Driver Scorecard / Safety Score</span>
+  <span class="filename"><code>safety-score.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:2026-05-07</div>
 <main class="doc-standalone">
@@ -53,11 +54,13 @@ Trip score    = TRUNCATE((Event Score × 70 / 100) + (Overspeed Score × 30 / 10
 Event Score   = Event Score × Weight
 Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
 </code></pre></div>
-<p><strong>重點</strong>:
-- Event 與 Overspeed 是 70 / 30 加權
-- Event Score 還會再乘上 per-event-type weighting(各事件可調)
-- Overspeed 用「<strong>超速距離 / 行程距離</strong>」百分比,不是次數
-- 整體分數是 <strong>5,000 km 滾動視窗</strong> 累積 trip score 的反向(扣越多分越低)</p>
+<p><strong>重點</strong>:</p>
+<ul class="smushed-fix">
+  <li>Event 與 Overspeed 是 70 / 30 加權</li>
+  <li>Event Score 還會再乘上 per-event-type weighting(各事件可調)</li>
+  <li>Overspeed 用「<strong>超速距離 / 行程距離</strong>」百分比,不是次數</li>
+  <li>整體分數是 <strong>5,000 km 滾動視窗</strong> 累積 trip score 的反向(扣越多分越低)</li>
+</ul>
 <h2 id="pm">對 PM 議題的對應</h2>
 <ul>
 <li>對應 sheet <strong>#186 Safety Score at vehicle level instead of by driver</strong>(Simon,<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7151" rel="noopener" target="_blank">VMX-7151</a>)</li>
@@ -79,7 +82,7 @@ Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
   </div>
 </main>
 <nav class="doc-prevnext">
-  <a class="prev" href="01_product-knowledge--kb-full-catalog.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VMX KB 完整文章 Catalog</span></a>
+  <a class="prev" href="01_product-knowledge--kb-reference.html" rel="prev"><span class="label">← 上一篇</span><span class="doc-name">VMX KB 完整文章 Catalog</span></a>
   <a class="next" href="01_product-knowledge--sales-faq.html" rel="next"><span class="label">下一篇 →</span><span class="doc-name">Sales-Level FAQ — 對外口徑(KB 已 deep read)</span></a>
 </nav>
 
@@ -89,5 +92,7 @@ Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
   <div class="lightbox-caption"></div>
 </div>
 <script src="../js/lightbox.js" defer></script>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

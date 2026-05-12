@@ -6,13 +6,14 @@
 <title>🔐 INTERNAL · Blurring Model · Kenny 對 Cary 2pm 講解用</title>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/blurring-model-kenny.css">
 </head>
 <body>
 
 <div class="page">
 
-  <div class="internal-banner">🔐 INTERNAL ONLY · DO NOT SHARE · KENNY 自己 2PM 用</div>
+  <div class="internal-banner"><span aria-hidden="true">🔐</span> INTERNAL ONLY · DO NOT SHARE · KENNY 自己 2PM 用</div>
 
   <!-- ===== Header ===== -->
   <header class="head">
@@ -39,7 +40,7 @@
       <div class="tl afternoon">
         <div class="when">2026-05-11 下午(QPR 後)</div>
         <h4>Brian + Spencer 補釐清</h4>
-        <p>🚨 整個 UI 框架方向不對 · <strong>只能在 API 層呈現</strong> · Auto 模式 server cost 爆 · 不在原本討論基礎(原本就是 API)</p>
+        <p><span aria-hidden="true">🚨</span> 整個 UI 框架方向不對 · <strong>只能在 API 層呈現</strong> · Auto 模式 server cost 爆 · 不在原本討論基礎(原本就是 API)</p>
       </div>
       <div class="tl now">
         <div class="when">2026-05-11 14:00(目標)</div>
@@ -52,7 +53,7 @@
   <!-- ===== Main Diagram ===== -->
   <section class="section">
     <div class="section-title">
-      <div class="icon ic-model">🌳</div>
+      <div class="icon ic-model"><span aria-hidden="true">🌳</span></div>
       <div>
         <h2>Inheritance Model + API Control</h2>
         <div class="sub">三層 hierarchy · 預設往下繼承 · API 是 override + trigger 工具</div>
@@ -114,7 +115,7 @@
             <p>Per video / per event call · 在現有 Blurring 定價內 · 精準可追</p>
           </div>
           <div class="api-action warn">
-            <span class="num">3</span><strong>❌ Auto / always-on</strong>
+            <span class="num">3</span><strong><span aria-hidden="true">❌</span> Auto / always-on</strong>
             <p>不是預設 · server cost 重 · <strong>要 extra charge model</strong>(對 Cary 講「separate commercial arrangement」)</p>
           </div>
         </div>
@@ -125,7 +126,7 @@
   <!-- ===== Talking script ===== -->
   <section class="section">
     <div class="section-title">
-      <div class="icon ic-script">🎤</div>
+      <div class="icon ic-script"><span aria-hidden="true">🎤</span></div>
       <div>
         <h2>對 Cary 講解 · 6 個 sound-bites 中英對照</h2>
         <div class="sub">英文照念 · 中文是你心裡的 mental model</div>
@@ -224,7 +225,7 @@
   <!-- ===== Don't say ===== -->
   <section class="section">
     <div class="section-title">
-      <div class="icon ic-warn">🚫</div>
+      <div class="icon ic-warn"><span aria-hidden="true">🚫</span></div>
       <div>
         <h2>絕對不要說的 3 句話</h2>
         <div class="sub">講了就破信任 · 把責任丟內部 / 暗示翻盤 / 把決定權硬丟回 Cary</div>
@@ -242,7 +243,7 @@
   <!-- ===== Expected push back ===== -->
   <section class="section">
     <div class="section-title">
-      <div class="icon ic-q">💢</div>
+      <div class="icon ic-q"><span aria-hidden="true">💢</span></div>
       <div>
         <h2>預期 Cary 會 push back 的 3 個問題</h2>
         <div class="sub">每個都有 EN 答 + 中文 mental model · 現場接得住</div>
@@ -301,7 +302,7 @@
   <!-- ===== Cheat sheet ===== -->
   <section class="section">
     <div class="section-title">
-      <div class="icon ic-q">📋</div>
+      <div class="icon ic-q"><span aria-hidden="true">📋</span></div>
       <div>
         <h2>一張 Print Out · 螢幕外手邊放這張</h2>
         <div class="sub">緊張時看一眼就回神</div>
@@ -323,9 +324,9 @@
       ③ Read-only report or live config?<br><br>
 
       <span class="x">DON'T SAY:</span><br>
-      ✗ "We got it wrong"<br>
-      ✗ "Brian says UI is wrong"<br>
-      ✗ "Switching to API, OK?"<br><br>
+      <span aria-hidden="true">✗</span> "We got it wrong"<br>
+      <span aria-hidden="true">✗</span> "Brian says UI is wrong"<br>
+      <span aria-hidden="true">✗</span> "Switching to API, OK?"<br><br>
 
       <span class="ok">CLOSE:</span><br>
       "Once confirmed, I'll send written summary to you + Wendy this afternoon."<br><br>
@@ -336,10 +337,12 @@
   </section>
 
   <footer>
-    🔐 INTERNAL · Kenny VMX · 2026-05-11 · Cary 2pm sync prep · 用完封存 (DO NOT share externally)
+    <span aria-hidden="true">🔐</span> INTERNAL · Kenny VMX · 2026-05-11 · Cary 2pm sync prep · 用完封存 (DO NOT share externally)
   </footer>
 
 </div>
 
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

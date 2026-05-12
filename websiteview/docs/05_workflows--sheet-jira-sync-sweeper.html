@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sheet × Jira Sync Sweeper SOP · Knowledge Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -11,9 +12,9 @@
 </head>
 <body>
 <header class="doc-standalone-topbar">
-  <a class="back" href="../knowledge.html#05_workflows/05_workflows--sheet-jira-sync-sweeper" title="返回 Knowledge Hub">← Knowledge Hub</a>
-  <span class="heading">⚙️ 工作流 SOP · Sheet × Jira Sync Sweeper SOP</span>
-  <span class="filename">sheet-jira-sync-sweeper.md</span>
+  <a class="back" href="../knowledge.html#cat-workflows" title="返回 Knowledge Hub">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚙️</span> 工作流 SOP · Sheet × Jira Sync Sweeper SOP</span>
+  <span class="filename"><code>sheet-jira-sync-sweeper.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:2026-05-06</div>
 <main class="doc-standalone">
@@ -24,9 +25,11 @@
 起源:2026-05-05 抓出 Sheet stale → 2026-05-06 會議直接落地 4 件同步 → 但又生出 3 個新 mismatch。</p>
 </blockquote>
 <h2 id="_1">為什麼要做這件事</h2>
-<p>業務端的不滿通常是資訊不對稱:
-- <strong>方向 1:Sheet 落後 Jira</strong>(Jira 已 close,Sheet 沒改)→ 業務以為「PM/RD 拖延」
-- <strong>方向 2:Sheet 領先 Jira</strong>(口頭說完成,Jira 沒 close)→ 看 Jira 以為「沒做完」</p>
+<p>業務端的不滿通常是資訊不對稱:</p>
+<ul class="smushed-fix">
+  <li><strong>方向 1:Sheet 落後 Jira</strong>(Jira 已 close,Sheet 沒改)→ 業務以為「PM/RD 拖延」</li>
+  <li><strong>方向 2:Sheet 領先 Jira</strong>(口頭說完成,Jira 沒 close)→ 看 Jira 以為「沒做完」</li>
+</ul>
 <p>PM 是商業翻譯,要消除這層不對稱。</p>
 <h2 id="sweeper-sop">雙週 Sweeper SOP(每兩週執行一次)</h2>
 <h3 id="step-1-sheet-visible-rows">Step 1:撈 Sheet 真實 visible rows</h3>
@@ -76,9 +79,11 @@
 <h3 id="step-5-owner">Step 5:私訊 owner(分人,別丟群組)</h3>
 <p>Template:</p>
 <blockquote>
-<p>「Hi [Owner],我在做雙週 sheet sync 發現 [#XXX, VMX-XXXX]:
-- Sheet 顯示:[status]
-- Jira 顯示:[status]</p>
+<p>「Hi [Owner],我在做雙週 sheet sync 發現 [#XXX, VMX-XXXX]:</p>
+<ul class="smushed-fix">
+  <li>Sheet 顯示:[status]</li>
+  <li>Jira 顯示:[status]</li>
+</ul>
 <p>是不是 [推測:已交付但 ticket 沒 transition / 還在做但 sheet 改太快]?要不要一起對齊一下?」</p>
 </blockquote>
 <h3 id="step-6-sheet-sheet-sweep">Step 6:更新 sheet + 在 sheet 加 sweep 紀錄</h3>
@@ -101,28 +106,28 @@
 <td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6754" rel="noopener" target="_blank">VMX-6754</a></td>
 <td>In Process</td>
 <td>Resolved</td>
-<td>5/6 同步 ✅</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
 </tr>
 <tr>
 <td>165</td>
 <td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7029" rel="noopener" target="_blank">VMX-7029</a></td>
 <td>In Process</td>
 <td>Resolved</td>
-<td>5/6 同步 ✅</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
 </tr>
 <tr>
 <td>187</td>
 <td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7161" rel="noopener" target="_blank">VMX-7161</a></td>
 <td>In Process</td>
 <td>Resolved</td>
-<td>5/6 同步 ✅</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
 </tr>
 <tr>
 <td>188</td>
 <td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7162" rel="noopener" target="_blank">VMX-7162</a></td>
 <td>In Process</td>
 <td>Resolved</td>
-<td>5/6 同步 ✅</td>
+<td>5/6 同步 <span aria-hidden="true">✅</span></td>
 </tr>
 </tbody>
 </table>
@@ -217,5 +222,7 @@
   <div class="lightbox-caption"></div>
 </div>
 <script src="../js/lightbox.js" defer></script>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

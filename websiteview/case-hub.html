@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiTAC Case Learning Hub</title>
+<link rel="stylesheet" href="css/design-tokens.css">
 <link rel="stylesheet" href="css/shared.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/components.css">
@@ -27,7 +28,7 @@
     <button class="tab-btn active" data-case="ps" onclick="switchCase('ps', event)">Platform Science</button>
     <button class="tab-btn" data-case="cs" onclick="switchCase('cs', event)">CONNECTSOURCE</button>
     <button class="tab-btn" data-case="pm" onclick="switchCase('pm', event)">PM 策略洞察</button>
-    <button class="tab-btn" data-case="weekly" onclick="switchCase('weekly', event)">📅 Weekly Summary</button>
+    <button class="tab-btn" data-case="weekly" onclick="switchCase('weekly', event)"><span aria-hidden="true">📅</span> Weekly Summary</button>
   </div>
 </nav>
 
@@ -37,60 +38,60 @@
 <aside class="sidebar" id="sidebar-ps">
   <div class="sidebar-section">
     <div class="sidebar-label">Platform Science</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero', event)"><span class="sidebar-icon">🏢</span>專案總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people', event)"><span class="sidebar-icon">👥</span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline', event)"><span class="sidebar-icon">📅</span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech', event)"><span class="sidebar-icon">🔧</span>技術資訊</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions', event)"><span class="sidebar-icon">✅</span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks', event)"><span class="sidebar-icon">⚠️</span>商機與風險</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis', event)"><span class="sidebar-icon">🧠</span>PM 分析</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech', event)"><span class="sidebar-icon"><span aria-hidden="true">🔧</span></span>技術資訊</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks', event)"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>商機與風險</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis', event)"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 分析</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-cs">
   <div class="sidebar-section">
     <div class="sidebar-label">CONNECTSOURCE</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero', event)"><span class="sidebar-icon">🌏</span>事件總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people', event)"><span class="sidebar-icon">👥</span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers', event)"><span class="sidebar-icon">💰</span>商業規模</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline', event)"><span class="sidebar-icon">📅</span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual', event)"><span class="sidebar-icon">🖥️</span>Portal 視覺對照</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict', event)"><span class="sidebar-icon">⚡</span>衝突分析</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions', event)"><span class="sidebar-icon">✅</span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm', event)"><span class="sidebar-icon">🧠</span>PM 建議</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🌏</span></span>事件總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers', event)"><span class="sidebar-icon"><span aria-hidden="true">💰</span></span>商業規模</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual', event)"><span class="sidebar-icon"><span aria-hidden="true">🖥️</span></span>Portal 視覺對照</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict', event)"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>衝突分析</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm', event)"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 建議</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-pm">
   <div class="sidebar-section">
     <div class="sidebar-label">PM 策略</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero', event)"><span class="sidebar-icon">📚</span>跨案例洞察</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit', event)"><span class="sidebar-icon">🎯</span>承諾層次框架</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client', event)"><span class="sidebar-icon">💬</span>技術型客戶溝通</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal', event)"><span class="sidebar-icon">🔄</span>內部溝通斷層</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles', event)"><span class="sidebar-icon">💡</span>核心原則</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>跨案例洞察</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit', event)"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>承諾層次框架</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client', event)"><span class="sidebar-icon"><span aria-hidden="true">💬</span></span>技術型客戶溝通</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal', event)"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>內部溝通斷層</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles', event)"><span class="sidebar-icon"><span aria-hidden="true">💡</span></span>核心原則</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-honeywell">
   <div class="sidebar-section">
     <div class="sidebar-label">Honeywell ME · NEW</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('hw-hero', event)"><span class="sidebar-icon">🏢</span>專案總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-directive', event)"><span class="sidebar-icon">📋</span>Stark 指令</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-kenny', event)"><span class="sidebar-icon">🎯</span>Kenny 對接點</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-people', event)"><span class="sidebar-icon">👥</span>利害關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-risks', event)"><span class="sidebar-icon">⚠️</span>風險點</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-actions', event)"><span class="sidebar-icon">✅</span>Action Items</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('hw-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-directive', event)"><span class="sidebar-icon"><span aria-hidden="true">📋</span></span>Stark 指令</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-kenny', event)"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>Kenny 對接點</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>利害關係人</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-risks', event)"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>風險點</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>Action Items</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-weekly">
   <div class="sidebar-section">
     <div class="sidebar-label">Weekly Summary</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('wk-hero', event)"><span class="sidebar-icon">📅</span>本週總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon">⭐</span>2026-05-11(本週)</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-archive', event)"><span class="sidebar-icon">📚</span>歷史 Summary</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-howto', event)"><span class="sidebar-icon">🔄</span>每週流程</a>
+    <a class="sidebar-item active" href="#" onclick="scrollToSection('wk-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>本週總覽</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon"><span aria-hidden="true">⭐</span></span>2026-05-11(本週)</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-archive', event)"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>歷史 Summary</a>
+    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-howto', event)"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>每週流程</a>
   </div>
 </aside>
 
@@ -109,7 +110,7 @@
         <div class="hero-stat"><div class="hero-stat-val">1 月</div><div class="hero-stat-label">接洽至採購意向</div></div>
         <div class="hero-stat"><div class="hero-stat-val">2 台</div><div class="hero-stat-label">測試裝置已加入</div></div>
         <div class="hero-stat"><div class="hero-stat-val">6 個</div><div class="hero-stat-label">推進階段</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">🔴 卡關</div><div class="hero-stat-label">K265 image 問題</div></div>
+        <div class="hero-stat"><div class="hero-stat-val"><span aria-hidden="true">🔴</span> 卡關</div><div class="hero-stat-label">K265 image 問題</div></div>
       </div>
     </div>
   </div>
@@ -119,7 +120,7 @@
     <div class="section-title">主要關係人</div>
     <div class="col-2-grid">
       <div class="card">
-        <div class="card-title">🏢 Platform Science（客戶端）</div>
+        <div class="card-title"><span aria-hidden="true">🏢</span> Platform Science（客戶端）</div>
         <table class="data-table">
           <thead><tr><th>姓名</th><th>角色</th></tr></thead>
           <tbody>
@@ -129,7 +130,7 @@
         </table>
       </div>
       <div class="card">
-        <div class="card-title">🏭 MiTAC（供應端）</div>
+        <div class="card-title"><span aria-hidden="true">🏭</span> MiTAC（供應端）</div>
         <table class="data-table">
           <thead><tr><th>姓名</th><th>角色</th></tr></thead>
           <tbody>
@@ -236,7 +237,7 @@
     <div class="section-title">技術資訊速查</div>
     <div class="col-2-grid">
       <div class="card">
-        <div class="card-title">📱 MiTAC CDR 產品線</div>
+        <div class="card-title"><span aria-hidden="true">📱</span> MiTAC CDR 產品線</div>
         <table class="data-table">
           <thead><tr><th>型號</th><th>代號</th><th>狀態</th></tr></thead>
           <tbody>
@@ -249,7 +250,7 @@
         </table>
       </div>
       <div class="card">
-        <div class="card-title">🔗 服務連結</div>
+        <div class="card-title"><span aria-hidden="true">🔗</span> 服務連結</div>
         <table class="data-table">
           <tbody>
             <tr><td><strong>Master Portal</strong></td><td><a href="https://portal.visionmaxfleet.com/" target="_blank">portal.visionmaxfleet.com</a></td></tr>
@@ -263,7 +264,7 @@
 
     <!-- K265 Portal 視覺(Vinicius 卡關 reference)-->
     <div class="card">
-      <div class="card-title">🖥️ K265 Portal 卡關 reference(Inventory + Diagnostics)</div>
+      <div class="card-title"><span aria-hidden="true">🖥️</span> K265 Portal 卡關 reference(Inventory + Diagnostics)</div>
       <p class="note-muted">
         Vinicius 5/7 confirmed K265 image LM 版本不能透過 SD update 升到 VisionMax(Righter 解釋)— 設備 F4723090033 已加進 inventory(Master Portal),後續從 Diagnostics 監控狀態。
       </p>
@@ -318,7 +319,7 @@
     <div class="section-title">商機與風險</div>
     <div class="col-2-grid">
       <div class="card">
-        <div class="card-title success">✅ 機會點</div>
+        <div class="card-title success"><span aria-hidden="true">✅</span> 機會點</div>
         <ul class="bullet-tight">
           <li>SDK 評價正面：「comprehensive」「worked nicely」</li>
           <li>K245 OEM image 修改完成，代表整合能力強</li>
@@ -328,7 +329,7 @@
         </ul>
       </div>
       <div class="card">
-        <div class="card-title danger">⚠️ 風險點</div>
+        <div class="card-title danger"><span aria-hidden="true">⚠️</span> 風險點</div>
         <ul class="bullet-tight">
           <li>K265 image/portal 問題重複出現，恐影響客戶信任</li>
           <li>報價持續未回，可能導致決策停擺</li>
@@ -379,7 +380,7 @@
     </div>
 
     <div class="card spaced-top-md is-ok">
-      <div class="card-title">✅ 2026-05-11 下午 14:00 sync · Brian 拍板 Q2 scope</div>
+      <div class="card-title"><span aria-hidden="true">✅</span> 2026-05-11 下午 14:00 sync · Brian 拍板 Q2 scope</div>
       <ul class="bullet-loose">
         <li><strong>Q2 In Scope</strong>:(1) BMS Blurring 整合進 VisionMax cloud · (2) Release API doc 給 Connect Source(MAU API integrated 客戶)</li>
         <li><strong>Connect Source = API only</strong> · 不需要 UI portal toggle · API 自己可控任何 video / fleet / contract fleet · 不分 fleet vs contract fleet permission</li>
@@ -389,11 +390,11 @@
         <li><strong>時程</strong>:Staging end of June / Production end of July / Q2 release notes end of June 給 MAU(對外發布前)</li>
         <li><strong>Elvis 訊號</strong>:「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 對 MAU 客戶部署前先安排</li>
       </ul>
-      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/meetings--2026-05-11_afternoon_cary-elvis-sync.html" class="mdt-link">2026-05-11_afternoon_cary-elvis-sync</a></p>
+      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/meetings--cary-elvis-blurring-timeline.html#part-3" class="mdt-link">Cary/Elvis Timeline · 5/11 下午 sync</a></p>
     </div>
 
     <div class="card spaced-top-md is-ok">
-      <div class="card-title">🎫 Jira Tickets 已開(2026-05-11 下午)</div>
+      <div class="card-title"><span aria-hidden="true">🎫</span> Jira Tickets 已開(2026-05-11 下午)</div>
       <table class="data-table is-compact">
         <thead><tr><th>Ticket</th><th>Summary</th><th>Type / Priority</th><th>Assignee</th><th>Due / Timeline</th></tr></thead>
         <tbody>
@@ -437,9 +438,9 @@
     </div>
 
     <div class="card spaced-top-md is-ok">
-      <div class="card-title">🎯 2026-05-11 傍晚 · Brian 認可 Jira ticket 是 SSOT(校正)</div>
+      <div class="card-title"><span aria-hidden="true">🎯</span> 2026-05-11 傍晚 · Brian 認可 Jira ticket 是 SSOT(校正)</div>
       <ul class="bullet-loose font-13">
-        <li>Kenny 2pm sync 後起草 follow-up email(Q1+Q2 ✅ + ticket link + 4 條 timeline + monthly report 救球)→ Brian 第一次回「不要發」</li>
+        <li>Kenny 2pm sync 後起草 follow-up email(Q1+Q2 <span aria-hidden="true">✅</span> + ticket link + 4 條 timeline + monthly report 救球)→ Brian 第一次回「不要發」</li>
         <li>Kenny ping Brian 確認 → <strong>Brian 二次回應:「不用那麼麻煩,他看我 Jira 寫清楚了」</strong></li>
         <li><strong>真實 calibration</strong>:Jira ticket = 對外 commitment 已建立 · external email 重複 Jira 內容是 redundant · 客戶 chase 時口頭/Teams 答即可</li>
         <li><strong>對 Kenny 開單質量的肯定</strong> — VMX-7457 拆 Deliverable A/B comment 動作有效 · <strong>書面工作 &gt; 口頭工作</strong>(今天 execution gap 失分被補回一半)</li>
@@ -449,7 +450,7 @@
     </div>
 
     <div class="card spaced-top-md is-warn">
-      <div class="card-title">⚠️ Kenny 自評 · 2pm sync execution gap</div>
+      <div class="card-title"><span aria-hidden="true">⚠️</span> Kenny 自評 · 2pm sync execution gap</div>
       <ul class="bullet-loose font-13">
         <li>準備層完整(HTML 圖 / sound-bites / push back 預期 / DON'T SAY 警示)</li>
         <li><strong>但會議現場幾乎沒 deploy</strong>:沒 share screen / 開場違反 DON'T SAY / Monthly report 一句話 dismiss(違反自己 HTML 寫的 sales pitch)</li>
@@ -460,7 +461,7 @@
     </div>
 
     <div class="card spaced-top-md is-info">
-      <div class="card-title">📜 5/8 sync-up 結論(已 superseded · 歷史 reference)</div>
+      <div class="card-title"><span aria-hidden="true">📜</span> 5/8 sync-up 結論(已 superseded · 歷史 reference)</div>
       <ul class="bullet-loose font-13">
         <li>Kenny 升格主對接 PM — Cary「we will be stalking you」</li>
         <li>Q2 portal path 校正:Master Portal 路徑只到 main fleet 級,需 per-contract-fleet 粒度</li>
@@ -567,8 +568,8 @@
           <div class="tl-date">2026/05/08 02:21 UTC</div>
           <div class="tl-content">
             <strong>21 分鐘 Teams call(Kenny / Cary / Elvis)</strong> <span class="tl-tag issue">承諾校正</span><br>
-            <strong>🚨 Q2 portal path 被 Elvis 螢幕分享現場糾正</strong>:Master Portal 路徑只到 main fleet 級,動一個 = 影響所有 contract fleets,**沒粒度**。客戶結構需 per-contract-fleet 粒度(沿用 Live User pattern)。<br>
-            <strong>修正後雙路徑</strong>:(A) Master Portal 補 contract fleet 視圖 ⚠️ 隱私問題 / (B) Fleet Portal 加 per-contract-fleet UI(沿用 Live User)<br>
+            <strong><span aria-hidden="true">🚨</span> Q2 portal path 被 Elvis 螢幕分享現場糾正</strong>:Master Portal 路徑只到 main fleet 級,動一個 = 影響所有 contract fleets,**沒粒度**。客戶結構需 per-contract-fleet 粒度(沿用 Live User pattern)。<br>
+            <strong>修正後雙路徑</strong>:(A) Master Portal 補 contract fleet 視圖 <span aria-hidden="true">⚠️</span> 隱私問題 / (B) Fleet Portal 加 per-contract-fleet UI(沿用 Live User)<br>
             <strong>Q1 API doc</strong>:Cary 追問「what can I share with my customer?」客戶妥協用 API,Kenny 承諾問 Spencer 能否 share 內部 API doc<br>
             <strong>Cary 對 Kenny 評價</strong>:「very refreshing」/「we will be stalking you」— Kenny 升格 MiTAC AU 線主對接 PM
           </div>
@@ -581,7 +582,7 @@
   <div id="cs-portal-visual">
     <div class="section-title">Q2 portal path 視覺對照(5/7 信 vs 5/8 sync 修正)</div>
     <div class="card">
-      <div class="card-title">🔍 Kenny 5/7 對外信寫的路徑(實際在 Master Portal 看到的)</div>
+      <div class="card-title"><span aria-hidden="true">🔍</span> Kenny 5/7 對外信寫的路徑(實際在 Master Portal 看到的)</div>
       <p class="lead-text">
         <code>Master Portal &gt; Management &gt; Fleets &gt; (select Fleet) &gt; Fleet Detail &gt; Configurations &gt; (new) Blurring</code>
       </p>
@@ -596,13 +597,13 @@
         </figure>
       </div>
       <div class="insight red spaced-top">
-        <div class="insight-title">🚨 Elvis 5/8 現場糾正</div>
+        <div class="insight-title"><span aria-hidden="true">🚨</span> Elvis 5/8 現場糾正</div>
         <p>這條路徑只能控制 <strong>main fleet 級</strong>,動一個 = main fleet + 所有 contract fleets 一起套用,<strong>沒 per-contract-fleet 粒度</strong>。客戶結構(Australia 1 fleet + 多 reseller contract fleets)必須 pinpoint 特定 contract fleet。</p>
       </div>
       <div class="insight blue spaced-top-sm">
-        <div class="insight-title">✅ 修正後雙路徑(等 Brian / Spencer 拍)</div>
+        <div class="insight-title"><span aria-hidden="true">✅</span> 修正後雙路徑(等 Brian / Spencer 拍)</div>
         <p>
-          <strong>(A)</strong> Master Portal 補 contract fleet 視圖 — ⚠️ 隱私問題(contract fleet 不見得想讓上層 dealer 看到)<br>
+          <strong>(A)</strong> Master Portal 補 contract fleet 視圖 — <span aria-hidden="true">⚠️</span> 隱私問題(contract fleet 不見得想讓上層 dealer 看到)<br>
           <strong>(B)</strong> Fleet Portal 加 per-contract-fleet Blurring config UI — 沿用 Live User pattern(現有 Fleet Portal 已示範可行)
         </p>
       </div>
@@ -652,7 +653,7 @@
   <div id="cs-actions">
     <div class="section-title">待辦事項</div>
     <div class="card bordered-orange spaced-bot-md">
-      <div class="card-title">🔥 Kenny 主動接 P0(2026-05-08 sync 後)</div>
+      <div class="card-title"><span aria-hidden="true">🔥</span> Kenny 主動接 P0(2026-05-08 sync 後)</div>
       <ul class="action-list">
         <li>
           <span class="owner">Kenny</span>
@@ -704,20 +705,20 @@
     <div class="section-title">PM 建議</div>
     <div class="framework-grid">
       <div class="framework-card short">
-        <div class="framework-card-title">⚡ 短期（立即可做）</div>
+        <div class="framework-card-title"><span aria-hidden="true">⚡</span> 短期（立即可做）</div>
         <p>Brian 在下次回信中把「七月」轉化為可驗證的里程碑：<br><br>
         「預計六月底確認整合方案可行性，七月啟動開發，Q3 結束前提供 CONNECTSOURCE 測試版本。任何變動我會提前通知。」<br><br>
         關鍵在「任何變動我會提前通知」——這才是 Wendy 真正需要的承諾。</p>
       </div>
       <div class="framework-card mid">
-        <div class="framework-card-title">📅 中期（流程改善）</div>
+        <div class="framework-card-title"><span aria-hidden="true">📅</span> 中期（流程改善）</div>
         <p>建立 <strong>VisionMax Roadmap Sync</strong> 定期會議（每季一次），澳洲、台灣業務端與產品端共同參與，輸出一頁簡報說明：<br>
         • 已上線功能<br>
         • 進行中的功能（含預計里程碑）<br>
         • 規劃中但未承諾的功能</p>
       </div>
       <div class="framework-card long">
-        <div class="framework-card-title">🏗️ 長期（定價結構）</div>
+        <div class="framework-card-title"><span aria-hidden="true">🏗️</span> 長期（定價結構）</div>
         <p>若 Passenger Blurring 成為標準功能，需在 CONNECTSOURCE 的定價模型中明確將 AWS 成本納入，避免每次都需要個案討論。</p>
       </div>
     </div>
@@ -782,7 +783,7 @@
         </tbody>
       </table>
       <div class="note-panel">
-        💡 客戶失去信任，往往不是因為「日期延了」，而是因為「延了才通知」。同樣是「延了兩個月」——事先預警的版本建立信任，事後才說的版本摧毀信任。
+        <span aria-hidden="true">💡</span> 客戶失去信任，往往不是因為「日期延了」，而是因為「延了才通知」。同樣是「延了兩個月」——事先預警的版本建立信任，事後才說的版本摧毀信任。
       </div>
     </div>
   </div>
@@ -793,7 +794,7 @@
     <div class="card">
       <div class="col-2-grid flush">
         <div>
-          <div class="col-heading danger">❌ 不有效的做法</div>
+          <div class="col-heading danger"><span aria-hidden="true">❌</span> 不有效的做法</div>
           <ul class="bullet-compact">
             <li>強調功能有多強大</li>
             <li>只說商業故事</li>
@@ -803,7 +804,7 @@
           </ul>
         </div>
         <div>
-          <div class="col-heading success">✅ 有效的做法</div>
+          <div class="col-heading success"><span aria-hidden="true">✅</span> 有效的做法</div>
           <ul class="bullet-compact">
             <li>提供精準的技術文件</li>
             <li>清楚說明功能限制</li>
@@ -862,28 +863,28 @@
     <div class="card">
       <div class="icon-row-list">
         <div class="icon-row">
-          <div class="icon">🔍</div>
+          <div class="icon"><span aria-hidden="true">🔍</span></div>
           <div>
             <div class="heading">讀懂需求背後的動機</div>
             <div class="desc">Wendy 說的是「功能什麼時候出」，但她真正在意的是「我在客戶面前的可信度」。Vinicius 說的是「需要 SDK 文件」，但他真正在測試的是「MiTAC 值不值得深度合作」。回應那個動機，而不只是回應表面的問題。</div>
           </div>
         </div>
         <div class="icon-row">
-          <div class="icon">🔄</div>
+          <div class="icon"><span aria-hidden="true">🔄</span></div>
           <div>
             <div class="heading">你的工作是「讓事情不卡住」</div>
             <div class="desc">K265 白名單問題沒有 owner、Passenger Blurring 可行性評估沒有明確結論、路線圖會議沒有人去約——這些空白地帶都是 PM 應該主動介入的地方。</div>
           </div>
         </div>
         <div class="icon-row">
-          <div class="icon">💬</div>
+          <div class="icon"><span aria-hidden="true">💬</span></div>
           <div>
             <div class="heading">PM 是「商業翻譯」</div>
             <div class="desc">把技術成本轉換成業務語言，把業務機會轉換成產品優先順序的依據。$700/月的 AWS 成本對工程師是基礎設施，對業務是定價變數，對 PM 是需要被翻譯清楚的橋樑。</div>
           </div>
         </div>
         <div class="icon-row">
-          <div class="icon">📅</div>
+          <div class="icon"><span aria-hidden="true">📅</span></div>
           <div>
             <div class="heading">每次互動要有明確的 Next Step</div>
             <div class="desc">每次與客戶或業務端的互動結束後，要有 Next Step + Owner + Timeline。不能讓對話停在「我們再看看」或「到時候再說」。</div>
@@ -932,9 +933,9 @@
         <thead><tr><th>任務</th><th>對應 portal 操作</th><th>已知技術依據</th></tr></thead>
         <tbody>
           <tr><td><strong>建 Honeywell main fleet</strong></td><td>Master Portal > Management > Fleets > Create</td><td>5/8 Sync-up 已 walk 過</td></tr>
-          <tr><td><strong>換 login logo 為 Honeywell</strong></td><td>Master Portal > (white-label config 位置)</td><td>⚠️ 待確認:是否影響 Plan Type</td></tr>
+          <tr><td><strong>換 login logo 為 Honeywell</strong></td><td>Master Portal > (white-label config 位置)</td><td><span aria-hidden="true">⚠️</span> 待確認:是否影響 Plan Type</td></tr>
           <tr><td><strong>Sample import 至 Honeywell fleet</strong></td><td>Master Portal > (Inventory)</td><td>K220 + K265 SN 拿到後</td></tr>
-          <tr><td><strong>Plan type 對應 CDR + ADAS/DMS</strong></td><td>Fleet Portal > Plan Type config</td><td>⚠️ 跟 Vinicius case 同議題,要問 Brian/Conant</td></tr>
+          <tr><td><strong>Plan type 對應 CDR + ADAS/DMS</strong></td><td>Fleet Portal > Plan Type config</td><td><span aria-hidden="true">⚠️</span> 跟 Vinicius case 同議題,要問 Brian/Conant</td></tr>
         </tbody>
       </table>
     </div>
@@ -944,7 +945,7 @@
     <div class="section-title">利害關係人地圖</div>
     <div class="col-2-grid">
       <div class="card">
-        <div class="card-title">🏭 MiTAC 內部</div>
+        <div class="card-title"><span aria-hidden="true">🏭</span> MiTAC 內部</div>
         <table class="data-table">
           <thead><tr><th>姓名</th><th>角色</th></tr></thead>
           <tbody>
@@ -959,7 +960,7 @@
         </table>
       </div>
       <div class="card">
-        <div class="card-title">📨 Mail thread cc</div>
+        <div class="card-title"><span aria-hidden="true">📨</span> Mail thread cc</div>
         <table class="data-table">
           <thead><tr><th>姓名</th><th>角色</th></tr></thead>
           <tbody>
@@ -993,7 +994,7 @@
     <div class="section-title">Action Items</div>
     <div class="col-2-grid">
       <div class="card is-critical">
-        <div class="card-title">🔥 P0 · 5/11 週一</div>
+        <div class="card-title"><span aria-hidden="true">🔥</span> P0 · 5/11 週一</div>
         <ul class="list-loose">
           <li>上午跟 Brian 對齊 Kenny 在 VMX setup 的具體 step</li>
           <li>確認 white-label login logo 機制(自助 / 後端 config / 開發)</li>
@@ -1002,7 +1003,7 @@
         </ul>
       </div>
       <div class="card is-attn">
-        <div class="card-title">📅 P1 · 本週</div>
+        <div class="card-title"><span aria-hidden="true">📅</span> P1 · 本週</div>
         <ul class="list-loose">
           <li>Honeywell fleet 建好 + 樣機 import + logo 換好(若可自助)</li>
           <li>把 Honeywell setup 流程記下來 → 給 Phil 當 Master Portal manual 範例</li>
@@ -1028,20 +1029,20 @@
         <div class="hero-stat"><div class="hero-stat-val">v2</div><div class="hero-stat-label">Template 版本</div></div>
         <div class="hero-stat"><div class="hero-stat-val">3 來源</div><div class="hero-stat-label">Outlook + Jira + Repo</div></div>
         <div class="hero-stat"><div class="hero-stat-val">P0/P1/P2</div><div class="hero-stat-label">三層 priority</div></div>
-        <div class="hero-stat"><div class="hero-stat-val">⭐ 5/11</div><div class="hero-stat-label">最新 issue</div></div>
+        <div class="hero-stat"><div class="hero-stat-val"><span aria-hidden="true">⭐</span> 5/11</div><div class="hero-stat-label">最新 issue</div></div>
       </div>
     </div>
   </div>
 
   <div id="wk-current">
-    <div class="section-title">⭐ 本週 · 2026-05-11(Week of May 8 → May 11)</div>
+    <div class="section-title"><span aria-hidden="true">⭐</span> 本週 · 2026-05-11(Week of May 8 → May 11)</div>
     <a href="docs/weekly-summary--2026-05-11_week-of-may-8.html" class="card card-link is-alert">
       <div class="flex-between-wrap">
         <div>
-          <div class="card-title is-tight">📅 Week of May 8 → May 11, 2026</div>
+          <div class="card-title is-tight"><span aria-hidden="true">📅</span> Week of May 8 → May 11, 2026</div>
           <div class="txt-meta">KW19 · 5 email · 47+48 Jira · 8 處 knowledge Δ</div>
         </div>
-        <span class="badge-latest">⭐ LATEST</span>
+        <span class="badge-latest"><span aria-hidden="true">⭐</span> LATEST</span>
       </div>
       <p class="text-body-13-tight">
         Outlook:Honeywell ME 啟動 / Vinicius Live View JS lib / QBR KPI 100K(差 15K)/ Device Listing app version / Fleet Portal manual。
@@ -1058,13 +1059,13 @@
   </div>
 
   <div id="wk-archive">
-    <div class="section-title">📚 歷史 Weekly Summary</div>
+    <div class="section-title"><span aria-hidden="true">📚</span> 歷史 Weekly Summary</div>
     <div class="card">
       <p class="text-lead-13">
         本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
       </p>
       <ul class="list-loose-20">
-        <li><a href="docs/meetings--2026-05-08_syncup-cary-elvis_meeting-record.html" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
+        <li><a href="docs/meetings--cary-elvis-blurring-timeline.html#part-1" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
         <li><a href="docs/meetings--2026-05-07_ai-weekly_meeting-record.html" class="mdt-link">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
         <li><a href="docs/meetings--2026-05-06_q2-request-review_meeting-record.html" class="mdt-link">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
       </ul>
@@ -1072,7 +1073,7 @@
   </div>
 
   <div id="wk-howto">
-    <div class="section-title">🔄 每週流程(Template v2)</div>
+    <div class="section-title"><span aria-hidden="true">🔄</span> 每週流程(Template v2)</div>
     <div class="card">
       <ol class="list-step">
         <li><strong>週一上工前</strong>掃 Outlook 上週開始的信件,挑 5 大 thread</li>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Learning: Honeywell MiddleEast CDR Opportunity(2026-05-08 啟動) · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -13,7 +14,7 @@
 <header class="doc-standalone-topbar">
   <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
   <span class="heading">🆕 案件學習 · Honeywell ME CDR</span>
-  <span class="filename">honeywell-me-cdr-opportunity.md</span>
+  <span class="filename"><code>honeywell-me-cdr-opportunity.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:—</div>
 <main class="doc-standalone">
@@ -82,20 +83,24 @@
 <h2 id="2-stark-58-2327-paul">2. Stark 5/8 23:27 給 Paul 的指令清單</h2>
 <ol>
 <li>
-<p><strong>下週一(5/11)準備樣機</strong>
-   - K220 × 1 + K265 × 1
-   - 含 open wires cable / OBD power cable / 點菸頭 cable
-   - 跟 Brian 申請 <strong>webbing SIM card</strong>
-   - 後面再準備 K220 × 4 + K265 × 4 set</p>
+<p><strong>下週一(5/11)準備樣機</strong></p>
+<ul class="smushed-fix">
+  <li>K220 × 1 + K265 × 1</li>
+  <li>含 open wires cable / OBD power cable / 點菸頭 cable</li>
+  <li>跟 Brian 申請 <strong>webbing SIM card</strong></li>
+  <li>後面再準備 K220 × 4 + K265 × 4 set</li>
+</ul>
 </li>
 <li>
 <p><strong>機構評估</strong>:PM/機構 討論機構殼上能否貼 Honeywell logo sticker(或更好做法)</p>
 </li>
 <li>
-<p><strong>Setup VisionMax Honeywell testing account</strong>
-   - Master &amp; Fleet portal
-   - sample import 至該 fleet 下
-   - <strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)</p>
+<p><strong>Setup VisionMax Honeywell testing account</strong></p>
+<ul class="smushed-fix">
+  <li>Master &amp; Fleet portal</li>
+  <li>sample import 至該 fleet 下</li>
+  <li><strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)</li>
+</ul>
 </li>
 <li>
 <p><strong>K220 / K265 tier pricing</strong>:週一上午會議討論,客戶要求先以第一單 5 月 6K pcs 量做報價</p>
@@ -240,19 +245,19 @@
 </table>
 <hr />
 <h2 id="6-action-items">6. Action Items</h2>
-<h3 id="p0511">🔥 P0(5/11 週一)</h3>
+<h3 id="p0511"><span aria-hidden="true">🔥</span> P0(5/11 週一)</h3>
 <ul>
 <li>[ ] 上午跟 Brian 對齊 Kenny 在 VMX setup 的具體 step</li>
 <li>[ ] 確認 white-label login logo 是 Master Portal 自助 / 後端 config / 還是要排開發</li>
 <li>[ ] 確認 Honeywell fleet 的 Plan Type 設定(對應 ADAS/DMS 啟用、Live View、Privacy Mode 等)</li>
 <li>[ ] 等 Righter / Kevin 把樣機 SN 給出來</li>
 </ul>
-<h3 id="p1-511515">📅 P1(本週 5/11–5/15)</h3>
+<h3 id="p1-511515"><span aria-hidden="true">📅</span> P1(本週 5/11–5/15)</h3>
 <ul>
 <li>[ ] Honeywell fleet 建好 + 樣機 import + logo 換好(若 white-label 可自助)</li>
 <li>[ ] 把 Honeywell setup 流程記下來 → 給 Phil 當 Master Portal manual 範例</li>
 </ul>
-<h3 id="p2-sprint">🎯 P2(下個 sprint)</h3>
+<h3 id="p2-sprint"><span aria-hidden="true">🎯</span> P2(下個 sprint)</h3>
 <ul>
 <li>[ ] 跟 5 月 6K 出貨節奏對齊,確保 firmware 版本對得上</li>
 <li>[ ] 跟 Vinicius / PS 案的 K220 + K265 機種共用部分對齊</li>
@@ -260,16 +265,18 @@
 <hr />
 <h2 id="7">7. 跨檔案連結</h2>
 <ul>
-<li>5/8 Sync up Kenny/Cary/Elvis(per-contract-fleet 議題):<a href="meetings--2026-05-08_syncup-cary-elvis_meeting-record.html"><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
+<li>5/8 Sync up Kenny/Cary/Elvis(per-contract-fleet 議題):<a href="meetings--cary-elvis-blurring-timeline.html"><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
 <li>Plan Type 議題:<a href="03_systems-architecture--plan-types.html"><code>knowledge/03_systems-architecture/plan-types.md</code></a></li>
 <li>5/6 Q2 review(戰略翻案 + Plan Type):<a href="meetings--2026-05-06_q2-request-review_meeting-record.html"><code>meetings/2026-05-06_q2-request-review_meeting-record.md</code></a></li>
 <li>機種規格(K220 / K265):<a href="01_product-knowledge--machines-spec.html"><code>knowledge/01_product-knowledge/machines-spec.md</code></a></li>
-<li>Vinicius / PS 案(機種共用):<a href="vinicius-platform-science.md"><code>case-learning/vinicius-platform-science.md</code></a></li>
+<li>Vinicius / PS 案(機種共用):<a href="case-learning--vinicius-platform-science.html"><code>case-learning/vinicius-platform-science</code></a></li>
 <li>本週 Weekly Summary:<a href="weekly-summary--2026-05-11_week-of-may-8.html"><code>weekly-summary/2026-05-11_week-of-may-8.md</code></a></li>
 </ul>
 <hr />
 <p><em>Created: 2026-05-11 by Kenny。等 5/11 上午 Brian 對齊後補 Section 3 具體任務拆解。</em></p>
   </div>
 </main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weekly Summary — 2026-05-11(週期 2026-05-08 Fri → 2026-05-11 Mon) · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -12,10 +13,10 @@
 <body>
 <header class="doc-standalone-topbar">
   <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
-  <span class="heading">📅 Weekly Summary · 2026-05-11(週 of May 8)</span>
-  <span class="filename">2026-05-11_week-of-may-8.md</span>
+  <span class="heading"><span aria-hidden="true">📅</span> Weekly Summary · 2026-05-11(週 of May 8)</span>
+  <span class="filename">2026-05-11_week-of-may-8</span>
 </header>
-<div class="doc-standalone-meta">最後更新:—</div>
+<div class="doc-standalone-meta">最後更新:2026-05-11</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="weekly-summary-2026-05-11-2026-05-08-fri-2026-05-11-mon">Weekly Summary — 2026-05-11(週期 2026-05-08 Fri → 2026-05-11 Mon)</h1>
@@ -37,22 +38,22 @@
 </thead>
 <tbody>
 <tr>
-<td>📧 Outlook 5 大 thread</td>
+<td><span aria-hidden="true">📧</span> Outlook 5 大 thread</td>
 <td>Honeywell ME 6K 樣機 + VMX setup / Vinicius 追 Live View JS lib / QBR KPI 100K gap 15K / Device Listing app version 確認 / Fleet Portal manual draft 1 review</td>
 <td><strong>P0</strong> Honeywell setup + Vinicius 答覆</td>
 </tr>
 <tr>
-<td>🐞 VMX pending 180 days(47 票)</td>
+<td><span aria-hidden="true">🐞</span> VMX pending 180 days(47 票)</td>
 <td>IOSix dongle 5 票連環 / API/文件 5 票 / DMS-AI 3 票 / Contract Fleet &amp; Multi-Fleet 2 票 / NZ Biometric Privacy Code 法規票 1</td>
 <td><strong>P1</strong> 提案 Brian 做一輪 ticket triage(close / re-assign)</td>
 </tr>
 <tr>
-<td>🦅 HAWK opened(48 票)</td>
+<td><span aria-hidden="true">🦅</span> HAWK opened(48 票)</td>
 <td><strong>HAWK-582 Lens Cover detection 6 月 release 確認(Eric 5/8 13:38)</strong> / HAWK-545 飲食/抽菸誤判同向 / HAWK-501 ADAS self-calib 誤判高度 / HAWK-583 MX timezone</td>
 <td><strong>P0</strong> Lens Cover 流程進度跟 Cary(Wendy)同步</td>
 </tr>
 <tr>
-<td>🔗 與 repo 知識的 Δ</td>
+<td><span aria-hidden="true">🔗</span> 與 repo 知識的 Δ</td>
 <td>QBR 數字、Honeywell ME 案、Lens Cover 6 月 release、Plan Type 對應 Vinicius "Platform Science" fleet</td>
 <td><strong>P1</strong> 寫進 case-learning / knowledge / memory</td>
 </tr>
@@ -60,28 +61,36 @@
 </table>
 <hr />
 <h2 id="a-outlook-58-fri-59-sat5-thread">A. Outlook 信件(5/8 Fri → 5/9 Sat)5 大 thread</h2>
-<h3 id="a1-honeywell-middleeast-cdr-opportunitystark-paul-brian-kevin-brian-59-1009-fw-kenny">A1. 🔥 Honeywell MiddleEast CDR opportunity(Stark → Paul / Brian / Kevin · Brian 5/9 10:09 FW Kenny)</h3>
+<h3 id="a1-honeywell-middleeast-cdr-opportunitystark-paul-brian-kevin-brian-59-1009-fw-kenny">A1. <span aria-hidden="true">🔥</span> Honeywell MiddleEast CDR opportunity(Stark → Paul / Brian / Kevin · Brian 5/9 10:09 FW Kenny)</h3>
 <p><strong>來源</strong>:Stark 2026-05-08 23:27 給 Paul / Brian / Kevin,cc Alicia / Milky / Conant。Brian 週六 10:09 FW 給 Righter / Spencer / Mori / <strong>Kenny</strong>,說「週一我們再來安排一下」。</p>
-<p><strong>Stark 給 Paul 的指令清單</strong>:
-1. <strong>下週一(5/11)準備樣機</strong>:K220 × 1 + K265 × 1,含 open wires cable / OBD power cable / 點菸頭 cable,跟 Brian 申請 webbing SIM card。後面再準備 K220 × 4 + K265 × 4 set。
-2. PM/機構 評估:<strong>機構殼上是否可貼 Honeywell logo sticker</strong>(或更好做法)
-3. <strong>Setup VisionMax Honeywell testing account</strong>:Master &amp; Fleet portal,sample 匯入該 fleet。<strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)
-4. 週一上午會討論 K220 / K265 <strong>tier pricing</strong>(客戶第一單 5 月 6K pcs 要報價)</p>
+<p><strong>Stark 給 Paul 的指令清單</strong>:</p>
+<ol class="smushed-fix">
+  <li><strong>下週一(5/11)準備樣機</strong>:K220 × 1 + K265 × 1,含 open wires cable / OBD power cable / 點菸頭 cable,跟 Brian 申請 webbing SIM card。後面再準備 K220 × 4 + K265 × 4 set。</li>
+  <li>PM/機構 評估:<strong>機構殼上是否可貼 Honeywell logo sticker</strong>(或更好做法)</li>
+  <li><strong>Setup VisionMax Honeywell testing account</strong>:Master &amp; Fleet portal,sample 匯入該 fleet。<strong>Login logo 換 Honeywell logo</strong>(white-label 雙 portal)</li>
+  <li>週一上午會討論 K220 / K265 <strong>tier pricing</strong>(客戶第一單 5 月 6K pcs 要報價)</li>
+</ol>
 <p><strong>Kenny 的角色</strong>:Brian 點名 Kenny 在 list 內 → VisionMax setup 路線(Master &amp; Fleet portal 設定 + logo 客製)是 Kenny 可以實際參與的部分,<strong>對應 Plan Type / Contract Fleet 的 portal 結構工作</strong>。</p>
 <p><strong>P0 待辦(週一)</strong>:跟 Brian 確認 Kenny 在 VMX setup 上要做什麼具體 step(white-label login logo、Honeywell fleet 建立、import samples)。</p>
 <hr />
-<h3 id="a2-vision-max-apisvinicius-platform-science">A2. 🔥 Vision Max APIs(Vinicius / Platform Science)</h3>
-<p><strong>最新狀態</strong>(5/9 13:11 Vinicius):做完了 PS portal 的 clone,要對接 VMX API 驗證。<strong>目前在等兩件事</strong>:
-1. <strong>JS library 供 testing</strong>(Live View P2P browser-to-device 用)
-2. <strong>Camera-side video 直接看,不下載</strong> — VMX 支不支援</p>
-<p><strong>Brian 5/9 10:27 對 Vinicius 的回應</strong>:
-- Live View 是 P2P 直連(browser/app → device),<strong>不走 cloud API</strong>
-- 若做 Server-to-Server 整合,會提供 <strong>JavaScript library + 必要技術協助</strong></p>
-<p><strong>設備現況(對應 A4 Device Listing thread)</strong>:
-- Vinicius 手上 3 台:K245 × 2(F4723090088 / F4723090033)+ K265 × 1(L1225380005)
-- K265 已被 Righter 5/8 加進 VMX inventory 並分配給 <strong>"Platform Science" fleet</strong>
-- K245 在 inventory 但 fleet 未確定
-- Brian 5/9 10:09 提醒:<strong>舊樣機 application version 不一定是 2026 Q1,可能要 update + 估網路用量告知客戶</strong></p>
+<h3 id="a2-vision-max-apisvinicius-platform-science">A2. <span aria-hidden="true">🔥</span> Vision Max APIs(Vinicius / Platform Science)</h3>
+<p><strong>最新狀態</strong>(5/9 13:11 Vinicius):做完了 PS portal 的 clone,要對接 VMX API 驗證。<strong>目前在等兩件事</strong>:</p>
+<ol class="smushed-fix">
+  <li><strong>JS library 供 testing</strong>(Live View P2P browser-to-device 用)</li>
+  <li><strong>Camera-side video 直接看,不下載</strong> — VMX 支不支援</li>
+</ol>
+<p><strong>Brian 5/9 10:27 對 Vinicius 的回應</strong>:</p>
+<ul class="smushed-fix">
+  <li>Live View 是 P2P 直連(browser/app → device),<strong>不走 cloud API</strong></li>
+  <li>若做 Server-to-Server 整合,會提供 <strong>JavaScript library + 必要技術協助</strong></li>
+</ul>
+<p><strong>設備現況(對應 A4 Device Listing thread)</strong>:</p>
+<ul class="smushed-fix">
+  <li>Vinicius 手上 3 台:K245 × 2(F4723090088 / F4723090033)+ K265 × 1(L1225380005)</li>
+  <li>K265 已被 Righter 5/8 加進 VMX inventory 並分配給 <strong>"Platform Science" fleet</strong></li>
+  <li>K245 在 inventory 但 fleet 未確定</li>
+  <li>Brian 5/9 10:09 提醒:<strong>舊樣機 application version 不一定是 2026 Q1,可能要 update + 估網路用量告知客戶</strong></li>
+</ul>
 <p><strong>K265 LM 版限制(Righter 5/7 已答覆)</strong>:</p>
 <blockquote>
 <p>"Due to software architecture limitations of the K265, updating via SD card cannot overwrite all partitions … devices originally installed with the LM version cannot be updated to the VisionMax version using an SD update."
@@ -89,19 +98,21 @@
 </blockquote>
 <p><strong>Kenny 的角色</strong>:cc 在整條 thread,<strong>Server-to-Server JS lib 是 Conant/Brian 主導</strong>,但 Live View streaming / video 不下載直接看的需求要記進 KB / case-learning 等下次客戶問會用到。</p>
 <hr />
-<h3 id="a3-visionmax-2026-q1-qbrbrian-59-1007-spencer-eric-leo-mori-kenny-righter-richard">A3. 📊 VisionMax 2026 Q1 QBR(Brian 5/9 10:07 給 Spencer / Eric / Leo / Mori / Kenny / Righter / Richard)</h3>
-<p><strong>重點</strong>:Brian 把週五(5/8)QBR 中 VMX 部分整理成 deck 給內部團隊。
-- 第一頁 = <strong>VMX subscription 量</strong>
-- 最後三頁 = 到 <strong>2027 年底</strong> VMX 要 support 的 CDR HW 產品線 + Event Features</p>
-<p><strong>🚨 KPI 數字</strong>(Brian 信內明寫):</p>
+<h3 id="a3-visionmax-2026-q1-qbrbrian-59-1007-spencer-eric-leo-mori-kenny-righter-richard">A3. <span aria-hidden="true">📊</span> VisionMax 2026 Q1 QBR(Brian 5/9 10:07 給 Spencer / Eric / Leo / Mori / Kenny / Righter / Richard)</h3>
+<p><strong>重點</strong>:Brian 把週五(5/8)QBR 中 VMX 部分整理成 deck 給內部團隊。</p>
+<ul class="smushed-fix">
+  <li>第一頁 = <strong>VMX subscription 量</strong></li>
+  <li>最後三頁 = 到 <strong>2027 年底</strong> VMX 要 support 的 CDR HW 產品線 + Event Features</li>
+</ul>
+<p><strong><span aria-hidden="true">🚨</span> KPI 數字</strong>(Brian 信內明寫):</p>
 <blockquote>
 <p>Steve 今年底定的 VMX subscription <strong>KPI = 100,000 台</strong>,以目前進度估計<strong>還差 15K</strong>。</p>
 </blockquote>
 <p>→ 等於目前約 85K,需要 15K 才能達標。會議重點在「請各位確認團隊工作要對齊裡面列的 projects」。</p>
 <p><strong>Deck 連結</strong>:<code>https://docs.google.com/presentation/d/1UWin65dXNCtp_ExzP1_pCF9Upzu4tQOp/edit</code></p>
-<p><strong>Kenny 動作</strong>:看完 deck 後對齊自己工作焦點是否在裡面;特別比對 <a href="06_calibration-log--ai-team-row-by-row-status-2026-05-07.html">knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md</a> 16 件工作是否被 QBR cover。</p>
+<p><strong>Kenny 動作</strong>:看完 deck 後對齊自己工作焦點是否在裡面;特別比對 <a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html">ai-team-row-by-row-status-2026-05-07</a> 16 件工作是否被 QBR cover。</p>
 <hr />
-<h3 id="a4-visonmax-account-device-listingpaul-58-1322-brian-righter-vinicius">A4. 🛠 VisonMax Account Device Listing(Paul 5/8 13:22 開頭 → Brian / Righter 對接 Vinicius)</h3>
+<h3 id="a4-visonmax-account-device-listingpaul-58-1322-brian-righter-vinicius">A4. <span aria-hidden="true">🛠</span> VisonMax Account Device Listing(Paul 5/8 13:22 開頭 → Brian / Righter 對接 Vinicius)</h3>
 <p><strong>時間線</strong>:
 | 時間 | 人 | 動作 |
 |------|----|-----|
@@ -109,11 +120,13 @@
 | 5/8 15:35 | Brian | 對 Righter:<strong>確認 3 台 SN 是否在 PS 的 VMX Master account 下,application version 是否要 update,plan type 是否正確</strong> |
 | 5/8 15:48 | Righter | K245 × 2 在 inventory,K265 已分配給 "Platform Science" fleet。<strong>K265 (L1225380005) 的 AI function 看起來 OK</strong> |
 | 5/8 15:56 | Brian | 確認舊樣機 app version 是否 2026 Q1,否則告知 Vinicius 要 update + 估網路用量 |</p>
-<p><strong>Plan Type / Contract Fleet 對應(Repo 知識)</strong>:
-- "Platform Science" 是 PS 自己的 main fleet,K265 在裡面已可用 AI
-- Vinicius 在 5/9 來信反映 EVO K265 ADAS/DMS 沒啟動,但 Righter 說 AI 看起來 OK → 中間可能差 plan type / DMS calibration 沒完成</p>
+<p><strong>Plan Type / Contract Fleet 對應(Repo 知識)</strong>:</p>
+<ul class="smushed-fix">
+  <li>"Platform Science" 是 PS 自己的 main fleet,K265 在裡面已可用 AI</li>
+  <li>Vinicius 在 5/9 來信反映 EVO K265 ADAS/DMS 沒啟動,但 Righter 說 AI 看起來 OK → 中間可能差 plan type / DMS calibration 沒完成</li>
+</ul>
 <hr />
-<h3 id="a5-fleet-portal-manual-draft-1phil-58-1434-luke-brian-kenny-simon">A5. 📘 Fleet portal manual draft 1(Phil 5/8 14:34 → Luke / Brian / Kenny / Simon)</h3>
+<h3 id="a5-fleet-portal-manual-draft-1phil-58-1434-luke-brian-kenny-simon">A5. <span aria-hidden="true">📘</span> Fleet portal manual draft 1(Phil 5/8 14:34 → Luke / Brian / Kenny / Simon)</h3>
 <p><strong>Phil Soung (Marketing PM)</strong> 5/8 14:34 給 Luke 第一版 <code>VisionMax Fleet Portal R02 draft 1.pdf</code>(9 MB)。Phil 下週開始做 <strong>Master Portal manual</strong>。</p>
 <p><strong>Luke 15:02 回覆</strong>:幾天內 review 給 feedback。已點出 'Playback SD Card' 和 'Create Time-lapse Trip Video' 在 'Retrieve Video' tab 漏掉。</p>
 <p><strong>Brian 15:06</strong> 把 Simon 加進 loop。</p>
@@ -151,7 +164,7 @@ Filter name:<strong>"VMX pending for 180 days"</strong>
 <li>VMX-6453 Task <code>Server Model Research - Phone Usage</code></li>
 <li>VMX-6221 Task <code>Survey AI Model Self-Training and Optimization System</code></li>
 </ul>
-<p>→ <strong>與 5/7 AI Weekly「飲食誤判 17x 客訴危機」同向</strong>(見 <a href="meetings--2026-05-07_ai-weekly_meeting-record.html">meetings/2026-05-07_ai-weekly_meeting-record.md</a>)。
+<p>→ <strong>與 5/7 AI Weekly「飲食誤判 17x 客訴危機」同向</strong>(見 <a href="meetings--2026-05-07_ai-weekly_meeting-record.html">2026-05-07_ai-weekly_meeting-record</a>)。
 → <strong>與 HAWK-545「Mobile phone detection rates decreased, smoking influence」同根因</strong>,需把 VMX 與 HAWK 連起看。</p>
 <h4 id="b1-4-contract-fleet-multi-fleet2-58-sync-up-caryelvis">B1-4. Contract Fleet &amp; Multi-Fleet(2)— 對應 5/8 Sync-up Cary/Elvis 議題</h4>
 <ul>
@@ -287,20 +300,28 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 </tr>
 </tbody>
 </table>
-<p><strong>現況</strong>(報告原文):
-- Lens cover detection 只在 <strong>vehicle speed ≥ 20 km/h</strong> AND <strong>DMS calibration 完成</strong> 才會啟動
-- 客戶觀察:駕駛可能在<strong>還沒開車前</strong>就遮鏡頭(speed=0、calibration 未完成)→ <strong>漏偵測</strong></p>
-<p><strong>Planned spec update</strong>:
-1. Lens covered function <strong>取消車速限制</strong>
-2. <strong>DMS calibration 完成的依賴拿掉</strong></p>
-<p><strong>討論線</strong>(comment thread):
-- 5/6 16:29 <strong>Martin Rothe (Webfleet)</strong> 問:要 Flow 1(ignition ON + 無移動就偵測)還是 Flow 2(要先動一下,之後忽略車速)?
-- 5/6 20:04 <strong>Jakob Mund (Bridgestone)</strong> 回:<strong>Flow 1 better</strong>。理由 — 開車中拆遮蔽不安全;隱私問題用 Private Mode 處理。
-- 5/8 13:38 <strong>Eric H (MDT, 謝翔宇)</strong> 結:✅ 確認 spec,<strong>The feature is planned for the next release in June</strong></p>
-<p><strong>Kenny 動作</strong>:
-- <strong>記進 Roadmap 對外版</strong>:Webfleet/Bridgestone/Azuga 三客戶聯動,<strong>6 月 release 確認</strong>
-- 對應 <a href="06_calibration-log--cary-passenger-blurring-2026-05-07.html">knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md</a> 同樣是「Wendy/Cary 線跨客戶 reusable feature」pattern,Cary 線(MiTAC AU)可能也會問
-- 與既有 memory <code>project_meeting_2026-05-07_ai_weekly.md</code>「Lens Cover 雙軌」對齊 → <strong>不是雙軌,是改設計把 speed/calibration 限制拿掉,單軌即可滿足客戶</strong></p>
+<p><strong>現況</strong>(報告原文):</p>
+<ul class="smushed-fix">
+  <li>Lens cover detection 只在 <strong>vehicle speed ≥ 20 km/h</strong> AND <strong>DMS calibration 完成</strong> 才會啟動</li>
+  <li>客戶觀察:駕駛可能在<strong>還沒開車前</strong>就遮鏡頭(speed=0、calibration 未完成)→ <strong>漏偵測</strong></li>
+</ul>
+<p><strong>Planned spec update</strong>:</p>
+<ol class="smushed-fix">
+  <li>Lens covered function <strong>取消車速限制</strong></li>
+  <li><strong>DMS calibration 完成的依賴拿掉</strong></li>
+</ol>
+<p><strong>討論線</strong>(comment thread):</p>
+<ul class="smushed-fix">
+  <li>5/6 16:29 <strong>Martin Rothe (Webfleet)</strong> 問:要 Flow 1(ignition ON + 無移動就偵測)還是 Flow 2(要先動一下,之後忽略車速)?</li>
+  <li>5/6 20:04 <strong>Jakob Mund (Bridgestone)</strong> 回:<strong>Flow 1 better</strong>。理由 — 開車中拆遮蔽不安全;隱私問題用 Private Mode 處理。</li>
+  <li>5/8 13:38 <strong>Eric H (MDT, 謝翔宇)</strong> 結:<span aria-hidden="true">✅</span> 確認 spec,<strong>The feature is planned for the next release in June</strong></li>
+</ul>
+<p><strong>Kenny 動作</strong>:</p>
+<ul class="smushed-fix">
+  <li><strong>記進 Roadmap 對外版</strong>:Webfleet/Bridgestone/Azuga 三客戶聯動,<strong>6 月 release 確認</strong></li>
+  <li>對應 <a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html">cary-passenger-blurring-2026-05-07</a> 同樣是「Wendy/Cary 線跨客戶 reusable feature」pattern,Cary 線(MiTAC AU)可能也會問</li>
+  <li>與既有 memory <code>project_meeting_2026-05-07_ai_weekly.md</code>「Lens Cover 雙軌」對齊 → <strong>不是雙軌,是改設計把 speed/calibration 限制拿掉,單軌即可滿足客戶</strong></li>
+</ul>
 <h3 id="c2-hawk-ticket48">C2. Hawk 其他關鍵 ticket(48 票中精挑)</h3>
 <h4 id="57-ai-weekly">直接關聯 5/7 AI Weekly 議題</h4>
 <ul>
@@ -385,13 +406,13 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 </table>
 <hr />
 <h2 id="e-action-items">E. Action Items</h2>
-<h3 id="p0-511">🔥 P0(今天 5/11 一定要做)</h3>
+<h3 id="p0-511"><span aria-hidden="true">🔥</span> P0(今天 5/11 一定要做)</h3>
 <ul>
 <li>[ ] <strong>Honeywell ME</strong>:週一上午跟 Brian 同步 Kenny 在 VMX setup 的責任範圍(Master + Fleet portal、Honeywell logo white-label、sample 匯入)</li>
 <li>[ ] <strong>Vinicius</strong>:把 5/9 13:11 兩問拆給 Brian/Conant 看是否要 Kenny 出 reply 草稿(camera-side video without download 是 KB / 文件層的回答)</li>
 <li>[ ] <strong>Lens Cover (HAWK-582)</strong>:把「6 月 release」消息與 Cary / Wendy 同步(passenger blurring 線同 pattern,客戶會 ask)</li>
 </ul>
-<h3 id="p1-511515">📅 P1(本週 5/11–5/15)</h3>
+<h3 id="p1-511515"><span aria-hidden="true">📅</span> P1(本週 5/11–5/15)</h3>
 <ul>
 <li>[ ] 看完 QBR deck(<code>https://docs.google.com/presentation/d/1UWin65dXNCtp_ExzP1_pCF9Upzu4tQOp</code>)→ 對齊自己工作焦點</li>
 <li>[ ] 看完 <code>VisionMax Fleet Portal R02 draft 1.pdf</code> → 給 Phil feedback,<strong>把 5/8 Sync-up 校正過的 Q2 portal path(per-contract-fleet)寫進 feedback</strong></li>
@@ -402,7 +423,7 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <li>[ ] 補 <code>case-learning/platform-science-*.md</code> 5/9 進度(JS lib + camera-side video)</li>
 <li>[ ] 更新 memory:<code>project_vmx.md</code> 加 100K/15K KPI 數字、<code>feedback_vmx_facts.md</code> 加 Lens Cover 單軌 + 6 月 release</li>
 </ul>
-<h3 id="p2-sync">🎯 P2(下個 sync 前)</h3>
+<h3 id="p2-sync"><span aria-hidden="true">🎯</span> P2(下個 sync 前)</h3>
 <ul>
 <li>[ ] Lens Cover 6 月 release 後同步 Cary / Wendy(passenger blurring 同 cycle?)</li>
 <li>[ ] VMX-5908 / VMX-6586(Contract Fleet 兩票)優先級拍板</li>
@@ -411,12 +432,12 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <hr />
 <h2 id="f">F. 跨檔案連結</h2>
 <ul>
-<li>5/8 Sync up Kenny / Cary / Elvis:<a href="meetings--2026-05-08_syncup-cary-elvis_meeting-record.html"><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
+<li>5/8 Sync up Kenny / Cary / Elvis:<a href="meetings--cary-elvis-blurring-timeline.html"><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code></a></li>
 <li>5/7 AI Weekly 重大訊號:<a href="meetings--2026-05-07_ai-weekly_meeting-record.html"><code>meetings/2026-05-07_ai-weekly_meeting-record.md</code></a></li>
 <li>5/6 Q2 Review 戰略翻案:<a href="meetings--2026-05-06_q2-request-review_meeting-record.html"><code>meetings/2026-05-06_q2-request-review_meeting-record.md</code></a></li>
-<li>Cary Passenger Blurring 對外承諾紀錄:<a href="06_calibration-log--cary-passenger-blurring-2026-05-07.html"><code>knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md</code></a></li>
+<li>Cary Passenger Blurring 對外承諾紀錄:<a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html"><code>knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md</code></a></li>
 <li>VMX-7404 ADAS Failure 追蹤:<a href="06_calibration-log--vmx-7404-tracking.html"><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code></a></li>
-<li>AI Team 16 件逐行狀態:<a href="06_calibration-log--ai-team-row-by-row-status-2026-05-07.html"><code>knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md</code></a></li>
+<li>AI Team 16 件逐行狀態:<a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html"><code>knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md</code></a></li>
 <li>Critical Facts(別再答錯):<a href="06_calibration-log--critical-facts-log.html"><code>knowledge/06_calibration-log/critical-facts-log.md</code></a></li>
 </ul>
 <h3 id="jira">Jira 直連</h3>
@@ -435,5 +456,7 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 </ul>
   </div>
 </main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

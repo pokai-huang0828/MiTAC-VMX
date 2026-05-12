@@ -6,6 +6,7 @@
 <title>Passenger Blurring · Implementation Approach · VisionMax</title>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/blurring-model-cary.css">
 </head>
 <body>
@@ -141,12 +142,12 @@
 
     <div class="report-grid">
       <div class="report-card">
-        <div class="icon">📊</div>
+        <div class="icon"><span aria-hidden="true">📊</span></div>
         <h4>Per-fleet enablement audit</h4>
         <p>See exactly which Contract Fleets currently have Blurring enabled, and the change history for each.</p>
       </div>
       <div class="report-card">
-        <div class="icon">📈</div>
+        <div class="icon"><span aria-hidden="true">📈</span></div>
         <h4>Per-fleet usage metrics</h4>
         <p>Count of actual blur operations per Contract Fleet per month — supports usage-based billing to your end customers.</p>
       </div>
@@ -206,5 +207,7 @@
 
 </div>
 
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

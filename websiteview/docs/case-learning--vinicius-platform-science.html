@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Handover: Platform Science × MiTAC — Vision Max APIs 專案 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/animations.css">
 <link rel="stylesheet" href="../css/knowledge.css">
@@ -12,8 +13,8 @@
 <body>
 <header class="doc-standalone-topbar">
   <a class="back" href="../case-hub.html" title="返回">← Case Hub</a>
-  <span class="heading">🚛 案件學習 · Vinicius / Platform Science</span>
-  <span class="filename">vinicius-platform-science.md</span>
+  <span class="heading"><span aria-hidden="true">🚛</span> 案件學習 · Vinicius / Platform Science</span>
+  <span class="filename"><code>vinicius-platform-science.md</code></span>
 </header>
 <div class="doc-standalone-meta">最後更新:—</div>
 <main class="doc-standalone">
@@ -388,15 +389,19 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Vinicius 的行為特徵</strong>
-- 技術型決策者，週末自己動手測試 SDK，代表他同時是評估者也是執行者
-- 已成功完成 K245 OEM image 修改與 app 替換，整合能力強
-- 兩度催促報價（4/29 與 5/4），說明他內部已有採購壓力，主動性高
-- 用「初期實作」描述 cloud-to-cloud，暗示後續還有更深合作規劃</p>
-<p><strong>風險信號</strong>
-- K265 問題若持續未解，會讓 Vinicius 認為 K265 不成熟，轉向只用 K245
-- 報價遲未回應，在技術評估期可能導致決策停擺
-- Platform Science 對 non-China manufacturing 的要求，是潛在否決條件，需提前確認所提機種是否完全符合</p>
+<p><strong>Vinicius 的行為特徵</strong></p>
+<ul class="smushed-fix">
+  <li>技術型決策者，週末自己動手測試 SDK，代表他同時是評估者也是執行者</li>
+  <li>已成功完成 K245 OEM image 修改與 app 替換，整合能力強</li>
+  <li>兩度催促報價（4/29 與 5/4），說明他內部已有採購壓力，主動性高</li>
+  <li>用「初期實作」描述 cloud-to-cloud，暗示後續還有更深合作規劃</li>
+</ul>
+<p><strong>風險信號</strong></p>
+<ul class="smushed-fix">
+  <li>K265 問題若持續未解，會讓 Vinicius 認為 K265 不成熟，轉向只用 K245</li>
+  <li>報價遲未回應，在技術評估期可能導致決策停擺</li>
+  <li>Platform Science 對 non-China manufacturing 的要求，是潛在否決條件，需提前確認所提機種是否完全符合</li>
+</ul>
 <hr />
 <h3 id="82-pm-platform-science">8.2 PM 策略啟示（Platform Science 視角）</h3>
 <p><strong>承諾的層次應與確定性對應</strong></p>
@@ -444,23 +449,27 @@
 <h2 id="last-updated-20260505-pm-section-8connectsource-passenger-blurring-connectsource-passenger-blurringmd"><em>Last updated: 2026/05/05 — 新增 PM 分析與策略洞察（Section 8）。CONNECTSOURCE Passenger Blurring 事件已獨立記錄於 <code>connectsource-passenger-blurring.md</code>。</em></h2>
 <h2 id="10-2026-05-07-5-8-outlook-thread">10. 2026-05-07 / 5-8 重大更新(從 Outlook thread 補)</h2>
 <h3 id="57-1102-am-vinicius-paul-lee-conant-ho-testing-plancc-vikram-righter-stark-brian-kenny">5/7 11:02 AM Vinicius 給 Paul Lee + Conant Ho 的 testing plan(cc Vikram, Righter, Stark, Brian, Kenny)</h3>
-<p><strong>Test truck setup</strong>(in Platform Science office):
-- Install <strong>Evo K265</strong> in test truck
-- 2 side cameras connected to Evo
-- 1 rear camera connected to Evo(先 truck 內測,後續要連 trailer)
-- InCab Display 連 Evo</p>
-<p><strong>後續變化</strong>:
-- 換 <strong>K165</strong> 測 single lens dashcam(某些客戶 single lens 是 requirement)
-- 用 K245 + Video Hub 測,評估這條方案可行性(K246 Orion 是未來機種,目前 K245 先頂)</p>
-<p>→ <strong>🚨 K165 重要</strong>:之前 memory 寫「沒有 K165」是錯的(2026-04 早期校正)。Vinicius 5/7 信件確認 K165 真的存在,是 EVO 系列 single lens dashcam 版本。已校正 critical-facts-log + machines-spec。</p>
+<p><strong>Test truck setup</strong>(in Platform Science office):</p>
+<ul class="smushed-fix">
+  <li>Install <strong>Evo K265</strong> in test truck</li>
+  <li>2 side cameras connected to Evo</li>
+  <li>1 rear camera connected to Evo(先 truck 內測,後續要連 trailer)</li>
+  <li>InCab Display 連 Evo</li>
+</ul>
+<p><strong>後續變化</strong>:</p>
+<ul class="smushed-fix">
+  <li>換 <strong>K165</strong> 測 single lens dashcam(某些客戶 single lens 是 requirement)</li>
+  <li>用 K245 + Video Hub 測,評估這條方案可行性(K246 Orion 是未來機種,目前 K245 先頂)</li>
+</ul>
+<p>→ <strong><span aria-hidden="true">🚨</span> K165 重要</strong>:之前 memory 寫「沒有 K165」是錯的(2026-04 早期校正)。Vinicius 5/7 信件確認 K165 真的存在,是 EVO 系列 single lens dashcam 版本。已校正 critical-facts-log + machines-spec。</p>
 <h3 id="57-844-pm-vinicius-righter">5/7 8:44 PM Vinicius 給 Righter 的進度</h3>
-<p>✅ <strong>VisionMax 已成功連線</strong> — 原本以為 cable 問題,實際是 <strong>camera APN 問題</strong>,已解決。</p>
+<p><span aria-hidden="true">✅</span> <strong>VisionMax 已成功連線</strong> — 原本以為 cable 問題,實際是 <strong>camera APN 問題</strong>,已解決。</p>
 <p>⏳ 等 cable 資訊 → 訂 sample equipment → truck 物理連接測試。</p>
 <h3 id="57-326-am-righter-song-vinicius">5/7 3:26 AM Righter Song 給 Vinicius 的關鍵限制</h3>
 <ul>
-<li>設備 F4723090033(K245 IMEI 357216578000516)已加進 inventory ✓</li>
-<li>⚠️ <strong>K265 SD card 限制</strong>:不能 overwrite all partitions(架構限制)</li>
-<li>⚠️ <strong>LM(Lightmetrics)版本不能用 SD update</strong> 升到 VisionMax → 必須<strong>直接給 VisionMax 版 sample</strong>,不要先給 LM 再升</li>
+<li>設備 F4723090033(K245 IMEI 357216578000516)已加進 inventory <span aria-hidden="true">✓</span></li>
+<li><span aria-hidden="true">⚠️</span> <strong>K265 SD card 限制</strong>:不能 overwrite all partitions(架構限制)</li>
+<li><span aria-hidden="true">⚠️</span> <strong>LM(Lightmetrics)版本不能用 SD update</strong> 升到 VisionMax → 必須<strong>直接給 VisionMax 版 sample</strong>,不要先給 LM 再升</li>
 <li>需要新 VisionMax sample 給 Vinicius 後續測試</li>
 </ul>
 <h3 id="action-items">對 Action Items 的影響</h3>
@@ -521,9 +530,11 @@
 <blockquote>
 <p>"Since Live View works as a P2P connection (directly from browser or app to device), it does not use cloud API calls. If you decide to adopt a Server-to-Server API integration approach, we will provide the JavaScript library or the necessary technical assistance."</p>
 </blockquote>
-<p><strong>重大事實</strong>:
-- <strong>Live View = P2P 直連</strong>(browser/app → device),<strong>不走 cloud API</strong>
-- 要做 Server-to-Server 整合,MiTAC 提供 <strong>JS library + 技術協助</strong></p>
+<p><strong>重大事實</strong>:</p>
+<ul class="smushed-fix">
+  <li><strong>Live View = P2P 直連</strong>(browser/app → device),<strong>不走 cloud API</strong></li>
+  <li>要做 Server-to-Server 整合,MiTAC 提供 <strong>JS library + 技術協助</strong></li>
+</ul>
 <h3 id="59-1311-vinicius-2-open-question">5/9 13:11 Vinicius 最新狀態(2 個 open question)</h3>
 <ol>
 <li><strong>JS library 供 testing</strong>:做完了 PS portal 的 clone,要對接 VMX API 驗證,要 JS lib</li>
@@ -569,5 +580,7 @@
 <p><em>Last updated: 2026-05-11 — 補 5/8–5/9 Device Listing thread + Live View P2P/JS lib + camera-side video without download 兩個 open question。</em></p>
   </div>
 </main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
 </body>
 </html>

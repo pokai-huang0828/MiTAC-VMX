@@ -41,15 +41,15 @@
 }
 .hero-tag {
   display: inline-block; background: var(--accent); color: #fff;
-  font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+  font-size: var(--fs-11); font-weight: 700; padding: 3px 10px; border-radius: 20px;
   letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 14px;
 }
-.hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
-.hero-sub { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; max-width: 700px; }
+.hero h1 { font-size: var(--fs-26); font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+.hero-sub { font-size: var(--fs-14); color: rgba(255,255,255,0.78); line-height: 1.6; max-width: 700px; }
 .hero-meta { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
 .hero-stat { display: flex; flex-direction: column; gap: 2px; }
-.hero-stat-val { font-size: 20px; font-weight: 800; }
-.hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.65); }
+.hero-stat-val { font-size: var(--fs-20); font-weight: 800; }
+.hero-stat-label { font-size: var(--fs-11); color: rgba(255,255,255,0.65); }
 
 /* ─────────────── METRIC CARDS GRID ─────────────── */
 .cards-grid {
@@ -65,16 +65,16 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
-.metric-card-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
-.metric-card-val { font-size: 24px; font-weight: 800; color: var(--primary); }
-.metric-card-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.metric-card-label { font-size: var(--fs-12); color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+.metric-card-val { font-size: var(--fs-24); font-weight: 800; color: var(--primary); }
+.metric-card-sub { font-size: var(--fs-12); color: var(--text-muted); margin-top: 4px; }
 .metric-card.green .metric-card-val { color: var(--success); }
 .metric-card.orange .metric-card-val { color: var(--accent); }
 .metric-card.red .metric-card-val { color: var(--danger); }
 
 /* ─────────────── SECTION TITLE ─────────────── */
 .section-title {
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
@@ -99,7 +99,7 @@
   margin-bottom: 20px;
 }
 .card-title {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
@@ -110,6 +110,31 @@
 .card.pending   { border-left: 4px solid var(--warning); }
 .card.critical  { border-left: 4px solid var(--danger); }
 .card.strategic { border-left: 4px solid var(--mdt-blue-dark); background: linear-gradient(180deg, #F9FBFD 0%, #fff 100%); }
+
+/* ─────────────── BEM-style card modifiers (2026-05-12 unified naming) ───────────────
+ * Existing class names kept as aliases so old HTML keeps working.
+ * Going forward, new HTML should use .card .card--<modifier>.
+ */
+.card--featured,
+.card-feature {
+  /* large hero-tier card; matches .card-feature shape from index.css */
+}
+.card--compact,
+.card-mini {
+  /* small stat-tier card */
+}
+.card--link,
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card--status-ok       { border-left: 4px solid var(--success);  background: var(--success-soft); }
+.card--status-warn     { border-left: 4px solid var(--danger);   background: var(--danger-soft);  }
+.card--status-info     { border-left: 4px solid var(--text-mute-2); background: var(--canvas-2);   }
+.card--status-alert    { border-left: 4px solid var(--accent); }
+.card--status-critical { border-left: 4px solid var(--danger); }
+.card--status-attn     { border-left: 4px solid var(--warning); }
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -118,7 +143,7 @@
   gap: 14px;
   flex-wrap: wrap;
 }
-.card-meta { font-size: 11px; color: var(--text-muted); }
+.card-meta { font-size: var(--fs-11); color: var(--text-muted); }
 
 /* ─────────────── TIMELINE ─────────────── */
 .timeline { position: relative; padding-left: 28px; }
@@ -136,15 +161,15 @@
 .tl-dot.warn  { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
 .tl-dot.issue { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
 .tl-phase {
-  font-size: 11px; font-weight: 700; color: var(--primary-light);
+  font-size: var(--fs-11); font-weight: 700; color: var(--primary-light);
   text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
 }
-.tl-date { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-.tl-content { font-size: 13.5px; line-height: 1.6; color: var(--text); }
+.tl-date { font-size: var(--fs-12); color: var(--text-muted); margin-bottom: 6px; }
+.tl-content { font-size: var(--fs-13_5); line-height: 1.6; color: var(--text); }
 .tl-content ul { padding-left: 18px; margin-top: 6px; }
 .tl-content ul li { margin-bottom: 3px; }
 .tl-tag {
-  display: inline-block; font-size: 10px; font-weight: 700;
+  display: inline-block; font-size: var(--fs-10); font-weight: 700;
   padding: 2px 8px; border-radius: 20px; margin-left: 8px;
 }
 .tl-tag.issue  { background: var(--tag-red);    color: var(--tag-red-text); }
@@ -152,14 +177,14 @@
 .tl-tag.action { background: var(--tag-orange); color: var(--tag-orange-text); }
 
 /* ─────────────── DATA TABLE ─────────────── */
-.data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: var(--fs-13_5); }
 .data-table th {
   background: var(--bg);
   color: var(--primary);
   font-weight: 700;
   text-align: left;
   padding: 10px 14px;
-  font-size: 12px;
+  font-size: var(--fs-12);
   border-bottom: 2px solid var(--border);
 }
 .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -167,8 +192,8 @@
 .data-table tr:hover td { background: #f8fafc; }
 
 /* ─────────────── COMPARISON TABLE ─────────────── */
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.compare-table th { padding: 10px 16px; text-align: left; font-size: 12px; font-weight: 700; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: var(--fs-13); }
+.compare-table th { padding: 10px 16px; text-align: left; font-size: var(--fs-12); font-weight: 700; }
 .compare-table th:first-child { background: var(--bg); color: var(--text-muted); }
 .compare-table th.biz  { background: #dbeafe; color: #1e40af; }
 .compare-table th.prod { background: #dcfce7; color: #166534; }
@@ -178,8 +203,8 @@
 .compare-table td.prod { color: #14532d; }
 
 /* ─────────────── COMMIT TABLE ─────────────── */
-.commit-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.commit-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; }
+.commit-table { width: 100%; border-collapse: collapse; font-size: var(--fs-13); }
+.commit-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-size: var(--fs-12); }
 .commit-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
 .commit-table tr:last-child td { border-bottom: none; }
 .commit-table td:first-child { font-weight: 600; color: var(--text-muted); }
@@ -190,7 +215,7 @@
 /* ─────────────── CHIPS ─────────────── */
 .chip {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--fs-11);
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 20px;
@@ -210,14 +235,14 @@
   gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 13.5px;
+  font-size: var(--fs-13_5);
 }
 .action-list li:last-child { border-bottom: none; }
 .action-list .owner {
   flex-shrink: 0;
   background: var(--primary);
   color: #fff;
-  font-size: 10px;
+  font-size: var(--fs-10);
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 20px;
@@ -234,14 +259,14 @@
   margin-bottom: 14px;
 }
 .insight-title {
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.insight p { font-size: 13.5px; line-height: 1.65; color: var(--text); }
+.insight p { font-size: var(--fs-13_5); line-height: 1.65; color: var(--text); }
 .insight.blue  { border-color: var(--primary-light); background: #eff6ff; }
 .insight.blue .insight-title { color: var(--primary-light); }
 .insight.green { border-color: var(--success); background: #f0fdf4; }
@@ -262,14 +287,14 @@
   background: var(--card);
 }
 .framework-card-title {
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 700;
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 .framework-card p {
-  font-size: 12.5px;
+  font-size: var(--fs-12_5);
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -298,7 +323,7 @@ a:hover { text-decoration: underline; }
   margin: 12px 0;
 }
 .portal-img-caption {
-  font-size: 11.5px;
+  font-size: var(--fs-11_5);
   color: var(--text-muted);
   font-style: italic;
   margin-top: -6px;
@@ -322,7 +347,7 @@ a:hover { text-decoration: underline; }
 }
 .portal-img-grid figure img:hover { transform: scale(1.02); }
 .portal-img-grid figcaption {
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
   margin-top: 4px;
   text-align: center;
@@ -332,9 +357,9 @@ a:hover { text-decoration: underline; }
 @media (max-width: 900px) {
   .framework-grid { grid-template-columns: 1fr; }
   .hero { padding: 24px 20px; }
-  .hero h1 { font-size: 22px; }
+  .hero h1 { font-size: var(--fs-22); }
   .hero-meta { gap: 14px; }
-  .hero-stat-val { font-size: 18px; }
-  .compare-table th, .compare-table td { padding: 8px 10px; font-size: 12px; }
-  .data-table th, .data-table td { padding: 8px 10px; font-size: 12.5px; }
+  .hero-stat-val { font-size: var(--fs-18); }
+  .compare-table th, .compare-table td { padding: 8px 10px; font-size: var(--fs-12); }
+  .data-table th, .data-table td { padding: 8px 10px; font-size: var(--fs-12_5); }
 }

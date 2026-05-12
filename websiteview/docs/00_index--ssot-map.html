@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSOT Map · 概念 ↔ 主檔 索引 · MiTAC Hub</title>
+<link rel="stylesheet" href="../css/design-tokens.css">
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/knowledge.css">
+<link rel="stylesheet" href="../css/doc-standalone.css">
+
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../knowledge.html" title="返回">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">🗺️</span> 索引 · SSOT Map</span>
+  <span class="filename"><code>ssot-map.md</code></span>
+</header>
+<div class="doc-standalone-meta">最後更新:2026-05-11</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+<h1 id="ssot-map">SSOT Map · 概念 ↔ 主檔 索引</h1>
+<blockquote>
+<p>SSOT = Single Source of Truth。<strong>每個事實只在一個檔詳寫,其他地方只引用 + link</strong>。
+這份就是「我要找 X 概念的 master,該去哪個檔」對照表。</p>
+<p>改概念時:<strong>只改 master 一份,其他引用處透過 link 自動同步</strong>(別複製貼上)。</p>
+</blockquote>
+<hr />
+<h2 id="_1"><span aria-hidden="true">🏭</span> 產品事實</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+<th>摘要引用處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K-series 機種 spec(K145c / K165 / K220 / K245 / K245c / K265 / K246 Orion)</td>
+<td><a href="01_product-knowledge--machines-spec.html"><code>01_product-knowledge/machines-spec.md</code></a></td>
+<td>critical-facts-log(校正歷史)/ case-learning/*</td>
+</tr>
+<tr>
+<td>ADAS / DMS / G-Sensor / Map / OBD-II 完整事件</td>
+<td><a href="01_product-knowledge--adas-dms-events.html"><code>01_product-knowledge/adas-dms-events.md</code></a></td>
+<td>roadmap-vs-internal(對外口徑)/ sales-faq</td>
+</tr>
+<tr>
+<td>紅色按鍵功能(接聽電話 / Manual event / Server callback / 格化 SD)</td>
+<td><a href="01_product-knowledge--voice-alerts.html"><code>01_product-knowledge/voice-alerts.md</code></a> + <a href="01_product-knowledge--kb-reference.html"><code>kb-reference</code></a></td>
+<td>critical-facts-log(校正歷史)</td>
+</tr>
+<tr>
+<td>Voice Alerts 完整清單</td>
+<td><a href="01_product-knowledge--voice-alerts.html"><code>01_product-knowledge/voice-alerts.md</code></a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Storage Overwrite 機制(SD + Internal Flash)</td>
+<td><a href="01_product-knowledge--storage-mechanism.html"><code>01_product-knowledge/storage-mechanism.md</code></a></td>
+<td>sales-faq</td>
+</tr>
+<tr>
+<td>Safety Score / Driver Scorecard</td>
+<td><a href="01_product-knowledge--safety-score.html"><code>01_product-knowledge/safety-score.md</code></a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>VisionAgent App</td>
+<td><a href="01_product-knowledge--visionagent-app.html"><code>01_product-knowledge/visionagent-app.md</code></a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Diagnostics(Master Portal Diagnostics 頁)</td>
+<td><a href="01_product-knowledge--diagnostics.html"><code>01_product-knowledge/diagnostics.md</code></a></td>
+<td>vmx-7404-tracking</td>
+</tr>
+<tr>
+<td>KB 60+ 篇完整 catalog</td>
+<td><a href="01_product-knowledge--kb-reference.html"><code>01_product-knowledge/kb-full-catalog.md</code></a></td>
+<td>kb-cheatsheet(精選 9 篇)</td>
+</tr>
+<tr>
+<td>MiAI Roadmap 2026 對外版</td>
+<td><a href="01_product-knowledge--miai-roadmap-2026.html"><code>01_product-knowledge/miai-roadmap-2026.md</code></a></td>
+<td>roadmap-vs-internal(對外 vs 內部)</td>
+</tr>
+<tr>
+<td>Sales-Level FAQ 對外口徑</td>
+<td><a href="01_product-knowledge--sales-faq.html"><code>01_product-knowledge/sales-faq.md</code></a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2"><span aria-hidden="true">👥</span> 組織</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+<th>摘要引用處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder map(MiTAC / 海外客戶)</td>
+<td><a href="02_organization-map--stakeholders.html"><code>02_organization-map/stakeholders.md</code></a></td>
+<td>case-learning/*</td>
+</tr>
+<tr>
+<td>Coffee chat 問題清單</td>
+<td><a href="02_organization-map--coffee-chat-questions.html"><code>02_organization-map/coffee-chat-questions.md</code></a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3"><span aria-hidden="true">🏛</span> 系統架構</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+<th>摘要引用處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portal 雙層架構(Master / Fleet)+ 26 頁 walkthrough</td>
+<td><a href="03_systems-architecture--portal-architecture.html"><code>03_systems-architecture/portal-architecture.md</code></a></td>
+<td>case-learning/honeywell-me-cdr-opportunity</td>
+</tr>
+<tr>
+<td>Plan Type 商業模型(Standard / Advanced / Pro / Suspend)</td>
+<td><a href="03_systems-architecture--plan-types.html"><code>03_systems-architecture/plan-types.md</code></a></td>
+<td>case-learning/*(PS / Honeywell)</td>
+</tr>
+<tr>
+<td>Master Portal 操作層(8 篇 KB 整理)</td>
+<td><a href="03_systems-architecture--master-portal-operations.html"><code>03_systems-architecture/master-portal-operations.md</code></a></td>
+<td>troubleshooting</td>
+</tr>
+<tr>
+<td>Server AI 架構演進(4 階段)</td>
+<td><a href="03_systems-architecture--server-ai-architecture.html"><code>03_systems-architecture/server-ai-architecture.md</code></a></td>
+<td>miai-roadmap-2026 / roadmap-vs-internal</td>
+</tr>
+<tr>
+<td>Vehicle Classification + Camera Height</td>
+<td><a href="03_systems-architecture--vehicle-classification.html"><code>03_systems-architecture/vehicle-classification.md</code></a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pm"><span aria-hidden="true">📐</span> PM 框架</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三層真相(KB / Sheet / Roadmap)</td>
+<td><a href="04_pm-frameworks--three-truth-layers.html"><code>04_pm-frameworks/three-truth-layers.md</code></a></td>
+</tr>
+<tr>
+<td>承諾層次框架</td>
+<td><a href="04_pm-frameworks--communication-frameworks.html"><code>04_pm-frameworks/commitment-framework.md</code></a></td>
+</tr>
+<tr>
+<td>4 條核心 PM 原則</td>
+<td><a href="04_pm-frameworks--core-principles.html"><code>04_pm-frameworks/core-principles.md</code></a></td>
+</tr>
+<tr>
+<td>技術型客戶溝通</td>
+<td><a href="04_pm-frameworks--communication-frameworks.html"><code>04_pm-frameworks/tech-client-comm.md</code></a></td>
+</tr>
+<tr>
+<td>內部溝通斷層</td>
+<td><a href="04_pm-frameworks--communication-frameworks.html"><code>04_pm-frameworks/internal-comm-gap.md</code></a></td>
+</tr>
+<tr>
+<td>UI Change Management</td>
+<td><a href="04_pm-frameworks--ui-change-management.html"><code>04_pm-frameworks/ui-change-management.md</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflows-sop"><span aria-hidden="true">⚙️</span> Workflows / SOP</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data ingestion workflow(user 給資料 → Claude 整理進 .md → 更新 HTML)</td>
+<td><a href="05_workflows--data-ingestion-workflow.html"><code>05_workflows/data-ingestion-workflow.md</code></a></td>
+</tr>
+<tr>
+<td>HTML 簡報製作</td>
+<td><a href="05_workflows--presentation-workflow.html"><code>05_workflows/html-presentation-pipeline.md</code></a></td>
+</tr>
+<tr>
+<td>MDT 2026 PPT 模板</td>
+<td><a href="05_workflows--presentation-workflow.html"><code>05_workflows/mdt-2026-template.md</code></a></td>
+</tr>
+<tr>
+<td>Sheet × Jira 雙週 sweeper</td>
+<td><a href="05_workflows--sheet-jira-sync-sweeper.html"><code>05_workflows/sheet-jira-sync-sweeper.md</code></a></td>
+</tr>
+<tr>
+<td>Customer onboarding</td>
+<td><a href="05_workflows--customer-onboarding.html"><code>05_workflows/customer-onboarding.md</code></a></td>
+</tr>
+<tr>
+<td>Troubleshooting checklist</td>
+<td><a href="05_workflows--troubleshooting.html"><code>05_workflows/troubleshooting.md</code></a></td>
+</tr>
+<tr>
+<td>Claude memory system</td>
+<td><a href="05_workflows--memory-system.html"><code>05_workflows/memory-system.md</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4"><span aria-hidden="true">🎯</span> 校正事實表</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+<th>對應引用處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已校正關鍵 VMX 事實(別再答錯)</td>
+<td><a href="06_calibration-log--critical-facts-log.html"><code>06_calibration-log/critical-facts-log.md</code></a></td>
+<td>weekly-summary / case-learning</td>
+</tr>
+<tr>
+<td>Roadmap(對外)vs 內部現實 不一致紀錄</td>
+<td><a href="06_calibration-log--roadmap-vs-internal.html"><code>06_calibration-log/roadmap-vs-internal.md</code></a></td>
+<td>adas-dms-events</td>
+</tr>
+<tr>
+<td>Sheet ↔ Jira mismatch 紀錄</td>
+<td><a href="06_calibration-log--sheet-jira-mismatches.html"><code>06_calibration-log/sheet-jira-mismatches.md</code></a></td>
+<td>sheet-jira-sync-sweeper</td>
+</tr>
+<tr>
+<td>VMX-7404 ADAS Failure 追蹤(評估期籌碼)</td>
+<td><a href="06_calibration-log--vmx-7404-tracking.html"><code>06_calibration-log/vmx-7404-tracking.md</code></a></td>
+<td>diagnostics / weekly-summary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5"><span aria-hidden="true">📅</span> 時序事件</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>SSOT 主檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本週對齊狀態</td>
+<td><code>weekly-summary/&lt;latest&gt;.md</code>(每週新檔)</td>
+</tr>
+<tr>
+<td>會議紀錄</td>
+<td><code>meetings/YYYY-MM-DD_&lt;topic&gt;.md</code></td>
+</tr>
+<tr>
+<td>歷史 snapshot</td>
+<td><code>knowledge/archive/YYYY-MM-DD_&lt;topic&gt;.md</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6"><span aria-hidden="true">📋</span> 客戶案件</h2>
+<table>
+<thead>
+<tr>
+<th>案件</th>
+<th>SSOT 主檔</th>
+<th>狀態</th>
+<th>對應 Jira(2026-05-11)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Honeywell ME CDR(新案 5/8 啟動)</td>
+<td><a href="case-learning--honeywell-me-cdr-opportunity.html"><code>case-learning/honeywell-me-cdr-opportunity.md</code></a></td>
+<td>🆕 NEW</td>
+<td>(待開 Honeywell setup ticket)</td>
+</tr>
+<tr>
+<td>Platform Science / Vinicius</td>
+<td><a href="case-learning--vinicius-platform-science.html"><code>case-learning/vinicius-platform-science.md</code></a></td>
+<td><span aria-hidden="true">🟢</span> ACTIVE</td>
+<td>Live View JS lib(Brian 5/9 承諾)· camera-side video without download 開放問題</td>
+</tr>
+<tr>
+<td>CONNECTSOURCE / Cary / Wendy / MAU</td>
+<td><a href="case-learning--connectsource-passenger-blurring.html"><code>case-learning/connectsource-passenger-blurring.md</code></a></td>
+<td><span aria-hidden="true">🟢</span> ACTIVE · <strong>Q2 scope 已鎖定</strong>(2026-05-11 Brian 拍板)</td>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457">VMX-7457</a> Cloud API + doc share(Spencer · Due 30/Jun)· <a href="https://jira.navman.co.nz/jira/browse/VMX-7458">VMX-7458</a> GUI feasibility long-term(Kenny)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jira-tickets"><span aria-hidden="true">📋</span> Jira tickets 對應主檔</h2>
+<table>
+<thead>
+<tr>
+<th>Jira</th>
+<th>案件 / 議題</th>
+<th>主檔 SSOT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7457">VMX-7457</a></td>
+<td>CONNECTSOURCE Blurring · Cloud API integration + doc share(Spencer · Due 30/Jun/26 staging · Production end-Jul)</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code> § 8.4</td>
+</tr>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7458">VMX-7458</a></td>
+<td>Auto Sense / non-API customers · Blurring UI feasibility(Kenny · long-term)</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code> § 8.4</td>
+</tr>
+<tr>
+<td><a href="https://jira.navman.co.nz/jira/browse/VMX-7404">VMX-7404</a></td>
+<td>ADAS Failure(評估期主力)· 8/10 設備 health failure</td>
+<td><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code></td>
+</tr>
+<tr>
+<td>VMX-6427(reference 舊單,不對等)</td>
+<td>Improve reporting function #107 · events reporting infra(非 Blurring monthly report 對應位置)</td>
+<td><code>case-learning/connectsource-passenger-blurring.md</code> § 8.4 註腳</td>
+</tr>
+</tbody>
+</table>
+<h2 id="calibration-rulescritical-facts-log-ssot"><span aria-hidden="true">🎯</span> Calibration rules(critical-facts-log 內 SSOT)</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>來源</th>
+<th>主檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jira ticket = SSOT,external email follow-up 通常 redundant</strong></td>
+<td>Brian 2026-05-11 傍晚二次回應</td>
+<td><code>06_calibration-log/critical-facts-log.md</code></td>
+</tr>
+<tr>
+<td>Blurring API doc share ≠ endpoint open</td>
+<td>Spencer 2026-05-11 揭露</td>
+<td><code>06_calibration-log/critical-facts-log.md</code></td>
+</tr>
+<tr>
+<td>Option A vs Option B 在 API 層是同一條 flow</td>
+<td>Brian 2026-05-11 下午 take over</td>
+<td><code>06_calibration-log/critical-facts-log.md</code></td>
+</tr>
+<tr>
+<td>Connect Source = API only / Auto Sense = UI(Q2 不做)</td>
+<td>Brian 2026-05-11 下午拍板</td>
+<td><code>06_calibration-log/critical-facts-log.md</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">更新規則</h2>
+<p>新增一個概念到 SSOT map:</p>
+<ol class="smushed-fix">
+  <li>在對應分類找位置插入一行</li>
+  <li>寫概念名稱 + 主檔 link + 主要引用處</li>
+  <li>在 <code>changelog.md</code> 加一行 <code>STRUCT · ssot-map · 加 &lt;X&gt; 概念</code></li>
+</ol>
+  </div>
+</main>
+<script src="../js/external-share.js" defer></script>
+<script src="../js/sticky-toc.js" defer></script>
+</body>
+</html>

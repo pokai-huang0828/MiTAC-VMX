@@ -6,54 +6,27 @@
  * 改任何 design token 在這裡。
  * ================================================================ */
 
+/* Page-local aliases. Real tokens in design-tokens.css. */
 :root {
-  --ink:        #0B1220;
-  --ink-2:      #1B2433;
-  --ink-3:      #2A3447;
-  --muted:      #5B6878;
-  --muted-2:    #8893A4;
-  --line:       #E5E9F0;
-  --line-2:     #EEF1F6;
-  --paper:      #FFFFFF;
-  --canvas:     #F6F8FB;
-  --canvas-2:   #EDF1F7;
-
-  --brand:      #1E4E8C;
-  --brand-2:    #2C6FB8;
-  --brand-3:    #4E90D1;
-  --brand-soft: #E8EEFB;
-  --accent:     #ED7D31;
-  --accent-2:   #FF9E5C;
-  --accent-soft:#FFF1E0;
-
-  --green:      #18A06B;
-  --green-bg:   #E7F7EE;
-  --amber:      #C57A0B;
-  --amber-bg:   #FDF1DC;
-  --red:        #C42F3C;
-  --red-bg:     #FCE7E9;
+  --green:      var(--success);
+  --green-bg:   var(--success-soft);
+  --amber:      var(--warning);
+  --amber-bg:   var(--warning-soft);
+  --red:        var(--danger);
+  --red-bg:     var(--danger-soft);
   --violet:     #6E3FB0;
   --violet-bg:  #F1E8FB;
   --slate:      #36465E;
-  --slate-bg:   #E9EDF4;
-
-  --shadow-sm:  0 1px 2px rgba(11,18,32,.05), 0 1px 1px rgba(11,18,32,.03);
-  --shadow-md:  0 8px 24px -8px rgba(11,18,32,.12), 0 2px 4px rgba(11,18,32,.04);
-  --shadow-lg:  0 24px 56px -16px rgba(11,18,32,.18), 0 6px 12px -4px rgba(11,18,32,.06);
-  --shadow-xl:  0 36px 80px -24px rgba(11,18,32,.22), 0 8px 16px -6px rgba(11,18,32,.08);
-
-  --r-sm: 6px;
-  --r:    12px;
-  --r-lg: 18px;
-  --r-xl: 24px;
+  --slate-bg:   var(--canvas-2);
+  --line-2:     var(--line-soft);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: var(--font-body);
   color: var(--ink); background: var(--canvas);
-  line-height: 1.65; font-size: 15px;
+  line-height: var(--leading-normal); font-size: var(--text-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -61,8 +34,8 @@ body {
 a { color: inherit; text-decoration: none; }
 ::selection { background: var(--brand); color: #fff; }
 h1, h2, h3, h4 {
-  font-family: "Cabinet Grotesk", "Satoshi", sans-serif;
-  letter-spacing: -.02em; color: var(--ink); line-height: 1.15;
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tight); color: var(--ink); line-height: var(--leading-tight);
   font-weight: 800;
 }
 
@@ -82,19 +55,31 @@ h1, h2, h3, h4 {
 .brand {
   display: flex; align-items: center; gap: 10px;
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
-  font-size: 17px; letter-spacing: -.02em;
+  font-size: var(--fs-17); letter-spacing: -.02em;
 }
 .brand .logo {
   width: 30px; height: 30px;
   border-radius: 8px;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
   color: #fff; display: grid; place-items: center;
-  font-size: 14px; font-weight: 900;
+  font-size: var(--fs-14); font-weight: 900;
 }
 .brand .accent-dot { color: var(--accent); }
 .topnav-meta {
-  margin-left: auto; display: flex; gap: 10px; align-items: center;
-  font-size: 12px; color: var(--muted-2);
+  margin-left: auto; display: flex; gap: var(--space-3); align-items: center;
+  font-size: var(--text-xs); color: var(--text-mute-2);
+}
+.topnav-meta .topnav-link {
+  display: inline-flex; gap: 4px; align-items: center;
+  color: var(--brand); font-weight: 700; text-decoration: none;
+  padding: 4px 10px; border-radius: var(--r-full);
+  background: var(--brand-soft);
+  font-size: var(--text-xs);
+  transition: background var(--ease-quick), color var(--ease-quick);
+}
+.topnav-meta .topnav-link:hover {
+  background: var(--brand);
+  color: #fff;
 }
 .topnav-meta .live-dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--green);
@@ -144,7 +129,7 @@ h1, h2, h3, h4 {
 .hero-eyebrow {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 700;
   text-transform: uppercase; letter-spacing: .2em;
-  color: var(--accent-2); font-size: 11px;
+  color: var(--accent-2); font-size: var(--fs-11);
   margin-bottom: 14px;
   display: flex; align-items: center; gap: 10px;
 }
@@ -153,7 +138,7 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(237,125,49,.3);
 }
 .hero h1 {
-  color: #fff; font-size: 44px; font-weight: 900; letter-spacing: -.03em;
+  color: #fff; font-size: var(--fs-44); font-weight: 900; letter-spacing: -.03em;
   margin-bottom: 16px;
 }
 .hero h1 .underline {
@@ -162,7 +147,7 @@ h1, h2, h3, h4 {
   -webkit-text-fill-color: transparent;
 }
 .hero-lede {
-  color: #C9D5EA; font-size: 16px; max-width: 580px;
+  color: #C9D5EA; font-size: var(--fs-16); max-width: 580px;
   line-height: 1.6; margin-bottom: 22px;
 }
 .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -170,7 +155,7 @@ h1, h2, h3, h4 {
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 18px; border-radius: 12px;
-  font-weight: 600; font-size: 14px;
+  font-weight: 600; font-size: var(--fs-14);
   transition: all .18s ease;
   border: 1px solid transparent;
 }
@@ -205,7 +190,7 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 .gauge-label {
-  font-size: 11px; font-weight: 700; letter-spacing: .15em;
+  font-size: var(--fs-11); font-weight: 700; letter-spacing: .15em;
   text-transform: uppercase; color: rgba(255,255,255,.62);
   margin-bottom: 14px;
 }
@@ -226,10 +211,10 @@ h1, h2, h3, h4 {
 .gauge-num {
   position: relative; z-index: 1;
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
-  color: #fff; font-size: 36px; letter-spacing: -.04em; line-height: 1;
+  color: #fff; font-size: var(--fs-36); letter-spacing: -.04em; line-height: 1;
 }
-.gauge-num small { font-size: 14px; opacity: .55; font-weight: 700; margin-left: 2px; }
-.gauge-sub { margin-top: 4px; font-size: 13px; color: #C9D5EA; }
+.gauge-num small { font-size: var(--fs-14); opacity: .55; font-weight: 700; margin-left: 2px; }
+.gauge-sub { margin-top: 4px; font-size: var(--fs-13); color: #C9D5EA; }
 .gauge-sub strong { color: var(--accent-2); }
 
 /* ===== Section ===== */
@@ -241,12 +226,105 @@ h1, h2, h3, h4 {
 }
 .zone-num {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
-  color: var(--muted-2); font-size: 13px; letter-spacing: .15em;
+  color: var(--muted-2); font-size: var(--fs-13); letter-spacing: .15em;
 }
 .zone-title {
-  font-size: 28px; font-weight: 800; letter-spacing: -.02em;
+  font-size: var(--fs-28); font-weight: 800; letter-spacing: -.02em;
 }
-.zone-sub { color: var(--muted); font-size: 14px; margin-left: 6px; }
+.zone-sub { color: var(--muted); font-size: var(--fs-14); margin-left: 6px; }
+
+/* ===== Onboarding zone (新人第一週導讀) ===== */
+.zone-onboard {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #F4F8FE 0%, #FFFFFF 100%);
+  border: 1px solid var(--brand-soft);
+  border-radius: var(--r-lg);
+  padding: 26px 28px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.zone-onboard .zone-head { margin-bottom: 8px; }
+.zone-onboard .zone-num { color: var(--brand); }
+.onboard-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.onboard-steps li {
+  display: flex; gap: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px 16px 14px;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+}
+.onboard-steps li:hover {
+  border-color: var(--brand-3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.onboard-steps .step-num {
+  flex: 0 0 32px; height: 32px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
+  font-size: var(--fs-15);
+}
+.onboard-steps .step-body { flex: 1; min-width: 0; }
+.onboard-steps .step-title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700; font-size: var(--fs-14_5);
+  color: var(--ink); margin-bottom: 5px;
+}
+.onboard-steps p {
+  color: var(--muted); font-size: var(--fs-13); line-height: 1.55;
+  margin: 0 0 8px;
+}
+.onboard-steps .step-cta {
+  display: inline-block;
+  font-size: var(--fs-12); font-weight: 700;
+  color: var(--brand); text-decoration: none;
+  border-bottom: 1.5px solid var(--brand-3);
+  padding-bottom: 1px;
+  transition: color .15s, border-color .15s;
+}
+.onboard-steps .step-cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.onboard-foot {
+  margin-top: 18px;
+  font-size: var(--fs-13); color: var(--muted);
+  padding: 12px 16px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.onboard-foot strong { color: var(--ink-2); }
+
+/* ===== Zone-3 intro paragraph + asset-row spacing ===== */
+.zone-intro {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+  max-width: 780px;
+}
+.zone-intro-link {
+  color: var(--brand);
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--brand-3);
+}
+.zone-intro-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.asset-row-spaced { margin-top: var(--space-5); }
+
+/* Footer */
+.site-footer .footer-title { color: var(--ink-2); }
+.site-footer .footer-link {
+  color: var(--brand);
+  font-weight: 600;
+  border-bottom: 1px dotted var(--brand-3);
+}
+.site-footer .footer-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ===== NOW zone — featured card ===== */
 .now-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 18px; }
@@ -274,25 +352,25 @@ h1, h2, h3, h4 {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--accent); color: #fff;
   padding: 4px 11px; border-radius: 999px;
-  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  font-size: var(--fs-10); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   margin-bottom: 14px;
 }
-.card-feature h3 { font-size: 24px; margin-bottom: 8px; color: var(--ink); }
-.card-feature p { color: var(--ink-3); font-size: 14.5px; margin-bottom: 18px; }
+.card-feature h3 { font-size: var(--fs-24); margin-bottom: 8px; color: var(--ink); }
+.card-feature p { color: var(--ink-3); font-size: var(--fs-14_5); margin-bottom: 18px; }
 .card-feature .stats {
   display: flex; gap: 22px; padding-top: 16px;
   border-top: 1px dashed rgba(196,128,40,.3);
 }
-.card-feature .stats div { font-size: 12px; color: var(--muted); }
+.card-feature .stats div { font-size: var(--fs-12); color: var(--muted); }
 .card-feature .stats strong {
   display: block;
   font-family: "Cabinet Grotesk", sans-serif;
-  color: var(--ink); font-size: 20px; font-weight: 900;
+  color: var(--ink); font-size: var(--fs-20); font-weight: 900;
   letter-spacing: -.02em; margin-top: 2px;
 }
 .card-feature .more {
   display: inline-flex; align-items: center; gap: 6px;
-  color: var(--accent); font-weight: 700; font-size: 13px;
+  color: var(--accent); font-weight: 700; font-size: var(--fs-13);
   border-bottom: 1.5px solid transparent;
 }
 .card-feature:hover .more { border-bottom-color: var(--accent); }
@@ -312,7 +390,7 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-md);
 }
 .card-mini .label {
-  font-size: 10px; font-weight: 700; letter-spacing: .15em;
+  font-size: var(--fs-10); font-weight: 700; letter-spacing: .15em;
   text-transform: uppercase; color: var(--muted-2);
   display: flex; align-items: center; gap: 6px;
 }
@@ -321,20 +399,20 @@ h1, h2, h3, h4 {
 }
 .card-mini .label .dot.red { background: var(--red); }
 .card-mini .label .dot.amber { background: var(--amber); }
-.card-mini h4 { font-size: 17px; margin: 8px 0 6px; }
-.card-mini p { font-size: 13px; color: var(--muted); flex: 1; margin-bottom: 12px; }
+.card-mini h4 { font-size: var(--fs-17); margin: 8px 0 6px; }
+.card-mini p { font-size: var(--fs-13); color: var(--muted); flex: 1; margin-bottom: 12px; }
 .card-mini .footer-row {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 12px; border-top: 1px solid var(--line-2);
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
 .card-mini .count {
   font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 900; color: var(--ink); font-size: 22px;
+  font-weight: 900; color: var(--ink); font-size: var(--fs-22);
   letter-spacing: -.02em;
 }
 .card-mini .arrow-link {
-  color: var(--brand); font-weight: 700; font-size: 12px;
+  color: var(--brand); font-weight: 700; font-size: var(--fs-12);
 }
 .card-mini:hover .arrow-link { color: var(--accent); }
 
@@ -362,15 +440,15 @@ h1, h2, h3, h4 {
 }
 .case .case-name {
   font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 800; font-size: 16px; letter-spacing: -.01em;
+  font-weight: 800; font-size: var(--fs-16); letter-spacing: -.01em;
 }
 .case .case-region {
-  font-size: 11px; color: var(--muted-2); font-weight: 500;
+  font-size: var(--fs-11); color: var(--muted-2); font-weight: 500;
   margin-top: 1px;
 }
 
 .status {
-  font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  font-size: var(--fs-10); font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
   padding: 3px 9px; border-radius: 999px;
   border: 1px solid;
   flex-shrink: 0;
@@ -381,7 +459,7 @@ h1, h2, h3, h4 {
 .status.cool   { background: var(--brand-soft);  color: var(--brand);  border-color: #B8D2EE; }
 
 .case p {
-  font-size: 13px; color: var(--muted); margin-bottom: 14px;
+  font-size: var(--fs-13); color: var(--muted); margin-bottom: 14px;
   line-height: 1.55;
 }
 .case .case-meta {
@@ -392,7 +470,7 @@ h1, h2, h3, h4 {
   display: inline-flex; align-items: center; gap: 4px;
   background: var(--canvas-2); color: var(--ink-2);
   padding: 3px 9px; border-radius: 999px;
-  font-size: 11px; font-weight: 600;
+  font-size: var(--fs-11); font-weight: 600;
 }
 
 /* ===== Knowledge grid ===== */
@@ -416,7 +494,7 @@ h1, h2, h3, h4 {
 .know-card .icon {
   width: 36px; height: 36px; border-radius: 10px;
   display: grid; place-items: center;
-  font-size: 17px; margin-bottom: 12px;
+  font-size: var(--fs-17); margin-bottom: 12px;
 }
 .know-card .ic1 { background: #FFE8DE;         color: var(--accent); }
 .know-card .ic2 { background: var(--brand-soft); color: var(--brand);  }
@@ -426,9 +504,9 @@ h1, h2, h3, h4 {
 .know-card .ic6 { background: var(--amber-bg);   color: var(--amber);  }
 .know-card h5 {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-  font-size: 14px; margin-bottom: 4px;
+  font-size: var(--fs-14); margin-bottom: 4px;
 }
-.know-card span.cnt { color: var(--muted-2); font-size: 12px; font-weight: 500; }
+.know-card span.cnt { color: var(--muted-2); font-size: var(--fs-12); font-weight: 500; }
 
 /* ===== Asset row ===== */
 .asset-row {
@@ -452,7 +530,7 @@ h1, h2, h3, h4 {
   width: 40px; height: 40px; border-radius: 10px;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
   color: #fff; display: grid; place-items: center;
-  font-size: 18px; flex-shrink: 0;
+  font-size: var(--fs-18); flex-shrink: 0;
 }
 .asset.orange .asset-icon {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
@@ -460,14 +538,14 @@ h1, h2, h3, h4 {
 .asset-body { flex: 1; min-width: 0; }
 .asset-body strong {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
-  display: block; font-size: 14px;
+  display: block; font-size: var(--fs-14);
 }
-.asset-body span { color: var(--muted); font-size: 12.5px; }
+.asset-body span { color: var(--muted); font-size: var(--fs-12_5); }
 
 /* ===== Footer ===== */
 footer.site-footer {
   margin-top: 80px; padding: 30px 28px;
-  text-align: center; color: var(--muted-2); font-size: 12px;
+  text-align: center; color: var(--muted-2); font-size: var(--fs-12);
   border-top: 1px solid var(--line);
 }
 footer.site-footer code {
