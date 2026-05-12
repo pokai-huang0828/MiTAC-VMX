@@ -63,11 +63,11 @@ Master Portal
 
 ### Trip List — 行程列表
 ![Fleet Trip List](../../websiteview/VMX_images/Fleet/Fleet-TripList.png)
-*依車輛 / 日期 / 駕駛過濾的 trip 紀錄。VMX-7404 ADAS Failure 案件的 trip 7028714 / 7079470 從這找。*
+*依車輛 / 日期 / 駕駛過濾的 trip 紀錄。[VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 案件的 trip 7028714 / 7079470 從這找。*
 
 ### Configurations > AI Events Detection — AI 事件設定
 ![Fleet Config AI Events](../../websiteview/VMX_images/Fleet/Fleet-Configurations-AIEventsDetection.png)
-*Fatigue / Distraction / Phone / Smoking / **Yawning** sub-toggle 的設定頁。**5/6 會議 Yawning 獨立開關 + Lucy UI(VMX-7432)就要加在這頁**。*
+*Fatigue / Distraction / Phone / Smoking / **Yawning** sub-toggle 的設定頁。**5/6 會議 Yawning 獨立開關 + Lucy UI([VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432))就要加在這頁**。*
 
 ### Configurations > Sensor Event Detection — G-Sensor 設定
 ![Fleet Config Sensor Events](../../websiteview/VMX_images/Fleet/Fleet-Configurations-SensorEventDetection.png)
@@ -79,7 +79,7 @@ Master Portal
 
 ### Accounts & Permissions — 帳號權限
 ![Fleet Accounts Permissions](../../websiteview/VMX_images/Fleet/Fleet-AccountsPermissions.png)
-*L2 Account 管理(Admin / **Viewer Only** roles)。**5/6 會議 VMX-7088 Viewer Only 角色「detail 能不能看」議題對應這頁**。*
+*L2 Account 管理(Admin / **Viewer Only** roles)。**5/6 會議 [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) Viewer Only 角色「detail 能不能看」議題對應這頁**。*
 
 > 完整 21 張其他頁面(Trip Report / Safety Reports / File Retrieval / Drivers / Vehicles / Geofences / Device Usage / User Activity Logs / Configurations 其他 4 tabs / Dashboard II / Fleets tab)在 `websiteview/VMX_images/Fleet/`,需要時直接 reference。
 
@@ -93,7 +93,7 @@ Master Portal
 | L2 | Fleet > A&P(8 人) | 單 fleet portal 用戶 | 單一 fleet |
 | L3 | Fleet > Drivers(1 人 = Kenny) | 駕駛員(被 RFID 識別) | 不上 portal |
 
-⚠️ **新 Viewer Only 角色**(VMX-7088,2026-05-06 會議討論):不能 Delete / Edit / Download / Retrieve / Configuration — **「detail 能不能看」待釐清**。
+⚠️ **新 Viewer Only 角色**([VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088),2026-05-06 會議討論):不能 Delete / Edit / Download / Retrieve / Configuration — **「detail 能不能看」待釐清**。
 
 ## Fleet Portal 三大 Entity
 

@@ -35,13 +35,13 @@ VisionAgent = smartphone app(iOS / Android)用來配置 / 診斷 VMX 設備。
 
 ## 對 PM 議題的對應
 
-### iOS App 開發中(VMX-7373 to 7381 多筆 ticket)
-- VMX-7373 [iOS] Add Parking Photo Button
-- VMX-7374 [iOS] Add Manual End Button on Trip Details
-- VMX-7375 [iOS] Add Manual End Button
-- VMX-7377 [iOS] Can't Access Driver Info from Map Overview
-- VMX-7381 [iOS] 無法刪除 Event
-- → 對應 sheet 上 Fleet Mobile APP Push notification(#176 / VMX-7030 / Pending)
+### iOS App 開發中([VMX-7373](https://jira.navman.co.nz/jira/browse/VMX-7373) to 7381 多筆 ticket)
+- [VMX-7373](https://jira.navman.co.nz/jira/browse/VMX-7373) [iOS] Add Parking Photo Button
+- [VMX-7374](https://jira.navman.co.nz/jira/browse/VMX-7374) [iOS] Add Manual End Button on Trip Details
+- [VMX-7375](https://jira.navman.co.nz/jira/browse/VMX-7375) [iOS] Add Manual End Button
+- [VMX-7377](https://jira.navman.co.nz/jira/browse/VMX-7377) [iOS] Can't Access Driver Info from Map Overview
+- [VMX-7381](https://jira.navman.co.nz/jira/browse/VMX-7381) [iOS] 無法刪除 Event
+- → 對應 sheet 上 Fleet Mobile APP Push notification(#176 / [VMX-7030](https://jira.navman.co.nz/jira/browse/VMX-7030) / Pending)
 
 ### KB 跟 Sheet 不同層
 - KB 對應的「VisionAgent」= 給技術人員裝相機用的 app

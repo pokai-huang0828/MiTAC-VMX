@@ -101,7 +101,7 @@
 
 ### 📅 P1(本週)
 - [ ] 跟 Spencer 細談 monthly subscription report 加新欄位的可行性
-  - 對應 Jira 哪張 ticket?(VMX-5908 webhook?VMX-6586 group?或新單?)
+  - 對應 Jira 哪張 ticket?([VMX-5908](https://jira.navman.co.nz/jira/browse/VMX-5908) webhook?[VMX-6586](https://jira.navman.co.nz/jira/browse/VMX-6586) group?或新單?)
 - [ ] 把 Option B 拍板訊息寫進 `case-learning/connectsource-passenger-blurring.md`
 - [ ] 更新 `06_calibration-log/critical-facts-log.md` Master Portal Blurring path 段
 

@@ -110,11 +110,15 @@ main.doc-standalone {
   .doc-prevnext a:hover { transform: none; }
 }
 
-/* ─── Sticky TOC for long docs (≥8 h2) ─── */
+/* ─── Sticky TOC for long docs (≥8 h2) ─────
+ * 2026-05-12 fix: doc-content max-width 920px(居中)+ TOC 220px + 30px gap
+ * 公式 right = max(20, 50vw - (460 + 30 + 220)) = max(20, 50vw - 710)
+ * 確保 TOC 不會跟 doc 右邊緣 overlap(原公式假設 doc 1200 寬,實際 920)
+ */
 .sticky-toc {
   position: fixed;
   top: 110px;
-  right: max(20px, calc((100vw - 1200px) / 2));
+  right: max(20px, calc(50vw - 710px));
   width: 220px;
   max-height: calc(100vh - 160px);
   z-index: 30;
@@ -164,7 +168,17 @@ main.doc-standalone {
   border-left-color: var(--accent);
   font-weight: 600;
 }
-@media (max-width: 1099px) {
+/* Indent items that belong to a merged-doc part-N section so the TOC shows
+   2-level hierarchy: top-level sections (part-N) + nested sub-headings. */
+.sticky-toc li.sticky-toc-subitem a {
+  padding-left: 16px;
+  font-size: 11.5px;
+  color: var(--text-light);
+}
+.sticky-toc li.sticky-toc-subitem a:hover { color: var(--brand); }
+/* 2026-05-12: bumped from 1099 to 1399 — 1200px viewport doc+TOC overlaps.
+   Below 1400, TOC hides; docs scroll normally without right rail. */
+@media (max-width: 1399px) {
   .sticky-toc { display: none; }
 }
 

@@ -15,7 +15,7 @@
 |------|------|
 | Sheet visible 變動 | 28 → 55(filter 放鬆) |
 | Status 變動 | 12 筆 |
-| Q1 同步缺口收尾 | **4 件 Resolved**(VMX-6754 / 7029 / 7161 / 7162) |
+| Q1 同步缺口收尾 | **4 件 Resolved**([VMX-6754](https://jira.navman.co.nz/jira/browse/VMX-6754) / 7029 / 7161 / 7162) |
 | 新增 ticket | 4 筆(#205~#209) |
 | 推進的關鍵 | Rollover Discussion → In Process / Mori 接 |
 | Header 推遲 | Q1 Deadline 4/2 → **Q2 Deadline 6/30** |
@@ -25,7 +25,7 @@
 
 ## Part A — 議程處理順序(逐 item)
 
-### A1. #126 Yawning Detection(HAWK-332)
+### A1. #126 Yawning Detection([HAWK-332](https://jira.navman.co.nz/jira/browse/HAWK-332))
 
 **狀態**:Q1 → Q2(承認延期)
 
@@ -50,7 +50,7 @@
 
 ---
 
-### A2. #162 Fleet Portal Events Page Optimization(VMX-6754)
+### A2. #162 Fleet Portal Events Page Optimization([VMX-6754](https://jira.navman.co.nz/jira/browse/VMX-6754))
 
 **狀態**:In Process → **Resolved**(Q1 deploy 出去)
 
@@ -62,7 +62,7 @@
 
 ---
 
-### A3. #165 SD Card encryption(VMX-7029)
+### A3. #165 SD Card encryption([VMX-7029](https://jira.navman.co.nz/jira/browse/VMX-7029))
 
 **狀態**:In Process → **Resolved**
 
@@ -76,7 +76,7 @@
 
 ---
 
-### A4. #187 / #188 Mori 兩件(VMX-7161 / VMX-7162)
+### A4. #187 / #188 Mori 兩件([VMX-7161](https://jira.navman.co.nz/jira/browse/VMX-7161) / [VMX-7162](https://jira.navman.co.nz/jira/browse/VMX-7162))
 
 **狀態**:In Process → **Resolved**
 
@@ -121,12 +121,12 @@
 
 ---
 
-### A7. #154 Server AI lane departure model(VMX-6722)
+### A7. #154 Server AI lane departure model([VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722))
 
 **狀態**:Q2 → **Q1**(往前拉,因為 Q1 已 merge)
 
 **重大發現 — Process Gap**:
-- VMX-6722 Q1(3/31)已合併
+- [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) Q1(3/31)已合併
 - 4/7 第二次 APP release
 - **但 API 沒被 pick 進去** = label 沒設好
 - Brian 自評:「label 沒被 pick 到,我在 filter 的時候漏掉它」
@@ -152,7 +152,7 @@
 
 ---
 
-### A8. #164 Modify Safety Reports(VMX-7083)
+### A8. #164 Modify Safety Reports([VMX-7083](https://jira.navman.co.nz/jira/browse/VMX-7083))
 
 **狀態**:Discussion(維持)
 
@@ -179,7 +179,7 @@
 
 ---
 
-### A9. #168 Add box around event(VMX-5909)+ 模糊功能架構
+### A9. #168 Add box around event([VMX-5909](https://jira.navman.co.nz/jira/browse/VMX-5909))+ 模糊功能架構
 
 **狀態**:In Process(維持)/ 5/6 確認完成後測試
 
@@ -205,7 +205,7 @@
 
 ---
 
-### A10. #174 Remote Playback supports audio(VMX-7014)
+### A10. #174 Remote Playback supports audio([VMX-7014](https://jira.navman.co.nz/jira/browse/VMX-7014))
 
 **狀態**:Feasibility → **Pending**
 
@@ -215,7 +215,7 @@
 
 ---
 
-### A11. #176 Fleet Mobile APP - Push notification(VMX-7030)
+### A11. #176 Fleet Mobile APP - Push notification([VMX-7030](https://jira.navman.co.nz/jira/browse/VMX-7030))
 
 **狀態**:Pending(維持)
 
@@ -226,7 +226,7 @@
 
 ---
 
-### A12. #182 Manually request timestamp from playback(VMX-7132)+ 舊 Playback Sunset Plan
+### A12. #182 Manually request timestamp from playback([VMX-7132](https://jira.navman.co.nz/jira/browse/VMX-7132))+ 舊 Playback Sunset Plan
 
 **狀態**:In Process(UI Spec 4/10 已釋出)
 
@@ -251,7 +251,7 @@
 
 ---
 
-### A13. #185 LB Plow PTO(VMX-7149)
+### A13. #185 LB Plow PTO([VMX-7149](https://jira.navman.co.nz/jira/browse/VMX-7149))
 
 **狀態**:5/6 Andy testing,從 wait Simon detail 推進
 
@@ -261,7 +261,7 @@
 
 ---
 
-### A14. #190 Vehicle rollover detection(VMX-7194)
+### A14. #190 Vehicle rollover detection([VMX-7194](https://jira.navman.co.nz/jira/browse/VMX-7194))
 
 **狀態**:Discussion → **In Process** ⭐ Kenny 會前 brief 直接命中
 
@@ -275,7 +275,7 @@
 
 **對應 Roadmap**:
 - MiAI Roadmap G-Sensor 第 6 種事件
-- VMX-7194 detection + VMX-7419 [API] new event type rollover + VMX-7254 cloud integration
+- [VMX-7194](https://jira.navman.co.nz/jira/browse/VMX-7194) detection + [VMX-7419](https://jira.navman.co.nz/jira/browse/VMX-7419) [API] new event type rollover + [VMX-7254](https://jira.navman.co.nz/jira/browse/VMX-7254) cloud integration
 - 三件配套推進
 
 **會後 Action**:
@@ -284,7 +284,7 @@
 
 ---
 
-### A15. #194 IOSix dongle data(VMX-7316)
+### A15. #194 IOSix dongle data([VMX-7316](https://jira.navman.co.nz/jira/browse/VMX-7316))
 
 **狀態**:In Process
 
@@ -307,15 +307,15 @@
 
 ---
 
-### A16. #197 UVC + road-facing side-by-side(VMX-7224)
+### A16. #197 UVC + road-facing side-by-side([VMX-7224](https://jira.navman.co.nz/jira/browse/VMX-7224))
 
 **狀態**:5/6 等 IOSix 完成後才開始做
 
-⚠️ **Sheet link 中 VMX-7147 是錯的**(VMX-7147 真實是「Camera recording no longer exists」)→ 會後 Slack 確認
+⚠️ **Sheet link 中 [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147) 是錯的**([VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147) 真實是「Camera recording no longer exists」)→ 會後 Slack 確認
 
 ---
 
-### A17. #199 BLE Beacons(VMX-6782)
+### A17. #199 BLE Beacons([VMX-6782](https://jira.navman.co.nz/jira/browse/VMX-6782))
 
 **狀態**:In Process → **Resolved** + 5/6 已完成提供給客戶測試
 
@@ -375,13 +375,13 @@
 
 | # | Task | Jira | Status | Requester |
 |---|------|------|--------|-----------|
-| 205 | Add sim card ICCID to inventory | VMX-7389 | New | Elvis |
-| 206 | Update UI text for New Fleet Account | VMX-7391 | New | Elvis |
-| 207 | UVC RAW frame error handling | VMX-7407 | New | Simon |
+| 205 | Add sim card ICCID to inventory | [VMX-7389](https://jira.navman.co.nz/jira/browse/VMX-7389) | New | Elvis |
+| 206 | Update UI text for New Fleet Account | [VMX-7391](https://jira.navman.co.nz/jira/browse/VMX-7391) | New | Elvis |
+| 207 | UVC RAW frame error handling | [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407) | New | Simon |
 | 208 | 馬賽克功能在 master 加 API 開關 | (no link) | New | (內部) |
-| 209 | New Role as Viewer only | (sheet 寫 VMX-7407,**應該是 VMX-7088**) | New | (?) |
+| 209 | New Role as Viewer only | (sheet 寫 [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407),**應該是 [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088)**) | New | (?) |
 
-⚠️ #209 Sheet link 錯,實際應該是 VMX-7088(Viewer only role)
+⚠️ #209 Sheet link 錯,實際應該是 [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088)(Viewer only role)
 
 **#209 Viewer only 權限討論**:
 - 不能 Delete / Edit / Download / Retrieve
@@ -391,7 +391,7 @@
 
 **會後 Action**:
 - [ ] Kenny:跟 Brian 確認 Viewer 角色「detail 能不能看」實際定義
-- [ ] 修正 sheet #209 的 Jira link 錯誤(從 VMX-7407 → VMX-7088)
+- [ ] 修正 sheet #209 的 Jira link 錯誤(從 [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407) → [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088))
 
 ---
 
@@ -440,7 +440,7 @@
 ### B3. ⭐ #154 Label 管理 Process Gap(PM 介入空間)
 
 **問題**:
-- VMX-6722 Q1 已 merge 但 API 沒 pick 進去
+- [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) Q1 已 merge 但 API 沒 pick 進去
 - Brian 自評:「label 沒設好,我 filter 時漏掉」
 
 **PM 介入提案**:
@@ -477,15 +477,15 @@
 - [ ] **確認 Single SKU + UVC hotfix 有對應 Jira ticket**(若無就建單)
 - [ ] **Yawning 對外口徑統一**:不再講「Basic tier 已有」,改「Roadmap planned, 內部測試中」
 - [ ] 找 Simon DM:「BLE Beacons 已交付給你測試,有什麼 feedback?」
-- [ ] 確認 #209 Viewer only 對應 Jira(該是 VMX-7088 還是 VMX-7407?)
+- [ ] 確認 #209 Viewer only 對應 Jira(該是 [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) 還是 [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407)?)
 
 ### 📅 本週內(P1)
-- [ ] VMX-7088 Viewer only 角色「detail 能不能看」釐清
+- [ ] [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) Viewer only 角色「detail 能不能看」釐清
 - [ ] Sheet 領先 Jira 的 3 個 mismatch 私訊 owner 同步:
-  - #180 VMX-7082(Lucy)
-  - #195 VMX-7233(Internal)
-  - #199 VMX-6782(joe.lien)
-- [ ] Sheet link 錯誤修正:#194 VMX-7316(實為 AZUGA SmartLink)/ #197 VMX-7147(實為 Camera recording bug)/ #209 link
+  - #180 [VMX-7082](https://jira.navman.co.nz/jira/browse/VMX-7082)(Lucy)
+  - #195 [VMX-7233](https://jira.navman.co.nz/jira/browse/VMX-7233)(Internal)
+  - #199 [VMX-6782](https://jira.navman.co.nz/jira/browse/VMX-6782)(joe.lien)
+- [ ] Sheet link 錯誤修正:#194 [VMX-7316](https://jira.navman.co.nz/jira/browse/VMX-7316)(實為 AZUGA SmartLink)/ #197 [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147)(實為 Camera recording bug)/ #209 link
 - [ ] **Label 管理 gap 提案** — 跟 Brian 提:「Q2 merge label sweep,我來扛」
 - [ ] 跟 Lucy 約 sync(模糊功能 UI 設計 + Rollover UI + 順便問 Coffee Chat 待問:軌跡顏色 / Severity)
 
@@ -501,7 +501,7 @@
 
 ### 找 Brian
 - BMS/VMX 同步戰略時程具體
-- VMX-7088 Viewer only detail 能不能看
+- [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) Viewer only detail 能不能看
 - HDFE beta 模式想要什麼形式
 
 ### 找 Mori
@@ -523,7 +523,7 @@
 ### 找 Spencer
 - Server-side AI Stage 2/3 進度
 - Master/MAU 模糊 API 開關設計
-- VMX-6722 文件 / Casebase 同步
+- [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) 文件 / Casebase 同步
 
 ### 找 Tony
 - Akamai CDN PG 失效進度(Brian 已派工)
@@ -546,15 +546,15 @@
 
 ## 🔄 後續校正(2026-05-07 補)
 
-本紀錄保留 5/6 當下會議字面內容(包含 Brian 自評的「label 漏 pick」narrative)。但 2026-05-07 讀 VMX-6722 comments + sub-tasks 後發現:
+本紀錄保留 5/6 當下會議字面內容(包含 Brian 自評的「label 漏 pick」narrative)。但 2026-05-07 讀 [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) comments + sub-tasks 後發現:
 
-- **VMX-6722 本身有 label `vmx_2026Q2`** + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW
+- **[VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) 本身有 label `vmx_2026Q2`** + sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW
 - **真實 process gap 不是 label 漏 pick,是 transition discipline** — RD 寫 comment 但沒按 Open→Resolved button
 
 對 Brian 提 process improvement 應從「transition 紀律」切入,不是「label 紀律」。詳見 [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](../knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) H 段 + [meetings/2026-05-07_ai-weekly_meeting-record.md](2026-05-07_ai-weekly_meeting-record.md)。
 
 5/7 AI Weekly 同時揭露:
-- **LDWS 完整真相**:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 決議 Pending 暫緩(資源緊繃)
-- **Yawning UI toggle 真實對應 ticket = VMX-7432**(Lucy 5/6 開的單),不是 VMX-7309
+- **LDWS 完整真相**:Server-side([VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722))Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 決議 Pending 暫緩(資源緊繃)
+- **Yawning UI toggle 真實對應 ticket = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)**(Lucy 5/6 開的單),不是 [VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309)
 - **Lens Cover 雙軌維護**:Azuga 標準版 = 解除車速 / BMS 版 = 車速 > 0
 - **Eating/Drinking 客訴 17 倍量級危機**(客訴 ID 6652),6/15 前 7000+ Edge case 緊急重訓

@@ -13,7 +13,7 @@
 - **Stop & Go**
 
 ### KB 標(in development)— 對客戶可講「開發中」
-- **Speed Sign**(in development) — Roadmap 列 Advanced 2027,KB 對外目前是 dev。**5/7 AI weekly 補**:模型對 18/25/40 數字易混淆,根因是訓練 Flip 參數開啟,Jay 已立即關閉 + 擴增降至 10 倍重訓。新單 VMX-7430 / VMX-7431(woody.lee 5/6 開)+ VMX-7320 / VMX-7321(speed sign violation)
+- **Speed Sign**(in development) — Roadmap 列 Advanced 2027,KB 對外目前是 dev。**5/7 AI weekly 補**:模型對 18/25/40 數字易混淆,根因是訓練 Flip 參數開啟,Jay 已立即關閉 + 擴增降至 10 倍重訓。新單 [VMX-7430](https://jira.navman.co.nz/jira/browse/VMX-7430) / [VMX-7431](https://jira.navman.co.nz/jira/browse/VMX-7431)(woody.lee 5/6 開)+ [VMX-7320](https://jira.navman.co.nz/jira/browse/VMX-7320) / [VMX-7321](https://jira.navman.co.nz/jira/browse/VMX-7321)(speed sign violation)
 
 ### Roadmap 列但 KB 沒寫(對客戶要小心)
 | 功能 | Roadmap Tier | 狀態 |
@@ -43,10 +43,10 @@
 ### Roadmap 列但 KB 沒寫
 | 功能 | Roadmap Tier | 真實狀態(2026-05-06 會議揭露) |
 |------|--------------|-----------------------------|
-| **Yawning(Fatigue 子)** | Basic(2025) | ⚠️ 還沒給客戶 / 內部測試中 / 效果不如預期 / Fatigue config 下要加獨立開關。**5/7 補:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓 + 考慮 Server 端從辨識嘴巴改為「辨識整張臉」**。Yawning UI toggle 對應 **VMX-7432**(Lucy 5/6 開) |
-| **Smoking** | Basic(2025) | ⚠️ KB 標 (in development)/ Sheet 隱藏 / 4 個 Jira ticket open(VMX-6670 / 7324 / 6380 / 6920) |
-| **Obstructed Camera (Lens Cover)** | Basic | 對應 Quantatec 案 VMX-6983 / VMX-7427 / HAWK-582。<br>**5/7 揭露雙軌**:Azuga 標準版 = 解除車速;BMS 版 = 車速 > 0 才啟動。<br>**5/11 校正(HAWK-582 thread)**:Webfleet (Sebastian Schneider) + Bridgestone (Jakob Mund) + Azuga 三客戶聯動,**設計改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**(Flow 1 — ignition ON + 無移動就偵測)。**Eric H (謝翔宇) 5/8 13:38 確認 6 月 release**,單軌即可滿足三客戶,不再「雙軌維護」 |
-| Eating | Advanced(2027) | HAWK-562 已開 ticket(Jimmy + Vincent 5/7 加入)— **比 Roadmap 提早動工**。**🚨 5/7 揭露:BMS 客訴量是過去 17 倍(客訴 ID 6652),6/15 前 7000+ Edge case 一次性緊急重訓** |
+| **Yawning(Fatigue 子)** | Basic(2025) | ⚠️ 還沒給客戶 / 內部測試中 / 效果不如預期 / Fatigue config 下要加獨立開關。**5/7 補:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」模型重訓 + 考慮 Server 端從辨識嘴巴改為「辨識整張臉」**。Yawning UI toggle 對應 **[VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)**(Lucy 5/6 開) |
+| **Smoking** | Basic(2025) | ⚠️ KB 標 (in development)/ Sheet 隱藏 / 4 個 Jira ticket open([VMX-6670](https://jira.navman.co.nz/jira/browse/VMX-6670) / 7324 / 6380 / 6920) |
+| **Obstructed Camera (Lens Cover)** | Basic | 對應 Quantatec 案 [VMX-6983](https://jira.navman.co.nz/jira/browse/VMX-6983) / [VMX-7427](https://jira.navman.co.nz/jira/browse/VMX-7427) / [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582)。<br>**5/7 揭露雙軌**:Azuga 標準版 = 解除車速;BMS 版 = 車速 > 0 才啟動。<br>**5/11 校正([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) thread)**:Webfleet (Sebastian Schneider) + Bridgestone (Jakob Mund) + Azuga 三客戶聯動,**設計改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**(Flow 1 — ignition ON + 無移動就偵測)。**Eric H (謝翔宇) 5/8 13:38 確認 6 月 release**,單軌即可滿足三客戶,不再「雙軌維護」 |
+| Eating | Advanced(2027) | [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562) 已開 ticket(Jimmy + Vincent 5/7 加入)— **比 Roadmap 提早動工**。**🚨 5/7 揭露:BMS 客訴量是過去 17 倍(客訴 ID 6652),6/15 前 7000+ Edge case 一次性緊急重訓** |
 | Drinking | Advanced | (同 Eating,共用 6/15 重訓) |
 | Blurring function (DMS) | (Roadmap Slide 2 寫 Burning DMS,實為 Blurring) | 對應 cabin 影像模糊化(2026-05-07 校正) |
 | VLM-based Behavior Understanding | Premium(2027) | sheet 標 2026 Q3 — 內部比 Roadmap 提早 |
@@ -90,7 +90,7 @@
 | Medium | ~0.70 | 3 秒 | 中 | 平衡 |
 | High | ~0.55 | 1.5 秒 | 短 | FP 多、FN 少 |
 
-對應 Jira:**HAWK-419 / VMX-6837** Independent Sensitivity Thresholds for Distractions(Jieli)
+對應 Jira:**[HAWK-419](https://jira.navman.co.nz/jira/browse/HAWK-419) / [VMX-6837](https://jira.navman.co.nz/jira/browse/VMX-6837)** Independent Sensitivity Thresholds for Distractions(Jieli)
 
 ## AI Inference Pipeline(任何 AI 客訴用此框架定位)
 

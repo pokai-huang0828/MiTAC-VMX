@@ -150,7 +150,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 </blockquote>
 <p><strong>內部對照（Pokai 分析，完整版於 plan 檔）</strong>：</p>
 <ul>
-<li><strong>Q1 passenger-only</strong>：redocly v2026-Q1 沒 blurring API；Jira HAWK-331 / 527 / 578 全是 all-face；<strong>現行不支援駕乘區分</strong>；BMS DMS 結果可餵 blur 模組是可行路徑，但需新 ticket</li>
+<li><strong>Q1 passenger-only</strong>：redocly v2026-Q1 沒 blurring API；Jira <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-331" rel="noopener" target="_blank">HAWK-331</a> / 527 / 578 全是 all-face；<strong>現行不支援駕乘區分</strong>；BMS DMS 結果可餵 blur 模組是可行路徑，但需新 ticket</li>
 <li><strong>Q2 fleet-level</strong>：現行為 caller 端 on-demand；<strong>沒有 server-side fleet gating</strong>；兩條路 — 客戶端自控（快） vs VMX 加 server flag（Q2 2026）</li>
 <li><strong>Q3 Teams session</strong>：應開，但前置必須先在內部把 Q1/Q2 dev scope 拍版，免得在客戶面前 over-promise</li>
 <li>對 Cary 不應搶在 Brian 之前回 "Yes" — Cary 信中 quick reply 提示 "Yes, that is correct."/"Yes, it can."/"Yes." 三選項，<strong>這正是要警戒的點</strong></li>
@@ -267,7 +267,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 <p>若 Passenger Blurring 成為標準功能，需在 CONNECTSOURCE 的定價模型中明確將 AWS 成本納入，避免每次都需要個案討論。</p>
 <hr />
 <p><em>Last updated: 2026/05/07 下午 — Kenny 寄出 v6 回信。Q1/Q2 都答「可行」，請客戶補確認。後續追蹤檔：<code>knowledge/06_calibration-log/cary-passenger-blurring-reply-draft-2026-05-07.md</code>。</em></p>
-<p><em>Earlier 2026/05/07：補入 Cary 5/7 11:22 新提兩個問題（passenger-only / fleet-level）+ Teams session 請求。對照 HAWK-527 description 發現 driver_blurry/passenger_blurry 已是分開 flag，redocly 沒文件化（→ memory <code>feedback_jira_first_not_redocly.md</code>）。</em></p>
+<p><em>Earlier 2026/05/07：補入 Cary 5/7 11:22 新提兩個問題（passenger-only / fleet-level）+ Teams session 請求。對照 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> description 發現 driver_blurry/passenger_blurry 已是分開 flag，redocly 沒文件化（→ memory <code>feedback_jira_first_not_redocly.md</code>）。</em></p>
 <p><em>Previous: 2026/05/05 — 初版建立，記錄 2026/04–05 信件串內容。</em></p>
 <hr />
 <h2 id="2026-05-08-kenny-57-1441-back-up">2026-05-08 後續校正(Kenny 5/7 14:41 回信的 back-up 確認)</h2>
@@ -277,7 +277,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 <li>redocly v2026-Q1 公開 API doc 沒露出 blurring endpoint(對外保留)</li>
 <li>但 BMS 客戶實際使用的內部 API 確實有 driver/passenger 獨立 blur control</li>
 <li>5/7 對 Cary / Wendy 講「現有 API 已支援」是有依據的(內部 BMS API)</li>
-<li>對應 HAWK-527 description 中 driver_blurry / passenger_blurry 分開 flag 的觀察 <span aria-hidden="true">✓</span></li>
+<li>對應 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> description 中 driver_blurry / passenger_blurry 分開 flag 的觀察 <span aria-hidden="true">✓</span></li>
 </ul>
 <p><strong>對外口徑邊界</strong>:</p>
 <ul class="smushed-fix">
@@ -568,17 +568,17 @@ Is it possible to have a customer session on teams on this topic?</li>
 <h4 id="4monthly-report-ticket">為什麼 #4(Monthly report)暫不開 ticket</h4>
 <ul>
 <li><strong>參考舊單</strong>:<a href="https://jira.navman.co.nz/jira/browse/VMX-6427">VMX-6427</a> "Improve reporting function #107" — Elvis 2025/06/05 開,目前 assign Spencer,但<strong>這張是更大的 events reporting 改造</strong>(需要 Time Series DB migration,Brian 4/20 acknowledge 但未排入 sprint)</li>
-<li>VMX-6427 ≠ Blurring monthly report 的對應位置 — overlap 但不是同一件事</li>
-<li><strong>決策(2026-05-11)</strong>:Blurring monthly report 等 Production deploy 後(end of July 後)有具體 SI usage 資料時再開新單,不疊在 VMX-6427 上</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6427" rel="noopener" target="_blank">VMX-6427</a> ≠ Blurring monthly report 的對應位置 — overlap 但不是同一件事</li>
+<li><strong>決策(2026-05-11)</strong>:Blurring monthly report 等 Production deploy 後(end of July 後)有具體 SI usage 資料時再開新單,不疊在 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6427" rel="noopener" target="_blank">VMX-6427</a> 上</li>
 <li><strong>對 Cary 口徑</strong>:「Tracked as future enhancement post-Q2 production, will scope once we have real usage data」</li>
 </ul>
-<h4 id="kenny-vmx-7457-7458-2-sharp">Kenny 在 VMX-7457 / 7458 的 2 個 sharp 處理</h4>
+<h4 id="kenny-vmx-7457-7458-2-sharp">Kenny 在 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> / 7458 的 2 個 sharp 處理</h4>
 <ol>
-<li><strong>#1+#2 合併在 VMX-7457</strong>:cloud integration + API doc share 同票,doc share 寫進 AC,不分兩張避免並行追蹤負擔</li>
-<li><strong>VMX-7458 把 pattern reference 改精準</strong>:從「Live User」改成「<strong>Driver-Facing Camera Live View</strong>」— 對 Lucy / GUI team 更明確</li>
+<li><strong>#1+#2 合併在 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a></strong>:cloud integration + API doc share 同票,doc share 寫進 AC,不分兩張避免並行追蹤負擔</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a> 把 pattern reference 改精準</strong>:從「Live User」改成「<strong>Driver-Facing Camera Live View</strong>」— 對 Lucy / GUI team 更明確</li>
 </ol>
-<h4 id="vmx-7457-2-deliverable-timelinekenny-511-comment">VMX-7457 內 2 個 deliverable 不同 timeline(Kenny 5/11 加 comment 釐清)</h4>
-<p>合併同票會讓票面 Due date(30/Jun/26)誤導 — 看似 doc share 也要等到 6 月底。<strong>Kenny 在 VMX-7457 加 comment 標清楚 2 個 deliverable 不同 commitment</strong>:</p>
+<h4 id="vmx-7457-2-deliverable-timelinekenny-511-comment"><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> 內 2 個 deliverable 不同 timeline(Kenny 5/11 加 comment 釐清)</h4>
+<p>合併同票會讓票面 Due date(30/Jun/26)誤導 — 看似 doc share 也要等到 6 月底。<strong>Kenny 在 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> 加 comment 標清楚 2 個 deliverable 不同 commitment</strong>:</p>
 <table>
 <thead>
 <tr>
@@ -601,7 +601,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 </tbody>
 </table>
 <p>→ Endpoint cannot be called live against production until Deliverable B validation completes — Cary 已 briefed。</p>
-<p>→ <strong>Comment 已加進 VMX-7457</strong>,Brian / Spencer 一讀就知道兩條 timeline 不同 · 後續對 Cary 任何承諾都 traceable 在 ticket 上。</p>
+<p>→ <strong>Comment 已加進 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a></strong>,Brian / Spencer 一讀就知道兩條 timeline 不同 · 後續對 Cary 任何承諾都 traceable 在 ticket 上。</p>
 <h3 id="85-mau-commitment">8.5 對 MAU 的 commitment 更新</h3>
 <table>
 <thead>
@@ -658,7 +658,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 <p>2pm sync 後 Kenny 起草了一封 follow-up email 給 Cary / Elvis(cc Wendy / Brian / Spencer)— 內容包含:</p>
 <ul class="smushed-fix">
   <li>Q1 + Q2 兩個原始 5/7 問題的 <span aria-hidden="true">✅</span> Confirmed 答案</li>
-  <li>VMX-7457 / VMX-7458 ticket link</li>
+  <li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a> ticket link</li>
   <li>4 條 commitment timeline(doc share 本週 / staging 30/Jun / production end-Jul / Q2 release notes end-Jun)</li>
   <li>Monthly subscription report 救球段(tracked as post-Q2 future enhancement)</li>
 </ul>
@@ -709,7 +709,7 @@ Is it possible to have a customer session on teams on this topic?</li>
   <li>Subject: "Confirmed · Passenger Blurring Q1 + Q2 — Implementation Summary"</li>
   <li>Q1 <span aria-hidden="true">✅</span> Confirmed feasible(driver/passenger 區分 BMS API 已支援)</li>
   <li>Q2 <span aria-hidden="true">✅</span> Confirmed feasible at API level(三層 inheritance + override)</li>
-  <li>Jira tickets VMX-7457 / VMX-7458</li>
+  <li>Jira tickets <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a></li>
   <li>4 條 commitment timeline</li>
   <li>Monthly report future enhancement 救球段</li>
 </ul>
@@ -758,7 +758,7 @@ Is it possible to have a customer session on teams on this topic?</li>
 </tr>
 <tr>
 <td>等於 Kenny 動作被 gate</td>
-<td><strong>Brian 對 Kenny 的開單質量肯定</strong>(特別是 VMX-7457 拆 Deliverable A/B 那個 comment 動作有效)</td>
+<td><strong>Brian 對 Kenny 的開單質量肯定</strong>(特別是 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> 拆 Deliverable A/B 那個 comment 動作有效)</td>
 </tr>
 </tbody>
 </table>

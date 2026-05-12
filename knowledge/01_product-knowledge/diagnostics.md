@@ -1,7 +1,7 @@
 # VisionMax Diagnostics
 
 > 來源:KB「VisionMax Diagnostics Information」(2026-05-06 deep read)
-> 對應:Master Portal > Diagnostics 頁面 / 客戶報修 / VMX-7404 ADAS Failure 議題
+> 對應:Master Portal > Diagnostics 頁面 / 客戶報修 / [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 議題
 
 ## 監控範圍
 
@@ -27,7 +27,7 @@ VMX 系統持續監控:
 
 ## 對 PM 議題的對應
 
-### VMX-7404 ADAS Failure
+### [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure
 - KB 確認:**Location Function 問題會導致 ADAS / DMS 都不能偵測**
 - 對應你 K245(L3024290010)的 ADAS Failure → 可能是 GPS + 30 km/h × 3min 雙重原因
 - ⚠️ 必確認:Trip 7028714 是 GPS 失效?還是純粹速度條件不滿足?

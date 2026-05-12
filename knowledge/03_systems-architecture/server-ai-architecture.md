@@ -17,12 +17,12 @@
 
 | Jira | 主題 | PIC |
 |------|------|-----|
-| VMX-6722 | Server-side LDWS model(防 FP)| Eric / Spencer |
-| VMX-6703 | Configurable Server AI Response Time | (待補) |
-| VMX-7346 | ServerAI pre_event_message 加 cdr 版號 | Adonis |
-| VMX-7099 | Migrate IOSix service to AZUGA server | (待補) |
-| VMX-6453 | Server Model Research - Phone Usage | (待補) |
-| HAWK-397 / VMX-6724 | Server AI phone texting | Jieli |
+| [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) | Server-side LDWS model(防 FP)| Eric / Spencer |
+| [VMX-6703](https://jira.navman.co.nz/jira/browse/VMX-6703) | Configurable Server AI Response Time | (待補) |
+| [VMX-7346](https://jira.navman.co.nz/jira/browse/VMX-7346) | ServerAI pre_event_message 加 cdr 版號 | Adonis |
+| [VMX-7099](https://jira.navman.co.nz/jira/browse/VMX-7099) | Migrate IOSix service to AZUGA server | (待補) |
+| [VMX-6453](https://jira.navman.co.nz/jira/browse/VMX-6453) | Server Model Research - Phone Usage | (待補) |
+| [HAWK-397](https://jira.navman.co.nz/jira/browse/HAWK-397) / [VMX-6724](https://jira.navman.co.nz/jira/browse/VMX-6724) | Server AI phone texting | Jieli |
 | RFQ0749-689 | Backend 動態覆寫 confidence threshold | Adonis |
 
 ## 影片三版本架構(Q2-Q3 PM 級議題)
@@ -33,7 +33,7 @@
 3. **Debug view**(AI 視角)
 
 對 PM:
-- 模糊在 Master/MAU 加 API 開關(VMX-7088 / 文件需 Lucy 配合 UI 設計)
+- 模糊在 Master/MAU 加 API 開關([VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) / 文件需 Lucy 配合 UI 設計)
 - 模糊不在 fleet portal 上顯示(維持 API 操作)
 - **缺一個「任務完成主動通知」UI 機制**(目前缺,未來補)
 

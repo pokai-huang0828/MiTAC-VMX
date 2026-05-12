@@ -42,10 +42,10 @@ Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
 
 ## 對 PM 議題的對應
 
-- 對應 sheet **#186 Safety Score at vehicle level instead of by driver**(Simon,VMX-7151)
+- 對應 sheet **#186 Safety Score at vehicle level instead of by driver**(Simon,[VMX-7151](https://jira.navman.co.nz/jira/browse/VMX-7151))
   - 客戶要的是「車輛層級」(not driver) — KB 明確是 driver-based
   - 可能要 fork 一套新邏輯 / 新 weighting
-- 對應 #164 Modify Safety Reports(VMX-7083)— PDF 報表內容跟網頁顯示不一致
+- 對應 #164 Modify Safety Reports([VMX-7083](https://jira.navman.co.nz/jira/browse/VMX-7083))— PDF 報表內容跟網頁顯示不一致
 - 對應「事件 weighting 可調」 → Brian 同步戰略想開放 fleet 改
 
 ## 客戶口徑
@@ -56,4 +56,4 @@ Overspeed Score = (Cumulative distance of Overspeed / Trip distance) × 100
 
 - 完整公式(KB 截斷)
 - 各事件 weighting 具體值(不對外公開但 PM 內部要知道)
-- **Vehicle level Safety Score** 跟 driver level 怎麼整合(VMX-7151 議題)
+- **Vehicle level Safety Score** 跟 driver level 怎麼整合([VMX-7151](https://jira.navman.co.nz/jira/browse/VMX-7151) 議題)

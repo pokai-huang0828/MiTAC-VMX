@@ -60,7 +60,7 @@
 | Tailgating | Tailgating |
 | Collision risk | Collision risk detected |
 | ADAS enabled | ADAS on |
-| ADAS disabled (no road level) | **Can't detect the road level, ADAS off** ⭐ VMX-7404 黃金線索 |
+| ADAS disabled (no road level) | **Can't detect the road level, ADAS off** ⭐ [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) 黃金線索 |
 
 ## 7. DMS Events
 
@@ -72,7 +72,7 @@
 | Distraction | Distraction detected, keep eyes on road |
 | Cell phone usage | Cell phone usage |
 | Unfastened seatbelt | **Danger! Fasten your seat belt** |
-| In-cabin camera obstructed | **Alert! Inward camera is blocked, please remove the obstacle** ⭐ 對應 Quantatec / VMX-7427 |
+| In-cabin camera obstructed | **Alert! Inward camera is blocked, please remove the obstacle** ⭐ 對應 Quantatec / [VMX-7427](https://jira.navman.co.nz/jira/browse/VMX-7427) |
 | DMS enabled | DMS on |
 | DMS disabled (no face) | Can't find a face, DMS off |
 
@@ -137,7 +137,7 @@
 - **Reset Button = paper clip 戳**(K245/K145c/K245c 在 tamper proof cover 後)
 - → 是兩個不同的 button
 
-### VMX-7404 ADAS Failure 黃金線索
+### [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 黃金線索
 語音 `"Can't detect the road level, ADAS off"`
 - 觸發條件:速度 < 30 km/h 持續 / 車速反覆掉到 30 以下 / ADAS 計算中斷
 - 市區通勤經典情境

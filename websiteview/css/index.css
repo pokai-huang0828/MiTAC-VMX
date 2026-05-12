@@ -247,7 +247,9 @@ h1, h2, h3, h4 {
 .onboard-steps {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* 2026-05-12: minmax 240→215 so 5 steps fit on a single row at >= 1228px content width.
+     At narrower viewports it gracefully falls to 4 / 3 / 2 / 1 column layouts. */
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
   gap: 14px;
   margin-top: 20px;
 }
@@ -326,8 +328,16 @@ h1, h2, h3, h4 {
 }
 .site-footer .footer-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* ===== NOW zone — featured card ===== */
-.now-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 18px; }
+/* ===== NOW zone — featured card =====
+ * 2026-05-12: align-items: start so short cards don't get stretched and show
+ * empty interior space. Each card now sized by natural content.
+ */
+.now-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
 @media (max-width: 920px) { .now-grid { grid-template-columns: 1fr; } }
 
 .card-feature {
@@ -400,7 +410,9 @@ h1, h2, h3, h4 {
 .card-mini .label .dot.red { background: var(--red); }
 .card-mini .label .dot.amber { background: var(--amber); }
 .card-mini h4 { font-size: var(--fs-17); margin: 8px 0 6px; }
-.card-mini p { font-size: var(--fs-13); color: var(--muted); flex: 1; margin-bottom: 12px; }
+.card-mini p { font-size: var(--fs-13); color: var(--muted); margin-bottom: 12px; }
+/* 2026-05-12: removed flex:1 — p sizes to its content. footer-row sits right
+   below, no vertical gap inside card. Combined with .now-grid align-items:start. */
 .card-mini .footer-row {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 12px; border-top: 1px solid var(--line-2);

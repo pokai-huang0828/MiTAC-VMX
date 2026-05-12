@@ -50,24 +50,24 @@ Template:
 ### 2026-05-05 抓出(會議前)— Sheet 落後
 | # | Jira | Sheet | Jira | 結果 |
 |---|------|-------|------|------|
-| 162 | VMX-6754 | In Process | Resolved | 5/6 同步 ✅ |
-| 165 | VMX-7029 | In Process | Resolved | 5/6 同步 ✅ |
-| 187 | VMX-7161 | In Process | Resolved | 5/6 同步 ✅ |
-| 188 | VMX-7162 | In Process | Resolved | 5/6 同步 ✅ |
+| 162 | [VMX-6754](https://jira.navman.co.nz/jira/browse/VMX-6754) | In Process | Resolved | 5/6 同步 ✅ |
+| 165 | [VMX-7029](https://jira.navman.co.nz/jira/browse/VMX-7029) | In Process | Resolved | 5/6 同步 ✅ |
+| 187 | [VMX-7161](https://jira.navman.co.nz/jira/browse/VMX-7161) | In Process | Resolved | 5/6 同步 ✅ |
+| 188 | [VMX-7162](https://jira.navman.co.nz/jira/browse/VMX-7162) | In Process | Resolved | 5/6 同步 ✅ |
 
 ### 2026-05-06 抓出(會議後)— Sheet 領先
 | # | Jira | Sheet | Jira | 結果 |
 |---|------|-------|------|------|
-| 180 | VMX-7082 | Resolved | New | ⏳ 待私訊 Lucy |
-| 195 | VMX-7233 | Resolved | New | ⏳ 待私訊 Internal |
-| 199 | VMX-6782 | Resolved | Open | ⏳ 待私訊 joe.lien |
+| 180 | [VMX-7082](https://jira.navman.co.nz/jira/browse/VMX-7082) | Resolved | New | ⏳ 待私訊 Lucy |
+| 195 | [VMX-7233](https://jira.navman.co.nz/jira/browse/VMX-7233) | Resolved | New | ⏳ 待私訊 Internal |
+| 199 | [VMX-6782](https://jira.navman.co.nz/jira/browse/VMX-6782) | Resolved | Open | ⏳ 待私訊 joe.lien |
 
 ### 2026-05-06 Sheet link 錯誤
 | # | Sheet 寫 | 真實應該是 |
 |---|---------|----------|
-| 194 IOSix dongle | VMX-7316(實為 AZUGA SmartLink) | (待釐清) |
-| 197 UVC integration | VMX-7224 + VMX-7147(實為 Camera recording bug) | 移除 VMX-7147 |
-| 209 Viewer only | VMX-7407(重複) | 應為 VMX-7088 |
+| 194 IOSix dongle | [VMX-7316](https://jira.navman.co.nz/jira/browse/VMX-7316)(實為 AZUGA SmartLink) | (待釐清) |
+| 197 UVC integration | [VMX-7224](https://jira.navman.co.nz/jira/browse/VMX-7224) + [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147)(實為 Camera recording bug) | 移除 [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147) |
+| 209 Viewer only | [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407)(重複) | 應為 [VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) |
 
 ## 工具命令
 
@@ -75,7 +75,7 @@ Template:
 
 ```python
 # 從 sheet visible rows 抓出 jira list,批量檢查
-tickets = ['VMX-6754', 'VMX-7029', ...]
+tickets = ['[VMX-6754](https://jira.navman.co.nz/jira/browse/VMX-6754)', '[VMX-7029](https://jira.navman.co.nz/jira/browse/VMX-7029)', ...]
 for t in tickets:
     # navigate to https://jira.navman.co.nz/jira/browse/{t}
     # find Status field

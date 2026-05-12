@@ -7,7 +7,7 @@
 - **[critical-facts-log.md](critical-facts-log.md)** — 已校正的關鍵事實(機種 / FCW 語音 / ADAS 範圍等)
 - **[sheet-jira-mismatches.md](sheet-jira-mismatches.md)** — Sheet vs Jira 雙向同步缺口紀錄
 - **[roadmap-vs-internal.md](roadmap-vs-internal.md)** — 對外 Roadmap vs 內部現實 不一致紀錄
-- **[vmx-7404-tracking.md](vmx-7404-tracking.md)** — VMX-7404 ADAS Failure 追蹤(評估期主案)
+- **[vmx-7404-tracking.md](vmx-7404-tracking.md)** — [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 追蹤(評估期主案)
 - **[ai-tab-jira-alignment-2026-05-07.md](ai-tab-jira-alignment-2026-05-07.md)** — AI 工作計畫 tab × Jira filter 36457 對齊 + 10 票 comment 深掘 + 7 種 mismatch 模式
 - **[ai-team-row-by-row-status-2026-05-07.md](ai-team-row-by-row-status-2026-05-07.md)** — 16 行逐行 5/7 狀態 + NotebookLM 5/7 weekly 揭露的 sheet 漏記訊號 + Brian 1on1 talking points
 - **[cary-passenger-blurring-2026-05-07.md](cary-passenger-blurring-2026-05-07.md)** — Cary 5/7 Passenger Blurring 客戶請求校正 + Brian「BMS 為原型」雷區提醒

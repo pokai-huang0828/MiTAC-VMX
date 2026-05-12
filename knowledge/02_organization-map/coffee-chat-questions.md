@@ -17,7 +17,7 @@
 - [ ] PDF 補強 Wiki ticket 推不推
 - [ ] MMF 是已 ship 還是 roadmap planned
 - [ ] Jira dashboard 4 個 filter 的 JQL
-- [ ] **#154 真實 process gap = transition discipline,不是 label**(5/7 校正:VMX-6722 本身有 label `vmx_2026Q2`,jimmy 留 deploy comment 但沒按 transition button)— PM 提改善從「transition 紀律」切入
+- [ ] **#154 真實 process gap = transition discipline,不是 label**(5/7 校正:[VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) 本身有 label `vmx_2026Q2`,jimmy 留 deploy comment 但沒按 transition button)— PM 提改善從「transition 紀律」切入
 - [ ] **5/7 揭露 LDWS device-side YOLO Pending 暫緩** — 新 ticket 編號?何時重啟?
 - [ ] **5/7 Lens Cover 雙軌維護 RD 成本評估** — Azuga 標準版 vs BMS「車速 > 0」長期維護成本
 
@@ -42,7 +42,7 @@
 ### 對外 vs 內部不一致
 - ✅ **Smoking 真實狀態**:KB 標 (in development) / Sheet 隱藏 / Roadmap 列 / 4 ticket open — 對外可講「KB 列開發中」(2026-05-06 校正)
 - ✅ **Yawning 內部測試效果指標**(5/6 揭露效果不如預期 / 5/7 補:夜間嘴部辨識不佳,加灰階模型,考慮改辨識整張臉)
-- [ ] VMX-7324 客訴 Smoking 怎麼解
+- [ ] [VMX-7324](https://jira.navman.co.nz/jira/browse/VMX-7324) 客訴 Smoking 怎麼解
 - ✅ **「Burning ADAS / Burning DMS」是什麼意思** — typo,實為 **Blurring function**(2026-05-07 已釐清)
 
 ### 技術深度
@@ -51,16 +51,16 @@
 - [ ] Yawning 灰階模型訓練結果 / 「辨識整張臉」server 端切換時程
 - [ ] **Eating / Drinking 6/15 重訓進度**(7000+ Edge case,客訴 ID 6652 17 倍量級)— Vincent 加入後 Jimmy 角色變化
 - [ ] Server-side AI 進度(Server-side LDWS Q1 deploy / Device-side YOLO 5/7 Pending)
-- [ ] **Face Not Found Issue**(VMX-7404 同根因?)5/7 揭露要導入 Head 邏輯
+- [ ] **Face Not Found Issue**([VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) 同根因?)5/7 揭露要導入 Head 邏輯
 
 ### 甜頭(送 Jimmy)
-- [ ] VMX-7404 ADAS Failure evidence 提交(8/10 設備 / Trip 7028714 vs 7079470)
+- [ ] [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure evidence 提交(8/10 設備 / Trip 7028714 vs 7079470)
 
 ## ☕ Lucy(UI)
 
 ### 模糊 / Rollover
 - [ ] 模糊功能 UI 設計時程
-- [ ] Rollover UI 設計(VMX-7194 5/6 加 UI)
+- [ ] Rollover UI 設計([VMX-7194](https://jira.navman.co.nz/jira/browse/VMX-7194) 5/6 加 UI)
 - [ ] 任務完成主動通知機制
 
 ### Portal 視覺
@@ -76,9 +76,9 @@
 
 - [ ] **Server-side AI Stage 2/3 進度**(Edge+Server / Server VLM)
 - [ ] Master/MAU 模糊 API 開關設計
-- [ ] **VMX-6722 文件 / Casebase 同步**(對應 Brian 的雙版本同步戰略)
+- [ ] **[VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) 文件 / Casebase 同步**(對應 Brian 的雙版本同步戰略)
 - [ ] Contract Fleet RBAC spec
-- [ ] ADAS Failure 跟 VMX-7404 關聯
+- [ ] ADAS Failure 跟 [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) 關聯
 - [ ] AI debug overlay 是否該對客戶關閉
 
 ## ☕ Tony(韌體 / Akamai 中介)

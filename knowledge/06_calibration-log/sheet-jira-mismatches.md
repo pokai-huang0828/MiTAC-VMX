@@ -16,18 +16,18 @@
 
 | Sheet # | Jira | Sheet 寫 | Jira 真實 | 結果 |
 |---------|------|---------|----------|------|
-| 162 | VMX-6754 | In Process(7 個月)| Resolved | 5/6 會議同步 ✅ |
-| 165 | VMX-7029 | In Process(5 個月)| Resolved | 5/6 會議同步 ✅ |
-| 187 | VMX-7161 | In Process | Resolved | 5/6 會議同步 ✅ |
-| 188 | VMX-7162 | In Process | Resolved | 5/6 會議同步 ✅ |
+| 162 | [VMX-6754](https://jira.navman.co.nz/jira/browse/VMX-6754) | In Process(7 個月)| Resolved | 5/6 會議同步 ✅ |
+| 165 | [VMX-7029](https://jira.navman.co.nz/jira/browse/VMX-7029) | In Process(5 個月)| Resolved | 5/6 會議同步 ✅ |
+| 187 | [VMX-7161](https://jira.navman.co.nz/jira/browse/VMX-7161) | In Process | Resolved | 5/6 會議同步 ✅ |
+| 188 | [VMX-7162](https://jira.navman.co.nz/jira/browse/VMX-7162) | In Process | Resolved | 5/6 會議同步 ✅ |
 
 ### 2026-05-06 sweep(會議後新增)— Sheet 領先 3 件
 
 | Sheet # | Jira | Sheet 寫 | Jira 真實 | 結果 |
 |---------|------|---------|----------|------|
-| 180 | VMX-7082(Lucy GA tracking)| Resolved | **New** | ⏳ 待私訊 Lucy |
-| 195 | VMX-7233(VisionAgent GA Code)| Resolved | **New** | ⏳ 待私訊 Internal |
-| 199 | VMX-6782(BLE Beacons)| Resolved | **Open** | ⏳ 待私訊 joe.lien |
+| 180 | [VMX-7082](https://jira.navman.co.nz/jira/browse/VMX-7082)(Lucy GA tracking)| Resolved | **New** | ⏳ 待私訊 Lucy |
+| 195 | [VMX-7233](https://jira.navman.co.nz/jira/browse/VMX-7233)(VisionAgent GA Code)| Resolved | **New** | ⏳ 待私訊 Internal |
+| 199 | [VMX-6782](https://jira.navman.co.nz/jira/browse/VMX-6782)(BLE Beacons)| Resolved | **Open** | ⏳ 待私訊 joe.lien |
 
 → 5/6 動作 owner 在 sheet 加註「5/6 已完成 提供給客戶測試」但沒 close Jira。
 
@@ -35,9 +35,9 @@
 
 | Sheet # | Sheet 寫 link | Jira 實際是 | 應該是 |
 |---------|------------|-----------|--------|
-| 194 | VMX-7316 | [AZUGA SmartLink] 新增事件支援 | 該找 IOSix 對應 ticket |
-| 197 | VMX-7147(第二個 link)| Camera recording no longer exists | 移除 VMX-7147,只留 VMX-7224 |
-| 209 | VMX-7407(重複)| UVC RAW frame error handling | 應為 **VMX-7088 Viewer only** |
+| 194 | [VMX-7316](https://jira.navman.co.nz/jira/browse/VMX-7316) | [AZUGA SmartLink] 新增事件支援 | 該找 IOSix 對應 ticket |
+| 197 | [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147)(第二個 link)| Camera recording no longer exists | 移除 [VMX-7147](https://jira.navman.co.nz/jira/browse/VMX-7147),只留 [VMX-7224](https://jira.navman.co.nz/jira/browse/VMX-7224) |
+| 209 | [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407)(重複)| UVC RAW frame error handling | 應為 **[VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088) Viewer only** |
 
 ### 2026-05-07 AI 工作計畫 tab 深掘(讀 10 張票 comments)
 
@@ -45,15 +45,15 @@
 
 | 模式 | 案例 | 教訓 |
 |------|------|------|
-| 1. 接力新單後沒 hide 舊 row | HAWK-331 → HAWK-527 | sheet link 加括號標新單,但 row status 沒同步 |
-| 2. 議題 ≠ ticket | HAWK-578 + SQS retention follow-up | sheet 在追議題級工作,Jira 票只是事件單據 |
-| 3. Resolved 後又出新問題,加 Fix Version 不 reopen | HAWK-527 加 20260602 | Jira RESOLVED 反而誤導,sheet active 是對的 |
-| 4. 修完等 release,Jira transition 沒走 | HAWK-573 | sheet 寫「Awaiting Release」是正確訊號 |
-| 5. Sheet update 寫錯 row | (誤判) | HAWK-577/578 對應實際正確,我曾誤判 |
-| 6. Comment 留「已完成」但 transition 沒走 | VMX-6722 / VMX-7101 | jimmy 寫 deploy prod 但沒按 Open→Resolved button |
-| 7. 單一 ticket 對應多 sheet rows,scope mismatch | VMX-7309 ↔ Sheet #3 Yawning + #4 Eyes | VMX-7309 只是 Eye threshold API,沒 Yawning 內容 |
+| 1. 接力新單後沒 hide 舊 row | [HAWK-331](https://jira.navman.co.nz/jira/browse/HAWK-331) → [HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) | sheet link 加括號標新單,但 row status 沒同步 |
+| 2. 議題 ≠ ticket | [HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578) + SQS retention follow-up | sheet 在追議題級工作,Jira 票只是事件單據 |
+| 3. Resolved 後又出新問題,加 Fix Version 不 reopen | [HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) 加 20260602 | Jira RESOLVED 反而誤導,sheet active 是對的 |
+| 4. 修完等 release,Jira transition 沒走 | [HAWK-573](https://jira.navman.co.nz/jira/browse/HAWK-573) | sheet 寫「Awaiting Release」是正確訊號 |
+| 5. Sheet update 寫錯 row | (誤判) | [HAWK-577](https://jira.navman.co.nz/jira/browse/HAWK-577)/578 對應實際正確,我曾誤判 |
+| 6. Comment 留「已完成」但 transition 沒走 | [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) / [VMX-7101](https://jira.navman.co.nz/jira/browse/VMX-7101) | jimmy 寫 deploy prod 但沒按 Open→Resolved button |
+| 7. 單一 ticket 對應多 sheet rows,scope mismatch | [VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309) ↔ Sheet #3 Yawning + #4 Eyes | [VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309) 只是 Eye threshold API,沒 Yawning 內容 |
 
-**重要校正**:Brian 5/6 自評「label 漏 pick」narrative 不準確 — VMX-6722 本身有 label `vmx_2026Q2`,真實 process gap 是 **transition discipline**(RD 寫完 comment 沒按 button)。
+**重要校正**:Brian 5/6 自評「label 漏 pick」narrative 不準確 — [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) 本身有 label `vmx_2026Q2`,真實 process gap 是 **transition discipline**(RD 寫完 comment 沒按 button)。
 
 ## 規律 / 啟示
 

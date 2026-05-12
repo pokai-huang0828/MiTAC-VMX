@@ -3,6 +3,22 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-12 後續 · 全 hub 自動加 Jira 連結 + comment-level ingest
+
+- 2026-05-12 · **AUTO-LINK** · 全 hub `.md` + `.html` 內 **549 個 unlinked VMX-* / HAWK-* mention** 自動加上 Jira hyperlink(MD 用 `[KEY](url)` · HTML 用 `<a class="ext-link jira-link">`),跨 **50 個檔案**
+- 2026-05-12 · **COMMENT INGEST** · 透過 Chrome MCP + Jira REST API 抓取所有 137 ticket 的 **last 3 comments**(總 ~84 KB)。從 comment 內容揭露 5 個額外 docs 沒反映的 Resolved/Closed 狀態:VMX-6925 / VMX-7346 / HAWK-578 / HAWK-527 / HAWK-331
+- 2026-05-12 · **CALIBRATION** · `06_calibration-log/critical-facts-log.md` 「Jira 本週新 Resolved」段重組為 4 子段(已 ship / 已 Closed / 設計完未 ship / 進行中)共記錄 **12 個 ticket 進度變動**
+
+## 2026-05-12 · Jira 全量 snapshot ingest + cross-ref audit
+
+- 2026-05-12 · **NEW DOC** · `websiteview/docs/00_index--jira-snapshot.html`:透過 Chrome MCP + Jira REST API 一次抓取**全 hub 提及的 137 個 VMX/HAWK ticket** 即時狀態,加進 Knowledge Hub hero 「Meta links」第三個入口
+- 2026-05-12 · **NEW CSS/JS** · `css/jira-snapshot.css` + `js/jira-snapshot.js`:status 過濾 + age-based 顏色強化 + 連 Jira ticket 的外部連結
+- 2026-05-12 · **CALIBRATION** · `06_calibration-log/critical-facts-log.md`:加 2 段
+  - 「Jira 本週新 Resolved/Closed」5 個 ticket([VMX-7239](https://jira.navman.co.nz/jira/browse/VMX-7239) / 7419 / 7381 / 6353 / 6920)docs 之前未反映
+  - 「Jira `New` status 含意」段 — 全 hub 137 票 93 個 (68%) 是 New,實際多數已完成只是 RD transition 漏按
+- 2026-05-12 · **UPDATE** · `02_organization-map/stakeholders.md` BMS 列:[`VMX-6920`](https://jira.navman.co.nz/jira/browse/VMX-6920) 加 ✅ Closed 2026-03-09 (Jimmy)
+- 2026-05-12 · **SNAPSHOT** · `jira_tickets_snapshot_2026-05-12.json`(repo root, 25 KB)— 137 ticket 完整狀態 raw data,以後可拿來 diff 比對
+
 ## 2026-05-11 晚 · Repo 整併 + UI / CSS / JS 完全分離
 
 - 2026-05-11 · **MOVE** · `VMX_images/` → `websiteview/VMX_images/`(29 PNG · 7 檔路徑同步)· Web 資產統一進 `websiteview/`
@@ -16,13 +32,13 @@
 
 ## 2026-05-11 收工 audit(本日最終對齊檢查)
 
-- 2026-05-11 · **AUDIT** · 跑完整天 SSOT consistency check · grep VMX-7457/7458/6427 + Option A/B + Brian Jira=SSOT + 5/8 P0 標記 · 找出 5 個 drift / 漏洞並修正:
+- 2026-05-11 · **AUDIT** · 跑完整天 SSOT consistency check · grep [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457)/7458/6427 + Option A/B + Brian Jira=SSOT + 5/8 P0 標記 · 找出 5 個 drift / 漏洞並修正:
   - **F1**:changelog 寫的 `2026-05-11_blurring-inheritance-model.html` v0 draft 已不存在,描述改成 SUPERSEDED
   - **F2**:`00_index/ssot-map.md` CONNECTSOURCE 狀態從「🟡 5/8 校正中」更新為「🟢 ACTIVE · Q2 scope 已鎖定」· 加 Jira tickets 對應主檔分類 · 加 Calibration rules 4 條
   - **F3**:`memory/project_week_summary_2026-05-11.md` 補完整 5/11 timeline(早上→下午→傍晚四段)+ Kenny 失分/補分 ledger · `MEMORY.md` 加「Brian Jira=SSOT rule」⭐⭐ entry
   - **F4**:`meetings/2026-05-08_syncup-cary-elvis_meeting-record.md` P1 + P2 Action Items 全標已執行(5/11 下午 sync 完成 + 5/8 (A)/(B) UI 框架 superseded)
   - **F5**:`websiteview/case-hub.html` CS page 卡片重新排序(5/8 superseded 灰卡從中間移到底部 · Q2 拍板→Jira queue→Brian SSOT 三張綠卡連續 · monthly report wording 修正「仍開 #4」→「Ticket #4 暫不開」)
-- 2026-05-11 · **NEW ENTRY** · `00_index/ssot-map.md` 加「📋 Jira tickets 對應主檔」+「🎯 Calibration rules」兩個新分類 · 對應 4 張 Jira(VMX-7457/7458/7404/6427) + 4 條 calibration rule(Jira=SSOT / doc≠endpoint / Option A vs B / Connect Source API only)
+- 2026-05-11 · **NEW ENTRY** · `00_index/ssot-map.md` 加「📋 Jira tickets 對應主檔」+「🎯 Calibration rules」兩個新分類 · 對應 4 張 Jira([VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457)/7458/7404/6427) + 4 條 calibration rule(Jira=SSOT / doc≠endpoint / Option A vs B / Connect Source API only)
 
 ## 2026-05-11 傍晚 v4(本日 · Brian 二次回應 + calibration 校正)
 
@@ -39,19 +55,19 @@
 - 2026-05-11 · **NEW CALIBRATION** · `06_calibration-log/critical-facts-log.md` · 加「Brian 攔下對 Cary 書面 follow-up」校正條 · **規則:未來對外發 commitment 文件前先 Brian sign-off**
 - 2026-05-11 · **TODO** · Kenny Teams 短訊 ping Brian 確認:(1) Brian 自己發還是 hold?(2) 若 hold,什麼 trigger 後再 communicate
 
-## 2026-05-11 傍晚 v2(本日 · VMX-7457 deliverable 拆分 + repo 對齊)
+## 2026-05-11 傍晚 v2(本日 · [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) deliverable 拆分 + repo 對齊)
 
-- 2026-05-11 · **JIRA COMMENT** · `VMX-7457` 加 comment 釐清 2 個 deliverable 不同 timeline · A(doc share 本週)/ B(cloud integration staging 30/Jun · prod end-Jul)· 對 Cary 兩條 commitment traceable
-- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · 加「VMX-7457 內 2 個 deliverable 不同 timeline」table
+- 2026-05-11 · **JIRA COMMENT** · [`VMX-7457`](https://jira.navman.co.nz/jira/browse/VMX-7457) 加 comment 釐清 2 個 deliverable 不同 timeline · A(doc share 本週)/ B(cloud integration staging 30/Jun · prod end-Jul)· 對 Cary 兩條 commitment traceable
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · 加「[VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) 內 2 個 deliverable 不同 timeline」table
 - 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · Jira tickets reference 段加 deliverable A/B 拆分說明 + 對 Cary 兩條 commitment
-- 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` CS page · VMX-7457 row 加 2 deliverable bullet 表 + timeline 拆分
+- 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` CS page · [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) row 加 2 deliverable bullet 表 + timeline 拆分
 
 ## 2026-05-11 傍晚(本日 · Jira tickets 開好 + repo 對齊)
 
-- 2026-05-11 · **NEW JIRA** · `VMX-7457` "[API] Integrate BMS Blurring functionality into VisionMax cloud" · Task · 2-Med · Spencer assignee · Due 30/Jun/26(staging)· #1+#2 合併 · API doc share 寫進 AC
-- 2026-05-11 · **NEW JIRA** · `VMX-7458` "[GUI] Blurring control UI on Master/Fleet Portal for non-API customers" · Task · 2-Med · Kenny assignee · Q2 feasibility · pattern 改 "Driver-Facing Camera Live View"
-- 2026-05-11 · **DECISION** · #4 monthly subscription report 暫不開 ticket · 舊單 VMX-6427 是更大 events reporting infra 不對等 · Production deploy 後再開新單
-- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · placeholder #1/#2/#3/#4 換成真實 VMX-7457 / VMX-7458 + 加 sharp 處理說明
+- 2026-05-11 · **NEW JIRA** · [`VMX-7457`](https://jira.navman.co.nz/jira/browse/VMX-7457) "[API] Integrate BMS Blurring functionality into VisionMax cloud" · Task · 2-Med · Spencer assignee · Due 30/Jun/26(staging)· #1+#2 合併 · API doc share 寫進 AC
+- 2026-05-11 · **NEW JIRA** · [`VMX-7458`](https://jira.navman.co.nz/jira/browse/VMX-7458) "[GUI] Blurring control UI on Master/Fleet Portal for non-API customers" · Task · 2-Med · Kenny assignee · Q2 feasibility · pattern 改 "Driver-Facing Camera Live View"
+- 2026-05-11 · **DECISION** · #4 monthly subscription report 暫不開 ticket · 舊單 [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427) 是更大 events reporting infra 不對等 · Production deploy 後再開新單
+- 2026-05-11 · **UPDATE** · `case-learning/connectsource-passenger-blurring.md` § 8.4 · placeholder #1/#2/#3/#4 換成真實 [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) / [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) + 加 sharp 處理說明
 - 2026-05-11 · **UPDATE** · `meetings/2026-05-11_afternoon_cary-elvis-sync.md` § C · 同步 Jira queue + Kenny 開單 sharp 處理
 - 2026-05-11 · **UPDATE** · `websiteview/case-hub.html` CS page · Jira queue table 改成真實票號 + 加 #4 不開原因註腳
 - 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · ticket reference 加進對應段落
@@ -78,7 +94,7 @@
 - 2026-05-11 · **STRUCT** · `knowledge/archive/` · 建 archive · 收 3 個 2026-05-07 dated snapshot
 - 2026-05-11 · **MOVE**   · `06_calibration-log/{ai-tab-jira-alignment,ai-team-row-by-row-status,cary-passenger-blurring}-2026-05-07.md` → `archive/2026-05-07_*.md`(被 weekly-summary + critical-facts 取代)
 - 2026-05-11 · **UPDATE** · `06_calibration-log/critical-facts-log.md` · 加 KPI 100K(差 15K)+ Lens Cover 6 月 release 單軌兩條
-- 2026-05-11 · **UPDATE** · `06_calibration-log/vmx-7404-tracking.md` · 加 § H HAWK 側平行案(HAWK-501 / 574 / 401)
+- 2026-05-11 · **UPDATE** · `06_calibration-log/vmx-7404-tracking.md` · 加 § H HAWK 側平行案([HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501) / 574 / 401)
 - 2026-05-11 · **UPDATE** · `01_product-knowledge/adas-dms-events.md` · Lens Cover 6 月 release 校正
 - 2026-05-11 · **UPDATE** · `01_product-knowledge/machines-spec.md` · 加 K265 LM 版 SD update 架構限制段
 - 2026-05-11 · **UPDATE** · `02_organization-map/stakeholders.md` · 加 Steve KPI / Stark Honeywell / Phil Soung / Vinicius / Webfleet+Bridgestone+Azuga / Honeywell ME

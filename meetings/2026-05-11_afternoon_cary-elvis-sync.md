@@ -154,13 +154,13 @@ Kenny commit:「we can summary the Q2 feature change to you by the end of June�
 
 ### 為什麼 #4 暫不開:
 - 舊單 [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427) "Improve reporting function #107"(Elvis 2025/06/05 開)是更大的 events reporting infra 工作 — Brian 4/20 acknowledge 但目前 DB performance 不足,要 Time Series DB migration
-- Blurring monthly report 跟 VMX-6427 overlap 但不是同一件事
+- Blurring monthly report 跟 [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427) overlap 但不是同一件事
 - **2026-05-11 決策**:等 Production deploy 後有真實 usage 資料再開新單
 
 ### Kenny 開單時的 sharp 處理(repo 已 propagate):
-1. **#1+#2 合併在 VMX-7457**:cloud integration + API doc share 寫成 2 個 deliverable 進同一票,doc share 成為 AC
-2. **VMX-7458 pattern reference 改精準**:從「Live User」改成「**Driver-Facing Camera Live View**」(GUI/Lucy team 更明確)
-3. **VMX-7458 Priority 2-Medium**(比一般 spike 高,訊號這雖然 long-term 但要動)
+1. **#1+#2 合併在 [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457)**:cloud integration + API doc share 寫成 2 個 deliverable 進同一票,doc share 成為 AC
+2. **[VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) pattern reference 改精準**:從「Live User」改成「**Driver-Facing Camera Live View**」(GUI/Lucy team 更明確)
+3. **[VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) Priority 2-Medium**(比一般 spike 高,訊號這雖然 long-term 但要動)
 
 ---
 

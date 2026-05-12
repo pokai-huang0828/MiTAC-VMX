@@ -61,7 +61,7 @@ Brian 把 Kenny 加進 list,意思是 **VisionMax setup(Master & Fleet portal + 
 ### 跟現有 portal 知識的對位
 
 - **Plan Type 議題**:5/6 Q2 review 提過 Plan Type 影響哪些 event / feature 啟用,Honeywell setup 是第一個實案
-- **Contract Fleet 結構**:5/8 Sync-up Cary/Elvis 提的 per-contract-fleet config — Honeywell 若 reseller 客戶分 contract fleet,要看 VMX-5908 / VMX-6586 是否升級
+- **Contract Fleet 結構**:5/8 Sync-up Cary/Elvis 提的 per-contract-fleet config — Honeywell 若 reseller 客戶分 contract fleet,要看 [VMX-5908](https://jira.navman.co.nz/jira/browse/VMX-5908) / [VMX-6586](https://jira.navman.co.nz/jira/browse/VMX-6586) 是否升級
 - **Master Portal manual 撰寫**:Phil 5/8 已開始 Fleet Portal manual,**Master Portal manual 下週開工** → Honeywell setup 流程可變成 Phil manual 的實例範本
 
 ---

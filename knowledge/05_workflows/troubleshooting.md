@@ -79,7 +79,7 @@
 
 ## 對應 PM ticket
 
-- VMX-7404 ADAS Failure → Q3 多重原因
-- VMX-7194 Rollover → Q4 sensor 系列
-- VMX-7427 Quantatec obstruction → 屬 Q9 範疇(camera 看不到驅動者)
-- VMX-7407 UVC RAW frame error → 屬 Q2 範疇(sensor 不識別)
+- [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure → Q3 多重原因
+- [VMX-7194](https://jira.navman.co.nz/jira/browse/VMX-7194) Rollover → Q4 sensor 系列
+- [VMX-7427](https://jira.navman.co.nz/jira/browse/VMX-7427) Quantatec obstruction → 屬 Q9 範疇(camera 看不到驅動者)
+- [VMX-7407](https://jira.navman.co.nz/jira/browse/VMX-7407) UVC RAW frame error → 屬 Q2 範疇(sensor 不識別)

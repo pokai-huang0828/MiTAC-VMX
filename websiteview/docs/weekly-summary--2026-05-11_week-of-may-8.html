@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td><span aria-hidden="true">🦅</span> HAWK opened(48 票)</td>
-<td><strong>HAWK-582 Lens Cover detection 6 月 release 確認(Eric 5/8 13:38)</strong> / HAWK-545 飲食/抽菸誤判同向 / HAWK-501 ADAS self-calib 誤判高度 / HAWK-583 MX timezone</td>
+<td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Lens Cover detection 6 月 release 確認(Eric 5/8 13:38)</strong> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-545" rel="noopener" target="_blank">HAWK-545</a> 飲食/抽菸誤判同向 / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> ADAS self-calib 誤判高度 / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-583" rel="noopener" target="_blank">HAWK-583</a> MX timezone</td>
 <td><strong>P0</strong> Lens Cover 流程進度跟 Cary(Wendy)同步</td>
 </tr>
 <tr>
@@ -141,77 +141,77 @@ Filter name:<strong>"VMX pending for 180 days"</strong>
 <h3 id="b1">B1. 主題分組</h3>
 <h4 id="b1-1-iosix-dongle-5-sub-system">B1-1. IOSix dongle 連環票(5)— 同一個 sub-system 卡住</h4>
 <ul>
-<li>VMX-6528 Task <code>IOSix dongle 需要開一個更新 FW version 的 Mitac API</code></li>
-<li>VMX-6523 Task <code>Enable/Disable IOSix advance data 的 Mitac API</code></li>
-<li>VMX-6326 Task <code>[IOSix] Debug log upload</code></li>
-<li>VMX-6521 Task <code>新增 BT MAC 欄位當 IOSix dongle UID ACC on 時丟 UID 給 VMX</code></li>
-<li>VMX-6374 Task <code>IOSix dongle debug web page</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6528" rel="noopener" target="_blank">VMX-6528</a> Task <code>IOSix dongle 需要開一個更新 FW version 的 Mitac API</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6523" rel="noopener" target="_blank">VMX-6523</a> Task <code>Enable/Disable IOSix advance data 的 Mitac API</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6326" rel="noopener" target="_blank">VMX-6326</a> Task <code>[IOSix] Debug log upload</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6521" rel="noopener" target="_blank">VMX-6521</a> Task <code>新增 BT MAC 欄位當 IOSix dongle UID ACC on 時丟 UID 給 VMX</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6374" rel="noopener" target="_blank">VMX-6374</a> Task <code>IOSix dongle debug web page</code></li>
 </ul>
 <p>→ <strong>建議</strong>:全部歸到一個 IOSix Epic,跟 Brian 確認 dongle 模組是否真的還在 roadmap,否則一次性 close。</p>
 <h4 id="b1-2-api-api-5">B1-2. API &amp; API 文件(5)</h4>
 <ul>
-<li>VMX-6369 Task <code>[API 文件] 移除不再使用的 event</code></li>
-<li>VMX-6885 Improvement <code>[API] Upgrade event time precision to ms from s</code></li>
-<li>VMX-6886 Sub-task <code>[API] 前置作業</code></li>
-<li>VMX-6888 Sub-task <code>[API] A super account (likely)</code></li>
-<li>VMX-6924 Bug <code>[API] recording 新增時有機會造成 duplicate entry 衝突</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6369" rel="noopener" target="_blank">VMX-6369</a> Task <code>[API 文件] 移除不再使用的 event</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6885" rel="noopener" target="_blank">VMX-6885</a> Improvement <code>[API] Upgrade event time precision to ms from s</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6886" rel="noopener" target="_blank">VMX-6886</a> Sub-task <code>[API] 前置作業</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6888" rel="noopener" target="_blank">VMX-6888</a> Sub-task <code>[API] A super account (likely)</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6924" rel="noopener" target="_blank">VMX-6924</a> Bug <code>[API] recording 新增時有機會造成 duplicate entry 衝突</code></li>
 </ul>
 <p>→ <strong>建議</strong>:跟 5/8 Cary Q1 信中提到的「API documentation 對外 share」綁一起評估,<strong>Spencer / Conant 共主</strong>。</p>
 <h4 id="b1-3-dms-ai-3">B1-3. DMS / AI 模型(3)</h4>
 <ul>
-<li>VMX-6419 Bug <code>Invalid phone usage events</code>(RPN 45,Elvis Tran 持有)</li>
-<li>VMX-6692 Bug <code>Blurry DMS camera</code></li>
-<li>VMX-6453 Task <code>Server Model Research - Phone Usage</code></li>
-<li>VMX-6221 Task <code>Survey AI Model Self-Training and Optimization System</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6419" rel="noopener" target="_blank">VMX-6419</a> Bug <code>Invalid phone usage events</code>(RPN 45,Elvis Tran 持有)</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6692" rel="noopener" target="_blank">VMX-6692</a> Bug <code>Blurry DMS camera</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6453" rel="noopener" target="_blank">VMX-6453</a> Task <code>Server Model Research - Phone Usage</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6221" rel="noopener" target="_blank">VMX-6221</a> Task <code>Survey AI Model Self-Training and Optimization System</code></li>
 </ul>
 <p>→ <strong>與 5/7 AI Weekly「飲食誤判 17x 客訴危機」同向</strong>(見 <a href="meetings--2026-05-07_ai-weekly_meeting-record.html">2026-05-07_ai-weekly_meeting-record</a>)。
-→ <strong>與 HAWK-545「Mobile phone detection rates decreased, smoking influence」同根因</strong>,需把 VMX 與 HAWK 連起看。</p>
+→ <strong>與 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-545" rel="noopener" target="_blank">HAWK-545</a>「Mobile phone detection rates decreased, smoking influence」同根因</strong>,需把 VMX 與 HAWK 連起看。</p>
 <h4 id="b1-4-contract-fleet-multi-fleet2-58-sync-up-caryelvis">B1-4. Contract Fleet &amp; Multi-Fleet(2)— 對應 5/8 Sync-up Cary/Elvis 議題</h4>
 <ul>
-<li>VMX-5908 Improvement <code>Contract fleet 的 Webhook 處理</code></li>
-<li>VMX-6586 Improvement <code>Group main fleet and contract fleets together and display data under parent fleet for easy viewing #...</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5908" rel="noopener" target="_blank">VMX-5908</a> Improvement <code>Contract fleet 的 Webhook 處理</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6586" rel="noopener" target="_blank">VMX-6586</a> Improvement <code>Group main fleet and contract fleets together and display data under parent fleet for easy viewing #...</code></li>
 </ul>
 <p>→ <strong>直接打中 5/8 Sync-up Q2 議題</strong>:per-contract-fleet config 路徑 / Master Portal 是否看 contract fleet。
 → <strong>建議</strong>:這兩張票是 Cary / Elvis 痛點現在 Jira 上的位置,優先跟 Brian / Spencer 對齊是否升優先級。</p>
 <h4 id="b1-5-1">B1-5. 法規驅動(1)</h4>
 <ul>
-<li>VMX-6881 New Feature <code>Add 'Recording Start' audio alert to comply with NZ Biometric Processing Privacy Code 2025</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6881" rel="noopener" target="_blank">VMX-6881</a> New Feature <code>Add 'Recording Start' audio alert to comply with NZ Biometric Processing Privacy Code 2025</code></li>
 </ul>
 <p>→ <strong>法規 deadline 驅動</strong>,不能無限 pending。在 NZ 區隊很關鍵。</p>
 <h4 id="b1-6-speed-camera-a-test3">B1-6. Speed Camera A-test(3)</h4>
 <ul>
-<li>VMX-6662 Bug <code>[Speed camera A-test] Camera Type 6 can trigger event in DVR, but can't displayed on VMX web</code></li>
-<li>VMX-6734 Bug <code>[Speed camera A-test] Not find Camera Type 9128 data</code></li>
-<li>VMX-6821 Bug <code>SpeedCam Region name display "V2" instead of "SA"</code></li>
-<li>VMX-5922 Bug <code>TT AU Speed cam data - No redlight camera alerts</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6662" rel="noopener" target="_blank">VMX-6662</a> Bug <code>[Speed camera A-test] Camera Type 6 can trigger event in DVR, but can't displayed on VMX web</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6734" rel="noopener" target="_blank">VMX-6734</a> Bug <code>[Speed camera A-test] Not find Camera Type 9128 data</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6821" rel="noopener" target="_blank">VMX-6821</a> Bug <code>SpeedCam Region name display "V2" instead of "SA"</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5922" rel="noopener" target="_blank">VMX-5922</a> Bug <code>TT AU Speed cam data - No redlight camera alerts</code></li>
 </ul>
 <p>→ Speed Camera 子系統 4 票卡半年以上。屬於 Map team。</p>
 <h4 id="b1-7">B1-7. 其他關鍵單張票</h4>
 <ul>
-<li>VMX-5879 New Feature <code>[Feasibility] Display AI debug view on VisionMax browser UI (#11)</code></li>
-<li>VMX-6382 Improvement <code>Allow AI detection parameters to be configured</code></li>
-<li>VMX-6602 Improvement <code>CDR LED pattern change request #134</code></li>
-<li>VMX-6420 New Feature <code>Driver tagging in Events for coaching #107</code></li>
-<li>VMX-6076 New Feature <code>Pop up notification on log in page for server outage</code></li>
-<li>VMX-6841 Improvement <code>Making SmartGo data available through a Webhook for easier integration</code></li>
-<li>VMX-6265 Product Feature <code>GPIO - RS232 Passthrough and Digital Binary Input Signal</code></li>
-<li>VMX-6203 Bug <code>Inward, UVC &amp; Outward cameras unable to record video</code></li>
-<li>VMX-6040 Bug <code>Storage status is Good but not reading the memory card</code></li>
-<li>VMX-6166 Bug <code>[MMF] OSM USA MMF v9801 install failed</code></li>
-<li>VMX-6343 Task <code>Indonesia MMF</code></li>
-<li>VMX-5880 Task <code>[Install Tool] UVC 在 Dual Cameras SKU 上搭載 DMS 功能</code> <strong>← 對應 5/6 Q2 review「Single SKU + UVC 緊急 hotfix」!</strong></li>
-<li>VMX-6507 Task <code>[K265][Region] Build VisionMax 2025Q2 Region (250815)</code></li>
-<li>VMX-6851 Task <code>協助 precise MRM 包 APN 進 region image</code></li>
-<li>VMX-6222 New Feature <code>Adding earliest SD card file's timestamp to device info API</code></li>
-<li>VMX-6486 Task <code>SD card life calculation</code></li>
-<li>VMX-6703 New Feature <code>Support Configurable Server AI Response Time</code></li>
-<li>VMX-6736 Bug <code>Stop and go event not uploading any media</code></li>
-<li>VMX-6512 Task <code>MiDM api 可以選擇 Site/group 後再匯入機器</code></li>
-<li>VMX-5744 Task <code>event 觸發時上傳更多資訊以提升 debug 效率</code></li>
-<li>VMX-6348 Improvement <code>Solid light indicates camera connected to server</code></li>
-<li>VMX-6465 Bug <code>[K145][MAU] Abnormal camera image</code></li>
-<li>VMX-6785 Improvement <code>Review Audio File Quality</code></li>
-<li>VMX-6866 Bug <code>Device recall history showing invalid usage period date</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5879" rel="noopener" target="_blank">VMX-5879</a> New Feature <code>[Feasibility] Display AI debug view on VisionMax browser UI (#11)</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6382" rel="noopener" target="_blank">VMX-6382</a> Improvement <code>Allow AI detection parameters to be configured</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6602" rel="noopener" target="_blank">VMX-6602</a> Improvement <code>CDR LED pattern change request #134</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6420" rel="noopener" target="_blank">VMX-6420</a> New Feature <code>Driver tagging in Events for coaching #107</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6076" rel="noopener" target="_blank">VMX-6076</a> New Feature <code>Pop up notification on log in page for server outage</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6841" rel="noopener" target="_blank">VMX-6841</a> Improvement <code>Making SmartGo data available through a Webhook for easier integration</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6265" rel="noopener" target="_blank">VMX-6265</a> Product Feature <code>GPIO - RS232 Passthrough and Digital Binary Input Signal</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6203" rel="noopener" target="_blank">VMX-6203</a> Bug <code>Inward, UVC &amp; Outward cameras unable to record video</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6040" rel="noopener" target="_blank">VMX-6040</a> Bug <code>Storage status is Good but not reading the memory card</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6166" rel="noopener" target="_blank">VMX-6166</a> Bug <code>[MMF] OSM USA MMF v9801 install failed</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6343" rel="noopener" target="_blank">VMX-6343</a> Task <code>Indonesia MMF</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5880" rel="noopener" target="_blank">VMX-5880</a> Task <code>[Install Tool] UVC 在 Dual Cameras SKU 上搭載 DMS 功能</code> <strong>← 對應 5/6 Q2 review「Single SKU + UVC 緊急 hotfix」!</strong></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6507" rel="noopener" target="_blank">VMX-6507</a> Task <code>[K265][Region] Build VisionMax 2025Q2 Region (250815)</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6851" rel="noopener" target="_blank">VMX-6851</a> Task <code>協助 precise MRM 包 APN 進 region image</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6222" rel="noopener" target="_blank">VMX-6222</a> New Feature <code>Adding earliest SD card file's timestamp to device info API</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6486" rel="noopener" target="_blank">VMX-6486</a> Task <code>SD card life calculation</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6703" rel="noopener" target="_blank">VMX-6703</a> New Feature <code>Support Configurable Server AI Response Time</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6736" rel="noopener" target="_blank">VMX-6736</a> Bug <code>Stop and go event not uploading any media</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6512" rel="noopener" target="_blank">VMX-6512</a> Task <code>MiDM api 可以選擇 Site/group 後再匯入機器</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5744" rel="noopener" target="_blank">VMX-5744</a> Task <code>event 觸發時上傳更多資訊以提升 debug 效率</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6348" rel="noopener" target="_blank">VMX-6348</a> Improvement <code>Solid light indicates camera connected to server</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6465" rel="noopener" target="_blank">VMX-6465</a> Bug <code>[K145][MAU] Abnormal camera image</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6785" rel="noopener" target="_blank">VMX-6785</a> Improvement <code>Review Audio File Quality</code></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6866" rel="noopener" target="_blank">VMX-6866</a> Bug <code>Device recall history showing invalid usage period date</code></li>
 </ul>
 <h3 id="b2-brian-triage-p1">B2. 給 Brian 的 triage 建議(P1)</h3>
 <table>
@@ -261,7 +261,7 @@ Filter name:<strong>"VMX pending for 180 days"</strong>
 <p><strong>Filter name</strong>:<strong>"Hawk opened"</strong> — BMS Hawk 客戶提的 Bug / Improvement,status 在 Open / New / Deferred / Pending。
 Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 </blockquote>
-<h3 id="c1-hawk-582-improve-lens-cover-detection-design">C1. HAWK-582 — Improve Lens cover detection design(<strong>深掘</strong>)</h3>
+<h3 id="c1-hawk-582-improve-lens-cover-detection-design">C1. <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> — Improve Lens cover detection design(<strong>深掘</strong>)</h3>
 <table>
 <thead>
 <tr>
@@ -325,31 +325,31 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <h3 id="c2-hawk-ticket48">C2. Hawk 其他關鍵 ticket(48 票中精挑)</h3>
 <h4 id="57-ai-weekly">直接關聯 5/7 AI Weekly 議題</h4>
 <ul>
-<li><strong>HAWK-545</strong> Improvement <code>Mobile phone detection rates seems decreased a lot, sometimes it also seems negatively influenced by smoking</code> ← <strong>直接對應「飲食誤判 17x 客訴危機」</strong>,Phone detection 退步 + 抽菸影響</li>
-<li><strong>HAWK-551</strong> Improvement <code>[CAM Lite] Inaccurate fatigue detection — new config to lower EyeStableRate threshold</code> ← Fatigue 校正,跟 Yawning 灰階上線同類</li>
-<li><strong>HAWK-544</strong> Bug <code>Thumbnail events of type "lens covered" missing thumbnails when media is of snapshot</code> ← Lens Cover 子議題,跟 HAWK-582 同檔案族</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-545" rel="noopener" target="_blank">HAWK-545</a></strong> Improvement <code>Mobile phone detection rates seems decreased a lot, sometimes it also seems negatively influenced by smoking</code> ← <strong>直接對應「飲食誤判 17x 客訴危機」</strong>,Phone detection 退步 + 抽菸影響</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-551" rel="noopener" target="_blank">HAWK-551</a></strong> Improvement <code>[CAM Lite] Inaccurate fatigue detection — new config to lower EyeStableRate threshold</code> ← Fatigue 校正,跟 Yawning 灰階上線同類</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-544" rel="noopener" target="_blank">HAWK-544</a></strong> Bug <code>Thumbnail events of type "lens covered" missing thumbnails when media is of snapshot</code> ← Lens Cover 子議題,跟 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 同檔案族</li>
 </ul>
-<h4 id="adas-vmx-7404">ADAS 校正(跟 VMX-7404 同族)</h4>
+<h4 id="adas-vmx-7404">ADAS 校正(跟 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 同族)</h4>
 <ul>
-<li><strong>HAWK-501</strong> Bug <code>ADAS Self-calibration resolves wrong height resulting inacurate ADAS event detection</code> ← <strong>VMX-7404 ADAS Failure 平行案</strong> in HAWK side</li>
-<li><strong>HAWK-574</strong> Bug <code>WEBFLEET Alpha Fleet Cameras Sporadically Looping "DMS Calibration Completed" Message</code> ← DMS calibration UX bug,跟 HAWK-582 一起看</li>
-<li><strong>HAWK-401</strong> Improvement <code>Support proper DMS AI detection with low installation position</code> ← 安裝位置低時 DMS 失準</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a></strong> Bug <code>ADAS Self-calibration resolves wrong height resulting inacurate ADAS event detection</code> ← <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> ADAS Failure 平行案</strong> in HAWK side</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-574" rel="noopener" target="_blank">HAWK-574</a></strong> Bug <code>WEBFLEET Alpha Fleet Cameras Sporadically Looping "DMS Calibration Completed" Message</code> ← DMS calibration UX bug,跟 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 一起看</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-401" rel="noopener" target="_blank">HAWK-401</a></strong> Improvement <code>Support proper DMS AI detection with low installation position</code> ← 安裝位置低時 DMS 失準</li>
 </ul>
 <h4 id="visibility">客戶感受度高(高 visibility)</h4>
 <ul>
-<li><strong>HAWK-584</strong> Bug <code>Error in assigning device to fleet</code>(最新 / 5/?)</li>
-<li><strong>HAWK-583</strong> Bug <code>Timezone (in MX) not correct</code> ← Mexico 時區 bug,LATAM 區</li>
-<li><strong>HAWK-579</strong> <code>Camera Consuming High data</code></li>
-<li><strong>HAWK-498</strong> <code>Huge Amount of Unexpected Alert Button Events on WEBFLEET Production Cameras</code>(生產線級事件)</li>
-<li><strong>HAWK-410</strong> <code>[Production Issue] - Blue lines on the Video</code>(生產線級)</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-584" rel="noopener" target="_blank">HAWK-584</a></strong> Bug <code>Error in assigning device to fleet</code>(最新 / 5/?)</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-583" rel="noopener" target="_blank">HAWK-583</a></strong> Bug <code>Timezone (in MX) not correct</code> ← Mexico 時區 bug,LATAM 區</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-579" rel="noopener" target="_blank">HAWK-579</a></strong> <code>Camera Consuming High data</code></li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-498" rel="noopener" target="_blank">HAWK-498</a></strong> <code>Huge Amount of Unexpected Alert Button Events on WEBFLEET Production Cameras</code>(生產線級事件)</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-410" rel="noopener" target="_blank">HAWK-410</a></strong> <code>[Production Issue] - Blue lines on the Video</code>(生產線級)</li>
 </ul>
 <h4 id="_2">串流 / 錄影斷裂(同根因可能性高)</h4>
 <ul>
-<li>HAWK-535 / HAWK-508 / HAWK-511 / HAWK-528 / HAWK-519 / HAWK-457 / HAWK-441 / HAWK-159 → LiveStream + recording 一票 ticket,建議併單看 root cause</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-535" rel="noopener" target="_blank">HAWK-535</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-508" rel="noopener" target="_blank">HAWK-508</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-511" rel="noopener" target="_blank">HAWK-511</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-528" rel="noopener" target="_blank">HAWK-528</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-519" rel="noopener" target="_blank">HAWK-519</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-457" rel="noopener" target="_blank">HAWK-457</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-441" rel="noopener" target="_blank">HAWK-441</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-159" rel="noopener" target="_blank">HAWK-159</a> → LiveStream + recording 一票 ticket,建議併單看 root cause</li>
 </ul>
 <h4 id="_3">法規 / 隱私</h4>
 <ul>
-<li><strong>HAWK-502</strong> Improvement <code>Changes to the privacy mode</code> ← Private Mode 改動,<strong>直接相關 Cary/Wendy passenger blurring 議題</strong></li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-502" rel="noopener" target="_blank">HAWK-502</a></strong> Improvement <code>Changes to the privacy mode</code> ← Private Mode 改動,<strong>直接相關 Cary/Wendy passenger blurring 議題</strong></li>
 </ul>
 <hr />
 <h2 id="d-repo">D. 與 Repo 既有知識的 Δ 校正</h2>
@@ -369,22 +369,22 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 </tr>
 <tr>
 <td><code>memory/project_meeting_2026-05-07_ai_weekly.md</code>「Lens Cover 雙軌」</td>
-<td>HAWK-582 顯示客戶要的是<strong>取消 speed / calibration 限制 → 單軌即可</strong>,Eric 5/8 13:38 確認 6 月 release</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 顯示客戶要的是<strong>取消 speed / calibration 限制 → 單軌即可</strong>,Eric 5/8 13:38 確認 6 月 release</td>
 <td>改寫 Lens Cover 段落 + 在 critical-facts-log 補 6 月 release</td>
 </tr>
 <tr>
 <td><code>case-learning/connectsource-passenger-blurring.md</code>(Cary 線)</td>
-<td>HAWK-502 Privacy Mode 改動 + HAWK-582 Lens Cover 都跟 Webfleet/Bridgestone 同 pattern</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-502" rel="noopener" target="_blank">HAWK-502</a> Privacy Mode 改動 + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Lens Cover 都跟 Webfleet/Bridgestone 同 pattern</td>
 <td>在檔案中加「平行案 referenced」段</td>
 </tr>
 <tr>
 <td><code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code> Action Items</td>
-<td>(A) Master Portal 補 contract fleet 視圖 vs (B) Fleet Portal 加 UI — VMX-5908 / VMX-6586 是 Jira 上的對應票</td>
+<td>(A) Master Portal 補 contract fleet 視圖 vs (B) Fleet Portal 加 UI — <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5908" rel="noopener" target="_blank">VMX-5908</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6586" rel="noopener" target="_blank">VMX-6586</a> 是 Jira 上的對應票</td>
 <td>在 D 段補 Jira reference</td>
 </tr>
 <tr>
 <td><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code> ADAS Failure</td>
-<td>HAWK-501 是 HAWK 側平行案,<strong>ADAS self-calibration 高度算錯</strong></td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> 是 HAWK 側平行案,<strong>ADAS self-calibration 高度算錯</strong></td>
 <td>加 H 段:HAWK 側對照票</td>
 </tr>
 <tr>
@@ -410,15 +410,15 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <ul>
 <li>[ ] <strong>Honeywell ME</strong>:週一上午跟 Brian 同步 Kenny 在 VMX setup 的責任範圍(Master + Fleet portal、Honeywell logo white-label、sample 匯入)</li>
 <li>[ ] <strong>Vinicius</strong>:把 5/9 13:11 兩問拆給 Brian/Conant 看是否要 Kenny 出 reply 草稿(camera-side video without download 是 KB / 文件層的回答)</li>
-<li>[ ] <strong>Lens Cover (HAWK-582)</strong>:把「6 月 release」消息與 Cary / Wendy 同步(passenger blurring 線同 pattern,客戶會 ask)</li>
+<li>[ ] <strong>Lens Cover (<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a>)</strong>:把「6 月 release」消息與 Cary / Wendy 同步(passenger blurring 線同 pattern,客戶會 ask)</li>
 </ul>
 <h3 id="p1-511515"><span aria-hidden="true">📅</span> P1(本週 5/11–5/15)</h3>
 <ul>
 <li>[ ] 看完 QBR deck(<code>https://docs.google.com/presentation/d/1UWin65dXNCtp_ExzP1_pCF9Upzu4tQOp</code>)→ 對齊自己工作焦點</li>
 <li>[ ] 看完 <code>VisionMax Fleet Portal R02 draft 1.pdf</code> → 給 Phil feedback,<strong>把 5/8 Sync-up 校正過的 Q2 portal path(per-contract-fleet)寫進 feedback</strong></li>
 <li>[ ] 跟 Brian 提案 VMX pending 180 days 47 票 triage(B2 表)</li>
-<li>[ ] HAWK-545「Phone detection decreased + smoking」併進 5/7 AI Weekly 17x 客訴 thread,看是不是同 root cause</li>
-<li>[ ] HAWK-501 ADAS self-calibration 加進 <code>vmx-7404-tracking.md</code> H 段(HAWK 側對照)</li>
+<li>[ ] <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-545" rel="noopener" target="_blank">HAWK-545</a>「Phone detection decreased + smoking」併進 5/7 AI Weekly 17x 客訴 thread,看是不是同 root cause</li>
+<li>[ ] <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> ADAS self-calibration 加進 <code>vmx-7404-tracking.md</code> H 段(HAWK 側對照)</li>
 <li>[ ] 開 <code>case-learning/honeywell-me-cdr-opportunity.md</code>(新 case)</li>
 <li>[ ] 補 <code>case-learning/platform-science-*.md</code> 5/9 進度(JS lib + camera-side video)</li>
 <li>[ ] 更新 memory:<code>project_vmx.md</code> 加 100K/15K KPI 數字、<code>feedback_vmx_facts.md</code> 加 Lens Cover 單軌 + 6 月 release</li>
@@ -426,7 +426,7 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <h3 id="p2-sync"><span aria-hidden="true">🎯</span> P2(下個 sync 前)</h3>
 <ul>
 <li>[ ] Lens Cover 6 月 release 後同步 Cary / Wendy(passenger blurring 同 cycle?)</li>
-<li>[ ] VMX-5908 / VMX-6586(Contract Fleet 兩票)優先級拍板</li>
+<li>[ ] <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5908" rel="noopener" target="_blank">VMX-5908</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6586" rel="noopener" target="_blank">VMX-6586</a>(Contract Fleet 兩票)優先級拍板</li>
 <li>[ ] 跟 Phil 對齊 Master Portal manual draft(他下週開工)</li>
 </ul>
 <hr />
@@ -436,7 +436,7 @@ Hawk = MiTAC 對 Bridgestone Webfleet / Azuga 的客戶接口</p>
 <li>5/7 AI Weekly 重大訊號:<a href="meetings--2026-05-07_ai-weekly_meeting-record.html"><code>meetings/2026-05-07_ai-weekly_meeting-record.md</code></a></li>
 <li>5/6 Q2 Review 戰略翻案:<a href="meetings--2026-05-06_q2-request-review_meeting-record.html"><code>meetings/2026-05-06_q2-request-review_meeting-record.md</code></a></li>
 <li>Cary Passenger Blurring 對外承諾紀錄:<a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html"><code>knowledge/06_calibration-log/cary-passenger-blurring-2026-05-07.md</code></a></li>
-<li>VMX-7404 ADAS Failure 追蹤:<a href="06_calibration-log--vmx-7404-tracking.html"><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code></a></li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> ADAS Failure 追蹤:<a href="06_calibration-log--vmx-7404-tracking.html"><code>knowledge/06_calibration-log/vmx-7404-tracking.md</code></a></li>
 <li>AI Team 16 件逐行狀態:<a href="06_calibration-log--ai-weekly-2026-05-07-roundup.html"><code>knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md</code></a></li>
 <li>Critical Facts(別再答錯):<a href="06_calibration-log--critical-facts-log.html"><code>knowledge/06_calibration-log/critical-facts-log.md</code></a></li>
 </ul>

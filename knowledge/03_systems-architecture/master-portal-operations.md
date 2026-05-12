@@ -47,7 +47,7 @@
 
 ### User Account — 帳號管理
 ![Master User Account](../../websiteview/VMX_images/Master/Master-UserAccount.png)
-*Account 增刪改 / 權限分配。**對應 5/6 會議 Viewer Only Role 議題(VMX-7088)**。*
+*Account 增刪改 / 權限分配。**對應 5/6 會議 Viewer Only Role 議題([VMX-7088](https://jira.navman.co.nz/jira/browse/VMX-7088))**。*
 
 ### User Activity Logs — 操作稽核
 ![Master User Activity Logs](../../websiteview/VMX_images/Master/Master-UserActivityLogs.png)

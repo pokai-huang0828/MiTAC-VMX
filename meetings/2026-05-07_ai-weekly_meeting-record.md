@@ -11,11 +11,11 @@
 | PIC | 5/7 會議報告內容 | Sheet 對應 row | Sheet 寫的 vs 會議揭露 |
 |-----|---|---|---|
 | **Vincent** | 將 7000 多筆吃東西、喝水、手持物品的誤判照片(Edge cases)加入負向資料庫,集中資源於 6/15 前完成模型 Retrain。同時協助評估將「Head 邏輯」導入原有 Face 演算法 | #45 Pedestrian / #7 Blurring / #43 Camera height | 🚨 Sheet 沒這條,飲食重訓不在他名下 row(#46 Eating Jimmy 才有)— Vincent 角色擴大 |
-| **Jieli (竭力)** | 處理 BMS 專案 Lens Cover 獨立邏輯(車速 > 0 才啟動),必須趕上 6/2 交付 | #28 鏡頭遮蔽(VMX-6983 + HAWK-582) | ✓ 對齊。Sheet 5/7 「BMS 正在確認規格」跟會議「車速 > 0」一致 |
+| **Jieli (竭力)** | 處理 BMS 專案 Lens Cover 獨立邏輯(車速 > 0 才啟動),必須趕上 6/2 交付 | #28 鏡頭遮蔽([VMX-6983](https://jira.navman.co.nz/jira/browse/VMX-6983) + [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582)) | ✓ 對齊。Sheet 5/7 「BMS 正在確認規格」跟會議「車速 > 0」一致 |
 | **Jimmy (居明)** | 收集與統整客訴的誤判資料,目前手上已收集 307 張邊緣情境照片,持續擴充 Data pool | #32 Face Not Found / #46 Eating | 部分對齊。#32 sheet 寫 13975 張未 review,跟會議 307 張對不上(可能不同資料集)|
 | **Jay (傑)** | 處理 Speed Sign 模型辨識混淆問題,已將訓練參數中「Flip(翻轉)」關閉並重新訓練 | sheet 沒對應 row! | 🚨 **Speed Sign 不在 AI 工作計畫 visible rows**。可能是新增工作或被 hide。會議講「立即執行」 |
-| **Eric** | 已完成 ECS 伺服器實例的 Health Checking 機制,解決模型突然消失導致服務掛點問題,已部署生產環境 | #50 VisionMax PROD not blurring(HAWK-578) | ✓ 對齊。Sheet 5/7 寫的「自我健康檢查機制」就是這個 |
-| **Spencer** | 負責睜眼率 (Eye opening rate) API 開發,須從 Camera App 到 Server 端完成全鏈路驗證,趕上 6/2 時程 | #4 Eyes Detection(VMX-7309) | 🚨 **Sheet 寫 done done 太樂觀**。會議揭露 Server 端串接還沒完成,要趕 6/2 |
+| **Eric** | 已完成 ECS 伺服器實例的 Health Checking 機制,解決模型突然消失導致服務掛點問題,已部署生產環境 | #50 VisionMax PROD not blurring([HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578)) | ✓ 對齊。Sheet 5/7 寫的「自我健康檢查機制」就是這個 |
+| **Spencer** | 負責睜眼率 (Eye opening rate) API 開發,須從 Camera App 到 Server 端完成全鏈路驗證,趕上 6/2 時程 | #4 Eyes Detection([VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309)) | 🚨 **Sheet 寫 done done 太樂觀**。會議揭露 Server 端串接還沒完成,要趕 6/2 |
 | **Jonathan** | 5/7 會議未具體提及進度 | #47 Rastrac False Speed | Sheet 自己進度推進(Train 99%/Test 98%/100%),但會議沒列為討論點 |
 | **Adonis** | 5/7 會議未具體提及進度 | #41 / #48 / #49 / #50 | Sheet 5/7 有 update,但會議沒提 |
 
@@ -25,9 +25,9 @@
 
 | # | Action | Owner | Deadline | 對應 Sheet row |
 |---|---|---|---|---|
-| 1 | 飲食與手持物品誤判大重訓(7000+ 筆 Edge case 重訓) | AI 團隊(**Vincent + Jimmy**) | **6/15** | #46 Eating & Drinking(HAWK-562, Jimmy)+ Vincent 加入 |
-| 2 | 實作 BMS 專屬 Lens Cover 邏輯拆分(車速 > 0)| Camera App + Jieli | **6/2** | #28 鏡頭遮蔽(VMX-6983 + HAWK-582)|
-| 3 | 睜眼率 (Eye opening rate) API 全鏈路驗證 | Cloud / **Spencer** | **6/2** | #4 Eyes Detection(VMX-7309)|
+| 1 | 飲食與手持物品誤判大重訓(7000+ 筆 Edge case 重訓) | AI 團隊(**Vincent + Jimmy**) | **6/15** | #46 Eating & Drinking([HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562), Jimmy)+ Vincent 加入 |
+| 2 | 實作 BMS 專屬 Lens Cover 邏輯拆分(車速 > 0)| Camera App + Jieli | **6/2** | #28 鏡頭遮蔽([VMX-6983](https://jira.navman.co.nz/jira/browse/VMX-6983) + [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582))|
+| 3 | 睜眼率 (Eye opening rate) API 全鏈路驗證 | Cloud / **Spencer** | **6/2** | #4 Eyes Detection([VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309))|
 | 4 | Speed Sign 模型修正與重訓(關閉 Flip 參數)| AI 團隊 (Jay) | **立即** | 🚨 **無對應 sheet row** |
 
 ---
@@ -55,13 +55,13 @@
 ### 🚨 訊號 D:LDWS Pending 暫緩 + 開新 ticket
 - **5/7 揭露**:「關於 YOLO Lane Detection 導入,因團隊目前資源緊繃,**決議先 Pending 暫緩,並開立新 Ticket 追蹤**」
 - **對 5/6 Brian「Q1 已 merge」narrative 的修正**:
-  - VMX-6722 Server-side LDWS 確實 Q1 已 deploy(jimmy 3/11 留言確認)
+  - [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) Server-side LDWS 確實 Q1 已 deploy(jimmy 3/11 留言確認)
   - 但 5/7 講的是 **device 端 YOLO Lane Detection 的進階改善**,這條是**新工作 + 暫緩**,不是 6722
 - **對應 sheet** row 10 #8 LDWS:5/7 寫「pending」**是真實狀態**,但要追的是「新 ticket 在哪 / 何時開」
 
 ### 訊號 E:Camera Height 期望值管理(PM 介入點)
 - 5/7 揭露:「PM 將提供 20% 的誤差範圍數值以進行期望值管理」
-- 對應 #43 Camera height(HAWK-501, Jay+Vincent)
+- 對應 #43 Camera height([HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501), Jay+Vincent)
 - **Kenny 的 PM 角色任務**:準備 20% 誤差數值給 BMS
 
 ---

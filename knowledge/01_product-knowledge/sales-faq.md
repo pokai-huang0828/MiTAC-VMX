@@ -84,7 +84,7 @@ Management → Inventory → 全選 fleet 設備或多選 → 點 "Update" 推 O
 
 - 不同 class 有 specific height + AI parameters
 - VisionMax 開發了 3 種 height + AI param settings
-- 技術人員需測量實際安裝高度(對應 HAWK-501 Camera height 不穩定 ticket)
+- 技術人員需測量實際安裝高度(對應 [HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501) Camera height 不穩定 ticket)
 
 ## ⭐ Privacy Mode(KB:Behaviour of Privacy Mode in VisionMax)
 

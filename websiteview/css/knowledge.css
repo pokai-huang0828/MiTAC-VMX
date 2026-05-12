@@ -485,13 +485,23 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
 /* 第一欄(label / 領域 column)給 min-width 避免「Cloud / API team lead」斷字 */
 .doc-content td:first-child,
 .doc-content th:first-child {
-  min-width: 110px;
-  white-space: nowrap;           /* 短 label 不折 */
+  min-width: 130px;              /* 130 讓「Cloud / API team lead」一行容納 */
+  white-space: nowrap;
 }
-/* 但是「Cloud / API team lead」這種長 label 還是要能折在 / 後面 */
+/* 第一欄長 label 仍允許在 / 後折 */
 .doc-content td:first-child {
   white-space: normal;
   word-break: keep-all;          /* 中文 keep-all,英文 / 處才折 */
+}
+/* 其他欄至少 80px,避免「Custom SDK」「API integration」斷成單字單行 */
+.doc-content td:not(:first-child),
+.doc-content th:not(:first-child) {
+  min-width: 80px;
+}
+/* 最後一欄(通常是「重點」「summary」)放大彈性 */
+.doc-content td:last-child,
+.doc-content th:last-child {
+  min-width: 0;                  /* 允許縮到最小,讓中間欄先得空間 */
 }
 .doc-content th { background: #F4F7FC; color: var(--ink-2); font-weight: 700; font-size: var(--fs-12_5); text-transform: uppercase; letter-spacing: .04em; padding: 11px 16px; }
 .doc-content tr:nth-child(even) td { background: #FBFCFE; }

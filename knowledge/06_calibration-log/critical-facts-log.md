@@ -3,7 +3,40 @@
 > 🎯 **SSOT** — 所有「過去答錯後校正」的事實在這裡。其他檔提到這些事實時只能 link,不要複製。
 >
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
-> 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md)
+> 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md) | Jira 即時狀態:[`00_index/jira-snapshot.md`](../00_index/jira-snapshot.md)(2026-05-12 抓 137 票)
+
+## Jira 本週新 Resolved/Closed(2026-05-12 全 137 ticket comment ingest 揭露)
+
+### 已 deploy / Resolved(對外可講「✅ 已 ship」)
+- **[VMX-7239](https://jira.navman.co.nz/jira/browse/VMX-7239) Closed 5/11(Vincent)**:`Add handheld object classification model for phone usage feature` — 飲食誤判 17x 客訴改善 sub-feature
+- **[VMX-7419](https://jira.navman.co.nz/jira/browse/VMX-7419) Resolved 5/7(Spencer)**:`[API] new event type: rollover` — Mori 200Hz Rollover API **已 release**。對外可講「Rollover event API 已 ship」
+- **[VMX-7381](https://jira.navman.co.nz/jira/browse/VMX-7381) Resolved 5/8(Lucy)**:VisionAgent iOS / AOS 無法刪除 Event — james.cw.chou 5/8 提 patch
+- **[VMX-6925](https://jira.navman.co.nz/jira/browse/VMX-6925) Resolved 5/5(jay.qiu)**:`[MMF] Partial Map Update` — andrew 5/5「**已完成 Partial map update 功能**」(MMF 全 feature 仍未上線,但 partial update 可用)
+- **[VMX-7346](https://jira.navman.co.nz/jira/browse/VMX-7346) Resolved 4/24(Vincent)**:`[ServerAI] pre_event_message 加 cdr 版號` — chiehli 4/20 加 `app_version` 欄位
+- **[HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578) Resolved 5/6(Luís)**:VisionMax PROD 不 blurring 修 — chiehli 5/6 SQS retention 14d 配套部署
+- **[HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) Resolved 5/6(Vincent)**:`Blurring not reliable` — Sebastian 5/6 確認 fixed
+
+### 已 Closed
+- **[VMX-6920](https://jira.navman.co.nz/jira/browse/VMX-6920) Closed 3/9(Jimmy)**:`[DMS] Smoking 新參數` — 已 deploy 2 個月,stakeholders.md BMS 列已校正
+- **[HAWK-331](https://jira.navman.co.nz/jira/browse/HAWK-331) Closed 4/22(Luís)**:`Blurring (face, background, license plate)` — 主案結束,follow-up ticket 已開
+
+### 設計完但未 ship
+- **[VMX-6353](https://jira.navman.co.nz/jira/browse/VMX-6353) Resolved 5/7(Mori)**:`[MMF] Map Data Update Flow Design` ⚠️ **Design 完成,不是 MMF 上線**。對客戶仍維持「MMF 還沒上線、不要承諾」口徑
+
+### 進行中但有重要進展(對外應更新口徑)
+- **[HAWK-577](https://jira.navman.co.nz/jira/browse/HAWK-577) Open 5/11(chiehli)**:`Blurring on-demand fails when not all event media ready` — root cause 5/4 已定位
+- **[VMX-7254](https://jira.navman.co.nz/jira/browse/VMX-7254) In Progress 5/5(Spencer)**:`Cloud integration for rollover` — hsinyi 5/4 加 `tiltAngleThresholdDeg` + `samplePercentageThreshold` 2 個參數
+
+- 校正人:Kenny + Jira REST API 全量抓取(透過 Chrome MCP 連 jira.navman.co.nz,2026-05-12 第一次完整 ticket comment ingest)
+- 應用:對 Brian / Mori / Lucy / Spencer / Vincent / Sebastian 提對應功能時,**用「✅ 已 ship」**
+- 完整 137 ticket 即時狀態:[`websiteview/docs/00_index--jira-snapshot.html`](../../websiteview/docs/00_index--jira-snapshot.html)
+
+## Jira `New` status 含意(2026-05-12 大規模發現)
+- 全 hub 提到的 137 ticket 中:**93 個 (68%) 是 New status**
+- 但其中**多數實際已做完**,只是 RD 沒按 transition button(Open → Resolved)— 已記錄在「[VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) LDWS transition discipline gap」段
+- **判斷規則**:`status=New` + `Updated > 90 days ago` = 大概率已 deploy 但 transition 漏按 / 或永久 stale
+- 應用:看 ticket 真實狀態,**讀 Updated 日期 + Comment 內容**,不要只看 status
+- 提案 Brian:Q2 做一輪 ticket triage,把這些「New 但已做完」全 transition 掉
 
 ## VMX subscription KPI:100K(目前差 15K)(2026-05-09 QBR 揭露)
 - 來源:Brian 2026-05-09 10:07 信「VisionMax 2026 Q1 QBR」內明寫
@@ -13,9 +46,9 @@
 - 對外應用:**不要對任何客戶 quote 這個數字**(內部 KPI),只對 Brian / Spencer / Mori / Spencer 線講
 - 對內應用:Kenny 自己工作如果跟 QBR deck 列的 projects 沒對齊,Brian 信中明說「請最好再來和我確認一下」
 
-## HAWK-582 Lens Cover 設計修正:單軌即可滿足客戶(2026-05-11 校正)
+## [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) Lens Cover 設計修正:單軌即可滿足客戶(2026-05-11 校正)
 - ❌ 之前理解(memory `project_meeting_2026-05-07_ai_weekly.md`):RD 緊急雙軌維護(Azuga 標準版解除車速、BMS 版車速 > 0 才啟動)
-- ✅ **HAWK-582 揭露**:Webfleet (Sebastian Schneider) 報告,Bridgestone (Jakob Mund) 確認偏好 Flow 1(ignition ON + 無移動就偵測),**spec 改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**
+- ✅ **[HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) 揭露**:Webfleet (Sebastian Schneider) 報告,Bridgestone (Jakob Mund) 確認偏好 Flow 1(ignition ON + 無移動就偵測),**spec 改成取消 speed ≥ 20 km/h + DMS calibration 完成兩個 dependency**
 - **Eric H (謝翔宇) 2026-05-08 13:38 comment 確認**:`The feature is planned for the next release in June`
 - 校正後現狀:**不是「雙軌維護」,是改設計後單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga)**
 - 對外應用:6 月 release 可以對 Cary / Wendy(MiTAC AU 線)提,passenger blurring 是同 pattern 案,客戶會問
@@ -46,7 +79,7 @@
 - ✅ **Connect Source(MAU 客戶)**:已 API integrated · **走 API only,不需要 UI portal toggle** · API 可控任何 video / 任何 fleet · contract fleet 不需要在 portal 端做 permission
 - 🕐 **Auto Sense(MAU 客戶)**:用 VMX web UI(2000+ devices)· 要 GUI design 才能加 Blurring 控制 · **Q2 不做**(long term)
 - ✅ **Q2 scope 拍板**:(1) Integrate BMS Blurring into VMX cloud · (2) Release API doc 給 Connect Source
-- 🕐 **Monthly subscription report 加 Blurring tracking**:Brian「not the target for now, future planning」· **暫不開 ticket** · Production deploy 後有真實 usage 資料再開新單 · 舊單 VMX-6427(events reporting infra)不對等
+- 🕐 **Monthly subscription report 加 Blurring tracking**:Brian「not the target for now, future planning」· **暫不開 ticket** · Production deploy 後有真實 usage 資料再開新單 · 舊單 [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427)(events reporting infra)不對等
 - 📅 **時程**:Staging end of June · Production end of July · Q2 release notes end of June 給 Cary(對外發布前)
 - 對外應用:對 MAU 講「Connect Source 走 API,Q2 可 ship;Auto Sense 走 UI 是另案 long term」· **不要把 Connect Source 跟 Auto Sense 的方案混講**
 - 來源:Brian 2026-05-11 14:00 sync(Cary / Elvis 在場)
@@ -56,7 +89,7 @@
       - A · **API doc share**:本週 post-QPR(對 Cary commit「本週收 doc」)· cover note 必須標 "doc share ≠ endpoint live"
       - B · **Cloud integration**:Staging 30/Jun · Production end of July post-DQE(對 Cary commit「end of June 給 Q2 release notes summary」)
   - [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) — GUI feasibility for non-API customers(Kenny · long-term)
-  - VMX-6427(舊單,事實 reference,**不當作 Blurring monthly report 對應位置**)
+  - [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427)(舊單,事實 reference,**不當作 Blurring monthly report 對應位置**)
 
 ## Option A vs Option B 在 API 層是同一條 flow(2026-05-11 下午 Kenny 講出但太晚)
 - 🚨 **5/11 早上 Spencer 給的 Option A(delegated)/ Option B(centralised at Master)是 UI 視角的框架**
@@ -71,7 +104,7 @@
   - Jira ticket 寫清楚 = **對外 commitment 已建立**(內部 SSOT)
   - External email 重複 Jira 內容 = **redundant overhead**
   - 客戶 chase 時:口頭 / Teams 回答即可,不需要 email 留書面 trail
-  - 對 Kenny 開單質量肯定(特別是 VMX-7457 加 comment 拆 Deliverable A/B 那個動作)
+  - 對 Kenny 開單質量肯定(特別是 [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) 加 comment 拆 Deliverable A/B 那個動作)
 - **新規則**:
   - 內部 ticket / case file 寫清楚 = commitment 已建立 · 不需要再做 external 書面文件重複
   - 對外發 email 只在「客戶看不到 Jira + 需要書面 visibility 給上級 audit」時做
@@ -129,7 +162,7 @@
 - 校正日:2026-05-05
 - 校正人:Kenny
 - 重要:**沒滿足就觸發 ADAS Failure**,語音 `"Can't detect the road level, ADAS off"`
-- 應用:**VMX-7404 根因**,市區走停會反覆觸發
+- 應用:**[VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) 根因**,市區走停會反覆觸發
 
 ## G-Sensor 事件數
 - ❌ 之前答:4 種(Harsh Braking / Cornering / Driving Impact / Parking Impact)
@@ -153,7 +186,7 @@
 - ✅ **5/6 會議揭露**:還沒給客戶用,內部測試中,效果不如預期。Fatigue config 下要加獨立 enable/disable 子選項
 - ✅ **5/7 AI weekly 補**:夜間嘴部辨識效果不佳,加入「灰階(Grayscale)」影像重新訓練,並考慮 Server 端從「辨識嘴巴」改為「辨識整張臉」
 - 對外口徑:「Roadmap planned, 內部測試中」**不能說「已有」**
-- Yawning UI toggle 真實對應 ticket:**VMX-7432**(Lucy 5/6 開,assignee)
+- Yawning UI toggle 真實對應 ticket:**[VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)**(Lucy 5/6 開,assignee)
 
 ## Brian #11 OTA 17 個月 ticket 性質
 - ❌ 之前答:stale(Brian 拖延)
@@ -165,10 +198,10 @@
 ## #154 Server AI lane departure 為什麼 API 沒釋出(2026-05-07 再校正)
 - ❌ v1 之前答:RD 沒做完
 - ⚠️ v2(5/6 會議錄音 Brian 自評):「Q1 已 merge 但 label 沒設好,Brian filter 時漏 pick」
-- ✅ **v3 真相(2026-05-07 讀 VMX-6722 comments + sub-tasks)**:VMX-6722 **本身有 label `vmx_2026Q2`**,sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW。**不是 label 漏 pick,是 transition discipline gap** — RD 寫 comment 沒按 Open→Resolved button
+- ✅ **v3 真相(2026-05-07 讀 [VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) comments + sub-tasks)**:[VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722) **本身有 label `vmx_2026Q2`**,sub-tasks 全 closed/resolved + jimmy 3/11 留「Server AI 已完成並 deploy 到 prod」+ parent ticket 仍 NEW。**不是 label 漏 pick,是 transition discipline gap** — RD 寫 comment 沒按 Open→Resolved button
 - 校正日:2026-05-07(Comment 深掘後)
 - 重要:**對 Brian 提 process improvement 從「transition 紀律」切入,不是「label 紀律」**
-- 補充:**LDWS 5/7 完整故事**:Server-side(VMX-6722)Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 AI weekly 決議 Pending 暫緩 + 開新 ticket(編號待釐清)— 這是另一條工作
+- 補充:**LDWS 5/7 完整故事**:Server-side([VMX-6722](https://jira.navman.co.nz/jira/browse/VMX-6722))Q1 確實 deploy。但 device 端 YOLO Lane Detection 改善是 5/7 AI weekly 決議 Pending 暫緩 + 開新 ticket(編號待釐清)— 這是另一條工作
 
 ## ADAS 範圍(2026-05-06 KB 校正)
 - ❌ 之前答:只含 FCW / LDW / Stop and Go / Tailgating

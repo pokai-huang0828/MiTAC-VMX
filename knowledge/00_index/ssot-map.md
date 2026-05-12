@@ -70,7 +70,7 @@
 | 已校正關鍵 VMX 事實(別再答錯) | [`06_calibration-log/critical-facts-log.md`](../06_calibration-log/critical-facts-log.md) | weekly-summary / case-learning |
 | Roadmap(對外)vs 內部現實 不一致紀錄 | [`06_calibration-log/roadmap-vs-internal.md`](../06_calibration-log/roadmap-vs-internal.md) | adas-dms-events |
 | Sheet ↔ Jira mismatch 紀錄 | [`06_calibration-log/sheet-jira-mismatches.md`](../06_calibration-log/sheet-jira-mismatches.md) | sheet-jira-sync-sweeper |
-| VMX-7404 ADAS Failure 追蹤(評估期籌碼) | [`06_calibration-log/vmx-7404-tracking.md`](../06_calibration-log/vmx-7404-tracking.md) | diagnostics / weekly-summary |
+| [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 追蹤(評估期籌碼) | [`06_calibration-log/vmx-7404-tracking.md`](../06_calibration-log/vmx-7404-tracking.md) | diagnostics / weekly-summary |
 
 ## 📅 時序事件
 
@@ -95,7 +95,7 @@
 | [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) | CONNECTSOURCE Blurring · Cloud API integration + doc share(Spencer · Due 30/Jun/26 staging · Production end-Jul) | `case-learning/connectsource-passenger-blurring.md` § 8.4 |
 | [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458) | Auto Sense / non-API customers · Blurring UI feasibility(Kenny · long-term)| `case-learning/connectsource-passenger-blurring.md` § 8.4 |
 | [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) | ADAS Failure(評估期主力)· 8/10 設備 health failure | `knowledge/06_calibration-log/vmx-7404-tracking.md` |
-| VMX-6427(reference 舊單,不對等)| Improve reporting function #107 · events reporting infra(非 Blurring monthly report 對應位置)| `case-learning/connectsource-passenger-blurring.md` § 8.4 註腳 |
+| [VMX-6427](https://jira.navman.co.nz/jira/browse/VMX-6427)(reference 舊單,不對等)| Improve reporting function #107 · events reporting infra(非 Blurring monthly report 對應位置)| `case-learning/connectsource-passenger-blurring.md` § 8.4 註腳 |
 
 ## 🎯 Calibration rules(critical-facts-log 內 SSOT)
 

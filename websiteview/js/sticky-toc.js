@@ -14,12 +14,39 @@
 (function () {
   'use strict';
 
+  /** Return the part-N section that contains the heading, or null. */
+  function findParentSection(h) {
+    let el = h.parentElement;
+    while (el && el !== document.body) {
+      if (el.tagName === 'SECTION' && el.id && /^part-\d+$/.test(el.id)) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
   function init() {
     const content = document.querySelector('main.doc-standalone .doc-content');
     if (!content) return;
     const headings = Array.from(content.querySelectorAll('h2[id]'));
     if (headings.length < 8) return;
     if (window.innerWidth < 1100) return;
+
+    // ─── 2026-05-12: detect merged-doc sections + disambiguate duplicate labels ───
+    // Step 1: collect raw text per heading
+    const items = headings.map((h, i) => {
+      const cloned = h.cloneNode(true);
+      cloned.querySelectorAll('[aria-hidden]').forEach(el => el.remove());
+      const raw = (cloned.textContent || '').trim().replace(/\s+/g, ' ');
+      const parentSec = findParentSection(h);
+      const partNum = parentSec ? parseInt(parentSec.id.replace(/^part-/, ''), 10) : null;
+      return { h, raw, partNum, idx: i };
+    });
+
+    // Step 2: count label occurrences. Duplicate label inside merged docs gets §N prefix.
+    const labelCount = {};
+    items.forEach(it => { labelCount[it.raw] = (labelCount[it.raw] || 0) + 1; });
 
     // Build TOC
     const toc = document.createElement('nav');
@@ -33,15 +60,23 @@
     inner.appendChild(head);
     const ul = document.createElement('ul');
 
-    headings.forEach((h, i) => {
+    items.forEach(it => {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = '#' + h.id;
-      // Strip aria-hidden emoji wrappers from heading text for cleaner TOC label
-      const cloned = h.cloneNode(true);
-      cloned.querySelectorAll('[aria-hidden]').forEach(el => el.remove());
-      a.textContent = (cloned.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
-      a.dataset.targetId = h.id;
+      a.href = '#' + it.h.id;
+      // Add §N prefix when the label appears more than once across the doc
+      // AND the heading is inside a part-N section (merged-doc case).
+      let label = it.raw;
+      if (labelCount[it.raw] > 1 && it.partNum !== null) {
+        li.classList.add('sticky-toc-subitem');
+        label = `§${it.partNum} · ${label}`;
+      } else if (it.partNum !== null && it.partNum > 0) {
+        // Indent items that belong to a part-N section so the visual hierarchy
+        // shows merged-doc structure
+        li.classList.add('sticky-toc-subitem');
+      }
+      a.textContent = label.slice(0, 60);
+      a.dataset.targetId = it.h.id;
       li.appendChild(a);
       ul.appendChild(li);
     });
