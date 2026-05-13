@@ -151,6 +151,26 @@
 - 應用:對任何客戶提 Blurring API 都要兩段式說明 — (1) doc 可給 (2) 但 endpoint 未開,**不要讓客戶以為「拿到 doc = 馬上可用」**
 - 來源:Spencer 5/11 早上經 Kenny 傳達(QPR 期間 alignment)
 
+## 對外 cost / 數字 commitment framing 防身術(2026-05-13 三輪校正後固化)
+- 🚨 **觸發情境**:5/13 給 Elvis Passenger Blurring 訊息經過 v1 → v2 → v3 三輪修訂才安全寄出 — 任何包含 cost / 倍數 / 美金數字的對外訊息都適用以下 6 條
+- **修訂歷程**:
+  - **v1 ❌**:錯引 AWS Rekognition Video API ($0.10/min) 作為 cost 錨點 → MiTAC 用**自家 AI**,不是 Rekognition,客戶點公開定價連結會發現對不上,credibility 受損
+  - **v2 ✅**:校正為 MiTAC 自家 AI(內部 proprietary)+ AWS S3 storage($0.023/GB)+ bandwidth(杯水車薪)
+  - **v3 ✅**:Storage 倍數重算 — **1.8× 不是 10×**(因原始檔本來就會存,只有 blurred copy 隨 trigger 倍增)· AI 處理量 10× 是物理事實,但 cost scaling 是黑盒不能對外承諾倍數
+- **6 條 framing 規則**(下次任何類似情境直接套):
+  1. **「Mechanism (factual)」段標** — 把確定的事實跟假設清楚切開
+  2. **「A hypothetical to illustrate」段標** — 假設條件外顯(例:「假設 1,000 連線 × 5 events/day」),客戶可說「我們其實是 30%」→ 自然修正不打臉
+  3. **「scales meaningfully higher」** — 給方向不給具體倍數。**絕對不要寫「~10×」這種數字**,除非有 Brian/Spencer 正式 quote backing
+  4. **「subject to Spencer's quote」/「subject to Brian's confirmation」** — 把報價權責交回正確的人,自己不在現場拍數字
+  5. **引用 source 用原話** — 例「separate commercial arrangement」是 Brian 4/24 信件原話,寫進訊息有 source 不憑空
+  6. **弱點轉設計理由** — 例「BMS 不可見 = 為何我們開 Step 3 control point」,把「我們不知道」轉成「所以才有這個機制」
+- **最大坑**:把**內部假設當成事實**寫進外部訊息(例如把 AI 處理量 10× 當成 cost 10×;把 AWS 公開定價當成我們的成本)
+- **預先 grep 自查**(寫完訊息 before send):
+  - 是否引用某個外部服務的定價?(若是,先確認我們是否真的用那個服務)
+  - 任何具體倍數 / 美金數字,問自己「這個數字有 Brian/Spencer 書面 quote 嗎?」沒有的話就改 "meaningfully higher" / "subject to formal quote"
+  - grep 訊息找「~Nx」「$N」「per X」這些 token,每個都要對得回 source
+- 來源:Kenny 2026-05-13 Elvis Passenger Blurring 對話三輪修訂 · 完整 case 在 `case-learning/connectsource-passenger-blurring.md` § 9 + memory `feedback_external_cost_framing.md`
+
 ## 機種列表(2026-05-08 再校正)
 - ❌ v1 之前答:K245 / K265 / K165
 - ⚠️ v2 校正(2026-04):K145c / K220 / K245 / K245c / K265(認為沒有 K165)

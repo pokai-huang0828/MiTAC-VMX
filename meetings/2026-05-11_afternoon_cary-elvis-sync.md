@@ -15,7 +15,7 @@
 | ✅ **Q2 scope 鎖定** | (1) BMS Blurring 整合進 VisionMax cloud · (2) Release API doc 給 Connect Source |
 | ✅ **Connect Source 走 API only** | 不需要 UI portal toggle · API 自己可控任何 video / fleet / contract fleet |
 | 🕐 **Auto Sense UI 是另一個 story** | 用 web UI 的客戶要等 GUI design · **Q2 不做**(long term)|
-| 🕐 **Monthly subscription report** | Brian「not the target for now, future planning」· 仍要開 ticket 不能消失 |
+| 🕐 **Monthly subscription report** | Brian「not the target for now, future planning」· **暫不開 ticket**(post-Q2 production deploy 後有真實 usage 再開新單)|
 | 📅 **時程** | End of June staging · End of July production · End of June Q2 release notes 給 Cary |
 | 🚨 **Elvis push 的訊號** | 「Don't want to be surprised again」· 未來 deployment 前要 notify · Q1 release note 還沒給客戶就要先安排 |
 | ⚠️ **Kenny 自評** | Execution gap — 準備的 ammunition(HTML 圖 / sound-bites)沒在現場 deploy · Brian 進來 take over · 主導權失分 |
@@ -139,7 +139,7 @@ Kenny commit:「we can summary the Q2 feature change to you by the end of June�
 | Q2 scope = BMS Blurring 整合進 VMX cloud + 釋出 API doc | `06_calibration-log/critical-facts-log.md` 新增條 |
 | Connect Source = API only · 不需要 UI portal toggle · API 控 any video / fleet | `critical-facts-log.md` Master Portal Blurring path 段加 v4 |
 | Auto Sense = 用 VMX web UI · 要 GUI design · **Q2 不做** | `critical-facts-log.md` 新增條 + `case-learning/connectsource-passenger-blurring.md` § 8 |
-| Monthly subscription report = post-Q2 future planning · 仍開 Ticket | `case-learning/connectsource-passenger-blurring.md` § 8 + Jira Ticket #4 |
+| Monthly subscription report = post-Q2 future planning · **暫不開 Ticket**(等 production deploy 後有真實 usage 資料再開新單)| `case-learning/connectsource-passenger-blurring.md` § 8 |
 | 時程:Staging end of June / Production end of July / Q2 release notes end of June | `critical-facts-log.md` + case file |
 
 ---

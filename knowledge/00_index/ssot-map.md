@@ -105,6 +105,7 @@
 | Blurring API doc share ≠ endpoint open | Spencer 2026-05-11 揭露 | `06_calibration-log/critical-facts-log.md` |
 | Option A vs Option B 在 API 層是同一條 flow | Brian 2026-05-11 下午 take over | `06_calibration-log/critical-facts-log.md` |
 | Connect Source = API only / Auto Sense = UI(Q2 不做) | Brian 2026-05-11 下午拍板 | `06_calibration-log/critical-facts-log.md` |
+| **對外 cost / 數字 commitment framing 防身術**(6 條:Mechanism / hypothetical / scales meaningfully / subject to quote / 引用原話 / 弱點轉設計理由) | Kenny 2026-05-13 三輪修訂 | `case-learning/connectsource-passenger-blurring.md` § 9.7 + memory `feedback_external_cost_framing.md` |
 
 ---
 

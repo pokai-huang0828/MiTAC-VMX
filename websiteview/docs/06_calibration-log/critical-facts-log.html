@@ -65,6 +65,7 @@
       <ul>
         <li><a href="#bms-api-driverpassenger-blurring-2026-05-08">BMS API blurring 能力(5/8)</a></li>
         <li><a href="#master-portal-blurring-config-ui-2026-05-08">Master Portal Blurring config 路徑(5/8 兩次校正)</a></li>
+        <li><a href="#cost-framing-2026-05-13">🆕 對外 cost / 數字 framing 防身術(5/13)</a></li>
         <li><a href="#2026-05-08">機種列表 · K165 真實存在(5/8)</a></li>
       </ul>
     </div>
@@ -117,6 +118,39 @@
 <li>應用:<strong>Kenny 5/7 14:41 回信對外承諾的 portal path 不夠精細</strong>,要回 thread 校正</li>
 <li>詳見:<code>meetings/2026-05-08_syncup-cary-elvis_meeting-record.md</code> + <a href="../06_calibration-log/ai-weekly-2026-05-07-roundup.html"><code>ai-weekly-2026-05-07-roundup</code></a> H 段</li>
 </ul>
+
+<h2 id="cost-framing-2026-05-13">對外 cost / 數字 commitment framing 防身術(2026-05-13 三輪校正後固化)</h2>
+<ul>
+<li><span aria-hidden="true">🚨</span> <strong>觸發情境</strong>:5/13 給 Elvis Passenger Blurring 訊息經過 v1 → v2 → v3 三輪修訂才安全寄出 — 任何包含 cost / 倍數 / 美金數字的對外訊息都適用以下 6 條</li>
+</ul>
+<p><strong>修訂歷程</strong>:</p>
+<ul>
+<li><strong>v1 <span aria-hidden="true">❌</span></strong>:錯引 AWS Rekognition Video API ($0.10/min) 作為 cost 錨點 → MiTAC 用<strong>自家 AI</strong>,不是 Rekognition,客戶點公開定價連結會發現對不上,credibility 受損</li>
+<li><strong>v2 <span aria-hidden="true">✅</span></strong>:校正為 MiTAC 自家 AI(內部 proprietary)+ AWS S3 storage($0.023/GB)+ bandwidth(杯水車薪)</li>
+<li><strong>v3 <span aria-hidden="true">✅</span></strong>:Storage 倍數重算 — <strong>1.8× 不是 10×</strong>(因原始檔本來就會存,只有 blurred copy 隨 trigger 倍增)· AI 處理量 10× 是物理事實,但 cost scaling 是黑盒不能對外承諾倍數</li>
+</ul>
+<p><strong>6 條 framing 規則</strong>(下次任何類似情境直接套):</p>
+<ol>
+<li><strong>「Mechanism (factual)」段標</strong> — 把確定的事實跟假設清楚切開</li>
+<li><strong>「A hypothetical to illustrate」段標</strong> — 假設條件外顯(例:「假設 1,000 連線 × 5 events/day」),客戶可說「我們其實是 30%」→ 自然修正不打臉</li>
+<li><strong>「scales meaningfully higher」</strong> — 給方向不給具體倍數。<strong>絕對不要寫「~10×」這種數字</strong>,除非有 Brian/Spencer 正式 quote backing</li>
+<li><strong>「subject to Spencer's quote」/「subject to Brian's confirmation」</strong> — 把報價權責交回正確的人,自己不在現場拍數字</li>
+<li><strong>引用 source 用原話</strong> — 例「separate commercial arrangement」是 Brian 4/24 信件原話,寫進訊息有 source 不憑空</li>
+<li><strong>弱點轉設計理由</strong> — 例「BMS 不可見 = 為何我們開 Step 3 control point」,把「我們不知道」轉成「所以才有這個機制」</li>
+</ol>
+<ul>
+<li><strong>最大坑</strong>:把<strong>內部假設當成事實</strong>寫進外部訊息(例如把 AI 處理量 10× 當成 cost 10×;把 AWS 公開定價當成我們的成本)</li>
+</ul>
+<p><strong>預先 grep 自查</strong>(寫完訊息 before send):</p>
+<ul>
+<li>是否引用某個外部服務的定價?(若是,先確認我們是否真的用那個服務)</li>
+<li>任何具體倍數 / 美金數字,問自己「這個數字有 Brian/Spencer 書面 quote 嗎?」沒有的話就改 "meaningfully higher" / "subject to formal quote"</li>
+<li>grep 訊息找「~Nx」「$N」「per X」這些 token,每個都要對得回 source</li>
+</ul>
+<ul>
+<li>來源:Kenny 2026-05-13 Elvis Passenger Blurring 對話三輪修訂 · 完整 case 在 <a href="../case-learning/connectsource-passenger-blurring.html#9-2026-05-13"><code>case-learning/connectsource-passenger-blurring.md</code> § 9</a> + memory <code>feedback_external_cost_framing.md</code></li>
+</ul>
+
 <h2 id="2026-05-08">機種列表(2026-05-08 再校正)</h2>
 <ul>
 <li><span aria-hidden="true">❌</span> v1 之前答:K245 / K265 / K165</li>

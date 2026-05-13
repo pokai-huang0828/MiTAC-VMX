@@ -14,18 +14,19 @@
 <body>
 <header class="doc-standalone-topbar">
   <a class="back" href="../../case-hub.html" title="返回">← Case Hub</a>
-  <span class="heading"><span aria-hidden="true">📋</span> 會議紀錄 · Cary/Elvis Blurring API 時間線(5/8 → 5/11)</span>
+  <span class="heading"><span aria-hidden="true">📋</span> 會議紀錄 · Cary/Elvis Blurring API 時間線(5/8 → 5/13)</span>
   <span class="filename">cary-elvis-blurring-timeline</span>
 </header>
-<div class="doc-standalone-meta">最後更新:2026-05-11</div>
+<div class="doc-standalone-meta">最後更新:2026-05-13</div>
 <main class="doc-standalone">
   <div class="doc-content">
-<blockquote><p><strong>Cary / Elvis Blurring API 對話時間線</strong> · 5/8 啟動 → 5/11 早上延續 → 5/11 下午拍板。新人從這一頁看完整個 Connect Source / Wendy / Cary 線的議題演進。對應案 = <a class="internal-doc-link" href="../case-learning/connectsource-passenger-blurring.html">case-learning · connectsource-passenger-blurring</a></p></blockquote>
+<blockquote><p><strong>Cary / Elvis Blurring API 對話時間線</strong> · 5/8 啟動 → 5/11 早上延續 → 5/11 下午拍板 → 5/13 cost framing 校正。新人從這一頁看完整個 Connect Source / Wendy / Cary 線的議題演進。對應案 = <a class="internal-doc-link" href="../case-learning/connectsource-passenger-blurring.html">case-learning · connectsource-passenger-blurring</a></p></blockquote>
 <h2 id="toc">時間線</h2>
 <ol>
   <li><a href="#part-1"><span aria-hidden="true">📞</span> 5/8 Sync-up(Kenny / Cary / Elvis · 21 min Teams)— Q2 portal path 被 Elvis 現場糾正</a></li>
   <li><a href="#part-2"><span aria-hidden="true">💬</span> 5/11 早上 · Teams thread 延續</a></li>
   <li><a href="#part-3"><span aria-hidden="true">🤝</span> 5/11 下午 · Sync 拍板</a></li>
+  <li><a href="#part-4"><span aria-hidden="true">🆕</span> 5/13 · Elvis 4-step flow Teams thread + cost model 三輪校正</a></li>
 </ol>
 <hr/>
 <section id="part-1">
@@ -839,6 +840,136 @@ T-0      進會議室 · share Cary 版 · 開場 verbatim
 </ul>
 <hr />
 <p><em>Created 2026-05-11 下午,2pm sync 結束後 30 分鐘內。記錄人:Kenny / Claude。</em></p>
+</section>
+<hr/>
+
+<section id="part-4">
+<h2>4. <span aria-hidden="true">🆕</span> 5/13 · Elvis 4-step flow Teams thread + cost model 三輪校正</h2>
+
+<blockquote>
+<p><strong>來源</strong>:<code>[VMX] MAU &lt;&gt; MiTAC Discussion</code> Teams group · 5/13 早上 Kenny 主動推 → Elvis 09:18 pushback → Kenny 中午 v3 校正後送出。<strong>等客戶回覆 cost mode + download UX 偏好</strong>。<br>
+<strong>對應 case 主檔</strong>:<a class="internal-doc-link" href="../case-learning/connectsource-passenger-blurring.html#9-2026-05-13">connectsource-passenger-blurring · § 9</a></p>
+</blockquote>
+
+<h3 id="part-4-a">A. Kenny 5/13 早上推 4-step operational flow</h3>
+
+<p>5/13 早上 Kenny 在 Teams group 主動發出 Passenger Blurring 4-step flow,涵蓋 GUI 操作 + on-demand 觸發機制(對應 Auto Sense UI customer + Connect Source API customer 雙落地):</p>
+<ol>
+<li><strong>Master Portal</strong> → Fleet A config 開啟模糊開關</li>
+<li><strong>Fleet Portal</strong> → Contract Fleet B config 開啟模糊開關(in-cabin / passenger / front-vehicle)</li>
+<li><strong>Fleet Portal → Safety → Events → Event Detail</strong> 右上角 <strong>Blurring switch</strong>(per-event 觸發)</li>
+<li>Switch ON 後下載 → 包含原始版 + 模糊版</li>
+</ol>
+<p>→ 對 Elvis 提問:「這樣的 on-demand 流程符合客戶需求嗎?」</p>
+
+<h3 id="part-4-b">B. Elvis 09:18 pushback(關鍵 calibration trigger)</h3>
+
+<table>
+<thead>
+<tr><th>Step</th><th>Elvis 立場</th><th>細節</th></tr>
+</thead>
+<tbody>
+<tr><td>1 &amp; 2</td><td>✅ Acceptable</td><td>Master Portal + Fleet Portal config 接受</td></tr>
+<tr><td>3</td><td>❓ 質疑必要性</td><td>"Step 2 已開,Step 3 為何必要?<strong>Does BMS allow blurring configuration for individual events?</strong>"</td></tr>
+<tr><td>4</td><td>❓ 質疑雙版本</td><td>"若 blur 已開,原始檔應該不需要,bandwidth 浪費"</td></tr>
+</tbody>
+</table>
+<p>→ Elvis tag Cary 對齊。</p>
+
+<h3 id="part-4-c">C. Spencer rationale(Kenny 內部 sync 後揭露)</h3>
+
+<p>Spencer 確認:<strong>Step 3 是 cost / storage 控制點,不是冗餘 UI</strong>。</p>
+<ul>
+<li>Step 1 &amp; 2 = entitlement + 模糊類型設定(<strong>no trigger cost</strong>)</li>
+<li>Step 3 = 真正觸發 AI 處理 → 該 event 在 server 端產出<strong>原始 + 模糊雙版本</strong></li>
+<li>拿掉 Step 3 = always-on 模式 → <strong>所有 event 自動跑 AI + 雙版本 storage</strong>(成本級別跳躍,需另開商業合約)</li>
+</ul>
+<p>對 Step 4 的 bandwidth 質疑:Spencer 也確認<strong>下載 bandwidth 跟 storage 比是杯水車薪</strong> — UX 上若客戶只要 blurred 版,可以調介面但成本影響微乎其微。</p>
+
+<h3 id="part-4-d">D. Cost model 三輪修訂(內部 ledger)</h3>
+
+<table>
+<thead>
+<tr><th>版本</th><th>內容</th><th>狀態</th></tr>
+</thead>
+<tbody>
+<tr><td>v1</td><td>引用 AWS Rekognition Video API ($0.10/min) 作為 cost 錨點</td><td>❌ 錯誤 — MiTAC 用自家 AI,不是 Rekognition,客戶點連結會發現對不上</td></tr>
+<tr><td>v2</td><td>校正為 MiTAC 自家 AI(內部 proprietary)+ AWS S3 storage($0.023/GB)+ bandwidth(杯水車薪)</td><td>✅ 架構正確</td></tr>
+<tr><td>v3</td><td>Storage 倍數重算 — 1.8× 不是 10×(因原始檔本來就會存,只有 blurred copy 隨 trigger 倍增)</td><td>✅ 數學正確 + 不過度承諾</td></tr>
+</tbody>
+</table>
+
+<p><strong>假設情境</strong>:1,000 連線 × ~5 events/device/day × 30s avg @ 30MB,~150,000 events/月</p>
+
+<table>
+<thead>
+<tr><th>模式</th><th>AI 處理量</th><th>S3 storage(月新增)</th><th>估算月總計</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>On-demand</strong>(~10% triggered)</td><td>~15,000 events</td><td><strong>~4.95 TB ≈ $114</strong></td><td><strong>~$700</strong>(Brian 4/24 baseline)</td></tr>
+<tr><td><strong>Always-on</strong>(100% triggered)</td><td>~150,000 events(<strong>10×</strong>)</td><td><strong>~9 TB(~1.8×)≈ $207</strong></td><td><strong>scales meaningfully higher</strong>(subject to Spencer's quote)</td></tr>
+</tbody>
+</table>
+
+<p><strong>關鍵洞察:</strong></p>
+<ul>
+<li><strong>Storage 只 ~1.8×</strong>(因為原始檔本來就會存,只有 blurred copy 隨 trigger 數量倍增)</li>
+<li><strong>AI 處理量 10×</strong>(物理事實),但 cost scaling 取決於 MiTAC GPU infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×</li>
+<li>給 Elvis 的最終訊息<strong>不承諾倍數</strong> — 用 "scales meaningfully higher — subject to Spencer's quote"</li>
+</ul>
+
+<h3 id="part-4-e">E. Profitability sensitivity(內部 · 不對外揭露)</h3>
+
+<table>
+<thead>
+<tr><th>假設 always-on 倍數</th><th>月成本</th><th>36 月成本</th><th>收益 $216K - 成本</th><th>結論</th></tr>
+</thead>
+<tbody>
+<tr><td>2×</td><td>$1,400</td><td>$50K</td><td><strong>+$166K</strong></td><td>✅ 大賺(77% margin)</td></tr>
+<tr><td>5×</td><td>$3,500</td><td>$126K</td><td><strong>+$90K</strong></td><td>✅ 賺(42% margin)</td></tr>
+<tr><td>7×</td><td>$4,900</td><td>$176K</td><td><strong>+$40K</strong></td><td>✅ 還賺(18% margin)</td></tr>
+<tr><td><strong>8× break-even</strong></td><td>$5,600</td><td>$202K</td><td><strong>+$14K</strong></td><td>⚠️ 邊緣</td></tr>
+<tr><td>10×</td><td>$7,000</td><td>$252K</td><td><strong>−$36K</strong></td><td>❌ 虧</td></tr>
+</tbody>
+</table>
+
+<p><strong>Break-even 在 ~8×</strong>。除非 MiTAC AI 是 pure linear scaling,否則 always-on 也大概率還是賺 — 只是 margin 從 88% 掉到 18–77% 之間。<br>
+<strong>On-demand 模式絕對賺</strong>(~88% margin / +$190K 淨利 / 36 個月)。</p>
+<p>⚠️ <strong>這份 sensitivity 不對外</strong> — 對 Elvis / 客戶只說「always-on 需另開商業合約」(對應 Brian 4/24 原話),不揭露毛利結構。</p>
+
+<h3 id="part-4-f">F. Kenny v3 訊息送出 + 兩個 confirm 問題</h3>
+
+<p>Kenny 中午送出最終 v3 訊息,結尾留兩個給客戶決定的問題:</p>
+<ol>
+<li><strong>Cost model</strong>:on-demand(Step 3 必要、baseline 合約)vs always-on(Step 3 拿掉、scales meaningfully higher、需另開商業合約)</li>
+<li><strong>Download UX</strong>:下載按鈕 default 只給模糊版,還是雙版本讓使用者選?(原始版一律保留 server 端供 audit)</li>
+</ol>
+<p>結尾:"Once confirmed, I'll loop back to Brian for formal always-on quote"</p>
+
+<h3 id="part-4-g">G. Framing 防身術(下次類似情境可重用)</h3>
+
+<table>
+<thead>
+<tr><th>防身設計</th><th>用法</th></tr>
+</thead>
+<tbody>
+<tr><td>「Mechanism (factual)」段標</td><td>把確定的事實跟假設清楚切開</td></tr>
+<tr><td>「A hypothetical to illustrate」段標</td><td>假設條件外顯,客戶/Elvis 可說「我們其實是 30%」→ 自然修正不打臉</td></tr>
+<tr><td>「scales meaningfully higher」</td><td>給方向不給具體倍數</td></tr>
+<tr><td>「subject to Spencer's quote」</td><td>把報價權責交回正確的人</td></tr>
+<tr><td>「separate commercial arrangement」</td><td>引用 Brian 4/24 原話 — 有 source 不憑空</td></tr>
+<tr><td>「BMS 不可見 = 為何我們做 Step 3」</td><td>把弱點(我們不知道)轉成設計理由(所以才有 control point)</td></tr>
+</tbody>
+</table>
+
+<h3 id="part-4-h">H. P0 等客戶回(本週)</h3>
+<ul class="smushed-fix">
+<li>Cary / Elvis 回覆客戶的 <strong>cost model 偏好</strong>(on-demand vs always-on)</li>
+<li>Cary / Elvis 回覆客戶的 <strong>download UX 偏好</strong>(blurred-only default vs 雙版本可選)</li>
+<li>客戶選定後若 always-on → 跟 Brian 確認正式 quote · 若 download UX 改 → 加入 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a> scope</li>
+</ul>
+
+<p><em>Created 2026-05-13 中午,Kenny v3 訊息送出後。記錄人:Kenny / Claude。完整 case context 在 <a class="internal-doc-link" href="../case-learning/connectsource-passenger-blurring.html#9-2026-05-13">connectsource-passenger-blurring · § 9</a></em></p>
 </section>
 <hr/>
 
