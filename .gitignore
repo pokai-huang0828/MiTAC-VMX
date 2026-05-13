@@ -2,6 +2,9 @@
 .*
 # Keep .gitignore itself tracked
 !.gitignore
+# Keep .claude/ tracked (Claude Code config: launch.json, project settings, etc.)
+!.claude/
+!.claude/**
 
 # Local firmware/update artifacts
 image_update/*
