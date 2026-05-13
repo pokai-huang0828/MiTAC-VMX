@@ -39,6 +39,14 @@ h1, h2, h3, h4 {
   font-weight: 800;
 }
 
+/* Emoji glyphs (used as inline icons) — force OS color emoji stack so they
+   render consistently across Win/Mac/Android instead of falling to system mono. */
+[aria-hidden="true"] {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
+               "Twemoji Mozilla", sans-serif;
+  font-style: normal;
+}
+
 /* ===== Top Nav ===== */
 .topnav {
   position: sticky; top: 0; z-index: 50;
@@ -140,6 +148,9 @@ h1, h2, h3, h4 {
 .hero h1 {
   color: #fff; font-size: var(--fs-44); font-weight: 900; letter-spacing: -.03em;
   margin-bottom: 16px;
+  /* CJK glyphs lack a real 900 weight in most system fonts — disable synthetic
+     bolding so we don't get blurry double-stroked Chinese characters. */
+  font-synthesis: none;
 }
 .hero h1 .underline {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -148,8 +159,22 @@ h1, h2, h3, h4 {
 }
 .hero-lede {
   color: #C9D5EA; font-size: var(--fs-16); max-width: 580px;
-  line-height: 1.6; margin-bottom: 22px;
+  line-height: 1.6; margin-bottom: 10px;
 }
+.hero-details {
+  max-width: 580px; margin-bottom: 22px;
+  color: #C9D5EA; font-size: var(--fs-13_5);
+}
+.hero-details summary {
+  cursor: pointer; user-select: none;
+  color: var(--accent-2); font-weight: 700;
+  font-size: var(--fs-12); letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 0;
+  list-style: none;
+}
+.hero-details summary::-webkit-details-marker { display: none; }
+.hero-details[open] summary { margin-bottom: 6px; }
+.hero-details p { line-height: 1.55; }
 .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .btn {
@@ -253,6 +278,13 @@ h1, h2, h3, h4 {
   gap: 14px;
   margin-top: 20px;
 }
+/* Lone last item in 2-column tablet layout spans full width instead of orphan.
+   Scoped to <= 920px so desktop's natural 5-col flow is not disrupted. */
+@media (max-width: 920px) {
+  .onboard-steps li:last-child:nth-child(2n - 1):not(:only-child) {
+    grid-column: 1 / -1;
+  }
+}
 .onboard-steps li {
   display: flex; gap: 12px;
   background: var(--paper);
@@ -286,14 +318,16 @@ h1, h2, h3, h4 {
   margin: 0 0 8px;
 }
 .onboard-steps .step-cta {
-  display: inline-block;
-  font-size: var(--fs-12); font-weight: 700;
+  display: inline-flex; align-items: center;
+  font-size: var(--fs-13); font-weight: 700;
   color: var(--brand); text-decoration: none;
-  border-bottom: 1.5px solid var(--brand-3);
-  padding-bottom: 1px;
-  transition: color .15s, border-color .15s;
+  background: var(--brand-soft);
+  padding: 8px 14px;
+  border-radius: var(--r-full);
+  min-height: 32px;
+  transition: background var(--ease-quick), color var(--ease-quick);
 }
-.onboard-steps .step-cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.onboard-steps .step-cta:hover { background: var(--brand); color: #fff; }
 .onboard-foot {
   margin-top: 18px;
   font-size: var(--fs-13); color: var(--muted);
@@ -491,6 +525,13 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
 }
+/* At narrower widths the 5-item grid falls to 2-col leaving an orphan card.
+   Scoped to <= 920px so desktop's natural 5-col flow is not disrupted. */
+@media (max-width: 920px) {
+  .know-grid .know-card:last-child:nth-child(2n - 1):not(:only-child) {
+    grid-column: 1 / -1;
+  }
+}
 .know-card {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -514,7 +555,7 @@ h1, h2, h3, h4 {
 .know-card .ic4 { background: var(--green-bg);   color: var(--green);  }
 .know-card .ic5 { background: var(--slate-bg);   color: var(--slate);  }
 .know-card .ic6 { background: var(--amber-bg);   color: var(--amber);  }
-.know-card h5 {
+.know-card h4 {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
   font-size: var(--fs-14); margin-bottom: 4px;
 }
@@ -563,4 +604,26 @@ footer.site-footer {
 footer.site-footer code {
   background: var(--canvas-2); padding: 2px 7px;
   border-radius: 4px; font-family: ui-monospace, monospace;
+}
+
+/* ============================================================
+ * Responsive overrides — END OF FILE so cascade wins over earlier base rules.
+ * ============================================================ */
+@media (max-width: 920px) {
+  .hero h1 { font-size: var(--fs-32); }
+  .hero-lede { font-size: var(--fs-14_5); }
+  /* Force 2-col at tablet so 5 items fall to 2-2-1, then last child spans full
+     via the existing nth-child(2n-1) rule. Avoids 3-1-1 orphan layout. */
+  .know-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .hero-inner { padding: 24px 20px; }
+  .hero h1 { font-size: var(--fs-26); line-height: 1.2; }
+  .hero-lede { font-size: var(--fs-13_5); }
+  .hero-cta .btn { font-size: var(--fs-13); padding: 10px 14px; }
+  .gauge { width: 150px; height: 150px; }
+  .gauge::before { inset: 12px; }
+  .gauge-num { font-size: var(--fs-30); }
+  .zone-onboard { padding: 20px 18px; }
+  .container { padding: 0 18px; }
 }

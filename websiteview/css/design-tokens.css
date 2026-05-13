@@ -217,7 +217,8 @@
 /* Buttons / links inside dark backgrounds get inverted focus */
 .topnav :focus-visible,
 .doc-standalone-topbar :focus-visible,
-.hub-hero :focus-visible {
+.hub-hero :focus-visible,
+.hero :focus-visible {
   outline-color: var(--accent-2);
 }
 
