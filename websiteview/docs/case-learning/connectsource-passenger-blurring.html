@@ -807,6 +807,156 @@ Is it possible to have a customer session on teams on this topic?</li>
 </table>
 <p>→ 這些答覆<strong>跟 Jira / Brian 立場一致</strong>,客戶任何時候 chase 都答得出來。</p>
 <p><em>Last updated: 2026-05-11 傍晚 v2 · 校正 § 8.8 Brian 二次回應 + Kenny 學到 + chase 時口頭答覆模板。</em></p>
+
+<hr />
+
+<h2 id="9-2026-05-13">§ 9 · 2026-05-13 · Elvis Teams thread · 4-step flow walkthrough + cost model 釐清</h2>
+
+<blockquote>
+<p>來源:<code>[VMX] MAU &lt;&gt; MiTAC Discussion</code> Teams group · 5/13 早上 Kenny 主動推 → Elvis 09:18 回 pushback → Kenny 中午校正後再回。<strong>等客戶回覆 cost mode + download UX 偏好。</strong></p>
+</blockquote>
+
+<h3 id="91">9.1 Kenny 主動推 4-step operational flow 給 Elvis(5/13 早上)</h3>
+
+<p>5/13 早上 Kenny 在 Teams group 主動發出 Passenger Blurring 4-step flow,涵蓋 GUI 操作 + on-demand 觸發機制(對應 Auto Sense UI customer + Connect Source API customer 雙落地):</p>
+<ol>
+<li><strong>Master Portal</strong> → Fleet A config 開啟模糊開關</li>
+<li><strong>Fleet Portal</strong> → Contract Fleet B config 開啟模糊開關(in-cabin / passenger / front-vehicle)</li>
+<li><strong>Fleet Portal → Safety → Events → Event Detail</strong> 右上角 <strong>Blurring switch</strong>(per-event 觸發)</li>
+<li>Switch ON 後下載 → 包含原始版 + 模糊版</li>
+</ol>
+<p>→ 對 Elvis 提問:「這樣的 on-demand 流程符合客戶需求嗎?」</p>
+
+<h3 id="92">9.2 Elvis 09:18 pushback(關鍵 calibration trigger)</h3>
+
+<table>
+<thead>
+<tr><th>Step</th><th>Elvis 立場</th><th>細節</th></tr>
+</thead>
+<tbody>
+<tr><td>1 &amp; 2</td><td>✅ Acceptable</td><td>Master Portal + Fleet Portal config 接受</td></tr>
+<tr><td>3</td><td>❓ 質疑必要性</td><td>"Step 2 已開,Step 3 為何必要?<strong>Does BMS allow blurring configuration for individual events?</strong>"</td></tr>
+<tr><td>4</td><td>❓ 質疑雙版本</td><td>"若 blur 已開,原始檔應該不需要,bandwidth 浪費"</td></tr>
+</tbody>
+</table>
+<p>→ Elvis tag Cary 對齊。</p>
+
+<h3 id="93">9.3 Spencer 對 Step 3 的 cost rationale(Kenny 內部 sync 後揭露)</h3>
+
+<p>Spencer 確認:<strong>Step 3 是 cost / storage 控制點,不是冗餘 UI</strong>。</p>
+<ul>
+<li>Step 1 &amp; 2 = entitlement + 模糊類型設定(<strong>no trigger cost</strong>)</li>
+<li>Step 3 = 真正觸發 AI 處理 → 該 event 在 server 端產出<strong>原始 + 模糊雙版本</strong></li>
+<li>拿掉 Step 3 = always-on 模式 → <strong>所有 event 自動跑 AI + 雙版本 storage</strong>(成本級別跳躍,需另開商業合約)</li>
+</ul>
+<p>對 Step 4 的 bandwidth 質疑:Spencer 也確認<strong>下載 bandwidth 跟 storage 比是杯水車薪</strong> — UX 上若客戶只要 blurred 版,可以調介面但成本影響微乎其微。</p>
+
+<h3 id="94">9.4 Cost model 校正過程(三輪修訂 · 內部 ledger)</h3>
+
+<h4>v1 ❌:錯誤引用 AWS Rekognition $0.10/min</h4>
+<p>第一版引用 AWS Rekognition Video API ($0.10/min) → <strong>錯誤</strong>,因為 MiTAC 用<strong>自家 AI</strong>,不是 Rekognition。如果寄出去客戶點公開定價連結會發現對不上,credibility 受損。</p>
+
+<h4>v2 ✅:校正為 MiTAC 自家 AI + AWS S3 storage</h4>
+<ul>
+<li>AI 處理 = MiTAC 內部 infra(proprietary,黑盒,只有 Brian/Spencer 知道實際 cost)</li>
+<li>AWS 部分只剩 <strong>S3 storage</strong>($0.023/GB/月)+ bandwidth(杯水車薪)</li>
+<li>公開可驗證錨點 = 只剩 S3 pricing</li>
+</ul>
+
+<h4>v3 ✅:Storage 倍數重算(Kenny 自抓邏輯漏洞)</h4>
+<p>原本草稿寫 storage on-demand $15 / always-on $28 → 數字推不出來。<strong>重算後:</strong></p>
+<p><strong>假設情境</strong>:1,000 連線 × ~5 events/device/day × 30s avg @ 30MB,~150,000 events/月</p>
+
+<table>
+<thead>
+<tr><th>模式</th><th>AI 處理量</th><th>S3 storage(月新增)</th><th>估算月總計</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>On-demand</strong>(~10% triggered)</td><td>~15,000 events</td><td><strong>~4.95 TB ≈ $114</strong></td><td><strong>~$700</strong>(Brian 4/24 baseline)</td></tr>
+<tr><td><strong>Always-on</strong>(100% triggered)</td><td>~150,000 events(<strong>10×</strong>)</td><td><strong>~9 TB(~1.8×)≈ $207</strong></td><td><strong>scales meaningfully higher</strong>(subject to Spencer's quote)</td></tr>
+</tbody>
+</table>
+
+<p><strong>關鍵洞察:</strong></p>
+<ul>
+<li><strong>Storage 只 ~1.8×</strong>(因為原始檔本來就會存,只有 blurred copy 隨 trigger 數量倍增)</li>
+<li><strong>AI 處理量 10×</strong>(物理事實),但 cost scaling 取決於 MiTAC GPU infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×</li>
+<li>給 Elvis 的最終訊息<strong>不承諾倍數</strong> — 用 "scales meaningfully higher — subject to Spencer's quote"</li>
+</ul>
+
+<h3 id="95">9.5 Profitability sensitivity(內部估算 · 不對外)</h3>
+
+<table>
+<thead>
+<tr><th>假設 always-on 倍數</th><th>月成本</th><th>36 月成本</th><th>收益 $216K - 成本</th><th>結論</th></tr>
+</thead>
+<tbody>
+<tr><td>2×</td><td>$1,400</td><td>$50K</td><td><strong>+$166K</strong></td><td>✅ 大賺(77% margin)</td></tr>
+<tr><td>5×</td><td>$3,500</td><td>$126K</td><td><strong>+$90K</strong></td><td>✅ 賺(42% margin)</td></tr>
+<tr><td>7×</td><td>$4,900</td><td>$176K</td><td><strong>+$40K</strong></td><td>✅ 還賺(18% margin)</td></tr>
+<tr><td><strong>8× break-even</strong></td><td>$5,600</td><td>$202K</td><td><strong>+$14K</strong></td><td>⚠️ 邊緣</td></tr>
+<tr><td>10×</td><td>$7,000</td><td>$252K</td><td><strong>−$36K</strong></td><td>❌ 虧</td></tr>
+</tbody>
+</table>
+
+<p><strong>Break-even 在 ~8×</strong>。除非 MiTAC AI 是 pure linear scaling,否則 always-on 也大概率還是賺 — 只是 margin 從 88% 掉到 18–77% 之間。</p>
+<p><strong>On-demand 模式絕對賺</strong>(~88% margin / +$190K 淨利 / 36 個月)。</p>
+<p>⚠️ <strong>這份 sensitivity 不對外</strong> — 對 Elvis / 客戶只說「always-on 需另開商業合約」(對應 Brian 4/24 原話),不揭露毛利結構。</p>
+
+<h3 id="96">9.6 Kenny 給 Elvis 的最終回覆(5/13 中午送出)</h3>
+
+<p>訊息結構:</p>
+<ul>
+<li>Step 3 機制解釋(cost / storage 控制點)</li>
+<li>BMS visibility 反問 → 轉成設計理由(「我們不知道 BMS 怎做」= 為何 VisionMax 要開 Step 3 = 不論 BMS 內部如何,我們在 VMX 端可控)</li>
+<li>假設情境 cost 表(AWS S3 公開定價當錨點 + AI 留 Brian quote)</li>
+<li>Step 4 校正(bandwidth 杯水車薪 + UI 可調)</li>
+<li>兩個給客戶確認的問題:
+  <ol>
+  <li><strong>Cost model</strong>:on-demand vs always-on</li>
+  <li><strong>Download UX</strong>:default blurred-only vs 雙版本可選</li>
+  </ol>
+</li>
+<li>結尾:"Once confirmed, I'll loop back to Brian for formal always-on quote"</li>
+</ul>
+
+<h3 id="97">9.7 Framing 防身術(下次類似情境可重用)</h3>
+
+<table>
+<thead>
+<tr><th>防身設計</th><th>用法</th></tr>
+</thead>
+<tbody>
+<tr><td>「Mechanism (factual)」段標</td><td>把確定的事實跟假設清楚切開</td></tr>
+<tr><td>「A hypothetical to illustrate」段標</td><td>假設條件外顯,客戶/Elvis 可說「我們其實是 30%」→ 自然修正不打臉</td></tr>
+<tr><td>「scales meaningfully higher」</td><td>給方向不給具體倍數</td></tr>
+<tr><td>「subject to Spencer's quote」</td><td>把報價權責交回正確的人</td></tr>
+<tr><td>「separate commercial arrangement」</td><td>引用 Brian 4/24 原話 — 有 source 不憑空</td></tr>
+<tr><td>「BMS 不可見 = 為何我們做 Step 3」</td><td>把弱點(我們不知道)轉成設計理由(所以才有 control point)</td></tr>
+</tbody>
+</table>
+
+<h3 id="98">9.8 待辦(post-5/13)</h3>
+
+<h4>🔥 P0 · 等客戶回(本週)</h4>
+<ul class="smushed-fix">
+<li>[ ] Cary / Elvis 回覆客戶的 <strong>cost model 偏好</strong>(on-demand vs always-on)</li>
+<li>[ ] Cary / Elvis 回覆客戶的 <strong>download UX 偏好</strong>(blurred-only default vs 雙版本可選)</li>
+</ul>
+
+<h4>📅 P1 · 客戶選定後</h4>
+<ul class="smushed-fix">
+<li>[ ] 若客戶選 always-on → 跟 Brian 確認<strong>正式 always-on quote</strong>(基於實際 AI compute scaling)</li>
+<li>[ ] 若客戶選 download UX 改 blurred-only default → 跟 Lucy 確認 GUI 調整可行性 + 加入 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a> scope</li>
+</ul>
+
+<h4>🎯 P2 · 內部對齊</h4>
+<ul class="smushed-fix">
+<li>[ ] Spencer 確認 MiTAC AI compute 實際 cost scaling 倍數(內部用,不對外揭露)</li>
+<li>[ ] 若 sensitivity 顯示 always-on 真的會虧,跟 Brian 對齊 always-on 加價方案(per-device monthly fee?per-event charge?)</li>
+</ul>
+
+<p><em>Last updated: 2026-05-13 中午 · Kenny v3 cost-corrected 訊息送出給 Elvis(cc Cary)· 等客戶 cost mode + download UX 兩個決定 · profitability sensitivity 內部備案 · framing 防身術整理。</em></p>
   </div>
 </main>
 <script src="../../js/external-share.js" defer></script>

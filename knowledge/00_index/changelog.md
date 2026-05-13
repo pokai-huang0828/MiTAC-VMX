@@ -3,6 +3,18 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-13 · PS Vinicius 撞 VMX-7404(跨客戶第三例)
+
+- 2026-05-13 · **APPEND Phase 7** · `case-learning/vinicius-platform-science.md` + `.html` — Vinicius 5/13 06:2X mail 反映 K265 L1225380005 OTA + SDK ✅ 但 ADAS Failure 持續 + reboot 無效 / Righter 5/13 11:41 reply install + 30 km/h drive on lane-markings + 綠框 horizon alignment 附圖 / Kenny PM 判斷不另回 thread(避免 PM 補刀 RD),內部 cross-link 到 [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404)
+- 2026-05-13 · **UPDATE** · `knowledge/06_calibration-log/vmx-7404-tracking.md` + `.html` — 現況段加「PS 撞線」/ Evidence 表拆雙層(Trip-level + 跨客戶 3 行)/ 待動作加 PS follow-up monitor + Brian 1on1 戰略點 · meta 從 2026-05-06 → 2026-05-13
+- 2026-05-13 · **STRATEGIC INSIGHT** · **[VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) 跨客戶證據鏈擴大為三家**:Kenny 自測(MiTAC 內部 K245)+ Webfleet([HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501) / 574 / 401)+ Platform Science(K265)— 都撞同根因(30 km/h × 3 mins 行駛條件 + install angle)· 對評估期 Brian / Steve 報告 = 重大 PM 籌碼
+
+## 2026-05-13 · Elvis Teams thread + cost model 三輪校正
+
+- 2026-05-13 · **APPEND § 9** · `case-learning/connectsource-passenger-blurring.md` + `.html` — 5/13 早上 Kenny 推 4-step flow → Elvis 09:18 pushback(Step 3 質疑必要性 + Step 4 bandwidth)→ Spencer rationale(Step 3 = cost / storage 控制點)→ cost model 三輪修訂(v1 誤引 Rekognition / v2 校正自家 AI / v3 storage 重算 1.8× 不是 10×)→ profitability sensitivity(break-even 在 ~8×)→ Kenny v3 訊息送出 → 等客戶回 cost mode + download UX
+- 2026-05-13 · **CALIBRATION** · Storage 倍數真相:**~1.8×(不是 10×)**因為原始檔本來就會存,只有 blurred copy 隨 trigger 倍增。AI 處理量 10× 是物理事實但 cost scaling 黑盒(MiTAC 自家 AI infra)
+- 2026-05-13 · **FRAMING 防身術** · 整理 6 條外部訊息 wording 規則(Mechanism / hypothetical / scales meaningfully higher / subject to Spencer / separate commercial arrangement / BMS 不可見轉設計理由) — § 9.7 可重用
+
 ## 2026-05-12 下午 Δ · Jira 重抓 + Outlook + NotebookLM 三線對齊
 
 - 2026-05-12 · **NEW SNAPSHOT** · `jira_data/jira_tickets_snapshot_2026-05-12T15.json`(164 票 = 137 舊 + 27 新)— 透過 Chrome MCP + Jira REST API `key in (...)` JQL + `updated >= 2026-05-12 AND project in (VMX, HAWK)` 二次抓取,Diff 結果:**1 票狀態變動 + 27 票同日新建**

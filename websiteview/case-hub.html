@@ -218,13 +218,37 @@
         <div class="tl-item">
           <div class="tl-dot issue"></div>
           <div class="tl-phase">Phase 6</div>
-          <div class="tl-date">5/3 – 5/4（最新）</div>
+          <div class="tl-date">5/3 – 5/4</div>
           <div class="tl-content">
             <strong>週末密集測試回報</strong> <span class="tl-tag issue">K265 仍卡關</span> <span class="tl-tag action">報價催促</span><br>
             Conant 確認 SDK 通用於所有 CDR 機型，model-specific 差異文件中已標注。<br>
             <strong>K245：成功</strong> — 已完成 OEM image 修改、替換錄影 app、資料傳輸至自有 server。<br>
             <strong>K265：失敗</strong> — portal 仍無法運作，推測 image 有誤。<br>
             初期整合優先走 <strong>cloud-to-cloud</strong> 路線，並<strong>再次催促報價</strong>。
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-phase">Phase 7a</div>
+          <div class="tl-date">5/11</div>
+          <div class="tl-content">
+            <strong>JS Live View lib V1.0.4 交付</strong> <span class="tl-tag action">已交付</span> <span class="tl-tag done">客戶確認</span><br>
+            <strong>5/11 02:31</strong> Kenny 交付 <code>vmRTC/1.0.4</code> JS lib(<code>visionmaxfleet.com/lib/vmRTC/1.0.4/...</code>)。<br>
+            <strong>5/11 22:03</strong> Vinicius 回覆「Thanks, I will start running some tests with it」 — <span aria-hidden="true">✅</span> V1.0.4 testing loop close。<br>
+            <strong>5/12 10:08</strong> Righter 通知 K265 OTA profile 已設好(配 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7287" rel="noopener" target="_blank">VMX-7287</a> K265 2026Q1 region build Resolved)。
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot issue"></div>
+          <div class="tl-phase">Phase 7b</div>
+          <div class="tl-date">5/13(最新)</div>
+          <div class="tl-content">
+            <strong>K265 OTA + SDK ✅,但撞 ADAS Failure</strong> <span class="tl-tag issue">VMX-7404 同根因</span> <span class="tl-tag action">Righter SOP reply</span><br>
+            <strong>5/13 06:2X</strong> Vinicius 回報:OTA + SDK Live Stream 都正常,但 portal 顯示 ADAS Failure(K265 L1225380005),reboot 無效。<br>
+            <strong>5/13 11:41</strong> Righter reply:install + 30 km/h drive on lane-markings + 綠框 horizon alignment 附圖。<br>
+            <strong>Kenny PM 判斷</strong>:Righter 已答核心,不另回 thread(避免 PM 補刀 RD)。內部 cross-link 此事件到 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 同根因 thread — <strong>跨客戶證據鏈第三例</strong>(Kenny 自測 + Webfleet HAWK-501 + PS K265)。
           </div>
         </div>
 
@@ -368,7 +392,7 @@
 
   <div id="cs-hero">
     <div class="hero amber">
-      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-11 下午 14:00 sync 後</div>
+      <div class="hero-tag">Case 02 · 內部協作 · 最後更新 2026-05-13 中午 cost framing 三輪校正後</div>
       <h1>CONNECTSOURCE × Passenger Blurring</h1>
       <p class="hero-sub">澳洲 MiTAC AU(MAU)Wendy / Cary / Elvis 代 reseller 客戶提出乘客模糊化 AI 需求。2026-05-11 下午 Brian 拍板 Q2 scope:BMS Blurring 整合進 VMX cloud + Release API doc 給 Connect Source(API only)· Auto Sense UI 是另案 long term · Q2 release notes end of June 給 MAU。</p>
       <div class="hero-meta">
@@ -377,6 +401,29 @@
         <div class="hero-stat"><div class="hero-stat-val">API only</div><div class="hero-stat-label">Connect Source Q2 路徑</div></div>
         <div class="hero-stat"><div class="hero-stat-val">End Jul</div><div class="hero-stat-label">Production deploy</div></div>
       </div>
+    </div>
+
+    <div class="card spaced-top-md is-info">
+      <div class="card-title"><span aria-hidden="true">🆕</span> 2026-05-13 · Elvis 4-step flow 對話 · cost model 三輪校正後送出 · 等客戶回</div>
+      <ul class="bullet-loose">
+        <li><strong>5/13 早上 Kenny 推 4-step flow</strong>(Master → Fleet → Event Detail switch → Download 雙版本)→ 對 Elvis 提問:「on-demand 流程符合需求嗎?」</li>
+        <li><strong>Elvis 09:18 pushback</strong>:Step 1+2 接受 / Step 3 質疑必要性(BMS 是否支援 per-event?)/ Step 4 質疑雙版本(bandwidth 浪費)</li>
+        <li><strong>Spencer rationale</strong>:Step 3 是 cost / storage 控制點,不是冗餘 — 拿掉 = always-on 模式,所有 event 自動跑 AI + 雙版本 storage</li>
+        <li><strong>Cost model 三輪修訂</strong>:v1 ❌ 誤引 AWS Rekognition($0.10/min,實際我們用自家 AI)→ v2 ✅ 校正 MiTAC AI + AWS S3 → v3 ✅ storage 倍數重算(<strong>1.8× 不是 10×</strong>,因原始檔本來就會存)</li>
+        <li><strong>關鍵 framing</strong>:不承諾倍數 — 用「scales meaningfully higher — subject to Spencer's quote」+ 引用 Brian 4/24 原話「separate commercial arrangement」</li>
+        <li><strong>Profitability sensitivity(內部)</strong>:break-even 在 ~8× · On-demand 絕對賺(88% margin)· Always-on 大概率還是賺(除非 pure linear scaling)</li>
+        <li><strong>Kenny v3 訊息送出</strong>(中午)· 結尾兩個 confirm 問題:Cost model(on-demand vs always-on)+ Download UX(blurred-only default vs 雙版本)</li>
+      </ul>
+      <p class="txt-meta spaced-top-sm">完整紀錄:<a href="docs/case-learning/connectsource-passenger-blurring.html#9-2026-05-13" class="mdt-link">CS Case Doc · § 9 5/13 Elvis Thread</a> · 6 條 framing 防身術在 § 9.7</p>
+    </div>
+
+    <div class="card spaced-top-md is-warn">
+      <div class="card-title"><span aria-hidden="true">⏳</span> P0 等客戶回(本週內)</div>
+      <ul class="bullet-loose font-13">
+        <li><strong>Cost model 偏好</strong>:on-demand(Step 3 必要、baseline 合約)vs always-on(Step 3 拿掉、scales meaningfully higher、需另談合約)</li>
+        <li><strong>Download UX 偏好</strong>:下載按鈕 default 只給模糊版,還是雙版本讓使用者選?(原始版一律保留 server 端供 audit)</li>
+        <li><strong>Trigger 後續</strong>:客戶選 always-on → 跟 Brian 確認正式 quote · 客戶選 download UX 改 → 加入 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a> scope</li>
+      </ul>
     </div>
 
     <div class="card spaced-top-md is-ok">
@@ -572,6 +619,31 @@
             <strong>修正後雙路徑</strong>:(A) Master Portal 補 contract fleet 視圖 <span aria-hidden="true">⚠️</span> 隱私問題 / (B) Fleet Portal 加 per-contract-fleet UI(沿用 Live User)<br>
             <strong>Q1 API doc</strong>:Cary 追問「what can I share with my customer?」客戶妥協用 API,Kenny 承諾問 Spencer 能否 share 內部 API doc<br>
             <strong>Cary 對 Kenny 評價</strong>:「very refreshing」/「we will be stalking you」— Kenny 升格 MiTAC AU 線主對接 PM
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-phase">Q2 scope 拍板</div>
+          <div class="tl-date">2026/05/11 下午 14:00</div>
+          <div class="tl-content">
+            <strong>Brian take over · Q2 scope 鎖定 · Jira queue 開單</strong> <span class="tl-tag action">內部對齊</span><br>
+            <strong>Q2 In Scope</strong>:BMS Blurring 整合進 VMX cloud + Release API doc 給 Connect Source<br>
+            <strong>Connect Source = API only</strong>(不需 UI portal toggle)· Auto Sense UI 是 long-term 另案<br>
+            <strong>時程</strong>:Staging 30/Jun · Production end of July · Q2 release notes end of June 給 MAU<br>
+            <strong>Jira</strong>:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a>(Spencer · cloud integration + API doc share)/ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a>(Kenny · Auto Sense UI 長期)<br>
+            <strong>傍晚 Brian 回應「Jira = SSOT」</strong>:Kenny 不用發 follow-up email,Jira 寫清楚 = 對外 commitment 已建立
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-phase">Cost framing 校正</div>
+          <div class="tl-date">2026/05/13 中午</div>
+          <div class="tl-content">
+            <strong>Elvis 4-step flow Teams thread · 三輪 cost model 校正後送出</strong> <span class="tl-tag action">對外校正</span><br>
+            <strong>Elvis 09:18 pushback</strong>:Step 3 質疑必要性(BMS 是否支援 per-event?)+ Step 4 質疑 bandwidth<br>
+            <strong>Spencer 揭露</strong>:Step 3 = cost / storage 控制點(拿掉 = always-on,~1.8× storage + 10× AI 處理量)<br>
+            <strong>三輪修訂</strong>:v1 ❌ 誤引 AWS Rekognition → v2 ✅ 校正自家 AI + AWS S3 → v3 ✅ storage 倍數重算(<strong>1.8× 不是 10×</strong>)<br>
+            <strong>Kenny 中午送出 v3</strong> · 用「scales meaningfully higher — subject to Spencer's quote」+ 兩個 confirm 問題(cost mode + download UX)· 等客戶回
           </div>
         </div>
       </div>
@@ -1082,11 +1154,11 @@
     <div class="section-title"><span aria-hidden="true">📚</span> 歷史 Weekly Summary</div>
     <div class="card">
       <p class="text-lead-13">
-        本週是 Weekly Summary 制度的<strong>第一份</strong>(template v1 → v2 設計升級)。歷史會議紀錄(5/6 Q2 Review / 5/7 AI Weekly / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
+        歷史會議紀錄(5/6 Q2 Review / AI Weekly series · 5/7 + 5/11 / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
       </p>
       <ul class="list-loose-20">
         <li><a href="docs/meetings/cary-elvis-blurring-timeline.html#part-1" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
-        <li><a href="docs/meetings/ai-weekly-internal-roundup.html" class="mdt-link">5/7 AI Weekly</a> — 17x 客訴 / LDWS Pending / Lens Cover / Yawning 灰階</li>
+        <li><a href="docs/meetings/ai-weekly-internal-roundup.html" class="mdt-link">AI Weekly Roundup · Series(內部)</a> — 🆕 5/11 最新:Model 11P/11L/26/V14 + 6/2 Fix Version · 5/7:17x 飲食 / LDWS / Lens Cover 單軌(校正)/ Yawning</li>
         <li><a href="docs/meetings/2026-05-06_q2-request-review_meeting-record.html" class="mdt-link">5/6 Q2 Review</a> — Brian 戰略翻案 / Single SKU+UVC hotfix</li>
       </ul>
     </div>

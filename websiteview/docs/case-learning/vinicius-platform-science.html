@@ -16,7 +16,7 @@
   <span class="heading"><span aria-hidden="true">🚛</span> 案件學習 · Vinicius / Platform Science</span>
   <span class="filename"><code>vinicius-platform-science.md</code></span>
 </header>
-<div class="doc-standalone-meta">最後更新:—</div>
+<div class="doc-standalone-meta">最後更新:2026-05-13 · 加 Phase 7 ADAS Failure 撞線</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="handover-platform-science-mitac-vision-max-apis">Handover: Platform Science × MiTAC — Vision Max APIs 專案</h1>
@@ -154,6 +154,35 @@
 <li>但初期實作仍希望透過 VisionMax 進行 <strong>cloud-to-cloud 整合</strong>,而非走 OEM image 路線。</li>
 <li>再次催促 <strong>設備報價</strong>,以利完整方案驗證。</li>
 </ul>
+
+<h3 id="phase-7-adas-failure">Phase 7 — JS Live View lib 交付 + ADAS Failure 撞線(5/11 – 5/13)</h3>
+<ul>
+<li><strong>5/11 02:31</strong> Kenny 交付 <strong>JS Live View lib V1.0.4</strong>(<code>https://www.visionmaxfleet.com/lib/vmRTC/1.0.4/...</code>)</li>
+<li><strong>5/11 22:03</strong> Vinicius 回覆「Thanks, I will start running some tests with it」 — <span aria-hidden="true">✅</span> V1.0.4 testing loop close</li>
+<li><strong>5/12 10:08</strong> Righter 通知 Vinicius:K265 OTA profile 已設好(配 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7287" rel="noopener" target="_blank">VMX-7287</a> K265 2026Q1 region build Resolved)</li>
+<li><strong>5/13 06:2X</strong> Vinicius 回報:
+  <ul>
+  <li><span aria-hidden="true">✅</span> OTA + SDK Live Stream 都正常運作</li>
+  <li><span aria-hidden="true">🚨</span> <strong>新問題:ADAS Failure</strong>(portal 訊息「ADAS could not be calibrated. Please inspect camera lens's mounting status...」)</li>
+  <li>嘗試 reboot device 無效</li>
+  <li>推測的 SN:<strong>K265 L1225380005</strong>(從 portal screenshot 判斷,待確認)</li>
+  </ul></li>
+<li><strong>5/13 11:41</strong> Righter reply:
+  <ul>
+  <li>解釋 ADAS 必須等 calibration 完成才會啟動</li>
+  <li>給安裝指引(附綠框 horizon alignment 圖)</li>
+  <li>行駛條件:<strong>≥ 30 km/h on roads with clear lane markings</strong></li>
+  </ul></li>
+<li><strong>5/13 下午</strong> Kenny PM 判斷:
+  <ul>
+  <li>Righter 已答核心問題,Kenny <strong>不另回 thread</strong>,避免 PM 補刀 RD</li>
+  <li>CC 持續監看 Vinicius follow-up</li>
+  <li>內部 cross-link 此事件到 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 同根因 thread(評估期 cross-customer 證據)</li>
+  </ul></li>
+</ul>
+
+<p><strong><span aria-hidden="true">🎯</span> 評估期 PM 重點</strong>:Platform Science 撞 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 根因 = <strong>跨客戶證據鏈</strong>第三例(Kenny 自測 + Webfleet <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> + PS),對 Brian / Steve 評估期報告有用。</p>
+
 <hr />
 <h2 id="4">4. 技術資訊速查</h2>
 <h3 id="mitac-cdr">相關產品線 (MiTAC CDR)</h3>

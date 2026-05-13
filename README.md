@@ -59,7 +59,7 @@
 | Coffee chat 待問清單(Brian / Mori / Jimmy / Spencer / Lucy / Tony) | [knowledge/02_organization-map/coffee-chat-questions.md](knowledge/02_organization-map/coffee-chat-questions.md) |
 | AI Team 16 件逐行 5/7 狀態 + Brian 1on1 talking points | [knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md](knowledge/06_calibration-log/ai-team-row-by-row-status-2026-05-07.md) |
 | AI 工作計畫 × Jira filter 36457 對齊 + 10 票 comment 深掘 | [knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md](knowledge/06_calibration-log/ai-tab-jira-alignment-2026-05-07.md) |
-| 2026-05-07 AI Weekly 會議重大訊號(17x 客訴 / LDWS Pending / Lens Cover 雙軌) | [meetings/ai-weekly-internal-roundup.md](meetings/ai-weekly-internal-roundup.md) |
+| AI Weekly Roundup · Series(內部 · 5/7 + 5/11 · 🆕 最新場 Model 11P/11L/26/V14 + 6/2 Fix Version 死線) | [meetings/ai-weekly-internal-roundup.md](meetings/ai-weekly-internal-roundup.md) |
 | 已校正的 VMX 事實(別再答錯) | [knowledge/06_calibration-log/critical-facts-log.md](knowledge/06_calibration-log/critical-facts-log.md) |
 
 ---
