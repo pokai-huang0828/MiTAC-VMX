@@ -53,10 +53,10 @@ VM Knowledge Base
 4. What in-cabin alerts are available?(已 → voice-alerts.md)
 5. Which NFC cards are compatible with the camera?
 6. How do I update the camera's software?
-7. **What Are the Trigger Conditions for Each Traffic Sign and Signal Feature** ⭐ memory 標待補,實則有
+7. **What Are the Trigger Conditions for Each Traffic Sign and Signal Feature** ⭐ KB 已有(2026-05-14 確認)
 8. Where Are My Videos Stored on the SD Card?
-9. **What is the resolution, FPS, Bitrate and video size for MiTAC's cameras?** ⭐ memory 標待補,實則有(已抓內容)
-10. **Why are thresholds different for Passenger, Medium Vehicle and Heavy Duty?** ⭐ memory 標待補,實則有(已抓)
+9. **What is the resolution, FPS, Bitrate and video size for MiTAC's cameras?** ⭐ KB 已有(2026-05-14 確認)
+10. **Why are thresholds different for Passenger, Medium Vehicle and Heavy Duty?** ⭐ KB 已有(2026-05-14 確認;詳見 [vehicle-classification.md](vehicle-classification.md))
 
 ## General > Installation(2 篇)
 
@@ -76,10 +76,10 @@ VM Knowledge Base
 4. **How to change the sensitivity of ADAS and DMS?** ⭐ 對應 sensitivity dial
 5. What are the supported sensor events?(已 → adas-dms-events.md G-Sensor)
 6. **How to retrieve a video file**
-7. **Behaviour of Privacy Mode in VisionMax** ⭐ memory 標待釐清,實則有
+7. **Behaviour of Privacy Mode in VisionMax** ⭐ KB 已有(2026-05-14 確認)
 8. VisionMax Update History & Release Notes
 9. How do I view what version of the SW installed currently?
-10. **How are passenger / medium-duty / heavy-duty vehicles defined, and how is camera height set?** ⭐ memory 標待補,實則有
+10. **How are passenger / medium-duty / heavy-duty vehicles defined, and how is camera height set?** ⭐ KB 已有(2026-05-14 確認;詳見 vehicle-classification.md)
 11. How many geofences can be configured in the camera?
 12. What is the meta data shown with the video?
 13. Is the video compressed?

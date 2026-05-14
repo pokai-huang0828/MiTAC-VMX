@@ -34,12 +34,15 @@
 <li><strong>V14</strong>:先前用於影像模糊化 (Blurring) 的舊模型版本(對應 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-527" rel="noopener" target="_blank">HAWK-527</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-578" rel="noopener" target="_blank">HAWK-578</a> Blurring 修問題的舊基礎,對外仍是「2026-05-06 已 fix」口徑)</li>
 </ul>
 
-<h3 id="6-2-deliverables">6/2 Fix Version(2026-06-02)— 三個必上 deliverable</h3>
-<ul>
-<li><strong>LDWS API</strong> — 之前 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7375" rel="noopener" target="_blank">VMX-7375</a> Pending,5/7 AI Weekly 講過暫緩,但 5/11 AI Weekly <strong>重新掛 6/2</strong>(後續需從 Jira 確認 transition 狀態)</li>
-<li><strong>BMS 鏡頭遮蔽拆分</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Lens Cover,Eric H 2026-05-08 13:38 confirmed <code>planned for the next release in June</code>,handoff 已記)</li>
-<li><strong>新版 DMS 模型(Model 26)</strong> — Yawning + 安全帶 + Distraction 統一架構,<strong>必須在 6/2 Fix Version 發布</strong></li>
-</ul>
+<h3 id="6-2-deliverables">6/2 Fix Version(2026-06-02)— 五大必上 deliverable</h3>
+<blockquote><strong>2026-05-14 校正</strong>(從 <a href="../meetings/2026-05-13_azuga-ai-weekly.html">5/13 Azuga AI Weekly</a> 揭露):原 5/11 AI Weekly Internal 記的「三大」是不完整版,實際 6/2 release scope 是<strong>五大</strong>。</blockquote>
+<ol>
+<li><strong>LDWS API</strong> — <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a> &quot;LDWS Improving (Server)&quot; (@jimmy.jy.huang) Pending,5/7 AI Weekly 講過暫緩,但 5/11 AI Weekly <strong>重新掛 6/2</strong>。<strong>2026-05-14 校正</strong>:repo 多處誤寫成 VMX-7375,實際 7375 是 leo.tsai 的 &quot;Add Manual End Button&quot;,與 LDWS 無關。<strong>Jira 上仍無 fixVersion 標 VisionMax_20260602 — Kenny 該 chase Jimmy 補。</strong></li>
+<li><strong>Lens Cover 解耦</strong> — <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 規格(Open · jieli.liu · fv=VisionMax_20260602)+ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a>(5/13 新開 · leo.tsai · fv=VisionMax_20260602)實作 bug。<strong>新規格</strong>:(a)移除車速限制 (b)獨立於 DMS 校正狀態 (c)修 debounce time (d)首次觸發後不再發,直到 obstruction 移除達 configured period → 觸發 Lens Uncovered event(eric.h 5/13 對 Webfleet 確認)</li>
+<li><strong>新版 DMS 模型(Model 26)</strong> — Yawning + 安全帶 + Distraction 統一架構</li>
+<li><strong>Eye Stable Rate threshold 開放</strong>(5/13 揭露)— <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> Provide the configuration of EyeStableRate threshold(Open · joe.lien · fv=CameraAPP_202605)+ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-551" rel="noopener" target="_blank">HAWK-551</a> CAM Lite inaccurate fatique(fv=VisionMax_20260602)。客戶可調睜眼率閾值微調疲勞偵測敏感度</li>
+<li><strong>Camera Auto-Height 新演算法</strong>(5/13 揭露)— Webfleet 5/13 拒絕「改手動」方案,Brian 承諾 RD 新演算法 6/2 release 實測。<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a>(New→<strong>Open</strong> 5/13)Sebastian 5/13「等下版」← <strong>客戶切換到等待模式</strong>。Sebastian 後續會關 HAWK-501 + 開新單追蹤 fix。Mitac 端 Jay 領演算法</li>
+</ol>
 
 <h3 id="5-15-beta">5/15(15 號)Beta 測試前置死線</h3>
 <ul>

@@ -3,6 +3,16 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-14 · 5/13 Azuga AI Weekly meeting note + 6/2 deliverable 從三大擴大為五大
+
+- 2026-05-14 · **NEW DOC** · `meetings/2026-05-13_azuga-ai-weekly.md` + `.html` — 5/13 下午 Azuga AI Weekly(Mitac × Azuga + Webfleet 聯合)8 議題 + 11 action items · 兩份 NotebookLM 摘要(短版 + PM 版)合併 · 14 票 Jira comments cross-check
+- 2026-05-14 · **CALIBRATION** · 6/2 Fix Version「三大 deliverable → 五大 deliverable」(+ Eye Stable Rate threshold + Camera Auto-Height 新演算法)— 同步更新 `06_calibration-log/critical-facts-log.md` + `01_product-knowledge/miai-roadmap-2026.md` + `meetings/ai-weekly-internal-roundup.md` + `02_organization-map/stakeholders.md` + `weekly-summary/2026-05-12_afternoon-delta.md` + 5 個對應 HTML mirror
+- 2026-05-14 · **JIRA SNAPSHOT** · `jira_data/jira_tickets_snapshot_2026-05-14.json` + `.tsv` + `jira_audit_report_2026-05-14.txt`(311 票,+147 vs 5/12)透過 filter=36457 (VMX) + filter=36458 (HAWK)抓取 · **HAWK-501** New→Open(5/13 客戶切換等待模式)+ **HAWK-585** Lens cover 新票 + **HAWK-587** ADAS 校正語音延遲新票 + 24 個 assignee 變動(VMX-7441 mori→spencer)
+- 2026-05-14 · **JIRA CALIBRATION** · LDWS API ticket VMX-7375 → **VMX-7101**(同步 6 個檔:`critical-facts-log.md/html` + `miai-roadmap-2026.md/html` + `ai-weekly-internal-roundup.md/html`)· VMX-7375 實為 leo.tsai 的 Add Manual End Button,與 LDWS 無關 · VMX-7325 根本不存在(earlier agent 幻覺)
+- 2026-05-14 · **NEW EXCEL** · `pending-confirmations-2026-05-14.xlsx`(36 active items,11 已答移除,加 3 新項目:VMX-7471 dmsCamera null bug / Sebastian Camera Height 新單票號 / Azuga Eating/Drinking 去識別化影片評估)
+- 2026-05-14 · **CLEAN STALE** · `kb-full-catalog.md` L79+L82「memory 標待釐清,實則有」清成「KB 已有(2026-05-14 確認)」
+- 2026-05-14 · **UIUX FIX** · `index.html` + `index.css` + `design-tokens.css` 從 UIUX audit 找出 7 項問題(P0 focus outline + mobile H1 / P1 tap target + tablet 孤兒卡 + emoji 跨 OS / P2 階層 + lede 折疊)全部修完 commit 10db40a + d8779d0
+
 ## 2026-05-13 · PS Vinicius 撞 VMX-7404(跨客戶第三例)
 
 - 2026-05-13 · **APPEND Phase 7** · `case-learning/vinicius-platform-science.md` + `.html` — Vinicius 5/13 06:2X mail 反映 K265 L1225380005 OTA + SDK ✅ 但 ADAS Failure 持續 + reboot 無效 / Righter 5/13 11:41 reply install + 30 km/h drive on lane-markings + 綠框 horizon alignment 附圖 / Kenny PM 判斷不另回 thread(避免 PM 補刀 RD),內部 cross-link 到 [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404)

@@ -41,7 +41,7 @@
 ### Wave 5 · Jira 全量 ingest(透過 Chrome MCP)
 - Chrome MCP 連 Browser 1(Kenny 本機)→ Jira navman.co.nz REST API
 - 一次抓 **137 個 ticket** 完整 status + 137 個 ticket × last 3 comments
-- 存到 `jira_data/jira_tickets_snapshot_2026-05-12.json` + `jira_data/jira_tickets_comments_2026-05-12.json`
+- 存到 `jira_data/jira_tickets_snapshot_2026-05-12.json` + `jira_data/jira_tickets_comments_2026-05-12.json`(**2026-05-14 已刪,被 `jira_tickets_snapshot_2026-05-14.json` 311 票取代**)
 - **新增 `docs/00_index/jira-snapshot.html`** — 137 票完整表(Status 過濾 + age-based 顏色 + Jira 外部連結)
 - Cross-ref 揭露 **12 個 docs 沒反映的狀態變動**(已寫進 critical-facts-log):
   - 已 ship Resolved/Closed:VMX-7239 / 7419 / 7381 / 6925 / 7346 / HAWK-578 / HAWK-527 / VMX-6920 / HAWK-331
@@ -92,8 +92,7 @@ MiTAC-KennyHuang/
 │   ├── css/                               17 個 CSS(design-tokens.css = 唯一 token 來源)
 │   ├── js/                                7 個 JS(case-hub / knowledge / sticky-toc / external-share / lightbox / slide-presentation / kb-reference)
 │   └── VMX_images/                        29 個 Portal 截圖(Fleet + Master)
-├── jira_data/jira_tickets_snapshot_2026-05-12.json   ⭐ 137 票即時狀態(可拿來 diff 對比)
-└── jira_data/jira_tickets_comments_2026-05-12.json   ⭐ 137 票 × last 3 comments
+└── jira_data/jira_tickets_snapshot_2026-05-14.json   ⭐ 311 票(2026-05-14 重抓,5/12 舊 snapshot 已刪)
 ```
 
 ---

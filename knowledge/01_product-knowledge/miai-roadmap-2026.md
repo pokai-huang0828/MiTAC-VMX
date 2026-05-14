@@ -45,7 +45,7 @@ PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TO
 | Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / 5/7 加灰階模型 → **5/11 校正**:用 **Model 11P**(嘴部→全臉)+ 統一到 **Model 26** 架構 / UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Lucy)/ **掛 6/2 Fix Version** | **改:Roadmap planned, 內部測試中,Model 11P 改全臉打哈欠** |
 | Smoking | Basic 2025 已 ship | **KB 標 (in development)** / Sheet 隱藏 / 4 ticket open | **改:Roadmap planned, KB 列開發中** |
 | MMF | (列在 overview) | 還沒上線 | **不對客戶承諾** |
-| Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **5/11 校正**:LDWS API 從 5/7 Pending 暫緩 → **5/11 重新掛 6/2 Fix Version**([VMX-7375](https://jira.navman.co.nz/jira/browse/VMX-7375) 待 Jira transition)| 「Server-side 已部屬,device 端 6/2 release 含 LDWS API」 |
+| Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **5/11 校正**:LDWS API 從 5/7 Pending 暫緩 → **5/11 重新掛 6/2 Fix Version**([VMX-7101](https://jira.navman.co.nz/jira/browse/VMX-7101) "LDWS Improving (Server)" 待 Jira transition · 2026-05-14 校正:原誤寫 VMX-7375)| 「Server-side 已部屬,device 端 6/2 release 含 LDWS API」 |
 | Speed Sign | Advanced 2027 | KB 標 in development / **5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓**(Jay)| 對外保持 2027 Roadmap |
 | Lens Cover(BMS / Azuga ~~雙軌~~ → **5/11 校正單軌**)| Basic | 5/7 雙軌實作 → ⚠️ **5/11 校正**:[HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) 規格改為單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga),取消 speed ≥ 20 + DMS calibration 兩個 dependency / Eric H 5/8 confirmed **6 月 release**(6/2 Fix Version)| 對三客戶講「6/2 release 統一單軌規格」 |
 
@@ -60,10 +60,13 @@ PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TO
 | **26** | 新導入 DMS 分類 + Detect 模型架構,**準確度優於 11L** | 預計掛 **6/2 Fix Version** 上線 | Yawning + 安全帶 + Distraction 統一架構 |
 | **V14** | 影像模糊化 (Blurring) 舊模型版本 | 對外維持「2026-05-06 已 fix」口徑 | [HAWK-527](https://jira.navman.co.nz/jira/browse/HAWK-527) / [HAWK-578](https://jira.navman.co.nz/jira/browse/HAWK-578) Blurring 修問題 |
 
-### 🚨 6/2 Fix Version(2026-06-02)三大必上 deliverable
-1. **LDWS API**(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)
-2. **BMS 鏡頭遮蔽拆分**([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) Lens Cover,Eric H 5/8 confirmed Jun release)
+### 🚨 6/2 Fix Version(2026-06-02)五大必上 deliverable
+> 2026-05-14 校正(從 [5/13 Azuga AI Weekly](../../meetings/2026-05-13_azuga-ai-weekly.md) 揭露):從原本三大擴大為五大。
+1. **LDWS API** [VMX-7101](https://jira.navman.co.nz/jira/browse/VMX-7101)(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)— Jira fixVersion 仍空
+2. **Lens Cover 解耦** [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) + [HAWK-585](https://jira.navman.co.nz/jira/browse/HAWK-585)(5/13 新)— 移除車速 + 獨立 DMS 校正 + 修 debounce + Lens Uncovered event
 3. **新版 DMS 模型(Model 26)**
+4. **Eye Stable Rate threshold 開放** [VMX-7309](https://jira.navman.co.nz/jira/browse/VMX-7309) + [HAWK-551](https://jira.navman.co.nz/jira/browse/HAWK-551)(5/13 補)
+5. **Camera Auto-Height 新演算法** [HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501)(5/13 補,Webfleet 拒絕改手動)
 
 ### 5/15 Beta 測試前置:外部 API / 模組必須 ready
 

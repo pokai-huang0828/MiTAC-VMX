@@ -80,7 +80,7 @@
 
 ### 5/11 AI Weekly 完整內容 → 已寫進 [`meetings/ai-weekly-internal-roundup.md`](../meetings/ai-weekly-internal-roundup.md)(series 檔)
 
-> **2026-05-12 校正**:Kenny 規則「每週循環會議用 **series 檔**追加,不每場開新 HTML」。`meetings/ai-weekly-internal-roundup.md` 是內部 AI Weekly 系列的 SSOT,5/11 + 5/7 + 未來新場都進這個檔。Model 11P/11L/26/V14 對應 / 6/2 Fix Version 三大死線 / 5/15 Beta 前置 / Regression Risk 全部在那邊。
+> **2026-05-12 校正**:Kenny 規則「每週循環會議用 **series 檔**追加,不每場開新 HTML」。`meetings/ai-weekly-internal-roundup.md` 是內部 AI Weekly 系列的 SSOT,5/11 + 5/7 + 未來新場都進這個檔。Model 11P/11L/26/V14 對應 / 6/2 Fix Version 五大死線(2026-05-14 校正,從三大擴大,詳見 [meetings/2026-05-13_azuga-ai-weekly.md](../meetings/2026-05-13_azuga-ai-weekly.md))/ 5/15 Beta 前置 / Regression Risk 全部在那邊。
 
 ### 新增的 NotebookLM 來源(repo 對應 meeting note 狀態)
 - 🎙️ **5-11 ai weekly meeting.m4a** → ✅ 已 ingest 進 `meetings/ai-weekly-internal-roundup.md` § 2026-05-11
@@ -107,8 +107,8 @@
 
 ## 📌 引用快查
 
-- 完整 Jira snapshot(164 票 = 137 舊 + 27 新):`jira_data/jira_tickets_snapshot_2026-05-12T15.json`
-- 原 morning snapshot:`jira_data/jira_tickets_snapshot_2026-05-12.json`
+- ~~完整 Jira snapshot(164 票 = 137 舊 + 27 新):`jira_data/jira_tickets_snapshot_2026-05-12T15.json`~~ — **2026-05-14 已刪,被 `jira_tickets_snapshot_2026-05-14.json` (311 票) 取代**
+- ~~原 morning snapshot:`jira_data/jira_tickets_snapshot_2026-05-12.json`~~ — **2026-05-14 已刪**
 - Outlook 抓取人:Kenny 本機 Outlook (classic) + 新 Outlook for Windows(同步)
 - NotebookLM URL:https://notebooklm.google.com/notebook/a3aad3ec-ecf3-4468-a0d9-13a6a18359c7(notebook 名「神達VMX」,44 個來源)
 - 抓取方式:Chrome MCP(Browser 1, Kenny 本機)→ Jira REST API + Outlook computer-use + NotebookLM Chrome MCP

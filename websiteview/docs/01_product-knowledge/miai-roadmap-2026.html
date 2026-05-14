@@ -187,7 +187,7 @@
 <tr>
 <td>Server-side LDWS(Stage 2)</td>
 <td>已上</td>
-<td><span aria-hidden="true">✅</span> Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ <strong>5/11 校正</strong>:LDWS API 從 5/7 Pending 暫緩 → <strong>5/11 重新掛 6/2 Fix Version</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7375" rel="noopener" target="_blank">VMX-7375</a> 待 Jira transition)</td>
+<td><span aria-hidden="true">✅</span> Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ <strong>5/11 校正</strong>:LDWS API 從 5/7 Pending 暫緩 → <strong>5/11 重新掛 6/2 Fix Version</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a> &quot;LDWS Improving (Server)&quot; 待 Jira transition · 2026-05-14 校正:原誤寫 VMX-7375)</td>
 <td>「Server-side 已部屬,device 端 6/2 release 含 LDWS API」</td>
 </tr>
 <tr>
@@ -221,11 +221,14 @@
 </tbody>
 </table>
 
-<h3 id="6-2-deliverables">🚨 6/2 Fix Version(2026-06-02)三大必上 deliverable</h3>
+<h3 id="6-2-deliverables">🚨 6/2 Fix Version(2026-06-02)五大必上 deliverable</h3>
+<blockquote>2026-05-14 校正(從 <a href="../meetings/2026-05-13_azuga-ai-weekly.html">5/13 Azuga AI Weekly</a> 揭露):從原本三大擴大為五大。</blockquote>
 <ol>
-<li><strong>LDWS API</strong>(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)</li>
-<li><strong>BMS 鏡頭遮蔽拆分</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Lens Cover,Eric H 5/8 confirmed Jun release)</li>
+<li><strong>LDWS API</strong> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a>(5/7 暫緩,5/11 AI Weekly 重新掛 6/2)— Jira fixVersion 仍空</li>
+<li><strong>Lens Cover 解耦</strong> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a>(5/13 新)— 移除車速 + 獨立 DMS 校正 + 修 debounce + Lens Uncovered event</li>
 <li><strong>新版 DMS 模型(Model 26)</strong></li>
+<li><strong>Eye Stable Rate threshold 開放</strong> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-551" rel="noopener" target="_blank">HAWK-551</a>(5/13 補)</li>
+<li><strong>Camera Auto-Height 新演算法</strong> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a>(5/13 補,Webfleet 拒絕改手動)</li>
 </ol>
 
 <h3 id="5-15-beta">5/15 Beta 測試前置:外部 API / 模組必須 ready</h3>

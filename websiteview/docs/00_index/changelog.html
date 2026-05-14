@@ -17,7 +17,7 @@
   <span class="heading"><span aria-hidden="true">📅</span> 索引 · Knowledge Changelog</span>
   <span class="filename"><code>changelog.md</code></span>
 </header>
-<div class="doc-standalone-meta">最後更新:2026-05-12 下午</div>
+<div class="doc-standalone-meta">最後更新:2026-05-14 上午</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="knowledge-changelog-30">Knowledge Changelog · 近 30 天變動紀錄</h1>
@@ -25,6 +25,18 @@
 <p>每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。<strong>新的在上面</strong>。
 格式:<code>YYYY-MM-DD · 動作 · 檔案 · 一句話 why</code></p>
 </blockquote>
+
+<h2 id="2026-05-14-azuga-ai-weekly">2026-05-14 · 5/13 Azuga AI Weekly meeting note + 6/2 deliverable 從三大擴大為五大</h2>
+<ul>
+<li>2026-05-14 · <strong>NEW DOC</strong> · <a href="../meetings/2026-05-13_azuga-ai-weekly.html"><code>meetings/2026-05-13_azuga-ai-weekly.md</code></a> + <code>.html</code> — 5/13 下午 Azuga AI Weekly(Mitac × Azuga + Webfleet 聯合)8 議題 + 11 action items · 兩份 NotebookLM 摘要(短版 + PM 版)合併 · 14 票 Jira comments cross-check</li>
+<li>2026-05-14 · <strong>CALIBRATION</strong> · 6/2 Fix Version「三大 deliverable → 五大 deliverable」(+ Eye Stable Rate threshold + Camera Auto-Height 新演算法) — 同步更新 <a href="../06_calibration-log/critical-facts-log.html"><code>critical-facts-log</code></a> + <a href="../01_product-knowledge/miai-roadmap-2026.html"><code>miai-roadmap-2026</code></a> + <a href="../meetings/ai-weekly-internal-roundup.html"><code>ai-weekly-internal-roundup</code></a> + <a href="../02_organization-map/stakeholders.html"><code>stakeholders</code></a> + <a href="../weekly-summary/2026-05-12_afternoon-delta.html"><code>2026-05-12_afternoon-delta</code></a> + 5 個 HTML mirror</li>
+<li>2026-05-14 · <strong>JIRA SNAPSHOT</strong> · <code>jira_data/jira_tickets_snapshot_2026-05-14.json</code> + <code>.tsv</code> + <code>jira_audit_report_2026-05-14.txt</code>(311 票,+147 vs 5/12)透過 filter=36457 (VMX) + filter=36458 (HAWK)抓取 · <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> New→Open(5/13 客戶切換等待模式)+ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a> Lens cover 新票 + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-587" rel="noopener" target="_blank">HAWK-587</a> ADAS 校正語音延遲新票 + 24 個 assignee 變動</li>
+<li>2026-05-14 · <strong>JIRA CALIBRATION</strong> · LDWS API ticket VMX-7375 → <strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a></strong>(同步 6 個檔的 .md + .html)· VMX-7375 實為 leo.tsai 的 Add Manual End Button</li>
+<li>2026-05-14 · <strong>NEW EXCEL</strong> · <code>pending-confirmations-2026-05-14.xlsx</code>(36 active items)— 加 3 新項目(VMX-7471 dmsCamera null bug / Sebastian Camera Height 新單 / Azuga Eating/Drinking 影片評估)</li>
+<li>2026-05-14 · <strong>CLEAN STALE</strong> · <code>kb-full-catalog.md</code> L79+L82「memory 標待釐清,實則有」清成「KB 已有(2026-05-14 確認)」</li>
+<li>2026-05-14 · <strong>UIUX FIX</strong> · <code>index.html</code> + <code>index.css</code> + <code>design-tokens.css</code> 從 UIUX audit 找出 7 項問題(P0/P1/P2)全部修完 commit 10db40a + d8779d0</li>
+</ul>
+
 <h2 id="2026-05-13-elvis-cost-framing">2026-05-13 · Elvis Teams thread + cost model 三輪校正</h2>
 <ul>
 <li>2026-05-13 · <strong>APPEND § 9</strong> · <a href="../case-learning/connectsource-passenger-blurring.html#9-2026-05-13"><code>case-learning/connectsource-passenger-blurring.md</code></a> + <code>.html</code> — 5/13 早上 Kenny 推 4-step flow → Elvis 09:18 pushback(Step 3 質疑必要性 + Step 4 bandwidth)→ Spencer rationale(Step 3 = cost / storage 控制點)→ cost model 三輪修訂(v1 誤引 Rekognition / v2 校正自家 AI / v3 storage 重算 1.8× 不是 10×)→ profitability sensitivity(break-even 在 ~8×)→ Kenny v3 訊息送出 → 等客戶回 cost mode + download UX</li>

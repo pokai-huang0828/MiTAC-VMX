@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-05-13 Azuga AI Weekly · MiTAC Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../case-hub.html" title="返回">← Case Hub</a>
+  <span class="heading"><span aria-hidden="true">📋</span> 會議紀錄 · 2026-05-13 Azuga AI Weekly</span>
+  <span class="filename">2026-05-13_azuga-ai-weekly</span>
+</header>
+<div class="doc-standalone-meta">會議日:2026-05-13(Tue)下午 · 整理日:2026-05-14 · 來源:NotebookLM × 2 摘要 + Jira filter 36457/36458 cross-check</div>
+<main class="doc-standalone">
+  <div class="doc-content">
+
+<h1 id="azuga-ai-weekly-2026-05-13">2026-05-13 Azuga AI Weekly — 會議完整紀錄</h1>
+
+<ul>
+<li><strong>日期</strong>:2026-05-13(Tue)下午</li>
+<li><strong>性質</strong>:Azuga AI Weekly(Mitac × Azuga + Webfleet/BMS 聯合 weekly)</li>
+<li><strong>整理視角</strong>:Kenny PM 角度 · 議題 + Jira comment 交叉驗證 + 對 6/2 release scope 影響</li>
+<li><strong>來源</strong>:會議錄音 → NotebookLM 兩份摘要(短版 + PM 版)+ 5/14 重抓 Jira filter 36457/36458 cross-check</li>
+<li><strong>整理人</strong>:Kenny Huang(黃柏凱)</li>
+</ul>
+
+<hr />
+
+<h2 id="overview">一頁總覽</h2>
+<table>
+<thead><tr><th>項目</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td>議題數</td><td><strong>8 個</strong>(2 份 NotebookLM 摘要合併去重)</td></tr>
+<tr><td>Action items</td><td><strong>11 個</strong></td></tr>
+<tr><td>客戶出席</td><td>Sebastian / Martin / Jakob / Sirphim / Sophin / Jacob / Sabine</td></tr>
+<tr><td>Mitac 出席</td><td>Brian / Eric / Allen / Jay / Vincent / Jieli</td></tr>
+<tr><td><strong>對 6/2 release 影響</strong></td><td><strong>三大 deliverable → 五大 deliverable</strong></td></tr>
+<tr><td>新發現 bug</td><td>VMX-7471 dmsCamera null bug</td></tr>
+<tr><td>客戶切換等待模式</td><td><strong>HAWK-501</strong> Auto-Height</td></tr>
+</tbody>
+</table>
+
+<blockquote><strong>重要校正</strong>:此會議原以為是「BMS AI Alignment」獨立場,5/14 確認<strong>就是 5/13 Azuga AI Weekly 同一場</strong>,Webfleet/BMS 議題在同一場討論。</blockquote>
+
+<hr />
+
+<h2 id="topics">8 議題逐項</h2>
+
+<h3 id="topic-1">1. HAWK-401 — DMS 不同安裝角度模型訓練(舊案,12 月以來無進展)</h3>
+<p><strong>討論</strong>:Webfleet 希望模型支援 DMS 鏡頭不同安裝位置(尤其低位);Mitac 在收集不同角度影像準備訓練,<strong>但尚未獲核准推進</strong>。</p>
+<p><strong>Jira 證據</strong>:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-401" rel="noopener" target="_blank">HAWK-401</a> status=New, assignee=allen.yc.chung, priority=Gating;5/12 sebastian 「current state?」Allen 未回。</p>
+<p><strong>決策</strong>:Allen 與客戶(Jacob/Sirphi/Sophin)重新對焦優先級。</p>
+
+<h3 id="topic-2">2. Lens Cover Detection — 6/2 修(獨立邏輯 + debounce + 移除車速限制)</h3>
+<p><strong>痛點</strong>:Webfleet 最新韌體 Lens Cover 偵測不穩定 — Martin/Jakob 無法成功偵測,debounce 失效。<strong>根因</strong>:現行架構下若 DMS 臉部校正未完成,Lens Cover 偵測不會觸發。</p>
+<p><strong>6/2 新規格</strong>:</p>
+<ol>
+<li>移除車速限制</li>
+<li>獨立於 DMS 校正狀態之外</li>
+<li>修 debounce time 問題</li>
+<li><strong>首次觸發後不再發,直到 obstruction 移除達 configured period → 觸發 Lens Uncovered event</strong>(eric.h 5/13 對 Webfleet 確認)</li>
+</ol>
+<p><strong>Jira 證據</strong>:</p>
+<ul>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> Improve Lens cover detection design · Open · jieli.liu · fv=VisionMax_20260602(5/13 19:20 eric.h 對客戶發新規格)</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a> 'Lens cover' detection not properly working · <strong>5/13 新開</strong>(5/11 Brian 要 app log)</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-573" rel="noopener" target="_blank">HAWK-573</a> Request event blurry not updating · fv=VisionMax_20260602</li>
+</ul>
+<p><strong>決策</strong>:Vincent 6/2 修 debounce + Jira 補 root cause;Sebastian/Jakob 提供 failed 影片 + log。</p>
+
+<h3 id="topic-3">3. PECWS — Pedestrian Collision Warning(規格確認階段)</h3>
+<p><strong>狀態</strong>:Eric 已回覆所有前期問題;<strong>目前設計為舊有設計</strong>,僅在 Azuga 和 Webfleet 端討論過;Mitac 正式啟動前必須先完成規格確認。</p>
+<p><strong>Jira 證據</strong>:無對應 ticket(尚未開單)。</p>
+<p><strong>決策</strong>:Eric / Jacob / Sirphi 共同 review 並確認規格,確認後 Mitac 才開發。</p>
+
+<h3 id="topic-4">4. Camera Auto-Height Detection 誤差議題(關鍵)</h3>
+<p><strong>客戶反對「改手動」</strong>:Martin / Sebastian 已在線上運行的數千台設備,逐台關閉自動校正不可行(遷移成本龐大);Jakob 認為自動校準是產品賣點,期望修復精準度。</p>
+<p><strong>Mitac 回應(Brian)</strong>:RD 正在開發新演算法彌補誤差;請客戶<strong>暫緩手動設定討論</strong>,等 6/2 新版本實測驗證。</p>
+<p><strong>Jira 證據</strong>:</p>
+<ul>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> ADAS Self-calibration · <strong>status: New → Open(5/13 跨客戶觸發)</strong> · priority 1-High · fv=VisionMax_20260602</li>
+<li>5/13 15:57 sebastian「<em>Let's wait for the next version and check again.</em>」← <strong>客戶切換到等待模式</strong></li>
+</ul>
+<p><strong>決策</strong>:Jay 持續改善 auto height 演算法,6/2 確認結果;<strong>Sebastian 關 HAWK-501,開新單追蹤</strong>(等票號)。</p>
+
+<h3 id="topic-5">5. HAWK-482 — AI 模型跨版本測試 + Log 路徑對齊</h3>
+<p><strong>Mitac 立場</strong>:開發成本極大(huge effort),Not feasible for now;現階段依賴內部用新舊版本針對客戶提供影像回放。</p>
+<p><strong>Log 路徑對齊</strong>:客戶口中的「Application Log」= Mitac 的「<strong>R logs</strong>」;對「非物件事件」(疲勞 / 分心)無 debug 畫面時,Mitac 必須依賴 app log 才能 root cause。內部路徑:<code>/rlogs</code> + <code>/log</code>(內部記憶體根目錄)。</p>
+<p><strong>Jira 證據</strong>:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-482" rel="noopener" target="_blank">HAWK-482</a> · 3/20 sebastian 要 ServerAI 自動 re-evaluate — <strong>2 個月沒回</strong>;1/22 allen「technically issue」。</p>
+<p><strong>決策</strong>:不開發外部 tool。Martin / 客戶端 engineering 更新內部文件:<strong>未來 false negative 報告必須含影片 + /rlogs + /log</strong>。</p>
+
+<h3 id="topic-6">6. Eye Stable Rate Threshold 開放(6/2 release 新範圍)</h3>
+<p>6/2 更新將開放讓客戶透過參數設定睜眼率閾值,用於微調疲勞偵測敏感度。</p>
+<p><strong>Jira 證據</strong>:</p>
+<ul>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> Provide the configuration of the EyeStableRate threshold · Open · joe.lien · fv=CameraAPP_202605</li>
+<li><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-551" rel="noopener" target="_blank">HAWK-551</a> CAM Lite Inaccurate fatique → lower EyeStableRate threshold · fv=VisionMax_20260602</li>
+</ul>
+<p><strong>決策</strong>:Jieli + APP team 把 threshold 設定包入 6/2 firmware。</p>
+
+<h3 id="topic-7">7. Eating &amp; Drinking 訓練資料 — Azuga 主動提供去識別化影片</h3>
+<p><strong>Azuga 提議</strong>:從事件庫提供「去識別化(Anonymized,看不到人臉)」的行車影片給 Mitac 訓練。</p>
+<p><strong>Mitac 回應</strong>:下個月評估「看不到臉時,僅有水杯或食物的影像對 root cause 是否有實質幫助」。</p>
+<p><strong>Jira 證據</strong>:無對應 ticket(尚未開單)。</p>
+<p><strong>決策</strong>:Eric / Vincent 內部評估;若可行則於 ticket 上回覆客戶索取。</p>
+
+<h3 id="topic-8">8. ADAS 校正完成語音提示延遲(對應 HAWK-587 新票)</h3>
+<p><strong>客戶疑慮</strong>:Alpha 測試車隊回報,ADAS 校正完成的語音提示,要等到第一次違規時才會播報。</p>
+<p><strong>Mitac 澄清</strong>:這是系統設計使然 — Debug Overlay 關閉時語音延遲;Debug Overlay 開啟時校正完成當下會立刻通知。</p>
+<p><strong>Jira 證據</strong>:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-587" rel="noopener" target="_blank">HAWK-587</a> · 5/13 開 · brian.chienlee · 0 comments。</p>
+<p><strong>決策</strong>:<strong>非 bug,規格使然</strong> — Brian 文件化在 HAWK-587 上。</p>
+
+<hr />
+
+<h2 id="action-items">Action Items 整合(11 個)</h2>
+<table>
+<thead><tr><th>#</th><th>對象</th><th>Task</th><th>Due</th><th>Jira</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Allen</strong>(Mitac)</td><td>HAWK-401 priority 與 Jacob/Sirphi 對焦</td><td>下次 weekly</td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-401" rel="noopener" target="_blank">HAWK-401</a></td></tr>
+<tr><td>2</td><td><strong>Allen + Brian</strong>(Mitac)</td><td>HAWK-482 + PECWS priority 與 Azuga 對焦</td><td>下次 weekly</td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-482" rel="noopener" target="_blank">HAWK-482</a></td></tr>
+<tr><td>3</td><td><strong>Vincent</strong>(Mitac)</td><td>修 Lens Cover debounce + Jira 補 root cause</td><td><strong>6/2</strong></td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a></td></tr>
+<tr><td>4</td><td><strong>Jieli + APP team</strong></td><td>Lens Cover 解耦邏輯 + Eye Stable Rate threshold 包入 6/2</td><td><strong>6/2</strong></td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a></td></tr>
+<tr><td>5</td><td><strong>Jay</strong>(Mitac)</td><td>Camera Auto-Height 新演算法 + ADAS 影響評估</td><td><strong>6/2</strong></td><td>(待 Sebastian 新單)</td></tr>
+<tr><td>6</td><td><strong>Eric + Vincent</strong></td><td>Camera Height 演算法加速 + Eating/Drinking 影片可行性評估</td><td>1 個月</td><td>(新 ticket TBD)</td></tr>
+<tr><td>7</td><td><strong>Eric + Jacob/Sirphi</strong></td><td>PECWS 規格 review + 確認</td><td>啟動前</td><td>(新 ticket TBD)</td></tr>
+<tr><td>8</td><td><strong>Sebastian</strong>(Webfleet)</td><td>關 HAWK-501 + 開新單追蹤 Auto-Height fix</td><td>本週</td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a></td></tr>
+<tr><td>9</td><td><strong>Sebastian / Jakob</strong></td><td>提供 Lens Cover failed 影片 + log</td><td>盡快</td><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a></td></tr>
+<tr><td>10</td><td><strong>Martin</strong>(Webfleet)</td><td>內部評估固定高度後果</td><td>—</td><td>—</td></tr>
+<tr><td>11</td><td><strong>Martin + 客戶 engineering</strong></td><td>更新文件 — false negative 報告需含<strong>影片 + /rlogs + /log</strong></td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="six-two">對 6/2 Fix Version 的修訂(<strong>三大 → 五大 deliverable</strong>)</h2>
+<p><strong>舊敘述</strong>(5/11 AI Weekly Internal 記的):3 大 = LDWS API + BMS 鏡頭遮蔽拆分 + Model 26</p>
+<p><strong>新敘述</strong>(5/13 Azuga AI Weekly 確認):</p>
+<ol>
+<li>LDWS API(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a>)</li>
+<li><strong>Lens Cover 解耦</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> 規格 + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a> 實作 bug):移除車速 + 獨立於 DMS 校正 + 修 debounce</li>
+<li>新版 DMS 模型(Model 26)</li>
+<li><strong>Eye Stable Rate threshold 開放</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7309" rel="noopener" target="_blank">VMX-7309</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-551" rel="noopener" target="_blank">HAWK-551</a>)</li>
+<li><strong>Camera Auto-Height 新演算法</strong>(<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-501" rel="noopener" target="_blank">HAWK-501</a> 後續單,Sebastian 開)</li>
+</ol>
+
+<hr />
+
+<h2 id="excel-impact">對 Kenny Pending 追蹤的影響</h2>
+<p>對應 <code>pending-confirmations-2026-05-14.xlsx</code>:</p>
+<table>
+<thead><tr><th>Excel ID</th><th>變動</th></tr></thead>
+<tbody>
+<tr><td><strong>ID 1 LDWS API VMX-7101</strong></td><td>Jira 上 fixVersion 仍空 — <strong>chase Jimmy 在 Jira 補 fixVersion=VisionMax_20260602</strong></td></tr>
+<tr><td><strong>ID 7 Blurring API VMX-7457</strong></td><td>加 VMX-7471 dmsCamera null bug 子線</td></tr>
+<tr><td><strong>ID 20 6/2 Fix Version</strong></td><td>從「三大」改「<strong>五大</strong>」(+Eye Stable Rate threshold + Camera Auto-Height)</td></tr>
+<tr><td><strong>ID 26 Brian Coffee Chat</strong></td><td>加問項:PECWS spec timeline + HAWK-482 priority</td></tr>
+<tr><td><strong>新項目候選</strong></td><td>(a)Sebastian Camera Height 新單票號 (b)Azuga Eating/Drinking 影片評估 (c)VMX-7471 dmsCamera bug</td></tr>
+</tbody>
+</table>
+
+  </div>
+</main>
+</body>
+</html>

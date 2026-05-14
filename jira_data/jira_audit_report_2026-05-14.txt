@@ -1,0 +1,118 @@
+=== Jira Snapshot Audit 2026-05-14 ===
+Sources: filter=36457 (VMX) + filter=36458 (HAWK)
+Total tickets: 311 (old: 164, delta: +147)
+
+-- Status distribution (311 tickets) --
+  New             251
+  Open             28
+  In Progress      16
+  Deferred          9
+  Pending           5
+  Fail              1
+  Inactive          1
+
+-- Priority distribution --
+  2 - Medium      277
+  1 - High         21
+  Gating            8
+  3 - Low           4
+  Normal            1
+
+-- Fix Version distribution (top 5) --
+  CameraAPP_202605                 13
+  VisionMax_20260602                7
+  CameraAPP_20260325_11.2.26.17     2
+  2025Q4                            2
+  CameraAPP_20251001_11.2.24.82     1
+
+-- Assignee distribution (top 15) --
+  spencer.su                       33
+  brian.chienlee                   31
+  elvis.tran                       25
+  joe.lien                         25
+  allen.yc.chung                   20
+  leo.tsai                         18
+  neil.kuo                         12
+  righter.song                     10
+  chiehli.wang                      9
+  luke.cheng                        9
+  eric.h                            9
+  nell.chen                         9
+  lucy.sw.yen                       8
+  mori.jhang                        8
+  simon.wu                          7
+
+=== Delta vs old snapshot (2026-05-12T15) ===
+Added: 191 tickets
+  + HAWK-316     [New     ] spencer.su         | Dynamic length for "Clip & Backup video to cloud storage" in VisionMaxFleet
+  + HAWK-341     [New     ] ruben.navarropiris | Strange bulk of old GPS signal data
+  + HAWK-398     [Open    ] allen.yc.chung     | Cameras losing connectivity in African countries
+  + HAWK-416     [New     ] righter.song       | Improve audio/voice quality for in-cab alerts
+  + HAWK-417     [New     ] righter.song       | Add more languages for in-cab alerts
+  + HAWK-418     [New     ] righter.song       | Improve wording/texts for some translations of in-cab alerts
+  + HAWK-428     [New     ] eric.h             | Stop sign violation - ignore when there are supplementary signs
+  + HAWK-465     [New     ] ruben.navarropiris | Event(s) with impossibly old timestamp
+  + HAWK-479     [New     ] brian.chienlee     | Debug Mode Disabled After App Updates / Debug overlay missing occasionally
+  + HAWK-489     [New     ] harish.bolneni     | Camera speed is not varying(showing same speed in videos)
+  + HAWK-496     [New     ] ruben.navarropiris | Wrong GPS timestamps (set in the future)
+  + HAWK-497     [New     ] allen.yc.chung     | Encryption key in meta data endpoint seem to be incorrect
+  + HAWK-514     [New     ] harish.bolneni     | Camera Triggering Violent Turn Events continuously
+  + HAWK-532     [New     ] mori.jhang         | Length of videos are shown heavily increased (wrong length shown)
+  + HAWK-539     [New     ] shilendarb         | K-265 Camera stopped working and not powering on
+  + HAWK-541     [New     ] joe.lien           | Receiving Access Denied response when opening video URL
+  + HAWK-549     [New     ] ruben.navarropiris | Increase precision of take-snapshot endpoint
+  + HAWK-555     [Deferred] daniel.kara        | SD card rejected
+  + HAWK-559     [New     ] allen.yc.chung     | Device Rebooting for Error Fixing
+  + HAWK-561     [Open    ] spencer.su         | Please review TLS configuration
+  + HAWK-563     [Open    ] spencer.su         | Camera status discrepancy
+  + HAWK-568     [New     ] neil.kuo           | Manual Upload Videos are stuck
+  + HAWK-580     [New     ] brian.chienlee     | H.265 Support
+  + HAWK-581     [New     ] spencer.su         | Deprecate Nested Set Model
+  + HAWK-585     [New     ] leo.tsai           | 'Lens cover' detection not properly working
+  + HAWK-586     [New     ] brian.chienlee     | [Stop sign violation] Provide snapshot time
+  + HAWK-587     [New     ] brian.chienlee     | CALIBRATION COMPLETED notification (if active) delayed until first ADAS violatio
+  + VMX-2217     [Inactive] christy.hu         | English should be set as the default language of the webside
+  + VMX-5914     [New     ] nell.chen          | TT AU Speed cam data - school zones aren't timed and inaccurate
+  + VMX-6007     [New     ] brian.chienlee     | Downloading diagnostic report does not list Fleet/Owner Name & Improve report fi
+  ... (161 more)
+
+Removed: 44 tickets
+  - HAWK-331
+  - HAWK-332
+  - HAWK-397
+  - HAWK-419
+  - HAWK-450
+  - HAWK-457
+  - HAWK-517
+  - HAWK-527
+  - HAWK-562
+  - HAWK-570
+
+Status changes: 1
+  ~ HAWK-501     New        -> Open        | ADAS Self-calibration resolves wrong height resulting inacur
+
+Assignee changes (excluding BLOCKED): 24
+  @ HAWK-159     Sebastian Schneider  -> sebastian.schneider.wf | LiveStream: Response to selectCam command is sent 
+  @ HAWK-502     Jakob Mund           -> jakob.mund           | Changes to the privacy mode
+  @ HAWK-508     Harish Bolneni       -> harish.bolneni       | Livestream video missing
+  @ HAWK-511     luchun.chen          -> Luchun.chen          | Missing videos from aux cameras
+  @ HAWK-519     Daniel Kara          -> daniel.kara          | Recording missing
+  @ HAWK-528     Utkarsh Patel        -> sheron.lee           | Camera stop recording randomly during trips
+  @ HAWK-544     Olugbo Oniyide       -> olugbo.oniyide       | Thumbnail events of type "lens covered" missing th
+  @ HAWK-545     brian.chienlee       -> martin.rothe         | Mobile phone detection rates seems decreased a lot
+  @ HAWK-579     Harish Bolneni       -> spencer.su           | Camera Consuming High data
+  @ HAWK-583     mori.jhang           -> Luchun.chen          | Timezone (in MX) not correct
+  @ HAWK-584     spencer.su           -> neil.kuo             | Error in assigning device to fleet
+  @ VMX-6203     -                    -> elvis.tran           | Inward, UVC & Outward cameras unable to record vid
+  @ VMX-6419     -                    -> elvis.tran           | Invalid phone usage events
+  @ VMX-6420     -                    -> elvis.tran           | Driver tagging in Events for coaching #107
+  @ VMX-6465     -                    -> elvis.tran           | [K145][MAU] Abnormal camera image
+  @ VMX-6586     -                    -> elvis.tran           | Group main fleet and contract fleets together and 
+  @ VMX-7194     -                    -> mori.jhang           | Vehicle rollover event detection
+  @ VMX-7254     spencer.su           -> joe.lien             | Cloud integration for rollover event and configura
+  @ VMX-7315     hsinyi.chang         -> charlie.tychen       | New API implementation for AZUGA requirement
+  @ VMX-7324     -                    -> elvis.tran           | Improve smoking event accuracy
+  @ VMX-7335     leo.tsai             -> joe.lien             | [AZUGA SmartLink] ACCIDENT_DETECTION - 撞擊事件（含 10Hz
+  @ VMX-7354     jack.fl.chen         -> joe.lien             | [AZUGA SmartLink] event / trip 新增 vehicle 欄位上傳
+  @ VMX-7373     spencer.su           -> hsinyi.chang         | GPS 未定位時相關欄位（事件 / GPS）內容處理規則
+  @ VMX-7441     mori.jhang           -> spencer.su           | [Master Portal] The Blurry feature can be turned o
