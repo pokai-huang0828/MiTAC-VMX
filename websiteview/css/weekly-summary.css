@@ -211,7 +211,7 @@ code {
   transition: all .2s ease;
 }
 .kpi:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: var(--brand-3);
 }

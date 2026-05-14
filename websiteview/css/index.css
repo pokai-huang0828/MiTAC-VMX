@@ -89,6 +89,18 @@ h1, h2, h3, h4 {
   background: var(--brand);
   color: #fff;
 }
+/* discreet variant — 不那麼搶眼 */
+.topnav-meta .topnav-link-discreet {
+  background: transparent;
+  color: var(--text-mute-2);
+  font-weight: 500;
+  border: 1px solid var(--line);
+}
+.topnav-meta .topnav-link-discreet:hover {
+  background: var(--brand-soft);
+  color: var(--brand);
+  border-color: var(--brand-3);
+}
 .topnav-meta .live-dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--green);
   box-shadow: 0 0 0 4px rgba(24,160,107,.18);
@@ -106,6 +118,9 @@ h1, h2, h3, h4 {
 }
 .hero-inner {
   position: relative;
+  /* 2026-05-14: overflow hidden 讓 ::before / ::after 的 radial gradient 不會漏出
+     圓角邊界(尤其 mobile 下藍色 radial 從左下角漏出,變成淡藍小區塊很醜)*/
+  overflow: hidden;
   background: linear-gradient(135deg, #0B1830 0%, #142B53 55%, #1E4E8C 100%);
   color: #fff;
   border-radius: var(--r-xl);
@@ -285,18 +300,43 @@ h1, h2, h3, h4 {
     grid-column: 1 / -1;
   }
 }
+/* 2026-05-14: <li> 只當容器,實際 hover / click target 是內層 <a class="step-card-link"> */
 .onboard-steps li {
+  list-style: none;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+/* 整張卡 = clickable <a> */
+.onboard-steps .step-card-link {
+  position: relative;
   display: flex; gap: 12px;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 16px 16px 14px;
-  transition: border-color .18s, transform .18s, box-shadow .18s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  height: 100%;  /* fill <li> height in grid */
+  transition: border-color .18s, transform .18s, box-shadow .18s, background .18s;
 }
-.onboard-steps li:hover {
+.onboard-steps .step-card-link:hover {
   border-color: var(--brand-3);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFF 100%);
+}
+.onboard-steps .step-card-link:hover .step-arrow {
+  transform: translate(3px, 0);
+  color: var(--accent);
+}
+.onboard-steps .step-card-link:hover .step-target {
+  color: var(--accent);
+}
+.onboard-steps .step-card-link:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 .onboard-steps .step-num {
   flex: 0 0 32px; height: 32px;
@@ -307,7 +347,10 @@ h1, h2, h3, h4 {
   font-family: "Cabinet Grotesk", sans-serif; font-weight: 900;
   font-size: var(--fs-15);
 }
-.onboard-steps .step-body { flex: 1; min-width: 0; }
+.onboard-steps .step-body {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column;
+}
 .onboard-steps .step-title {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700; font-size: var(--fs-14_5);
@@ -317,17 +360,25 @@ h1, h2, h3, h4 {
   color: var(--muted); font-size: var(--fs-13); line-height: 1.55;
   margin: 0 0 8px;
 }
-.onboard-steps .step-cta {
-  display: inline-flex; align-items: center;
-  font-size: var(--fs-13); font-weight: 700;
-  color: var(--brand); text-decoration: none;
-  background: var(--brand-soft);
-  padding: 8px 14px;
-  border-radius: var(--r-full);
-  min-height: 32px;
-  transition: background var(--ease-quick), color var(--ease-quick);
+/* 卡片底部小 chip 標示目的地(不是按鈕,只是 label hint) */
+.onboard-steps .step-target {
+  margin-top: auto;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: var(--fs-12); font-weight: 700;
+  color: var(--brand);
+  letter-spacing: .02em;
+  transition: color var(--ease-quick);
 }
-.onboard-steps .step-cta:hover { background: var(--brand); color: #fff; }
+/* 右上角箭頭 — 整張卡可點的視覺提示 */
+.onboard-steps .step-arrow {
+  position: absolute;
+  top: 14px; right: 14px;
+  font-size: var(--fs-15);
+  color: var(--muted-2);
+  transition: transform var(--ease-quick), color var(--ease-quick);
+  pointer-events: none;
+}
 .onboard-foot {
   margin-top: 18px;
   font-size: var(--fs-13); color: var(--muted);
@@ -364,15 +415,43 @@ h1, h2, h3, h4 {
 
 /* ===== NOW zone — featured card =====
  * 2026-05-12: align-items: start so short cards don't get stretched and show
- * empty interior space. Each card now sized by natural content.
+ *             empty interior space. Each card now sized by natural content.
+ * 2026-05-14: 4 卡 (1 feature + 3 mini) 在 3-col grid 下會擠出 row 2 col 1
+ *             孤兒 + col 2/3 大空白。改成「card-feature 跨 2 rows / 第 4 張
+ *             mini 跨 row 2 col 2-3」asymmetric layout 填滿空間。
+ *             Layout:
+ *               [feature  ][mini-1][mini-2]
+ *               [feature  ][mini-3 spans col 2-3       ]
  */
 .now-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 18px;
-  align-items: start;
+  align-items: stretch;  /* row 內 card 自動撐高一致 */
 }
-@media (max-width: 920px) { .now-grid { grid-template-columns: 1fr; } }
+.now-grid > .card-feature {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+/* 最後一張 card-mini(本例 VMX-7404)跨 row 2 col 2-3 填滿底部
+   注意:不能用 :nth-of-type(3) — 那會數所有 <a> 包含 .card-feature 變成
+   抓到 Critical Facts。用 :last-child 才是正確的「第 4 個小卡」。 */
+.now-grid > .card-mini:last-child {
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+@media (max-width: 920px) {
+  .now-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .now-grid > .card-feature,
+  .now-grid > .card-mini:last-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
 
 .card-feature {
   background: linear-gradient(135deg, #FFFAF3 0%, #FFEDD9 100%);
@@ -540,9 +619,9 @@ h1, h2, h3, h4 {
   transition: all .2s ease;
 }
 .know-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--brand-3);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 .know-card .icon {
   width: 36px; height: 36px; border-radius: 10px;
@@ -575,9 +654,9 @@ h1, h2, h3, h4 {
   transition: all .2s ease;
 }
 .asset:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--brand-3);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 .asset .asset-icon {
   width: 40px; height: 40px; border-radius: 10px;
@@ -617,13 +696,100 @@ footer.site-footer code {
   .know-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .hero-inner { padding: 24px 20px; }
-  .hero h1 { font-size: var(--fs-26); line-height: 1.2; }
-  .hero-lede { font-size: var(--fs-13_5); }
-  .hero-cta .btn { font-size: var(--fs-13); padding: 10px 14px; }
-  .gauge { width: 150px; height: 150px; }
-  .gauge::before { inset: 12px; }
-  .gauge-num { font-size: var(--fs-30); }
-  .zone-onboard { padding: 20px 18px; }
-  .container { padding: 0 18px; }
+  /* 2026-05-14 mobile hero 大瘦身 — 從 600px 高壓到 ~380px, 讓 NOW zone 上首屏 */
+  .hero { margin: 12px auto 0; }
+  .hero-inner { padding: 18px 18px 16px; }
+  .hero-eyebrow { margin-bottom: 8px; font-size: var(--fs-10); }
+  .hero h1 { font-size: var(--fs-22); line-height: 1.15; margin-bottom: 8px; }
+  .hero-lede { font-size: var(--fs-12_5); margin-bottom: 6px; line-height: 1.5; }
+  .hero-details { margin-bottom: 12px; font-size: var(--fs-12); }
+  .hero-details summary { font-size: var(--fs-10); padding: 4px 0; }
+  .hero-cta { gap: 6px; }
+  .hero-cta .btn { font-size: var(--fs-12); padding: 8px 12px; }
+  .hero-cta .btn-primary { width: 100%; justify-content: center; }
+  .hero-cta .btn-ghost { flex: 1; justify-content: center; font-size: var(--fs-11_5); padding: 7px 8px; }
+  /* Gauge 移到 hero 下面, 改成 inline horizontal mini stat */
+  .hero-grid { gap: 14px; }
+  .gauge-wrap { padding: 12px 16px 10px; }
+  .gauge-label { font-size: var(--fs-10); margin-bottom: 6px; }
+  .gauge { width: 100px; height: 100px; margin-bottom: 8px; }
+  .gauge::before { inset: 8px; }
+  .gauge-num { font-size: var(--fs-22); }
+  .gauge-num small { font-size: var(--fs-11); }
+  .gauge-sub { font-size: var(--fs-11); }
+  .zone { margin-top: 28px; }
+  .zone-onboard { padding: 16px 14px; margin-top: 18px; }
+  .zone-onboard .zone-head { gap: 8px; margin-bottom: 4px; }
+  .zone-sub { font-size: var(--fs-12); }
+  .zone-title { font-size: var(--fs-20); }
+  .container { padding: 0 14px; }
+  /* Onboard list 改成可水平捲動 list (Spotify pattern) — 但保留垂直選項 */
+  .onboard-steps { gap: 10px; margin-top: 12px; }
+  .onboard-steps .step-card-link { padding: 12px 14px 10px; }
+  .onboard-steps .step-arrow { top: 10px; right: 12px; font-size: var(--fs-14); }
+  /* NOW zone 卡片做緊湊 */
+  .now-grid { gap: 10px; }
+  .card-feature { padding: 16px 18px 14px; }
+  .card-feature h3 { font-size: var(--fs-18); }
+  .card-feature p { font-size: var(--fs-13); margin-bottom: 12px; }
+  .card-feature .stats { gap: 14px; padding-top: 10px; }
+  .card-feature .stats strong { font-size: var(--fs-17); }
+  .card-mini { padding: 14px 16px; }
+  .card-mini h3 { font-size: var(--fs-16); }
+  .card-mini h4 { font-size: var(--fs-15); }
+  /* Case grid 緊湊 */
+  .case { padding: 14px 16px 12px; }
+  .case .case-name { font-size: var(--fs-14_5); }
+  /* Know grid 緊湊 */
+  .know-card { padding: 14px 14px 12px; }
+  /* Footer 字小一點 */
+  footer.site-footer { margin-top: 48px; padding: 22px 18px; font-size: var(--fs-11); }
 }
+
+/* Ultra-narrow (<420px) — KPI gauge 縮到 minimal inline row */
+@media (max-width: 420px) {
+  .gauge-wrap { padding: 10px 12px; }
+  .gauge { width: 70px; height: 70px; margin: 0 auto 4px; }
+  .gauge::before { inset: 6px; }
+  .gauge-num { font-size: var(--fs-16); }
+  .gauge-num small { font-size: var(--fs-9_5); }
+  .gauge-sub { font-size: var(--fs-10_5); }
+}
+
+/* Mobile topnav — 隱藏 Design System label,只露 emoji 圖示;Updated 字小 */
+@media (max-width: 640px) {
+  .topnav-inner { padding: 10px 14px; gap: 10px; }
+  .topnav-meta { gap: 8px; font-size: var(--fs-10_5); }
+  .topnav-meta .topnav-updated { display: none; }  /* 太擠就藏 */
+  .topnav-meta .topnav-link-label { display: none; }  /* 留 emoji */
+  .topnav-meta .topnav-link-discreet { padding: 4px 8px; }
+}
+@media (max-width: 480px) {
+  .brand { font-size: var(--fs-14); }
+  .brand .logo { width: 26px; height: 26px; font-size: var(--fs-12); }
+}
+
+/* ============================================================
+ * Onboard 5 步驟連接線 (2026-05-14)
+ * 用 ::before 偽元素在卡片左側畫垂直/水平連線,視覺暗示「步驟順序」
+ * ============================================================ */
+.onboard-steps {
+  position: relative;
+}
+.onboard-steps li {
+  position: relative;
+}
+/* 在每張卡片右側畫水平箭頭(只在桌面 5-col 時顯示)*/
+@media (min-width: 921px) {
+  .onboard-steps li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px; top: 28px;
+    width: 8px; height: 2px;
+    background: var(--brand-3);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+/* FAB styles 已搬到 design-tokens.css 作為全域 utility */

@@ -147,7 +147,8 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
 .hub .hub-meta-link:hover {
   background: rgba(255,255,255,.20);
   border-color: rgba(255,255,255,.35);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
 }
 .hub .stats-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .hub .stats-mini .stat {
@@ -258,7 +259,7 @@ body.hub h1, body.hub h2, body.hub h3, body.hub h4 {
   display: flex; flex-direction: column; gap: 6px;
 }
 .hub .doc-card:hover {
-  border-color: var(--brand-3); transform: translateY(-2px);
+  border-color: var(--brand-3); transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 .hub .doc-card .doc-title {
@@ -564,4 +565,77 @@ main.doc-standalone .doc-content > p:first-of-type {
 .doc-prevnext .doc-name {
   display: block; font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 800; color: var(--brand);
+}
+
+/* ================================================================
+ * Mobile UX overhaul (2026-05-14)
+ * ----------------------------------------------------------------
+ * 1. Hero 折成 <details> → 只露 H1 + 3 個關鍵 chips,完整 stats 收進
+ * 2. Search box 移到 hero 下方,full width
+ * 3. Doc cards 直接上首屏(不被 hero 擠掉)
+ * ================================================================ */
+@media (max-width: 880px) {
+  /* Hero 整個壓扁 */
+  .hub .hub-hero { margin-top: 12px; padding: 0 14px; }
+  .hub .hub-hero-inner { padding: 16px 18px 14px; border-radius: 14px; }
+  .hub .hub-hero-grid { gap: 12px; }
+  .hub .hero-eyebrow { font-size: var(--fs-10); margin-bottom: 6px; }
+  .hub .hub-hero h1 { font-size: var(--fs-22); margin-bottom: 6px; }
+  .hub .hub-hero p { font-size: var(--fs-12_5); line-height: 1.5; }
+  /* hub-meta-links 改成 2-col 緊湊 grid 而不是 wrap */
+  .hub .hub-meta-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .hub .hub-meta-link {
+    padding: 6px 10px;
+    font-size: var(--fs-11_5);
+    justify-content: center;
+  }
+  /* stats-mini horizontal pill 而不是 3 column grid */
+  .hub .stats-mini {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .hub .stats-mini .stat { padding: 8px 6px; border-radius: 10px; }
+  .hub .stats-mini .num { font-size: var(--fs-17); }
+  .hub .stats-mini .lab { font-size: var(--fs-9_5); margin-top: 2px; }
+  /* Mobile topnav 換行 — search-wrap 變獨立第二列 full-width */
+  .hub .topnav-inner {
+    padding: 10px 14px;
+    gap: 8px 10px;
+    flex-wrap: wrap;
+  }
+  .hub .brand { font-size: var(--fs-14); flex: 0 0 auto; }
+  .hub .back-link { padding: 3px 8px; font-size: var(--fs-11_5); flex: 0 0 auto; }
+  .hub .search-wrap {
+    flex: 1 1 100%;
+    order: 3;  /* 強制下一列 */
+    margin-left: 0;
+    max-width: none;
+    width: 100%;
+  }
+  .hub #searchBox {
+    width: 100%;
+    padding: 11px 14px 11px 38px;
+    font-size: var(--fs-14);
+    border-radius: 10px;
+  }
+  .hub .search-wrap::before {
+    left: 14px; font-size: var(--fs-15);
+  }
+  /* Container 緊縮 */
+  .hub .container { padding: 16px 14px 48px; gap: 16px; }
+  /* Doc cards 緊湊化 */
+  .hub section.cat { padding: 18px 18px 14px; border-radius: 14px; margin-bottom: 18px; }
+  .hub .cat-head { gap: 10px; margin-bottom: 12px; padding-bottom: 10px; }
+}
+
+/* 進一步,小於 480px(iPhone SE 系) */
+@media (max-width: 480px) {
+  .hub .hub-meta-links { grid-template-columns: 1fr; }
+  .hub .hub-meta-link { font-size: var(--fs-12); }
 }

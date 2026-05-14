@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jira Snapshot · 2026-05-12 · MiTAC Hub</title>
+<title>Jira Snapshot · 2026-05-14 · MiTAC Hub</title>
 <link rel="stylesheet" href="../../css/design-tokens.css">
 <link rel="stylesheet" href="../../css/shared.css">
 <link rel="stylesheet" href="../../css/animations.css">
@@ -15,7 +15,7 @@
 <header class="doc-standalone-topbar">
   <a class="back" href="../../knowledge.html" title="返回">← Knowledge Hub</a>
   <span class="heading"><span aria-hidden="true">🎫</span> 索引 · Jira Ticket Snapshot</span>
-  <span class="filename">jira-snapshot-2026-05-12</span>
+  <span class="filename">jira-snapshot-2026-05-14</span>
 </header>
 <div class="doc-standalone-meta">最後同步:<strong>2026-05-14 上午</strong> · 透過 filter=36457 (VMX) + filter=36458 (HAWK) 抓取 · <strong>311 票</strong>(+147 vs 5/12 snapshot)· 資料 = <code>jira_data/jira_tickets_snapshot_2026-05-14.json</code> · 審計 = <code>jira_data/jira_audit_report_2026-05-14.txt</code></div>
 <div style="margin: 12px 28px; padding: 14px 18px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; font-size: var(--text-sm); line-height: 1.6;">
@@ -24,16 +24,29 @@
 <main class="doc-standalone">
   <div class="doc-content">
 
-<h1 id="jira-ticket-snapshot">Jira Ticket Snapshot · 2026-05-12</h1>
+<h1 id="jira-ticket-snapshot">Jira Ticket Snapshot · 2026-05-14</h1>
 
 <blockquote>
-<p>全 hub 文檔內提及的 <strong>137 個 VMX / HAWK ticket</strong> 一次抓取狀態。透過 Kenny 本機 Chrome session call Jira REST API,2026-05-12 完成。</p>
+<p><strong>filter=36457 (VMX) + filter=36458 (HAWK) 全量抓取</strong> · <strong>311 票</strong>(+147 vs 5/12 snapshot)。透過 Kenny 本機 Chrome session call Jira REST API,2026-05-14 完成。<strong>SSOT 資料</strong>:<code>jira_data/jira_tickets_snapshot_2026-05-14.json</code> · <strong>審計</strong>:<code>jira_data/jira_audit_report_2026-05-14.txt</code>。</p>
 <p><strong>提醒</strong>:Jira <code>New</code> status 內含大量「實際已做完但 RD 沒按 transition button」的 ticket(見 <a href="../06_calibration-log/critical-facts-log.html"><strong>Critical Facts § VMX-6722 transition discipline gap</strong></a>)。<code>New</code> ≠ 沒做。要看 <code>Updated</code> 日期 + 對應 doc 內 comment 才能判斷真實狀態。</p>
 </blockquote>
 
-<h2 id="status-distribution">Status 分佈(164 票,2026-05-12 下午重抓)</h2>
-<p class="ji-hero"><strong>New</strong> 105 · <strong>Resolved</strong> 25 · <strong>Open</strong> 11 · <strong>In Progress</strong> 9 · <strong>Deferred</strong> 7 · <strong>Closed</strong> 6 · <strong>Pending</strong> 1</p>
-<p><small>對比 morning snapshot (137 票):New 93 → 105 (+12) · Resolved 16 → 25 (+9) · Open 9 → 11 (+2) · In Progress 6 → 9 (+3) · Closed 5 → 6 (+1)</small></p>
+<h2 id="status-distribution">Status 分佈(311 票,2026-05-14 上午重抓)</h2>
+<p class="ji-hero"><strong>New</strong> 251 · <strong>Open</strong> 28 · <strong>In Progress</strong> 16 · <strong>Deferred</strong> 9 · <strong>Pending</strong> 5 · <strong>Fail</strong> 1 · <strong>Inactive</strong> 1</p>
+<p><small>對比 5/12T15 snapshot (164 票):Total +147(191 added / 44 removed)· <strong>HAWK-501</strong> New → Open(唯一狀態變動)· 24 個 assignee 變動</small></p>
+<h3 id="top-fix-versions">Top fixVersion(311 票中 22 票有標)</h3>
+<p><small><code>CameraAPP_202605</code> 13 票 · <code>VisionMax_20260602</code> 7 票 · <code>CameraAPP_20260325_11.2.26.17</code> 2 票 · <code>2025Q4</code> 2 票 · <code>CameraAPP_20251001_11.2.24.82</code> 1 票</small></p>
+<h3 id="top-assignees">Top Assignees</h3>
+<p><small>spencer.su 33 · brian.chienlee 31 · elvis.tran 25 · joe.lien 25 · allen.yc.chung 20 · leo.tsai 18 · neil.kuo 12 · righter.song 10 · chiehli.wang 9 · luke.cheng 9 · eric.h 9 · nell.chen 9 · lucy.sw.yen 8 · mori.jhang 8 · simon.wu 7</small></p>
+
+<details class="historical-fold" style="margin: 16px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--canvas-2);">
+<summary style="cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--text-muted); font-size: var(--text-sm); list-style: none; display: flex; align-items: center; gap: 8px; user-select: none;">
+  <span aria-hidden="true">📜</span> <strong>歷史快照 · 2026-05-12 下午 Δ</strong>(137 → 164 票 delta · 1217 行歷史內容,點擊展開)
+</summary>
+<div style="padding: 0 18px 16px;">
+<blockquote style="margin: 8px 0 16px;">
+<p>以下保留 5/12 下午重抓的 137 → 164 票 delta 紀錄作為歷史參考。<strong>5/12 raw JSON 已於 2026-05-14 刪除</strong>,當前 SSOT = <code>jira_tickets_snapshot_2026-05-14.json</code> (311 票)。</p>
+</blockquote>
 
 <h2 id="afternoon-delta">⚡ 2026-05-12 下午 Δ(handoff 之後重抓)</h2>
 <blockquote>
@@ -1205,6 +1218,9 @@
 </tr>
 </tbody>
 </table>
+
+</div>
+</details>
 
 <h2 id="how-to-refresh">如何重新整理這份 snapshot</h2>
 <ol>

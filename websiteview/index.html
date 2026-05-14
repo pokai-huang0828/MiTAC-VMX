@@ -19,9 +19,9 @@
     </div>
     <div class="topnav-meta">
       <span class="live-dot"></span>
-      <span>Updated 2026-05-13 · MDT 2026 · v3</span>
-      <a href="styleguide.html" class="topnav-link" title="Design System reference">
-        <span aria-hidden="true">🎨</span> Design System
+      <span class="topnav-updated">Updated 2026-05-14</span>
+      <a href="styleguide.html" class="topnav-link topnav-link-discreet" title="Design System reference">
+        <span aria-hidden="true">🎨</span> <span class="topnav-link-label">Design System</span>
       </a>
     </div>
   </div>
@@ -37,14 +37,14 @@
           <span>Mission Control</span>
         </div>
         <h1>Kenny 的 <span class="underline">VMX 評估期</span><br>工作中樞</h1>
-        <p class="hero-lede">本週對齊 5 大 Outlook thread + 95 票 Jira(47 VMX / 48 HAWK)+ repo 內 8 處 knowledge Δ 校正。</p>
+        <p class="hero-lede">本週對齊 5 大 Outlook thread + 311 票 Jira(263 VMX / 48 HAWK)+ 5/13 Azuga AI Weekly 揭露 6/2 五大 deliverable。</p>
         <details class="hero-details">
           <summary>展開本週 highlights ↓</summary>
-          <p><strong>2026-05-12 下午 Δ</strong>:Jira 重抓(1 變 + 27 新)+ Outlook 5 信 + NotebookLM 揭露 6/2 Fix Version 死線 + Model 11P/11L/26/V14 對應。</p>
+          <p><strong>2026-05-14 Δ</strong>:Jira 全量重抓 311 票(+147)+ 5/13 Azuga AI Weekly meeting note + 6/2 三大 → 五大 deliverable 校正 + LDWS API 票號 VMX-7375 → VMX-7101 修正(repo 6 檔同步)。</p>
         </details>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="docs/weekly-summary/2026-05-12_afternoon-delta.html">
-            🆕 5/12 下午 Δ <span class="arrow">→</span>
+          <a class="btn btn-primary" href="docs/meetings/2026-05-13_azuga-ai-weekly.html">
+            🆕 5/13 Azuga AI Weekly <span class="arrow">→</span>
           </a>
           <a class="btn btn-ghost" href="docs/weekly-summary/2026-05-11_week-of-may-8.html">
             本週 Summary <span class="arrow">→</span>
@@ -75,46 +75,61 @@
     <span class="zone-sub">第一次打開這個 hub?照這個順序 1 小時就能 onboard</span>
   </div>
 
-  <ol class="onboard-steps">
+  <ol class="onboard-steps stagger-in">
     <li>
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <div class="step-title"><span aria-hidden="true">📐</span> 先懂「對誰講話 + 怎麼想」</div>
-        <p>Stakeholders + 三層真相 + 4 條核心原則。<strong>不懂這層,後面看 VMX 事實沒辦法判斷該怎麼用。</strong></p>
-        <a class="step-cta" href="knowledge.html#cat-pm">人與框架 →</a>
-      </div>
+      <a class="step-card-link" href="knowledge.html#cat-pm" aria-label="第 1 步:先懂對誰講話 + 怎麼想 — 開啟人與框架">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title"><span aria-hidden="true">📐</span> 先懂「對誰講話 + 怎麼想」</div>
+          <p>Stakeholders + 三層真相 + 4 條核心原則。<strong>不懂這層,後面看 VMX 事實沒辦法判斷該怎麼用。</strong></p>
+          <span class="step-target">人與框架</span>
+        </div>
+        <span class="step-arrow" aria-hidden="true">→</span>
+      </a>
     </li>
     <li>
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <div class="step-title"><span aria-hidden="true">🎯</span> 看「已校正的事實 + 別再答錯」</div>
-        <p>Critical Facts Log 是 SSOT。<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 是評估期最大議題。先把這 2 篇看完,後面對話不會踩雷。</p>
-        <a class="step-cta" href="docs/06_calibration-log/critical-facts-log.html">Critical Facts →</a>
-      </div>
+      <a class="step-card-link" href="docs/06_calibration-log/critical-facts-log.html" aria-label="第 2 步:看已校正的事實 — 開啟 Critical Facts Log">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title"><span aria-hidden="true">🎯</span> 看「已校正的事實 + 別再答錯」</div>
+          <p>Critical Facts Log 是 SSOT。VMX-7404 是評估期最大議題。先把這 2 篇看完,後面對話不會踩雷。</p>
+          <span class="step-target">Critical Facts</span>
+        </div>
+        <span class="step-arrow" aria-hidden="true">→</span>
+      </a>
     </li>
     <li>
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <div class="step-title"><span aria-hidden="true">🔧</span> KB Reference + 機種 spec</div>
-        <p>VMX 產品事實層。KB Reference 內含 Quick(9 篇深讀)+ Full(60 篇 catalog)tab。對客戶承諾前先 cross-check 這層。</p>
-        <a class="step-cta" href="docs/01_product-knowledge/kb-reference.html">KB Reference →</a>
-      </div>
+      <a class="step-card-link" href="docs/01_product-knowledge/kb-reference.html" aria-label="第 3 步:KB Reference + 機種 spec">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title"><span aria-hidden="true">🔧</span> KB Reference + 機種 spec</div>
+          <p>VMX 產品事實層。KB Reference 內含 Quick(9 篇深讀)+ Full(60 篇 catalog)tab。對客戶承諾前先 cross-check 這層。</p>
+          <span class="step-target">KB Reference</span>
+        </div>
+        <span class="step-arrow" aria-hidden="true">→</span>
+      </a>
     </li>
     <li>
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <div class="step-title"><span aria-hidden="true">🏛</span> 雙 Portal 商業模型</div>
-        <p>Master / Fleet Portal 怎麼分,Plan Type 怎麼跑,Contract Fleet 怎麼配。Cary/Elvis 線議題的源頭。</p>
-        <a class="step-cta" href="docs/03_systems-architecture/portal-architecture.html">Portal Architecture →</a>
-      </div>
+      <a class="step-card-link" href="docs/03_systems-architecture/portal-architecture.html" aria-label="第 4 步:雙 Portal 商業模型 — 開啟 Portal Architecture">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title"><span aria-hidden="true">🏛</span> 雙 Portal 商業模型</div>
+          <p>Master / Fleet Portal 怎麼分,Plan Type 怎麼跑,Contract Fleet 怎麼配。Cary/Elvis 線議題的源頭。</p>
+          <span class="step-target">Portal Architecture</span>
+        </div>
+        <span class="step-arrow" aria-hidden="true">→</span>
+      </a>
     </li>
     <li>
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <div class="step-title"><span aria-hidden="true">📋</span> 翻 3 個 active case</div>
-        <p>Honeywell ME / Platform Science / CONNECTSOURCE。每個 case 都有完整時間線 + PM 框架對應。</p>
-        <a class="step-cta" href="case-hub.html">Case Hub →</a>
-      </div>
+      <a class="step-card-link" href="case-hub.html" aria-label="第 5 步:翻 3 個 active case — 開啟 Case Hub">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title"><span aria-hidden="true">📋</span> 翻 3 個 active case</div>
+          <p>Honeywell ME / Platform Science / CONNECTSOURCE。每個 case 都有完整時間線 + PM 框架對應。</p>
+          <span class="step-target">Case Hub</span>
+        </div>
+        <span class="step-arrow" aria-hidden="true">→</span>
+      </a>
     </li>
   </ol>
 
@@ -131,16 +146,16 @@
     <span class="zone-sub">最新對齊狀態 + 本週 P0 / P1 動作</span>
   </div>
 
-  <div class="now-grid">
-    <a class="card-feature" href="docs/weekly-summary/2026-05-12_afternoon-delta.html">
-      <span class="tag"><span aria-hidden="true">⚡</span> Latest · 2026-05-12 下午 Δ</span>
-      <h3>Afternoon Δ Calibration · 5/12</h3>
-      <p>handoff 後 Jira 重抓(1 變 + 27 新)/ Outlook 5 信 / NotebookLM 揭露 5-10 MAU sync + 5-11 AI Weekly 錄音 + Model 11P/11L/26/V14 + 6/2 Fix Version 死線。</p>
+  <div class="now-grid stagger-in">
+    <a class="card-feature" href="docs/meetings/2026-05-13_azuga-ai-weekly.html">
+      <span class="tag"><span aria-hidden="true">⚡</span> Latest · 2026-05-13 Azuga AI Weekly</span>
+      <h3>Azuga AI Weekly Meeting · 5/13</h3>
+      <p>Mitac × Azuga + Webfleet 聯合 weekly · 8 議題 + 11 action items · 揭露 6/2 五大 deliverable(+ Eye Stable Rate + Camera Auto-Height)· HAWK-401/482 stalled · HAWK-501 New→Open。</p>
       <div class="stats">
-        <div>Jira Δ<strong>28</strong></div>
-        <div>Outlook<strong>7</strong></div>
-        <div>NotebookLM<strong>4</strong></div>
-        <div>6/2 死線<strong>3</strong></div>
+        <div>議題<strong>8</strong></div>
+        <div>Actions<strong>11</strong></div>
+        <div>6/2 死線<strong>5</strong></div>
+        <div>Jira 票<strong>311</strong></div>
       </div>
       <div style="margin-top:16px"><span class="more">深入閱讀 →</span></div>
     </a>
@@ -154,9 +169,9 @@
     <a class="card-mini" href="docs/06_calibration-log/critical-facts-log.html">
       <span class="label"><span class="dot red"></span> 別再答錯</span>
       <h4>Critical Facts Log</h4>
-      <p>5/11 新增 2 條 — KPI 100K · Lens Cover 6 月 release(HAWK-582 單軌)</p>
+      <p>5/14 新增 — 6/2 五大 deliverable(+ Eye Stable Rate + Camera Auto-Height)· LDWS = VMX-7101 不是 VMX-7375</p>
       <div class="footer-row">
-        <span class="count">15+</span>
+        <span class="count">17+</span>
         <span class="arrow-link">查校正 →</span>
       </div>
     </a>
@@ -181,7 +196,7 @@
     <span class="zone-sub">Active 客戶案 · 會議紀錄 · PM 框架</span>
   </div>
 
-  <div class="case-grid">
+  <div class="case-grid stagger-in">
     <a class="case" href="case-hub.html#honeywell">
       <div class="case-header">
         <div>
@@ -273,7 +288,7 @@
     完整搜尋 / 文件樹 / 待釐清在 <a href="knowledge.html" class="zone-intro-link">Knowledge Hub</a>。下方依主題入口。
   </p>
 
-  <div class="know-grid">
+  <div class="know-grid stagger-in">
     <a class="know-card" href="knowledge.html#cat-product">
       <div class="icon ic1"><span aria-hidden="true">🔧</span></div>
       <h4>產品知識</h4>
@@ -325,6 +340,18 @@
   <strong class="footer-title">Kenny VMX Mission Control v3</strong> · MDT 2026 ·
   改設計 token 在 <code>websiteview/css/design-tokens.css</code> · 設計系統參考 <a href="styleguide.html" class="footer-link">styleguide.html</a> · 全 static · 無 build script
 </footer>
+
+<button class="scroll-top-fab" aria-label="回到頂端" type="button">↑</button>
+<script>
+  (function(){
+    const fab = document.querySelector('.scroll-top-fab');
+    if (!fab) return;
+    const show = () => fab.classList.toggle('visible', window.scrollY > 400);
+    window.addEventListener('scroll', show, {passive: true});
+    fab.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    show();
+  })();
+</script>
 
 </body>
 </html>
