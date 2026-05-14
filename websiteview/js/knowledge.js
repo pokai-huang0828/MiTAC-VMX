@@ -14,6 +14,20 @@
   const cats = document.querySelectorAll('section.cat');
   const noMatch = document.getElementById('nomatch');
 
+  function normalizeSearchText(value) {
+    return String(value || '')
+      .normalize('NFKC')
+      .toLowerCase()
+      .replace(/[\u2010-\u2015\u2212_-]+/g, ' ')
+      .replace(/[\/\\]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function compactSearchText(value) {
+    return normalizeSearchText(value).replace(/\s+/g, '');
+  }
+
   /* ── 1. Scroll spy for sidebar TOC ── */
   function updateActiveCat() {
     const y = window.scrollY + 140;
@@ -30,19 +44,22 @@
 
   /* ── 2. Search filter — case-insensitive across title + filename + tags ── */
   function applyFilter() {
-    const q = (search.value || '').trim().toLowerCase();
+    const q = normalizeSearchText(search.value);
+    const qCompact = compactSearchText(search.value);
     let totalMatches = 0;
     cats.forEach((c) => {
       const cards = c.querySelectorAll('.doc-card');
       let visible = 0;
       cards.forEach((card) => {
-        const hay = (
+        const rawHay = (
           (card.dataset.title || '') + ' ' +
           (card.dataset.file || '') + ' ' +
           (card.dataset.tags || '') + ' ' +
           card.textContent
-        ).toLowerCase();
-        const match = !q || hay.indexOf(q) !== -1;
+        );
+        const hay = normalizeSearchText(rawHay);
+        const hayCompact = compactSearchText(rawHay);
+        const match = !q || hay.indexOf(q) !== -1 || (!!qCompact && hayCompact.indexOf(qCompact) !== -1);
         card.classList.toggle('hidden', !match);
         if (match) visible++;
       });

@@ -32,6 +32,27 @@ function scrollToSection(id, evt) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function bindInteractions() {
+  document.querySelectorAll('.tab-btn[data-case]').forEach((btn) => {
+    btn.addEventListener('click', (evt) => {
+      switchCase(btn.dataset.case, evt);
+    });
+  });
+
+  document.querySelectorAll('[data-scroll-target]').forEach((link) => {
+    link.addEventListener('click', (evt) => {
+      scrollToSection(link.dataset.scrollTarget, evt);
+    });
+  });
+
+  document.querySelectorAll('[data-case-switch]').forEach((link) => {
+    link.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      switchCase(link.dataset.caseSwitch, evt);
+    });
+  });
+}
+
 /* ─── URL hash routing ─────────────────────────────────────────
  * Accepts:  #honeywell · #ps · #cs · #pm · #weekly · #page-<id> · #sidebar-<id>
  * Falls back to first .tab-btn.active if hash absent / invalid.
@@ -51,7 +72,16 @@ function syncTabFromHash() {
   if (id) switchCase(id);
 }
 
+window.switchCase = switchCase;
+window.scrollToSection = scrollToSection;
+
 window.addEventListener('hashchange', syncTabFromHash);
-document.addEventListener('DOMContentLoaded', syncTabFromHash);
+document.addEventListener('DOMContentLoaded', () => {
+  bindInteractions();
+  syncTabFromHash();
+});
 /* In case DOMContentLoaded already fired by the time this script loads: */
-if (document.readyState !== 'loading') syncTabFromHash();
+if (document.readyState !== 'loading') {
+  bindInteractions();
+  syncTabFromHash();
+}

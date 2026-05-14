@@ -281,6 +281,7 @@ body {
 .spaced-top-10 { margin-top: 10px; }
 .spaced-top-12 { margin-top: 12px; }
 .spaced-top-md { margin-top: 18px; }
+.section-title-spaced { margin-top: 24px; }
 .cta-arrow {
   margin-top: 14px;
   font-size: var(--fs-13);

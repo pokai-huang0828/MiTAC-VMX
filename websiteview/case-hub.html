@@ -24,11 +24,11 @@
     </a>
   </div>
   <div class="topnav-tabs">
-    <button class="tab-btn" data-case="honeywell" onclick="switchCase('honeywell', event)">🆕 Honeywell ME</button>
-    <button class="tab-btn active" data-case="ps" onclick="switchCase('ps', event)">Platform Science</button>
-    <button class="tab-btn" data-case="cs" onclick="switchCase('cs', event)">CONNECTSOURCE</button>
-    <button class="tab-btn" data-case="pm" onclick="switchCase('pm', event)">PM 策略洞察</button>
-    <button class="tab-btn" data-case="weekly" onclick="switchCase('weekly', event)"><span aria-hidden="true">📅</span> Weekly Summary</button>
+    <button class="tab-btn" data-case="honeywell">🆕 Honeywell ME</button>
+    <button class="tab-btn active" data-case="ps">Platform Science</button>
+    <button class="tab-btn" data-case="cs">CONNECTSOURCE</button>
+    <button class="tab-btn" data-case="pm">PM 策略洞察</button>
+    <button class="tab-btn" data-case="weekly"><span aria-hidden="true">📅</span> Weekly Summary</button>
   </div>
 </nav>
 
@@ -38,60 +38,60 @@
 <aside class="sidebar" id="sidebar-ps">
   <div class="sidebar-section">
     <div class="sidebar-label">Platform Science</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('ps-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-timeline', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-tech', event)"><span class="sidebar-icon"><span aria-hidden="true">🔧</span></span>技術資訊</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-risks', event)"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>商機與風險</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('ps-analysis', event)"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 分析</a>
+    <a class="sidebar-item active" href="#ps-hero" data-scroll-target="ps-hero"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
+    <a class="sidebar-item" href="#ps-people" data-scroll-target="ps-people"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
+    <a class="sidebar-item" href="#ps-timeline" data-scroll-target="ps-timeline"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
+    <a class="sidebar-item" href="#ps-tech" data-scroll-target="ps-tech"><span class="sidebar-icon"><span aria-hidden="true">🔧</span></span>技術資訊</a>
+    <a class="sidebar-item" href="#ps-actions" data-scroll-target="ps-actions"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
+    <a class="sidebar-item" href="#ps-risks" data-scroll-target="ps-risks"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>商機與風險</a>
+    <a class="sidebar-item" href="#ps-analysis" data-scroll-target="ps-analysis"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 分析</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-cs">
   <div class="sidebar-section">
     <div class="sidebar-label">CONNECTSOURCE</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('cs-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🌏</span></span>事件總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-numbers', event)"><span class="sidebar-icon"><span aria-hidden="true">💰</span></span>商業規模</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-timeline', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-portal-visual', event)"><span class="sidebar-icon"><span aria-hidden="true">🖥️</span></span>Portal 視覺對照</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-conflict', event)"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>衝突分析</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('cs-pm', event)"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 建議</a>
+    <a class="sidebar-item active" href="#cs-hero" data-scroll-target="cs-hero"><span class="sidebar-icon"><span aria-hidden="true">🌏</span></span>事件總覽</a>
+    <a class="sidebar-item" href="#cs-people" data-scroll-target="cs-people"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>關係人</a>
+    <a class="sidebar-item" href="#cs-numbers" data-scroll-target="cs-numbers"><span class="sidebar-icon"><span aria-hidden="true">💰</span></span>商業規模</a>
+    <a class="sidebar-item" href="#cs-timeline" data-scroll-target="cs-timeline"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>時間軸</a>
+    <a class="sidebar-item" href="#cs-portal-visual" data-scroll-target="cs-portal-visual"><span class="sidebar-icon"><span aria-hidden="true">🖥️</span></span>Portal 視覺對照</a>
+    <a class="sidebar-item" href="#cs-conflict" data-scroll-target="cs-conflict"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>衝突分析</a>
+    <a class="sidebar-item" href="#cs-actions" data-scroll-target="cs-actions"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>待辦事項</a>
+    <a class="sidebar-item" href="#cs-pm" data-scroll-target="cs-pm"><span class="sidebar-icon"><span aria-hidden="true">🧠</span></span>PM 建議</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-pm">
   <div class="sidebar-section">
     <div class="sidebar-label">PM 策略</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('pm-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>跨案例洞察</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-commit', event)"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>承諾層次框架</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-tech-client', event)"><span class="sidebar-icon"><span aria-hidden="true">💬</span></span>技術型客戶溝通</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-internal', event)"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>內部溝通斷層</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('pm-principles', event)"><span class="sidebar-icon"><span aria-hidden="true">💡</span></span>核心原則</a>
+    <a class="sidebar-item active" href="#pm-hero" data-scroll-target="pm-hero"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>跨案例洞察</a>
+    <a class="sidebar-item" href="#pm-commit" data-scroll-target="pm-commit"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>承諾層次框架</a>
+    <a class="sidebar-item" href="#pm-tech-client" data-scroll-target="pm-tech-client"><span class="sidebar-icon"><span aria-hidden="true">💬</span></span>技術型客戶溝通</a>
+    <a class="sidebar-item" href="#pm-internal" data-scroll-target="pm-internal"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>內部溝通斷層</a>
+    <a class="sidebar-item" href="#pm-principles" data-scroll-target="pm-principles"><span class="sidebar-icon"><span aria-hidden="true">💡</span></span>核心原則</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-honeywell">
   <div class="sidebar-section">
     <div class="sidebar-label">Honeywell ME · NEW</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('hw-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-directive', event)"><span class="sidebar-icon"><span aria-hidden="true">📋</span></span>Stark 指令</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-kenny', event)"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>Kenny 對接點</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-people', event)"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>利害關係人</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-risks', event)"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>風險點</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('hw-actions', event)"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>Action Items</a>
+    <a class="sidebar-item active" href="#hw-hero" data-scroll-target="hw-hero"><span class="sidebar-icon"><span aria-hidden="true">🏢</span></span>專案總覽</a>
+    <a class="sidebar-item" href="#hw-directive" data-scroll-target="hw-directive"><span class="sidebar-icon"><span aria-hidden="true">📋</span></span>Stark 指令</a>
+    <a class="sidebar-item" href="#hw-kenny" data-scroll-target="hw-kenny"><span class="sidebar-icon"><span aria-hidden="true">🎯</span></span>Kenny 對接點</a>
+    <a class="sidebar-item" href="#hw-people" data-scroll-target="hw-people"><span class="sidebar-icon"><span aria-hidden="true">👥</span></span>利害關係人</a>
+    <a class="sidebar-item" href="#hw-risks" data-scroll-target="hw-risks"><span class="sidebar-icon"><span aria-hidden="true">⚠️</span></span>風險點</a>
+    <a class="sidebar-item" href="#hw-actions" data-scroll-target="hw-actions"><span class="sidebar-icon"><span aria-hidden="true">✅</span></span>Action Items</a>
   </div>
 </aside>
 
 <aside class="sidebar hidden" id="sidebar-weekly">
   <div class="sidebar-section">
     <div class="sidebar-label">Weekly Summary</div>
-    <a class="sidebar-item active" href="#" onclick="scrollToSection('wk-hero', event)"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>本週總覽</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-current', event)"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>2026-05-12 下午 Δ(最新)</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-archive', event)"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>歷史 Summary</a>
-    <a class="sidebar-item" href="#" onclick="scrollToSection('wk-howto', event)"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>每週流程</a>
+    <a class="sidebar-item active" href="#wk-hero" data-scroll-target="wk-hero"><span class="sidebar-icon"><span aria-hidden="true">📅</span></span>本週總覽</a>
+    <a class="sidebar-item" href="#wk-current" data-scroll-target="wk-current"><span class="sidebar-icon"><span aria-hidden="true">⚡</span></span>2026-05-12 下午 Δ(最新)</a>
+    <a class="sidebar-item" href="#wk-archive" data-scroll-target="wk-archive"><span class="sidebar-icon"><span aria-hidden="true">📚</span></span>歷史 Summary</a>
+    <a class="sidebar-item" href="#wk-howto" data-scroll-target="wk-howto"><span class="sidebar-icon"><span aria-hidden="true">🔄</span></span>每週流程</a>
   </div>
 </aside>
 
@@ -1128,7 +1128,7 @@
       <div class="cta-arrow">深入閱讀 →</div>
     </a>
 
-    <div class="section-title" style="margin-top: 24px"><span aria-hidden="true">📅</span> 本週 · 2026-05-11(Week of May 8 → May 11)</div>
+    <div class="section-title section-title-spaced"><span aria-hidden="true">📅</span> 本週 · 2026-05-11(Week of May 8 → May 11)</div>
     <a href="docs/weekly-summary/2026-05-11_week-of-may-8.html" class="card card-link">
       <div class="flex-between-wrap">
         <div>
@@ -1154,7 +1154,7 @@
     <div class="section-title"><span aria-hidden="true">📚</span> 歷史 Weekly Summary</div>
     <div class="card">
       <p class="text-lead-13">
-        歷史會議紀錄(5/6 Q2 Review / AI Weekly series · 5/7 + 5/11 / 5/8 Sync-up)在 <a href="#" onclick="switchCase('pm', event); return false;" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="../meetings/" class="mdt-link">meetings/</a>(md source)資料夾。
+        歷史會議紀錄(5/6 Q2 Review / AI Weekly series · 5/7 + 5/11 / 5/8 Sync-up)在 <a href="#" data-case-switch="pm" class="mdt-link">PM 策略洞察 tab</a> 與 <a href="docs/meetings/ai-weekly-internal-roundup.html" class="mdt-link">AI Weekly series</a>。
       </p>
       <ul class="list-loose-20">
         <li><a href="docs/meetings/cary-elvis-blurring-timeline.html#part-1" class="mdt-link">5/8 Sync up · Kenny / Cary / Elvis(21 min)</a> — Q2 portal path 校正</li>
@@ -1187,7 +1187,7 @@
 <script src="js/case-hub.js"></script>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-  <button class="lightbox-close" type="button" aria-label="Close preview" onclick="document.getElementById('lightbox').classList.remove('is-open')">×</button>
+  <button class="lightbox-close" type="button" aria-label="Close preview">×</button>
   <img alt="">
   <div class="lightbox-caption"></div>
 </div>

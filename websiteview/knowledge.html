@@ -200,7 +200,7 @@
           <div class="doc-file">three-truth-layers.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
-        <a class="doc-card featured" href="docs/04_pm-frameworks--communication-frameworks.md" data-title="Communication Frameworks" data-file="communication-frameworks.md" data-tags="commitment tech-client internal-comm wendy vinicius">
+        <a class="doc-card featured" href="docs/04_pm-frameworks/communication-frameworks.html" data-title="Communication Frameworks" data-file="communication-frameworks.md" data-tags="commitment tech-client internal-comm wendy vinicius">
           <div class="doc-title"><span aria-hidden="true">💬</span> 溝通三件套(承諾 + 技術型客戶 + 內部斷層)</div>
           <div class="doc-file">communication-frameworks.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
@@ -295,7 +295,7 @@
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card" href="docs/06_calibration-log/ai-weekly-2026-05-07-roundup.html" data-title="AI Weekly 5/7 Roundup (legacy)" data-file="ai-weekly-2026-05-07-roundup.html" data-tags="ai weekly 5/7 jira sheet cary roundup legacy superseded">
-          <div class="doc-title"><span aria-hidden="true">📊</span> 5/7 AI Weekly 全切面合輯 <span style="color:var(--ink-2);font-size:.85em">(legacy snapshot · 已 supersede,內部 AI Weekly 系列改用 meetings/ai-weekly-internal-roundup)</span></div>
+          <div class="doc-title"><span aria-hidden="true">📊</span> 5/7 AI Weekly 全切面合輯 <span class="doc-title-note">(legacy snapshot · 已 supersede,內部 AI Weekly 系列改用 meetings/ai-weekly-internal-roundup)</span></div>
           <div class="doc-file">ai-weekly-2026-05-07-roundup.html</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
@@ -316,21 +316,12 @@
 </div>
 
 <footer class="site-footer">
-  <strong style="color:var(--ink-2)">Knowledge Hub · Static v3</strong>
+  <strong class="footer-muted-title">Knowledge Hub · Static v3</strong>
   · 無 build script · 直接編輯 <code>knowledge.html</code> / <code>css/knowledge.css</code>
 </footer>
 
 <button class="scroll-top-fab" aria-label="回到頂端" type="button">↑</button>
-<script>
-  (function(){
-    const fab = document.querySelector('.scroll-top-fab');
-    if (!fab) return;
-    const show = () => fab.classList.toggle('visible', window.scrollY > 400);
-    window.addEventListener('scroll', show, {passive: true});
-    fab.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-    show();
-  })();
-</script>
+<script src="js/scroll-top.js" defer></script>
 <script src="js/knowledge.js" defer></script>
 </body>
 </html>

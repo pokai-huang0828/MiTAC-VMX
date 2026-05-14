@@ -8,6 +8,45 @@
   color: var(--ink-2);
 }
 .ji-hero strong { color: var(--brand); }
+.ji-delta-callout {
+  margin: 12px 28px;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.historical-fold {
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--canvas-2);
+}
+.historical-summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+.historical-body { padding: 0 18px 16px; }
+.historical-quote { margin: 8px 0 16px; }
+.ji-legacy-note {
+  margin-top: -8px;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+.ji-col-key { width: 105px; }
+.ji-col-status { width: 130px; }
+.ji-col-assignee { width: 135px; }
+.ji-col-updated { width: 115px; }
+.ji-col-cited { width: 60px; }
 
 .ji-controls {
   display: flex; flex-wrap: wrap; gap: 6px;

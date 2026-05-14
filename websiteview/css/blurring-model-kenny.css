@@ -135,6 +135,14 @@
   }
   .state.off { background: var(--red-bg); color: var(--red); border-color: #F5C2C6; }
   .state .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .state-compact { font-size: var(--fs-10); }
+  .inherit-caption {
+    margin-top: 14px;
+    font-size: var(--fs-12);
+    color: var(--muted);
+    text-align: center;
+    max-width: 580px;
+  }
   .arrow {
     width: 2px; height: 24px; background: var(--brand-3);
     position: relative; flex-shrink: 0; margin: 0;

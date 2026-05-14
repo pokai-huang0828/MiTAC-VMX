@@ -56,10 +56,10 @@
       </div>
       <div class="gauge-wrap" title="VMX Subscription = MiTAC VMX 平台累計授權數,2026 年底 Steve(Brian 上司)定的內部 KPI = 100K 台。5/9 QBR 揭露目前約 85K,還差 15K。新人:這個 KPI 影響 Honeywell ME 6K pcs 第一單 + 各 fleet contract 簽約節奏。">
         <div class="gauge-label">VMX Subscription KPI · 2026 YE</div>
-        <div class="gauge" style="--pct: 85">
+        <div class="gauge gauge-85">
           <div class="gauge-num">85<small>K</small></div>
         </div>
-        <div class="gauge-sub">Target <strong>100K</strong> · <strong>差 15K</strong> · Steve QBR 5/9 · <span style="opacity:.7">hover 看解釋</span></div>
+        <div class="gauge-sub">Target <strong>100K</strong> · <strong>差 15K</strong> · Steve QBR 5/9 · <span class="text-muted-soft">hover 看解釋</span></div>
       </div>
     </div>
   </div>
@@ -157,7 +157,7 @@
         <div>6/2 死線<strong>5</strong></div>
         <div>Jira 票<strong>311</strong></div>
       </div>
-      <div style="margin-top:16px"><span class="more">深入閱讀 →</span></div>
+      <div class="spaced-top-md"><span class="more">深入閱讀 →</span></div>
     </a>
 
     <a class="card-mini" href="docs/weekly-summary/2026-05-11_week-of-may-8.html">
@@ -197,7 +197,7 @@
   </div>
 
   <div class="case-grid stagger-in">
-    <a class="case" href="case-hub.html#honeywell">
+    <a class="case" href="case-hub.html#page-honeywell">
       <div class="case-header">
         <div>
           <div class="case-name">Honeywell MiddleEast</div>
@@ -213,7 +213,7 @@
       </div>
     </a>
 
-    <a class="case" href="case-hub.html#ps">
+    <a class="case" href="case-hub.html#page-ps">
       <div class="case-header">
         <div>
           <div class="case-name">Platform Science</div>
@@ -228,7 +228,7 @@
       </div>
     </a>
 
-    <a class="case" href="case-hub.html#cs">
+    <a class="case" href="case-hub.html#page-cs">
       <div class="case-header">
         <div>
           <div class="case-name">CONNECTSOURCE</div>
@@ -259,7 +259,7 @@
         <span>🆕 5/11 最新場:Model 11P/11L/26/V14 + 6/2 Fix Version 死線 · 5/7 場:17x 飲食 / LDWS / Lens Cover 單軌 / Yawning</span>
       </div>
     </a>
-    <a class="asset orange" href="case-hub.html#pm">
+    <a class="asset orange" href="case-hub.html#page-pm">
       <div class="asset-icon"><span aria-hidden="true">💡</span></div>
       <div class="asset-body">
         <strong>PM 策略洞察</strong>
@@ -342,16 +342,7 @@
 </footer>
 
 <button class="scroll-top-fab" aria-label="回到頂端" type="button">↑</button>
-<script>
-  (function(){
-    const fab = document.querySelector('.scroll-top-fab');
-    if (!fab) return;
-    const show = () => fab.classList.toggle('visible', window.scrollY > 400);
-    window.addEventListener('scroll', show, {passive: true});
-    fab.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-    show();
-  })();
-</script>
+<script src="js/scroll-top.js" defer></script>
 
 </body>
 </html>

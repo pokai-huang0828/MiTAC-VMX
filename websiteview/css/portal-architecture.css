@@ -1569,6 +1569,7 @@ body:has(.slide.visible.end-slide) .ti-count {
   flex: 1;
   min-height: 0;
 }
+.platform-hl-grid-single { grid-template-columns: 1fr; }
 @media (max-width: 880px) { .platform-hl-grid { grid-template-columns: 1fr; } }
 .platform-hl-card {
   display: flex; flex-direction: column;

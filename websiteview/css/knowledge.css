@@ -566,6 +566,11 @@ main.doc-standalone .doc-content > p:first-of-type {
   display: block; font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 800; color: var(--brand);
 }
+.doc-title-note {
+  color: var(--ink-2);
+  font-size: .85em;
+}
+.footer-muted-title { color: var(--ink-2); }
 
 /* ================================================================
  * Mobile UX overhaul (2026-05-14)

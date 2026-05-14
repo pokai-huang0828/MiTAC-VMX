@@ -53,19 +53,19 @@
 
   <h3 class="sg-h3">Brand</h3>
   <div class="sg-swatch-grid">
-    <div class="sg-swatch" style="--c: var(--brand)">
+    <div class="sg-swatch sg-token-brand">
       <div class="chip"></div>
       <div class="meta"><code>--brand</code><span>#1E4E8C</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--brand-2)">
+    <div class="sg-swatch sg-token-brand-2">
       <div class="chip"></div>
       <div class="meta"><code>--brand-2</code><span>#2C6FB8</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--brand-3)">
+    <div class="sg-swatch sg-token-brand-3">
       <div class="chip"></div>
       <div class="meta"><code>--brand-3</code><span>#4E90D1</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--brand-soft)">
+    <div class="sg-swatch sg-token-brand-soft">
       <div class="chip"></div>
       <div class="meta"><code>--brand-soft</code><span>#E8EEFB</span></div>
     </div>
@@ -73,19 +73,19 @@
 
   <h3 class="sg-h3">Accent</h3>
   <div class="sg-swatch-grid">
-    <div class="sg-swatch" style="--c: var(--accent)">
+    <div class="sg-swatch sg-token-accent">
       <div class="chip"></div>
       <div class="meta"><code>--accent</code><span>#ED7D31</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--accent-2)">
+    <div class="sg-swatch sg-token-accent-2">
       <div class="chip"></div>
       <div class="meta"><code>--accent-2</code><span>#FF9E5C</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--accent-dark)">
+    <div class="sg-swatch sg-token-accent-dark">
       <div class="chip"></div>
       <div class="meta"><code>--accent-dark</code><span>#C9622E</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--accent-soft)">
+    <div class="sg-swatch sg-token-accent-soft">
       <div class="chip"></div>
       <div class="meta"><code>--accent-soft</code><span>#FFF1E0</span></div>
     </div>
@@ -93,19 +93,19 @@
 
   <h3 class="sg-h3">Semantic</h3>
   <div class="sg-swatch-grid">
-    <div class="sg-swatch" style="--c: var(--success)">
+    <div class="sg-swatch sg-token-success">
       <div class="chip"></div>
       <div class="meta"><code>--success</code><span>#16A34A</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--warning)">
+    <div class="sg-swatch sg-token-warning">
       <div class="chip"></div>
       <div class="meta"><code>--warning</code><span>#CA8A04</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--danger)">
+    <div class="sg-swatch sg-token-danger">
       <div class="chip"></div>
       <div class="meta"><code>--danger</code><span>#C42F3C</span></div>
     </div>
-    <div class="sg-swatch" style="--c: var(--info)">
+    <div class="sg-swatch sg-token-info">
       <div class="chip"></div>
       <div class="meta"><code>--info</code><span>#2C6FB8</span></div>
     </div>
@@ -113,12 +113,12 @@
 
   <h3 class="sg-h3">Text · WCAG AA verified on white</h3>
   <div class="sg-text-scale">
-    <div class="sg-text-row" style="color: var(--ink)"><strong>--ink</strong><span>#0B1220</span><em>19.5:1 · AAA</em></div>
-    <div class="sg-text-row" style="color: var(--ink-2)"><strong>--ink-2</strong><span>#1B2433</span><em>15.4:1 · AAA</em></div>
-    <div class="sg-text-row" style="color: var(--text)"><strong>--text</strong><span>#2A3447</span><em>12.2:1 · AAA</em></div>
-    <div class="sg-text-row" style="color: var(--text-muted)"><strong>--text-muted</strong><span>#4A5568</span><em>7.6:1 · AAA</em></div>
-    <div class="sg-text-row" style="color: var(--text-mute-2)"><strong>--text-mute-2</strong><span>#5B6878</span><em>5.9:1 · AA</em></div>
-    <div class="sg-text-row" style="color: var(--text-light)"><strong>--text-light</strong><span>#6B7A8F</span><em>4.6:1 · AA</em></div>
+    <div class="sg-text-row sg-text-ink"><strong>--ink</strong><span>#0B1220</span><em>19.5:1 · AAA</em></div>
+    <div class="sg-text-row sg-text-ink-2"><strong>--ink-2</strong><span>#1B2433</span><em>15.4:1 · AAA</em></div>
+    <div class="sg-text-row sg-text-main"><strong>--text</strong><span>#2A3447</span><em>12.2:1 · AAA</em></div>
+    <div class="sg-text-row sg-text-muted"><strong>--text-muted</strong><span>#4A5568</span><em>7.6:1 · AAA</em></div>
+    <div class="sg-text-row sg-text-mute-2"><strong>--text-mute-2</strong><span>#5B6878</span><em>5.9:1 · AA</em></div>
+    <div class="sg-text-row sg-text-light"><strong>--text-light</strong><span>#6B7A8F</span><em>4.6:1 · AA</em></div>
   </div>
   <p class="sg-note">⚠️ <strong>不要</strong>用 <code>#8893A4 / #94A3B8</code> 之類更淺的灰 — 之前 CSS 內有,對比 fail WCAG AA。已從 token 移除。</p>
 </section>
@@ -128,14 +128,14 @@
   <h2 class="sg-h2">Typography</h2>
   <p class="sg-lead"><strong>8 階 type scale</strong>。不要再加 <code>13.5px / 14.5px / 16.5px</code> 半 px 值;從這 8 個之中挑。</p>
 
-  <div class="sg-type-row" style="font-size: var(--text-3xl)"><strong>3xl · 40px</strong> <span>Cabinet Grotesk 800</span> <em>Hero / H1</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-2xl)"><strong>2xl · 30px</strong> <span>Cabinet Grotesk 800</span> <em>H2 / Page title</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-xl)"><strong>xl · 24px</strong> <span>Cabinet Grotesk 700</span> <em>H3 / Zone title</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-lg)"><strong>lg · 20px</strong> <span>Cabinet Grotesk 700</span> <em>H4 / Section heading</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-md)"><strong>md · 17px</strong> <span>Satoshi 600</span> <em>Card title / Emphasis</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-base)"><strong>base · 15px</strong> <span>Satoshi 400</span> <em>Body</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-sm)"><strong>sm · 13px</strong> <span>Satoshi 500</span> <em>Small / Button label</em></div>
-  <div class="sg-type-row" style="font-size: var(--text-xs)"><strong>xs · 11px</strong> <span>Satoshi 600</span> <em>Caption / File label / Meta</em></div>
+  <div class="sg-type-row sg-type-3xl"><strong>3xl · 40px</strong> <span>Cabinet Grotesk 800</span> <em>Hero / H1</em></div>
+  <div class="sg-type-row sg-type-2xl"><strong>2xl · 30px</strong> <span>Cabinet Grotesk 800</span> <em>H2 / Page title</em></div>
+  <div class="sg-type-row sg-type-xl"><strong>xl · 24px</strong> <span>Cabinet Grotesk 700</span> <em>H3 / Zone title</em></div>
+  <div class="sg-type-row sg-type-lg"><strong>lg · 20px</strong> <span>Cabinet Grotesk 700</span> <em>H4 / Section heading</em></div>
+  <div class="sg-type-row sg-type-md"><strong>md · 17px</strong> <span>Satoshi 600</span> <em>Card title / Emphasis</em></div>
+  <div class="sg-type-row sg-type-base"><strong>base · 15px</strong> <span>Satoshi 400</span> <em>Body</em></div>
+  <div class="sg-type-row sg-type-sm"><strong>sm · 13px</strong> <span>Satoshi 500</span> <em>Small / Button label</em></div>
+  <div class="sg-type-row sg-type-xs"><strong>xs · 11px</strong> <span>Satoshi 600</span> <em>Caption / File label / Meta</em></div>
 
   <h3 class="sg-h3">Font families</h3>
   <ul class="sg-list">
@@ -150,15 +150,15 @@
   <h2 class="sg-h2">Spacing</h2>
   <p class="sg-lead">8pt grid 9 階。<strong>不要</strong>再用 7 / 9 / 11 / 13 / 18 / 22 / 26 / 30 等非 grid 值。</p>
   <div class="sg-spacing-grid">
-    <div class="sg-spacing-row"><code>--space-1</code><span>4px</span><span class="bar" style="width: 4px"></span></div>
-    <div class="sg-spacing-row"><code>--space-2</code><span>8px</span><span class="bar" style="width: 8px"></span></div>
-    <div class="sg-spacing-row"><code>--space-3</code><span>12px</span><span class="bar" style="width: 12px"></span></div>
-    <div class="sg-spacing-row"><code>--space-4</code><span>16px</span><span class="bar" style="width: 16px"></span></div>
-    <div class="sg-spacing-row"><code>--space-5</code><span>24px</span><span class="bar" style="width: 24px"></span></div>
-    <div class="sg-spacing-row"><code>--space-6</code><span>32px</span><span class="bar" style="width: 32px"></span></div>
-    <div class="sg-spacing-row"><code>--space-7</code><span>48px</span><span class="bar" style="width: 48px"></span></div>
-    <div class="sg-spacing-row"><code>--space-8</code><span>64px</span><span class="bar" style="width: 64px"></span></div>
-    <div class="sg-spacing-row"><code>--space-9</code><span>96px</span><span class="bar" style="width: 96px"></span></div>
+    <div class="sg-spacing-row"><code>--space-1</code><span>4px</span><span class="bar bar-space-1"></span></div>
+    <div class="sg-spacing-row"><code>--space-2</code><span>8px</span><span class="bar bar-space-2"></span></div>
+    <div class="sg-spacing-row"><code>--space-3</code><span>12px</span><span class="bar bar-space-3"></span></div>
+    <div class="sg-spacing-row"><code>--space-4</code><span>16px</span><span class="bar bar-space-4"></span></div>
+    <div class="sg-spacing-row"><code>--space-5</code><span>24px</span><span class="bar bar-space-5"></span></div>
+    <div class="sg-spacing-row"><code>--space-6</code><span>32px</span><span class="bar bar-space-6"></span></div>
+    <div class="sg-spacing-row"><code>--space-7</code><span>48px</span><span class="bar bar-space-7"></span></div>
+    <div class="sg-spacing-row"><code>--space-8</code><span>64px</span><span class="bar bar-space-8"></span></div>
+    <div class="sg-spacing-row"><code>--space-9</code><span>96px</span><span class="bar bar-space-9"></span></div>
   </div>
 </section>
 
@@ -166,11 +166,11 @@
 <section id="sec-radius" class="sg-section">
   <h2 class="sg-h2">Radius</h2>
   <div class="sg-radius-grid">
-    <div class="sg-radius-tile" style="border-radius: var(--r-sm)"><code>--r-sm · 6px</code></div>
-    <div class="sg-radius-tile" style="border-radius: var(--r)"><code>--r · 10px</code></div>
-    <div class="sg-radius-tile" style="border-radius: var(--r-lg)"><code>--r-lg · 16px</code></div>
-    <div class="sg-radius-tile" style="border-radius: var(--r-xl)"><code>--r-xl · 24px</code></div>
-    <div class="sg-radius-tile" style="border-radius: var(--r-full)"><code>--r-full · pill</code></div>
+    <div class="sg-radius-tile sg-radius-sm"><code>--r-sm · 6px</code></div>
+    <div class="sg-radius-tile sg-radius-base"><code>--r · 10px</code></div>
+    <div class="sg-radius-tile sg-radius-lg"><code>--r-lg · 16px</code></div>
+    <div class="sg-radius-tile sg-radius-xl"><code>--r-xl · 24px</code></div>
+    <div class="sg-radius-tile sg-radius-full"><code>--r-full · pill</code></div>
   </div>
 </section>
 
@@ -178,10 +178,10 @@
 <section id="sec-shadow" class="sg-section">
   <h2 class="sg-h2">Shadow</h2>
   <div class="sg-shadow-grid">
-    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-sm)"><code>--shadow-sm</code><span>resting / subtle outline</span></div>
-    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-md)"><code>--shadow-md</code><span>hover / elevated card</span></div>
-    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-lg)"><code>--shadow-lg</code><span>modal / overlay</span></div>
-    <div class="sg-shadow-tile" style="box-shadow: var(--shadow-xl)"><code>--shadow-xl</code><span>hero / promoted</span></div>
+    <div class="sg-shadow-tile sg-shadow-sm"><code>--shadow-sm</code><span>resting / subtle outline</span></div>
+    <div class="sg-shadow-tile sg-shadow-md"><code>--shadow-md</code><span>hover / elevated card</span></div>
+    <div class="sg-shadow-tile sg-shadow-lg"><code>--shadow-lg</code><span>modal / overlay</span></div>
+    <div class="sg-shadow-tile sg-shadow-xl"><code>--shadow-xl</code><span>hero / promoted</span></div>
   </div>
 </section>
 
