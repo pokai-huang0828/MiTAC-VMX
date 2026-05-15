@@ -52,8 +52,8 @@
 
   /* ─────────── Type scale (8 steps · primary) ─────────── */
   --text-xs:       11px;             /* caption / file label */
-  --text-sm:       13px;             /* small body / button */
-  --text-base:     15px;             /* body */
+  --text-sm:       14px;             /* small body / button */
+  --text-base:     16px;             /* body — 16px min for mobile a11y */
   --text-md:       17px;             /* emphasis / card title */
   --text-lg:       20px;             /* h4 / section heading */
   --text-xl:       24px;             /* h3 / zone title */
@@ -316,6 +316,18 @@ h1, h2, h3, h4, h5, h6,
 .scroll-top-fab:hover { background: var(--brand-2); }
 .scroll-top-fab:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 @media (min-width: 880px) { .scroll-top-fab { display: none; } }
+
+/* ─────────── Lucide SVG icon utility (2026-05-15) ─────────── */
+.icon {
+  display: inline-block;
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  stroke-width: 2;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.icon-sm { width: 0.875em; height: 0.875em; }
+.icon-lg { width: 1.25em; height: 1.25em; }
 
 /* ─────────── Print baseline (saves ink, removes chrome) ─────────── */
 @media print {

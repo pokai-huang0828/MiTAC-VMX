@@ -5,6 +5,44 @@
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
 > 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md) | Jira 即時狀態:[`00_index/jira-snapshot.md`](../00_index/jira-snapshot.md)(2026-05-12 抓 137 票)
 
+## 2026-05-14 AI Weekly Internal — 3 大「對外承諾 vs 內部現實」反差(2026-05-15 從 NotebookLM 補抓)
+
+> **抓取背景**:Kenny 5/15 發現「5/14 內部 AI weekly 沒校正」後從 NotebookLM 神達VMX notebook 反查 `5-14 ai weekly meeting I.m4a` + `II.m4a` 兩段錄音的 PM 視角整理。
+> **完整會議紀錄**:[`meetings/ai-weekly-internal-roundup.md` § 2026-05-14](../../meetings/ai-weekly-internal-roundup.md#2026-05-14-ai-weekly)。
+
+### ❌ 答錯口徑 → ✅ 校正後事實
+
+1. **Yawning 對外口徑(對 Azuga / Webfleet)**
+   - ❌ 不能再講「6/2 會釋出高準確度打哈欠」
+   - ✅ 校正後:**手上只有 ~2000 張 AI 生成假資料**(不是真實採集)— 團隊對其準確度「沒有期待」。Kenny 必須提早做**期望值管理**(Expectation Management),改說「Yawning 模型仍在資料層收斂,6/2 釋出僅做 PoC / 初步驗證,高準確度需後續版本」
+
+2. **Lens Cover 解耦對外口徑**
+   - ❌ 不能再講「Lens Cover 解耦 = 簡單改一個 if-statement」
+   - ✅ 校正後:**RD 必須緊急開發「參數化計時迴圈機制」**重構底層狀態機(舊架構把 Lens Cover + Calibration 綁定極深)。Jieli **5/19 下週一 Beta 死線**,壓力極大。新規格:廢除「需 Recalibrate 才能再觸發」限制,改採 Configurable Parameter(預設 0 = 不重複觸發)→ 對應 [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582)(設計)+ [HAWK-585](https://jira.navman.co.nz/jira/browse/HAWK-585)(實作 bug)
+
+3. **Eating/Drinking 對 Azuga 回覆口徑**
+   - ❌ 不能再答應「完美解決所有食物 / 飲水誤判」
+   - ✅ 校正後:**實務上無法完美定義所有「食物」**(三明治 / 零食袋 / 各種包裝)+ 無法區分「拿杯子貼臉」vs「實際喝水」。改採收斂策略 — **先處理「飲水(瓶子/杯子)」特徵**加入負向資料庫重訓。對外要說「我們先處理飲水這類最常發生的誤報特徵,**不承諾一次解決所有食物**」
+
+### ✓ 新確認(可對外講)
+
+4. **Blurring 架構技術選型確認**(對 Elvis / Cary cost 對話 § 9.7 加強用)
+   - **無 GPU 的 CPU Instance** 跑 Python 影像處理(不是 GPU 高成本架構)
+   - **SQS (Message Queue) + Callback API** 非同步處理流程
+   - 這個物理事實可加強 cost framing 信心 — 「scales meaningfully higher」的成本來自 storage 1.8× + AI compute 黑盒,**不是 GPU**
+
+### 5/14 vs 5/11 + 5/13 差異總結
+
+| 議題 | 5/11 或 5/13 對外 | 5/14 內部 reality check |
+|---|---|---|
+| Lens Cover | 輕鬆答應 Azuga「解除車速 + Calibration 依賴」 | RD 盤點發現舊狀態機綁定極深 → 必須緊急重構底層 |
+| Yawning | 5/11 決議轉 Server AI + Full Face 模型 | 5/14 揭露只有 ~2000 張 AI 假圖,準確率極限浮現 |
+| Eating/Drinking | 5/13 客戶提議 Anonymized 影像全面解決 | 5/14 認知無法完美定義所有食物 → 改為「先過濾飲水」 |
+| Blurring | 5/11 Spencer 拍板 API only | 5/14 具體化:CPU + SQS + Callback(非 GPU) |
+
+- 校正人:Kenny + NotebookLM 自動摘要(5-14 兩段錄音 + 對比 5/11 + 5/13 兩場交叉)
+- 應用:對 Brian / Vincent / Jieli / Sebastian / Jacob / Elvis 提這 4 議題時,**用上面的「✅ 校正後」口徑**,不再講「對外輕鬆 yes」版本
+
 ## AI Model 版本對應 + 6/2 Fix Version 死線(2026-05-12 下午從 5/11 AI Weekly 錄音揭露 via NotebookLM)
 
 ### 4 個現役 / 規劃中 AI Model

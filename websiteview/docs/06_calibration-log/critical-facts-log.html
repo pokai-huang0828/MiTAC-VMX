@@ -16,13 +16,71 @@
   <span class="heading"><span aria-hidden="true">🎯</span> 校正紀錄 · 已校正的關鍵 VMX 事實</span>
   <span class="filename"><code>critical-facts-log.md</code></span>
 </header>
-<div class="doc-standalone-meta">最後更新:2026-05-14 · 6/2 Fix Version 三大 → 五大 deliverable(+ Eye Stable Rate + Camera Auto-Height)· LDWS = VMX-7101 校正</div>
+<div class="doc-standalone-meta">最後更新:2026-05-15 · 5/14 AI Weekly Internal 補抓(Yawning 2000 假圖 / Lens Cover 參數化計時迴圈 / Eating Drinking 階段性收斂 / Blurring CPU+SQS)· 6/2 Fix Version 五大 deliverable</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="vmx">已校正的關鍵 VMX 事實</h1>
 <blockquote>
 <p>過去 Claude / 對話中答錯後修正的事實。<strong>對 RD / 客戶 / 內部講話前先看這份</strong>。新人:先掃 TOC,挑相關章節進。</p>
 </blockquote>
+
+<h2 id="2026-05-14-ai-weekly-cal">2026-05-14 AI Weekly Internal — 3 大「對外承諾 vs 內部現實」反差(2026-05-15 從 NotebookLM 補抓)</h2>
+
+<blockquote>
+<p><strong>抓取背景</strong>:Kenny 5/15 發現「5/14 內部 AI weekly 沒校正」後從 NotebookLM 神達VMX notebook 反查 <code>5-14 ai weekly meeting I.m4a</code> + <code>II.m4a</code> 兩段錄音的 PM 視角整理。<br>
+<strong>完整會議紀錄</strong>:<a href="../meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">meetings/ai-weekly-internal-roundup § 2026-05-14</a>。</p>
+</blockquote>
+
+<h3 id="cal-5-14-corrections"><span aria-hidden="true">❌</span> 答錯口徑 → <span aria-hidden="true">✅</span> 校正後事實</h3>
+<ol>
+<li><strong>Yawning 對外口徑(對 Azuga / Webfleet)</strong>
+<ul>
+<li><span aria-hidden="true">❌</span> 不能再講「6/2 會釋出高準確度打哈欠」</li>
+<li><span aria-hidden="true">✅</span> 校正後:<strong>手上只有 ~2000 張 AI 生成假資料</strong>(不是真實採集)— 團隊對其準確度「沒有期待」。Kenny 必須提早做<strong>期望值管理</strong>,改說「Yawning 模型仍在資料層收斂,6/2 釋出僅做 PoC / 初步驗證,高準確度需後續版本」</li>
+</ul>
+</li>
+<li><strong>Lens Cover 解耦對外口徑</strong>
+<ul>
+<li><span aria-hidden="true">❌</span> 不能再講「Lens Cover 解耦 = 簡單改一個 if-statement」</li>
+<li><span aria-hidden="true">✅</span> 校正後:<strong>RD 必須緊急開發「參數化計時迴圈機制」</strong>重構底層狀態機(舊架構把 Lens Cover + Calibration 綁定極深)。Jieli <strong>5/19 下週一 Beta 死線</strong>,壓力極大。新規格:廢除「需 Recalibrate 才能再觸發」限制,改採 Configurable Parameter(預設 0 = 不重複觸發)→ 對應 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a></li>
+</ul>
+</li>
+<li><strong>Eating/Drinking 對 Azuga 回覆口徑</strong>
+<ul>
+<li><span aria-hidden="true">❌</span> 不能再答應「完美解決所有食物 / 飲水誤判」</li>
+<li><span aria-hidden="true">✅</span> 校正後:<strong>實務上無法完美定義所有「食物」</strong>(三明治 / 零食袋 / 各種包裝)+ 無法區分「拿杯子貼臉」vs「實際喝水」。改採收斂策略 — <strong>先處理「飲水(瓶子/杯子)」特徵</strong>加入負向資料庫重訓。對外要說「我們先處理飲水這類最常發生的誤報特徵,<strong>不承諾一次解決所有食物</strong>」</li>
+</ul>
+</li>
+</ol>
+
+<h3 id="cal-5-14-confirmed"><span aria-hidden="true">✓</span> 新確認(可對外講)</h3>
+<ol start="4">
+<li><strong>Blurring 架構技術選型確認</strong>(對 Elvis / Cary cost 對話 § 9.7 加強用)
+<ul>
+<li><strong>無 GPU 的 CPU Instance</strong> 跑 Python 影像處理(不是 GPU 高成本架構)</li>
+<li><strong>SQS (Message Queue) + Callback API</strong> 非同步處理流程</li>
+<li>這個物理事實可加強 cost framing 信心 — 「scales meaningfully higher」的成本來自 storage 1.8× + AI compute 黑盒,<strong>不是 GPU</strong></li>
+</ul>
+</li>
+</ol>
+
+<h3 id="cal-5-14-summary">5/14 vs 5/11 + 5/13 差異總結</h3>
+<table>
+<thead><tr><th>議題</th><th>5/11 或 5/13 對外</th><th>5/14 內部 reality check</th></tr></thead>
+<tbody>
+<tr><td>Lens Cover</td><td>輕鬆答應 Azuga「解除車速 + Calibration 依賴」</td><td>RD 盤點發現舊狀態機綁定極深 → 必須緊急重構底層</td></tr>
+<tr><td>Yawning</td><td>5/11 決議轉 Server AI + Full Face 模型</td><td>5/14 揭露只有 ~2000 張 AI 假圖,準確率極限浮現</td></tr>
+<tr><td>Eating/Drinking</td><td>5/13 客戶提議 Anonymized 影像全面解決</td><td>5/14 認知無法完美定義所有食物 → 改為「先過濾飲水」</td></tr>
+<tr><td>Blurring</td><td>5/11 Spencer 拍板 API only</td><td>5/14 具體化:CPU + SQS + Callback(非 GPU)</td></tr>
+</tbody>
+</table>
+
+<ul>
+<li>校正人:Kenny + NotebookLM 自動摘要(5-14 兩段錄音 + 對比 5/11 + 5/13 兩場交叉)</li>
+<li>應用:對 Brian / Vincent / Jieli / Sebastian / Jacob / Elvis 提這 4 議題時,<strong>用上面的「✅ 校正後」口徑</strong>,不再講「對外輕鬆 yes」版本</li>
+</ul>
+
+<hr />
 
 <h2 id="ai-model-versions-6-2-fix">AI Model 版本對應 + 6/2 Fix Version 死線(2026-05-12 下午從 5/11 AI Weekly 錄音揭露 via NotebookLM)</h2>
 

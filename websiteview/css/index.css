@@ -510,6 +510,18 @@ h1, h2, h3, h4 {
   transition: all .2s ease;
   display: flex; flex-direction: column;
 }
+/* date-stamp chip — first NOW mini card uses .tag for date, others use .label */
+.card-mini .tag {
+  display: inline-flex; align-items: center;
+  font-size: var(--fs-11); font-weight: 700; letter-spacing: .04em;
+  color: var(--text-mute-2);
+  background: var(--canvas-2);
+  border: 1px solid var(--line);
+  padding: 2px 8px; border-radius: var(--r-full);
+  margin-bottom: 8px;
+}
+/* h3 inside mini card — Weekly Summary uses h3 instead of h4; match same size */
+.card-mini h3 { font-size: var(--fs-17); margin: 8px 0 6px; }
 .card-mini:hover {
   transform: translateY(-3px);
   border-color: var(--brand-3);

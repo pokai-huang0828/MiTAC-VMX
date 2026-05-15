@@ -16,7 +16,7 @@
   <span class="heading"><span aria-hidden="true">📋</span> 會議系列 · AI Weekly (Internal) Roundup</span>
   <span class="filename">ai-weekly-internal-roundup</span>
 </header>
-<div class="doc-standalone-meta">最後更新:2026-05-14 · 5/11 + 5/7 場 · 6/2 三大 → 五大 deliverable 校正(cross-ref <a href="2026-05-13_azuga-ai-weekly.html">5/13 Azuga AI Weekly</a>)</div>
+<div class="doc-standalone-meta">最後更新:2026-05-15 · 5/14 + 5/11 + 5/7 三場 · 6/2 五大 deliverable 校正(cross-ref <a href="2026-05-13_azuga-ai-weekly.html">5/13 Azuga AI Weekly</a>)· NotebookLM 補抓 5/14 兩段錄音(I + II)</div>
 <main class="doc-standalone">
   <div class="doc-content">
 <h1 id="ai-weekly-internal-roundup">AI Weekly (Internal) Meeting Roundup · Series</h1>
@@ -24,8 +24,168 @@
 <p><strong>會議系列</strong>:內部 AI Weekly · 每週二、四 10:00 – 12:00 · 內部 RD + PM(主持 Jimmy)<br>
 <strong>檔案規則</strong>(2026-05-12 Kenny 校正後 series 化):<strong>每場新會議在這個檔頂部加 H2 section,時間倒序</strong>,不再每場開新 dated 檔<br>
 <strong>對應 stakeholders.md 表 row</strong>:<a href="../02_organization-map/stakeholders.html#_3">每週固定會議 → 內部 AI weekly</a><br>
-<strong>NotebookLM source</strong>:<code>5-7 ai weekly.m4a</code> / <code>5-11 ai weekly meeting.m4a</code>(notebook 名「神達VMX」共 44 sources)</p>
+<strong>NotebookLM source</strong>:<code>5-7 ai weekly.m4a</code> / <code>5-11 ai weekly meeting.m4a</code> / <code>5-14 ai weekly meeting I.m4a</code> + <code>5-14 ai weekly meeting II.m4a</code>(notebook 名「神達VMX」共 47 sources)</p>
 </blockquote>
+<hr />
+
+<h2 id="2026-05-14-ai-weekly">2026-05-14 AI Weekly(via NotebookLM <code>5-14 ai weekly meeting I.m4a</code> + <code>II.m4a</code> · Kenny PM 角度交叉 5/11 + 5/13)</h2>
+
+<blockquote>
+<p><strong>抓取背景</strong>:5/15 由 Kenny 點名「5/14 內部 AI weekly 缺校正」後,從 NotebookLM 神達VMX notebook 反查 5-14 兩段錄音的 PM 視角整理。本場會議**沒有 cross-customer commitment**,所以議題多在內部 RD 對自家承諾的 reality check,**3 大議題都從「對外輕鬆承諾」翻成「內部底層必須重做」**。</p>
+</blockquote>
+
+<h3 id="1-core-issues-5-14">1. 本次會議 4 大核心議題</h3>
+<table>
+<thead>
+<tr><th>#</th><th>議題</th><th>底層真相</th><th>對 6/2 deliverable 的衝擊</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Yawning 全臉模型面臨資料匱乏</strong></td>
+<td>團隊確認用於全臉打哈欠辨識的訓練資料極少,<strong>僅約 2000 多張 AI 生成影像</strong>(不是真實採集)。決議先在 PC 端以現有影像跑可行性 PoC</td>
+<td><span aria-hidden="true">🚨</span> <strong>6/2 上線高準確度打哈欠 = 機率極低</strong>。Kenny 必須提早對 Azuga / Webfleet 做期望值管理</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Lens Cover 底層邏輯重構 + 參數化</strong></td>
+<td>為兌現 5/13 對 Azuga「解除車速 + 解除 Calibration 依賴」承諾,RD 發現舊狀態機把兩者綁太深 → 廢除「需等 Recalibrate 才能再觸發」限制,改採 Configurable Parameter(預設 0 = 不重複觸發)→ 底層大改</td>
+<td><span aria-hidden="true">⏳</span> Jieli <strong>下週一 5/19 要交 Beta</strong> · 對應 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a>(設計)+ <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a>(實作 bug)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Eating/Drinking 採階段性收斂優化</strong></td>
+<td>內部討論發現「食物」種類過於發散(三明治 / 零食袋 / 各種包裝),<strong>實務上無法完美定義所有食物 + 無法區分「拿杯子貼臉」vs「實際喝水」</strong>。決議先集中資源處理「飲水(瓶子/杯子)」特徵,加入負向資料庫重訓</td>
+<td><span aria-hidden="true">⚠️</span> 對外口徑要從「完美解決」改為「<strong>階段性優化 — 先過濾最常發生的特徵</strong>」· 不能再答應客戶 100% 解</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Blurring 非同步架構定案</strong></td>
+<td>確認採用<strong>無 GPU 的一般 CPU Instance</strong>跑 Python 影像處理。規劃 SQS (Message Queue) 接收資料 + Callback API 回傳結果的非同步處理流程</td>
+<td><span aria-hidden="true">✓</span> 對齊 CONNECTSOURCE Q2 scope · Spencer 5/11 拍板的 API-only path · 預計 6/2 釋出</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h3 id="2-pic-5-14">2. 各 PIC 工作進度報告(5/14 揭露版)</h3>
+<table>
+<thead>
+<tr><th>PIC</th><th>5/14 會議報告</th><th>vs 5/11 進度</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vincent</strong></td>
+<td>將全臉打哈欠模型轉為 <strong>DLC + TF 格式</strong>。資料量過少,先在 PC 端針對現有影片做初步準確度驗證</td>
+<td>5/11 還在準備 2 萬至 10 幾萬筆訓練資料 → 5/14 揭露真實可用只有 2000 張(資料規模差異極大,要釐清)</td>
+</tr>
+<tr>
+<td><strong>Jieli (竭力)</strong></td>
+<td>負責 Lens Cover 邏輯重構 + 廢除 Calibration 依賴,改成參數化計時迴圈機制。<strong>下週一 5/19 Beta 死線</strong></td>
+<td>5/11「正釐清標準版 vs BMS 參數常數」→ 5/14 升級為「底層架構大改」(時間壓力極大)</td>
+</tr>
+<tr>
+<td><strong>Jonathan / Jay / Adonis / Eric</strong></td>
+<td>本次會議<strong>未具體提及進度</strong>(可能在 Part I 講過或不在這場 agenda)</td>
+<td>需在後續會議單獨追蹤 — 特別是 Eric(指導 Server AI Yawning 訓練)</td>
+</tr>
+<tr>
+<td><strong>API / Cloud Team</strong></td>
+<td>已完成 Blurring Python 處理程式,準備 <strong>SQS + Callback API</strong> 串接設計;需提供操作流程給 UI 端 (Lucy) 以利前端介面設計</td>
+<td>5/12 揭露的 VMX-7441 / 7458(Blurring Master/Fleet 雙層)實作正在推進</td>
+</tr>
+<tr>
+<td><strong>James</strong></td>
+<td>提供 <strong>AES256 加密格式</strong>,協助團隊解密客戶客訴影片進行分析</td>
+<td>新訊號 — 5/11 沒提及 James 角色</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h3 id="3-actions-5-14">3. Action Items(5 件)</h3>
+<table>
+<thead>
+<tr><th>#</th><th>任務描述</th><th>Owner</th><th>Deadline</th><th>關聯 Ticket</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>使用現有 2000 張生成資料,於 PC 端初步驗證全臉打哈欠模型可行性</td>
+<td><strong>Vincent</strong></td>
+<td>本週內(5/16 前)</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a> Yawning UI toggle (Lucy)— 設計卡 PoC 結果</td>
+</tr>
+<tr>
+<td>2</td>
+<td>實作 Lens Cover 重複觸發參數,解除依賴 DMS 校正之限制</td>
+<td><strong>Jieli</strong></td>
+<td><strong>5/19 下週一(Beta)</strong></td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>開發 Blurring 服務的 SQS 接收 + Callback API 串接流程</td>
+<td>API / Cloud 團隊</td>
+<td>6/2 版本</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> + <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>解密客戶客訴影片(AES256)並進行特定路段算法驗證</td>
+<td>測試員 / <strong>James</strong></td>
+<td>N/A</td>
+<td>未指名(口頭提「J 有傳一個 G 給我...卡住」客訴單,未指名單號)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>將「飲水(瓶子/杯子)」等特徵加入負向資料庫進行重訓</td>
+<td>AI 團隊</td>
+<td>N/A · 集中資源優先處理</td>
+<td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> Eating &amp; Drinking · Jimmy + Vincent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h3 id="4-deltas-5-14">4. 5/14 vs 5/11 + 5/13 重大新訊號(差異分析)</h3>
+
+<h4 id="signal-a-5-14"><span aria-hidden="true">🚨</span> 訊號 A:「輕易承諾」轉為「技術負債引爆」 (Lens Cover)</h4>
+<ul>
+<li><strong>5/6 + 5/13 對外</strong>:輕鬆答應 Azuga 要把 Lens Cover 與車速、Calibration 脫鉤</li>
+<li><strong>5/14 內部</strong>:RD 盤點發現舊狀態機把兩者綁定極深 → <strong>必須緊急捨棄舊架構,開發全新的「參數化計時迴圈機制」</strong> + 5/19 Beta 死線壓力極大</li>
+<li><strong>PM 啟示</strong>:對客戶的承諾要 cross-check RD 底層架構成本,不要再讓「對外輕鬆 yes / 內部緊急救火」的 pattern 重演 — 對應 <a href="../04_pm-frameworks/communication-frameworks.html">communication-frameworks.md 承諾層次</a></li>
+</ul>
+
+<h4 id="signal-b-5-14"><span aria-hidden="true">🚨</span> 訊號 B:Yawning 模型資料荒,準確率極限浮現</h4>
+<ul>
+<li><strong>5/11 決議</strong>:打哈欠轉向 Server AI + 全臉 (Full Face) 模型</li>
+<li><strong>5/14 揭露</strong>:手上竟<strong>只有 2000 多張 AI 生成假資料</strong>,團隊對其準確度「沒有期待」</li>
+<li><strong>對外 PM 動作</strong>:6/2 釋出高準確度打哈欠功能 = 機率極低 → Kenny 必須對 Azuga (Sebastian) / Webfleet 提早做<strong>期望值管理</strong>(Expectation Management)。對應 Azuga 5/13 場「Yawning 仍在優化,對 6/2 釋出無信心」口徑要再加強</li>
+</ul>
+
+<h4 id="signal-c-5-14"><span aria-hidden="true">🚨</span> 訊號 C:Eating/Drinking 從「完美解決」退為「階段性收斂」</h4>
+<ul>
+<li><strong>5/13 Azuga 場</strong>:客戶提議提供去識別化(Anonymized)影像,以全面解決誤報</li>
+<li><strong>5/14 內部</strong>:認知無法完美定義所有「食物」(三明治 / 零食袋 / 包裝)+ 無法區分「拿杯子貼臉」vs「實際喝水」</li>
+<li><strong>PM 決議</strong>:不糾結完美定義,改採收斂策略 — <strong>先從佔最大宗的「飲水」特徵過濾起</strong>。對 Azuga 回覆要說「我們先處理飲水這類最常發生的誤報特徵,不承諾一次解決所有食物」</li>
+</ul>
+
+<h4 id="signal-d-5-14"><span aria-hidden="true">✓</span> 訊號 D:Blurring 架構定案(無 GPU + SQS + Callback)</h4>
+<ul>
+<li><strong>5/11 + 5/13 對外口徑</strong>:Spencer 5/11 拍板 API only · Server-to-Server JS lib</li>
+<li><strong>5/14 內部具體化</strong>:技術選型確認 <strong>CPU Instance + SQS Message Queue + Callback API</strong>(非同步)</li>
+<li><strong>對 CONNECTSOURCE 線啟示</strong>:對 Elvis / Cary cost model 對話可加上「我方 Blurring 跑在 CPU,不是 GPU 高成本架構」這個物理事實 — 加強 § 9.7 cost framing 信心</li>
+</ul>
+<hr />
+
+<h3 id="5-jira-5-14">5. 會議提及 / 對應的 Jira Ticket</h3>
+<ul>
+<li>5/14 內部會議<strong>口頭討論為主</strong>,未直接點名具體 VMX-XXXX 票號</li>
+<li>提到「<strong>J 有傳一個 G 給我...卡住</strong>」客訴單但未指名(Action Item 4 對應)</li>
+<li>會議當天(5/14)Jira 新建 <strong>147 票</strong>(VMX-7411~7482 區間)— 對齊 <a href="../00_index/jira-snapshot.html">jira-snapshot.html</a> 5/14 區間。5/15 又新增 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7482" rel="noopener" target="_blank">VMX-7482</a>「[EdgeTensor] Add SDK API to config airplane mode」(jack.fl.chen / 5/15 早上創)</li>
+<li>跨參考主檔:Yawning → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a> · Lens Cover → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-582" rel="noopener" target="_blank">HAWK-582</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a> · Eating/Drinking → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-562" rel="noopener" target="_blank">HAWK-562</a> · Blurring → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7457" rel="noopener" target="_blank">VMX-7457</a> / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7458" rel="noopener" target="_blank">VMX-7458</a></li>
+</ul>
 <hr />
 
 <h2 id="2026-05-11-ai-weekly">2026-05-11 AI Weekly(via NotebookLM <code>5-11 ai weekly meeting.m4a</code>)</h2>

@@ -3,6 +3,19 @@
 > 每次 Claude 改 knowledge / case-learning / weekly-summary 順手加一行。**新的在上面**。
 > 格式:`YYYY-MM-DD · 動作 · 檔案 · 一句話 why`
 
+## 2026-05-15 · 5/14 AI Weekly Internal 補抓(NotebookLM)+ 全 repo 校正口徑
+
+- 2026-05-15 · **NEW H2** · `meetings/ai-weekly-internal-roundup.md` + `.html` — 從 NotebookLM 神達VMX notebook 反查 `5-14 ai weekly meeting I.m4a` + `II.m4a` 兩段錄音,新增 2026-05-14 H2 section(4 大議題 + PIC 進度 + 5 件 Action Items + 跟 5/11+5/13 差異分析 + Jira ticket 引用),series 規則:時間倒序 H2,新場在頂部
+- 2026-05-15 · **CALIBRATION** · `06_calibration-log/critical-facts-log.md` + `.html` 加 5/14 內部 AI weekly **3 大「對外承諾 vs 內部現實」反差**(Yawning 只有 2000 張 AI 假圖 → 6/2 高準確度機率極低 / Lens Cover 底層綁定極深 → 必須開發參數化計時迴圈 5/19 Beta 死線 / Eating-Drinking 無法完美定義所有食物 → 改為先過濾「飲水」)
+- 2026-05-15 · **CONFIRMED** · Blurring 架構技術選型 = **CPU Instance + SQS + Callback API**(非 GPU)— 可加強 CONNECTSOURCE § 9.7 cost framing 信心
+- 2026-05-15 · **NOTEBOOKLM** · 神達VMX notebook 從 44 → **47 sources**(+3:5-14 I + 5-14 II + 1 個未列)
+- 2026-05-15 · **JIRA NEW** · [VMX-7482](https://jira.navman.co.nz/jira/browse/VMX-7482)「[EdgeTensor] Add SDK API to config airplane mode」(jack.fl.chen / 5/15 早上創 · CC: leo / brian / mori / andrew / hsinyi / james · 27/May 死線)— SDK 飛航開關設定
+
+## 2026-05-15 · cary-elvis-tracker 資料夾建立
+
+- 2026-05-15 · **NEW FOLDER** · `cary-elvis-tracker/` — Kenny 發現 [VMX-7482](https://jira.navman.co.nz/jira/browse/VMX-7482)(5/14 後新開)+ Blurring case 5/7→5/13 五輪滾雪球後決定集中追蹤 Cary Lo + Elvis Tran 對接組合 · 5 個檔:`README.md` 一頁總覽 + `ticket-inventory.md`(Elvis 25 張 + Cary 1 張 + 7 條沒進 Jira 的影子單)+ `requirements-log.md`(時間軸 + speed metric)+ `interaction-pattern.md`(7 個行為 pattern 萃取)+ `response-playbook.md`(三段式分流 · § B2 + § D2 留 TODO 等 Kenny 補商業判斷)+ `changelog.md`
+- 2026-05-15 · **INSIGHT** · Elvis 26 張 ticket(2025-07 起)**全部 None Closed** — 結構性 backlog 問題,5 月 +4 在加速,建議下次 Brian 1on1 提 close-rate KPI · 50% 集中 Camera/Video recording
+
 ## 2026-05-14 · 5/13 Azuga AI Weekly meeting note + 6/2 deliverable 從三大擴大為五大
 
 - 2026-05-14 · **NEW DOC** · `meetings/2026-05-13_azuga-ai-weekly.md` + `.html` — 5/13 下午 Azuga AI Weekly(Mitac × Azuga + Webfleet 聯合)8 議題 + 11 action items · 兩份 NotebookLM 摘要(短版 + PM 版)合併 · 14 票 Jira comments cross-check

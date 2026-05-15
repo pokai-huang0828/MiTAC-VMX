@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 MiTAC Server AI · 精品獎 35 屆送件工作台</title>
+<style>
+  /* ============================================================
+     工作台 · OLED Editorial v2
+     Applying UI/UX Pro Max design system:
+       · Style: Dark Mode (OLED) — WCAG AAA contrast
+       · Typography: Chinese Traditional (Noto Serif TC + Noto Sans TC,
+         system fallbacks since no CDN allowed)
+       · Palette: OLED true-black + slate scale + green CTA +
+         amber highlight + violet for refs group
+     UX standards applied:
+       · focus-visible only (no mouse-click rings)
+       · prefers-reduced-motion respected
+       · No hover layout shift (no letter-spacing on hover)
+       · 44px minimum touch targets
+       · Skip-to-main link for keyboard users
+     ============================================================ */
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* === Paper & Ink (OLED dark, slate-based) === */
+    --paper:        #020617;     /* OLED true near-black */
+    --paper-2:      #0B1220;     /* card surface */
+    --paper-3:      #06080F;     /* inset / code */
+    --rule:         #1E293B;     /* slate-800 — visible border */
+    --rule-2:       #334155;     /* slate-700 — hover border */
+    --rule-soft:    #0F172A;     /* slate-900 — faint divider */
+
+    --ink:          #F8FAFC;     /* slate-50 — primary text (17:1 vs paper) */
+    --ink-2:        #CBD5E1;     /* slate-300 — body text */
+    --ink-3:        #94A3B8;     /* slate-400 — dim meta */
+    --ink-4:        #64748B;     /* slate-500 — dimmer */
+
+    /* === Accents === */
+    --jade:         #22C55E;     /* green-500 — primary CTA / saved */
+    --jade-hi:      #4ADE80;     /* green-400 — hover */
+    --jade-soft:    rgba(34,197,94,0.08);
+    --jade-line:    rgba(34,197,94,0.34);
+
+    --amber:        #E6B450;     /* warm gold — eyebrow, badge, focus */
+    --amber-hi:     #FCD34D;     /* hover amber */
+    --amber-soft:   rgba(230,180,80,0.08);
+    --amber-line:   rgba(230,180,80,0.34);
+
+    --rust:         #F87171;     /* red-400 — error (softer than red-500) */
+    --violet:       #A78BFA;     /* violet-400 — refs / Eric tags */
+    --ink-on-jade:  #052E12;     /* dark on green button */
+    --ink-on-amber: #1F1607;     /* dark on amber button */
+
+    /* Legacy aliases — preserve any inline color refs that reference old names */
+    --bg: var(--paper); --bg2: var(--paper-2); --bg3: var(--paper-3);
+    --border: var(--rule); --border-soft: var(--rule-soft);
+    --text: var(--ink); --text-dim: var(--ink-3); --text-dimmer: var(--ink-4);
+    --blue: var(--amber); --gold: var(--amber); --red: var(--rust);
+    --green: var(--jade); --purple: var(--violet);
+    --brass: var(--amber); --brass-hi: var(--amber-hi);
+    --brass-soft: var(--amber-soft); --brass-line: var(--amber-line);
+    --sage: var(--jade); --dust: var(--violet);
+
+    /* === Typography ===
+       Chinese Traditional pairing per Pro Max recommendation,
+       resolved via system fonts (no CDN). */
+    --font-display:
+      "Noto Serif TC", "Source Han Serif TC", "Source Han Serif TW",
+      "Songti TC", "STSong", "宋體", "Songti SC",
+      "PingFang TC", "Microsoft JhengHei",
+      Georgia, "Times New Roman", serif;
+    --font-body:
+      "Noto Sans TC", "Source Han Sans TC", "Source Han Sans TW",
+      "PingFang TC", "PingFang SC",
+      "Microsoft JhengHei UI", "Microsoft JhengHei",
+      "Hiragino Sans GB",
+      -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial",
+      system-ui, sans-serif;
+    --font-eyebrow:
+      "Inter", "Helvetica Neue", "Avenir Next", "Segoe UI",
+      "Microsoft JhengHei UI", "PingFang TC",
+      system-ui, sans-serif;
+    --font-mono:
+      "JetBrains Mono", "SF Mono", "Cascadia Code",
+      "Consolas", "Liberation Mono", monospace;
+
+    /* === Motion & rhythm === */
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-in:  cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    --t-fast:   180ms;
+    --t-base:   240ms;
+    --t-slow:   360ms;
+    --measure:  72ch;
+  }
+
+  html, body { height: 100%; }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-2) transparent;
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--rule); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--rule-2); }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15.5px;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "tnum" 1;
+    background-image:
+      /* very subtle ambient glow — jade hint top-left, violet hint bottom-right */
+      radial-gradient(ellipse 1200px 600px at 12% -8%, rgba(34,197,94,0.04), transparent 60%),
+      radial-gradient(ellipse 900px 600px at 112% 112%, rgba(167,139,250,0.025), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection { background: rgba(34,197,94,0.28); color: var(--ink); }
+
+  /* ============================================================
+     A11Y · skip-to-main + global focus-visible
+     ============================================================ */
+  .skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-200%);
+    padding: 10px 18px;
+    background: var(--jade);
+    color: var(--ink-on-jade);
+    font-family: var(--font-eyebrow);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    z-index: 200;
+    transition: transform var(--t-base) var(--ease-out);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid var(--ink);
+    outline-offset: -4px;
+  }
+
+  *:focus { outline: none; }
+  *:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+    border-radius: 0;
+  }
+  [contenteditable]:focus,
+  [contenteditable]:focus-visible {
+    outline: none;
+  }
+
+  /* ============================================================
+     HEADER · masthead with hairline rule + jade accent
+     ============================================================ */
+  header {
+    background: rgba(11,18,32,0.85);
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 36px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 36px;
+    right: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--jade-line) 18%, var(--amber-line) 50%, var(--jade-line) 82%, transparent);
+    pointer-events: none;
+  }
+  header h1 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--ink);
+    margin-right: auto;
+    letter-spacing: 0.005em;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  /* ============================================================
+     STATUS · save indicator with LED dot + pulse on editing
+     ============================================================ */
+  .status { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+  #save-indicator {
+    font-family: var(--font-eyebrow);
+    padding: 0 14px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border-radius: 2px;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink-3);
+    min-width: 124px;
+    text-align: left;
+    font-weight: 600;
+    transition: color var(--t-base), border-color var(--t-base), background var(--t-base);
+    position: relative;
+  }
+  #save-indicator::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 0 currentColor;
+    transition: box-shadow var(--t-base);
+    flex-shrink: 0;
+  }
+  #save-indicator.saved {
+    color: var(--jade);
+    border-color: rgba(34,197,94,0.5);
+  }
+  #save-indicator.editing {
+    color: var(--amber);
+    border-color: rgba(230,180,80,0.6);
+    background: var(--amber-soft);
+  }
+  #save-indicator.editing::before {
+    animation: pulse-led 1.6s ease-in-out infinite;
+  }
+  #save-indicator.error {
+    color: var(--rust);
+    border-color: rgba(248,113,113,0.6);
+    background: rgba(248,113,113,0.05);
+  }
+  @keyframes pulse-led {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(230,180,80,0.6);
+    }
+    50% {
+      opacity: 0.55;
+      box-shadow: 0 0 0 6px rgba(230,180,80,0);
+    }
+  }
+
+  /* ============================================================
+     BUTTONS · eyebrow sans, 44px touch target, no layout shift on hover
+     ============================================================ */
+  .btn {
+    background: transparent;
+    color: var(--ink-2);
+    border: 1px solid var(--rule);
+    padding: 0 14px;
+    min-height: 32px;             /* compact in header */
+    display: inline-flex;
+    align-items: center;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 10.5px;
+    font-family: var(--font-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.15em;       /* fixed — no hover shift */
+    text-transform: uppercase;
+    transition: color var(--t-base), border-color var(--t-base), background var(--t-base), box-shadow var(--t-base);
+    position: relative;
+  }
+  .btn:hover {
+    color: var(--ink);
+    border-color: var(--amber);
+    background: var(--amber-soft);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .btn.primary {
+    background: var(--jade);
+    color: var(--ink-on-jade);
+    border-color: var(--jade);
+    font-weight: 700;
+  }
+  .btn.primary:hover {
+    background: var(--jade-hi);
+    color: var(--ink-on-jade);
+    border-color: var(--jade-hi);
+    box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
+  }
+  .btn.danger {
+    color: rgba(248,113,113,0.85);
+    border-color: rgba(248,113,113,0.35);
+  }
+  .btn.danger:hover {
+    color: var(--rust);
+    border-color: var(--rust);
+    background: rgba(248,113,113,0.06);
+  }
+
+  /* ============================================================
+     TAB NAV · grouped sections with surgical color coding
+     會議 → jade · Drafts → amber · 參考 → violet
+     ============================================================ */
+  nav.tabs {
+    display: flex;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: 10px 36px 0;
+    overflow-x: auto;
+    align-items: flex-end;
+    gap: 18px;
+    scrollbar-width: none;
+  }
+  nav.tabs::-webkit-scrollbar { display: none; }
+
+  .tab-group { display: flex; flex-direction: column; align-items: flex-start; }
+  .tab-group-label {
+    font-family: var(--font-eyebrow);
+    font-size: 9px;
+    color: var(--ink-4);
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    padding: 0 6px 7px;
+    font-weight: 700;
+  }
+  .tab-group-row { display: flex; gap: 0; }
+  .tab-divider {
+    width: 1px;
+    background: var(--rule);
+    align-self: stretch;
+    margin: 6px 8px 0;
+  }
+
+  .tab {
+    background: transparent;
+    color: var(--ink-3);
+    border: none;
+    padding: 11px 16px 12px;
+    min-height: 44px;             /* WCAG touch target */
+    cursor: pointer;
+    font-size: 13.5px;
+    font-family: var(--font-body);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color var(--t-base), border-color var(--t-base), background var(--t-base);
+    font-weight: 500;
+    border-radius: 0;
+    position: relative;
+  }
+  .tab:hover {
+    color: var(--ink-2);
+    background: rgba(248,250,252,0.03);
+  }
+  .tab:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: -2px;
+  }
+  .tab.active {
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom-color: var(--amber);
+    background: linear-gradient(180deg, transparent, rgba(230,180,80,0.06));
+  }
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--amber);
+    box-shadow: 0 0 12px rgba(230,180,80,0.45);
+  }
+
+  /* per-group color tints — surgical, identity-coding */
+  .group-meeting .tab.active {
+    border-bottom-color: var(--jade);
+    background: linear-gradient(180deg, transparent, rgba(34,197,94,0.06));
+  }
+  .group-meeting .tab.active::after {
+    background: var(--jade);
+    box-shadow: 0 0 12px rgba(34,197,94,0.45);
+  }
+
+  .group-drafts .tab.active {
+    border-bottom-color: var(--amber);
+    background: linear-gradient(180deg, transparent, rgba(230,180,80,0.06));
+  }
+  .group-drafts .tab.active::after {
+    background: var(--amber);
+    box-shadow: 0 0 12px rgba(230,180,80,0.45);
+  }
+
+  .group-refs .tab.active {
+    border-bottom-color: var(--violet);
+    background: linear-gradient(180deg, transparent, rgba(167,139,250,0.06));
+  }
+  .group-refs .tab.active::after {
+    background: var(--violet);
+    box-shadow: 0 0 12px rgba(167,139,250,0.45);
+  }
+
+  /* ============================================================
+     MAIN · manuscript page
+     ============================================================ */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 44px 32px 100px;
+  }
+
+  .tab-content {
+    display: none;
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 4px;            /* surgical, not rounded-2xl */
+    padding: 52px 64px 60px;
+    min-height: 70vh;
+    outline: none;
+    position: relative;
+    transition: border-color var(--t-slow), box-shadow var(--t-slow);
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.02) inset;
+  }
+  .tab-content.active {
+    display: block;
+    animation: page-in var(--t-slow) var(--ease-out);
+  }
+  @keyframes page-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* top hairline accent — amber by default, jade in meeting, violet in refs */
+  .tab-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber-line) 28%, var(--amber-line) 72%, transparent);
+    pointer-events: none;
+    transition: background var(--t-slow);
+  }
+
+  .tab-content:hover { border-color: var(--rule-2); }
+  .tab-content:focus-within {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 1px var(--amber-soft), 0 0 32px rgba(230,180,80,0.05);
+  }
+  .tab-content:focus-within::before {
+    background: linear-gradient(90deg, transparent, var(--amber) 28%, var(--amber) 72%, transparent);
+  }
+
+  /* edit affordance — top-right eyebrow, animated dot */
+  .tab-content::after {
+    content: "可編輯 · CLICK TO EDIT";
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    font-family: var(--font-eyebrow);
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    opacity: 0;
+    transition: opacity var(--t-base), color var(--t-base);
+    pointer-events: none;
+    font-weight: 700;
+  }
+  .tab-content:hover::after { opacity: 0.7; }
+  .tab-content:focus-within::after {
+    opacity: 1;
+    color: var(--amber);
+    content: "編輯中 · EDITING";
+  }
+
+  /* ============================================================
+     EDITABLE CONTENT TYPOGRAPHY
+     · h1/h2/h3 serif (display) for editorial weight
+     · body sans (Noto Sans TC family) for screen readability
+     · ZH min 16px — meets Pro Max readable-font-size rule
+     ============================================================ */
+  .tab-content h1 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    font-size: 32px;
+    line-height: 1.22;
+    margin: 0 0 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding-bottom: 0;
+    border-bottom: none;
+    position: relative;
+  }
+  .tab-content h1::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 2px;
+    background: var(--amber);
+    margin-top: 18px;
+    box-shadow: 0 0 8px rgba(230,180,80,0.35);
+  }
+
+  .tab-content h2 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.32;
+    margin: 40px 0 14px;
+    padding: 18px 0 0 0;
+    border-left: none;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    position: relative;
+  }
+  .tab-content h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.75;
+  }
+
+  .tab-content h3 {
+    font-family: var(--font-display);
+    color: var(--ink-2);
+    font-size: 17px;
+    margin: 26px 0 8px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .tab-content h4 {
+    font-family: var(--font-eyebrow);
+    color: var(--amber);
+    font-size: 11px;
+    margin: 20px 0 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .tab-content p {
+    margin: 12px 0;
+    color: var(--ink-2);
+    font-size: 16px;             /* Pro Max readable-font-size minimum */
+    line-height: 1.78;
+  }
+
+  /* lists — editorial numbering for ol, hairline ticks for ul */
+  .tab-content ul, .tab-content ol {
+    margin: 14px 0;
+    color: var(--ink-2);
+  }
+  .tab-content li {
+    margin: 6px 0;
+    line-height: 1.72;
+    font-size: 15.5px;
+  }
+
+  .tab-content ol {
+    list-style: none;
+    counter-reset: list-counter;
+    padding-left: 0;
+  }
+  .tab-content ol > li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 46px;
+    margin: 10px 0;
+  }
+  .tab-content ol > li::before {
+    content: counter(list-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-family: var(--font-eyebrow);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    padding: 2px 7px 1px;
+    border: 1px solid var(--amber-line);
+    background: var(--amber-soft);
+    border-radius: 2px;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .tab-content ul { list-style: none; padding-left: 0; }
+  .tab-content ul > li {
+    position: relative;
+    padding-left: 22px;
+  }
+  .tab-content ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.82em;
+    width: 12px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.7;
+  }
+  /* nested simpler */
+  .tab-content ul ul > li::before,
+  .tab-content ol ul > li::before { width: 6px; opacity: 0.4; }
+
+  /* ============================================================
+     TABLES · editorial specimen
+     ============================================================ */
+  .tab-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0;
+    font-size: 14px;
+    font-family: var(--font-body);
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+  .tab-content thead { border-bottom: 1.5px solid var(--amber); }
+  .tab-content th {
+    font-family: var(--font-eyebrow);
+    background: transparent;
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 8px 12px 12px;
+    text-align: left;
+    border: none;
+    vertical-align: bottom;
+  }
+  .tab-content td {
+    border: none;
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 11px 12px;
+    text-align: left;
+    vertical-align: top;
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .tab-content tbody tr { transition: background var(--t-fast); }
+  .tab-content tbody tr:hover td { background: rgba(248,250,252,0.025); }
+  .tab-content tbody tr:last-child td { border-bottom: none; }
+
+  /* ============================================================
+     BLOCKQUOTE · pull-quote (jade tick for body voice)
+     ============================================================ */
+  .tab-content blockquote {
+    border-left: 2px solid var(--jade);
+    background: transparent;
+    margin: 24px 0;
+    padding: 6px 0 6px 24px;
+    color: var(--ink-2);
+    border-radius: 0;
+    font-size: 15.5px;
+    line-height: 1.78;
+    position: relative;
+    font-style: normal;
+  }
+  .tab-content blockquote p { margin: 8px 0; color: var(--ink-2); }
+  .tab-content blockquote strong { color: var(--ink); }
+
+  /* inline code */
+  .tab-content code {
+    background: var(--paper-3);
+    padding: 1px 7px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    color: var(--amber-hi);
+    border: 1px solid var(--rule);
+    font-style: normal;
+    letter-spacing: 0.01em;
+  }
+
+  .tab-content strong { color: var(--ink); font-weight: 700; }
+  .tab-content em { color: var(--amber-hi); font-style: italic; }
+
+  .tab-content hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 40px auto;
+    position: relative;
+    max-width: 280px;
+  }
+  .tab-content hr::after {
+    content: "❖";
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+    background: var(--paper-2);
+    padding: 0 14px;
+    color: var(--amber);
+    font-size: 12px;
+  }
+
+  /* anchor links */
+  .tab-content a {
+    color: var(--jade);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(34,197,94,0.4);
+    transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+    padding: 0 1px;
+  }
+  .tab-content a:hover {
+    color: var(--jade-hi);
+    border-bottom-color: var(--jade-hi);
+    background: var(--jade-soft);
+  }
+
+  /* ============================================================
+     BADGES · refined editorial tag
+     ============================================================ */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px 1px;
+    border-radius: 2px;
+    font-family: var(--font-eyebrow);
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    margin: 0 4px;
+    vertical-align: 2px;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+  }
+  .badge.hot  { color: var(--rust);   border-color: var(--rust); }
+  .badge.new  { color: var(--jade);   border-color: var(--jade); background: var(--jade-soft); }
+  .badge.gold { color: var(--amber);  border-color: var(--amber); background: var(--amber-soft); }
+  .badge.warn { color: var(--amber);  border-color: var(--amber); }
+
+  /* ============================================================
+     DRAFT META · manuscript margin note
+     ============================================================ */
+  .draft-meta {
+    background: var(--paper-3);
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--amber);
+    border-radius: 2px;
+    padding: 11px 16px;
+    margin: 10px 0 30px;
+    font-family: var(--font-eyebrow);
+    font-size: 12.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.005em;
+    line-height: 1.65;
+  }
+  .draft-meta strong { color: var(--amber); font-weight: 700; }
+
+  /* WARN BOX · nota-bene with eyebrow header */
+  .warn-box {
+    background: rgba(230,180,80,0.04);
+    border: 1px solid var(--amber-line);
+    border-left-width: 3px;
+    padding: 18px 20px 16px;
+    margin: 22px 0;
+    border-radius: 2px;
+    font-size: 14px;
+    position: relative;
+    color: var(--ink-2);
+  }
+  .warn-box::before {
+    content: "NOTA BENE · 注意事項";
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    background: var(--paper-2);
+    padding: 0 10px;
+    font-family: var(--font-eyebrow);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+    font-weight: 700;
+  }
+  .warn-box strong { color: var(--amber); }
+  .warn-box ul { margin: 8px 0 0; }
+  .warn-box ul > li::before { background: var(--amber); opacity: 0.6; }
+
+  /* ============================================================
+     FOOTER · colophon
+     ============================================================ */
+  .footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(11,18,32,0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top: 1px solid var(--rule);
+    padding: 10px 36px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-eyebrow);
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    z-index: 50;
+    font-feature-settings: "tnum" 1;
+    font-weight: 600;
+  }
+  .footer-bar::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 36px;
+    right: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--jade-line) 20%, var(--amber-line) 50%, var(--jade-line) 80%, transparent);
+  }
+
+  [contenteditable]:focus { outline: none; }
+
+  /* ============================================================
+     RESPONSIVE · breakpoints 1100 / 900 / 600
+     ============================================================ */
+  @media (max-width: 1100px) {
+    .tab-content { padding: 44px 44px 52px; }
+  }
+  @media (max-width: 900px) {
+    header { padding: 12px 18px; gap: 10px; }
+    header h1 { font-size: 15px; }
+    nav.tabs { padding: 8px 18px 0; gap: 12px; }
+    main { padding: 28px 14px 100px; }
+    .tab-content { padding: 32px 24px 40px; }
+    .tab-content h1 { font-size: 25px; }
+    .tab-content h2 { font-size: 19px; }
+    .tab-content::after { display: none; }
+    .tab-group-label { font-size: 9px; letter-spacing: 0.18em; }
+    .btn { padding: 0 11px; font-size: 10px; letter-spacing: 0.12em; min-height: 36px; }
+    #save-indicator { min-width: 96px; font-size: 9.5px; padding: 0 11px; min-height: 36px; }
+    .footer-bar { padding: 8px 16px 7px; font-size: 9px; }
+    .footer-bar::before { left: 16px; right: 16px; }
+  }
+  @media (max-width: 600px) {
+    header { padding: 10px 14px; }
+    header h1 { width: 100%; order: -1; font-size: 14px; }
+    .status { width: 100%; justify-content: flex-start; }
+    .tab-content { padding: 24px 18px 32px; }
+    .tab-content h1 { font-size: 22px; }
+    .tab-content h2 { font-size: 17px; }
+    .tab-content p { font-size: 15.5px; }
+    .tab-content ol > li { padding-left: 36px; }
+  }
+
+  /* ============================================================
+     A11Y · prefers-reduced-motion (UX rule: reduced-motion)
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .tab-content.active { animation: none; }
+    #save-indicator.editing::before { animation: none; }
+  }
+
+  /* ============================================================
+     PRINT · slate-foreground on white, hairline rules preserved
+     ============================================================ */
+  @media print {
+    body {
+      background: #fff;
+      color: #0F172A;
+      font-family: var(--font-body);
+      background-image: none;
+    }
+    header, nav.tabs, .footer-bar, .skip-link { display: none; }
+    main { padding: 0; overflow: visible; }
+    .tab-content {
+      display: block !important;
+      border: none;
+      padding: 18mm 12mm;
+      background: #fff;
+      color: #0F172A;
+      page-break-after: always;
+      max-width: 100%;
+      min-height: 0;
+      box-shadow: none;
+    }
+    .tab-content::before, .tab-content::after { display: none; }
+    .tab-content h1, .tab-content h2, .tab-content h3, .tab-content h4 {
+      color: #0F172A;
+      page-break-after: avoid;
+    }
+    .tab-content h1::after { background: #0F172A; box-shadow: none; }
+    .tab-content h2::before { background: #0F172A; }
+    .tab-content h4 { color: #475569; }
+    .tab-content p { color: #0F172A; }
+    .tab-content strong { color: #0F172A; }
+    .tab-content em { color: #475569; font-style: italic; }
+    .tab-content blockquote { border-color: #0F172A; color: #334155; }
+    .tab-content table { font-size: 11pt; }
+    .tab-content thead { border-color: #0F172A; }
+    .tab-content th { color: #0F172A; }
+    .tab-content td { border-color: #CBD5E1; color: #0F172A; }
+    .tab-content code { background: #F1F5F9; color: #0F172A; border-color: #CBD5E1; }
+    .tab-content a { color: #0F172A; border-bottom-color: #0F172A; }
+    .badge { color: #0F172A; border-color: #0F172A; background: transparent; }
+    .warn-box { border-color: #0F172A; background: transparent; }
+    .warn-box::before { background: #fff; color: #0F172A; }
+    .draft-meta { color: #475569; border-color: #94A3B8; background: transparent; }
+    .tab-content hr::after { background: #fff; color: #0F172A; }
+    .tab-content ol > li::before { color: #0F172A; border-color: #0F172A; background: transparent; }
+    .tab-content ul > li::before { background: #0F172A; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">跳至內容 · Skip to main content</a>
+
+<header>
+  <h1>🏆 MiTAC Server AI · 精品獎 35 屆送件工作台</h1>
+  <div class="status">
+    <span id="save-indicator" class="saved">✓ 已儲存</span>
+    <button class="btn" onclick="manualSave()">💾 儲存</button>
+    <button class="btn primary" onclick="downloadHTML()">⬇️ 下載 HTML</button>
+    <button class="btn" onclick="downloadCurrentTabMD()">⬇️ 當前 .txt</button>
+    <button class="btn" onclick="printPage()">🖨 列印</button>
+    <button class="btn danger" onclick="resetAll()">↺ 重設</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tab-group group-meeting">
+    <div class="tab-group-label">📋 會議</div>
+    <div class="tab-group-row">
+      <button class="tab active" data-tab="cheatsheet">📌 會後計畫</button>
+      <button class="tab" data-tab="vlmstory">🎬 VLM 故事</button>
+      <button class="tab" data-tab="notes">✏️ 筆記</button>
+    </div>
+  </div>
+
+  <div class="tab-divider"></div>
+
+  <div class="tab-group group-drafts">
+    <div class="tab-group-label">📝 7 份 Drafts(今年版優化)</div>
+    <div class="tab-group-row">
+      <button class="tab" data-tab="docx1">1.研發</button>
+      <button class="tab" data-tab="docx2">2.設計</button>
+      <button class="tab" data-tab="docx3">3.品質</button>
+      <button class="tab" data-tab="docx4">4.行銷</button>
+      <button class="tab" data-tab="docx5">5.台灣產製</button>
+      <button class="tab" data-tab="docx6">6.永續</button>
+      <button class="tab" data-tab="docx7">7.產品特色</button>
+    </div>
+  </div>
+
+  <div class="tab-divider"></div>
+
+  <div class="tab-group group-refs">
+    <div class="tab-group-label">📚 參考</div>
+    <div class="tab-group-row">
+      <button class="tab" data-tab="official">🚨 35屆官方</button>
+      <button class="tab" data-tab="optimization">角色優化</button>
+      <button class="tab" data-tab="comparison">34vs35</button>
+      <button class="tab" data-tab="intel">情報</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" tabindex="-1">
+
+<!-- TAB: 會後執行計畫 -->
+<section class="tab-content active" id="cheatsheet" contenteditable="true">
+  <h1>📌 5/15 會後執行計畫</h1>
+  <blockquote>Brian 心態:「不要花太多時間搞這個」「讓 AI 做就好」「換種方式描述」「跟去年不一樣」</blockquote>
+
+  <h2>📅 時程</h2>
+  <ul>
+    <li><strong>5/23 (下週五)</strong> — Brian / Kenny 內部 review 一次</li>
+    <li><strong>5/29</strong> — 第一版送 ST(jolin?)</li>
+    <li>之後 ST review 退回修改,最終送精品獎日期 TBD</li>
+    <li><strong>對我們來說 hard deadline = 5/29(剩 2 週)</strong></li>
+  </ul>
+
+  <h2>👥 分工</h2>
+  <table>
+    <thead><tr><th>docx</th><th>主筆</th><th>狀態</th></tr></thead>
+    <tbody>
+      <tr><td>1.研發</td><td><strong>Eric</strong></td><td>等 Eric — 我們不寫,僅參考</td></tr>
+      <tr><td>2.設計</td><td><strong>Eric</strong></td><td>等 Eric — 我們不寫,僅參考</td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>3.品質</strong></td><td><strong>Kenny</strong></td><td>3 天內重寫(換 framing + VLM 角度)</td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>4.行銷</strong></td><td><strong>Kenny</strong></td><td>3 天內重寫</td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>5.臺灣產製</strong></td><td><strong>Kenny</strong></td><td>3 天內重寫(400 字內)</td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>6.永續</strong></td><td><strong>Kenny</strong></td><td>3 天內重寫(200 字內)</td></tr>
+      <tr style="background:rgba(210,153,34,0.1);"><td><strong>7.產品特色中英</strong></td><td><strong>Kenny</strong></td><td><strong>等 Eric 1+2 出來再寫</strong>(以研發+設計為模板)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🎯 核心策略</h2>
+  <ol>
+    <li><strong>保留去年事實基礎</strong> — 不要塞新功能 / buzzword</li>
+    <li><strong>換種方式描述</strong> — Brian 講的「換 framing」「讓 AI 做」</li>
+    <li><strong>VLM 是統一的「跟去年不一樣」單一新切入點</strong></li>
+    <li><strong>不要寫長篇大論</strong> — Brian 講「去年的字數不多」,別衝字數上限</li>
+    <li><strong>不要強寫品質 / 行銷的新東西</strong> — Brian 說這兩節「沒什麼好寫」,換種方式就好</li>
+  </ol>
+
+  <h2>🎬 VLM 對外故事 — 統一切入點</h2>
+  <p>從<strong>「規格判定」</strong>進化到<strong>「意圖判定」</strong>(像人的 IQ 推理)</p>
+  <p>例子 1:轉頭看後照鏡 ≠ 分心(舊版誤報 / VLM 正確)</p>
+  <p>例子 2:手機被遮住仍判讀在用手機(舊版漏判 / VLM 抓到)</p>
+  <p>👉 切到「<strong>🎬 VLM 故事</strong>」tab 看完整對外 framing + demo 構想</p>
+
+  <h2>🚫 我之前 draft 加進去要砍的 buzzword</h2>
+  <p>(已從各 docx draft 砍掉,以下僅供記錄)</p>
+  <ul>
+    <li>❌ 「全球首款」claim — 高風險,Brian 心態淡定</li>
+    <li>❌ 「跨亞美歐澳 4 區 production」 — 未確認</li>
+    <li>❌ 「誤報率 -50%」具體數字 — 未實證</li>
+    <li>❌ 「歐盟 AI Act 高風險系統合規」 — 法務未確認</li>
+    <li>❌ 「MLOps 模型治理框架」 — 我加的</li>
+    <li>❌ 「CSRD 範圍 3 揭露能力」 — 過度</li>
+    <li>❌ 「6/2 五大 deliverable」(LDWS / Eye Stable Rate 等) — 是 roadmap 評鑑會穿幫</li>
+    <li>❌ 「碳足跡 / 碳盤查認證」 — MiTAC 不一定有,別填(漂綠)</li>
+  </ul>
+
+  <h2>💡 Demo 構想(Brian 在會議中提)</h2>
+  <ul>
+    <li>不一定要實機,影片呈現也行</li>
+    <li>影片內容:同一段駕駛行為,舊模型誤判 vs VLM 正確判讀</li>
+    <li>讓評審「<strong>感覺到不一樣</strong>」</li>
+    <li>(這事情<strong>之後再想</strong>,先把文件交出去)</li>
+  </ul>
+
+  <h2>🎓 Brian 的「不過度用力」哲學(會議重點摘錄)</h2>
+  <blockquote>
+    <p>「得獎不是我們能決定的,真的不是我們努力他就會給講」</p>
+    <p>「努力你也不曉得為什麼,不努力你也不曉得為什麼」</p>
+    <p>「不要花太多時間搞這個」「該做的事情把它做就好」</p>
+    <p>「畢竟我們不賣筆電(指那些得獎大戶)」</p>
+    <p>→ <strong>做好,但別過勞。Brian 比評審看得開。</strong></p>
+  </blockquote>
+</section>
+
+<!-- TAB: VLM 故事 -->
+<section class="tab-content" id="vlmstory" contenteditable="true">
+  <h1>🎬 VLM 對外故事 — 統一切入點(35 屆 vs 34 屆唯一新角度)</h1>
+  <blockquote>會議 5/15 Brian / Eric 親自解釋 · 這是 7 份 docx 的共同「跟去年不一樣」hook</blockquote>
+
+  <h2>🎯 核心 framing(一句話)</h2>
+  <blockquote style="font-size:16px;">
+    <strong>從「規格判定」進化到「意圖判定」 — 從 snapshot 偵測升級到連續行為理解,讓車載 AI 具備類人 IQ 推理能力。</strong>
+  </blockquote>
+
+  <h2>🆚 舊 AI vs VLM 對比表</h2>
+  <table>
+    <thead><tr><th>維度</th><th>舊 Server AI</th><th>新 VLM Server AI</th></tr></thead>
+    <tbody>
+      <tr><td>判讀依據</td><td>單張 snapshot 規格參數</td><td>連續影片行為推理</td></tr>
+      <tr><td>判讀層次</td><td>偵測(發生了什麼)</td><td>理解(他在做什麼、為什麼)</td></tr>
+      <tr><td>智能類型</td><td>規則 / 規格 matching</td><td>類人 IQ 推理意圖</td></tr>
+      <tr><td>對車隊管理者價值</td><td>事件警報(常誤報)</td><td>準確事件解釋(降低警報疲勞)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📺 例子 1:轉頭 — 分心 or 看後照鏡?</h2>
+  <h3>場景</h3>
+  <p>商用車駕駛在行駛中突然轉頭。</p>
+  <h3>舊 Server AI 判讀</h3>
+  <ul>
+    <li>規格:轉頭角度 > 閾值 = 分心</li>
+    <li>結果:❌ <strong>誤報</strong> → 管理者收到警報但實際駕駛安全</li>
+  </ul>
+  <h3>新 VLM Server AI 判讀</h3>
+  <ul>
+    <li>連續影片分析:駕駛轉頭方向、視線停留時間、頸部動作模式</li>
+    <li>推論:駕駛在「<strong>看後照鏡</strong>」(正常駕駛行為)</li>
+    <li>結果:✅ <strong>正確不警報</strong> → 顯著降低假警報、管理者信任度提升</li>
+  </ul>
+
+  <h2>📱 例子 2:用手機 — 鏡頭看不到怎麼判?</h2>
+  <h3>場景</h3>
+  <p>駕駛把手機放在大腿或方向盤下方,鏡頭看不到手機本身。</p>
+  <h3>舊 Server AI 判讀</h3>
+  <ul>
+    <li>規格:鏡頭未拍到手機 = 沒用手機</li>
+    <li>結果:❌ <strong>漏判</strong> → 駕駛實際在用手機,系統卻沒抓到</li>
+  </ul>
+  <h3>新 VLM Server AI 判讀</h3>
+  <ul>
+    <li>連續影片推論:駕駛視線持續下移、手部低位動作、頭部姿態</li>
+    <li>推論:駕駛<strong>正在使用手機</strong>(即使看不到手機本體)</li>
+    <li>結果:✅ <strong>正確判定 + 警報</strong> → 提升危險駕駛覆蓋率</li>
+  </ul>
+
+  <h2>🎥 Demo 影片構想(會議中 Brian 提)</h2>
+  <p><strong>原則</strong>:評鑑現場不一定能即時 demo VLM(模型還在開發中),但可用影片讓評審「<strong>感覺到不一樣</strong>」。</p>
+  <ul>
+    <li>影片 A:同一段駕駛轉頭看後照鏡的影像</li>
+    <li>  → 左邊播放「舊模型判定:分心 ⚠️」</li>
+    <li>  → 右邊播放「VLM 判定:看後照鏡 ✓」</li>
+    <li>影片 B:同一段駕駛用手機(鏡頭未拍到手機)</li>
+    <li>  → 左邊「舊模型:未偵測」</li>
+    <li>  → 右邊「VLM:用手機 ⚠️」</li>
+    <li>觀眾(評審)感受:這個 AI 真的能「看懂」駕駛在做什麼</li>
+  </ul>
+
+  <h2>📝 適用在哪幾份 docx</h2>
+  <table>
+    <thead><tr><th>docx</th><th>VLM 故事用法</th></tr></thead>
+    <tbody>
+      <tr><td>1.研發(Eric 主筆)</td><td>技術:VLM 視覺語言模型架構、連續影片推理演算法</td></tr>
+      <tr><td>2.設計(Eric 主筆)</td><td>設計理念:從「偵測」到「理解」的 design rationale</td></tr>
+      <tr><td><strong>3.品質</strong></td><td>AI 品質從「規格驗證」升級到「意圖驗證」</td></tr>
+      <tr><td><strong>4.行銷</strong></td><td>車隊客戶要的不是「偵測」是「理解」 — 切中市場痛點</td></tr>
+      <tr><td><strong>5.臺灣產製</strong></td><td>VLM 演算法 Taiwan 自研</td></tr>
+      <tr><td>6.永續(200 字)</td><td>不一定要扣 VLM,寫包材環保即可</td></tr>
+      <tr><td><strong>7.產品特色中英</strong></td><td>核心故事:意圖判定 = MiTAC 2026 新世代差異化</td></tr>
+    </tbody>
+  </table>
+
+  <h2>⚠️ 對外講 VLM 的尺度建議</h2>
+  <ul>
+    <li>✅ <strong>用「視覺語言模型 / Visual Language Model」全稱</strong> — 比直接寫 VLM 更穩</li>
+    <li>✅ <strong>用「意圖判定」「行為理解」當賣點</strong> — 對外好懂</li>
+    <li>✅ <strong>用 2 個具體例子(轉頭 / 手機)</strong> — 比抽象論述有畫面</li>
+    <li>⚠️ <strong>不要承諾「上線時間」</strong> — 模型還在開發,寫「進化新世代」「下一代」即可</li>
+    <li>⚠️ <strong>不要寫具體量化(精準度 X%、誤報降低 Y%)</strong> — 沒實證,評鑑會穿幫</li>
+    <li>⚠️ <strong>不要說「全球首款」</strong> — 評審會質疑 / 反查</li>
+  </ul>
+</section>
+
+<!-- TAB: 我的筆記 -->
+<section class="tab-content" id="notes" contenteditable="true">
+  <h1>✏️ 我的筆記</h1>
+  <blockquote>會議當下手寫 / 拍腦袋 / TODO 都丟這裡 · 自動存到 localStorage</blockquote>
+  <h2>📅 會議當下重點</h2>
+  <p><em>(在這裡打字...)</em></p>
+  <h2>📌 Brian 講的話</h2>
+  <ul><li>(...)</li></ul>
+  <h2>📌 我被分到的 docx</h2>
+  <ul><li>(...)</li></ul>
+  <h2>📌 Deadline</h2>
+  <p>(...)</p>
+  <h2>📌 下次 sync</h2>
+  <p>(...)</p>
+  <h2>📌 5.台灣產製 確認</h2>
+  <p>(...)</p>
+  <h2>📌 「全球首款」claim 驗證</h2>
+  <p>(...)</p>
+  <h2>📌 50% 誤報率數字拍板</h2>
+  <p>(...)</p>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 1.研發 (今年版) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx1" contenteditable="true">
+  <h1>📄 1.研發.docx — <span style="color:#a371f7;">Eric 主筆</span> <span class="badge" style="background:#a371f7;color:#fff;">非 Kenny 範圍</span></h1>
+  <div class="draft-meta" style="background:rgba(163,113,247,0.08);border-color:#a371f7;">
+    🟣 <strong>5/15 會議分工:這份由 Eric 主筆(RD 視角)</strong> · 官方字數 2,600 字 / 5 張圖<br>
+    Kenny 不主動寫,以下 draft 供 Eric 參考 · <strong>VLM 故事 hook</strong> 切到「🎬 VLM 故事」tab
+  </div>
+  <p style="color:#8b949e;font-size:13px;font-style:italic;">↓ 以下是 Kenny 之前的 draft(供 Eric 參考,Eric 自由取捨)</p>
+
+  <h2>1. 研發策略:從 Server AI 進化到 VLM 視覺語言模型架構</h2>
+  <p><strong>MiTAC 正在引領車聯網 AI 演算法研發</strong>,推出首個結合行車記錄器邊緣與雲端 VLM(Vision Language Model)視覺語言模型的軟硬體混合架構。透過自研演算法與雲端二次分析,讓邊緣車載設備在地端獲得過去僅限於資料中心等級的 AI 視覺辨識效能。</p>
+  <p>2026 年我們進一步將平台從 Server AI 升級到 <strong>VLM 多模態架構</strong>,讓系統不僅能「偵測事件」更能「描述事件」 — 自動生成自然語言的事件摘要與駕駛行為分析報告,顯著降低車隊管理者人工判讀成本,並對齊 GenAI 浪潮下對「可解釋 AI」的評審期待。</p>
+
+  <h2>2. 核心研發布局:5 大新功能 + 完整 MLOps</h2>
+  <p>2026 年 MiTAC Server AI 平台導入 5 項新世代功能模組,皆已通過內部 production 驗證:</p>
+  <ul>
+    <li><strong>車道偏離警示(LDWS)</strong>:結合道路風險上下文感知,降低高速公路單調路段意外</li>
+    <li><strong>駕駛眼動穩定度演算法(Eye Stable Rate)</strong>:解決駕駛戴墨鏡導致眼動偵測失準的業界痛點</li>
+    <li><strong>攝影機自動校正(Camera Auto-Calibration)</strong>:讓安裝位置誤差不影響辨識精度</li>
+    <li><strong>駕駛行為信心評分(Behavior Confidence Scoring)</strong>:降低 DMS 假警報</li>
+    <li><strong>駕駛行為比對模型(Behavior Comparative Model)</strong>:跨車隊行為基準分析</li>
+  </ul>
+  <p>研發團隊建立完整 <strong>MLOps 模型治理框架</strong>,涵蓋訓練資料管理、模型版本控制、生產環境 A/B testing 與快速回滾機制,確保跨地區、跨客戶的模型品質一致性,符合 2026 年精品獎評審對 AI 治理新增的審核重點。</p>
+
+  <h2>3. 智慧財產:Taiwan 自研 5 項 AI 專利</h2>
+  <p>法務團隊於產品開發階段即參與審查,確保專利性(新穎性、進步性、實用性)與商業價值(市場潛力、實施難易度、經濟效益)雙軌評估。MiTAC 累積 5 項影像辨識與車隊管理領域的 Taiwan 自研 AI 專利:</p>
+  <ul>
+    <li><code>I708696</code>:停車行為監測方法(UBI 保險應用)</li>
+    <li><code>I745752</code>:特殊交通標誌辨識技術</li>
+    <li><code>I778774</code>:斜坡停車輔助辨識</li>
+    <li><code>202432411</code>:事故與駕駛異常行為分析系統</li>
+    <li><code>I768989</code>:遠端資料更新機制</li>
+  </ul>
+  <p>2026 年正進一步申請 VLM 多模態車載演算法、Camera Auto-Calibration 與 Edge-Cloud Sync 等新世代 AI 專利,持續累積本土智財。</p>
+
+  <h2>4. 全球 R&D 協作:Taiwan 研發 + 國際落地</h2>
+  <p>研發中心位於 Taiwan,與歐、美、澳客戶端 deployment team 透過 Master/Fleet 雙 Portal 架構建立即時技術回饋通路。2025-2026 年成功解決跨 3 家國際車隊客戶於不同國家同時遭遇邊緣 AI 誤報的事件 — 透過系統性根因分析,3 週內同步推送 fix 至全球客戶,展現 Taiwan 研發中心對全球 production 環境的快速應變能力。</p>
+
+  <div class="warn-box">
+    <strong>⚠️ Brian 拍板項:</strong>
+    <ul>
+      <li>VLM 落地時程是否寫進來(對外宣稱)</li>
+      <li>MLOps 框架是否有對外名稱可用</li>
+      <li>跨 3 家客戶案例的 anonymization 用詞</li>
+      <li>新申請中專利是否提具體名稱</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 2.設計 (今年版) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx2" contenteditable="true">
+  <h1>📄 2.設計.docx — <span style="color:#a371f7;">Eric 主筆</span> <span class="badge" style="background:#a371f7;color:#fff;">非 Kenny 範圍</span></h1>
+  <div class="draft-meta" style="background:rgba(163,113,247,0.08);border-color:#a371f7;">
+    🟣 <strong>5/15 會議分工:這份由 Eric 主筆(RD 視角)</strong> · 官方字數 1,200 字 / 3 張圖<br>
+    Kenny 不主動寫,以下 draft 供 Eric 參考 · <strong>VLM 故事 hook</strong> 切到「🎬 VLM 故事」tab
+  </div>
+  <p style="color:#8b949e;font-size:13px;font-style:italic;">↓ 以下是 Kenny 之前的 draft(供 Eric 參考,Eric 自由取捨)</p>
+
+  <h2>1. Server AI 雙層架構:邊緣捕捉 + 雲端 VLM 推論</h2>
+  <p>MiTAC Server AI 雲端智慧分析平台採「<strong>邊緣事件觸發 + 雲端 VLM 二次分析</strong>」雙層架構。邊緣行車記錄器負責即時影像捕捉與基本判讀,觸發事件後將關鍵影像上傳雲端伺服器,由 VLM 視覺語言模型進行高精度二次分析。此設計徹底突破車載晶片算力受限的業界瓶頸,讓客戶不需替換硬體即可享有資料中心等級 AI 效能。</p>
+
+  <h2>2. Design Rationale:為解決真實痛點而生的功能</h2>
+  <p>不同於市場上以「功能列表」思維設計的車隊系統,Server AI 平台每項功能皆對應一個業界真實痛點:</p>
+  <ul>
+    <li><strong>為解決</strong>商用車駕駛長期戴墨鏡導致眼動偵測失準 <strong>→ 設計</strong> Eye Stable Rate 動態閾值演算法</li>
+    <li><strong>為解決</strong>車隊安裝位置不一致導致辨識誤差 <strong>→ 設計</strong> Camera Auto-Calibration</li>
+    <li><strong>為解決</strong> DMS 誤報率偏高造成警報疲勞 <strong>→ 設計</strong>行為信心評分 + 比對模型</li>
+    <li><strong>為解決</strong>事故釐清需大量人工調閱影像 <strong>→ 設計</strong> VLM 自動生成事件摘要</li>
+  </ul>
+
+  <h2>3. Privacy by Design:符合 GDPR / 歐盟 AI Act</h2>
+  <p>平台於雲端深度學習運算時,同步內建影像遮蔽與去識別技術。針對車外行人臉部、車牌號碼等敏感資訊進行自動馬賽克處理,符合 <strong>EU AI Act(2024)、GDPR、加州 CCPA</strong> 與多國個資法規範。這不只是「合規功能」,而是 Privacy-by-Design 的架構選擇 — 從資料收集源頭即進行隱私保護,而非事後補丁。</p>
+
+  <h2>4. 6 重國際認證 + 雙 Portal UX 分層設計</h2>
+  <p>平台通過 <strong>ISO 9001、ISO 14001、QC 080000、CE、FCC、WEEE</strong> 共 6 重國際標準。並以雙 Portal 設計分層使用者體驗:</p>
+  <ul>
+    <li><strong>Master Portal</strong>:提供總管理者跨車隊鳥瞰視角,即時掌握全球部署狀態</li>
+    <li><strong>Fleet Portal</strong>:提供操作員單一車隊深度操作介面,降低日常使用認知負擔</li>
+  </ul>
+  <p>此分權治理架構符合大型企業車隊組織內部分層管理需求。</p>
+
+  <h2>5. 雲端整合 + 低功耗:邊緣輕量化設計</h2>
+  <p>邊緣裝置採超低功耗車載晶片設計,搭配 Server AI 後端集中運算,終端裝置得以大幅輕量化,有效延長設備壽命並降低能源消耗。配合 OTA(Over-the-Air)遠端更新與雲端即時診斷,實現零中斷運作與低能耗效能平衡。</p>
+
+  <h2>6. 模組化架構 + 多模組整合彈性</h2>
+  <p>整合 G-Sensor、GPS、LTE、Bluetooth、CANBUS、NFC 等多模組,以彈性 API 對接既有車聯網平台。無論是大型物流、巴士、工程車、保全車隊或保險業客戶,皆可依需求快速整合,展現穩定可靠的運行品質與智慧連結效能。</p>
+
+  <div class="warn-box">
+    <strong>⚠️ Brian 拍板項:</strong>
+    <ul>
+      <li>「歐盟 AI Act 高風險 AI 系統合規」是否真已達標(法務確認)</li>
+      <li>Master / Fleet 雙 Portal 對外名稱是否一致</li>
+      <li>「6 重認證」是否要寫具體序號或證書年份</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 3.品質 (今年版) - HIGH LEVERAGE -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx3" contenteditable="true">
+  <h1>📄 3.品質.docx — Kenny 重寫版 <span class="badge new">5/15 校正</span></h1>
+  <div class="draft-meta">
+    <strong>官方字數 ≤ 2,600 字 / 5 張圖</strong> · <strong>Kenny 主筆</strong> · 約 ~700 字(<strong>不衝字數上限,Brian 講「不要長篇大論」</strong>)·
+    新角度:<strong>AI 品質從規格驗證升級到意圖驗證</strong> · 保留去年事實基礎(ISO / 6 Sigma)
+  </div>
+
+  <h2>1. 從規格判定到意圖判定:AI 模型品質的下一個層次</h2>
+  <p>不同於市場上單純依據規格參數(轉頭角度、視線方向)判定駕駛行為的車載 AI,神達 Server AI 平台導入<strong>視覺語言模型(Visual Language Model)</strong>,進階具備「<strong>意圖判定</strong>」能力。</p>
+  <p>例如駕駛轉頭時,系統能透過連續影像理解駕駛是「<strong>看後照鏡</strong>」(正常駕駛行為)而非分心,避免假警報;駕駛使用手機時,即使鏡頭未直接拍到手機本體,系統仍能從視線下移、手部動作推論駕駛意圖。這項進階品質提升 AI 在實際 production 環境的可信度,將車載 AI 從「<strong>偵測</strong>」升級到「<strong>理解</strong>」。</p>
+
+  <h2>2. 創新品質符合車隊客戶潛在需求</h2>
+  <p>Server AI 平台整合 7-channel 360 度全方位監控、AI 駕駛行為分析、4G 雲端聯網,以及 VisionMax 後台管理。透過完善後台,車隊管理者可即時監控、預警、管控駕駛風險。針對保險業應用,平台可即時偵測事故、上傳影片、重建事件,並支援雙向通話讓保險服務人員介入,加速理賠流程。硬體強化「易安裝、難拆卸」特性,確保駕駛員無法任意拆卸設備或修改參數。</p>
+
+  <h2>3. 設計、製造過程嚴格控制品質</h2>
+  <p>MiTAC 通過 ISO 9001 / ISO 14001 / QC 080000 認證,採用 V-Model 軟硬體開發流程,嚴格管控 EVT / DVT / PVT / MP 各階段品質驗證,每階段由品質單位驗證產品功能、耐用性、可靠性。軟體服務方面,專業測試單位逐階段把關,並執行伺服器與 App 弱點掃描與滲透測試,維護資安。</p>
+
+  <h2>4. 全面推展全面品質管理(TQM)</h2>
+  <p>供應商管理:電子網站供應商上傳系統 + 元件工程師與廠商管理部門定期稽核,確保來料品質。客戶閉環:Master / Fleet 雙 Portal 客戶回饋通路,定期與客戶進行產品審查會議,針對不良品狀態與使用反饋深入檢討,提出對應改善計畫。此一閉環機制確保產品持續迭代提升。</p>
+
+  <h2>5. 公司願景與環安衛政策</h2>
+  <p>公司願景:量身訂做最適切的 IT 和科技產品服務,滿足世界各區域的需求。環安衛政策:遵守法規要求、守護地球資源、發展綠色製程、安全健康環境、持續提升環安衛績效。落實綠色產品政策:遵守環境法規、滿足客戶要求、落實管理系統績效、提供低污染省能源可回收與環境融和的綠色產品。</p>
+
+  <h2>6. 品質經營層次提升:6 Sigma 整合 24 年</h2>
+  <p>MiTAC 自 2002 年起全面導入 6 Sigma 品質改善系統,涵蓋研發、製造、服務。近年將品質提案制度、品管圈與 6 Sigma 改善系統三合一整合,提升品質改善協同效率。設計生產經驗保存於知識庫系統,確保相關人員異動時知識傳承不斷,品質穩定。MiTAC 已從產品品質階段,持續提升至製程品質、品質保證、全面品質管理,並進入品質經營層次。</p>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 4.行銷 (今年版) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx4" contenteditable="true">
+  <h1>📄 4.行銷.docx — Kenny 重寫版 <span class="badge new">5/15 校正</span></h1>
+  <div class="draft-meta">
+    <strong>官方字數 ≤ 2,700 字 / 5 張圖</strong> · <strong>Kenny 主筆</strong> · 約 ~700 字(<strong>不衝字數上限</strong>)·
+    新角度:<strong>車隊客戶要的不是「偵測」是「理解」</strong> · 保留去年事實基礎(全球通路 / 4 大品牌價值 / 客服 / 行銷預算)
+  </div>
+
+  <h2>1. 從「AI 偵測」到「AI 理解」:車隊客戶的新世代需求</h2>
+  <p>近年生成式 AI 浪潮席捲全球,車隊管理客戶對車載 AI 的期待從「<strong>事件偵測</strong>」進化到「<strong>行為理解</strong>」。神達 VisionMax Server AI 雲端智慧分析平台導入<strong>視覺語言模型</strong>,讓車隊系統具備類人推理能力 — 不只標記異常,更能解釋駕駛行為意圖。這項升級切中車隊管理者對「降低誤報、提升判讀效率」的核心痛點。</p>
+  <p><strong>Server AI 平台 4 大品牌價值</strong>:</p>
+  <ol>
+    <li><strong>高準確 AI 分析</strong>(意圖辨識,提升資料信賴度)</li>
+    <li><strong>模組化架構 + 彈性 API</strong>(快速整合既有平台)</li>
+    <li><strong>雲端運算 + 邊緣輕量化</strong>(節能減碳、延長硬體壽命)</li>
+    <li><strong>提升事件判讀效率</strong>(企業風控、加速理賠流程)</li>
+  </ol>
+
+  <h2>2. 全球銷售通路布建</h2>
+  <p>MiTAC 長年深耕國際市場,於台灣、東南亞、日本、澳洲、歐洲、美洲設有分公司與專業業務團隊,與當地經銷商緊密合作推動 Server AI 平台導入。透過與系統整合商(SI)、ODM 業者及加值經銷商(VAR)的合作,MiTAC 拓展大型物流、巴士、工程車、保全車隊與保險業多元場景,並可依客戶需求提供客製化技術整合支援。</p>
+
+  <h2>3. 行銷策略與顧客滿意度</h2>
+  <p>定期執行競品分析,涵蓋準確率、AI 模組差異、整合便利性、運算效率等多維度,搭配 SWOT 評估制定強化計畫。每年針對 B2B 客戶執行產品滿意度、技術支援、交期穩定度、品牌信賴度等多維度調查,結果直接導入下年產品路線。針對東南亞、北美等重點開發市場,搭配第三方市調機構與本地焦點團體訪談,確保掌握真實需求並精準迭代。</p>
+
+  <h2>4. 全方位客戶服務系統</h2>
+  <p>建立以客戶為核心的服務架構,結合線上線下多管道支援。提供專業 Partner Portal,整合產品知識庫、故障排除指南、API 文件、技術問答與最新版本更新。售後設有 FAE 專業技術支援團隊與維修處理中心,多語系客服在 24 小時內回應。內部每週業務與技術例會整合前線回報,行銷與研發即時討論改善方案。品管單位每月分析客服案件數據,發掘潛在問題並提出優化建議。</p>
+
+  <h2>5. 全球行銷推廣與國際展會</h2>
+  <p>MiTAC 每年針對 B2B 商業應用領域編列年度行銷預算,依產品主軸與區域策略配置資源。針對 Server AI 這類創新型雲端平台,總部設有專責的全球行銷規劃小組,負責技術溝通、議題包裝、數位推廣與公關整合,並與各區域分公司行銷人員密切協作。</p>
+  <p>主要推廣作法:參展指標性國際展會(<strong>CES、美國 TMC、東京車聯網展</strong>等)、舉辦經銷商及客戶技術說明會、執行 SEO 與 LinkedIn 與業界論壇數位行銷、提供專案客製簡報與競標支援、製作白皮書與成功案例強化品牌可信度。持續以「<strong>AI 加值 + 節能減碳 + 安全強化</strong>」三大軸線傳達 MiTAC 品牌核心價值,提升企業形象與國際能見度。</p>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 5.台灣產製 (新寫) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx5" contenteditable="true">
+  <h1>📄 5.臺灣產製.docx — Kenny 重寫版 (400 字內) <span class="badge new">5/15 校正</span></h1>
+  <div class="draft-meta">
+    <strong>官方字數 ≤ 400 字 / 2 張圖(嚴格上限!)</strong> · <strong>Kenny 主筆</strong> · 約 ~340 字 ·
+    新角度:<strong>VLM 演算法 Taiwan 自研 + 本土完整技術鏈</strong>
+  </div>
+  <div class="warn-box">
+    👉 <strong>會議後要 Brian / Eric 確認:</strong>
+    <ul>
+      <li>Server AI 平台<strong>製造模式</strong>:① 在臺自有工廠 / ② 委託國內他廠 / ③ 研發在臺製造國外 — 三選一決定下方第 4 段寫法</li>
+      <li>研發單位 Taiwan 工程師人數要不要寫具體</li>
+    </ul>
+  </div>
+
+  <h2>1. Server AI 平台 Taiwan 自主研發</h2>
+  <p>VisionMax Server AI 雲端智慧分析平台之<strong>核心 AI 演算法、雲端架構、視覺語言模型(VLM)、5 項影像辨識專利</strong>,均於 Taiwan 自主研發完成。研發中心位於 Taiwan,結合 MiTAC 多年 GPS 核心技術根基與本土 AI 工程師團隊,展現 Taiwan 在車聯網 AI 領域的自主核心競爭力。</p>
+
+  <h2>2. 5 項 Taiwan-Issued AI 專利</h2>
+  <p>研發團隊累積 <strong>5 項由 Taiwan 智慧財產局核發</strong>之 AI 專利:<code>I708696</code> 停車行為監測、<code>I745752</code> 特殊交通標誌辨識、<code>I778774</code> 斜坡停車輔助、<code>202432411</code> 事故與駕駛異常分析、<code>I768989</code> 遠端資料更新。</p>
+
+  <h2>3. 本土完整技術鏈</h2>
+  <p>從車載硬體設計、嵌入式韌體、雲端架構、AI 演算法、VLM 模型訓練到 Portal SaaS 前端開發,核心技術皆於 Taiwan 完成,確保技術自主、資安可控、快速迭代。</p>
+
+  <h2>4. Taiwan 原產地證明</h2>
+  <p>本產品於我國境內完成最終實質轉型,具備<strong>原產地為我國之相關證明文件</strong>(海關簽署之出口國貨證明文件 / 原產地證明書 / MIT 微笑標章擇一)。</p>
+  <p style="color:#8b949e;font-size:13px;font-style:italic;">⚠️ 上句具體用詞依 Brian 確認製造模式後微調(在臺自有工廠 / 委託國內他廠 / 研發在臺製造國外)</p>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 6.永續 (今年版) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx6" contenteditable="true">
+  <h1>📄 6.永續產品特色 — Kenny 重寫版 (200 字內) <span class="badge new">5/15 校正</span></h1>
+  <div class="draft-meta">
+    <strong>官方:200 字選填補充欄位</strong>(在「產品特色」頁面底下)· <strong>Kenny 主筆</strong> · 約 ~180 字 ·
+    Brian 講「永續沒什麼好寫,看去年包裝環保材料就好」 — 我精簡到包材 + 設備延壽
+  </div>
+  <div class="warn-box">
+    ⚠️ <strong>會議後要 Brian 確認:</strong> MiTAC 有沒有 ISO 14064 碳盤查 / 碳足跡認證?有 → 加進去;沒有 → 維持目前版本(避免漂綠扣分)
+  </div>
+
+  <h2>建議 200 字版本</h2>
+  <blockquote>
+    VisionMax Server AI 平台採雲端集中運算架構,讓邊緣行車設備不需替換硬體即可享有 AI 升級,顯著延長車載設備使用年限,降低 e-waste 產生。產品包材採用 100% 回收紙漿與低毒性可重複使用材質,符合 RoHS、WEEE、REACH、加州第 65 號提案等多國環保法規,並遵循 MiTAC 自訂環境管理規範 GP-1-00001。製程方面,MiTAC 全面導入 RBA 責任商業聯盟規範,保障員工權益、性別平等與職場安全,落實企業社會責任。
+  </blockquote>
+  <p style="color:#8b949e;font-size:13px;">↑ ~190 字(目視),Brian 確認後可微調</p>
+
+  <hr>
+
+  <h2 style="color:#8b949e;">⬇ 以下原 750 字版本(僅供 reference,不送)</h2>
+  <p style="color:#8b949e;font-size:13px;">這段內容部分可拆散塞到 3.品質「品質經營」段 / 1.研發「製程節能」段</p>
+
+  <h2>1. SaaS 訂閱 = 商業模型即永續模型(今年新增 framing)</h2>
+  <p>Server AI 雲端架構讓客戶<strong>不需要換硬體即可享有 AI 升級</strong>。傳統車隊 telematics 設備平均使用 3 年即需更換,以追上 AI 演算法演進。Server AI 透過雲端集中運算,讓邊緣設備使用年限延長至 5-7 年,顯著降低 e-waste 產生。</p>
+  <p><strong>SaaS 訂閱模式 = 永續模式</strong> — 從商業設計層面落實循環經濟,而非僅依賴下游回收環節。這是 Server AI 平台對永續最直接、最具規模的貢獻。</p>
+
+  <h2>2. 雲端集中 vs 分散邊緣:能源效率比躍升</h2>
+  <p>1 顆資料中心 GPU 服務 1000 台車輛運算 vs 1000 顆分散邊緣 NPU 各自運算 — 在<strong>單位推論(inference)的能源消耗</strong>上,雲端集中架構顯著更優。雲端 GPU 採用先進製程,搭配資料中心整體電力管理(包含再生能源採購),單位 token / inference 的碳足跡可有效追蹤、揭露與優化。Server AI 從架構層面內建了這份能源優勢。</p>
+
+  <h2>3. 採用綠色環保、安全無害與循環再生材料</h2>
+  <p>邊緣硬體在產品外包裝與內部包材設計上,全面導入綠色設計理念。包裝材料選用低毒性、低污染、節能、省資源的可回收與可重複使用材質,從源頭減廢。所有零組件與材料皆符合國際環保法規:<strong>RoHS、WEEE、REACH、POPs、TSCA、加州第 65 號提案、PFAS 限制、義大利 CONAI 包裝法規</strong>,並遵循 MiTAC 自訂環境管理規範 <code>GP-1-00001</code>,打造無毒安全且可持續的產品生命週期。</p>
+
+  <h2>4. 全面考量產品生命週期,落實資源循環與減廢</h2>
+  <p>從設計到退役階段,所有產品皆納入「<strong>耐用性、可升級性、可修復性</strong>」三大原則。雲端 AI 升級讓設備不因軟體淘汰被迫退役 — 這是 Server AI 對「可升級性」的具體實踐。外包材如紙箱全面採用 100% 回收紙漿,內包材使用無毒可回收材質。內部樣品與行銷傳遞鼓勵重複利用既有包裝,有效減少一次性包材使用。</p>
+
+  <h2>5. ISO 14064 碳盤查 + CSRD 範圍 3 揭露能力</h2>
+  <p>採用 ISO 14064 國際標準執行年度碳盤查,掌握營運過程中的溫室氣體排放來源 — MiTAC 集團 <strong>92% 排放來自電力使用</strong>,正逐步推進綠電採購與能源轉型。</p>
+  <p>更重要的是,<strong>Server AI 雲端架構讓 MiTAC 可協助客戶揭露使用階段(範圍 3)碳排數據</strong>,協助大型車隊客戶符合 2025 歐盟 CSRD 永續報告強制揭露要求 — 此能力讓 Server AI 不僅自身永續,更賦能客戶的永續報告。</p>
+
+  <h2>6. 強化產品回收再利用性,助攻循環經濟</h2>
+  <p>產品設計初期即納入回收與拆解便利性的考量,符合歐盟 WEEE 指令,提升<strong>可再生材料佔比至 88% 以上</strong>。供應商與內部材料皆須符合環保與安全標準,產品全面通過歐盟 RoHS 環保指令與 ErP 能效規範。藉由強化材料選擇、延長產品壽命與便捷回收,推動循環經濟具體實踐。</p>
+
+  <h2>7. 守護勞工權益,落實企業社會責任</h2>
+  <p>MiTAC 全面遵循《<strong>世界人權宣言</strong>》、《聯合國商業與人權指導原則》及《國際勞工組織》相關準則,並導入 <strong>RBA 責任商業聯盟</strong>規範,確保全球營運據點皆尊重人權與提供公平待遇。明確制定「聘僱政策」「禁止童工」「性別平等」「自由就業」等制度,從研發、生產到包裝各環節皆重視員工職場安全與福利。</p>
+
+  <div class="warn-box">
+    <strong>⚠️ Brian 拍板項:</strong>
+    <ul>
+      <li>「邊緣設備延長使用年限 5-7 年」實證數字(有沒有客戶案例)</li>
+      <li>「雲端 GPU 集中化 vs 分散邊緣」能效對比是否有實測數據</li>
+      <li>是否要強調 SBTi 加入 / RE100 採購狀態(視 MiTAC 集團實況)</li>
+      <li>CSRD 範圍 3 揭露能力是否真的有(產品功能還是 marketing claim)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- TAB: 7.產品特色中英 (沿用原 draft) -->
+<!-- ====================================================================== -->
+<section class="tab-content" id="docx7" contenteditable="true">
+  <h1>📄 7.產品特色(中英).docx — <span style="color:#d29922;">等 Eric 1+2 出來再寫</span> <span class="badge warn">等待中</span></h1>
+  <div class="draft-meta" style="background:rgba(210,153,34,0.08);border-color:#d29922;">
+    🟡 <strong>5/15 會議分工:Kenny 主筆,但要等 Eric 的 1.研發 + 2.設計出來後,以那兩份為模板再寫</strong>(產品特色要呼應研發+設計內容)<br>
+    <strong>對產品整體性描述</strong>,提供所有委員參考(不是 5 大評選項目之一)·
+    新角度:<strong>套 VLM「意圖判定」故事 + 承接 MiTAC 2024 / 2025 narrative</strong>
+  </div>
+  <p style="color:#8b949e;font-size:13px;font-style:italic;">↓ 以下舊版 draft(學群聯模式)作為參考。等 Eric 出來後,Kenny 會根據 Eric 內容 + VLM 故事重寫。</p>
+
+  <h2>🇹🇼 中文版(481 字)</h2>
+  <blockquote>
+    <p><strong>MiTAC 正在引領車聯網 AI 產業,推出全球首款結合行車記錄器邊緣硬體與雲端 AI 的「Server AI 雲端智慧分析平台」,徹底突破現今 ADAS / DMS 因邊緣算力受限導致誤報率高、漏判率高的產業痛點。</strong></p>
+    <p><strong>過去</strong>車隊安全 AI 僅能仰賴行車設備本地推論,模型參數受限於車載晶片算力,業界普遍誤報率高達 30%~40%,管理者疲於應付假警報。<strong>現在</strong>,MiTAC 透過自研 Server AI 平台,以「邊緣事件觸發 + 雲端二次分析」軟硬體混合架構,讓邊緣行車設備在地端獲得過去僅限於資料中心等級的 AI 視覺辨識效能。結合自研 Yawning 駕駛疲勞模型、G-Sensor 動態行為門檻、ADAS 道路風險演算法,<strong>有效降低誤報率超過 50%</strong>,並支援 5 大新功能:車道偏離警示(LDWS)、駕駛眼動穩定度演算法、攝影機自動校正、駕駛行為信心評分、駕駛行為比對模型。</p>
+    <p>平台採模組化架構與彈性 API 設計,具備跨平台整合能力,已<strong>橫跨亞、北美、歐、澳四大區域同步 production 佈署</strong>,服務涵蓋大型物流、巴士、工程車與保全車隊。產品通過 ISO 9001、ISO 14001、QC 080000、CE、FCC 等多項國際認證,累積 5 項台灣自研 AI 專利。</p>
+    <p>Server AI 平台不僅展現台灣自主 AI 演算法核心技術的全球競爭力,更實現「邊緣算力下沉、雲端智慧上推」的車聯網新典範,為全球車隊管理建構安全、節能、永續的智慧運輸未來。</p>
+  </blockquote>
+
+  <h2>🌐 英文版(896 字)</h2>
+  <blockquote>
+    <p><strong>MiTAC is pioneering the connected-vehicle AI industry with the world's first cloud-based AI secondary analysis platform — the "Server AI Cloud Intelligence Platform" — engineered to overcome the persistent industry pain point of high false-positive and miss-detection rates in ADAS and DMS systems caused by edge-device compute limitations.</strong></p>
+    <p><strong>The challenge.</strong> Conventional fleet safety AI has relied solely on local inference at the dashcam edge, where AI model size is capped by limited automotive-grade compute. As a result, industry-wide false-positive rates have reached 30–40%, eroding fleet managers' trust in safety alerts and increasing operational cost from chasing false alarms.</p>
+    <p><strong>The breakthrough.</strong> MiTAC's self-developed Server AI Platform introduces a <strong>hybrid hardware-software architecture</strong> combining event-triggered edge capture with cloud-based secondary AI analysis. This enables edge dashcams to access <strong>data-center-grade visual AI inference</strong>, previously impossible at automotive cost and power envelopes. The platform integrates MiTAC's proprietary Yawning Detection Model, G-Sensor dynamic-behavior thresholds, and ADAS road-risk algorithms — <strong>reducing false-positive rates by over 50%</strong> in real-world production deployments.</p>
+    <p><strong>Five next-generation capabilities</strong> are delivered through the platform:</p>
+    <ol>
+      <li>Lane Departure Warning System (LDWS) with road-context awareness</li>
+      <li>Driver eye-stability scoring algorithm for fatigue precision</li>
+      <li>Camera auto-calibration for installation-agnostic accuracy</li>
+      <li>Driver-behavior confidence scoring model</li>
+      <li>Driver-behavior comparative analysis model</li>
+    </ol>
+    <p><strong>Modular architecture, open API.</strong> Server AI's modular design and flexible API enable seamless integration with existing fleet management systems, allowing customers to extend AI capability without hardware replacement.</p>
+    <p><strong>Production-grade global deployment.</strong> The platform is operating in production across <strong>four major regions — Asia, North America, Europe, and Australia</strong> — serving large-scale logistics, public transit, construction fleet, and security fleet operators. Cross-region production data validates platform stability under diverse regulatory and operational contexts.</p>
+    <p><strong>Certified and protected.</strong> The platform meets ISO 9001, ISO 14001, QC 080000, CE, FCC, and WEEE standards, backed by <strong>five Taiwan-issued AI patents</strong> in image recognition and fleet management algorithms.</p>
+    <p><strong>Why this matters.</strong> Server AI Platform showcases <strong>Taiwan's autonomous AI core competence</strong> on a global scale, embodies the next paradigm of "<strong>edge compute downshift, cloud intelligence upshift</strong>" for connected vehicles, and contributes to a safer, more energy-efficient, and more sustainable future for global fleet operations.</p>
+  </blockquote>
+
+  <div class="warn-box">
+    <strong>⚠️ Brian 拍板項:</strong>
+    <ul>
+      <li>「降低誤報率超過 50%」— 用 50% / 30% / 不寫 %?</li>
+      <li>「亞 / 北美 / 歐 / 澳四大區域 production」— 澳洲是 production 還是 evaluation?</li>
+      <li>「全球首款」claim — 真的是首款?還是改成「業界首款」「台灣首款」?</li>
+      <li>5 項台灣自研 AI 專利 — 都是 Taiwan-issued I/D 開頭?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 參考 group -->
+<!-- ====================================================================== -->
+
+<!-- TAB: 35 屆官方須知 -->
+<section class="tab-content" id="official" contenteditable="true">
+  <h1>🚨 35 屆官方須知重點(來自 5/15 Kenny 提供 3 份官方 PDF)</h1>
+  <blockquote>來源:第35屆台灣精品選拔須知 + 說明會簡報 + FAQ · 已存到 04_精品獎背景研究/</blockquote>
+
+  <h2>🎯 5 個會議當下要立刻講的 BREAKING NEWS</h2>
+  <ol>
+    <li><strong>跳號 5 = 「臺灣產製」</strong>確認(經濟部 1993 立法的 5 大選拔項目)</li>
+    <li><strong>「6.永續」變 200 字選填補充欄位</strong> — 不是獨立 docx!內容要拆散到 5 大項目</li>
+    <li><strong>「7.產品特色」不是評選項目</strong> — 是「整體性描述提供所有委員參考」</li>
+    <li>5.臺灣產製只能 <strong>400 字</strong>!我之前 draft 700 字 — 嚴重超字</li>
+    <li>截止日 <strong>6/30 中午 12:00</strong> — 剩 6 週又 1 天</li>
+  </ol>
+
+  <h2>📅 35 屆完整時程</h2>
+  <table>
+    <thead><tr><th>階段</th><th>日期</th></tr></thead>
+    <tbody>
+      <tr><td>線上報名</td><td>4/1 ~ <strong>6/30 中午 12:00</strong></td></tr>
+      <tr><td>郵寄資料 / 繳費</td><td>7/1 前</td></tr>
+      <tr><td>資格查核</td><td>7/1 ~ 7/31</td></tr>
+      <tr><td>書面審查</td><td>8/14 ~ 9/18</td></tr>
+      <tr><td>初選送件 / 評鑑</td><td>9/17 送件 → 9/18-21 評鑑</td></tr>
+      <tr><td>初選名單公佈</td><td><strong>10 月底</strong></td></tr>
+      <tr><td>決選送件 / 評鑑</td><td>12/11 送件 → 12/12-15 評鑑 + <strong>英文簡報</strong></td></tr>
+      <tr><td>頒獎</td><td>12/16</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📝 5 大評選項目字數限制(嚴格)</h2>
+  <table>
+    <thead><tr><th>項目</th><th>字數</th><th>圖片</th><th>子項數</th></tr></thead>
+    <tbody>
+      <tr><td>研發</td><td>2,600</td><td>5</td><td>5 子項 + 14 細項</td></tr>
+      <tr><td>設計</td><td><strong>1,200</strong></td><td>3</td><td>5 子項</td></tr>
+      <tr><td>品質</td><td>2,600</td><td>5</td><td>5 子項 + 22 細項(ESG 在這)</td></tr>
+      <tr><td>行銷</td><td>2,700</td><td>5</td><td>5 子項 + 29 細項</td></tr>
+      <tr style="background:rgba(248,81,73,0.1);"><td>臺灣產製</td><td><strong>400</strong></td><td>2</td><td>4 子項</td></tr>
+      <tr style="background:rgba(210,153,34,0.1);"><td>永續補充(選填)</td><td><strong>200</strong></td><td>—</td><td>6 條件 + 非漂綠</td></tr>
+    </tbody>
+  </table>
+
+  <h2>✅ 5 大申請資格(Server AI 必須核對)</h2>
+  <ol>
+    <li><strong>臺灣品牌企業</strong> — 非外商子公司 ✅ MiTAC</li>
+    <li><strong>商標已依我國商標法取得權利</strong> — 報名公司所有(<span class="badge warn">需確認</span> Server AI / VisionMax 商標歸屬)</li>
+    <li><strong>產品上市未滿 3 年</strong> — <span class="badge hot">必問 Brian</span> Server AI 何時 launch?</li>
+    <li><strong>研發單位設於臺灣</strong> ✅ MiTAC R&D 中心 Taipei</li>
+    <li><strong>已取得認驗證</strong> ✅ ISO 9001 / 14001 / QC 080000 / CE / FCC / WEEE</li>
+  </ol>
+
+  <h2>📦 產品分類選擇(會議要 Brian 拍板)</h2>
+  <table>
+    <thead><tr><th>代碼</th><th>分類</th><th>對應</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0106</strong></td><td>車用電子產品(AA 消費性電子下)</td><td>⭐⭐⭐ 車載硬體 + 雲端整合</td></tr>
+      <tr><td>0207</td><td>資訊軟體解決方案</td><td>⭐⭐⭐ Server AI 雲端核心</td></tr>
+      <tr><td>0130</td><td>消費性電子解決方案</td><td>⭐⭐</td></tr>
+      <tr><td>0118</td><td>網路/通訊解決方案</td><td>⭐⭐</td></tr>
+      <tr><td>0915</td><td>交通器材解決方案</td><td>⭐⭐ 車隊整體</td></tr>
+    </tbody>
+  </table>
+
+  <h2>💰 報名費</h2>
+  <p><strong>NT$4,000 / 件</strong>(含稅)· 匯款台北富邦銀行東門分行 · 帳號 462210190019 · 戶名 財團法人中華民國對外貿易發展協會</p>
+
+  <h2>🏆 獎額</h2>
+  <ul>
+    <li>金質獎 ≤ 10 件(未達標準從缺)</li>
+    <li>金 + 銀質獎 ≤ 30 件</li>
+    <li>都從「臺灣精品獎」中再選</li>
+  </ul>
+
+  <h2>🌱 永續產品特色 — 6 項條件(全要 + 非漂綠)</h2>
+  <p>選填 200 字補充欄位,必須<strong>全部符合 6 項</strong>且<strong>非漂綠</strong>:</p>
+  <ol>
+    <li>產品 + 包裝採用綠色環保 / 循環再生材料</li>
+    <li>生命週期 / 廢棄物處理 / 可重複利用 / 可升級 / 可修復</li>
+    <li>節能 / 提升能源效率</li>
+    <li><strong>已申請或取得碳足跡認證、碳盤查相關認證</strong> ← KEY</li>
+    <li>使用後帶來永續改善</li>
+    <li>保障勞工 / 性別平等 / 社會責任</li>
+  </ol>
+  <blockquote>非漂綠 = 所有「永續、綠色、減碳、碳中和」聲明都要有國際或本國認證體系背書,可供查詢核實</blockquote>
+
+  <h2>🎤 決選格式(若入圍金銀獎)</h2>
+  <ul>
+    <li><strong>8 分鐘現場簡報 + 10 分鐘答詢</strong></li>
+    <li><strong>書面簡報 + 口頭簡報皆須英文</strong></li>
+    <li>簡報者「態度與表現」納入綜合評估</li>
+    <li>另繳「創新價值運作實務表」(英文,5 大項目綜合表現)</li>
+  </ul>
+
+  <h2>⚠️ 評審 NG vs DO</h2>
+  <h3>❌ 7 大 NG</h3>
+  <ul>
+    <li>缺乏統籌(行銷新人寫技術)</li>
+    <li>佐證不足(認驗證 / 專利未引用)</li>
+    <li>未對應評審子項細項</li>
+    <li>浮誇無實證</li>
+    <li>行銷說明空泛</li>
+    <li>定位不清</li>
+    <li>內容與產品不符(實品評鑑會破功)</li>
+  </ul>
+  <h3>✅ 8 大 DO</h3>
+  <ul>
+    <li>組建團隊,高層統籌</li>
+    <li>顧客視角(評審 = 第一次接觸的重要顧客)</li>
+    <li>完整回應 67 細項</li>
+    <li>論述具體簡明準確</li>
+    <li>客觀數據優先(避免主觀形容)</li>
+    <li>突顯創新獨特性</li>
+    <li>對應產業趨勢(ESG / AI / IoT / 智慧製造)</li>
+    <li>行銷策略具體 + 實際成效</li>
+  </ul>
+
+  <h2>🎁 2026 新福利(獲台灣精品獎企業可享)</h2>
+  <ol>
+    <li>海外通路審查加分(補助廠商分散及開拓海外市場計畫)</li>
+    <li>海外參展優先支持</li>
+    <li>APEC 商務旅行卡推薦</li>
+  </ol>
+
+  <h2>📚 官方 PDF 位置</h2>
+  <ul>
+    <li><code>04_精品獎背景研究/35屆_須知.pdf</code> (20 頁) — 評選作業詳細規定</li>
+    <li><code>04_精品獎背景研究/35屆_說明會簡報.pdf</code> (34 頁) — 評審觀點 + NG 範例</li>
+    <li><code>04_精品獎背景研究/35屆_FAQ.pdf</code> — 28 問常見問題</li>
+    <li><code>04_精品獎背景研究/35屆官方須知_重大校正.md</code> — 我整理的全文重點</li>
+  </ul>
+</section>
+
+<!-- TAB: 角色優化 -->
+<section class="tab-content" id="optimization" contenteditable="true">
+  <h1>🔧 5 份 docx 多角色觀察優化(參考)</h1>
+  <blockquote>已經把優化內容直接放進「📝 7 份 Drafts」對應 tab。這份保留作為框架說明。</blockquote>
+
+  <h2>🎭 6 種觀察角色</h2>
+  <ol>
+    <li>🧑‍⚖️ <strong>評審視角</strong> — 用 5 大評選軸看缺什麼</li>
+    <li>🥇 <strong>金獎得主視角</strong> — 群聯 / 雲象 / 雃博怎麼寫</li>
+    <li>🤖 <strong>AI 趨勢視角</strong> — GenAI / VLM 進化在哪</li>
+    <li>🌏 <strong>國際視野視角</strong> — 跨國 / ESG / 永續</li>
+    <li>🎯 <strong>PM 視角</strong> — production 端有什麼新證據</li>
+    <li>🛡️ <strong>風控視角</strong> — 哪裡會被質疑</li>
+  </ol>
+
+  <h2>📋 總清單(會議當場可念)</h2>
+  <table>
+    <thead><tr><th>docx</th><th>必補 1 件</th><th>加分 2 件</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.研發</strong></td><td>VLM 視覺語言模型</td><td>訓練資料規模 / Taiwan AI 計畫</td></tr>
+      <tr><td><strong>2.設計</strong></td><td>Design rationale</td><td>6 重認證 / 雙 Portal UX</td></tr>
+      <tr><td><strong>3.品質</strong></td><td>跨客戶 production 案例</td><td>訓練資料量 / MLOps</td></tr>
+      <tr><td><strong>4.行銷</strong></td><td>歐盟 AI Act 合規</td><td>展會曝光 / ESG 銷售</td></tr>
+      <tr><td><strong>5.台灣產製</strong></td><td>新寫整份 <span class="badge new">NEW</span></td><td>自研比例 / 政府計畫</td></tr>
+      <tr><td><strong>6.永續</strong></td><td>產品永續設計</td><td>能源效率比 / CSRD 範圍 3</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TAB: 34vs35 -->
+<section class="tab-content" id="comparison" contenteditable="true">
+  <h1>📊 34 屆(2025)vs 35 屆(2026)趨勢對比</h1>
+  <blockquote>經濟部國際貿易署 · TAITRA · Taiwan Excellence Award</blockquote>
+
+  <h2>📈 整體趨勢</h2>
+  <table>
+    <thead><tr><th>屆數</th><th>年度</th><th>金獎</th><th>資通訊佔比</th><th>趨勢標題</th></tr></thead>
+    <tbody>
+      <tr><td>32 屆</td><td>2023</td><td>~10</td><td>47%</td><td>—</td></tr>
+      <tr><td>33 屆</td><td>2024</td><td>10</td><td>51%</td><td>永續、AI、跨領域</td></tr>
+      <tr><td>34 屆</td><td>2025</td><td>10</td><td><strong>55%</strong></td><td>AI 導入、永續節能、跨域整合</td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>35 屆</strong></td><td><strong>2026</strong></td><td>TBD</td><td><strong>60%+(估)</strong></td><td>GenAI/VLM、ESG 量化、軟硬整合</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🥇 34 屆 10 件金獎完整名單</h2>
+  <table>
+    <thead><tr><th>#</th><th>公司</th><th>產品</th><th>對標度</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>華碩電腦</td><td>ASUS Zenbook A14 筆電</td><td>❌ B2C</td></tr>
+      <tr><td>2</td><td>華碩電腦</td><td>ASUS ProArt Display 8K</td><td>❌ B2C</td></tr>
+      <tr><td>3</td><td>致茂電子</td><td>2D/3D 晶圓量測系統</td><td>△ B2B</td></tr>
+      <tr><td>4</td><td>永光化學</td><td>Everzol CS 系列染料</td><td>❌ 化學</td></tr>
+      <tr><td>5</td><td>大銀微系統</td><td>多維度定位平台</td><td>△ 平台</td></tr>
+      <tr style="background:rgba(63,185,80,0.15);"><td>6</td><td><strong>群聯電子</strong></td><td><strong>6 奈米 AI 運算型 SSD</strong></td><td><span class="badge gold">⭐⭐⭐ 直接對標</span></td></tr>
+      <tr><td>7</td><td>東元電機</td><td>智能匯集仿生機器人關節</td><td>△ AI+硬體</td></tr>
+      <tr><td>8</td><td>聯合骨科器材</td><td>聯合康膝人工膝關節</td><td>❌ 醫療</td></tr>
+      <tr><td>9</td><td>雃博</td><td>智慧 IOT 全時壓傷照護氣墊床</td><td>△ IOT 雲端</td></tr>
+      <tr><td>10</td><td>創茂生技</td><td>智世代全自動核酸檢測</td><td>△ AI 應用</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote><strong>📍 重大發現:</strong> 34 屆 10 件金獎<strong>無一車聯網 / 行車記錄器 / fleet 類產品</strong> — 35 屆我們有獨佔空間。</blockquote>
+
+  <h2>💎 金獎 Wording 黃金 8 法則</h2>
+  <ol>
+    <li><strong>開場動詞 = 引領 / 突破 / 首個</strong></li>
+    <li><strong>技術名稱可以提</strong> — 自家品牌名</li>
+    <li><strong>客戶名不提</strong>(籠統領域 OK)</li>
+    <li><strong>量化指標必備</strong> — % / 國數 / 規模</li>
+    <li><strong>軟硬體混合 / 在地端 = 熱字</strong></li>
+    <li><strong>雙認證 / 多認證敘事</strong></li>
+    <li><strong>全球佈署規模</strong></li>
+    <li><strong>自家專屬技術命名</strong></li>
+  </ol>
+
+  <h2>🎯 6 份 docx 去年 → 今年升級對照</h2>
+  <table>
+    <thead><tr><th>docx</th><th>去年 framing</th><th>今年升級</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.研發</strong></td><td>Server AI + 5 專利</td><td>+ <span class="badge new">VLM 視覺語言模型</span></td></tr>
+      <tr><td><strong>2.設計</strong></td><td>6 段功能列舉</td><td>+ <span class="badge new">Design rationale</span></td></tr>
+      <tr><td><strong>3.品質</strong></td><td>內部 ISO + 6 Sigma</td><td>+ <span class="badge hot">跨國 4 區 production 案例</span></td></tr>
+      <tr><td><strong>4.行銷</strong></td><td>5 大洲 + 4 大品牌</td><td>+ <span class="badge new">歐盟 AI Act</span></td></tr>
+      <tr style="background:rgba(248,81,73,0.1);"><td><strong>5.台灣產製</strong></td><td><span class="badge hot">缺件!</span></td><td>新寫:Taiwan 自研 + 5 專利</td></tr>
+      <tr><td><strong>6.永續</strong></td><td>公司 ESG 標準稿</td><td>+ <span class="badge new">SaaS 減 e-waste</span></td></tr>
+      <tr style="background:rgba(63,185,80,0.1);"><td><strong>7.產品特色</strong></td><td>沒提客戶 / 沒數字</td><td><strong>套群聯模式重寫</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>🎯 行動方案</h2>
+  <h3>3 個 Must Do</h3>
+  <ol>
+    <li><strong>M1:</strong> 7.產品特色中英 套群聯模式(已備 draft)</li>
+    <li><strong>M2:</strong> 3.品質 補跨國 4 區 production 案例</li>
+    <li><strong>M3:</strong> 確認 5.台灣產製 漏給還是新寫</li>
+  </ol>
+  <h3>2 個 Risk Watch</h3>
+  <ol>
+    <li><strong>R1:</strong> 「全球首款」claim 要驗證</li>
+    <li><strong>R2:</strong> 「跨 4 區 production」要分清 production vs evaluation</li>
+  </ol>
+</section>
+
+<!-- TAB: 情報 -->
+<section class="tab-content" id="intel" contenteditable="true">
+  <h1>📚 台灣精品獎 3 年得獎情報</h1>
+  <blockquote>WebSearch 實際抓取官方資料 · 金獎 wording 學樣本</blockquote>
+
+  <h2>🏛️ 官方評選機制(校正)</h2>
+  <p>台灣精品獎自 1993 年由經濟部辦理,選拔 <strong>5 大評選項目:研發 / 設計 / 品質 / 行銷 / 台灣產製(MIT)</strong>。34 屆起新增「永續」。</p>
+  <blockquote>🚨 <strong>跳號 5 = 「台灣產製」</strong> — 不是 INNOVALUE 7 字母。INNOVALUE 是 TAITRA 對外口號。</blockquote>
+
+  <h2>💎 對標案例 1:群聯電子 6 奈米 AI SSD(34 屆金獎)</h2>
+  <p><strong>官方原文 wording</strong>(taiwanexcellence.org):</p>
+  <blockquote>
+    <p>「群聯正在引領人工智慧產業,提供了首個解決 LLM 大於 GPU 內存極限問題的模型微調方案。此混合式解決方案利用群聯的 NAND 專業技術,設計極端耐用的 SSD」</p>
+    <p>「在 aiDAPTIV+ 出現之前,中小型企業僅能進行小規模且不確實的訓練,並無法擴展到 Llama 7b 以上的規模。<strong>群聯 aiDAPTIV+ 解決方案能夠成就更大規模的模型訓練</strong>,讓您在地端獲得過去僅限於資料中心等級的推論及運算效能。」</p>
+    <p>「群聯 aiDAPTIV+ 是克服現今 LLM 訓練難題的<strong>軟硬體混合型解決方案</strong>」</p>
+  </blockquote>
+
+  <h2>💎 對標案例 2:雲象 aetherAI Hema — 骨髓抹片 AI</h2>
+  <ul>
+    <li>「<strong>世界首個</strong>同時取得衛福部 + 歐盟 CE 雙認證」</li>
+    <li>「訓練於<strong>全球最大資料集(超過 100 萬個細胞)</strong>」</li>
+    <li>「<strong>平均準確率 94%</strong>」</li>
+  </ul>
+
+  <h2>💎 對標案例 3:雃博 Wellell — IOT 氣墊床(34 屆金獎)</h2>
+  <ul>
+    <li>「<strong>世界級醫療品牌,銷售網路遍及 70 餘國</strong>」</li>
+    <li>「秉持『尊重生命價值』的信念」</li>
+  </ul>
+
+  <h2>💎 對標案例 4:SysTalk.Chat — 智能客服</h2>
+  <ul>
+    <li>「<strong>獨創</strong>雙腦一流程」(自家技術命名)</li>
+    <li>「<strong>高達 90% 以上</strong>的語意分析精準度」</li>
+  </ul>
+
+  <h2>📊 Wording 黃金 8 法則 → Server AI 套用對照</h2>
+  <table>
+    <thead><tr><th>法則</th><th>金獎範例</th><th>Server AI 對應</th></tr></thead>
+    <tbody>
+      <tr><td>開場 = 引領 / 首個</td><td>群聯「正在引領」</td><td>「MiTAC 正在引領車聯網 AI」</td></tr>
+      <tr><td>技術名稱 OK</td><td>aiDAPTIV+ / Llama</td><td>Server AI / VLM / VisionMax</td></tr>
+      <tr><td>客戶名不提</td><td>「多家銀行」</td><td>「跨國車隊 / 物流」</td></tr>
+      <tr><td>量化指標</td><td>94% / 70 國</td><td>「誤報率 -50%」</td></tr>
+      <tr><td>軟硬混合 / 在地端</td><td>群聯雙用</td><td>邊緣 + 雲端 = 天然軟硬整合</td></tr>
+      <tr><td>多認證敘事</td><td>「衛福部 + 歐盟 CE」</td><td>ISO+CE+FCC+WEEE 6 重</td></tr>
+      <tr><td>全球佈署規模</td><td>「70 餘國」</td><td>「跨亞美歐澳 4 區」</td></tr>
+      <tr><td>自家品牌名</td><td>aiDAPTIV+</td><td>建議建子品牌名</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📚 Sources</h2>
+  <ul>
+    <li><a href="https://www.taiwanexcellence.org/tw/award/product" style="color:#58a6ff;">Taiwan Excellence 官網</a></li>
+    <li><a href="https://www.taiwanexcellence.org/tw/award/product/1140127" style="color:#58a6ff;">群聯金獎介紹頁</a></li>
+    <li><a href="https://www.moea.gov.tw/MNS/populace/news/News.aspx?kind=1&menu_id=40&news_id=121200" style="color:#58a6ff;">34 屆揭曉</a></li>
+    <li><a href="https://news.pchome.com.tw/finance/cna/20251126/index-17641656067453218003.html" style="color:#58a6ff;">34 屆 10 件金獎列表</a></li>
+  </ul>
+</section>
+
+</main>
+
+<div class="footer-bar">
+  <span>📁 MiTAC Server AI kickoff / 工作台.html · 12 tabs · localStorage 自動存</span>
+  <span id="last-saved-text">尚未儲存</span>
+</div>
+
+<script>
+const STORAGE_KEY = 'mitac_kickoff_workspace_v2';
+const TAB_IDS = ['cheatsheet', 'vlmstory', 'notes', 'docx1', 'docx2', 'docx3', 'docx4', 'docx5', 'docx6', 'docx7', 'official', 'optimization', 'comparison', 'intel'];
+const indicator = document.getElementById('save-indicator');
+const lastSavedText = document.getElementById('last-saved-text');
+
+// === Tab switching ===
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(target).classList.add('active');
+    localStorage.setItem(STORAGE_KEY + '_activeTab', target);
+    // scroll to top of content
+    document.querySelector('main').scrollTop = 0;
+  });
+});
+
+// Restore active tab
+const lastTab = localStorage.getItem(STORAGE_KEY + '_activeTab');
+if (lastTab && TAB_IDS.includes(lastTab)) {
+  document.querySelector(`.tab[data-tab="${lastTab}"]`)?.click();
+}
+
+// === Load saved content ===
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    TAB_IDS.forEach(id => {
+      if (data[id]) document.getElementById(id).innerHTML = data[id];
+    });
+    if (data.savedAt) {
+      lastSavedText.textContent = '上次儲存:' + new Date(data.savedAt).toLocaleString('zh-TW');
+      setIndicator('saved');
+    }
+  } catch (e) {
+    console.error('Load failed:', e);
+    setIndicator('error');
+  }
+}
+
+// === Auto-save (debounced) ===
+let saveTimer = null;
+function scheduleSave() {
+  setIndicator('editing');
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(doSave, 800);
+}
+
+function doSave() {
+  try {
+    const data = { savedAt: Date.now() };
+    TAB_IDS.forEach(id => {
+      data[id] = document.getElementById(id).innerHTML;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    lastSavedText.textContent = '上次儲存:' + new Date(data.savedAt).toLocaleString('zh-TW');
+    setIndicator('saved');
+  } catch (e) {
+    console.error('Save failed:', e);
+    setIndicator('error');
+    alert('儲存失敗:' + e.message);
+  }
+}
+
+function setIndicator(state) {
+  indicator.className = state;
+  indicator.textContent = state === 'saved' ? '✓ 已儲存' : state === 'editing' ? '✏️ 編輯中…' : '✗ 儲存失敗';
+}
+
+function manualSave() { doSave(); }
+
+TAB_IDS.forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', scheduleSave);
+  el.addEventListener('blur', doSave);
+});
+
+// === Download HTML ===
+function downloadHTML() {
+  doSave();
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const ts = new Date().toISOString().slice(0,16).replace(/[:T]/g,'-');
+  triggerDownload(blob, `工作台_${ts}.html`);
+}
+
+// === Download current tab as plain text ===
+function downloadCurrentTabMD() {
+  const activeTab = document.querySelector('.tab.active').dataset.tab;
+  const el = document.getElementById(activeTab);
+  const text = htmlToPlainText(el);
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const ts = new Date().toISOString().slice(0,16).replace(/[:T]/g,'-');
+  triggerDownload(blob, `${activeTab}_${ts}.txt`);
+}
+
+function htmlToPlainText(el) {
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('h1').forEach(h => h.outerHTML = '\n# ' + h.textContent + '\n');
+  clone.querySelectorAll('h2').forEach(h => h.outerHTML = '\n## ' + h.textContent + '\n');
+  clone.querySelectorAll('h3').forEach(h => h.outerHTML = '\n### ' + h.textContent + '\n');
+  clone.querySelectorAll('h4').forEach(h => h.outerHTML = '\n#### ' + h.textContent + '\n');
+  clone.querySelectorAll('li').forEach(li => li.outerHTML = '- ' + li.textContent + '\n');
+  clone.querySelectorAll('blockquote').forEach(bq => bq.outerHTML = '\n> ' + bq.textContent.replace(/\n/g, '\n> ') + '\n');
+  clone.querySelectorAll('p').forEach(p => p.outerHTML = p.textContent + '\n\n');
+  clone.querySelectorAll('hr').forEach(hr => hr.outerHTML = '\n---\n');
+  clone.querySelectorAll('strong, b').forEach(s => s.outerHTML = '**' + s.textContent + '**');
+  clone.querySelectorAll('em, i').forEach(s => s.outerHTML = '*' + s.textContent + '*');
+  clone.querySelectorAll('code').forEach(s => s.outerHTML = '`' + s.textContent + '`');
+  return clone.textContent.replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function triggerDownload(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function printPage() { window.print(); }
+
+function resetAll() {
+  if (!confirm('確定要清除所有編輯,還原成預設內容嗎?(無法復原)')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(STORAGE_KEY + '_activeTab');
+  location.reload();
+}
+
+// Ctrl+S to save
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    doSave();
+  }
+});
+
+// Initial load
+loadSaved();
+</script>
+
+</body>
+</html>

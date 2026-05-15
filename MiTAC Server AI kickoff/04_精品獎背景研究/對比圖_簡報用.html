@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>34屆 vs 35屆 台灣精品獎送件趨勢對比 — Server AI</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    background: #0f1419;
+    color: #e6edf3;
+    padding: 40px;
+    line-height: 1.6;
+  }
+  .slide {
+    max-width: 1280px;
+    margin: 0 auto 60px auto;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 48px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+  h1 {
+    color: #58a6ff;
+    font-size: 32px;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    color: #d29922;
+    font-size: 22px;
+    margin: 24px 0 12px 0;
+    border-left: 4px solid #d29922;
+    padding-left: 12px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+  .col {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .col h3 {
+    font-size: 18px;
+    color: #58a6ff;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 8px;
+  }
+  .col-current h3 { color: #f85149; }
+  .col-future h3 { color: #3fb950; }
+  ul { list-style: none; }
+  li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    color: #c9d1d9;
+    font-size: 15px;
+  }
+  li::before {
+    content: "▸";
+    position: absolute;
+    left: 8px;
+    color: #58a6ff;
+  }
+  .col-current li::before { color: #f85149; }
+  .col-future li::before { color: #3fb950; }
+  .stat-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 24px 0;
+    padding: 24px;
+    background: #0d1117;
+    border-radius: 8px;
+  }
+  .stat {
+    flex: 1;
+    border-right: 1px solid #30363d;
+    padding: 0 16px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-size: 36px;
+    font-weight: 700;
+    color: #58a6ff;
+    display: block;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+  .stat-up { color: #3fb950; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+  }
+  th {
+    background: #0d1117;
+    color: #58a6ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+  }
+  tr:hover { background: rgba(88, 166, 255, 0.05); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .badge-gold { background: #d29922; color: #000; }
+  .badge-hot { background: #f85149; color: #fff; }
+  .badge-new { background: #3fb950; color: #000; }
+  .badge-stable { background: #58a6ff; color: #000; }
+  .arrow {
+    text-align: center;
+    margin: 24px 0;
+    color: #d29922;
+    font-size: 24px;
+  }
+  .takeaway {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(88,166,255,0.1), rgba(63,185,80,0.1));
+    border-left: 4px solid #58a6ff;
+    border-radius: 4px;
+  }
+  .takeaway h2 {
+    color: #58a6ff;
+    border: none;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+  .footer-note {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(248, 81, 73, 0.1);
+    border-left: 3px solid #f85149;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #ffa198;
+  }
+  .pattern-card {
+    background: #0d1117;
+    border-left: 4px solid #d29922;
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+  .pattern-card strong { color: #d29922; }
+  @media print {
+    body { background: #fff; color: #000; padding: 20px; }
+    .slide { background: #fff; border: 1px solid #ccc; box-shadow: none; }
+    h1 { color: #0066cc; }
+    h2, h3 { color: #cc7700; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: 趨勢對比 -->
+<div class="slide">
+  <h1>🏆 34 屆 (2025) vs 35 屆 (2026) 趨勢對比</h1>
+  <p class="subtitle">經濟部國際貿易署 · TAITRA · Taiwan Excellence Award</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <span class="stat-num">10</span>
+      <div class="stat-label">34 屆金獎件數</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">55%</span>
+      <div class="stat-label">34 屆資通訊佔比</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num stat-up">+8%</span>
+      <div class="stat-label">資通訊 2 年漲幅</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num stat-up">60%+</span>
+      <div class="stat-label">35 屆預估資通訊佔比</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="col col-current">
+      <h3>34 屆 (2025) 評選熱字</h3>
+      <ul>
+        <li>AI 導入 <span class="badge badge-stable">主流</span></li>
+        <li>永續節能 <span class="badge badge-stable">必備</span></li>
+        <li>跨域整合(ICT / 醫療 / 軟硬整合)</li>
+        <li>軟硬體混合架構 <span class="badge badge-hot">熱字</span></li>
+        <li>算力下沉(在地端獲得資料中心級)</li>
+        <li>政府推「AI 驅動百工百業」</li>
+      </ul>
+    </div>
+    <div class="col col-future">
+      <h3>35 屆 (2026) 預估熱字</h3>
+      <ul>
+        <li>GenAI / VLM / LLM <span class="badge badge-new">爆發</span></li>
+        <li>ESG 量化 (碳排 / 能效 N%)</li>
+        <li>Edge AI + Cloud 混合 <span class="badge badge-hot">延燒</span></li>
+        <li>跨產業 / 跨區域 production case</li>
+        <li>歐盟 AI Act 合規敘事 <span class="badge badge-new">新</span></li>
+        <li>Taiwan 自研 AI 模型(政府偏好)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <h2>💡 我們的位置</h2>
+    <p style="font-size: 16px; color: #c9d1d9;">
+      <strong style="color:#58a6ff;">Server AI 平台天然命中 5 條 35 屆熱字</strong>:
+      ① VLM 架構(Edge→Server) ② SaaS 訂閱 = 減 e-waste ③ 邊緣 + 雲端混合 ④ 跨亞美歐澳 4 區 production ⑤ Taiwan 自研 5 項 AI 專利
+    </p>
+  </div>
+</div>
+
+
+<!-- SLIDE 2: 金獎對標 -->
+<div class="slide">
+  <h1>🥇 34 屆金獎對標分析</h1>
+  <p class="subtitle">10 件金獎中找到最像 Server AI 的對標案例</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>產品</th>
+        <th>類別</th>
+        <th>相關度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background: rgba(63,185,80,0.08);">
+        <td><strong>群聯電子</strong></td>
+        <td>6 奈米 AI 運算型 SSD 控制晶片</td>
+        <td>AI 軟硬整合</td>
+        <td><span class="badge badge-gold">⭐⭐⭐ 直接對標</span></td>
+      </tr>
+      <tr>
+        <td>雃博</td>
+        <td>智慧 IOT 全時壓傷照護氣墊床</td>
+        <td>IOT 雲端管理</td>
+        <td><span class="badge badge-stable">⭐⭐ 架構對應</span></td>
+      </tr>
+      <tr>
+        <td>東元電機</td>
+        <td>智能匯集仿生機器人關節電機</td>
+        <td>AI + 硬體</td>
+        <td><span class="badge badge-stable">⭐ 軟硬整合</span></td>
+      </tr>
+      <tr>
+        <td>創茂生技</td>
+        <td>智世代全自動 16 通道核酸檢測</td>
+        <td>AI 自動化</td>
+        <td><span class="badge badge-stable">⭐ AI 應用</span></td>
+      </tr>
+      <tr>
+        <td>致茂電子</td>
+        <td>2D/3D 晶圓量測系統</td>
+        <td>B2B 半導體</td>
+        <td>B2B 模式對應</td>
+      </tr>
+      <tr style="opacity:0.5;">
+        <td>華碩 / 永光 / 大銀微 / 聯合骨科</td>
+        <td>(其他 5 件)</td>
+        <td>B2C / 化學 / 醫療</td>
+        <td>不相關</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pattern-card">
+    <strong>📍 重大發現:</strong> 34 屆 10 件金獎<strong>無一車聯網 / 行車記錄器 / fleet 類產品</strong> — 35 屆我們有獨佔空間,不用跟同類比。
+  </div>
+</div>
+
+
+<!-- SLIDE 3: Wording 黃金法則 -->
+<div class="slide">
+  <h1>💎 金獎 Wording 黃金 8 法則</h1>
+  <p class="subtitle">從群聯 + 雲象 + 雃博 + SysTalk + digiLogs 5 個案例萃取</p>
+
+  <div class="grid-2">
+    <div>
+      <div class="pattern-card">
+        <strong>① 開場動詞 = 引領 / 突破 / 首個</strong><br>
+        群聯「正在引領 AI 產業」<br>
+        雲象「全球首個雙認證」
+      </div>
+      <div class="pattern-card">
+        <strong>② 技術名稱可以提</strong><br>
+        aiDAPTIV+ / aetherAI Hema / Llama 7b
+      </div>
+      <div class="pattern-card">
+        <strong>③ 客戶名不提(籠統領域 OK)</strong><br>
+        SysTalk「多家銀行 / 政府機關」<br>
+        雃博「遍及 70 餘國」
+      </div>
+      <div class="pattern-card">
+        <strong>④ 量化指標必備</strong><br>
+        雲象 94% 準確率 / 100 萬筆資料<br>
+        SysTalk 90% 語意精準
+      </div>
+    </div>
+    <div>
+      <div class="pattern-card">
+        <strong>⑤ 軟硬體混合 / 在地端 = 熱字</strong><br>
+        群聯「軟硬體混合型」「在地端獲得資料中心級」
+      </div>
+      <div class="pattern-card">
+        <strong>⑥ 雙認證 / 多認證敘事</strong><br>
+        雲象「衛福部 + 歐盟 CE 雙認證」
+      </div>
+      <div class="pattern-card">
+        <strong>⑦ 全球佈署規模</strong><br>
+        雃博「70 餘國」<br>
+        雲象「全球最大資料集」
+      </div>
+      <div class="pattern-card">
+        <strong>⑧ 自家專屬技術命名</strong><br>
+        aiDAPTIV+ / aetherAI Hema / SysTalk<br>
+        建議 Server AI 也建立子品牌(VisionMax Insight)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SLIDE 4: 6 份 docx 升級對照 -->
+<div class="slide">
+  <h1>📄 6 份 docx 去年 → 今年 升級對照</h1>
+  <p class="subtitle">擺脫去年 framing,對齊 35 屆熱字</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>docx</th>
+        <th>去年(34屆基準)</th>
+        <th>今年(35屆升級)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1.研發</strong></td>
+        <td>Server AI + 5 專利 + 敏捷開發</td>
+        <td>+ <span class="badge badge-new">VLM 視覺語言模型架構</span> + 訓練資料規模</td>
+      </tr>
+      <tr>
+        <td><strong>2.設計</strong></td>
+        <td>6 段功能列舉</td>
+        <td>+ <span class="badge badge-new">Design rationale(為解決 X 設計 Y)</span> + 6 重認證</td>
+      </tr>
+      <tr>
+        <td><strong>3.品質</strong></td>
+        <td>ISO + 6 Sigma + 公司內部制度</td>
+        <td>+ <span class="badge badge-hot">跨國 4 區 production 案例</span> + MLOps 模型治理</td>
+      </tr>
+      <tr>
+        <td><strong>4.行銷</strong></td>
+        <td>5 大洲 + 1000 萬預算 + 4 大品牌價值</td>
+        <td>+ <span class="badge badge-new">歐盟 AI Act 合規策略</span> + ESG 銷售訴求</td>
+      </tr>
+      <tr style="background: rgba(248,81,73,0.1);">
+        <td><strong>5.台灣產製</strong></td>
+        <td><span class="badge badge-hot">缺件!</span> 跳號 5</td>
+        <td>新寫:Taiwan 自研 AI 模型 + 本土工程師團隊 + 5 項 Taiwan 專利</td>
+      </tr>
+      <tr>
+        <td><strong>6.永續</strong></td>
+        <td>ESG 標準稿(碳盤查 / WEEE / 勞工)</td>
+        <td>+ <span class="badge badge-new">SaaS = 減 e-waste</span> + CSRD 範圍 3 合規</td>
+      </tr>
+      <tr style="background: rgba(63,185,80,0.08);">
+        <td><strong>7.產品特色(中英)</strong></td>
+        <td>~400 字 / 沒提客戶 / 沒提數字</td>
+        <td><strong>套群聯模式重寫</strong> + 邊緣→雲端 framing + 50% 誤報降低 + 4 區 production</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    ⚠️ <strong>跳號 5 = 「台灣產製(MIT)」</strong> — 不是「製造或服務」,是評選 5 大軸第 5 項。會議裡確認 jolin 是否漏給或要新寫。
+  </div>
+</div>
+
+
+<!-- SLIDE 5: 行動方案 -->
+<div class="slide">
+  <h1>🎯 35 屆送件行動方案</h1>
+  <p class="subtitle">Server AI 平台對標 35 屆 金獎</p>
+
+  <h2>3 個 Must Do</h2>
+  <ul style="margin-left: 20px;">
+    <li><strong style="color:#3fb950;">M1:</strong> 7.產品特色中英 套用群聯模式重寫(已備 draft,中 481 字 / 英 896 字)</li>
+    <li><strong style="color:#3fb950;">M2:</strong> 3.品質 補一段「跨國 4 區 production 案例」(VMX-7404 匿名版)</li>
+    <li><strong style="color:#3fb950;">M3:</strong> 確認 5.台灣產製.docx 是漏給還是新寫(問 jolin)</li>
+  </ul>
+
+  <h2>5 個 Nice to Have</h2>
+  <ul style="margin-left: 20px;">
+    <li>N1: 1.研發 補 VLM 視覺語言模型架構段</li>
+    <li>N2: 2.設計 重寫成「設計理由 + 解決 X」 framing</li>
+    <li>N3: 4.行銷 補歐盟 AI Act 合規敘事</li>
+    <li>N4: 6.永續 補「SaaS 訂閱減 e-waste」段</li>
+    <li>N5: 為 Server AI 建子品牌名(e.g. VisionMax Insight)讓 wording 有專屬感</li>
+  </ul>
+
+  <h2>2 個 風險 Watch</h2>
+  <ul style="margin-left: 20px;">
+    <li><strong style="color:#f85149;">R1:</strong> 「全球首款」claim 要驗證(Samsara / Lytx / Nauto 是否早做過)</li>
+    <li><strong style="color:#f85149;">R2:</strong> 「跨 4 區 production」要分清 production vs evaluation(澳洲 Wendy 是否真上線)</li>
+  </ul>
+
+  <div class="takeaway" style="margin-top: 24px;">
+    <h2>📅 時程預估</h2>
+    <p style="color:#c9d1d9;">
+      <strong>35 屆送件 deadline 推估 = 2026 Q3-Q4</strong>(34 屆 11/26 揭曉、初選提早 6 個月 = 5-6 月送件 / 35 屆同步推估 11 月底揭曉、5-6 月送件)。<br>
+      → 5/15 kick-off 完<strong>有 3-4 週準備</strong>,Q3 初送件。
+    </p>
+  </div>
+</div>
+
+<p style="text-align:center; color:#8b949e; font-size:13px; margin-top:40px;">
+  Generated 2026-05-15 · Source: Taiwan Excellence official + MOEA news + 群聯/雲象/雃博 award pages<br>
+  打開檔案:Chrome 開啟即可全螢幕 / 截圖每張 slide 貼 PPT
+</p>
+
+</body>
+</html>

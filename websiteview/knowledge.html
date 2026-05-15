@@ -8,6 +8,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/design-tokens.css">
 <link rel="stylesheet" href="css/knowledge.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body class="hub">
 
@@ -20,6 +21,7 @@
     </a>
     <a class="back-link" href="index.html">← Mission Control</a>
     <div class="search-wrap">
+      <label class="sr-only" for="searchBox">搜尋文件</label>
       <input type="search" id="searchBox" placeholder="搜尋(Ctrl+K)…" autocomplete="off">
     </div>
   </div>
@@ -30,19 +32,19 @@
   <div class="hub-hero-inner">
     <div class="hub-hero-grid">
       <div>
-        <h1><span aria-hidden="true">📚</span> Knowledge Hub</h1>
-        <p><strong>32 份核心文件</strong> · KB / Sheet / Jira / Meeting 萃取 · 5 大主題 · Last sync 2026-05-14</p>
+        <h1><i data-lucide="book-open" aria-hidden="true" class="icon"></i> Knowledge Hub</h1>
+        <p><strong>32 份核心文件</strong> · KB / Sheet / Jira / Meeting 萃取 · 5 大主題 · Last sync 2026-05-15</p>
         <div class="hub-meta-links stagger-in">
-          <a href="docs/meetings/2026-05-13_azuga-ai-weekly.html" class="hub-meta-link"><span aria-hidden="true">🆕</span> 5/13 Azuga AI Weekly(最新)</a>
-          <a href="docs/00_index/ssot-map.html" class="hub-meta-link"><span aria-hidden="true">🗺️</span> SSOT Map(概念↔主檔)</a>
-          <a href="docs/00_index/changelog.html" class="hub-meta-link"><span aria-hidden="true">📅</span> Changelog(30 天 Δ)</a>
-          <a href="docs/00_index/jira-snapshot.html" class="hub-meta-link"><span aria-hidden="true">🎫</span> Jira Snapshot(311 ticket)</a>
+          <a href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly" class="hub-meta-link"><i data-lucide="sparkles" aria-hidden="true" class="icon"></i> 5/14 AI Weekly Internal(最新)</a>
+          <a href="docs/00_index/ssot-map.html" class="hub-meta-link"><i data-lucide="map" aria-hidden="true" class="icon"></i> SSOT Map(概念↔主檔)</a>
+          <a href="docs/00_index/changelog.html" class="hub-meta-link"><i data-lucide="calendar" aria-hidden="true" class="icon"></i> Changelog(30 天 Δ)</a>
+          <a href="docs/00_index/jira-snapshot.html" class="hub-meta-link"><i data-lucide="ticket" aria-hidden="true" class="icon"></i> Jira Snapshot(311 ticket)</a>
         </div>
       </div>
       <div class="stats-mini">
         <div class="stat"><div class="num">32</div><div class="lab">核心文件</div></div>
         <div class="stat"><div class="num">5</div><div class="lab">主題</div></div>
-        <div class="stat"><div class="num">2026-05-14</div><div class="lab">Last sync</div></div>
+        <div class="stat"><div class="num">2026-05-15</div><div class="lab">Last sync</div></div>
       </div>
     </div>
   </div>
@@ -54,11 +56,11 @@
   <aside class="toc">
     <div class="toc-label">主題導覽</div>
     <ul>
-      <li><a data-cat href="#cat-product"><span aria-hidden="true">🔧</span> 產品知識 <span class="count"><span class="num">10</span></span></a></li>
-      <li><a data-cat href="#cat-systems"><span aria-hidden="true">🏛</span> 系統架構 <span class="count"><span class="num">5</span></span></a></li>
-      <li><a data-cat href="#cat-pm"><span aria-hidden="true">📐</span> 人與框架 <span class="count"><span class="num">6</span></span></a></li>
-      <li><a data-cat href="#cat-workflows"><span aria-hidden="true">⚙️</span> 工作流 SOP <span class="count"><span class="num">6</span></span></a></li>
-      <li><a data-cat href="#cat-truth"><span aria-hidden="true">🎯</span> 校正紀錄 <span class="count"><span class="num">5</span></span></a></li>
+      <li><a data-cat href="#cat-product"><i data-lucide="wrench" aria-hidden="true" class="icon"></i> 產品知識 <span class="count"><span class="num">10</span></span></a></li>
+      <li><a data-cat href="#cat-systems"><i data-lucide="landmark" aria-hidden="true" class="icon"></i> 系統架構 <span class="count"><span class="num">5</span></span></a></li>
+      <li><a data-cat href="#cat-pm"><i data-lucide="ruler" aria-hidden="true" class="icon"></i> 人與框架 <span class="count"><span class="num">6</span></span></a></li>
+      <li><a data-cat href="#cat-workflows"><i data-lucide="settings" aria-hidden="true" class="icon"></i> 工作流 SOP <span class="count"><span class="num">6</span></span></a></li>
+      <li><a data-cat href="#cat-truth"><i data-lucide="target" aria-hidden="true" class="icon"></i> 校正紀錄 <span class="count"><span class="num">5</span></span></a></li>
     </ul>
     <div class="toc-shortcuts">
       <div class="toc-label">常用入口</div>
@@ -108,7 +110,7 @@
     <!-- ════════ 01 · 產品知識 ════════ -->
     <section class="cat" id="cat-product">
       <div class="cat-head">
-        <div class="cat-icon ic-product"><span aria-hidden="true">🔧</span></div>
+        <div class="cat-icon ic-product"><i data-lucide="wrench" aria-hidden="true" class="icon icon-lg"></i></div>
         <div>
           <h2 class="cat-title">產品知識</h2>
           <div class="cat-sub">VMX 已 ship 事實:KB / 機種 spec / ADAS-DMS / Voice / Diagnostics / Roadmap</div>
@@ -120,7 +122,7 @@
       </div>
       <div class="doc-grid stagger-in">
         <a class="doc-card featured" href="docs/01_product-knowledge/kb-reference.html" data-title="VMX KB Reference" data-file="kb-reference.html" data-tags="kb cheatsheet catalog client demo">
-          <div class="doc-title"><span aria-hidden="true">📚</span> VMX KB Reference(Quick + Full)</div>
+          <div class="doc-title"><i data-lucide="book-open" aria-hidden="true" class="icon"></i> VMX KB Reference(Quick + Full)</div>
           <div class="doc-file">kb-reference.html</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
@@ -175,7 +177,7 @@
     <!-- ════════ 03 · 系統架構 ════════ -->
     <section class="cat" id="cat-systems">
       <div class="cat-head">
-        <div class="cat-icon ic-systems"><span aria-hidden="true">🏛</span></div>
+        <div class="cat-icon ic-systems"><i data-lucide="landmark" aria-hidden="true" class="icon icon-lg"></i></div>
         <div>
           <h2 class="cat-title">系統架構</h2>
           <div class="cat-sub">Master/Fleet Portal · Plan Type · Server AI · 車輛分類</div>
@@ -217,7 +219,7 @@
     <!-- ════════ 04 · 人與框架 (PM Frameworks + 原 02 組織) ════════ -->
     <section class="cat" id="cat-pm">
       <div class="cat-head">
-        <div class="cat-icon ic-pm"><span aria-hidden="true">📐</span></div>
+        <div class="cat-icon ic-pm"><i data-lucide="ruler" aria-hidden="true" class="icon icon-lg"></i></div>
         <div>
           <h2 class="cat-title">人與框架</h2>
           <div class="cat-sub">利害關係人 · 三層真相 · 溝通三件套 · 核心原則(2026-05-12 把組織 map 併入)</div>
@@ -229,32 +231,32 @@
       </div>
       <div class="doc-grid stagger-in">
         <a class="doc-card featured" href="docs/02_organization-map/stakeholders.html" data-title="Stakeholders" data-file="stakeholders.md" data-tags="brian spencer mori stark phil vinicius wendy cary elvis">
-          <div class="doc-title"><span aria-hidden="true">👥</span> Stakeholders 利害關係人</div>
+          <div class="doc-title"><i data-lucide="users" aria-hidden="true" class="icon"></i> Stakeholders 利害關係人</div>
           <div class="doc-file">stakeholders.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card featured" href="docs/04_pm-frameworks/three-truth-layers.html" data-title="Three Truth Layers" data-file="three-truth-layers.md" data-tags="kb sheet roadmap truth">
-          <div class="doc-title"><span aria-hidden="true">🎯</span> 三層真相 · KB / Sheet / Roadmap</div>
+          <div class="doc-title"><i data-lucide="target" aria-hidden="true" class="icon"></i> 三層真相 · KB / Sheet / Roadmap</div>
           <div class="doc-file">three-truth-layers.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card featured" href="docs/04_pm-frameworks/communication-frameworks.html" data-title="Communication Frameworks" data-file="communication-frameworks.md" data-tags="commitment tech-client internal-comm wendy vinicius">
-          <div class="doc-title"><span aria-hidden="true">💬</span> 溝通三件套(承諾 + 技術型客戶 + 內部斷層)</div>
+          <div class="doc-title"><i data-lucide="message-circle" aria-hidden="true" class="icon"></i> 溝通三件套(承諾 + 技術型客戶 + 內部斷層)</div>
           <div class="doc-file">communication-frameworks.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card featured" href="docs/04_pm-frameworks/core-principles.html" data-title="Core Principles" data-file="core-principles.md" data-tags="principle pm">
-          <div class="doc-title"><span aria-hidden="true">💡</span> Core Principles(4 條核心原則)</div>
+          <div class="doc-title"><i data-lucide="lightbulb" aria-hidden="true" class="icon"></i> Core Principles(4 條核心原則)</div>
           <div class="doc-file">core-principles.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card" href="docs/02_organization-map/coffee-chat-questions.html" data-title="Coffee Chat Questions" data-file="coffee-chat-questions.md" data-tags="mori jimmy brian spencer lucy tony">
-          <div class="doc-title"><span aria-hidden="true">☕</span> Coffee Chat 問題清單</div>
+          <div class="doc-title"><i data-lucide="coffee" aria-hidden="true" class="icon"></i> Coffee Chat 問題清單</div>
           <div class="doc-file">coffee-chat-questions.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★☆</span></span></div>
         </a>
         <a class="doc-card" href="docs/04_pm-frameworks/ui-change-management.html" data-title="UI Change Management" data-file="ui-change-management.md" data-tags="ui change">
-          <div class="doc-title"><span aria-hidden="true">🎨</span> UI Change Management</div>
+          <div class="doc-title"><i data-lucide="palette" aria-hidden="true" class="icon"></i> UI Change Management</div>
           <div class="doc-file">ui-change-management.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
@@ -264,7 +266,7 @@
     <!-- ════════ 05 · 工作流 SOP ════════ -->
     <section class="cat" id="cat-workflows">
       <div class="cat-head">
-        <div class="cat-icon ic-workflows"><span aria-hidden="true">⚙️</span></div>
+        <div class="cat-icon ic-workflows"><i data-lucide="settings" aria-hidden="true" class="icon icon-lg"></i></div>
         <div>
           <h2 class="cat-title">工作流 SOP</h2>
           <div class="cat-sub">Data ingestion · 簡報 pipeline · Sheet/Jira sweeper · Onboarding · Troubleshooting</div>
@@ -276,12 +278,12 @@
       </div>
       <div class="doc-grid stagger-in">
         <a class="doc-card featured" href="docs/05_workflows/data-ingestion-workflow.html" data-title="Data Ingestion Workflow" data-file="data-ingestion-workflow.md" data-tags="workflow data ingestion claude ssot">
-          <div class="doc-title"><span aria-hidden="true">📥</span> Data Ingestion Workflow(2026-05-11 新)</div>
+          <div class="doc-title"><i data-lucide="inbox" aria-hidden="true" class="icon"></i> Data Ingestion Workflow(2026-05-11 新)</div>
           <div class="doc-file">data-ingestion-workflow.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card featured" href="docs/05_workflows/presentation-workflow.html" data-title="Presentation Workflow" data-file="presentation-workflow.html" data-tags="pptx html slide pipeline mdt">
-          <div class="doc-title"><span aria-hidden="true">🎨</span> Presentation Workflow(PPT + HTML 兩條路徑)</div>
+          <div class="doc-title"><i data-lucide="palette" aria-hidden="true" class="icon"></i> Presentation Workflow(PPT + HTML 兩條路徑)</div>
           <div class="doc-file">presentation-workflow.html</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
@@ -311,7 +313,7 @@
     <!-- ════════ 06 · 校正紀錄 ════════ -->
     <section class="cat" id="cat-truth">
       <div class="cat-head">
-        <div class="cat-icon ic-calibration"><span aria-hidden="true">🎯</span></div>
+        <div class="cat-icon ic-calibration"><i data-lucide="target" aria-hidden="true" class="icon icon-lg"></i></div>
         <div>
           <h2 class="cat-title">校正紀錄</h2>
           <div class="cat-sub">Critical Facts SSOT / <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> / Roadmap drift / Sheet-Jira mismatch / AI Weekly legacy snapshot(內部 series 看 meetings/)</div>
@@ -323,7 +325,7 @@
       </div>
       <div class="doc-grid stagger-in">
         <a class="doc-card featured" href="docs/06_calibration-log/critical-facts-log.html" data-title="Critical Facts Log" data-file="critical-facts-log.md" data-tags="critical facts kpi lens-cover ssot">
-          <div class="doc-title"><span aria-hidden="true">🎯</span> Critical Facts(SSOT · 別再答錯)</div>
+          <div class="doc-title"><i data-lucide="target" aria-hidden="true" class="icon"></i> Critical Facts(SSOT · 別再答錯)</div>
           <div class="doc-file">critical-facts-log.md</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
@@ -333,7 +335,7 @@
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★★★</span></span></div>
         </a>
         <a class="doc-card" href="docs/06_calibration-log/ai-weekly-2026-05-07-roundup.html" data-title="AI Weekly 5/7 Roundup (legacy)" data-file="ai-weekly-2026-05-07-roundup.html" data-tags="ai weekly 5/7 jira sheet cary roundup legacy superseded">
-          <div class="doc-title"><span aria-hidden="true">📊</span> 5/7 AI Weekly 全切面合輯 <span class="doc-title-note">(legacy snapshot · 已 supersede,內部 AI Weekly 系列改用 meetings/ai-weekly-internal-roundup)</span></div>
+          <div class="doc-title"><i data-lucide="bar-chart-2" aria-hidden="true" class="icon"></i> 5/7 AI Weekly 全切面合輯 <span class="doc-title-note">(legacy snapshot · 已 supersede,內部 AI Weekly 系列改用 meetings/ai-weekly-internal-roundup)</span></div>
           <div class="doc-file">ai-weekly-2026-05-07-roundup.html</div>
           <div class="doc-foot"><span class="stars"><span aria-hidden="true">★★★☆☆</span></span></div>
         </a>
@@ -361,5 +363,6 @@
 <button class="scroll-top-fab" aria-label="回到頂端" type="button">↑</button>
 <script src="js/scroll-top.js" defer></script>
 <script src="js/knowledge.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/design-tokens.css">
 <link rel="stylesheet" href="css/index.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
 
@@ -19,9 +20,9 @@
     </div>
     <div class="topnav-meta">
       <span class="live-dot"></span>
-      <span class="topnav-updated">Updated 2026-05-14</span>
+      <span class="topnav-updated">Updated 2026-05-15</span>
       <a href="styleguide.html" class="topnav-link topnav-link-discreet" title="Design System reference">
-        <span aria-hidden="true">🎨</span> <span class="topnav-link-label">Design System</span>
+        <i data-lucide="palette" aria-hidden="true" class="icon"></i> <span class="topnav-link-label">Design System</span>
       </a>
     </div>
   </div>
@@ -37,14 +38,15 @@
           <span>Mission Control</span>
         </div>
         <h1>Kenny 的 <span class="underline">VMX 評估期</span><br>工作中樞</h1>
-        <p class="hero-lede">本週對齊 5 大 Outlook thread + 311 票 Jira(263 VMX / 48 HAWK)+ 5/13 Azuga AI Weekly 揭露 6/2 五大 deliverable。</p>
+        <p class="hero-lede">本週對齊 5 大 Outlook thread + 312 票 Jira + 5/14 AI Weekly Internal 揭露 3 大「對外承諾 vs 內部現實」反差(Yawning / Lens Cover / Eating-Drinking)。</p>
         <details class="hero-details">
           <summary>展開本週 highlights ↓</summary>
+          <p><strong>2026-05-15 Δ</strong>:從 NotebookLM 補抓 5/14 AI Weekly Internal(I + II)兩段錄音 PM 視角整理 — Yawning 只有 2000 張 AI 假圖(6/2 高準確度機率極低)+ Lens Cover 底層必須重構參數化計時迴圈(Jieli 5/19 Beta 死線)+ Eating-Drinking 改為先過濾「飲水」+ Blurring 架構 CPU + SQS + Callback 定案。同步 [VMX-7482](https://jira.navman.co.nz/jira/browse/VMX-7482) EdgeTensor airplane mode 5/15 新建。</p>
           <p><strong>2026-05-14 Δ</strong>:Jira 全量重抓 311 票(+147)+ 5/13 Azuga AI Weekly meeting note + 6/2 三大 → 五大 deliverable 校正 + LDWS API 票號 VMX-7375 → VMX-7101 修正(repo 6 檔同步)。</p>
         </details>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="docs/meetings/2026-05-13_azuga-ai-weekly.html">
-            🆕 5/13 Azuga AI Weekly <span class="arrow">→</span>
+          <a class="btn btn-primary" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">
+            <i data-lucide="sparkles" aria-hidden="true" class="icon"></i> 5/14 AI Weekly Internal <span class="arrow">→</span>
           </a>
           <a class="btn btn-ghost" href="docs/weekly-summary/2026-05-11_week-of-may-8.html">
             本週 Summary <span class="arrow">→</span>
@@ -71,7 +73,7 @@
 <section class="zone zone-onboard" id="onboard">
   <div class="zone-head">
     <span class="zone-num">00</span>
-    <h2 class="zone-title"><span aria-hidden="true">🎓</span>導讀</h2>
+    <h2 class="zone-title"><i data-lucide="graduation-cap" aria-hidden="true" class="icon"></i>導讀</h2>
     <span class="zone-sub">第一次打開這個 hub?照這個順序 1 小時就能 onboard</span>
   </div>
 
@@ -80,7 +82,7 @@
       <a class="step-card-link" href="knowledge.html#cat-pm" aria-label="第 1 步:先懂對誰講話 + 怎麼想 — 開啟人與框架">
         <div class="step-num">1</div>
         <div class="step-body">
-          <div class="step-title"><span aria-hidden="true">📐</span> 先懂「對誰講話 + 怎麼想」</div>
+          <div class="step-title"><i data-lucide="ruler" aria-hidden="true" class="icon"></i> 先懂「對誰講話 + 怎麼想」</div>
           <p>Stakeholders + 三層真相 + 4 條核心原則。<strong>不懂這層,後面看 VMX 事實沒辦法判斷該怎麼用。</strong></p>
           <span class="step-target">人與框架</span>
         </div>
@@ -91,7 +93,7 @@
       <a class="step-card-link" href="docs/06_calibration-log/critical-facts-log.html" aria-label="第 2 步:看已校正的事實 — 開啟 Critical Facts Log">
         <div class="step-num">2</div>
         <div class="step-body">
-          <div class="step-title"><span aria-hidden="true">🎯</span> 看「已校正的事實 + 別再答錯」</div>
+          <div class="step-title"><i data-lucide="target" aria-hidden="true" class="icon"></i> 看「已校正的事實 + 別再答錯」</div>
           <p>Critical Facts Log 是 SSOT。VMX-7404 是評估期最大議題。先把這 2 篇看完,後面對話不會踩雷。</p>
           <span class="step-target">Critical Facts</span>
         </div>
@@ -102,7 +104,7 @@
       <a class="step-card-link" href="docs/01_product-knowledge/kb-reference.html" aria-label="第 3 步:KB Reference + 機種 spec">
         <div class="step-num">3</div>
         <div class="step-body">
-          <div class="step-title"><span aria-hidden="true">🔧</span> KB Reference + 機種 spec</div>
+          <div class="step-title"><i data-lucide="wrench" aria-hidden="true" class="icon"></i> KB Reference + 機種 spec</div>
           <p>VMX 產品事實層。KB Reference 內含 Quick(9 篇深讀)+ Full(60 篇 catalog)tab。對客戶承諾前先 cross-check 這層。</p>
           <span class="step-target">KB Reference</span>
         </div>
@@ -113,7 +115,7 @@
       <a class="step-card-link" href="docs/03_systems-architecture/portal-architecture.html" aria-label="第 4 步:雙 Portal 商業模型 — 開啟 Portal Architecture">
         <div class="step-num">4</div>
         <div class="step-body">
-          <div class="step-title"><span aria-hidden="true">🏛</span> 雙 Portal 商業模型</div>
+          <div class="step-title"><i data-lucide="landmark" aria-hidden="true" class="icon"></i> 雙 Portal 商業模型</div>
           <p>Master / Fleet Portal 怎麼分,Plan Type 怎麼跑,Contract Fleet 怎麼配。Cary/Elvis 線議題的源頭。</p>
           <span class="step-target">Portal Architecture</span>
         </div>
@@ -124,7 +126,7 @@
       <a class="step-card-link" href="case-hub.html" aria-label="第 5 步:翻 3 個 active case — 開啟 Case Hub">
         <div class="step-num">5</div>
         <div class="step-body">
-          <div class="step-title"><span aria-hidden="true">📋</span> 翻 3 個 active case</div>
+          <div class="step-title"><i data-lucide="clipboard-list" aria-hidden="true" class="icon"></i> 翻 3 個 active case</div>
           <p>Honeywell ME / Platform Science / CONNECTSOURCE。每個 case 都有完整時間線 + PM 框架對應。</p>
           <span class="step-target">Case Hub</span>
         </div>
@@ -142,20 +144,20 @@
 <section class="zone" id="now">
   <div class="zone-head">
     <span class="zone-num">01</span>
-    <h2 class="zone-title"><span aria-hidden="true">🔥</span> NOW · 本週戰場</h2>
+    <h2 class="zone-title"><i data-lucide="flame" aria-hidden="true" class="icon"></i> NOW · 本週戰場</h2>
     <span class="zone-sub">最新對齊狀態 + 本週 P0 / P1 動作</span>
   </div>
 
   <div class="now-grid stagger-in">
-    <a class="card-feature" href="docs/meetings/2026-05-13_azuga-ai-weekly.html">
-      <span class="tag"><span aria-hidden="true">⚡</span> Latest · 2026-05-13 Azuga AI Weekly</span>
-      <h3>Azuga AI Weekly Meeting · 5/13</h3>
-      <p>Mitac × Azuga + Webfleet 聯合 weekly · 8 議題 + 11 action items · 揭露 6/2 五大 deliverable(+ Eye Stable Rate + Camera Auto-Height)· HAWK-401/482 stalled · HAWK-501 New→Open。</p>
+    <a class="card-feature" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">
+      <span class="tag"><i data-lucide="zap" aria-hidden="true" class="icon"></i> Latest · 2026-05-14 AI Weekly Internal</span>
+      <h3>5/14 AI Weekly Internal · 對外承諾 vs 內部現實</h3>
+      <p>Kenny 5/15 從 NotebookLM 補抓 5-14 兩段錄音(I + II)· 3 大反差校正:Yawning 只有 2000 張 AI 假圖 / Lens Cover 必須開發參數化計時迴圈(5/19 Beta) / Eating-Drinking 改為先過濾「飲水」+ Blurring 架構 CPU+SQS+Callback 定案。</p>
       <div class="stats">
-        <div>議題<strong>8</strong></div>
-        <div>Actions<strong>11</strong></div>
-        <div>6/2 死線<strong>5</strong></div>
-        <div>Jira 票<strong>311</strong></div>
+        <div>議題<strong>4</strong></div>
+        <div>Actions<strong>5</strong></div>
+        <div>口徑校正<strong>3</strong></div>
+        <div>Beta 死線<strong>5/19</strong></div>
       </div>
       <div class="spaced-top-md"><span class="more">深入閱讀 →</span></div>
     </a>
@@ -169,9 +171,9 @@
     <a class="card-mini" href="docs/06_calibration-log/critical-facts-log.html">
       <span class="label"><span class="dot red"></span> 別再答錯</span>
       <h4>Critical Facts Log</h4>
-      <p>5/14 新增 — 6/2 五大 deliverable(+ Eye Stable Rate + Camera Auto-Height)· LDWS = VMX-7101 不是 VMX-7375</p>
+      <p>5/15 新增 — 5/14 內部 AI Weekly 3 大反差:Yawning 2000 假圖 / Lens Cover 底層重構 / Eating 先過濾飲水 + Blurring CPU+SQS</p>
       <div class="footer-row">
-        <span class="count">17+</span>
+        <span class="count">20+</span>
         <span class="arrow-link">查校正 →</span>
       </div>
     </a>
@@ -192,7 +194,7 @@
 <section class="zone" id="cases">
   <div class="zone-head">
     <span class="zone-num">02</span>
-    <h2 class="zone-title"><span aria-hidden="true">📋</span> CASES · 客戶與專案</h2>
+    <h2 class="zone-title"><i data-lucide="clipboard-list" aria-hidden="true" class="icon"></i> CASES · 客戶與專案</h2>
     <span class="zone-sub">Active 客戶案 · 會議紀錄 · PM 框架</span>
   </div>
 
@@ -246,28 +248,28 @@
 
   <div class="asset-row">
     <a class="asset" href="docs/meetings/cary-elvis-blurring-timeline.html">
-      <div class="asset-icon"><span aria-hidden="true">📞</span></div>
+      <div class="asset-icon"><i data-lucide="phone" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>5/8 Sync up · Kenny / Cary / Elvis</strong>
         <span>Q2 portal path 校正 · Elvis 糾正 main fleet 級 · 21 min Teams</span>
       </div>
     </a>
     <a class="asset" href="docs/meetings/ai-weekly-internal-roundup.html">
-      <div class="asset-icon"><span aria-hidden="true">🧠</span></div>
+      <div class="asset-icon"><i data-lucide="brain" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>AI Weekly Roundup · Series(內部)</strong>
         <span>🆕 5/11 最新場:Model 11P/11L/26/V14 + 6/2 Fix Version 死線 · 5/7 場:17x 飲食 / LDWS / Lens Cover 單軌 / Yawning</span>
       </div>
     </a>
     <a class="asset orange" href="case-hub.html#page-pm">
-      <div class="asset-icon"><span aria-hidden="true">💡</span></div>
+      <div class="asset-icon"><i data-lucide="lightbulb" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>PM 策略洞察</strong>
         <span>承諾層次 · 技術型客戶溝通 · 內部斷層 · 4 條核心原則</span>
       </div>
     </a>
     <a class="asset" href="docs/meetings/2026-05-06_q2-request-review_meeting-record.html">
-      <div class="asset-icon"><span aria-hidden="true">📊</span></div>
+      <div class="asset-icon"><i data-lucide="bar-chart-2" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>5/6 Q2 Review</strong>
         <span>戰略翻案 · Yawning 真實狀態 · Single SKU+UVC 緊急 hotfix · Label gap</span>
@@ -280,7 +282,7 @@
 <section class="zone" id="knowledge">
   <div class="zone-head">
     <span class="zone-num">03</span>
-    <h2 class="zone-title"><span aria-hidden="true">📚</span> KNOWLEDGE · 穩定知識庫</h2>
+    <h2 class="zone-title"><i data-lucide="book-open" aria-hidden="true" class="icon"></i> KNOWLEDGE · 穩定知識庫</h2>
     <span class="zone-sub">27 份核心文件 · 5 大主題 · KB 已 ship 事實</span>
   </div>
 
@@ -290,27 +292,27 @@
 
   <div class="know-grid stagger-in">
     <a class="know-card" href="knowledge.html#cat-product">
-      <div class="icon ic1"><span aria-hidden="true">🔧</span></div>
+      <div class="icon ic1"><i data-lucide="wrench" aria-hidden="true" class="icon icon-lg"></i></div>
       <h4>產品知識</h4>
       <span class="cnt">10 docs · KB Reference / 機種 spec / ADAS-DMS</span>
     </a>
     <a class="know-card" href="knowledge.html#cat-systems">
-      <div class="icon ic3"><span aria-hidden="true">🏛</span></div>
+      <div class="icon ic3"><i data-lucide="landmark" aria-hidden="true" class="icon icon-lg"></i></div>
       <h4>系統架構</h4>
       <span class="cnt">5 docs · 雙 Portal / Plan Type / Server AI</span>
     </a>
     <a class="know-card" href="knowledge.html#cat-pm">
-      <div class="icon ic4"><span aria-hidden="true">📐</span></div>
+      <div class="icon ic4"><i data-lucide="ruler" aria-hidden="true" class="icon icon-lg"></i></div>
       <h4>人與框架</h4>
       <span class="cnt">6 docs · Stakeholders / 三層真相 / 溝通三件套</span>
     </a>
     <a class="know-card" href="knowledge.html#cat-workflows">
-      <div class="icon ic5"><span aria-hidden="true">⚙️</span></div>
+      <div class="icon ic5"><i data-lucide="settings" aria-hidden="true" class="icon icon-lg"></i></div>
       <h4>工作流 SOP</h4>
       <span class="cnt">6 docs · Data ingestion / Presentation pipeline</span>
     </a>
     <a class="know-card" href="knowledge.html#cat-truth">
-      <div class="icon ic6"><span aria-hidden="true">🎯</span></div>
+      <div class="icon ic6"><i data-lucide="target" aria-hidden="true" class="icon icon-lg"></i></div>
       <h4>校正紀錄</h4>
       <span class="cnt">5 docs · Critical facts / VMX-7404 / 5/7 roundup</span>
     </a>
@@ -318,14 +320,14 @@
 
   <div class="asset-row asset-row-spaced">
     <a class="asset orange" href="portal-briefing.html">
-      <div class="asset-icon"><span aria-hidden="true">🎯</span></div>
+      <div class="asset-icon"><i data-lucide="target" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>Portal Client Briefing</strong>
         <span>25 張中文簡報 · Brian portal task 主交付 · 客戶 demo 用</span>
       </div>
     </a>
     <a class="asset" href="portal-architecture.html">
-      <div class="asset-icon"><span aria-hidden="true">🏛</span></div>
+      <div class="asset-icon"><i data-lucide="landmark" aria-hidden="true" class="icon icon-lg"></i></div>
       <div class="asset-body">
         <strong>Architecture & Integration</strong>
         <span>55 張英文簡報 · 海外客戶技術對接 · PDF 複刻</span>
@@ -343,6 +345,7 @@
 
 <button class="scroll-top-fab" aria-label="回到頂端" type="button">↑</button>
 <script src="js/scroll-top.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
 
 </body>
 </html>
