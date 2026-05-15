@@ -25,14 +25,13 @@
   </div>
 </nav>
 
-<!-- ════ Hub Hero ════ -->
+<!-- ════ Hub Console Header ════ -->
 <section class="hub-hero">
   <div class="hub-hero-inner">
     <div class="hub-hero-grid">
       <div>
-        <div class="hero-eyebrow">Knowledge Base · v3(2026-05-12 重組 · 5/14 Jira 重抓 + 6/2 五大 deliverable 校正)</div>
         <h1><span aria-hidden="true">📚</span> Knowledge Hub</h1>
-        <p><strong>27 份核心文件</strong>,從 KB / Sheet / Jira / Meeting 萃取,分 5 大主題。新人從每類星等最高的 <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 開始讀。</p>
+        <p><strong>32 份核心文件</strong> · KB / Sheet / Jira / Meeting 萃取 · 5 大主題 · Last sync 2026-05-14</p>
         <div class="hub-meta-links stagger-in">
           <a href="docs/meetings/2026-05-13_azuga-ai-weekly.html" class="hub-meta-link"><span aria-hidden="true">🆕</span> 5/13 Azuga AI Weekly(最新)</a>
           <a href="docs/00_index/ssot-map.html" class="hub-meta-link"><span aria-hidden="true">🗺️</span> SSOT Map(概念↔主檔)</a>
@@ -41,7 +40,7 @@
         </div>
       </div>
       <div class="stats-mini">
-        <div class="stat"><div class="num">27</div><div class="lab">核心文件</div></div>
+        <div class="stat"><div class="num">32</div><div class="lab">核心文件</div></div>
         <div class="stat"><div class="num">5</div><div class="lab">主題</div></div>
         <div class="stat"><div class="num">2026-05-14</div><div class="lab">Last sync</div></div>
       </div>
@@ -61,9 +60,48 @@
       <li><a data-cat href="#cat-workflows"><span aria-hidden="true">⚙️</span> 工作流 SOP <span class="count"><span class="num">6</span></span></a></li>
       <li><a data-cat href="#cat-truth"><span aria-hidden="true">🎯</span> 校正紀錄 <span class="count"><span class="num">5</span></span></a></li>
     </ul>
+    <div class="toc-shortcuts">
+      <div class="toc-label">常用入口</div>
+      <a href="docs/01_product-knowledge/kb-reference.html">KB Reference</a>
+      <a href="docs/06_calibration-log/critical-facts-log.html">Critical Facts</a>
+      <a href="docs/05_workflows/data-ingestion-workflow.html">Data Ingestion</a>
+    </div>
   </aside>
 
   <main class="content">
+
+    <section class="quick-access" aria-label="常用文件">
+      <a class="quick-card primary" href="docs/01_product-knowledge/kb-reference.html">
+        <span class="quick-label">Start here</span>
+        <strong>VMX KB Reference</strong>
+        <span>對客戶承諾前先查這份。</span>
+      </a>
+      <a class="quick-card danger" href="docs/06_calibration-log/critical-facts-log.html">
+        <span class="quick-label">Critical</span>
+        <strong>Critical Facts</strong>
+        <span>被校正過、別再答錯的事實。</span>
+      </a>
+      <a class="quick-card" href="docs/05_workflows/data-ingestion-workflow.html">
+        <span class="quick-label">Runbook</span>
+        <strong>Data Ingestion Workflow</strong>
+        <span>資料進來後怎麼整理成 SSOT。</span>
+      </a>
+    </section>
+
+    <section class="search-panel" aria-label="搜尋與篩選">
+      <div>
+        <div class="search-status" id="searchStatus">顯示 32 份文件</div>
+        <div class="search-hint">用上方搜尋框或下方 tag 快速縮小範圍。</div>
+      </div>
+      <div class="filter-chips" role="list" aria-label="快速篩選">
+        <button class="filter-chip active" type="button" data-filter="">All</button>
+        <button class="filter-chip" type="button" data-filter="kb">KB</button>
+        <button class="filter-chip" type="button" data-filter="jira">Jira</button>
+        <button class="filter-chip" type="button" data-filter="workflow">SOP</button>
+        <button class="filter-chip" type="button" data-filter="roadmap">Roadmap</button>
+        <button class="filter-chip" type="button" data-filter="critical">Critical</button>
+      </div>
+    </section>
 
     <div id="nomatch" class="nomatch hidden">沒有符合搜尋條件的文件。按 Esc 清除搜尋。</div>
 
