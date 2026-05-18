@@ -3,9 +3,94 @@
 > 🎯 **SSOT** — 所有「過去答錯後校正」的事實在這裡。其他檔提到這些事實時只能 link,不要複製。
 >
 > 過去 Claude / 對話中答錯後修正的事實。**對 RD / 客戶 / 內部講話前先看這份**。
-> 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md) | Jira 即時狀態:[`00_index/jira-snapshot.md`](../00_index/jira-snapshot.md)(2026-05-12 抓 137 票)
+> 索引:[`00_index/ssot-map.md`](../00_index/ssot-map.md) | Changelog:[`00_index/changelog.md`](../00_index/changelog.md) | Jira 即時狀態:[`00_index/jira-snapshot.md`](../00_index/jira-snapshot.md)(2026-05-18 抓 307 票)
+
+## 2026-05-18 · 本週新校正 7 條(Week of May 18 sync · 含 5/18 AI Weekly 4 大議題)
+
+> 抓取背景:Kenny 5/18 morning routine 4 源 sync(Outlook / HAWK / VMX / NotebookLM)+ 同日下午從 NotebookLM 5/18 AI Weekly Internal 兩段錄音補抓 PM 視角整理。完整 weekly = [`weekly-summary/2026-05-18_week-of-may-18.md`](../../weekly-summary/2026-05-18_week-of-may-18.md)。完整 5/18 AI Weekly 紀錄 = [`meetings/ai-weekly-internal-roundup.md` § 2026-05-18](../../meetings/ai-weekly-internal-roundup.md#2026-05-18-ai-weekly)。
+
+### 0. 🔥🔥 校正之校正:Lens Cover「底層大改」決策 5/18 被推翻 — 改為「不動底層,只加參數」
+
+- ❌ **本檔 5/14 § 條目 #2 寫的「RD 必須緊急開發參數化計時迴圈機制重構底層狀態機 / Jieli 5/19 Beta 死線壓力極大」已過時** — 該段已加 strikethrough,保留作為歷史紀錄
+- ✅ **5/18 AI Weekly 揭露**:「真正要實作的時候我們又有不同的想法 → 決議退回不動底層」。改為**新增 2 個參數**讓 App 自己決定 (a) 是否連續觸發 (b) 時間間隔
+  - **Sense/CCH 規格**:Lens Cover + Lens Uncover 兩個 event,**前一狀態改變才觸發下一次**(遮住 → Cover 不重複,除非障礙物移掉觸發 Uncover 後才能再觸發 Cover)
+  - **BMS 規格**:**連續觸發**(用 timeout 參數控制間隔)
+  - debounce time:CCH alertTime=10s / BMS alertTime=60s
+  - workSpeedMin:**CCH=0 km/h / BMS=5 km/h**(這個 leo.tsai 5/14 也在 VMX-6983 提醒過)
+- **Jieli 預計 5/19-20(明後天)即可完成參數修改供測試** → 從「底層大改 + Beta 壓力大」變成「最安全 workaround + 進度從容」
+- **PM 用法**:對外口徑改為「**底層架構維持,Lens Cover Detection 新增 2 個參數**讓 App / 客戶端控制觸發模式 — 不是底層重構,是參數擴充」
+- **動作**:Jieli 會列出 2 組參數(Sense/CCH + BMS)給 Kenny 確認規格是否符合客戶要求
+
+### 1. 🔥 VMX-7470 ANR crash root cause = HAWK-574(同一個 Race Condition + Dangling Pointer + Memory Corruption)
+
+### 1. 🔥 VMX-7470 ANR crash root cause = HAWK-574(同一個 Race Condition + Dangling Pointer + Memory Corruption)
+
+- ❌ 之前以為 [VMX-7470](https://jira.navman.co.nz/jira/browse/VMX-7470)(5/12 開的 ANR crash on camera App 11.2.27.5)是獨立 bug
+- ✅ **5/15 12:00 jay.qiu 在 VMX-7470 留言確認**:「此 Crash 問題的根本原因與 [HAWK-574](https://jira.navman.co.nz/jira/browse/HAWK-574) 相同,都是因為**同一個地方的 Race Condition + Dangling Pointer Read + Memory Corruption** 導致的」
+- **fix 在**:`MiAIServiceApp 1.4.43.3` + `SdkMiAIService 1.4.44`(這 2 個 app 各修一邊,Camera App ANR 是被 SdkMiAIService 1.4.44 的修正 mitigate 掉)
+- **build trigger**:jack.fl.chen 5/15 08:55「已 Trigger build,預計版本號碼為 11.2.27.7」
+- **PM 影響**:HAWK-574 是 [VMX-7404 跨客戶證據鏈](vmx-7404-tracking.md)Webfleet 3 票之一 → 現在多一條 internal 證據(VMX-7470 = MiTAC 自家 K245 跑 11.2.27.5 也撞)。Brian 1on1 戰略:**這個 root cause 不是「Webfleet 特殊安裝環境」,是 SDK 層 race condition,所有客戶都暴露**。寫進 [vmx-7404-tracking.md](vmx-7404-tracking.md) Evidence 表
+
+### 2. HAWK-588 Azuga SLA escalation — Manual Upload 5-10 min commitment vs 1 day+ reality
+
+- ❌ 之前對 Azuga 的「Manual Upload video processing」沒有正式 SLA 校正
+- ✅ **5/14 18:09 Utkarsh Patel(Azuga)在 [HAWK-588](https://jira.navman.co.nz/jira/browse/HAWK-588) 對 spencer.su 開票**:「the expectation is, request will be processed within 5-10 minutes but we have observed request not being processed even after a day」
+- **內部回應**:spencer.su 5/15 16:01「I'll follow up, have an internal discussion, and get back on this」
+- **PM 用法**:對 Azuga / 其他客戶溝通 Manual Upload 時,**不能再用「5-10 分鐘」當 promise**,要說「target window 5-10 min,but 受 backend SQS queue depth 影響,extreme case 觀察到 1 day+,正在調查」
+
+### 3. Brian 5/13 BMS AI Weekly meeting — HAWK-482 Camera Auto-Height 不退回手動
+
+- ❌ 之前內部討論曾考慮「關閉自動高度偵測,改為手動設定」(Eric H 提議)
+- ✅ **5/13 BMS meeting 結論(Brian email 摘要)**:Martin + Sebastian 否決「改回手動」方案 — (a) 數千台設備已運行 → migration cost 龐大 (b) 安裝人員無法精準測量卡車內實際高度。**Jacob 認為自動校準是產品一大賣點**,期望修復精準度。**MiTAC 結論:Jay 開發新演算法減少誤差**
+- **PM 用法**:對 Azuga / Webfleet / PS 講 [HAWK-482](https://jira.navman.co.nz/jira/browse/HAWK-482) / [HAWK-501](https://jira.navman.co.nz/jira/browse/HAWK-501) Camera Auto-Height 時,**標準口徑 = MiTAC 開發新演算法減少誤差**(不能再含混講「考慮改回手動」)
+- 對應 ticket 變動:本週 [HAWK-587](https://jira.navman.co.nz/jira/browse/HAWK-587) CALIBRATION COMPLETED notification 從 brian.chienlee → **jay.qiu**,與 HAWK-501 同步推進
+
+### ✓ 本週新確認的可對外講
+
+4. **VMX-7482 EdgeTensor airplane mode SDK 已 ready**(jack.fl.chen 5/16 09:32)— `setAirplaneMode(true/false)` API 釋出,SDK 6.2.0,Sample App 有 demo 按鈕,API 文件已更新。對需要 SDK 控制飛航模式的客戶可講「已 ready」
+5. **AI 跨版本測試「非物件事件」強制要求 /rlogs + /logs**(BMS meeting 5/13 Martin / 客戶端工程確認)— 對任何客戶報 疲勞 / 分心 等 False Negative 時,**第一句話該說「請同時提供 /rlogs 與 /logs 資料夾」**而不是只要 video
+
+### 5/18 AI Weekly 新校正(4 條)
+
+6. **Yawning 全臉模型實彈實測啟動**(放棄等資料擴充)
+   - 5/14 還在等資料 → **5/18 Vincent 直接拿 5-6 個自我模擬(說話誤報)+ 客訴影片 10+ 筆 跑 Edge vs Server 對比**
+   - 結論在 5/22 禮拜四討論
+   - **PM 用法**:對外講「Server 全臉模型實測中,5/22 後可確認過濾效果」(別承諾準確度)
+
+7. **Speed Sign 引入 PPOCRV5 第三方 OCR 後處理**(AI 團隊**首次**承認 CNN 對數字辨識有極限)
+   - 5/14 純加資料重訓 → **5/18 證實「新資料看數字 / 舊資料看背景」特徵衝突**
+   - 對策:**PPOCRV5 (PaddleOCR V5 / framework 3.0)** 第三方套件作為後處理過濾,已測有效
+   - **Class 111 = 美 + 加共用速限類別碼,不管模型怎麼換一定要保留**(沒有 1100 數字就靠 OCR 看數字)
+   - **PM 用法**:對外可講「AI 團隊持續優化精準度,引入 OCR 補強」— 別承諾 timeline,下週四(5/22)才決定是否進 Server
+
+8. **Eating/Drinking 邏輯架構重新框架** — 從「物件+嘴巴重疊」改為「物件+臉/頭重疊+雙手在方向盤安全邏輯」
+   - 5/14 階段性收斂飲水 → **5/18 進化到雙手安全邏輯**(類似 Smoking)
+   - 不再要求「進到嘴的動作」(BMS 早期討論過,這邏輯不符實際吃東西時間)
+   - 物件擴充:新增背管 / 大瓶子 / 小罐子 / 便當盒 / 持物 / 餐具,共 9-10 個
+   - **驗證**:用 YOLO 88 類最大 server 版直接測,如果連杯子都抓不到方向就錯了
+   - **PM 用法**:對 Azuga / Webfleet 溝通要說「不是只看飲水,是整體手部安全行為偵測」— 避免客戶以為只是飲水偵測
+
+9. **6/2 釋出範圍校正:Sense + CCH + BMS 6/2 一起上,Webfleet 7 月才給**(✨ **本週最重要範圍校正**)
+   - 5/14 weekly summary 籠統寫「6/2 五大 deliverable 對所有客戶一起上」— **錯**
+   - **5/18 錄音原話**:「Sense 跟 CCH 跟 BMS 三個一起上,在 6 月 2 號那一天」/「T(Webfleet)... 六月這個版本 **七月才給他**」
+   - **PM 用法**:對 Sebastian / Martin / Jacob (Webfleet) 溝通**明確說「Webfleet 排在 7 月版本」**,不要含混講 6/2
+
+### 5/18 同步釋出的可對外講細節
+
+10. **Camera Auto-Height 客訴影片解密 + 高度確認 125 cm**(James AES256 解密成功,150-170 筆測試片段)
+    - 新算法在窄路 / 大車情境壓到 ~167 cm(舊算法 200+,改善 40% 但仍偏高)
+    - **PM 用法**:對 Brian / 客戶報告新算法 release 時,**管理期望** —「窄路 / 大車情境改善但無法完美 — 客戶過於期待要小心」
+
+11. **Model 26 MVP 已測 86% 準確率**(跟 V14 / 11P 差不多)
+    - 海景房高機器 92-96% 還在訓
+    - **內部知識**:訓練機器需要 5090 級別(市面 12-16 萬可買 12 萬等級的專用卡 RTX 同 BLY 架構)
+    - **PM 用法**:對外只講「Model 26 仍在優化,目前 MVP 86%,持續訓練中」
+
+---
 
 ## 2026-05-14 AI Weekly Internal — 3 大「對外承諾 vs 內部現實」反差(2026-05-15 從 NotebookLM 補抓)
+
+> ⚠️ **2026-05-18 校正之校正**:本段 § 條目 #2 Lens Cover「重構底層狀態機」決策 5/18 被推翻 — 改為「不動底層,只加參數」(SOP D2 「不疊版本」原則 → 原 5/14 詳述已刪,只留一行轉指 5/18 新版)。詳見本檔頂部 [§ 2026-05-18 § 0](#0--校正之校正lens-cover底層大改決策-518-被推翻--改為不動底層只加參數)。
 
 > **抓取背景**:Kenny 5/15 發現「5/14 內部 AI weekly 沒校正」後從 NotebookLM 神達VMX notebook 反查 `5-14 ai weekly meeting I.m4a` + `II.m4a` 兩段錄音的 PM 視角整理。
 > **完整會議紀錄**:[`meetings/ai-weekly-internal-roundup.md` § 2026-05-14](../../meetings/ai-weekly-internal-roundup.md#2026-05-14-ai-weekly)。
@@ -16,9 +101,7 @@
    - ❌ 不能再講「6/2 會釋出高準確度打哈欠」
    - ✅ 校正後:**手上只有 ~2000 張 AI 生成假資料**(不是真實採集)— 團隊對其準確度「沒有期待」。Kenny 必須提早做**期望值管理**(Expectation Management),改說「Yawning 模型仍在資料層收斂,6/2 釋出僅做 PoC / 初步驗證,高準確度需後續版本」
 
-2. **Lens Cover 解耦對外口徑**
-   - ❌ 不能再講「Lens Cover 解耦 = 簡單改一個 if-statement」
-   - ✅ 校正後:**RD 必須緊急開發「參數化計時迴圈機制」**重構底層狀態機(舊架構把 Lens Cover + Calibration 綁定極深)。Jieli **5/19 下週一 Beta 死線**,壓力極大。新規格:廢除「需 Recalibrate 才能再觸發」限制,改採 Configurable Parameter(預設 0 = 不重複觸發)→ 對應 [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582)(設計)+ [HAWK-585](https://jira.navman.co.nz/jira/browse/HAWK-585)(實作 bug)
+2. **Lens Cover 解耦對外口徑** — ⚠️ **5/14 原版「重構底層」決策 5/18 已推翻** → 完整新版口徑見頂部 [§ 2026-05-18 § 0](#0--校正之校正lens-cover底層大改決策-518-被推翻--改為不動底層只加參數)
 
 3. **Eating/Drinking 對 Azuga 回覆口徑**
    - ❌ 不能再答應「完美解決所有食物 / 飲水誤判」
@@ -35,7 +118,7 @@
 
 | 議題 | 5/11 或 5/13 對外 | 5/14 內部 reality check |
 |---|---|---|
-| Lens Cover | 輕鬆答應 Azuga「解除車速 + Calibration 依賴」 | RD 盤點發現舊狀態機綁定極深 → 必須緊急重構底層 |
+| Lens Cover | 輕鬆答應 Azuga「解除車速 + Calibration 依賴」 | RD 盤點發現舊狀態機綁定極深 → 5/14 宣稱必須緊急重構底層 → **5/18 收斂為「不動底層,只加參數」**(見頂部 § 2026-05-18 § 0) |
 | Yawning | 5/11 決議轉 Server AI + Full Face 模型 | 5/14 揭露只有 ~2000 張 AI 假圖,準確率極限浮現 |
 | Eating/Drinking | 5/13 客戶提議 Anonymized 影像全面解決 | 5/14 認知無法完美定義所有食物 → 改為「先過濾飲水」 |
 | Blurring | 5/11 Spencer 拍板 API only | 5/14 具體化:CPU + SQS + Callback(非 GPU) |

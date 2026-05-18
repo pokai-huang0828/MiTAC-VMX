@@ -197,7 +197,7 @@
 
 ## 對 Kenny Pending 追蹤的影響
 
-對應 [pending-confirmations-2026-05-14.xlsx](../pending-confirmations-2026-05-14.xlsx):
+對應 [pending-confirmations-2026-05-18.xlsx](../pending-confirmations-2026-05-18.xlsx)(原 5/14 已 archive 至 `knowledge/archive/`):
 
 | Excel ID | 變動 |
 |---|---|
@@ -223,6 +223,6 @@
 寫進 repo:
 - 本檔 `meetings/2026-05-13_azuga-ai-weekly.md` + HTML mirror
 - [critical-facts-log.md § 6/2 Fix Version 死線](../knowledge/06_calibration-log/critical-facts-log.md) — 三大 → 五大 deliverable
-- [pending-confirmations-2026-05-14.xlsx](../pending-confirmations-2026-05-14.xlsx) — 改 ID 20,加 3 個新項目
+- [pending-confirmations-2026-05-18.xlsx](../pending-confirmations-2026-05-18.xlsx)(原 5/14 已 archive 至 `knowledge/archive/`) — 改 ID 20,加 3 個新項目
 - [ai-weekly-internal-roundup.md](ai-weekly-internal-roundup.md) — 加 cross-ref 到本檔
 - [knowledge/00_index/changelog.md](../knowledge/00_index/changelog.md) — 本日變動紀錄

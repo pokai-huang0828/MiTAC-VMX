@@ -1,0 +1,308 @@
+key	status	assignee	updated	priority	fixVersion	summary
+VMX-7482	New	jack.fl.chen	2026-05-16	2 - Medium		[EdgeTensor] Add SDK API to config airplane mode
+VMX-7481	New	righter.song	2026-05-15	2 - Medium		MAU Device Provisioning: AUTOSENSE
+VMX-7480	New	neil.kuo	2026-05-14	2 - Medium		[API] Improve Health Report Storage Efficiency with Compressed BIN to Reduce Database IO
+VMX-7478	New	james.cw.chou	2026-05-13	2 - Medium		[VisionAgent] [AOS] Modify the app codes according to new API
+VMX-7477	In Progress	andrew.cheng	2026-05-14	2 - Medium		[VisionAgent] [iOS] Modify the app codes according to new API
+VMX-7474	New	elvis.tran	2026-05-13	2 - Medium		Constrant Lens Covered events, no media snapshot upload and triggering during non active trip
+VMX-7473	New	nroudakova	2026-05-12	2 - Medium		Wrong stop sign position
+VMX-7472	New	nroudakova	2026-05-12	2 - Medium		Extra School zone sign 
+VMX-7469	New	chiehli.wang	2026-05-12	2 - Medium		[API] telemetry data for API usage
+VMX-7468	New	leo.tsai	2026-05-12	2 - Medium		Improve the IOSix dongle firmware update process
+VMX-7466	Open	hsinyi.chang	2026-05-12	2 - Medium		Add video duration info to SD card video filename
+VMX-7465	New	neil.kuo	2026-05-12	2 - Medium		Error in assigning device to fleet
+VMX-7464	New	chiehli.wang	2026-05-14	2 - Medium		Design an ECS service to render a debug view
+VMX-7462	Open	lucy.sw.yen	2026-05-14	2 - Medium		[UI/GUI] Rollover Event
+VMX-7459	New	lucy.sw.yen	2026-05-12	2 - Medium		Disable Lens Cover Event
+VMX-7458	New	pokai.huang	2026-05-12	2 - Medium		[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers
+VMX-7457	New	spencer.su	2026-05-12	2 - Medium		[API]Integrate BMS Blurring functionality into VisionMax cloud
+VMX-7456	New	spencer.su	2026-05-12	2 - Medium		IOSiX IO-2050 Pending Integration Items for All Aware / Alarm.com
+VMX-7451	New	james.cw.chou	2026-05-08	2 - Medium		[VisionAgent] [AOS] Downloaded Videos GUI Issues
+VMX-7448	New	james.cw.chou	2026-05-11	2 - Medium		[VisionAgent] [AOS] Call Device Button Malfunction
+VMX-7441	New	spencer.su	2026-05-13	2 - Medium		[Master Portal] The Blurry feature can be turned on or off via the API in the portal
+VMX-7437	New	james.cw.chou	2026-05-07	2 - Medium		[VisionAgent] New Feature Task
+VMX-7434	Open	nroudakova	2026-05-07	2 - Medium		Orbis format review
+VMX-7433	New	neil.kuo	2026-05-14	1 - High		 [VM Monthly usage]These report are for APR Invoicing, MAR details should not be included. 
+VMX-7432	New	eric.h	2026-05-15	2 - Medium		【VMX / Fleet】Add a detect rule 'Detect Yawing' toggle under Fatigue Configuration
+VMX-7431	New	woody.lee	2026-05-08	2 - Medium		Speed sign recognition triggering incorrect speed
+VMX-7430	New	woody.lee	2026-05-06	2 - Medium		Improve speed sign recognition to not detect exit ramp speed
+VMX-7429	New	charlie.tychen	2026-05-06	2 - Medium		新增smartlink SETHOUS API for LM request
+VMX-7424	New	joe.lien	2026-05-04	2 - Medium		[API] new configuration item for Camera ID: S_F_R 
+VMX-7423	New	neil.kuo	2026-05-06	2 - Medium		[API] new Camera ID: S_F_R for video upload
+VMX-7422	New	neil.kuo	2026-05-05	2 - Medium		[API] new Camera ID: S_F_R for video request
+VMX-7421	New	joe.lien	2026-05-04	2 - Medium		[API] new Camera ID: S_F_R for video type hint
+VMX-7420	New	joe.lien	2026-05-04	2 - Medium		[API] new Camera ID: S_F_R for video storage
+VMX-7418	New	joe.lien	2026-05-04	2 - Medium		[API] 新增 configuration item
+VMX-7417	New	elvis.tran	2026-05-04	2 - Medium		Trip data not captured and no video recording but logs captured
+VMX-7408	New	chiehli.wang	2026-05-04	2 - Medium		將Debug View log隨著影片上傳到Cloud
+VMX-7405	New	spencer.su	2026-04-28	2 - Medium		Ability to copy configuration settings from existing fleet to new fleet.
+VMX-7404	New	jimmy.jy.huang	2026-04-29	2 - Medium		[2026Q1_user_try] Tirp 中沒有”ADAS start” 也沒有”ADAS failure” 的event
+VMX-7402	Open	jack.fl.chen	2026-04-24	2 - Medium		[Implementation] Single SKU 新增 S_F_R capture mode（Front + UVC side-by-side）
+VMX-7394	New	spencer.su	2026-04-22	2 - Medium		[API] CTE err
+VMX-7389	New	brian.chienlee	2026-04-22	2 - Medium		Add sim card ICCID information to assigned inventory report
+VMX-7387	New	spencer.su	2026-05-12	2 - Medium		Add the Video Cradle and Video Hub information to the Configuration tab
+VMX-7386	Pending	cary.lo	2026-04-21	1 - High		MAU Device Provisioning: AUTOSENSE
+VMX-7375	New	leo.tsai	2026-05-07	2 - Medium		[VisionAgent] [iOS] [aOS] Add Manual End Button on Trip Details Page
+VMX-7374	New	leo.tsai	2026-05-07	2 - Medium		[VisionAgent] [iOS] [aOS] Add Parking Photo Button on Trip Details Page
+VMX-7373	New	hsinyi.chang	2026-05-12	2 - Medium		GPS 未定位時相關欄位（事件 / GPS）內容處理規則
+VMX-7372	New	righter.song	2026-05-14	2 - Medium		[Seeing Machines] SM DMS APP整合&測試
+VMX-7369	Fail	leo.tsai	2026-04-17	2 - Medium		回覆客戶 CDR SDK Customer QA 文件
+VMX-7368	New	joe.lien	2026-05-04	2 - Medium		[API] 新增 configuration item
+VMX-7367	New	joe.lien	2026-05-04	2 - Medium		[API] 新增事件
+VMX-7364	New	luke.cheng	2026-04-17	2 - Medium		[Web UI] Request outside of trip
+VMX-7363	New	lucy.sw.yen	2026-04-22	2 - Medium		Add more types to user activity logs function
+VMX-7362	In Progress	luke.cheng	2026-05-13	2 - Medium		[Web UI] Add GA code for tracking
+VMX-7361	New	luke.cheng	2026-05-11	2 - Medium		[Web UI] 棄用舊的 playback
+VMX-7360	New	neil.kuo	2026-05-07	2 - Medium		[API] SD card file lists
+VMX-7359	New	joe.lien	2026-05-07	2 - Medium		[API] 新增 configuration item
+VMX-7358	New	luke.cheng	2026-05-07	2 - Medium		[Web UI] new configuration item
+VMX-7355	New	lynn.yl.huang	2026-05-15	2 - Medium		[K265][MAU] Base Image OTA upgrade failure
+VMX-7354	In Progress	joe.lien	2026-05-12	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] event / trip 新增 vehicle 欄位上傳
+VMX-7342	New	joe.lien	2026-05-13	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] VIN_CHANGE - Trip 開始時 VIN 變更事件
+VMX-7340	Open	joe.lien	2026-04-23	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] LOW_FUEL - 低油量警示事件
+VMX-7339	New	joe.lien	2026-04-23	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] FUEL_DECREASE / FUEL_INCREASE - 燃油劇變事件（偷油 / 加油偵測）
+VMX-7338	New	simon.wu	2026-05-04	2 - Medium		[AZUGA SmartLink] DTC_MESSAGE - 車輛診斷碼事件（原始格式）
+VMX-7336	Open	jack.fl.chen	2026-05-15	2 - Medium		[AZUGA SmartLink] HARD_TURN - Y 軸急轉彎事件
+VMX-7335	New	hsinyi.chang	2026-05-15	2 - Medium		[AZUGA SmartLink] ACCIDENT_DETECTION - 撞擊事件（含 10Hz NMEA G-sensor）
+VMX-7333	New	jack.fl.chen	2026-05-15	2 - Medium		[AZUGA SmartLink] HARD_ACCELERATION / HARD_BRAKING - 急加速 / 急煞車事件
+VMX-7332	Open	joe.lien	2026-05-06	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] IDLING_STARTED / ENDED - 怠速事件（RPM + Speed 判定）
+VMX-7331	New	joe.lien	2026-05-11	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] OVER_SPEEDING_START / END - 超速事件（閾值可配置）
+VMX-7330	In Progress	hsinyi.chang	2026-05-14	2 - Medium	CameraAPP_202605	[AZUGA SmartLink] GPS_MESSAGE - 10 秒週期 GPS 上報
+VMX-7329	New	hsinyi.chang	2026-05-15	2 - Medium		[AZUGA SmartLink] ENGINE_ON / ENGINE_OFF - 引擎啟閉事件
+VMX-7324	Open	elvis.tran	2026-04-14	2 - Medium		Improve smoking event accuracy
+VMX-7321	New	brian.chienlee	2026-04-14	2 - Medium		School zone speed sign violation outside school times 
+VMX-7320	New	vincent.ho	2026-04-14	2 - Medium		Speed sign violation when driving at or below the sign posted speed limit
+VMX-7317	New	vincent.ho	2026-05-11	2 - Medium		Rastrac – False Speed Event Review
+VMX-7316	New	leo.tsai	2026-04-22	2 - Medium		[AZUGA SmartLink] 新增事件支援（總單）
+VMX-7315	In Progress	charlie.tychen	2026-05-12	2 - Medium		New API implementation for AZUGA requirement
+VMX-7314	New	spencer.su	2026-04-13	2 - Medium		[API] JWT 支援 socpe 將 token 授權最小化
+VMX-7312	New	spencer.su	2026-04-14	2 - Medium		[API] Performance improvments
+VMX-7309	Open	joe.lien	2026-04-27	2 - Medium	CameraAPP_202605	Provide the configuration of the EyeStableRate threshold
+VMX-7306	New	righter.song	2026-04-29	2 - Medium		[Fix] MiCamView.openCamera crash when no camera enabled (NoSuchElementException)
+VMX-7304	New	chiehli.wang	2026-04-08	2 - Medium		[API] multiple errors 
+VMX-7303	New	spencer.su	2026-04-07	2 - Medium		[API] unknow certificate id
+VMX-7301	New	spencer.su	2026-04-24	2 - Medium		[API] wrong datetime value
+VMX-7292	New	brian.chienlee	2026-04-28	2 - Medium		[Fleet] Event Data 狀態停留在 uploading
+VMX-7291	In Progress	luke.cheng	2026-04-07	2 - Medium		[Master] 安裝 Vitest (Unit Test )
+VMX-7290	In Progress	luke.cheng	2026-04-02	2 - Medium		[Fleet] 安裝 Vitest (Unit Test )
+VMX-7284	New	chiehli.wang	2026-05-12	2 - Medium		MAU Customer API access summary
+VMX-7282	Open	travis.tsai	2026-04-08	2 - Medium		DSNY - Add obstruction event
+VMX-7277	New	elvis.tran	2026-03-30	2 - Medium		Video Retrieval tasks are not processing but after multiple attempts it is successful
+VMX-7276	Open	elvis.tran	2026-03-31	2 - Medium		[Seeing Machines] Review logs for potential APN drop out issue
+VMX-7273	New	leo.tsai	2026-03-31	2 - Medium		DSNY Camera Pilot Project - RTR+Camera Integration
+VMX-7271	New	simon.wu	2026-05-13	2 - Medium		LB測試driver id問題回報
+VMX-7267	New	ben.ko	2026-05-07	Gating		[VisionAgent] [iOS] [aOS] Allow users to edit comments
+VMX-7266	New	elvis.tran	2026-03-27	2 - Medium		TT AU MMF - Overspeed warning over 0kph instead of selected severity setting
+VMX-7261	New	elvis.tran	2026-03-30	2 - Medium		Retrieve logs for SD card not initiated error
+VMX-7256	New	elvis.tran	2026-05-12	2 - Medium		Scheduled reports function
+VMX-7254	In Progress	joe.lien	2026-05-12	2 - Medium	CameraAPP_202605	Cloud integration for rollover event and configuration
+VMX-7251	Deferred	spencer.su	2026-04-17	2 - Medium		[Master][API] Dashboard Fleet Id "org_user_54" 數量不對
+VMX-7246	New	charlie.tychen	2026-04-09	2 - Medium		[AlignOps][IOSix] Abnormal firmware update behavior
+VMX-7245	New	eric.h	2026-03-26	2 - Medium		Issue with DMS footage
+VMX-7242	New	leo.tsai	2026-03-19	2 - Medium		評估 MiAI log 加進 mp4 的可行性
+VMX-7240	New	elvis.tran	2026-03-26	2 - Medium		DMS / ADAS events with customised settings, cooling off period and max number of events per trip
+VMX-7238	New	elvis.tran	2026-03-23	2 - Medium		K245 acc/ign on and off timestamps are not updating
+VMX-7237	New	elvis.tran	2026-03-23	2 - Medium		Acc / ign off and acc / ign on timestamps aren't updating the same time or only one is updated
+VMX-7235	New	hsinyi.chang	2026-04-15	2 - Medium		Improve the status reporting mechanism for video clip tasks
+VMX-7233	New	lucy.sw.yen	2026-04-16	2 - Medium		[VisionAgent] 埋GA Code
+VMX-7224	New	mori.jhang	2026-05-15	2 - Medium		Integration of the UVC camera and road-facing camera in a side-by-side format
+VMX-7223	New	charlie.tychen	2026-03-13	2 - Medium		新增 IO-2152 Reset Command for BMS
+VMX-7217	New	jimmy.jy.huang	2026-04-08	2 - Medium		DMS 觸發條件整理
+VMX-7216	New	righter.song	2026-04-22	2 - Medium		Support the data of IOSix dongle
+VMX-7215	New	spencer.su	2026-04-21	2 - Medium		The video clipping function supports Cradle videos.
+VMX-7211	New	joe.lien	2026-03-10	2 - Medium		S3 檔案沒有 tag
+VMX-7204	New	joe.lien	2026-04-22	2 - Medium	CameraAPP_202605	Ability to force camera updates OTA whilst camera / ACC igniton ON state
+VMX-7200	New	jimmy.jy.huang	2026-03-25	2 - Medium		Help review distracted events to confirm if they are true or false event
+VMX-7199	New	brian.chienlee	2026-03-09	2 - Medium		LTE connection lost / out of coverage event 
+VMX-7195	New	leon.lan	2026-04-08	2 - Medium		Video captured showing split image (half of FFC duplicated) in one video and unable to retrieve video
+VMX-7194	New	mori.jhang	2026-05-14	2 - Medium		Vehicle rollover event detection
+VMX-7181	New	joe.lien	2026-02-26	1 - High		[API] Event process fail
+VMX-7177	New	elvis.tran	2026-03-19	2 - Medium		[Seeing Machines] Video retrievals aren't processing
+VMX-7175	New	brian.chienlee	2026-02-13	2 - Medium		比較 610 與 6490 performance
+VMX-7164	New	brian.chienlee	2026-03-12	2 - Medium		Request to add BI and RI version to assigned inventory list report
+VMX-7160	In Progress	neil.kuo	2026-04-30	2 - Medium		[Bill]避免大量 org / device 處理時的記憶體爆炸：調整 task / billing_plan / device_plan 調整 CSV 輸出機制
+VMX-7158	New	elvis.tran	2026-03-19	1 - High		Connect Source cameras are not updating BI and RI OTA and show as pending
+VMX-7153	Pending	elvis.tran	2026-02-04	2 - Medium		Camera not reporting any data usage
+VMX-7151	New	brian.chienlee	2026-04-17	2 - Medium		Safety Score at the vehicle level instead of by driver
+VMX-7150	New	chiehli.wang	2026-05-12	2 - Medium		[API]Add a new API for available event listing 
+VMX-7149	In Progress	spencer.su	2026-05-07	2 - Medium	CameraAPP_202605	LB Technology - Plow PTO status via GPIO input and snapshot
+VMX-7147	New	mori.jhang	2026-05-15	1 - High		Camera recording no longer exists and unable to playback
+VMX-7144	In Progress	lucy.sw.yen	2026-05-15	2 - Medium		[FleetAPP] Prepare App Store Listing Assets
+VMX-7140	New	leo.tsai	2026-01-28	2 - Medium		Flespi - Configuration feasibility
+VMX-7139	New	leo.tsai	2026-01-28	2 - Medium		Flespi - OTA feasibility
+VMX-7138	New	leo.tsai	2026-01-28	2 - Medium		Flespi - Playback feasibility
+VMX-7137	New	leo.tsai	2026-01-28	2 - Medium		Flespi - Liveview feasibility
+VMX-7136	New	leo.tsai	2026-01-28	2 - Medium		Flespi - Video upload feasibility
+VMX-7135	New	leo.tsai	2026-01-28	2 - Medium		Flespi - GPS upload feasibility
+VMX-7132	New	ben.ko	2026-05-12	2 - Medium		#179 Allow users to request footage outside the trip from SD card 
+VMX-7115	New	leo.tsai	2026-03-11	2 - Medium		Flespi - Function feasibility
+VMX-7110	New	elvis.tran	2026-01-28	1 - High		[Customer Reported]伺服器已發送剪輯指令，裝置有上線紀錄卻未啟動剪輯任務
+VMX-7101	New	jimmy.jy.huang	2026-03-24	2 - Medium		LDWS Improving (Server)
+VMX-7099	New	allen.yc.chung	2026-03-19	1 - High		Migrate IOSix service to AZUGA server
+VMX-7088	New	brian.chienlee	2026-05-15	2 - Medium		New Role as Viewer only
+VMX-7087	New	brian.chienlee	2026-01-15	2 - Medium		Improve device diagnostics
+VMX-7083	New	lucy.sw.yen	2026-01-14	2 - Medium		Update the content of safety reports
+VMX-7082	New	lucy.sw.yen	2026-05-06	2 - Medium		於VMX Fleet Portal 與 Master Portal 中埋設GA的追蹤Code
+VMX-7078	New	doris.lin	2026-05-14	2 - Medium		[VisionMax] V-Hub 支援整合測試 
+VMX-7077	New	elvis.tran	2026-01-13	2 - Medium		Camera is reporting sensor error and not recording any impact/sensor events
+VMX-7076	New	elvis.tran	2026-01-12	2 - Medium		Camera displaying UVC camera error but it is recording video
+VMX-7075	New	elvis.tran	2026-01-13	2 - Medium		Cameras not recording, no event triggering, live view showing black screen, unable to playback video.
+VMX-7072	New	spencer.su	2026-04-14	2 - Medium		[API] [Performance] SI search device 
+VMX-7071	New	spencer.su	2026-01-09	2 - Medium		Send Email Notification After Device Import to VisionMax
+VMX-7054	New	leon.lan	2026-04-02	2 - Medium		Unexpected device shutdown
+VMX-7050	In Progress	spencer.su	2026-04-17	2 - Medium	CameraAPP_20260325_11.2.26.17	Add Plow Lowered Settings from Cloud
+VMX-7033	New	simon.wu	2025-12-24	2 - Medium		VMAX Platform Stops Refreshing Live OBD-II Data Until CDR Is Hard Rebooted
+VMX-7030	New	spencer.su	2026-03-25	2 - Medium		Fleet Mobile APP - Push notification
+VMX-7014	New	righter.song	2026-03-27	2 - Medium		Remote Playback supports audio
+VMX-7008	Deferred	chiehli.wang	2026-05-15	2 - Medium		實作 Azure Blob 與 S3 之間的跨雲端物件複製功能
+VMX-6999	Open	allen.yc.chung	2025-12-10	2 - Medium		[K220][Region] Build test image for Precise MRM
+VMX-6983	In Progress	joe.lien	2026-05-15	2 - Medium	CameraAPP_202605	Quantatec - 新增鏡頭遮擋及移除遮擋事件
+VMX-6965	New	spencer.su	2025-12-04	2 - Medium		[API] Fail to add device plan
+VMX-6957	New	spencer.su	2025-11-20	2 - Medium		[API] Client try to switch token basis on a delete accounnt
+VMX-6950	New	neil.kuo	2025-11-19	2 - Medium		觸發 Multi-Event，且事件類型不同時，VMX 頁面會重複顯示第一個被觸發的事件
+VMX-6942	New	danny.lau	2025-11-19	2 - Medium		Customer forget password
+VMX-6940	New	spencer.su	2025-11-14	2 - Medium		[API] The onboarding process might blocked if Signalling channel creation fails
+VMX-6936	New	elvis.tran	2025-11-14	2 - Medium		Camera is not recording and only capturing events
+VMX-6935	New	spencer.su	2025-12-02	2 - Medium		GPS data批次補傳
+VMX-6932	New	mori.jhang	2026-04-17	1 - High		Camera is offline but continue to use data
+VMX-6926	New	spencer.su	2026-04-17	2 - Medium		[API] Grafana logs finding
+VMX-6924	New	neil.kuo	2025-11-08	2 - Medium		[API] recording 新增時有機會造成 duplicate entry 衝突
+VMX-6921	Pending	neil.kuo	2025-11-21	2 - Medium		帳單需求開發與設定
+VMX-6901	New	andrew.cheng	2026-05-11	2 - Medium		[FleetAPP API] Calling Device
+VMX-6896	New	andrew.cheng	2025-12-17	2 - Medium		[FleetAPP API] Notification Settings
+VMX-6895	New	andrew.cheng	2025-12-17	2 - Medium		[FleetAPP API] Notifications Detail
+VMX-6894	New	andrew.cheng	2025-12-17	2 - Medium		[FleetAPP API] Notifications List
+VMX-6891	New	mori.jhang	2026-02-09	2 - Medium		車牌清晰度vs機器效能
+VMX-6888	New	joe.lien	2025-11-04	2 - Medium		[API] A super account (likely)
+VMX-6886	New	spencer.su	2025-11-01	2 - Medium		[API] 前置作業
+VMX-6885	New	spencer.su	2025-11-01	1 - High		[API] Upgrade event time precision to ms from s
+VMX-6881	New	righter.song	2025-10-31	2 - Medium		Add 'Recording Start' audio alert to comply with NZ Biometric Processing Privacy Code 2025
+VMX-6866	New	brian.chienlee	2025-10-28	2 - Medium		Device recall history showing invalid usage period date
+VMX-6865	Open	nroudakova	2026-05-13	2 - Medium		TomTom Orbis New York Sample Map
+VMX-6852	New	brian.chienlee	2026-01-21	2 - Medium		Update privacy mode to switch off when camera is restarted
+VMX-6851	New	allen.yc.chung	2025-10-28	2 - Medium		協助precise MRM 包APN 進region image 
+VMX-6841	New	brian.chienlee	2025-10-21	2 - Medium		Making SmartGo data available through a Webhook for easier integration
+VMX-6833	Open	allen.yc.chung	2025-12-18	2 - Medium	CameraAPP_20260325_11.2.26.17	Unable to activate Advance feature on IOSix
+VMX-6821	New	nell.chen	2025-10-27	Gating		[Speed camera A-test]The SpeedCam Region name display as "V2" instead of "SA" in Device/VisionMaxfleet
+VMX-6816	New	vincent.ho	2026-03-26	2 - Medium		[Firebase] LaneDetector::handleOneFrame crash
+VMX-6801	New	allen.yc.chung	2026-01-15	1 - High		[K220] Abnormal Panic Button status callback
+VMX-6799	New	brian.chienlee	2025-12-17	2 - Medium		Suvio Project | 影像上傳與語音客製
+VMX-6798	New	brian.chienlee	2025-12-08	2 - Medium		Suvio Project | 客製化語音
+VMX-6796	New	joe.lien	2025-12-26	2 - Medium		Delete deprecated file
+VMX-6794	New	brian.chienlee	2025-12-08	2 - Medium		Giving Master account the ability to enable/disable "smart_link_advance_enable"
+VMX-6785	New	righter.song	2025-10-07	2 - Medium		Review Audio File Quality
+VMX-6783	New	allen.yc.chung	2026-03-20	1 - High		[K220]Abnormal GPIO status callback
+VMX-6782	Open	joe.lien	2026-05-04	2 - Medium	CameraAPP_202605	CDR scan for Bluetooth (BLE) Beacons in the vicinity and send a report of beacons that match a list of MAC ID prefixes in a report along with signal strength
+VMX-6778	New	brian.chienlee	2025-11-13	2 - Medium		Restrict password change access for installer accounts
+VMX-6761	Open	jieli.liu	2025-11-13	2 - Medium		Stop sign detection with traffic lights involved
+VMX-6759	New	brian.chienlee	2026-02-25	2 - Medium		Request to retrieve video if a trip is not generated
+VMX-6736	New	brian.chienlee	2025-09-26	2 - Medium		Stop and go event not uploading any media
+VMX-6734	New	nell.chen	2025-09-23	Gating		[Speed camera A-test]Not find Camera Type 9128 data
+VMX-6722	New	jimmy.jy.huang	2026-05-06	2 - Medium		Server AI | Build a server-side lane departure model to block false-positive event uploads to VMX.
+VMX-6718	New	nell.chen	2026-01-09	2 - Medium		LB Technology - Posted Speed Alert Issue
+VMX-6703	New	eric.h	2025-09-05	2 - Medium		Support Configurable Server AI Response Time
+VMX-6696	New	mori.jhang	2025-12-10	2 - Medium		[LB Technology][K245c] Nighttime image quality of the driver-facing camera
+VMX-6693	New	lucy.sw.yen	2026-04-22	2 - Medium		Testing and support for Wi-Fi internet connectivity
+VMX-6692	New	leon.lan	2025-09-08	2 - Medium		Blurry DMS camera
+VMX-6676	New	luke.cheng	2026-04-28	2 - Medium		Adjust video recording duration #147
+VMX-6675	Pending	neil.kuo	2025-11-21	2 - Medium		The billing function must be able to generate a complete ZIP package of bills according to the billing group.
+VMX-6663	Open	brian.chienlee	2025-12-15	2 - Medium		New Feature: Device Version Upgrades #11
+VMX-6662	Deferred	nell.chen	2025-09-02	2 - Medium		[Speed camera A-test]Camera Type 6 can trigger event in DVR,but can't displayed on VisionMax web
+VMX-6652	In Progress	nell.chen	2025-09-05	2 - Medium		South American logistics/MNR/ MNC/ speed camera data
+VMX-6627	New	mori.jhang	2026-01-22	2 - Medium		Private mode activation via portal and set operational shift times #138
+VMX-6602	New	simon.wu	2025-08-29	2 - Medium		CDR LED pattern change request #134
+VMX-6596	New	brian.chienlee	2025-11-13	2 - Medium		Update AUX USB camera diagram in master portal 
+VMX-6586	New	elvis.tran	2025-09-05	2 - Medium		Group main fleet and contract fleets together and display data under parent fleet for easy viewing #130
+VMX-6579	New	brian.chienlee	2025-12-08	2 - Medium		Install Tool顯示及設定左右駕及DMS Camera問題
+VMX-6578	New	brian.chienlee	2025-11-13	2 - Medium		Vehicle profile specific g-sensor #132
+VMX-6570	New	luke.cheng	2026-01-05	2 - Medium		[track][workaround] Trip playback needs to stop 10 seconds before the end of the trip
+VMX-6545	New	brian.chienlee	2025-11-13	2 - Medium		Show which camera video retrieval is for in upcoming/uploading/processing status #128
+VMX-6544	New	brian.chienlee	2025-11-13	2 - Medium		Add video upload success time in video retrieval #127
+VMX-6528	Open	charlie.tychen	2025-07-11	2 - Medium		IOSix dongle 需要開一個更新FW version的Mitac API
+VMX-6523	New	allen.yc.chung	2025-07-16	2 - Medium		Enable /Disable IOSix advance data的 Mitac API
+VMX-6521	New	allen.yc.chung	2025-08-29	2 - Medium		新增BT MAC的欄位當IOSix dongle UID ACC on的時候丟UID給VMX，單獨管理，不和CDR做連結，Cloud API需要多UID的欄位。
+VMX-6512	New	righter.song	2025-08-29	2 - Medium		MiDM api 可以選擇Site/group後再匯入機器
+VMX-6507	New	gennie.fan	2025-10-17	2 - Medium		[K265][Region] Build VisionMax 2025Q2 Region (250815)
+VMX-6495	Open	ben.ko	2026-01-09	2 - Medium	2025Q4	Dashboard 地圖路徑呈現功能評估 #112
+VMX-6486	New	allen.yc.chung	2025-08-29	2 - Medium		SD card life calculation
+VMX-6465	New	elvis.tran	2025-09-05	2 - Medium		[K145][MAU] Abnormal camera image 
+VMX-6458	Open	leo.tsai	2026-01-14	2 - Medium		Fleet Mobile APP Development
+VMX-6453	Open	jieli.liu	2025-09-12	2 - Medium		Server Model Research - Phone Usage
+VMX-6427	New	spencer.su	2026-04-28	2 - Medium		Improve reporting function #107
+VMX-6420	New	elvis.tran	2025-09-05	2 - Medium		Driver tagging in Events for coaching #107
+VMX-6419	New	elvis.tran	2025-07-02	2 - Medium		Invalid phone usage events
+VMX-6411	New	brian.chienlee	2025-12-08	2 - Medium		Suivo: Feasibility Evaluation and Project Tracking
+VMX-6405	New	huah.tu	2025-07-29	2 - Medium		EVO的SD card2不斷mount及unmount切換
+VMX-6382	New	vincent.ho	2025-07-18	2 - Medium		Allow AI detection parameters to be configured 
+VMX-6380	New	jimmy.jy.huang	2025-12-10	2 - Medium	2025Q4	Distracted Driving - Smoking
+VMX-6374	New	allen.yc.chung	2025-09-30	2 - Medium		IOSix dongle debug web page 
+VMX-6369	In Progress	joe.lien	2025-09-19	2 - Medium		[API 文件] 移除不再使用的event。
+VMX-6348	New	simon.wu	2025-08-29	2 - Medium		Solid light indicates the camera is connected to the server/network, instead of flashing every 15 seconds
+VMX-6343	Deferred	nell.chen	2025-09-02	2 - Medium		Indonesia MMF
+VMX-6326	New	allen.yc.chung	2025-07-25	2 - Medium	CameraAPP_20251001_11.2.24.82	[IOSix] Debug log upload
+VMX-6265	New	simon.wu	2025-08-29	2 - Medium		GPIO - RS232 Passthrough and Digital Binary Input Signal
+VMX-6222	New	simon.wu	2025-09-03	2 - Medium		Adding earliest SD card file’s timestamp to the device info API for easier access
+VMX-6221	New	jay.qiu	2025-09-15	3 - Low		Survey AI Model Self-Training and Optimization System
+VMX-6203	New	elvis.tran	2025-09-12	2 - Medium		Inward, UVC & Outward cameras unable to record video
+VMX-6168	Open	joe.lien	2025-12-26	2 - Medium		Delete Fleet Account/Device data from the Master or Fleet Portal 
+VMX-6166	Deferred	nell.chen	2025-09-02	Gating		[MMF]OSM USA MMF v9801 install failed
+VMX-6076	Open	spencer.su	2025-10-20	2 - Medium		Pop up notification on log in page for server outage
+VMX-6040	New	neil.mercer	2025-09-05	2 - Medium		Storage status is Good but not reading the memory card and no video being recorded
+VMX-6007	New	brian.chienlee	2026-01-07	2 - Medium		Downloading diagnostic report does not list Fleet/Owner Name & Improve report fields #145
+VMX-5922	Deferred	nell.chen	2025-09-02	2 - Medium		TT AU Speed cam data - No redlight camera alerts
+VMX-5915	New	eric.h	2026-05-04	2 - Medium		TT AU Speed cam data - Stop signs at traffic lights are being detected
+VMX-5914	New	nell.chen	2026-05-01	2 - Medium		TT AU Speed cam data - school zones aren't timed and inaccurate
+VMX-5909	Open	chiehli.wang	2026-05-14	2 - Medium		Add box around event to highlight event trigger #11
+VMX-5908	Deferred	spencer.su	2025-09-05	2 - Medium		Contract fleet 的 Webhook 處理
+VMX-5880	Pending	mori.jhang	2025-09-05	2 - Medium		[Install Tool] UVC在Dual Cameras SKU上搭載DMS功能
+VMX-5879	New	eric.h	2025-07-15	2 - Medium		[Feasibility] Display AI debug view on VisionMax browser UI (#11)
+VMX-5744	New	eric.h	2025-08-28	2 - Medium		event觸發時，上傳更多資訊以提升debug效率
+VMX-2217	Inactive	christy.hu	2025-09-01	2 - Medium		English should be set as the default language of the webside
+HAWK-588	New	spencer.su	2026-05-15	2 - Medium		Concerns related to Manual Upload video processing
+HAWK-587	Open	jay.qiu	2026-05-14	Normal	VisionMax_20260602	CALIBRATION COMPLETED notification (if active) delayed until first ADAS violation
+HAWK-586	New	vincent.ho	2026-05-15	2 - Medium		[Stop sign violation] Provide snapshot time
+HAWK-585	New	vincent.ho	2026-05-14	2 - Medium	VisionMax_20260602	'Lens cover' detection not properly working
+HAWK-584	New	neil.kuo	2026-05-12	2 - Medium	VisionMax_20260602	Error in assigning device to fleet
+HAWK-583	New	Luchun.chen	2026-05-13	2 - Medium		Timezone (in MX) not correct
+HAWK-582	Open	jieli.liu	2026-05-14	2 - Medium	VisionMax_20260602	Improve Lens cover detection design
+HAWK-581	New	spencer.su	2026-05-06	1 - High		Deprecate Nested Set Model
+HAWK-580	New	brian.chienlee	2026-05-05	2 - Medium		H.265 Support
+HAWK-579	New	spencer.su	2026-05-13	2 - Medium		Camera Consuming High data
+HAWK-574	New	eric.h	2026-05-06	1 - High		WEBFLEET Alpha Fleet Cameras Sporadically Looping “DMS Calibration Completed” Message
+HAWK-573	New	chiehli.wang	2026-05-06	2 - Medium	VisionMax_20260602	Request event blurry not updating the content
+HAWK-568	New	neil.kuo	2026-05-07	2 - Medium		Manual Upload Videos are stuck
+HAWK-563	Open	spencer.su	2026-04-23	2 - Medium	VisionMax_20260602	Camera status discrepancy
+HAWK-561	Open	spencer.su	2026-04-07	3 - Low		Please review TLS configuration
+HAWK-559	New	allen.yc.chung	2026-05-14	1 - High		Device Rebooting for Error Fixing
+HAWK-555	Deferred	daniel.kara	2026-04-22	2 - Medium		SD card rejected
+HAWK-551	New	brian.chienlee	2026-05-06	2 - Medium	VisionMax_20260602	[CAM Lite] Inaccurate fatique detection --> new config to lower EyeStableRate threshold
+HAWK-549	New	ruben.navarropiris	2026-03-17	2 - Medium		Increase precision of take-snapshot endpoint
+HAWK-545	New	martin.rothe	2026-05-12	Gating		Mobile phone detection rates seems decreased a lot, sometimes it also seems negatively influenced by smoking
+HAWK-544	New	olugbo.oniyide	2026-03-13	2 - Medium		Thumbnail events of type "lens covered" missing thumbnails when media is of snapshot
+HAWK-541	New	joe.lien	2026-05-13	2 - Medium		Receiving Access Denied response when opening video URL
+HAWK-539	New	shilendarb	2026-03-04	1 - High		K-265 Camera stopped working and not powering on
+HAWK-535	New	allen.yc.chung	2026-05-08	2 - Medium		LiveStreaming not working
+HAWK-532	New	martin.rothe	2026-05-14	2 - Medium		Length of videos are shown heavily increased (wrong length shown)
+HAWK-528	New	sheron.lee	2026-05-14	2 - Medium		Camera stop recording randomly during trips
+HAWK-519	New	daniel.kara	2026-05-08	2 - Medium		Recording missing
+HAWK-514	New	harish.bolneni	2026-04-29	2 - Medium		Camera Triggering Violent Turn Events continuously
+HAWK-511	New	sebastian.schneider.wf	2026-05-15	1 - High		Missing videos from aux cameras
+HAWK-502	New	jakob.mund	2026-04-16	1 - High		Changes to the privacy mode
+HAWK-501	Open	eric.h	2026-05-13	1 - High	VisionMax_20260602	ADAS Self-calibration resolves wrong height resulting inacurate ADAS event detection
+HAWK-498	New	allen.yc.chung	2026-05-14	Gating		Huge Amount of Unexpected Alert Button Events on WEBFLEET Production Cameras
+HAWK-497	New	allen.yc.chung	2026-01-26	2 - Medium		Encryption key in meta data endpoint seem to be incorrect
+HAWK-496	New	ruben.navarropiris	2026-05-06	2 - Medium		Wrong GPS timestamps (set in the future)
+HAWK-489	New	harish.bolneni	2026-01-05	1 - High		Camera speed is not varying(showing same speed in videos)
+HAWK-479	New	brian.chienlee	2026-01-09	2 - Medium		Debug Mode Disabled After App Updates / Debug overlay missing occasionally
+HAWK-465	New	ruben.navarropiris	2026-05-12	2 - Medium		Event(s) with impossibly old timestamp
+HAWK-441	New	allen.yc.chung	2026-03-02	2 - Medium		TVI Video stream stay black after last installation step
+HAWK-428	New	eric.h	2025-10-29	2 - Medium		Stop sign violation - ignore when there are supplementary signs
+HAWK-418	New	righter.song	2025-10-24	2 - Medium		Improve wording/texts for some translations of in-cab alerts
+HAWK-417	New	righter.song	2025-10-24	2 - Medium		Add more languages for in-cab alerts
+HAWK-416	New	righter.song	2025-12-30	2 - Medium		Improve audio/voice quality for in-cab alerts
+HAWK-410	Deferred	allen.yc.chung	2025-12-08	1 - High		[Production Issue] - Blue lines on the Video
+HAWK-401	New	allen.yc.chung	2026-05-12	Gating		Support proper DMS AI detection with low installation position
+HAWK-398	Open	allen.yc.chung	2026-05-11	Gating		Cameras losing connectivity in African countries
+HAWK-341	New	ruben.navarropiris	2026-05-11	1 - High		Strange bulk of old GPS signal data
+HAWK-316	New	spencer.su	2026-05-04	3 - Low		Dynamic length for "Clip & Backup video to cloud storage" in VisionMaxFleet
+HAWK-159	Deferred	sebastian.schneider.wf	2026-05-04	3 - Low		LiveStream: Response to selectCam command is sent before the stream has actually switched

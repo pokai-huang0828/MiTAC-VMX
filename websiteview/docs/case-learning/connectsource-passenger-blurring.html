@@ -880,9 +880,18 @@ Is it possible to have a customer session on teams on this topic?</li>
 <p><strong>關鍵洞察:</strong></p>
 <ul>
 <li><strong>Storage 只 ~1.8×</strong>(因為原始檔本來就會存,只有 blurred copy 隨 trigger 數量倍增)</li>
-<li><strong>AI 處理量 10×</strong>(物理事實),但 cost scaling 取決於 MiTAC GPU infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×</li>
+<li><strong>AI 處理量 10×</strong>(物理事實),但 cost scaling 取決於 MiTAC AI infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×</li>
 <li>給 Elvis 的最終訊息<strong>不承諾倍數</strong> — 用 "scales meaningfully higher — subject to Spencer's quote"</li>
 </ul>
+
+<blockquote>
+<p><strong>2026-05-14 AI Weekly Internal 補充</strong>(從 NotebookLM 5-14 兩段錄音揭露):</p>
+<ul>
+<li><strong>Blurring 架構正式定案 = 無 GPU 的 CPU Instance + SQS Message Queue + Callback API(非同步)</strong></li>
+<li>這個物理事實<strong>可加強對 Elvis / Cary cost framing 信心</strong> — 「scales meaningfully higher」的成本來源是 storage 1.8× + AI compute(CPU)黑盒,<strong>不是 GPU 高成本架構</strong></li>
+<li>主檔:<a href="../meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly"><code>meetings/ai-weekly-internal-roundup § 2026-05-14</code></a> 訊號 D · <a href="../06_calibration-log/critical-facts-log.html#2026-05-14-ai-weekly-cal"><code>critical-facts-log § 4 新確認</code></a></li>
+</ul>
+</blockquote>
 
 <h3 id="95">9.5 Profitability sensitivity(內部估算 · 不對外)</h3>
 

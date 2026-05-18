@@ -41,13 +41,13 @@ PM lens:跟客戶講「為什麼某機種做不到 X」直接用 model size + TO
 | 主題 | Roadmap(對外) | Sheet(內部) | 對客戶口徑 |
 |------|---------------|-------------|----------|
 | VLM | 2H'2027 | 2026 Q3 | **講 2027** |
-| Eating & Drinking | 1H'2027 | [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562) / 🚨 **5/7 揭露 BMS 客訴 17x 量級(ID 6652),6/15 前 7000+ Edge case 一次性重訓**(Jimmy + Vincent)| 對外維持 2027,**對 BMS 講 6/15 內部緊急重訓** |
-| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / 5/7 加灰階模型 → **5/11 校正**:用 **Model 11P**(嘴部→全臉)+ 統一到 **Model 26** 架構 / UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Lucy)/ **掛 6/2 Fix Version** | **改:Roadmap planned, 內部測試中,Model 11P 改全臉打哈欠** |
+| Eating & Drinking | 1H'2027 | [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562) / 5/7 揭露 BMS 客訴 17x 量級(ID 6652)/ **2026-05-14 校正:無法完美定義所有食物 + 無法區分「拿杯子貼臉」vs「實際喝水」→ 改為階段性收斂,先處理「飲水(瓶子/杯子)」特徵加入負向資料庫重訓**(Jimmy + Vincent)| 對外維持 2027,對 Azuga 講「**先處理飲水這類最常發生的誤報特徵,不承諾一次解決所有食物**」 |
+| Yawning | Basic 2025 已 ship | 還沒給客戶 / 測試中 / 5/7 加灰階模型 → **5/11 校正**:用 **Model 11P**(嘴部→全臉)+ 統一到 **Model 26** 架構 / UI toggle = [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Lucy)/ 掛 6/2 Fix Version → **2026-05-14 校正:訓練資料只有 ~2000 張 AI 生成假圖(不是真實採集)→ 6/2 釋出僅 PoC,高準確度需後續版本** | **改:Roadmap planned · 6/2 PoC 階段,不能對客戶承諾高準確度**(Expectation Management 已啟動) |
 | Smoking | Basic 2025 已 ship | **KB 標 (in development)** / Sheet 隱藏 / 4 ticket open | **改:Roadmap planned, KB 列開發中** |
 | MMF | (列在 overview) | 還沒上線 | **不對客戶承諾** |
 | Server-side LDWS(Stage 2) | 已上 | ✅ Q1 Cabinet APP merged,3/11 deploy prod(jimmy 確認)/ **5/11 校正**:LDWS API 從 5/7 Pending 暫緩 → **5/11 重新掛 6/2 Fix Version**([VMX-7101](https://jira.navman.co.nz/jira/browse/VMX-7101) "LDWS Improving (Server)" 待 Jira transition · 2026-05-14 校正:原誤寫 VMX-7375)| 「Server-side 已部屬,device 端 6/2 release 含 LDWS API」 |
 | Speed Sign | Advanced 2027 | KB 標 in development / **5/7 揭露 18/25/40 易混淆,Flip 參數關閉 + 擴增降至 10x 重訓**(Jay)| 對外保持 2027 Roadmap |
-| Lens Cover(BMS / Azuga ~~雙軌~~ → **5/11 校正單軌**)| Basic | 5/7 雙軌實作 → ⚠️ **5/11 校正**:[HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) 規格改為單軌即可滿足三客戶(Webfleet / Bridgestone / Azuga),取消 speed ≥ 20 + DMS calibration 兩個 dependency / Eric H 5/8 confirmed **6 月 release**(6/2 Fix Version)| 對三客戶講「6/2 release 統一單軌規格」 |
+| Lens Cover(BMS / Azuga ~~雙軌~~ → **5/11 校正單軌**)| Basic | 5/7 雙軌 → 5/11 校正單軌([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582)規格改為單軌)/ **2026-05-18 校正之校正(SOP D2 推翻 5/14「重構底層」決議)**:**底層不動,新增 2 個參數**讓 App 自己決定 (a) 是否連續觸發 (b) 時間間隔 · Sense/CCH 不重複 / BMS 連續觸發 + timeout · debounce time 維持 CDR 那邊做 · Jieli 5/19-20 完成參數修改供測試 / Eric H 5/8 confirmed 6 月 release(**6/2 Sense+CCH+BMS,Webfleet 排 7 月**) | 對 Sense/CCH/BMS 講「6/2 release 統一單軌規格 — **底層架構維持,新增 2 個參數讓 App 控制觸發模式**」· 對 Webfleet 講「**7 月版本**」|
 
 ## AI Model 版本對應(2026-05-12 從 5/11 AI Weekly NotebookLM 錄音校正)
 

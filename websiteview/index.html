@@ -20,7 +20,7 @@
     </div>
     <div class="topnav-meta">
       <span class="live-dot"></span>
-      <span class="topnav-updated">Updated 2026-05-15</span>
+      <span class="topnav-updated">Updated 2026-05-18</span>
       <a href="styleguide.html" class="topnav-link topnav-link-discreet" title="Design System reference">
         <i data-lucide="palette" aria-hidden="true" class="icon"></i> <span class="topnav-link-label">Design System</span>
       </a>
@@ -34,22 +34,24 @@
     <div class="hero-grid">
       <div>
         <div class="hero-eyebrow">
-          <span class="week-pill">Week 19 · 2026</span>
+          <span class="week-pill">Week 20 · 2026</span>
           <span>Mission Control</span>
         </div>
         <h1>Kenny 的 <span class="underline">VMX 評估期</span><br>工作中樞</h1>
-        <p class="hero-lede">本週對齊 5 大 Outlook thread + 312 票 Jira + 5/14 AI Weekly Internal 揭露 3 大「對外承諾 vs 內部現實」反差(Yawning / Lens Cover / Eating-Drinking)。</p>
+        <p class="hero-lede">本週 Jira 307 票(vs 5/14 -4)+ 5/18 AI Weekly 4 大議題:🔥🔥 <strong>Lens Cover 大轉彎</strong>(5/14「大改底層」→ 5/18「只加參數」)+ 🔥 VMX-7470 ANR = HAWK-574 同根因(SDK race condition,4 條跨客戶證據)+ Speed Sign 引入 PPOCRV5 OCR + 6/2 釋出範圍校正(Sense+CCH+BMS 6/2 / Webfleet 7 月)+ HAWK-588 Azuga SLA。</p>
         <details class="hero-details">
           <summary>展開本週 highlights ↓</summary>
-          <p><strong>2026-05-15 Δ</strong>:從 NotebookLM 補抓 5/14 AI Weekly Internal(I + II)兩段錄音 PM 視角整理 — Yawning 只有 2000 張 AI 假圖(6/2 高準確度機率極低)+ Lens Cover 底層必須重構參數化計時迴圈(Jieli 5/19 Beta 死線)+ Eating-Drinking 改為先過濾「飲水」+ Blurring 架構 CPU + SQS + Callback 定案。同步 [VMX-7482](https://jira.navman.co.nz/jira/browse/VMX-7482) EdgeTensor airplane mode 5/15 新建。</p>
+          <p><strong>2026-05-18 PM Δ(5/18 AI Weekly)</strong>:從 NotebookLM 補抓 <code>5-18 ai weekly meeting I.m4a</code> + <code>II.m4a</code> 兩段錄音 — <strong>🔥🔥 Lens Cover 邏輯重構決策大轉彎</strong>:5/14「大改底層狀態機 + 解除校正綁定」→ 5/18「真正要實作時又有不同想法」→ <strong>退回不動底層,改用 2 個參數控制</strong>(Sense/CCH 不重複 / BMS 連續觸發 + timeout)→ Jieli 5/19-20 明後天完成。AI 團隊首次掛載 <strong>PPOCRV5 (PaddleOCR V5)</strong> 第三方 OCR 補 Speed Sign CNN 極限。Eating/Drinking 從「物件+嘴巴」改為「物件+臉/頭+雙手在方向盤」邏輯。<strong>6/2 釋出範圍校正</strong>:Sense+CCH+BMS 6/2 / Webfleet 7 月。Model 26 MVP 86%。客訴影片 AES256 解密成功(Camera Height 實測 125 cm)。</p>
+          <p><strong>2026-05-18 AM Δ</strong>:週一 4 源 sync(Outlook / HAWK / VMX / NotebookLM)— 4 新票(HAWK-588 Azuga SLA / VMX-7480 Health Report storage / VMX-7481 MAU AUTOSENSE / VMX-7482 EdgeTensor 6.2.0 完成)+ 8 票 Closed(含 VMX-7470 ANR fix shipped)+ 4 status flip + 13 assignee 重分配。重大發現:<a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7470" rel="noopener" target="_blank">VMX-7470</a> root cause = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-574" rel="noopener" target="_blank">HAWK-574</a> 同(jay.qiu 5/15 confirm:Race Condition + Dangling Pointer + Memory Corruption),fix 在 MiAIServiceApp 1.4.43.3 + SdkMiAIService 1.4.44(build 11.2.27.7)→ VMX-7404 跨客戶證據鏈增至 4 條,SDK 層 systemic bug。</p>
+          <p><strong>2026-05-15 Δ</strong>:從 NotebookLM 補抓 5/14 AI Weekly Internal(I + II)兩段錄音 PM 視角整理 — Yawning 只有 2000 張 AI 假圖(6/2 高準確度機率極低)+ Lens Cover 底層必須重構參數化計時迴圈(Jieli 5/19 Beta 死線)+ Eating-Drinking 改為先過濾「飲水」+ Blurring 架構 CPU + SQS + Callback 定案。</p>
           <p><strong>2026-05-14 Δ</strong>:Jira 全量重抓 311 票(+147)+ 5/13 Azuga AI Weekly meeting note + 6/2 三大 → 五大 deliverable 校正 + LDWS API 票號 VMX-7375 → VMX-7101 修正(repo 6 檔同步)。</p>
         </details>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">
-            <i data-lucide="sparkles" aria-hidden="true" class="icon"></i> 5/14 AI Weekly Internal <span class="arrow">→</span>
+          <a class="btn btn-primary" href="docs/weekly-summary/2026-05-18_week-of-may-18.html">
+            <i data-lucide="zap" aria-hidden="true" class="icon"></i> 5/18 Week Sync · 5 大訊號 <span class="arrow">→</span>
           </a>
-          <a class="btn btn-ghost" href="docs/weekly-summary/2026-05-11_week-of-may-8.html">
-            本週 Summary <span class="arrow">→</span>
+          <a class="btn btn-ghost" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">
+            5/14 AI Weekly Internal <span class="arrow">→</span>
           </a>
           <a class="btn btn-ghost" href="knowledge.html">
             Knowledge Hub <span class="arrow">→</span>
@@ -149,31 +151,31 @@
   </div>
 
   <div class="now-grid stagger-in">
-    <a class="card-feature" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-14-ai-weekly">
-      <span class="tag"><i data-lucide="zap" aria-hidden="true" class="icon"></i> Latest · 2026-05-14 AI Weekly Internal</span>
-      <h3>5/14 AI Weekly Internal · 對外承諾 vs 內部現實</h3>
-      <p>Kenny 5/15 從 NotebookLM 補抓 5-14 兩段錄音(I + II)· 3 大反差校正:Yawning 只有 2000 張 AI 假圖 / Lens Cover 必須開發參數化計時迴圈(5/19 Beta) / Eating-Drinking 改為先過濾「飲水」+ Blurring 架構 CPU+SQS+Callback 定案。</p>
+    <a class="card-feature" href="docs/weekly-summary/2026-05-18_week-of-may-18.html">
+      <span class="tag"><i data-lucide="zap" aria-hidden="true" class="icon"></i> Latest · 2026-05-18 Week Sync + 5/18 AI Weekly</span>
+      <h3>Week of May 18 · 4 源 Sync + 5/18 AI Weekly 4 大議題</h3>
+      <p>週一全天 sync(Outlook / Jira / NotebookLM + 5/18 AI Weekly Internal 兩段錄音)· <strong>🔥🔥 Lens Cover 決策大轉彎</strong>(5/14「大改底層」→ 5/18「不動底層,只加參數」)· <strong>🔥 VMX-7470 ANR = HAWK-574 同根因</strong>(SDK 層 race condition,VMX-7404 跨客戶證據鏈增至 4 條)· Speed Sign 引入 <strong>PPOCRV5</strong> 第三方 OCR · <strong>6/2 釋出範圍校正</strong>:Sense+CCH+BMS 6/2 / Webfleet 7 月。</p>
       <div class="stats">
-        <div>議題<strong>4</strong></div>
-        <div>Actions<strong>5</strong></div>
-        <div>口徑校正<strong>3</strong></div>
-        <div>Beta 死線<strong>5/19</strong></div>
+        <div>Jira Δ<strong>25</strong></div>
+        <div>校正<strong>7</strong></div>
+        <div>NotebookLM<strong>49</strong></div>
+        <div>VMX-7404 證據<strong>4</strong></div>
       </div>
       <div class="spaced-top-md"><span class="more">深入閱讀 →</span></div>
     </a>
 
-    <a class="card-mini" href="docs/weekly-summary/2026-05-11_week-of-may-8.html">
-      <span class="tag">2026-05-11</span>
-      <h3>Weekly Summary · Week of May 8</h3>
-      <p>5 大 email + 47 VMX pending + 48 HAWK opened + 8 處 knowledge Δ 對齊。</p>
+    <a class="card-mini" href="docs/meetings/ai-weekly-internal-roundup.html#2026-05-18-ai-weekly">
+      <span class="tag">2026-05-18</span>
+      <h3>5/18 AI Weekly · Lens Cover 大轉彎</h3>
+      <p>5/14「大改底層」→ 5/18「只加參數」· Speed Sign 引入 PPOCRV5 · Yawning 全臉模型實彈測試 · Eating/Drinking 改用雙手安全邏輯。</p>
     </a>
 
     <a class="card-mini" href="docs/06_calibration-log/critical-facts-log.html">
       <span class="label"><span class="dot red"></span> 別再答錯</span>
       <h4>Critical Facts Log</h4>
-      <p>5/15 新增 — 5/14 內部 AI Weekly 3 大反差:Yawning 2000 假圖 / Lens Cover 底層重構 / Eating 先過濾飲水 + Blurring CPU+SQS</p>
+      <p>5/18 新增 <strong>7 條</strong>(含🔥🔥校正之校正:Lens Cover 底層大改決策推翻)+ VMX-7470=HAWK-574 / HAWK-588 SLA / HAWK-482 不退手動 / 5/18 AI Weekly 4 條(Yawning / PPOCRV5 / Eating 改邏輯 / 6/2 範圍校正)。</p>
       <div class="footer-row">
-        <span class="count">20+</span>
+        <span class="count">30+</span>
         <span class="arrow-link">查校正 →</span>
       </div>
     </a>
@@ -181,9 +183,9 @@
     <a class="card-mini" href="docs/06_calibration-log/vmx-7404-tracking.html">
       <span class="label"><span class="dot amber"></span> 評估期籌碼</span>
       <h4>VMX-7404 ADAS Failure</h4>
-      <p>新加 HAWK 側平行案(HAWK-501 / 574 / 401),根因 30 km/h × 3 mins 行駛條件</p>
+      <p>🆕 5/18 第 4 條證據:VMX-7470 MiTAC 自測同 SDK race condition → 證明不是客戶特殊環境,是 SDK 層 systemic bug</p>
       <div class="footer-row">
-        <span class="count">8/10</span>
+        <span class="count">4 證據</span>
         <span class="arrow-link">追蹤 →</span>
       </div>
     </a>

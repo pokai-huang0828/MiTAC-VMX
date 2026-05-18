@@ -118,7 +118,7 @@ Brian 把 Kenny 加進 list,意思是 **VisionMax setup(Master & Fleet portal + 
 - 5/6 Q2 review(戰略翻案 + Plan Type):[`meetings/2026-05-06_q2-request-review_meeting-record.md`](../meetings/2026-05-06_q2-request-review_meeting-record.md)
 - 機種規格(K220 / K265):[`knowledge/01_product-knowledge/machines-spec.md`](../knowledge/01_product-knowledge/machines-spec.md)
 - Vinicius / PS 案(機種共用):[`case-learning/vinicius-platform-science.md`](vinicius-platform-science.md)
-- 本週 Weekly Summary:[`weekly-summary/2026-05-11_week-of-may-8.md`](../weekly-summary/2026-05-11_week-of-may-8.md)
+- 本週 Weekly Summary:[`weekly-summary/2026-05-18_week-of-may-18.md`](../weekly-summary/2026-05-18_week-of-may-18.md)(原 5/11 已 archive 至 [`knowledge/archive/`](../knowledge/archive/2026-05-11_week-of-may-8.md))
 
 ---
 

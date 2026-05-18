@@ -220,8 +220,8 @@ T-0      進會議室 · share Cary 版 · 開場 verbatim
 - 5/8 Sync up source meeting:[`2026-05-08_syncup-cary-elvis_meeting-record.md`](2026-05-08_syncup-cary-elvis_meeting-record.md)
 - CONNECTSOURCE case 主檔:[`../case-learning/connectsource-passenger-blurring.md`](../case-learning/connectsource-passenger-blurring.md)
 - Critical Facts log:[`../knowledge/06_calibration-log/critical-facts-log.md`](../knowledge/06_calibration-log/critical-facts-log.md)
-- Cary 版 HTML 圖(2pm screen share 用):[`../weekly-summary/2026-05-11_blurring-model_cary.html`](../weekly-summary/2026-05-11_blurring-model_cary.html)
-- Kenny 版 HTML(會議前 drill 用,**不帶進會議室**):[`../weekly-summary/2026-05-11_blurring-model_kenny.html`](../weekly-summary/2026-05-11_blurring-model_kenny.html)
+- Cary 版 HTML 圖(2pm screen share 用):`websiteview/docs/archive/2026-05-11_blurring-model_cary.html`(2026-05-18 已 archive)
+- Kenny 版 HTML(會議前 drill 用,**不帶進會議室**):`websiteview/docs/archive/2026-05-11_blurring-model_kenny.html`(2026-05-18 已 archive)
 
 ---
 

@@ -3,7 +3,122 @@
 > **會議系列**:內部 AI Weekly · 每週二、四 10:00 – 12:00 · 內部 RD + PM(主持 Jimmy)
 > **檔案規則**(2026-05-12 Kenny 校正後 series 化):**每場新會議在這個檔頂部加 H2 section,時間倒序**,不再每場開新 dated 檔
 > **對應 stakeholders.md 表 row**:[`02_organization-map/stakeholders.md` § 每週固定會議 → 內部 AI weekly](../knowledge/02_organization-map/stakeholders.md#每週固定會議)
-> **NotebookLM source**:`5-7 ai weekly.m4a` / `5-11 ai weekly meeting.m4a` / `5-14 ai weekly meeting I.m4a` + `5-14 ai weekly meeting II.m4a`(notebook 名「神達VMX」共 47 sources)
+> **NotebookLM source**:`5-7 ai weekly.m4a` / `5-11 ai weekly meeting.m4a` / `5-14 ai weekly meeting I.m4a` + `5-14 ai weekly meeting II.m4a` / **`5-18 ai weekly meeting I.m4a` + `5-18 ai weekly meeting II.m4a`** (notebook 名「神達VMX」 — 5/18 後共 49 sources)
+> **AI 團隊任務追蹤 Sheet**:[Google Sheets — AI team tasks list](https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit?gid=339075798#gid=339075798)(每場 weekly 看這份對齊 PIC 進度)
+
+---
+
+## 2026-05-18 AI Weekly(via NotebookLM `5-18 ai weekly meeting I.m4a` + `II.m4a` · Kenny PM 角度交叉 5/14 + 5/13)
+
+> **抓取背景**:Kenny 5/18 同步從 NotebookLM 神達VMX notebook 抓 5-18 兩段錄音的 PM 視角整理。**本場最大訊號 = Lens Cover 決策從 5/14「大改底層」收斂為「只加參數」**,風險大幅降低但對外口徑要重整。Kenny 自己整理的逐字稿摘要 + raw transcript 一起入庫。
+
+### 🎯 本場 4 大核心議題(對齊 5/14 看新訊號)
+
+| # | 議題 | 5/14 立場 → 5/18 現況 | 對 6/2 deliverable 衝擊 |
+|---|---|---|---|
+| 1 | **Lens Cover 邏輯重構決策大轉彎** | 5/14「**大改底層狀態機 + 解除校正綁定**」→ 5/18 **退回**:底層維持現有邏輯,**僅新增 2 個參數**(是否連續觸發 / 時間間隔)| 🟢 **風險大幅降低** · Jieli「明後天」(~5/19-20)即可完成參數修改供測試,**非完美重構而是最安全 workaround** |
+| 2 | **打哈欠 (Yawning) 全臉模型進入實彈實測** | 5/14「2000 張假圖,信心極低」→ 5/18 **直接動手測**:Vincent 用 5-6 個自我模擬(說話誤報)+ 客訴影片,共 10+ 筆,跑 Edge 端 vs Server 全臉模型對比 | ⏳ 「今天上、晚一點確認」— Server 全臉模型能否擋住 Edge 端誤報 = 本週決定 |
+| 3 | **Speed Sign 誤判分析 + OCR 第三方套件導入** | 5/14 純加資料重訓 → 5/18 **發現新舊資料特徵相反**(新資料看數字 / 舊資料看背景 → 衝突),引入 **PPOCRV5 (PaddleOCR V5)** 第三方 OCR 後處理過濾 | 🆕 AI 團隊**首次掛載第三方文字辨識套件補 CNN 極限** · 下週四(5/22)決定是否加進 Server |
+| 4 | **客訴影片 AES256 解密成功 + Camera Height 確認 125 cm** | 5/14 卡在 Base64 解密 → 5/18 **James 成功解出**,提供 150-170 筆測試片段,客戶實測車高 **125 cm 真的很矮** | 🟡 新算法在窄路把估計值壓到 ~167 cm,**比原算法 200+ cm 好但仍偏高(差 40%)** — 客戶可能過於期待 |
+
+### 📊 各 PIC 工作進度報告(5/18 揭露版)
+
+| PIC | 5/18 報告 | vs 5/14 進度 |
+|---|---|---|
+| **Vincent** | 全臉打哈欠 Server 模型驗證:5-6 個自我模擬影片(含「說話」動作)+ 客訴影片共 ~10+ 筆。流程:Edge 端跑得結果 → Server 端跑去比模型 → 看 Server 能否擋住 Edge 誤報 | 5/14「PoC 在 PC 跑現有資料」→ 5/18「直接拿 server 跑全臉模型實彈測試」(放棄等資料擴充) |
+| **Jieli** | Lens Cover 邏輯**捨棄底層大改**,改用 2 個參數控制觸發模式(預設 0 不重複)。明後天(5/19-20)完成參數修改供測試 | 5/14「5/19 Beta 死線壓力大」→ 5/18「明後天就能完成,風險大幅降低」 |
+| **Jimmy** | (與團隊共同處理)飲食誤判 (Eating/Drinking) 資料標註與重訓,剩餘 ~13,000 筆。**新增 6 個物件**:背管 / 大瓶子 / 小罐子 / 便當盒 / 持物 / 餐具 → 物件已 9-10 個,擔心模型負擔。**設計大轉彎**:從「物件 + 嘴巴重疊」改為「物件 + 臉/頭重疊 + 雙手在方向盤」邏輯(類似 Smoking) | 5/14 階段性收斂飲水 → 5/18 物件大量擴充 + 邏輯重新框架 |
+| **Jay** | Speed Sign 誤判:產出 4000+ 張訓練測試結果圖表。發現新舊資料特徵依賴相反(數字 vs 背景)。準備:(a) 關閉 Flip + 擴增倍率 20 → 10 重訓 (b) 測 PPOCRV5 套件後處理 | 5/14 純關閉翻轉 → 5/18 證實單純加資料不可解,改第三方 OCR 補強 |
+| **Eric** | 參與速限標誌分析 / 全臉模型驗證方式 / Lens Cover 底層邏輯討論(無特定個人單項開發進度) | — |
+| **Jonathan / Adonis** | 會議中**未提及進度** | 連續兩週未報,可能需要 Jimmy 單獨追蹤 |
+| **API / Cloud 團隊** | Blurring 非同步架構已準備好,可透過 API 打單測試驗證 | 5/14「設計完成」→ 5/18「**ready 給 Jimmy 等人實打**」 |
+| **James / 測試團隊** | 成功將客訴影片 Key 從 Base64 轉 AES256 並解密,提供 150-170 筆測試片段 | 5/14「協助解密」→ 5/18「完成 + 已交付」 |
+
+### ✅ Action Items(本場 5 件)
+
+| # | 任務描述 | Owner | Deadline | 關聯 Ticket / 物件 |
+|---|---|---|---|---|
+| 1 | 使用真實 + 模擬影片(~10+ 筆)驗證 Server 端全臉打哈欠模型過濾效果 | **Vincent** | 本週內 / 盡快 | [VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432) Yawning UI toggle |
+| 2 | 完成 Lens Cover **參數化控制邏輯**開發(支援不重複 / 指定間隔兩種模式)+ 把 Sense/CCH 跟 BMS 兩組參數列出來給 Kenny 確認規格 | **Jieli** | 5/19-20(明後天)| [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) + [HAWK-585](https://jira.navman.co.nz/jira/browse/HAWK-585) |
+| 3 | 用 PPOCRV5 套件測現有 Speed Sign 誤報照片,評估過濾效果 → Server 端是否加 | **AI 團隊** | **5/22 下週四前** | (未指明 Jira) |
+| 4 | 關閉 Flip 參數 + 擴增倍率降為 10 倍重新訓練速限標誌模型 | **Jay** | 近期 | (未指明 Jira) |
+| 5 | 將剩餘 ~13,000 筆含「瓶子」等飲食特徵資料集結重訓 | **AI 團隊**(Jimmy + Vincent) | 盡快(配合 Beta) | [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562) |
+
+### 🔄 新訊號與差異分析(5/18 vs 5/14)
+
+#### 1. 策略大轉彎:Lens Cover 開發風險收斂
+- **5/14 立場**:RD 企圖解開 Lens Cover 與 DMS 校正深度綁定,大改底層狀態機滿足客戶
+- **5/18 現況**:**「真正要實作時又有不同想法」→ 決議退回不動底層**。改以「增加參數」讓 App 自己決定是否連發或設定冷卻時間
+- **意義**:6/2 死線前選擇**最安全 workaround**而非完美重構。debounce time 還是維持在 CDR 那邊去做
+- **規格對比**:
+  - **Sense/CCH**:Lens Cover + Lens Uncover 兩個 event,**前一狀態改變才觸發下一次**(遮住觸發 → 不重複,除非障礙物移掉觸發 Uncover 後才能再觸發 Cover)
+  - **BMS**:**連續觸發**(用 timeout 參數控制間隔)
+  - debounce time:CCH alertTime=10s / BMS alertTime=60s
+  - workSpeedMin:**CCH=0 km/h / BMS=5 km/h**(這個 leo.tsai 5/14 也在 VMX-6983 提醒過)
+- **PM 動作**:Jieli 會列出兩組參數 → Kenny 確認規格符合客戶要求
+
+#### 2. CNN/YOLO 辨識極限浮現,轉向 OCR 輔助 (Speed Sign)
+- **5/14 立場**:單純關閉翻轉參數重訓
+- **5/18 現況**:資料證實單純餵資料會出現「看數字 vs 看背景」特徵衝突 → **首次決定掛載第三方文字辨識套件作為後處理**修正 CNN 模型極限
+- **PPOCRV5 = PaddleOCR V5(PaddlePaddle 開源 OCR framework 3.0 最新版本)**
+- 已測試:4 種影像增強方式都能抓到數字 / 速限文字
+- **Class 111** = 美國 + 加拿大共用速限類別代碼,**不管模型怎麼換一定要保留**(美國有 1,100 之類沒做字,加拿大也走這類)
+- **意義**:AI 團隊首次承認「純 CNN/YOLO 對細小數字辨識有極限」,改採混合架構
+
+#### 3. 打哈欠驗證進入「實彈射擊」階段
+- **5/14 立場**:只有 2000 張假資料,對全臉模型準確度毫無信心
+- **5/18 現況**:**放棄等資料擴充**,直接錄製「說話」影片丟給 Server AI 實測,以最快速度驗證全臉模型是否具備商業過濾價值
+- 流程:Edge 端跑一次得結果 → 同時 Server 端跑去比模型 → 結論在「禮拜四(5/22)」討論
+
+#### 4. Eating/Drinking 邏輯架構重新框架(重大設計變動)
+- **5/14 立場**:階段性收斂,先過濾「飲水」特徵
+- **5/18 現況**:**從「物件 + 嘴巴重疊」改為「物件 + 臉/頭重疊 + 雙手在方向盤」邏輯**
+  - 不再要求「進到嘴的動作」(BMS 早期討論過,這邏輯不符合實際吃東西時間)
+  - 類似 Smoking 邏輯:只要拿在手上 + 接近臉/頭就算違規
+  - 安全邏輯:「確保雙手在方向盤,不要拿別的東西」
+- **物件擴充**:從原本「飲水」擴大到 9-10 個物件 → 擔心模型負擔
+- **驗證方式**:用 YOLO 88 類最大 server 版直接測,看能不能抓到「杯子」「水瓶」— **如果連杯子都抓不到,方向錯了,後面別浪費時間**
+- **客訴單 6252** 提到司機夜間反光誤報現象
+
+#### 5. 6/2 釋出範圍校正:Sense + CCH + BMS 三家一起上,Webfleet 7 月才給
+- **錄音原話**:「Sense 跟 CCH 跟 BMS 三個一起上,在 6 月 2 號那一天」/「T(Webfleet)... 一樣是六月底就是六月這個版本,六月這個版本**七月才給他**」
+- **意義**:重大校正之前 weekly summary 寫的「6/2 五大 deliverable 對所有客戶一起上」籠統口徑 — 實際是**先給 Sense / CCH / BMS,Webfleet 晚一個月**
+- 對 Kenny 對 Webfleet (Sebastian / Jacob / Martin) 溝通要說「6/2 是 Sense/CCH/BMS 先上,Webfleet 排在 7 月版本」
+
+### 🛠 開發 / 技術資訊追蹤
+
+#### Model 版本號
+- **Model 26**:新分類模型,**MVP 已測 86% 準確率**(跟 V14 / 11P 差不多)
+- 還在訓練:海景房(高機器)92-96% / 服務器訓練中,需要更好機器(5090 級別,市面上 12-16 萬可以買到專門卡)
+- Vincent「另外一台還沒完,但 9 幾 %」「另外一台是 ver 盤」「海景房的 92-96% 很高」
+
+#### 第三方套件
+- **PPOCRV5 (PaddleOCR V5 / framework 3.0 最新版)**:支援中文 + 英文 + 日文,本場決議用來補 Speed Sign 後處理。Jay 已測現有誤報照片有效
+
+#### 客戶資料解密
+- **AES256 + Base64 → binary 轉換流程已通**(James 負責)
+- 客訴影片實測高度確認 **125 cm**(很矮 — 屬於小道路 / 大車內視野角度問題)
+- 新算法在這段路測到 ~167 cm(舊算法 ~200+ cm,改善 40% 但仍偏高 — 環境受限)
+
+#### 6/2 對齊死線
+- 對齊 release 包:Lens Cover 參數化 + 睜眼率 + Blurring 非同步 API + Model 26 + 速限標誌(若 PPOCRV5 加進去)
+- **三家對齊**:Sense + CCH + BMS 6/2 同步上 → Webfleet 7 月
+
+### 📌 PM 觀察 / 對外口徑校正(Claude 補)
+
+1. **5/14 寫進 critical-facts-log 的「Lens Cover 必須開發參數化計時迴圈機制重構底層狀態機」需要校正之校正** — 實際 5/18 退回「底層不動,只加參數」,Jieli 5/19 Beta 死線壓力反而下降。**對外口徑要改為「底層架構維持,新增 2 個參數讓 App 控制觸發模式」**
+2. **6/2 三大 / 五大 deliverable 必須區分客戶範圍** — 之前 weekly summary 籠統講「對所有客戶」,實際 5/18 揭露「Sense + CCH + BMS 同步 6/2,Webfleet 排 7 月」。Kenny 對 Sebastian / Martin / Jacob 溝通要明確說「Webfleet 7 月版」
+3. **Camera Auto-Height 125 cm 實測 = 環境受限警訊** — 對 Brian / 客戶溝通新算法 release 時要管理期望:「窄路 / 大車情境改善但無法完美 — 客戶過於期待要小心」
+4. **PPOCRV5 第三方套件導入 = 對外可講「AI 團隊持續優化精準度」** — 但不要承諾 timeline,因為下週四才決定是否進 Server
+5. **Eating/Drinking 邏輯改成「雙手在方向盤」框架 = 對 Azuga 溝通校正** — 之前 5/13 Azuga AI Weekly 答應「漸進處理飲水」現在進化為「雙手安全邏輯」,屬於正向強化但需要明確說「不是只看飲水,是整體手部安全行為偵測」
+
+### 🔗 引用對齊
+
+- 上一場:[2026-05-14 AI Weekly](#2026-05-14-ai-weekly)(本檔下方 ↓)
+- 上一場對齊的 calibration:[`06_calibration-log/critical-facts-log.md` § 2026-05-14 AI Weekly Internal 3 大反差](../knowledge/06_calibration-log/critical-facts-log.md)— 本場 Lens Cover 條目已被 5/18 推翻,critical-facts-log 已加 strikethrough
+- AI 團隊任務追蹤:[Google Sheets — AI team tasks list](https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit?gid=339075798#gid=339075798)
+- 本週 weekly summary:[`weekly-summary/2026-05-18_week-of-may-18.md`](../weekly-summary/2026-05-18_week-of-may-18.md) — 5/18 AI Weekly section
+- 對應 Jira:[VMX-7432](https://jira.navman.co.nz/jira/browse/VMX-7432)(Yawning toggle)/ [HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) + [HAWK-585](https://jira.navman.co.nz/jira/browse/HAWK-585)(Lens Cover)/ [HAWK-562](https://jira.navman.co.nz/jira/browse/HAWK-562)(Eating/Drinking)/ [VMX-7457](https://jira.navman.co.nz/jira/browse/VMX-7457) + [VMX-7458](https://jira.navman.co.nz/jira/browse/VMX-7458)(Blurring API)
 
 ---
 

@@ -1,0 +1,3072 @@
+[
+ {
+  "k": "VMX-7482",
+  "s": "New",
+  "a": "jack.fl.chen",
+  "u": "2026-05-16",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[EdgeTensor] Add SDK API to config airplane mode"
+ },
+ {
+  "k": "VMX-7481",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2026-05-15",
+  "r": "cary.lo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "MAU Device Provisioning: AUTOSENSE"
+ },
+ {
+  "k": "VMX-7480",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-14",
+  "r": "neil.kuo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] Improve Health Report Storage Efficiency with Compressed BIN to Reduce Database IO"
+ },
+ {
+  "k": "VMX-7478",
+  "s": "New",
+  "a": "james.cw.chou",
+  "u": "2026-05-13",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [AOS] Modify the app codes according to new API"
+ },
+ {
+  "k": "VMX-7477",
+  "s": "In Progress",
+  "a": "andrew.cheng",
+  "u": "2026-05-14",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [iOS] Modify the app codes according to new API"
+ },
+ {
+  "k": "VMX-7474",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-05-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Constrant Lens Covered events, no media snapshot upload and triggering during non active trip"
+ },
+ {
+  "k": "VMX-7473",
+  "s": "New",
+  "a": "nroudakova",
+  "u": "2026-05-12",
+  "r": "nroudakova",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Wrong stop sign position"
+ },
+ {
+  "k": "VMX-7472",
+  "s": "New",
+  "a": "nroudakova",
+  "u": "2026-05-12",
+  "r": "nroudakova",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Extra School zone sign "
+ },
+ {
+  "k": "VMX-7469",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-12",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] telemetry data for API usage"
+ },
+ {
+  "k": "VMX-7468",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-05-12",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve the IOSix dongle firmware update process"
+ },
+ {
+  "k": "VMX-7466",
+  "s": "Open",
+  "a": "hsinyi.chang",
+  "u": "2026-05-12",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add video duration info to SD card video filename"
+ },
+ {
+  "k": "VMX-7465",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-12",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Error in assigning device to fleet"
+ },
+ {
+  "k": "VMX-7464",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-14",
+  "r": "chiehli.wang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Design an ECS service to render a debug view"
+ },
+ {
+  "k": "VMX-7462",
+  "s": "Open",
+  "a": "lucy.sw.yen",
+  "u": "2026-05-14",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[UI/GUI] Rollover Event"
+ },
+ {
+  "k": "VMX-7459",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-05-12",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Disable Lens Cover Event"
+ },
+ {
+  "k": "VMX-7458",
+  "s": "New",
+  "a": "pokai.huang",
+  "u": "2026-05-12",
+  "r": "pokai.huang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionMax] [GUI] Blurring control UI on Master/Fleet Portal for non-API customers"
+ },
+ {
+  "k": "VMX-7457",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-12",
+  "r": "pokai.huang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API]Integrate BMS Blurring functionality into VisionMax cloud"
+ },
+ {
+  "k": "VMX-7456",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-12",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "IOSiX IO-2050 Pending Integration Items for All Aware / Alarm.com"
+ },
+ {
+  "k": "VMX-7451",
+  "s": "New",
+  "a": "james.cw.chou",
+  "u": "2026-05-08",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [AOS] Downloaded Videos GUI Issues"
+ },
+ {
+  "k": "VMX-7448",
+  "s": "New",
+  "a": "james.cw.chou",
+  "u": "2026-05-11",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [AOS] Call Device Button Malfunction"
+ },
+ {
+  "k": "VMX-7441",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-13",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Master Portal] The Blurry feature can be turned on or off via the API in the portal"
+ },
+ {
+  "k": "VMX-7437",
+  "s": "New",
+  "a": "james.cw.chou",
+  "u": "2026-05-07",
+  "r": "james.cw.chou",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] New Feature Task"
+ },
+ {
+  "k": "VMX-7434",
+  "s": "Open",
+  "a": "nroudakova",
+  "u": "2026-05-07",
+  "r": "nroudakova",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Orbis format review"
+ },
+ {
+  "k": "VMX-7433",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-14",
+  "r": "righter.song",
+  "p": "1 - High",
+  "fv": "",
+  "m": " [VM Monthly usage]These report are for APR Invoicing, MAR details should not be included. "
+ },
+ {
+  "k": "VMX-7432",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2026-05-15",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "【VMX / Fleet】Add a detect rule 'Detect Yawing' toggle under Fatigue Configuration"
+ },
+ {
+  "k": "VMX-7431",
+  "s": "New",
+  "a": "woody.lee",
+  "u": "2026-05-08",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Speed sign recognition triggering incorrect speed"
+ },
+ {
+  "k": "VMX-7430",
+  "s": "New",
+  "a": "woody.lee",
+  "u": "2026-05-06",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve speed sign recognition to not detect exit ramp speed"
+ },
+ {
+  "k": "VMX-7429",
+  "s": "New",
+  "a": "charlie.tychen",
+  "u": "2026-05-06",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "新增smartlink SETHOUS API for LM request"
+ },
+ {
+  "k": "VMX-7424",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] new configuration item for Camera ID: S_F_R "
+ },
+ {
+  "k": "VMX-7423",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-06",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] new Camera ID: S_F_R for video upload"
+ },
+ {
+  "k": "VMX-7422",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-05",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] new Camera ID: S_F_R for video request"
+ },
+ {
+  "k": "VMX-7421",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] new Camera ID: S_F_R for video type hint"
+ },
+ {
+  "k": "VMX-7420",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] new Camera ID: S_F_R for video storage"
+ },
+ {
+  "k": "VMX-7418",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] 新增 configuration item"
+ },
+ {
+  "k": "VMX-7417",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-05-04",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Trip data not captured and no video recording but logs captured"
+ },
+ {
+  "k": "VMX-7408",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-04",
+  "r": "jay.qiu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "將Debug View log隨著影片上傳到Cloud"
+ },
+ {
+  "k": "VMX-7405",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-28",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Ability to copy configuration settings from existing fleet to new fleet."
+ },
+ {
+  "k": "VMX-7404",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2026-04-29",
+  "r": "righter.song",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[2026Q1_user_try] Tirp 中沒有”ADAS start” 也沒有”ADAS failure” 的event"
+ },
+ {
+  "k": "VMX-7402",
+  "s": "Open",
+  "a": "jack.fl.chen",
+  "u": "2026-04-24",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Implementation] Single SKU 新增 S_F_R capture mode（Front + UVC side-by-side）"
+ },
+ {
+  "k": "VMX-7394",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-22",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] CTE err"
+ },
+ {
+  "k": "VMX-7389",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-04-22",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add sim card ICCID information to assigned inventory report"
+ },
+ {
+  "k": "VMX-7387",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-12",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add the Video Cradle and Video Hub information to the Configuration tab"
+ },
+ {
+  "k": "VMX-7386",
+  "s": "Pending",
+  "a": "cary.lo",
+  "u": "2026-04-21",
+  "r": "cary.lo",
+  "p": "1 - High",
+  "fv": "",
+  "m": "MAU Device Provisioning: AUTOSENSE"
+ },
+ {
+  "k": "VMX-7375",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-05-07",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [iOS] [aOS] Add Manual End Button on Trip Details Page"
+ },
+ {
+  "k": "VMX-7374",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-05-07",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] [iOS] [aOS] Add Parking Photo Button on Trip Details Page"
+ },
+ {
+  "k": "VMX-7373",
+  "s": "New",
+  "a": "hsinyi.chang",
+  "u": "2026-05-12",
+  "r": "hsinyi.chang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "GPS 未定位時相關欄位（事件 / GPS）內容處理規則"
+ },
+ {
+  "k": "VMX-7372",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2026-05-14",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Seeing Machines] SM DMS APP整合&測試"
+ },
+ {
+  "k": "VMX-7369",
+  "s": "Fail",
+  "a": "leo.tsai",
+  "u": "2026-04-17",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "回覆客戶 CDR SDK Customer QA 文件"
+ },
+ {
+  "k": "VMX-7368",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] 新增 configuration item"
+ },
+ {
+  "k": "VMX-7367",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] 新增事件"
+ },
+ {
+  "k": "VMX-7364",
+  "s": "New",
+  "a": "luke.cheng",
+  "u": "2026-04-17",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Web UI] Request outside of trip"
+ },
+ {
+  "k": "VMX-7363",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-04-22",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add more types to user activity logs function"
+ },
+ {
+  "k": "VMX-7362",
+  "s": "In Progress",
+  "a": "luke.cheng",
+  "u": "2026-05-13",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Web UI] Add GA code for tracking"
+ },
+ {
+  "k": "VMX-7361",
+  "s": "New",
+  "a": "luke.cheng",
+  "u": "2026-05-11",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Web UI] 棄用舊的 playback"
+ },
+ {
+  "k": "VMX-7360",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-07",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] SD card file lists"
+ },
+ {
+  "k": "VMX-7359",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-07",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] 新增 configuration item"
+ },
+ {
+  "k": "VMX-7358",
+  "s": "New",
+  "a": "luke.cheng",
+  "u": "2026-05-07",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Web UI] new configuration item"
+ },
+ {
+  "k": "VMX-7355",
+  "s": "New",
+  "a": "lynn.yl.huang",
+  "u": "2026-05-15",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[K265][MAU] Base Image OTA upgrade failure"
+ },
+ {
+  "k": "VMX-7354",
+  "s": "In Progress",
+  "a": "joe.lien",
+  "u": "2026-05-12",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] event / trip 新增 vehicle 欄位上傳"
+ },
+ {
+  "k": "VMX-7342",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-13",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] VIN_CHANGE - Trip 開始時 VIN 變更事件"
+ },
+ {
+  "k": "VMX-7340",
+  "s": "Open",
+  "a": "joe.lien",
+  "u": "2026-04-23",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] LOW_FUEL - 低油量警示事件"
+ },
+ {
+  "k": "VMX-7339",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-04-23",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] FUEL_DECREASE / FUEL_INCREASE - 燃油劇變事件（偷油 / 加油偵測）"
+ },
+ {
+  "k": "VMX-7338",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2026-05-04",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] DTC_MESSAGE - 車輛診斷碼事件（原始格式）"
+ },
+ {
+  "k": "VMX-7336",
+  "s": "Open",
+  "a": "jack.fl.chen",
+  "u": "2026-05-15",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] HARD_TURN - Y 軸急轉彎事件"
+ },
+ {
+  "k": "VMX-7335",
+  "s": "New",
+  "a": "hsinyi.chang",
+  "u": "2026-05-15",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] ACCIDENT_DETECTION - 撞擊事件（含 10Hz NMEA G-sensor）"
+ },
+ {
+  "k": "VMX-7333",
+  "s": "New",
+  "a": "jack.fl.chen",
+  "u": "2026-05-15",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] HARD_ACCELERATION / HARD_BRAKING - 急加速 / 急煞車事件"
+ },
+ {
+  "k": "VMX-7332",
+  "s": "Open",
+  "a": "joe.lien",
+  "u": "2026-05-06",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] IDLING_STARTED / ENDED - 怠速事件（RPM + Speed 判定）"
+ },
+ {
+  "k": "VMX-7331",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-11",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] OVER_SPEEDING_START / END - 超速事件（閾值可配置）"
+ },
+ {
+  "k": "VMX-7330",
+  "s": "In Progress",
+  "a": "hsinyi.chang",
+  "u": "2026-05-14",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "[AZUGA SmartLink] GPS_MESSAGE - 10 秒週期 GPS 上報"
+ },
+ {
+  "k": "VMX-7329",
+  "s": "New",
+  "a": "hsinyi.chang",
+  "u": "2026-05-15",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] ENGINE_ON / ENGINE_OFF - 引擎啟閉事件"
+ },
+ {
+  "k": "VMX-7324",
+  "s": "Open",
+  "a": "elvis.tran",
+  "u": "2026-04-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve smoking event accuracy"
+ },
+ {
+  "k": "VMX-7321",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-04-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "School zone speed sign violation outside school times "
+ },
+ {
+  "k": "VMX-7320",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2026-04-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Speed sign violation when driving at or below the sign posted speed limit"
+ },
+ {
+  "k": "VMX-7317",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2026-05-11",
+  "r": "brian.chienlee",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Rastrac – False Speed Event Review"
+ },
+ {
+  "k": "VMX-7316",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-04-22",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AZUGA SmartLink] 新增事件支援（總單）"
+ },
+ {
+  "k": "VMX-7315",
+  "s": "In Progress",
+  "a": "charlie.tychen",
+  "u": "2026-05-12",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "New API implementation for AZUGA requirement"
+ },
+ {
+  "k": "VMX-7314",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-13",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] JWT 支援 socpe 將 token 授權最小化"
+ },
+ {
+  "k": "VMX-7312",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-14",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] Performance improvments"
+ },
+ {
+  "k": "VMX-7309",
+  "s": "Open",
+  "a": "joe.lien",
+  "u": "2026-04-27",
+  "r": "jieli.liu",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "Provide the configuration of the EyeStableRate threshold"
+ },
+ {
+  "k": "VMX-7306",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2026-04-29",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Fix] MiCamView.openCamera crash when no camera enabled (NoSuchElementException)"
+ },
+ {
+  "k": "VMX-7304",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-04-08",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] multiple errors "
+ },
+ {
+  "k": "VMX-7303",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-07",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] unknow certificate id"
+ },
+ {
+  "k": "VMX-7301",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-24",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] wrong datetime value"
+ },
+ {
+  "k": "VMX-7292",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-04-28",
+  "r": "luke.cheng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Fleet] Event Data 狀態停留在 uploading"
+ },
+ {
+  "k": "VMX-7291",
+  "s": "In Progress",
+  "a": "luke.cheng",
+  "u": "2026-04-07",
+  "r": "luke.cheng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Master] 安裝 Vitest (Unit Test )"
+ },
+ {
+  "k": "VMX-7290",
+  "s": "In Progress",
+  "a": "luke.cheng",
+  "u": "2026-04-02",
+  "r": "luke.cheng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Fleet] 安裝 Vitest (Unit Test )"
+ },
+ {
+  "k": "VMX-7284",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-12",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "MAU Customer API access summary"
+ },
+ {
+  "k": "VMX-7282",
+  "s": "Open",
+  "a": "travis.tsai",
+  "u": "2026-04-08",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "DSNY - Add obstruction event"
+ },
+ {
+  "k": "VMX-7277",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-30",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Video Retrieval tasks are not processing but after multiple attempts it is successful"
+ },
+ {
+  "k": "VMX-7276",
+  "s": "Open",
+  "a": "elvis.tran",
+  "u": "2026-03-31",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Seeing Machines] Review logs for potential APN drop out issue"
+ },
+ {
+  "k": "VMX-7273",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-03-31",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "DSNY Camera Pilot Project - RTR+Camera Integration"
+ },
+ {
+  "k": "VMX-7271",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2026-05-13",
+  "r": "hsinyi.chang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "LB測試driver id問題回報"
+ },
+ {
+  "k": "VMX-7267",
+  "s": "New",
+  "a": "ben.ko",
+  "u": "2026-05-07",
+  "r": "lucy.sw.yen",
+  "p": "Gating",
+  "fv": "",
+  "m": "[VisionAgent] [iOS] [aOS] Allow users to edit comments"
+ },
+ {
+  "k": "VMX-7266",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-27",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TT AU MMF - Overspeed warning over 0kph instead of selected severity setting"
+ },
+ {
+  "k": "VMX-7261",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-30",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Retrieve logs for SD card not initiated error"
+ },
+ {
+  "k": "VMX-7256",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-05-12",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Scheduled reports function"
+ },
+ {
+  "k": "VMX-7254",
+  "s": "In Progress",
+  "a": "joe.lien",
+  "u": "2026-05-12",
+  "r": "jack.fl.chen",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "Cloud integration for rollover event and configuration"
+ },
+ {
+  "k": "VMX-7251",
+  "s": "Deferred",
+  "a": "spencer.su",
+  "u": "2026-04-17",
+  "r": "james.cw.chou",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Master][API] Dashboard Fleet Id \"org_user_54\" 數量不對"
+ },
+ {
+  "k": "VMX-7246",
+  "s": "New",
+  "a": "charlie.tychen",
+  "u": "2026-04-09",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[AlignOps][IOSix] Abnormal firmware update behavior"
+ },
+ {
+  "k": "VMX-7245",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2026-03-26",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Issue with DMS footage"
+ },
+ {
+  "k": "VMX-7242",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-03-19",
+  "r": "vincent.ho",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "評估 MiAI log 加進 mp4 的可行性"
+ },
+ {
+  "k": "VMX-7240",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-26",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "DMS / ADAS events with customised settings, cooling off period and max number of events per trip"
+ },
+ {
+  "k": "VMX-7238",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-23",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "K245 acc/ign on and off timestamps are not updating"
+ },
+ {
+  "k": "VMX-7237",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-23",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Acc / ign off and acc / ign on timestamps aren't updating the same time or only one is updated"
+ },
+ {
+  "k": "VMX-7235",
+  "s": "New",
+  "a": "hsinyi.chang",
+  "u": "2026-04-15",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve the status reporting mechanism for video clip tasks"
+ },
+ {
+  "k": "VMX-7233",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-04-16",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionAgent] 埋GA Code"
+ },
+ {
+  "k": "VMX-7224",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-05-15",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Integration of the UVC camera and road-facing camera in a side-by-side format"
+ },
+ {
+  "k": "VMX-7223",
+  "s": "New",
+  "a": "charlie.tychen",
+  "u": "2026-03-13",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "新增 IO-2152 Reset Command for BMS"
+ },
+ {
+  "k": "VMX-7217",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2026-04-08",
+  "r": "jimmy.jy.huang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "DMS 觸發條件整理"
+ },
+ {
+  "k": "VMX-7216",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2026-04-22",
+  "r": "righter.song",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Support the data of IOSix dongle"
+ },
+ {
+  "k": "VMX-7215",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-21",
+  "r": "righter.song",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "The video clipping function supports Cradle videos."
+ },
+ {
+  "k": "VMX-7211",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-03-10",
+  "r": "joe.lien",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "S3 檔案沒有 tag"
+ },
+ {
+  "k": "VMX-7204",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-04-22",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "Ability to force camera updates OTA whilst camera / ACC igniton ON state"
+ },
+ {
+  "k": "VMX-7200",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2026-03-25",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Help review distracted events to confirm if they are true or false event"
+ },
+ {
+  "k": "VMX-7199",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-03-09",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "LTE connection lost / out of coverage event "
+ },
+ {
+  "k": "VMX-7195",
+  "s": "New",
+  "a": "leon.lan",
+  "u": "2026-04-08",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Video captured showing split image (half of FFC duplicated) in one video and unable to retrieve video"
+ },
+ {
+  "k": "VMX-7194",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-05-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Vehicle rollover event detection"
+ },
+ {
+  "k": "VMX-7181",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-02-26",
+  "r": "spencer.su",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[API] Event process fail"
+ },
+ {
+  "k": "VMX-7177",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-19",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Seeing Machines] Video retrievals aren't processing"
+ },
+ {
+  "k": "VMX-7175",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-02-13",
+  "r": "jonathan.wang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "比較 610 與 6490 performance"
+ },
+ {
+  "k": "VMX-7164",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-03-12",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Request to add BI and RI version to assigned inventory list report"
+ },
+ {
+  "k": "VMX-7160",
+  "s": "In Progress",
+  "a": "neil.kuo",
+  "u": "2026-04-30",
+  "r": "neil.kuo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Bill]避免大量 org / device 處理時的記憶體爆炸：調整 task / billing_plan / device_plan 調整 CSV 輸出機制"
+ },
+ {
+  "k": "VMX-7158",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-03-19",
+  "r": "elvis.tran",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Connect Source cameras are not updating BI and RI OTA and show as pending"
+ },
+ {
+  "k": "VMX-7153",
+  "s": "Pending",
+  "a": "elvis.tran",
+  "u": "2026-02-04",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera not reporting any data usage"
+ },
+ {
+  "k": "VMX-7151",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-04-17",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Safety Score at the vehicle level instead of by driver"
+ },
+ {
+  "k": "VMX-7150",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-12",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API]Add a new API for available event listing "
+ },
+ {
+  "k": "VMX-7149",
+  "s": "In Progress",
+  "a": "spencer.su",
+  "u": "2026-05-07",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "LB Technology - Plow PTO status via GPIO input and snapshot"
+ },
+ {
+  "k": "VMX-7147",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-05-15",
+  "r": "elvis.tran",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Camera recording no longer exists and unable to playback"
+ },
+ {
+  "k": "VMX-7144",
+  "s": "In Progress",
+  "a": "lucy.sw.yen",
+  "u": "2026-05-15",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[FleetAPP] Prepare App Store Listing Assets"
+ },
+ {
+  "k": "VMX-7140",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - Configuration feasibility"
+ },
+ {
+  "k": "VMX-7139",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - OTA feasibility"
+ },
+ {
+  "k": "VMX-7138",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - Playback feasibility"
+ },
+ {
+  "k": "VMX-7137",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - Liveview feasibility"
+ },
+ {
+  "k": "VMX-7136",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - Video upload feasibility"
+ },
+ {
+  "k": "VMX-7135",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-01-28",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - GPS upload feasibility"
+ },
+ {
+  "k": "VMX-7132",
+  "s": "New",
+  "a": "ben.ko",
+  "u": "2026-05-12",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "#179 Allow users to request footage outside the trip from SD card "
+ },
+ {
+  "k": "VMX-7115",
+  "s": "New",
+  "a": "leo.tsai",
+  "u": "2026-03-11",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Flespi - Function feasibility"
+ },
+ {
+  "k": "VMX-7110",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-01-28",
+  "r": "neil.kuo",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[Customer Reported]伺服器已發送剪輯指令，裝置有上線紀錄卻未啟動剪輯任務"
+ },
+ {
+  "k": "VMX-7101",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2026-03-24",
+  "r": "jimmy.jy.huang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "LDWS Improving (Server)"
+ },
+ {
+  "k": "VMX-7099",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-03-19",
+  "r": "allen.yc.chung",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Migrate IOSix service to AZUGA server"
+ },
+ {
+  "k": "VMX-7088",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-05-15",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "New Role as Viewer only"
+ },
+ {
+  "k": "VMX-7087",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-01-15",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve device diagnostics"
+ },
+ {
+  "k": "VMX-7083",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-01-14",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Update the content of safety reports"
+ },
+ {
+  "k": "VMX-7082",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-05-06",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "於VMX Fleet Portal 與 Master Portal 中埋設GA的追蹤Code"
+ },
+ {
+  "k": "VMX-7078",
+  "s": "New",
+  "a": "doris.lin",
+  "u": "2026-05-14",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[VisionMax] V-Hub 支援整合測試 "
+ },
+ {
+  "k": "VMX-7077",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-01-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera is reporting sensor error and not recording any impact/sensor events"
+ },
+ {
+  "k": "VMX-7076",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-01-12",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera displaying UVC camera error but it is recording video"
+ },
+ {
+  "k": "VMX-7075",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2026-01-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Cameras not recording, no event triggering, live view showing black screen, unable to playback video."
+ },
+ {
+  "k": "VMX-7072",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-14",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] [Performance] SI search device "
+ },
+ {
+  "k": "VMX-7071",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-01-09",
+  "r": "neil.kuo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Send Email Notification After Device Import to VisionMax"
+ },
+ {
+  "k": "VMX-7054",
+  "s": "New",
+  "a": "leon.lan",
+  "u": "2026-04-02",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Unexpected device shutdown"
+ },
+ {
+  "k": "VMX-7050",
+  "s": "In Progress",
+  "a": "spencer.su",
+  "u": "2026-04-17",
+  "r": "hsinyi.chang",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_20260325_11.2.26.17",
+  "m": "Add Plow Lowered Settings from Cloud"
+ },
+ {
+  "k": "VMX-7033",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2025-12-24",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "VMAX Platform Stops Refreshing Live OBD-II Data Until CDR Is Hard Rebooted"
+ },
+ {
+  "k": "VMX-7030",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-03-25",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Fleet Mobile APP - Push notification"
+ },
+ {
+  "k": "VMX-7014",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2026-03-27",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Remote Playback supports audio"
+ },
+ {
+  "k": "VMX-7008",
+  "s": "Deferred",
+  "a": "chiehli.wang",
+  "u": "2026-05-15",
+  "r": "chiehli.wang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "實作 Azure Blob 與 S3 之間的跨雲端物件複製功能"
+ },
+ {
+  "k": "VMX-6999",
+  "s": "Open",
+  "a": "allen.yc.chung",
+  "u": "2025-12-10",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[K220][Region] Build test image for Precise MRM"
+ },
+ {
+  "k": "VMX-6983",
+  "s": "In Progress",
+  "a": "joe.lien",
+  "u": "2026-05-15",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "Quantatec - 新增鏡頭遮擋及移除遮擋事件"
+ },
+ {
+  "k": "VMX-6965",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-12-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] Fail to add device plan"
+ },
+ {
+  "k": "VMX-6957",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-11-20",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] Client try to switch token basis on a delete accounnt"
+ },
+ {
+  "k": "VMX-6950",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2025-11-19",
+  "r": "hsinyi.chang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "觸發 Multi-Event，且事件類型不同時，VMX 頁面會重複顯示第一個被觸發的事件"
+ },
+ {
+  "k": "VMX-6942",
+  "s": "New",
+  "a": "danny.lau",
+  "u": "2025-11-19",
+  "r": "danny.lau",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Customer forget password"
+ },
+ {
+  "k": "VMX-6940",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-11-14",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] The onboarding process might blocked if Signalling channel creation fails"
+ },
+ {
+  "k": "VMX-6936",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-11-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera is not recording and only capturing events"
+ },
+ {
+  "k": "VMX-6935",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-12-02",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "GPS data批次補傳"
+ },
+ {
+  "k": "VMX-6932",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-04-17",
+  "r": "elvis.tran",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Camera is offline but continue to use data"
+ },
+ {
+  "k": "VMX-6926",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-17",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] Grafana logs finding"
+ },
+ {
+  "k": "VMX-6924",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2025-11-08",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] recording 新增時有機會造成 duplicate entry 衝突"
+ },
+ {
+  "k": "VMX-6921",
+  "s": "Pending",
+  "a": "neil.kuo",
+  "u": "2025-11-21",
+  "r": "neil.kuo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "帳單需求開發與設定"
+ },
+ {
+  "k": "VMX-6901",
+  "s": "New",
+  "a": "andrew.cheng",
+  "u": "2026-05-11",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[FleetAPP API] Calling Device"
+ },
+ {
+  "k": "VMX-6896",
+  "s": "New",
+  "a": "andrew.cheng",
+  "u": "2025-12-17",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[FleetAPP API] Notification Settings"
+ },
+ {
+  "k": "VMX-6895",
+  "s": "New",
+  "a": "andrew.cheng",
+  "u": "2025-12-17",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[FleetAPP API] Notifications Detail"
+ },
+ {
+  "k": "VMX-6894",
+  "s": "New",
+  "a": "andrew.cheng",
+  "u": "2025-12-17",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[FleetAPP API] Notifications List"
+ },
+ {
+  "k": "VMX-6891",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-02-09",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "車牌清晰度vs機器效能"
+ },
+ {
+  "k": "VMX-6888",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2025-11-04",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] A super account (likely)"
+ },
+ {
+  "k": "VMX-6886",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-11-01",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API] 前置作業"
+ },
+ {
+  "k": "VMX-6885",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2025-11-01",
+  "r": "spencer.su",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[API] Upgrade event time precision to ms from s"
+ },
+ {
+  "k": "VMX-6881",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-10-31",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add 'Recording Start' audio alert to comply with NZ Biometric Processing Privacy Code 2025"
+ },
+ {
+  "k": "VMX-6866",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-10-28",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Device recall history showing invalid usage period date"
+ },
+ {
+  "k": "VMX-6865",
+  "s": "Open",
+  "a": "nroudakova",
+  "u": "2026-05-13",
+  "r": "nell.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TomTom Orbis New York Sample Map"
+ },
+ {
+  "k": "VMX-6852",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-01-21",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Update privacy mode to switch off when camera is restarted"
+ },
+ {
+  "k": "VMX-6851",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-10-28",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "協助precise MRM 包APN 進region image "
+ },
+ {
+  "k": "VMX-6841",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-10-21",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Making SmartGo data available through a Webhook for easier integration"
+ },
+ {
+  "k": "VMX-6833",
+  "s": "Open",
+  "a": "allen.yc.chung",
+  "u": "2025-12-18",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_20260325_11.2.26.17",
+  "m": "Unable to activate Advance feature on IOSix"
+ },
+ {
+  "k": "VMX-6821",
+  "s": "New",
+  "a": "nell.chen",
+  "u": "2025-10-27",
+  "r": "hh.huang",
+  "p": "Gating",
+  "fv": "",
+  "m": "[Speed camera A-test]The SpeedCam Region name display as \"V2\" instead of \"SA\" in Device/VisionMaxfleet"
+ },
+ {
+  "k": "VMX-6816",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2026-03-26",
+  "r": "jay.qiu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Firebase] LaneDetector::handleOneFrame crash"
+ },
+ {
+  "k": "VMX-6801",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-01-15",
+  "r": "mori.jhang",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[K220] Abnormal Panic Button status callback"
+ },
+ {
+  "k": "VMX-6799",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-12-17",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Suvio Project | 影像上傳與語音客製"
+ },
+ {
+  "k": "VMX-6798",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-12-08",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Suvio Project | 客製化語音"
+ },
+ {
+  "k": "VMX-6796",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2025-12-26",
+  "r": "joe.lien",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Delete deprecated file"
+ },
+ {
+  "k": "VMX-6794",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-12-08",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Giving Master account the ability to enable/disable \"smart_link_advance_enable\""
+ },
+ {
+  "k": "VMX-6785",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-10-07",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Review Audio File Quality"
+ },
+ {
+  "k": "VMX-6783",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-03-20",
+  "r": "mori.jhang",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[K220]Abnormal GPIO status callback"
+ },
+ {
+  "k": "VMX-6782",
+  "s": "Open",
+  "a": "joe.lien",
+  "u": "2026-05-04",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_202605",
+  "m": "CDR scan for Bluetooth (BLE) Beacons in the vicinity and send a report of beacons that match a list of MAC ID prefixes in a report along with signal strength"
+ },
+ {
+  "k": "VMX-6778",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-11-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Restrict password change access for installer accounts"
+ },
+ {
+  "k": "VMX-6761",
+  "s": "Open",
+  "a": "jieli.liu",
+  "u": "2025-11-13",
+  "r": "jieli.liu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Stop sign detection with traffic lights involved"
+ },
+ {
+  "k": "VMX-6759",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-02-25",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Request to retrieve video if a trip is not generated"
+ },
+ {
+  "k": "VMX-6736",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-09-26",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Stop and go event not uploading any media"
+ },
+ {
+  "k": "VMX-6734",
+  "s": "New",
+  "a": "nell.chen",
+  "u": "2025-09-23",
+  "r": "hh.huang",
+  "p": "Gating",
+  "fv": "",
+  "m": "[Speed camera A-test]Not find Camera Type 9128 data"
+ },
+ {
+  "k": "VMX-6722",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2026-05-06",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Server AI | Build a server-side lane departure model to block false-positive event uploads to VMX."
+ },
+ {
+  "k": "VMX-6718",
+  "s": "New",
+  "a": "nell.chen",
+  "u": "2026-01-09",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "LB Technology - Posted Speed Alert Issue"
+ },
+ {
+  "k": "VMX-6703",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2025-09-05",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Support Configurable Server AI Response Time"
+ },
+ {
+  "k": "VMX-6696",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2025-12-10",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[LB Technology][K245c] Nighttime image quality of the driver-facing camera"
+ },
+ {
+  "k": "VMX-6693",
+  "s": "New",
+  "a": "lucy.sw.yen",
+  "u": "2026-04-22",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Testing and support for Wi-Fi internet connectivity"
+ },
+ {
+  "k": "VMX-6692",
+  "s": "New",
+  "a": "leon.lan",
+  "u": "2025-09-08",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Blurry DMS camera"
+ },
+ {
+  "k": "VMX-6676",
+  "s": "New",
+  "a": "luke.cheng",
+  "u": "2026-04-28",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Adjust video recording duration #147"
+ },
+ {
+  "k": "VMX-6675",
+  "s": "Pending",
+  "a": "neil.kuo",
+  "u": "2025-11-21",
+  "r": "neil.kuo",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "The billing function must be able to generate a complete ZIP package of bills according to the billing group."
+ },
+ {
+  "k": "VMX-6663",
+  "s": "Open",
+  "a": "brian.chienlee",
+  "u": "2025-12-15",
+  "r": "lucy.sw.yen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "New Feature: Device Version Upgrades #11"
+ },
+ {
+  "k": "VMX-6662",
+  "s": "Deferred",
+  "a": "nell.chen",
+  "u": "2025-09-02",
+  "r": "hh.huang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Speed camera A-test]Camera Type 6 can trigger event in DVR,but can't displayed on VisionMax web"
+ },
+ {
+  "k": "VMX-6652",
+  "s": "In Progress",
+  "a": "nell.chen",
+  "u": "2025-09-05",
+  "r": "nroudakova",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "South American logistics/MNR/ MNC/ speed camera data"
+ },
+ {
+  "k": "VMX-6627",
+  "s": "New",
+  "a": "mori.jhang",
+  "u": "2026-01-22",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Private mode activation via portal and set operational shift times #138"
+ },
+ {
+  "k": "VMX-6602",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2025-08-29",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "CDR LED pattern change request #134"
+ },
+ {
+  "k": "VMX-6596",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-11-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Update AUX USB camera diagram in master portal "
+ },
+ {
+  "k": "VMX-6586",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-09-05",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Group main fleet and contract fleets together and display data under parent fleet for easy viewing #130"
+ },
+ {
+  "k": "VMX-6579",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-12-08",
+  "r": "hsinyi.chang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Install Tool顯示及設定左右駕及DMS Camera問題"
+ },
+ {
+  "k": "VMX-6578",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-11-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Vehicle profile specific g-sensor #132"
+ },
+ {
+  "k": "VMX-6570",
+  "s": "New",
+  "a": "luke.cheng",
+  "u": "2026-01-05",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[track][workaround] Trip playback needs to stop 10 seconds before the end of the trip"
+ },
+ {
+  "k": "VMX-6545",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-11-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Show which camera video retrieval is for in upcoming/uploading/processing status #128"
+ },
+ {
+  "k": "VMX-6544",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-11-13",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add video upload success time in video retrieval #127"
+ },
+ {
+  "k": "VMX-6528",
+  "s": "Open",
+  "a": "charlie.tychen",
+  "u": "2025-07-11",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "IOSix dongle 需要開一個更新FW version的Mitac API"
+ },
+ {
+  "k": "VMX-6523",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-07-16",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Enable /Disable IOSix advance data的 Mitac API"
+ },
+ {
+  "k": "VMX-6521",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-08-29",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "新增BT MAC的欄位當IOSix dongle UID ACC on的時候丟UID給VMX，單獨管理，不和CDR做連結，Cloud API需要多UID的欄位。"
+ },
+ {
+  "k": "VMX-6512",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-08-29",
+  "r": "righter.song",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "MiDM api 可以選擇Site/group後再匯入機器"
+ },
+ {
+  "k": "VMX-6507",
+  "s": "New",
+  "a": "gennie.fan",
+  "u": "2025-10-17",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[K265][Region] Build VisionMax 2025Q2 Region (250815)"
+ },
+ {
+  "k": "VMX-6495",
+  "s": "Open",
+  "a": "ben.ko",
+  "u": "2026-01-09",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "2025Q4",
+  "m": "Dashboard 地圖路徑呈現功能評估 #112"
+ },
+ {
+  "k": "VMX-6486",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-08-29",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "SD card life calculation"
+ },
+ {
+  "k": "VMX-6465",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-09-05",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[K145][MAU] Abnormal camera image "
+ },
+ {
+  "k": "VMX-6458",
+  "s": "Open",
+  "a": "leo.tsai",
+  "u": "2026-01-14",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Fleet Mobile APP Development"
+ },
+ {
+  "k": "VMX-6453",
+  "s": "Open",
+  "a": "jieli.liu",
+  "u": "2025-09-12",
+  "r": "vincent.ho",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Server Model Research - Phone Usage"
+ },
+ {
+  "k": "VMX-6427",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-04-28",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve reporting function #107"
+ },
+ {
+  "k": "VMX-6420",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-09-05",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Driver tagging in Events for coaching #107"
+ },
+ {
+  "k": "VMX-6419",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-07-02",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Invalid phone usage events"
+ },
+ {
+  "k": "VMX-6411",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2025-12-08",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Suivo: Feasibility Evaluation and Project Tracking"
+ },
+ {
+  "k": "VMX-6405",
+  "s": "New",
+  "a": "huah.tu",
+  "u": "2025-07-29",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "EVO的SD card2不斷mount及unmount切換"
+ },
+ {
+  "k": "VMX-6382",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2025-07-18",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Allow AI detection parameters to be configured "
+ },
+ {
+  "k": "VMX-6380",
+  "s": "New",
+  "a": "jimmy.jy.huang",
+  "u": "2025-12-10",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "2025Q4",
+  "m": "Distracted Driving - Smoking"
+ },
+ {
+  "k": "VMX-6374",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-09-30",
+  "r": "allen.yc.chung",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "IOSix dongle debug web page "
+ },
+ {
+  "k": "VMX-6369",
+  "s": "In Progress",
+  "a": "joe.lien",
+  "u": "2025-09-19",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[API 文件] 移除不再使用的event。"
+ },
+ {
+  "k": "VMX-6348",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2025-08-29",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Solid light indicates the camera is connected to the server/network, instead of flashing every 15 seconds"
+ },
+ {
+  "k": "VMX-6343",
+  "s": "Deferred",
+  "a": "nell.chen",
+  "u": "2025-09-02",
+  "r": "nell.chen",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Indonesia MMF"
+ },
+ {
+  "k": "VMX-6326",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2025-07-25",
+  "r": "leo.tsai",
+  "p": "2 - Medium",
+  "fv": "CameraAPP_20251001_11.2.24.82",
+  "m": "[IOSix] Debug log upload"
+ },
+ {
+  "k": "VMX-6265",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2025-08-29",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "GPIO - RS232 Passthrough and Digital Binary Input Signal"
+ },
+ {
+  "k": "VMX-6222",
+  "s": "New",
+  "a": "simon.wu",
+  "u": "2025-09-03",
+  "r": "simon.wu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Adding earliest SD card file’s timestamp to the device info API for easier access"
+ },
+ {
+  "k": "VMX-6221",
+  "s": "New",
+  "a": "jay.qiu",
+  "u": "2025-09-15",
+  "r": "jay.qiu",
+  "p": "3 - Low",
+  "fv": "",
+  "m": "Survey AI Model Self-Training and Optimization System"
+ },
+ {
+  "k": "VMX-6203",
+  "s": "New",
+  "a": "elvis.tran",
+  "u": "2025-09-12",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Inward, UVC & Outward cameras unable to record video"
+ },
+ {
+  "k": "VMX-6168",
+  "s": "Open",
+  "a": "joe.lien",
+  "u": "2025-12-26",
+  "r": "josh.ch.tseng",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Delete Fleet Account/Device data from the Master or Fleet Portal "
+ },
+ {
+  "k": "VMX-6166",
+  "s": "Deferred",
+  "a": "nell.chen",
+  "u": "2025-09-02",
+  "r": "hh.huang",
+  "p": "Gating",
+  "fv": "",
+  "m": "[MMF]OSM USA MMF v9801 install failed"
+ },
+ {
+  "k": "VMX-6076",
+  "s": "Open",
+  "a": "spencer.su",
+  "u": "2025-10-20",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Pop up notification on log in page for server outage"
+ },
+ {
+  "k": "VMX-6040",
+  "s": "New",
+  "a": "neil.mercer",
+  "u": "2025-09-05",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Storage status is Good but not reading the memory card and no video being recorded"
+ },
+ {
+  "k": "VMX-6007",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-01-07",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Downloading diagnostic report does not list Fleet/Owner Name & Improve report fields #145"
+ },
+ {
+  "k": "VMX-5922",
+  "s": "Deferred",
+  "a": "nell.chen",
+  "u": "2025-09-02",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TT AU Speed cam data - No redlight camera alerts"
+ },
+ {
+  "k": "VMX-5915",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2026-05-04",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TT AU Speed cam data - Stop signs at traffic lights are being detected"
+ },
+ {
+  "k": "VMX-5914",
+  "s": "New",
+  "a": "nell.chen",
+  "u": "2026-05-01",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TT AU Speed cam data - school zones aren't timed and inaccurate"
+ },
+ {
+  "k": "VMX-5909",
+  "s": "Open",
+  "a": "chiehli.wang",
+  "u": "2026-05-14",
+  "r": "elvis.tran",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add box around event to highlight event trigger #11"
+ },
+ {
+  "k": "VMX-5908",
+  "s": "Deferred",
+  "a": "spencer.su",
+  "u": "2025-09-05",
+  "r": "spencer.su",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Contract fleet 的 Webhook 處理"
+ },
+ {
+  "k": "VMX-5880",
+  "s": "Pending",
+  "a": "mori.jhang",
+  "u": "2025-09-05",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Install Tool] UVC在Dual Cameras SKU上搭載DMS功能"
+ },
+ {
+  "k": "VMX-5879",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2025-07-15",
+  "r": "mori.jhang",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Feasibility] Display AI debug view on VisionMax browser UI (#11)"
+ },
+ {
+  "k": "VMX-5744",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2025-08-28",
+  "r": "vincent.ho",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "event觸發時，上傳更多資訊以提升debug效率"
+ },
+ {
+  "k": "VMX-2217",
+  "s": "Inactive",
+  "a": "christy.hu",
+  "u": "2025-09-01",
+  "r": "christy.hu",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "English should be set as the default language of the webside"
+ },
+ {
+  "k": "HAWK-588",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-15",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Concerns related to Manual Upload video processing"
+ },
+ {
+  "k": "HAWK-587",
+  "s": "Open",
+  "a": "jay.qiu",
+  "u": "2026-05-14",
+  "r": "martin.rothe",
+  "p": "Normal",
+  "fv": "VisionMax_20260602",
+  "m": "CALIBRATION COMPLETED notification (if active) delayed until first ADAS violation"
+ },
+ {
+  "k": "HAWK-586",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2026-05-15",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "[Stop sign violation] Provide snapshot time"
+ },
+ {
+  "k": "HAWK-585",
+  "s": "New",
+  "a": "vincent.ho",
+  "u": "2026-05-14",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "'Lens cover' detection not properly working"
+ },
+ {
+  "k": "HAWK-584",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-12",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "Error in assigning device to fleet"
+ },
+ {
+  "k": "HAWK-583",
+  "s": "New",
+  "a": "Luchun.chen",
+  "u": "2026-05-13",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Timezone (in MX) not correct"
+ },
+ {
+  "k": "HAWK-582",
+  "s": "Open",
+  "a": "jieli.liu",
+  "u": "2026-05-14",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "Improve Lens cover detection design"
+ },
+ {
+  "k": "HAWK-581",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-06",
+  "r": "spencer.su",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Deprecate Nested Set Model"
+ },
+ {
+  "k": "HAWK-580",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-05-05",
+  "r": "jakob.mund",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "H.265 Support"
+ },
+ {
+  "k": "HAWK-579",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-13",
+  "r": "harish.bolneni",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera Consuming High data"
+ },
+ {
+  "k": "HAWK-574",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2026-05-06",
+  "r": "martin.rothe",
+  "p": "1 - High",
+  "fv": "",
+  "m": "WEBFLEET Alpha Fleet Cameras Sporadically Looping “DMS Calibration Completed” Message"
+ },
+ {
+  "k": "HAWK-573",
+  "s": "New",
+  "a": "chiehli.wang",
+  "u": "2026-05-06",
+  "r": "ariel.gonzalez",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "Request event blurry not updating the content"
+ },
+ {
+  "k": "HAWK-568",
+  "s": "New",
+  "a": "neil.kuo",
+  "u": "2026-05-07",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Manual Upload Videos are stuck"
+ },
+ {
+  "k": "HAWK-563",
+  "s": "Open",
+  "a": "spencer.su",
+  "u": "2026-04-23",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "Camera status discrepancy"
+ },
+ {
+  "k": "HAWK-561",
+  "s": "Open",
+  "a": "spencer.su",
+  "u": "2026-04-07",
+  "r": "lars.dietzel",
+  "p": "3 - Low",
+  "fv": "",
+  "m": "Please review TLS configuration"
+ },
+ {
+  "k": "HAWK-559",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-05-14",
+  "r": "sirphim",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Device Rebooting for Error Fixing"
+ },
+ {
+  "k": "HAWK-555",
+  "s": "Deferred",
+  "a": "daniel.kara",
+  "u": "2026-04-22",
+  "r": "daniel.kara",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "SD card rejected"
+ },
+ {
+  "k": "HAWK-551",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-05-06",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "VisionMax_20260602",
+  "m": "[CAM Lite] Inaccurate fatique detection --> new config to lower EyeStableRate threshold"
+ },
+ {
+  "k": "HAWK-549",
+  "s": "New",
+  "a": "ruben.navarropiris",
+  "u": "2026-03-17",
+  "r": "ruben.navarropiris",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Increase precision of take-snapshot endpoint"
+ },
+ {
+  "k": "HAWK-545",
+  "s": "New",
+  "a": "martin.rothe",
+  "u": "2026-05-12",
+  "r": "martin.rothe",
+  "p": "Gating",
+  "fv": "",
+  "m": "Mobile phone detection rates seems decreased a lot, sometimes it also seems negatively influenced by smoking"
+ },
+ {
+  "k": "HAWK-544",
+  "s": "New",
+  "a": "olugbo.oniyide",
+  "u": "2026-03-13",
+  "r": "olugbo.oniyide",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Thumbnail events of type \"lens covered\" missing thumbnails when media is of snapshot"
+ },
+ {
+  "k": "HAWK-541",
+  "s": "New",
+  "a": "joe.lien",
+  "u": "2026-05-13",
+  "r": "steve.rudzik",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Receiving Access Denied response when opening video URL"
+ },
+ {
+  "k": "HAWK-539",
+  "s": "New",
+  "a": "shilendarb",
+  "u": "2026-03-04",
+  "r": "shilendarb",
+  "p": "1 - High",
+  "fv": "",
+  "m": "K-265 Camera stopped working and not powering on"
+ },
+ {
+  "k": "HAWK-535",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-05-08",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "LiveStreaming not working"
+ },
+ {
+  "k": "HAWK-532",
+  "s": "New",
+  "a": "martin.rothe",
+  "u": "2026-05-14",
+  "r": "jana.nuessler",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Length of videos are shown heavily increased (wrong length shown)"
+ },
+ {
+  "k": "HAWK-528",
+  "s": "New",
+  "a": "sheron.lee",
+  "u": "2026-05-14",
+  "r": "utkarshp",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera stop recording randomly during trips"
+ },
+ {
+  "k": "HAWK-519",
+  "s": "New",
+  "a": "daniel.kara",
+  "u": "2026-05-08",
+  "r": "daniel.kara",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Recording missing"
+ },
+ {
+  "k": "HAWK-514",
+  "s": "New",
+  "a": "harish.bolneni",
+  "u": "2026-04-29",
+  "r": "harish.bolneni",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Camera Triggering Violent Turn Events continuously"
+ },
+ {
+  "k": "HAWK-511",
+  "s": "New",
+  "a": "sebastian.schneider.wf",
+  "u": "2026-05-15",
+  "r": "mikhail.kapanadze",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Missing videos from aux cameras"
+ },
+ {
+  "k": "HAWK-502",
+  "s": "New",
+  "a": "jakob.mund",
+  "u": "2026-04-16",
+  "r": "steve.rudzik",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Changes to the privacy mode"
+ },
+ {
+  "k": "HAWK-501",
+  "s": "Open",
+  "a": "eric.h",
+  "u": "2026-05-13",
+  "r": "martin.rothe",
+  "p": "1 - High",
+  "fv": "VisionMax_20260602",
+  "m": "ADAS Self-calibration resolves wrong height resulting inacurate ADAS event detection"
+ },
+ {
+  "k": "HAWK-498",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-05-14",
+  "r": "martin.rothe",
+  "p": "Gating",
+  "fv": "",
+  "m": "Huge Amount of Unexpected Alert Button Events on WEBFLEET Production Cameras"
+ },
+ {
+  "k": "HAWK-497",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-01-26",
+  "r": "steve.rudzik",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Encryption key in meta data endpoint seem to be incorrect"
+ },
+ {
+  "k": "HAWK-496",
+  "s": "New",
+  "a": "ruben.navarropiris",
+  "u": "2026-05-06",
+  "r": "ruben.navarropiris",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Wrong GPS timestamps (set in the future)"
+ },
+ {
+  "k": "HAWK-489",
+  "s": "New",
+  "a": "harish.bolneni",
+  "u": "2026-01-05",
+  "r": "harish.bolneni",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Camera speed is not varying(showing same speed in videos)"
+ },
+ {
+  "k": "HAWK-479",
+  "s": "New",
+  "a": "brian.chienlee",
+  "u": "2026-01-09",
+  "r": "martin.rothe",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Debug Mode Disabled After App Updates / Debug overlay missing occasionally"
+ },
+ {
+  "k": "HAWK-465",
+  "s": "New",
+  "a": "ruben.navarropiris",
+  "u": "2026-05-12",
+  "r": "ruben.navarropiris",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Event(s) with impossibly old timestamp"
+ },
+ {
+  "k": "HAWK-441",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-03-02",
+  "r": "steve.rudzik",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "TVI Video stream stay black after last installation step"
+ },
+ {
+  "k": "HAWK-428",
+  "s": "New",
+  "a": "eric.h",
+  "u": "2025-10-29",
+  "r": "sebastian.schneider.wf",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Stop sign violation - ignore when there are supplementary signs"
+ },
+ {
+  "k": "HAWK-418",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-10-24",
+  "r": "jakob.mund",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve wording/texts for some translations of in-cab alerts"
+ },
+ {
+  "k": "HAWK-417",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-10-24",
+  "r": "jakob.mund",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Add more languages for in-cab alerts"
+ },
+ {
+  "k": "HAWK-416",
+  "s": "New",
+  "a": "righter.song",
+  "u": "2025-12-30",
+  "r": "jakob.mund",
+  "p": "2 - Medium",
+  "fv": "",
+  "m": "Improve audio/voice quality for in-cab alerts"
+ },
+ {
+  "k": "HAWK-410",
+  "s": "Deferred",
+  "a": "allen.yc.chung",
+  "u": "2025-12-08",
+  "r": "sirphim",
+  "p": "1 - High",
+  "fv": "",
+  "m": "[Production Issue] - Blue lines on the Video"
+ },
+ {
+  "k": "HAWK-401",
+  "s": "New",
+  "a": "allen.yc.chung",
+  "u": "2026-05-12",
+  "r": "sebastian.schneider.wf",
+  "p": "Gating",
+  "fv": "",
+  "m": "Support proper DMS AI detection with low installation position"
+ },
+ {
+  "k": "HAWK-398",
+  "s": "Open",
+  "a": "allen.yc.chung",
+  "u": "2026-05-11",
+  "r": "steve.rudzik",
+  "p": "Gating",
+  "fv": "",
+  "m": "Cameras losing connectivity in African countries"
+ },
+ {
+  "k": "HAWK-341",
+  "s": "New",
+  "a": "ruben.navarropiris",
+  "u": "2026-05-11",
+  "r": "ruben.navarropiris",
+  "p": "1 - High",
+  "fv": "",
+  "m": "Strange bulk of old GPS signal data"
+ },
+ {
+  "k": "HAWK-316",
+  "s": "New",
+  "a": "spencer.su",
+  "u": "2026-05-04",
+  "r": "sebastian.schneider.wf",
+  "p": "3 - Low",
+  "fv": "",
+  "m": "Dynamic length for \"Clip & Backup video to cloud storage\" in VisionMaxFleet"
+ },
+ {
+  "k": "HAWK-159",
+  "s": "Deferred",
+  "a": "sebastian.schneider.wf",
+  "u": "2026-05-04",
+  "r": "florian.riedel",
+  "p": "3 - Low",
+  "fv": "",
+  "m": "LiveStream: Response to selectCam command is sent before the stream has actually switched"
+ }
+]

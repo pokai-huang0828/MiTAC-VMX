@@ -68,6 +68,7 @@
 | 概念 | SSOT 主檔 | 對應引用處 |
 |-----|---------|-----------|
 | 已校正關鍵 VMX 事實(別再答錯) | [`06_calibration-log/critical-facts-log.md`](../06_calibration-log/critical-facts-log.md) | weekly-summary / case-learning |
+| 🆕 2026-05-14 AI Weekly Internal 3 大反差(Yawning 2000 假圖 / Lens Cover 參數化計時迴圈 / Eating-Drinking 階段性 / Blurring CPU+SQS) | [`06_calibration-log/critical-facts-log.md § 2026-05-14`](../06_calibration-log/critical-facts-log.md#2026-05-14-ai-weekly-cal) | [`meetings/ai-weekly-internal-roundup.md § 2026-05-14`](../../meetings/ai-weekly-internal-roundup.md#2026-05-14-ai-weekly) · `miai-roadmap-2026.md`(Yawning / Eating / Lens Cover 三 row 更新)|
 | Roadmap(對外)vs 內部現實 不一致紀錄 | [`06_calibration-log/roadmap-vs-internal.md`](../06_calibration-log/roadmap-vs-internal.md) | adas-dms-events |
 | Sheet ↔ Jira mismatch 紀錄 | [`06_calibration-log/sheet-jira-mismatches.md`](../06_calibration-log/sheet-jira-mismatches.md) | sheet-jira-sync-sweeper |
 | [VMX-7404](https://jira.navman.co.nz/jira/browse/VMX-7404) ADAS Failure 追蹤(評估期籌碼) | [`06_calibration-log/vmx-7404-tracking.md`](../06_calibration-log/vmx-7404-tracking.md) | diagnostics / weekly-summary |

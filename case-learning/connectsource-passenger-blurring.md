@@ -585,8 +585,13 @@ Spencer 確認:**Step 3 是 cost / storage 控制點,不是冗餘 UI**。
 
 **關鍵洞察:**
 - **Storage 只 ~1.8×**(因為原始檔本來就會存,只有 blurred copy 隨 trigger 數量倍增)
-- **AI 處理量 10×**(物理事實),但 cost scaling 取決於 MiTAC GPU infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×
+- **AI 處理量 10×**(物理事實),但 cost scaling 取決於 MiTAC AI infra 架構(linear / step / amortized) — 黑盒,不能對外承諾 10×
 - 給 Elvis 的最終訊息**不承諾倍數** — 用 "scales meaningfully higher — subject to Spencer's quote"
+
+**2026-05-14 AI Weekly Internal 補充**(從 NotebookLM 5-14 兩段錄音揭露):
+- **Blurring 架構正式定案 = 無 GPU 的 CPU Instance + SQS Message Queue + Callback API(非同步)**
+- 這個物理事實**可加強對 Elvis / Cary cost framing 信心** — 「scales meaningfully higher」的成本來源是 storage 1.8× + AI compute(CPU)黑盒,**不是 GPU 高成本架構**
+- 主檔:[`meetings/ai-weekly-internal-roundup.md § 2026-05-14`](../meetings/ai-weekly-internal-roundup.md#2026-05-14-ai-weekly) 訊號 D · [`knowledge/06_calibration-log/critical-facts-log.md`](../knowledge/06_calibration-log/critical-facts-log.md) § 4 新確認
 
 ### 9.5 Profitability sensitivity(內部估算 · 不對外)
 

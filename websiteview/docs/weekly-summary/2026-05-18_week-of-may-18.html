@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Summary — 2026-05-18 Week of May 18 · MiTAC Hub</title>
+<link rel="stylesheet" href="../../css/design-tokens.css">
+<link rel="stylesheet" href="../../css/shared.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/knowledge.css">
+<link rel="stylesheet" href="../../css/doc-standalone.css">
+</head>
+<body>
+<header class="doc-standalone-topbar">
+  <a class="back" href="../../knowledge.html" title="返回">← Knowledge Hub</a>
+  <span class="heading"><span aria-hidden="true">⚡</span> Weekly Summary · 2026-05-18 Week of May 18</span>
+  <span class="filename">2026-05-18_week-of-may-18</span>
+</header>
+<div class="doc-standalone-meta">事件日:2026-05-18(週一)· 最後修訂:<strong>2026-05-18 下午</strong>(補抓 5/18 AI Weekly Internal)· 來源:Jira REST API + Outlook + NotebookLM <strong>49 sources(+2 = 5/18 AI Weekly I + II)</strong> · Baseline:<a href="../archive/2026-05-12_afternoon-delta.html">5/12 afternoon Δ</a>(archived) + jira_data/2026-05-14 (311 票) → 2026-05-18 (307 票,-4)· <strong>5/18 AI Weekly</strong> = <a href="../meetings/ai-weekly-internal-roundup.html#2026-05-18-ai-weekly">meetings/ai-weekly-internal-roundup § 2026-05-18</a></div>
+<main class="doc-standalone">
+  <div class="doc-content">
+
+<h1 id="week-of-may-18">2026-05-18 · Week of May 18(Mon)— Jira / Outlook / NotebookLM sync</h1>
+<blockquote>
+<p>抓取時間:2026-05-18(週一)<br>
+來源:Jira REST API(filter=36457 VMX + filter=36458 HAWK)/ Outlook(pokai.huang@mitacmdt)/ NotebookLM「神達VMX」notebook(47 sources,無新增)<br>
+Baseline:<a href="../archive/2026-05-12_afternoon-delta.html">weekly-summary/2026-05-12_afternoon-delta.md</a>(2026-05-18 已 archive) + <code>jira_data/jira_tickets_snapshot_2026-05-14.json</code> (311 票)<br>
+對比 snapshot:<code>jira_data/jira_tickets_snapshot_2026-05-18.json</code> (307 票,<strong>-4</strong>)</p>
+</blockquote>
+
+<hr>
+
+<h2 id="ai-weekly-5-18">🆕 5/18 AI Weekly Internal — 4 大新訊號(下午補抓)</h2>
+
+<blockquote>
+<p><strong>核心</strong>:5/14 Lens Cover「大改底層」決策<strong>被推翻</strong>,改為「不動底層,只加參數」。完整 = <a href="../meetings/ai-weekly-internal-roundup.html#2026-05-18-ai-weekly">meetings/ai-weekly-internal-roundup § 2026-05-18</a></p>
+</blockquote>
+
+<ol>
+<li><strong>🔥🔥 Lens Cover 大轉彎</strong>:「真正要實作時又有不同想法」→ 決議<strong>退回不動底層</strong>。改用 2 個參數控制(Sense/CCH 不重複 / BMS 連續觸發 + timeout)。Jieli 5/19-20 完成參數修改供測試。風險大幅降低。<strong>critical-facts-log.md 5/14 § 條目 #2 已加 strikethrough,新版校正在頂部 § 2026-05-18 § 0</strong></li>
+<li><strong>🆕 Speed Sign 引入 PPOCRV5 (PaddleOCR V5)</strong> 第三方 OCR 後處理 — AI 團隊<strong>首次承認 CNN 對細小數字辨識有極限</strong>,改採混合架構。Class 111(美 + 加共用)一定要保留。下週四(5/22)決定是否進 Server</li>
+<li><strong>Yawning 全臉模型實彈實測啟動</strong>:Vincent 用 5-6 個自我說話誤報 + 客訴影片 10+ 筆,Edge vs Server 對比。結論 5/22 出</li>
+<li><strong>Eating/Drinking 邏輯重新框架</strong>:從「物件+嘴巴重疊」改為「物件+臉/頭重疊+雙手在方向盤」(類似 Smoking)+ 新增 6 物件(背管 / 大瓶子 / 小罐子 / 便當盒 / 持物 / 餐具)→ 物件已 9-10 個</li>
+</ol>
+
+<h3 id="5-18-scope-cal">5/18 釋出範圍重大校正</h3>
+<ul>
+<li><strong>6/2 deliverable 只給 Sense + CCH + BMS,Webfleet 排 7 月</strong>(錄音原話:「Sense 跟 CCH 跟 BMS 三個一起上,在 6 月 2 號那一天」/「T(Webfleet)... 七月才給他」)</li>
+<li>✏️ 校正之前 weekly summary 籠統寫「6/2 五大 deliverable 對所有客戶一起上」— 對 Sebastian / Martin / Jacob 溝通要明確說「Webfleet 7 月版」</li>
+</ul>
+
+<h3 id="5-18-decryption">5/18 客戶資料解密 + Camera Height 確認</h3>
+<ul>
+<li><strong>James 成功 AES256 解客訴影片</strong>,提供 150-170 筆測試片段</li>
+<li>客戶實測 Camera 高度 <strong>125 cm 真的很矮</strong> — 新算法在這段路測到 ~167 cm(舊算法 200+,改善 40% 但仍偏高)</li>
+<li>客訴單 <strong>6252</strong> 提及司機夜間反光誤報</li>
+</ul>
+
+<h3 id="5-18-model26">5/18 Model 26 進度</h3>
+<ul>
+<li>MVP <strong>86% 準確率</strong>(跟 V14 / 11P 差不多)— 海景房高機器 92-96% 仍在訓</li>
+<li>對外只能講「Model 26 仍在優化中,目前 MVP 86%」</li>
+</ul>
+
+<h3 id="5-18-actions">5/18 AI Action Items(關 Kenny)</h3>
+<ul>
+<li>[ ] <strong>Jieli 5/19-20 列 Sense/CCH + BMS 兩組參數給 Kenny 確認規格</strong> — 等 Kenny review</li>
+<li>[ ] <strong>5/22 (週四) 等 Vincent 全臉模型 Server vs Edge 對比結果</strong></li>
+<li>[ ] <strong>5/22 (週四) 等 AI 團隊 PPOCRV5 過濾效果評估</strong> — 決定 Server 是否加</li>
+<li>[ ] 對 Sebastian / Martin / Jacob (Webfleet) 對齊「6/2 是 Sense/CCH/BMS,Webfleet 7 月」口徑</li>
+<li>[ ] 對齊 <a class="ext-link" href="https://docs.google.com/spreadsheets/d/1DXCf8vU7ZrtzVdMEPSxHgmDb7cPKJFDK/edit?gid=339075798#gid=339075798" rel="noopener" target="_blank">Google Sheets — AI team tasks list</a>(每場 weekly 看這份)</li>
+</ul>
+
+<hr />
+
+<h2 id="tldr">TL;DR · 本週 5 大訊號</h2>
+<ol>
+  <li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-588" rel="noopener" target="_blank">HAWK-588</a> ⭐ Azuga SLA escalation</strong> — Utkarsh Patel(Azuga)5/14 18:09 對 spencer 開票:Manual Upload video processing 應 5-10 min 完成,實測等了一整天還沒處理。spencer 5/15 16:01 回「I'll follow up, have an internal discussion, and get back on this」→ 本週需要追進度。</li>
+  <li><strong>🔥 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7470" rel="noopener" target="_blank">VMX-7470</a> ANR crash root cause = <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-574" rel="noopener" target="_blank">HAWK-574</a> 同根因</strong> — jay.qiu 5/15 confirm:Race Condition + Dangling Pointer Read + Memory Corruption。fix 在 <strong>MiAIServiceApp 1.4.43.3 + SdkMiAIService 1.4.44</strong>,build trigger 11.2.27.7。直接連 <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7404" rel="noopener" target="_blank">VMX-7404</a> 跨客戶證據鏈(Webfleet HAWK-574 是 3 家撞線之一)</li>
+  <li><strong>Brian 5/13 BMS AI Weekly meeting summary</strong>(NotebookLM 生成,5/13 18:08 寄出)— 5 議題 + 7 action items 完整紀錄:HAWK-401 12 月以來無進展 / HAWK-482 Camera Auto-Height <strong>不退回手動</strong>(Jacob 否決,Jay 開發新演算法)/ Lens Cover Webfleet debounce → 6/2 修復 / 行人碰撞警示等規格確認 / AI 模型跨版本日誌擷取。完整見 <a href="../meetings/2026-05-13_bms-ai-weekly-from-brian-email.html">5/13 BMS meeting note</a></li>
+  <li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7482" rel="noopener" target="_blank">VMX-7482</a> EdgeTensor SDK 飛航模式已完成開發</strong>(jack.fl.chen 5/16 09:32 留言)— <code>setAirplaneMode(true/false)</code> API + Sample App 按鈕 + API 文件 + SDK 版本 6.2.0。從 5/15 開單到完成只花 ~24h,Jack 進度極快</li>
+  <li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a> Quantatec 鏡頭遮蔽 In Progress</strong>(joe.lien takeover)— leo.tsai 5/14 14:34 ping Joe:<strong>Quantatec workSpeedMin=0 km/h</strong> vs <strong>BMS=5 km/h</strong>,參數別搞混。james 5/13 16:21 給 BMS config patch 已套用</li>
+</ol>
+
+<hr>
+
+<h2 id="jira-delta"><span aria-hidden="true">📊</span> Jira Δ vs 2026-05-14 snapshot(311 → 307 票,-4)</h2>
+
+<h3 id="new-tickets">🆕 新建 ticket(4 個 truly new — created 5/14 14:00 後 + 5/15)</h3>
+
+<table>
+<thead><tr><th>Key</th><th>Created</th><th>Assignee</th><th>Reporter</th><th>Type</th><th>Summary</th></tr></thead>
+<tbody>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-588" rel="noopener" target="_blank">HAWK-588</a></strong> ⭐</td><td>5/14 18:09</td><td>spencer.su</td><td><strong>Utkarsh Patel (Azuga)</strong></td><td>Bug · Medium · RPN 45</td><td>Concerns related to Manual Upload video processing(SLA 5-10min 實測 1 day+)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7480" rel="noopener" target="_blank">VMX-7480</a></td><td>5/14 14:03</td><td>neil.kuo</td><td>neil.kuo</td><td>Improvement</td><td>[API] Improve Health Report Storage Efficiency with Compressed BIN to Reduce Database IO</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7481" rel="noopener" target="_blank">VMX-7481</a></td><td>5/15 07:42</td><td>righter.song</td><td>(內部)</td><td>Task</td><td>MAU Device Provisioning: AUTOSENSE(Cary 5/15 req K265 × 13)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7482" rel="noopener" target="_blank">VMX-7482</a></td><td>5/15 09:43</td><td>jack.fl.chen</td><td>leo.tsai</td><td>Bug</td><td>[EdgeTensor] Add SDK API to config airplane mode → 5/16 完成 SDK 6.2.0</td></tr>
+</tbody>
+</table>
+
+<blockquote><p>⚠️ <strong>5/14 snapshot 落點 = 5/14 14:30 前</strong>(VMX-7480 14:03 邊緣案 + HAWK-588 18:09 / VMX-7479 13:46 都晚於 snapshot)</p></blockquote>
+
+<h3 id="closed-tickets">✅ 移出「opened」filter(8 個 — Closed / Resolved-Done)</h3>
+
+<table>
+<thead><tr><th>Key</th><th>Old Status</th><th>Assignee</th><th>Summary</th><th>處理脈絡</th></tr></thead>
+<tbody>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7475" rel="noopener" target="_blank">VMX-7475</a></td><td>New</td><td>spencer.su</td><td>Live View & Watch Live View functions</td><td>—</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7471" rel="noopener" target="_blank">VMX-7471</a></td><td>New</td><td>leo.tsai</td><td>Event MQTT payload 加 camera info for blurry function</td><td>5/14 pending → 本週 Closed</td></tr>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7470" rel="noopener" target="_blank">VMX-7470</a></strong> 🔥</td><td>New</td><td>jay.qiu</td><td>ANR crash on camera App 11.2.27.5</td><td><strong>5/12 開 → 5/15 Resolved</strong>,fix 在 MiAIServiceApp 1.4.43.3 + SdkMiAIService 1.4.44 / build 11.2.27.7。<strong>root cause = HAWK-574</strong></td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7461" rel="noopener" target="_blank">VMX-7461</a></td><td>New</td><td>elvis.tran</td><td>Camera not uploading trips/events</td><td>—</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7427" rel="noopener" target="_blank">VMX-7427</a></td><td>New</td><td>righter.song</td><td>Quantatec - 增加語音檔 obstruction removed</td><td>5/15 Resolved,fv=CameraAPP_202605</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7426" rel="noopener" target="_blank">VMX-7426</a></td><td>In Progress</td><td>luke.cheng</td><td>[Web UI] event playback for new camera ID S_F_R</td><td>—</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6947" rel="noopener" target="_blank">VMX-6947</a></td><td>In Progress</td><td>chiehli.wang</td><td>[API] PreEvent without Signature</td><td>5/15 Resolved</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-508" rel="noopener" target="_blank">HAWK-508</a></td><td>New</td><td>harish.bolneni</td><td>Livestream video missing</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h3 id="status-flip">🔄 Status flip(4 個)</h3>
+
+<table>
+<thead><tr><th>Key</th><th>Old → New</th><th>Assignee</th><th>Summary</th></tr></thead>
+<tbody>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7477" rel="noopener" target="_blank">VMX-7477</a></td><td>New → <strong>In Progress</strong></td><td>andrew.cheng</td><td>[VisionAgent] [iOS] Modify the app codes according to new API</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7008" rel="noopener" target="_blank">VMX-7008</a></td><td>New → <strong>Deferred</strong></td><td>chiehli.wang</td><td>實作 Azure Blob 與 S3 之間的跨雲端物件複製功能</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5909" rel="noopener" target="_blank">VMX-5909</a></td><td>New → <strong>Open</strong></td><td>eric.h → chiehli.wang</td><td>Add box around event to highlight event trigger #11</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-587" rel="noopener" target="_blank">HAWK-587</a></td><td>New → <strong>Open</strong></td><td>brian.chienlee → jay.qiu</td><td>CALIBRATION COMPLETED notification delayed until first ADAS violation</td></tr>
+</tbody>
+</table>
+
+<h3 id="assignee-shift">👥 Assignee 重分(13 個)— Brian 重分票 pattern</h3>
+
+<blockquote>
+<p><strong>觀察</strong>:本週多達 13 票易主(5/14 只有 24 變動)。其中 7 票從 brian.chienlee / leo.tsai / allen.yc.chung 等資深主分到 jack.fl.chen / hsinyi.chang / vincent.ho / joe.lien 等專責者 → <strong>Brian 在做 5/12-13 系列 meeting 後的責任歸位</strong>。</p>
+</blockquote>
+
+<table>
+<thead><tr><th>Key</th><th>Old → New</th><th>Summary</th></tr></thead>
+<tbody>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a></td><td>lucy.sw.yen → <strong>eric.h</strong></td><td>Add 'Detect Yawning' toggle under Fatigue Configuration(eric 5/15 OK 設計 → 自己 take over)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7372" rel="noopener" target="_blank">VMX-7372</a></td><td>leo.tsai → righter.song</td><td>[Seeing Machines] SM DMS APP 整合 & 測試</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7336" rel="noopener" target="_blank">VMX-7336</a></td><td>allen.yc.chung → jack.fl.chen</td><td>[AZUGA SmartLink] HARD_TURN(Y 軸急轉彎)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7335" rel="noopener" target="_blank">VMX-7335</a></td><td>joe.lien → hsinyi.chang</td><td>[AZUGA SmartLink] ACCIDENT_DETECTION(10Hz NMEA G-sensor)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7224" rel="noopener" target="_blank">VMX-7224</a></td><td>jack.fl.chen → mori.jhang</td><td>UVC + road-facing 兩鏡頭 side-by-side</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7144" rel="noopener" target="_blank">VMX-7144</a></td><td>andrew.cheng → lucy.sw.yen</td><td>[FleetAPP] Prepare App Store Listing Assets</td></tr>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a></strong></td><td>james.cw.chou → <strong>joe.lien</strong></td><td>Quantatec 鏡頭遮蔽 → joe.lien In Progress + leo.tsai 5/14 提醒 workSpeedMin=0</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-5909" rel="noopener" target="_blank">VMX-5909</a></td><td>eric.h → chiehli.wang</td><td>Highlight event trigger #11(同上 status flip)</td></tr>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-587" rel="noopener" target="_blank">HAWK-587</a></strong></td><td>brian.chienlee → <strong>jay.qiu</strong></td><td>CALIBRATION COMPLETED notification(承接 Auto Camera Height 線)</td></tr>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-586" rel="noopener" target="_blank">HAWK-586</a></strong></td><td>brian.chienlee → vincent.ho</td><td>[Stop sign violation] Provide snapshot time</td></tr>
+<tr><td><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a></strong></td><td>leo.tsai → <strong>vincent.ho</strong></td><td>'Lens cover' detection not properly working(直接對 BMS 5/13 meeting Vincent 認領 action)</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-532" rel="noopener" target="_blank">HAWK-532</a></td><td>mori.jhang → martin.rothe</td><td>Length of videos heavily increased</td></tr>
+<tr><td><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-511" rel="noopener" target="_blank">HAWK-511</a></td><td>Luchun.chen → sebastian.schneider.wf</td><td>Missing videos from aux cameras</td></tr>
+</tbody>
+</table>
+
+<h3 id="key-comments">💬 重點 ticket 評論(本週新增)</h3>
+
+<ul>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-588" rel="noopener" target="_blank">HAWK-588</a> 5/15 16:01 spencer.su</strong> → Utkarsh:「I'll follow up, have an internal discussion, and get back on this」</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7470" rel="noopener" target="_blank">VMX-7470</a> 5/15 12:00 jay.qiu</strong> → 「此 Crash 問題的根本原因與 HAWK-574 相同,都是因為同一個地方的 Race Condition + Dangling Pointer Read + Memory Corruption 導致的」</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7470" rel="noopener" target="_blank">VMX-7470</a> 5/15 08:55 jack.fl.chen</strong> → righter:「已 Trigger build,預計版本號碼為 11.2.27.7」</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7482" rel="noopener" target="_blank">VMX-7482</a> 5/16 09:32 jack.fl.chen</strong> → 「功能已完成開發 ... SDK 新增公開 API,App 端可呼叫 setAirplaneMode(true/false)... SDK 版本號更新為 6.2.0」</li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7432" rel="noopener" target="_blank">VMX-7432</a> 5/14 17:27 lucy.sw.yen</strong> → eric.h:「請看看現在這個 UI 設計有沒有符合你們的機制」(Eyes closed / Yawning / Either Or 三選一觸發條件)→ <strong>5/15 11:17 eric.h 確認 OK</strong></li>
+<li><strong><a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a> 5/13-14 三方對話</strong>:james 5/13 16:21 給 BMS config patch(alertTime=60s / workSpeedMin=5 / continuousTriggeredMode=false)→ leo.tsai 5/14 14:34 提醒「Quantatec 預設 workSpeedMin=0 vs BMS 5,別搞混」</li>
+</ul>
+
+<hr>
+
+<h2 id="outlook"><span aria-hidden="true">📨</span> Outlook 訊號(since 5/14)</h2>
+
+<h3 id="outlook-signals">真正信號(3 封 — 排除 福委資訊 / 全公司公告 / Jira 自動通知)</h3>
+
+<ol>
+<li><strong>eric.h(謝翔宇 - MDT)5/15 16:19</strong> → lawrence.lee · CC: pokai / brian.chienlee / shummy.dai
+  <ul>
+    <li><strong>主旨</strong>:公司 AI 相關專利 [Important + Working]</li>
+    <li><strong>內容</strong>:準備今年台灣精品獎參賽資料,問是否有 AI 相關專利成果或申請案件,請提供專利編號 & 專利名稱</li>
+    <li><strong>PM 解讀</strong>:Kenny 被 CC = 因 AI ↔ VMX 連動關係。需要等 lawrence 回應後決定是否要從 VisionMax / DMS / Blurring / Auto-Height 等子題挖 IP</li>
+  </ul>
+</li>
+<li><strong>Vinicius Francisquinho(Platform Science)5/14 12:17</strong> → righter.song · CC: alicia / conant / stark + 3
+  <ul>
+    <li><strong>主旨</strong>:Re: VisonMax Account Device Listing [Working + Important + outside]</li>
+    <li><strong>內容</strong>:Vinicius 對 righter 5/12 22:41 安裝指引(30 km/h × clear lane markings × horizon green box)回「Thanks Righter. I will do that!」</li>
+    <li><strong>PM 處理</strong>:已涵蓋在 <a href="../case-learning/vinicius-platform-science.html">vinicius-platform-science</a> Phase 7。本週需要 monitor PS 端 ADAS Failure 是否真消失</li>
+  </ul>
+</li>
+<li><strong>brian.chienlee(李健 - MDT)5/13 18:08</strong> → eric.h / vincent.ho / jay.qiu + 6 · CC: pokai / mori / spencer + 2
+  <ul>
+    <li><strong>主旨</strong>:20260513 BMS AI Weekly Meeting [Meeting Summary + Working + Important]</li>
+    <li><strong>內容</strong>:NotebookLM 生成的會議摘要,5 議題 + 7 action items → 完整整理在 <a href="../meetings/2026-05-13_bms-ai-weekly-from-brian-email.html">2026-05-13_bms-ai-weekly-from-brian-email</a></li>
+  </ul>
+</li>
+</ol>
+
+<h3 id="jira-auto-notifications">Jira 自動通知(5/13-14 / 3 票 / 4 封)</h3>
+<ul>
+<li>leo.tsai 5/14 + james.cw.chou 5/13 + vincent.ho 5/13 → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-6983" rel="noopener" target="_blank">VMX-6983</a> Quantatec 三方 comment(內容見上「重點 ticket 評論」)</li>
+<li>mori.jhang 5/13 × 2 → <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7441" rel="noopener" target="_blank">VMX-7441</a> Master Portal Blurring switch design / The Blurry feature toggle API update(已涵蓋於 <a href="../case-learning/connectsource-passenger-blurring.html">connectsource-passenger-blurring</a> § 9)</li>
+</ul>
+
+<h3 id="noise">噪音(可跳)</h3>
+<ul>
+<li>SoftwareManage 5/18 軟體合法授權盤點(全公司,不需處理)</li>
+<li>annie.hm.lin / katie.yang / kelly.klhuang / leo.chiu / anila.hsu 5/15-5/13 福委資訊 × 5</li>
+</ul>
+
+<hr>
+
+<h2 id="notebooklm"><span aria-hidden="true">🎙</span> NotebookLM(神達VMX notebook)</h2>
+
+<ul>
+<li><strong>Sources</strong>:<strong>47</strong>(跟 5/15 一樣,無新增錄音/文件)</li>
+<li><strong>5/18 早上 8:12 chat thread</strong> = PM 詞彙教練 session(對 Stop Sign 時間落差 / Lens Cover debounce / Snapshot time / Debug View / Staging vs Production / Feasible / Rollout 等英文詞彙做「原音重現 + PM 解析」格式分析)— <strong>無新資料,內部學習用途</strong></li>
+</ul>
+
+<p>→ 本週無需 ingest NotebookLM。下週 Brian / Azuga / Webfleet weekly 開完後再來抓。</p>
+
+<hr>
+
+<h2 id="action-items"><span aria-hidden="true">📌</span> 待動作(本週)</h2>
+
+<h3 id="kenny-self">對 Kenny 自己</h3>
+<ul>
+<li>[ ] <strong>追 HAWK-588</strong> spencer.su 跟 Azuga internal discussion 結果(承諾「I'll get back on this」需要時程)</li>
+<li>[ ] <strong>chase Jimmy LDWS API</strong> <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/VMX-7101" rel="noopener" target="_blank">VMX-7101</a> 仍無 fixVersion 標 VisionMax_20260602,但 6/2 五大 deliverable 之一</li>
+<li>[ ] <strong>回 eric.h AI 專利信</strong> — 等 lawrence 回應,再評估 Kenny 是否需要從 VMX 子題提候選 IP</li>
+<li>[ ] <strong>monitor Vinicius PS 端</strong> — 5/14 已確認指引,等他實測完回報是否消失 ADAS Failure</li>
+<li>[ ] <strong>CONNECTSOURCE § 9 是否補一段 5/16 Cary/Elvis 後續</strong>(需檢查 Teams)</li>
+</ul>
+
+<h3 id="external">對外(本週要送出 / 等回覆)</h3>
+<ul>
+<li>[ ] HAWK-588:spencer.su「I'll follow up」→ 預期 5/19-21 內部討論結果 → Kenny 隨時準備介入(PM angle)</li>
+<li>[ ] VMX-7470 fix:<strong>MiAIServiceApp 1.4.43.3 + SdkMiAIService 1.4.44 / build 11.2.27.7</strong> — 對外可講「ANR crash + HAWK-574 同根因 已修」</li>
+<li>[ ] VMX-7482 EdgeTensor airplane mode:<strong>SDK 6.2.0</strong> 已釋出 → 對需要的客戶可講「飛航開關 API 已 ready」</li>
+</ul>
+
+<h3 id="calibration">Calibration 校正(寫進 06_calibration-log/)</h3>
+<ul>
+<li>[x] VMX-7470 root cause = HAWK-574 ✅(寫入 <a href="../06_calibration-log/critical-facts-log.html">critical-facts-log</a> § VMX-7470 與 vmx-7404-tracking)</li>
+<li>[x] HAWK-588 Azuga SLA escalation pattern ✅(寫入 critical-facts-log § Manual Upload SLA)</li>
+<li>[x] Brian 5/13 BMS meeting summary ✅(寫入 <a href="../meetings/2026-05-13_bms-ai-weekly-from-brian-email.html">2026-05-13_bms-ai-weekly-from-brian-email</a>)</li>
+<li>[x] 6/2 deliverable status update:Lens Cover <a class="ext-link jira-link" href="https://jira.navman.co.nz/jira/browse/HAWK-585" rel="noopener" target="_blank">HAWK-585</a> vincent.ho 認領 ✅</li>
+<li>[x] HAWK-482 Auto Camera Height = <strong>不退回手動 + Jay 開發新演算法</strong> ✅</li>
+</ul>
+
+<hr>
+
+<h2 id="references"><span aria-hidden="true">🔗</span> 引用對齊</h2>
+
+<ul>
+<li><a href="../archive/2026-05-12_afternoon-delta.html">weekly-summary/2026-05-12_afternoon-delta.md</a>(2026-05-18 已 archive) — 上一份 weekly(5/12 下午 Δ)</li>
+<li><a href="../meetings/ai-weekly-internal-roundup.html">meetings/ai-weekly-internal-roundup.md</a> — 5/14 內部 AI Weekly(NotebookLM 補抓)</li>
+<li><a href="../meetings/2026-05-13_azuga-ai-weekly.html">meetings/2026-05-13_azuga-ai-weekly.md</a> — 5/13 Azuga AI Weekly</li>
+<li><strong>NEW</strong> <a href="../meetings/2026-05-13_bms-ai-weekly-from-brian-email.html">meetings/2026-05-13_bms-ai-weekly-from-brian-email.md</a> — Brian 5/13 BMS meeting summary</li>
+<li><a href="../06_calibration-log/critical-facts-log.html">knowledge/06_calibration-log/critical-facts-log.md</a> — 校正主檔(本週加 VMX-7470=HAWK-574 + HAWK-588 兩條)</li>
+<li><a href="../06_calibration-log/vmx-7404-tracking.html">knowledge/06_calibration-log/vmx-7404-tracking.md</a> — 跨客戶證據鏈(加 VMX-7470 第四條證據)</li>
+<li><a href="../case-learning/vinicius-platform-science.html">case-learning/vinicius-platform-science.md</a> — Phase 7 PS 撞 VMX-7404</li>
+<li><a href="../case-learning/connectsource-passenger-blurring.html">case-learning/connectsource-passenger-blurring.md</a> — § 9 cost framing 防身術</li>
+<li><code>pending-confirmations-2026-05-18.xlsx</code> — 本週 active items(從 5/14 版更新,VMX-7471 已 Closed → 移除)</li>
+</ul>
+
+<hr>
+
+<p><em>Last sync: 2026-05-18 morning · Author: Claude(代 Kenny PM)· 本週 baseline 對齊 5/14 snapshot + 5/15 後 25 票變動 + 3 封關鍵 Outlook + NotebookLM 無新增</em></p>
+
+  </div>
+</main>
+</body>
+</html>

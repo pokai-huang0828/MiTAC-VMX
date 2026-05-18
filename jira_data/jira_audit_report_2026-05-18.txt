@@ -1,0 +1,50 @@
+=== Jira Snapshot Audit 2026-05-18 ===
+Sources: filter=36457 (VMX) + filter=36458 (HAWK)
+Total tickets: 307 (old 5/14: 311, delta: -4)
+
+-- Status distribution (current) --
+  New             245
+  Open             30
+  In Progress      15
+  Deferred         10
+  Pending           5
+  Fail              1
+  Inactive          1
+
+=== Delta vs 2026-05-14 snapshot ===
+Added (truly new tickets): 4
+  + VMX-7482     [New     ] jack.fl.chen       | [EdgeTensor] Add SDK API to config airplane mode
+  + VMX-7481     [New     ] righter.song       | MAU Device Provisioning: AUTOSENSE
+  + VMX-7480     [New     ] neil.kuo           | [API] Improve Health Report Storage Efficiency with Compressed BIN to Reduce Database IO
+  + HAWK-588     [New     ] spencer.su         | Concerns related to Manual Upload video processing
+
+Removed (no longer in opened filter — likely Closed/Done): 8
+  - VMX-7475     [New     ] spencer.su         | Live View & Watch Live View functions
+  - VMX-7471     [New     ] leo.tsai           | Add information to the Event MQTT payload to indicate which cameras should apply the corresponding model's blurry function
+  - VMX-7470     [New     ] jay.qiu            | ANR crash occurs on camera App 11.2.27.5
+  - VMX-7461     [New     ] elvis.tran         | Camera is not uploading any trips or event videos
+  - VMX-7427     [New     ] righter.song       | Quantatec - 增加語音檔obstruction removed
+  - VMX-7426     [In Progress] luke.cheng         | [Web UI] supporting event playback for new camera ID: S_F_R
+  - VMX-6947     [In Progress] chiehli.wang       | [API] PreEvent without Signature
+  - HAWK-508     [New     ] harish.bolneni     | Livestream video missing
+
+Status changed: 4
+  ~ VMX-7477              New -> In Progress  | [VisionAgent] [iOS] Modify the app codes according to new API
+  ~ VMX-7008              New -> Deferred     | 實作 Azure Blob 與 S3 之間的跨雲端物件複製功能
+  ~ VMX-5909              New -> Open         | Add box around event to highlight event trigger #11
+  ~ HAWK-587              New -> Open         | CALIBRATION COMPLETED notification (if active) delayed until first ADAS violation
+
+Assignee changed: 13
+  ~ VMX-7432              lucy.sw.yen -> eric.h               | 【VMX / Fleet】Add a detect rule 'Detect Yawing' toggle under 
+  ~ VMX-7372                 leo.tsai -> righter.song         | [Seeing Machines] SM DMS APP整合&測試
+  ~ VMX-7336           allen.yc.chung -> jack.fl.chen         | [AZUGA SmartLink] HARD_TURN - Y 軸急轉彎事件
+  ~ VMX-7335                 joe.lien -> hsinyi.chang         | [AZUGA SmartLink] ACCIDENT_DETECTION - 撞擊事件（含 10Hz NMEA G-se
+  ~ VMX-7224             jack.fl.chen -> mori.jhang           | Integration of the UVC camera and road-facing camera in a si
+  ~ VMX-7144             andrew.cheng -> lucy.sw.yen          | [FleetAPP] Prepare App Store Listing Assets
+  ~ VMX-6983            james.cw.chou -> joe.lien             | Quantatec - 新增鏡頭遮擋及移除遮擋事件
+  ~ VMX-5909                   eric.h -> chiehli.wang         | Add box around event to highlight event trigger #11
+  ~ HAWK-587           brian.chienlee -> jay.qiu              | CALIBRATION COMPLETED notification (if active) delayed until
+  ~ HAWK-586           brian.chienlee -> vincent.ho           | [Stop sign violation] Provide snapshot time
+  ~ HAWK-585                 leo.tsai -> vincent.ho           | 'Lens cover' detection not properly working
+  ~ HAWK-532               mori.jhang -> martin.rothe         | Length of videos are shown heavily increased (wrong length s
+  ~ HAWK-511              Luchun.chen -> sebastian.schneider.wf | Missing videos from aux cameras

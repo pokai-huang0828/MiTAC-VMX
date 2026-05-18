@@ -2,8 +2,8 @@
 
 > Kenny 的 PM 評估期知識庫,結構化來自:KB / Sheet / Jira / 會議錄音 / Coffee chat / Hub 第三 tab 自萃取框架。
 > 整理日期:2026-05-06(初版)
-> 最新狀態同步:**2026-05-11 Weekly**(含 QBR KPI 100K / Honeywell ME 新案 / Lens Cover **6 月 release**([HAWK-582](https://jira.navman.co.nz/jira/browse/HAWK-582) 單軌)/ Vinicius Live View JS lib / Plan Type ↔ 啟用層級議題)
-> ⭐ **本週 Summary**:[`weekly-summary/2026-05-11_week-of-may-8.md`](../weekly-summary/2026-05-11_week-of-may-8.md)(含 47 票 VMX pending 180d triage + 48 票 HAWK opened 分組 + 對外 Δ 校正表)
+> 最新狀態同步:**2026-05-18 Weekly + 5/18 AI Weekly Internal**(🔥🔥 Lens Cover 大轉彎:5/14「大改底層」→ 5/18「只加參數」 / 🔥 VMX-7470 ANR = HAWK-574 同根因 / PPOCRV5 第三方 OCR 補 Speed Sign / 6/2 釋出範圍校正 Sense+CCH+BMS 6/2 vs Webfleet 7 月)
+> ⭐ **本週 Summary**:[`weekly-summary/2026-05-18_week-of-may-18.md`](../weekly-summary/2026-05-18_week-of-may-18.md)(Jira 307 票 vs 5/14 -4 + 5/18 AI Weekly 4 大議題 + 7 條 critical-facts 校正)。原 5/11 已 archive 至 [`knowledge/archive/`](archive/)
 
 🌐 **[在瀏覽器開啟 Knowledge Hub →](../websiteview/knowledge.html)**(static v2,離線可用,6 分類 + 搜尋 Ctrl+K + sticky TOC)
 🏠 [Mission Control](../websiteview/index.html) — 三層 IA(NOW / CASES / KNOWLEDGE)
